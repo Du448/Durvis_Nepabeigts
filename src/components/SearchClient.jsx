@@ -24,8 +24,8 @@ export default function SearchClient() {
   return (
     <>
       <section className="border-b border-line">
-        <div className="container py-6">
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-wide text-ink">{t(locale, "search.title")}</h1>
+        <div className="container py-10">
+          <h1 className="text-[28px] font-medium leading-[1.3] text-[color:var(--color-title)] sm:text-[36px]">{t(locale, "search.title")}</h1>
           <p className="mt-2 text-muted">
             {t(locale, "search.results")}: &quot;{q}&quot; ({results.length} {t(locale, "search.found")})
           </p>
@@ -33,13 +33,13 @@ export default function SearchClient() {
       </section>
 
       <section>
-        <div className="container py-6">
+        <div className="container py-10">
           {q && results.length === 0 ? (
             <div className="text-ink">
               {t(locale, "search.nothingFound")} <Link className="text-accent underline" href={withLocaleHref(locale, "/")}>{t(locale, "search.backHome")}</Link>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {results.map((p) => (
                 <ProductCard key={p.id} product={p} />
               ))}

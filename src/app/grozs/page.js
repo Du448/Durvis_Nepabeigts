@@ -1,3 +1,4 @@
+import PageTitle from "@/components/PageTitle";
 import { headers } from "next/headers";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
 
@@ -29,12 +30,7 @@ export default async function GrozsPage() {
 
   return (
     <main>
-      <section className="border-b border-line">
-        <div className="container py-6">
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-wide text-ink">{t(locale, "cart.title")}</h1>
-          <p className="mt-2 text-muted">{t(locale, "cart.description")}</p>
-        </div>
-      </section>
+      <PageTitle title={t(locale, "cart.title")} description={t(locale, "cart.description")} />
     </main>
   );
 }

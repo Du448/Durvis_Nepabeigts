@@ -6,7 +6,8 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "scenes": "node tools/generate-scene-images.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

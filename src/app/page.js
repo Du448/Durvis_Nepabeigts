@@ -1,154 +1,254 @@
 import Link from "next/link";
-import Image from "next/image";
-import { categories, products } from "@/data/products";
+import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
+import SplitProductSlider from "@/components/SplitProductSlider";
 import HeroSlider from "@/components/HeroSlider";
 import RevealGrid from "@/components/anim/RevealGrid";
-import MagneticButton from "@/components/anim/MagneticButton";
 import { headers } from "next/headers";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 
 export const dynamic = "force-dynamic";
+
+const pick = (locale, obj) => obj[locale] ?? obj.lt;
+
+/* Homepage structure mirrors m-lux.by: a cinematic hero followed by
+   alternating 50/50 blocks — full-bleed photography on one half, a white
+   editorial panel with a headline, a short paragraph and two models on the
+   other.
+
+   The photography half lives in public/scenes/<slug>.webp and shows the
+   category's real catalogue door installed in a room, so the door in the
+   scene is the door in the slider beside it. See tools/scenes.config.mjs for
+   which product anchors which scene and how they are produced. `image` below
+   stays as the stock fallback that shows through if a scene file is missing. */
+
+const HERO = [
+  {
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/t4IY7.jpg",
+    kicker: { lt: "VIDAUS DURYS", lv: "IEKŠDURVIS", en: "INTERIOR DOORS" },
+    title: {
+      lt: "PATIKIMI SPRENDIMAI JŪSŲ SAUGUMUI",
+      lv: "UZTICAMI RISINĀJUMI JŪSU DROŠĪBAI",
+      en: "RELIABLE SOLUTIONS FOR YOUR SECURITY",
+    },
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1628744876657-abd5086695dc?auto=format&fit=crop&w=2400&q=80",
+    kicker: { lt: "LAUKO DURYS", lv: "ĀRDURVIS", en: "ENTRANCE DOORS" },
+    title: {
+      lt: "SUSTIPRINTA KONSTRUKCIJA IR ŠILUMOS IZOLIACIJA",
+      lv: "PASTIPRINĀTA KONSTRUKCIJA UN SILTUMA IZOLĀCIJA",
+      en: "REINFORCED STRUCTURE AND THERMAL INSULATION",
+    },
+  },
+  {
+    image:
+      "https://images.unsplash.com/photo-1697653568339-e8f8a5dd7318?auto=format&fit=crop&w=2400&q=80",
+    kicker: { lt: "SALONAS", lv: "SALONS", en: "SHOWROOM" },
+    title: {
+      lt: "NESTANDARTINIAI SPRENDIMAI IR INDIVIDUALŪS PROJEKTAI",
+      lv: "NESTANDARTA RISINĀJUMI UN INDIVIDUĀLI PROJEKTI",
+      en: "NON-STANDARD SOLUTIONS AND CUSTOM PROJECTS",
+    },
+  },
+];
+
+const BLOCKS = [
+  {
+    slug: "ardurvis-dzivoklim",
+    image:
+      "https://images.unsplash.com/photo-1771354959667-96360bf59eab?auto=format&fit=crop&w=1600&q=80",
+    title: {
+      lt: "Buto lauko durys — svarbus žingsnis saugumo link",
+      lv: "Ārdurvis dzīvoklim — svarīgs solis drošībai",
+      en: "Apartment entrance doors — a key step towards safety",
+    },
+    text: {
+      lt: "Patikima konstrukcija su standumo briaunomis, kelių kontūrų sandarinimas ir dviguba spynų sistema. Apgalvota apsauga nuo jėga vykdomo įsilaužimo.",
+      lv: "Uzticama konstrukcija ar stingruma ribām, vairāku kontūru blīvējums un divu slēdzeņu sistēma. Pārdomāta aizsardzība pret spēka metodēm.",
+      en: "A dependable structure with stiffening ribs, multi-contour sealing and a double lock system. Considered protection against forced entry.",
+    },
+  },
+  {
+    slug: "ardurvis-privatmajai",
+    reverse: true,
+    image:
+      "https://images.unsplash.com/photo-1613544723301-176686aa9f09?auto=format&fit=crop&w=1600&q=80",
+    title: {
+      lt: "Termo durys namams — šiluma, tyla, garantija",
+      lv: "Termodurvis privātmājai — siltums, klusums, garantija",
+      en: "Thermal doors for houses — warmth, quiet, warranty",
+    },
+    text: {
+      lt: "Termo pertrauka, sustiprintas užpildas ir atsparios orui dangos. Suteikiame garantiją ir prisiimame visus įsipareigojimus dėl aptarnavimo.",
+      lv: "Termopārrāvums, pastiprināts pildījums un laikapstākļiem izturīgi pārklājumi. Sniedzam garantiju un uzņemamies visas servisa saistības.",
+      en: "A thermal break, reinforced core and weather-resistant finishes. We provide a warranty and take on all after-sales obligations.",
+    },
+  },
+  {
+    slug: "ieksdurvis",
+    image:
+      "https://images.unsplash.com/photo-1603673298820-40d77252226d?auto=format&fit=crop&w=1600&q=80",
+    title: {
+      lt: "Vidaus durys — vientisas interjero sprendimas",
+      lv: "Iekšdurvis — vienots interjera risinājums",
+      en: "Interior doors — a coherent interior solution",
+    },
+    text: {
+      lt: "Gaminame duris nestandartinių matmenų, efektingus modelius su sieninėmis plokštėmis ir įgyvendiname dizaino projektus pagal jūsų pageidavimus.",
+      lv: "Izgatavojam durvis nestandarta izmēros, efektīgus modeļus ar sienas paneļiem un īstenojam dizaina projektus pēc jūsu vēlmēm.",
+      en: "We build doors in non-standard sizes, striking models with wall panelling, and realise design projects to your brief.",
+    },
+  },
+  {
+    slug: "sleptas-durvis",
+    reverse: true,
+    image: "/scenes/sleptas-durvis.webp",
+    title: {
+      lt: "Paslėptos durys - siena be staktos",
+      lv: "Slēptās durvis - siena bez redzamas kārbas",
+      en: "Hidden doors - a wall with no visible frame",
+    },
+    text: {
+      lt: "Aliumininė stakta paslepiama pertvaroje, o varčia užsidaro viename lygyje su siena. Varčia pristatoma gruntuota, todėl dažoma arba tapetuojama kartu su siena. Komplekte - stakta, varčia ir paslėpti Otlav vyriai.",
+      lv: "Alumīnija kārbu iebūvē starpsienā, un vērtne aizveras vienā līmenī ar sienu. Vērtne nāk gruntēta, tāpēc to krāso vai tapetē kopā ar sienu. Komplektā - kārba, vērtne un slēptās Otlav eņģes.",
+      en: "The aluminium frame is buried in the partition and the leaf closes flush with the wall. It arrives primed, so it is painted or papered together with the wall. The set includes frame, leaf and concealed Otlav hinges.",
+    },
+  },
+];
+
+/* Twelve models per split block - six pages of two. They are picked
+   round-robin across the category's collections rather than straight off the
+   top of the list, so the block shows the breadth of the range instead of six
+   variants of the same model. Models held at the manufacturer's warehouse are
+   left out: their prices are still the factory's hryvnia ones and would sit
+   oddly next to the euro prices beside them. */
+const SPLIT_SLIDER_ITEMS = 12;
+
+function splitSliderItems(slug) {
+  const byCollection = new Map();
+  for (const p of products) {
+    if (p.category !== slug || p.stockSource === "factory") continue;
+    const key = p.collection || "";
+    if (!byCollection.has(key)) byCollection.set(key, []);
+    byCollection.get(key).push(p);
+  }
+
+  const queues = [...byCollection.values()];
+  const picked = [];
+  while (picked.length < SPLIT_SLIDER_ITEMS && queues.some((q) => q.length)) {
+    for (const queue of queues) {
+      if (!queue.length) continue;
+      picked.push(queue.shift());
+      if (picked.length === SPLIT_SLIDER_ITEMS) break;
+    }
+  }
+  return picked;
+}
 
 export default async function Home() {
   const h = await headers();
   const pathname = h.get("x-invoke-path") || "/";
   const locale = getLocaleFromPathname(pathname);
 
-  const categoryImages = {
-    "ardurvis-dzivoklim": "https://images.unsplash.com/photo-1771354959667-96360bf59eab?auto=format&fit=crop&w=1600&q=80",
-    "ardurvis-privatmajai": "https://images.unsplash.com/photo-1613544723301-176686aa9f09?auto=format&fit=crop&w=1600&q=80",
-    "ieksdurvis": "https://images.unsplash.com/photo-1603673298820-40d77252226d?auto=format&fit=crop&w=1600&q=80",
-    "bidamas-durvis": "https://images.unsplash.com/photo-1525570665650-76bb26af503d?auto=format&fit=crop&w=1600&q=80",
-    "sleptas-durvis": "https://images.unsplash.com/photo-1721739227647-e6936b28c30f?auto=format&fit=crop&w=1600&q=80",
-  };
+  /* Both hero slides carry the same pair of translucent calls to action:
+     into the catalogue, and to the partner application page. */
+  const heroCta = [
+    {
+      label: t(locale, "hero.chooseDoors"),
+      href: withLocaleHref(locale, "/kategorija/ardurvis-dzivoklim"),
+      variant: "glass-accent",
+    },
+    {
+      label: t(locale, "hero.partnership"),
+      href: withLocaleHref(locale, "/sadarbiba"),
+      variant: "glass",
+    },
+  ];
 
-  const newProducts = products.filter((p) => p.isNew);
-  const popularExterior = products
-    .filter((p) => p.category.startsWith("ardurvis-"))
-    .slice(0, 4);
+  const slides = HERO.map((s) => ({
+    image: s.image,
+    kicker: pick(locale, s.kicker),
+    title: pick(locale, s.title),
+    cta: heroCta,
+  }));
+
+  const viewAll = { lt: "Žiūrėti visus", lv: "Skatīt visus", en: "View all" }[locale] || "Žiūrėti visus";
 
   return (
     <main>
-      {/* HERO SLIDER */}
-      <section className="relative">
-        <HeroSlider
-            slides={[
-              {
-                image: "https://images.unsplash.com/photo-1776632001065-ad9efe3ee60e?auto=format&fit=crop&w=2400&q=80",
-                kicker: locale === "lv" ? "IEKŠDURVIS" : locale === "en" ? "INTERIOR DOORS" : "VIDAUS DURYS",
-                title: locale === "lv" ? "Iedvesma jūsu interjeram" : locale === "en" ? "Inspiration for your interior" : "Įkvėpimas jūsų interjerui",
-                subtitle: locale === "lv" ? "Izvēlies modernus risinājumus un kvalitatīvus materiālus." : locale === "en" ? "Choose modern solutions and high-quality materials." : "Rinkitės modernius sprendimus ir aukštos kokybės medžiagas.",
-                cta: [
-                  { label: locale === "lv" ? "Uzzināt vairāk" : locale === "en" ? "Read more" : "Sužinoti daugiau", href: withLocaleHref(locale, "/par-mums"), variant: "outline" },
-                ],
-              },
-              {
-                image: "https://images.unsplash.com/photo-1628744876657-abd5086695dc?auto=format&fit=crop&w=2400&q=80",
-                kicker: locale === "lv" ? "IEEJAS DURVIS" : locale === "en" ? "ENTRANCE DOORS" : "LAUKO DURYS",
-                title: locale === "lv" ? "Modernas ārdurvis Jūsu mājai" : locale === "en" ? "Modern exterior doors for your home" : "Modernios lauko durys jūsų namams",
-                subtitle: locale === "lv" ? "Termodurvis ar augstu energoefektivitāti un skaņas izolāciju." : locale === "en" ? "Thermal doors with high energy efficiency and sound insulation." : "Termo durys su aukštu energiniu efektyvumu ir garso izoliacija.",
-                cta: [
-                  { label: locale === "lv" ? "Skatīt kolekciju" : locale === "en" ? "View collection" : "Žiūrėti kolekciją", href: withLocaleHref(locale, "/kategorija/ardurvis-privatmajai") },
-                ],
-              },
-              {
-                image: "https://images.unsplash.com/photo-1697653568339-e8f8a5dd7318?auto=format&fit=crop&w=2400&q=80",
-                kicker: locale === "lv" ? "SALONI" : locale === "en" ? "SHOWROOM" : "SALONAS",
-                title: locale === "lv" ? "Apmeklē mūsu salonu" : locale === "en" ? "Visit our showroom" : "Apsilankykite mūsų salone",
-                subtitle: locale === "lv" ? "Uzzini par materiāliem un risinājumiem klātienē." : locale === "en" ? "Learn about materials and solutions in person." : "Sužinokite apie medžiagas ir sprendimus gyvai.",
-                cta: [
-                  { label: locale === "lv" ? "Atrast tuvāko" : locale === "en" ? "Find us" : "Rasti mus", href: withLocaleHref(locale, "/kontakti"), variant: "outline" },
-                ],
-              },
-            ]}
+      <HeroSlider slides={slides} />
+
+      {BLOCKS.map((block) => {
+        const items = splitSliderItems(block.slug);
+        /* Two layers rather than one: a missing generated scene simply fails
+           to paint and the stock fallback underneath shows through, so the
+           block is never a blank half-screen. */
+        const media = (
+          <div
+            className="split-media"
+            style={{
+              backgroundImage: `url("/scenes/${block.slug}.webp"), url("${block.image}")`,
+            }}
+            role="img"
+            aria-label={pick(locale, block.title)}
           />
-      </section>
+        );
 
-      {/* KATEGORIJAS */}
-      <section>
-        <div className="container">
-          <h2 className="mb-4">{t(locale, "home.popularCategories")}</h2>
-          <RevealGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {categories.map((c) => (
-              (() => {
-                const categoryImage = categoryImages[c.slug] ?? null;
-                const categoryName = t(locale, `categories.${c.slug}`) || c.name;
+        return (
+          <section key={block.slug} className="split group">
+            {block.reverse ? null : media}
 
-                return (
-              <Link
-                key={c.slug}
-                href={withLocaleHref(locale, `/kategorija/${c.slug}`)}
-                className="group block overflow-hidden rounded-sm border border-line bg-white transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_-16px_rgba(0,0,0,0.22)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
-              >
-                <div className="relative aspect-4/3 overflow-hidden bg-[--color-soft]">
-                  {categoryImage ? (
-                    <Image
-                      src={categoryImage}
-                      alt={categoryName}
-                      fill
-                      unoptimized
-                      sizes="(max-width: 1024px) 50vw, 20vw"
-                      className="object-cover transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.06] motion-reduce:transition-none"
-                    />
-                  ) : null}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
-                </div>
-                <div className="p-3">
-                  <div className="text-ink font-medium group-hover:text-ink">
-                    {categoryName}
-                  </div>
-                </div>
-              </Link>
-                );
-              })()
-            ))}
-          </RevealGrid>
-        </div>
-      </section>
+            <div className="split-body">
+              <h2 className="t-section max-w-[560px]">{pick(locale, block.title)}</h2>
+              <p className="mt-5 max-w-[560px] text-[color:var(--color-ink)]">
+                {pick(locale, block.text)}
+              </p>
 
-      {/* JAUNUMI */}
-      <section>
-        <div className="container">
-          <h2 className="mb-4">{t(locale, "home.newArrivals")}</h2>
-          <RevealGrid className="grid grid-flow-col auto-cols-[70%] sm:auto-cols-[45%] md:auto-cols-[30%] lg:auto-cols-[22%] gap-4 overflow-x-auto pb-2">
-            {newProducts.map((p) => (
-              <div key={p.id} className="min-w-0">
-                <ProductCard product={p} />
+              {items.length ? (
+                <SplitProductSlider className="mt-9 max-w-[600px]" products={items} />
+              ) : null}
+
+              <div className="mt-8">
+                <Link
+                  href={withLocaleHref(locale, `/kategorija/${block.slug}`)}
+                  className="btn btn-outline-dark"
+                >
+                  {viewAll}
+                </Link>
               </div>
-            ))}
-          </RevealGrid>
-        </div>
-      </section>
-
-      {/* POPULĀRĀKĀS ĀRDURVIS */}
-      <section>
-        <div className="container">
-          <h2 className="mb-4">{t(locale, "home.popularExterior")}</h2>
-          <RevealGrid className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {popularExterior.map((p) => (
-              <ProductCard key={p.id} product={p} />
-            ))}
-          </RevealGrid>
-        </div>
-      </section>
-
-      {/* CTA josla */}
-      <section>
-        <div className="container">
-          <div className="rounded-sm border border-line bg-accent text-white px-6 py-6 sm:px-10 sm:py-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-            <div className="text-lg sm:text-xl font-medium">
-              {t(locale, "home.ctaTitle")}
             </div>
-            <MagneticButton>
-              <Link
-                href={withLocaleHref(locale, "/kontakti")}
-                className="inline-block bg-white text-ink rounded-sm px-6 py-2.5 transition-shadow duration-300 hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.4)]"
-              >
-                {t(locale, "home.ctaButton")}
-              </Link>
-            </MagneticButton>
-          </div>
+
+            {block.reverse ? media : null}
+          </section>
+        );
+      })}
+
+      {/* New arrivals — full-width row, as on the reference site */}
+      <section className="section-soft py-16">
+        <div className="container">
+          <h2 className="t-section mb-8 text-center">{t(locale, "home.newArrivals")}</h2>
+          <RevealGrid className="grid grid-cols-2 gap-5 lg:grid-cols-4">
+            {products
+              .filter((p) => p.isNew)
+              .slice(0, 4)
+              .map((p) => (
+                <ProductCard key={p.id} product={p} />
+              ))}
+          </RevealGrid>
+        </div>
+      </section>
+
+      {/* Contact strip */}
+      <section className="bg-[color:var(--color-title)] py-14 text-white">
+        <div className="container flex flex-col items-center gap-6 text-center">
+          <h2 className="max-w-[760px] text-[22px] font-medium leading-[1.4] text-white sm:text-[28px]">
+            {t(locale, "home.ctaTitle")}
+          </h2>
+          <Link href={withLocaleHref(locale, "/kontakti")} className="btn btn-accent">
+            {t(locale, "home.ctaButton")}
+          </Link>
         </div>
       </section>
     </main>

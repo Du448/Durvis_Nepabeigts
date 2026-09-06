@@ -1,5 +1,6 @@
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/data/products";
+import PageTitle from "@/components/PageTitle";
 import { headers } from "next/headers";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
 
@@ -36,16 +37,12 @@ export default async function AkcijasPage() {
 
   return (
     <main>
-      <section className="border-b border-line">
-        <div className="container py-6">
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-wide text-ink">{title}</h1>
-          <p className="mt-2 max-w-3xl text-muted">{description}</p>
-        </div>
-      </section>
+      <PageTitle title={title} description={description}
+        image="https://images.unsplash.com/photo-1525570665650-76bb26af503d?auto=format&fit=crop&w=2000&q=60" />
 
       <section>
-        <div className="container py-6">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="container py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {discounted.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}

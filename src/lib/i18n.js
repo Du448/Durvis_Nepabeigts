@@ -1,3 +1,5 @@
+import { catalogTranslations } from "@/data/translations";
+
 export const locales = ["lt", "lv", "en"];
 export const defaultLocale = "lt";
 
@@ -27,9 +29,10 @@ const messages = {
       exteriorApartment: "Buto lauko durys",
       exteriorHouse: "Namo lauko durys",
       interior: "Vidaus durys",
-      sliding: "Stumdomos durys",
       hidden: "Paslėptos durys",
       deals: "Akcijos",
+      finishes: "Apdailė",
+      products: "Produktai",
       about: "Apie mus",
       contacts: "Kontaktai",
       searchPlaceholder: "Ieškoti durų...",
@@ -38,7 +41,6 @@ const messages = {
       "ardurvis-dzivoklim": "Buto lauko durys",
       "ardurvis-privatmajai": "Namo lauko durys",
       ieksdurvis: "Vidaus durys",
-      "bidamas-durvis": "Stumdomos durys",
       "sleptas-durvis": "Paslėptos durys",
       details: {
         "ardurvis-dzivoklim": {
@@ -52,10 +54,6 @@ const messages = {
         ieksdurvis: {
           name: "Vidaus durys",
           description: "Vidaus durys gyvenamosioms patalpoms įvairių spalvų ir faktūrų.",
-        },
-        "bidamas-durvis": {
-          name: "Stumdomos durys",
-          description: "Stumdomos durys ir sistemos patalpų zonavimui.",
         },
         "sleptas-durvis": {
           name: "Paslėptos durys",
@@ -95,6 +93,8 @@ const messages = {
       prevSlide: "Ankstesnė skaidrė",
       nextSlide: "Kita skaidrė",
       goToSlide: "Eiti į {n}. skaidrę",
+      chooseDoors: "Rinkis duris",
+      partnership: "Bendradarbiavimas",
     },
     search: {
       title: "Paieška",
@@ -193,6 +193,13 @@ const messages = {
       sortCheap: "Pirmiausia pigiausi",
       sortExpensive: "Pirmiausia brangiausi",
       sortNew: "Naujienos",
+            size: "Matmenys",
+      features: "Savybės",
+      glass: "Su stiklu",
+      newOnly: "Naujiena",
+      offerOnly: "Akcija",
+      activeFilters: "Pasirinkti filtrai",
+      nothingFound: "Pagal pasirinktus filtrus nieko nerasta.",
       notFound: "Kategorija nerasta",
     },
     product: {
@@ -206,6 +213,7 @@ const messages = {
       addWishlist: "Pridėti į norus",
       freeServices: "Nemokamas matavimas · Montavimas · Pristatymas visoje Lietuvoje",
       specs: "Specifikacija",
+      finishMaterial: "Išorinės apdailos medžiaga",
       set: "Komplektacija",
       installDelivery: "Montavimas ir pristatymas",
       warranty: "Garantija",
@@ -215,10 +223,15 @@ const messages = {
       close: "Uždaryti",
       offerBadge: "Pasiūlymas",
       newBadge: "Naujas",
+      inStock: "Yra sandėlyje",
+      inStockFactory: "Gamintojo sandėlyje",
+      tabDescription: "Aprašymas",
+      tabSpecs: "Charakteristikos",
     },
     contacts: {
       title: "Kontaktai",
       relatedToProduct: "Užklausa susijusi su produktu:",
+      prefill: "Norėčiau gauti pasiūlymą modeliui:",
       contactUs: "Susisiek su mumis",
       phone: "Telefonas",
       email: "El. paštas",
@@ -233,6 +246,42 @@ const messages = {
       thanks: "Ačiū! Susisieksime artimiausiu metu.",
       mapTitle: "TN Baltic — žemėlapis",
     },
+    finishes: {
+      title: "Apdaila ir dizainas",
+      lead:
+        "Frezavimo raštai, dekoratyviniai elementai ir visos spalvų paletės, iš kurių renkamasi durų išvaizda. Kiekvieną raštą galima derinti su bet kuria spalva.",
+      itemsCount: "variantų",
+      openImage: "Padidinti",
+      close: "Uždaryti",
+      note: "Spalvų atspalviai ekrane gali skirtis nuo tikrųjų. Dėl pavyzdžių kreipkitės į saloną.",
+    },
+    partners: {
+      title: "Bendradarbiavimas",
+      lead: "Ieškome partnerių Lietuvoje ir užsienyje — salonų, montuotojų, statybos bendrovių ir projektuotojų. Užpildyk paraišką ir susisieksime su prekybos sąlygomis.",
+      benefitsTitle: "Ką siūlome",
+      benefit1: "Partnerių kainos ir laipsniškos nuolaidos pagal apyvartą",
+      benefit2: "Pavyzdžiai, katalogai ir salono medžiaga",
+      benefit3: "Pristatymas visoje Lietuvoje ir gamintojo garantija",
+      benefit4: "Techninės konsultacijos ir pagalba matavimuose",
+      formTitle: "Partnerio paraiška",
+      company: "Įmonė",
+      person: "Kontaktinis asmuo",
+      phone: "Telefonas",
+      email: "El. paštas",
+      city: "Miestas / regionas",
+      website: "Svetainė (nebūtina)",
+      activity: "Veiklos sritis",
+      activitySalon: "Durų salonas / prekyba",
+      activityInstaller: "Montavimas",
+      activityBuilder: "Statybos bendrovė",
+      activityDesigner: "Architektas / dizaineris",
+      activityOther: "Kita",
+      message: "Komentaras",
+      messagePlaceholder: "Trumpai apie savo veiklą ir planuojamus kiekius",
+      consent: "Sutinku, kad mano duomenys būtų tvarkomi paraiškai nagrinėti.",
+      submit: "Siųsti paraišką",
+      thanks: "Ačiū! Paraiška gauta — susisieksime per 1–2 darbo dienas.",
+    },
   },
   lv: {
     nav: {
@@ -240,9 +289,10 @@ const messages = {
       exteriorApartment: "Ārdurvis dzīvoklim",
       exteriorHouse: "Ārdurvis privātmājai",
       interior: "Iekšdurvis",
-      sliding: "Bīdāmās durvis",
       hidden: "Slēptās durvis",
       deals: "Akcijas",
+      finishes: "Apdare",
+      products: "Produkti",
       about: "Par mums",
       contacts: "Kontakti",
       searchPlaceholder: "Meklēt durvis...",
@@ -251,7 +301,6 @@ const messages = {
       "ardurvis-dzivoklim": "Ārdurvis dzīvoklim",
       "ardurvis-privatmajai": "Ārdurvis privātmājai",
       ieksdurvis: "Iekšdurvis",
-      "bidamas-durvis": "Bīdāmās durvis",
       "sleptas-durvis": "Slēptās durvis",
       details: {
         "ardurvis-dzivoklim": {
@@ -265,10 +314,6 @@ const messages = {
         ieksdurvis: {
           name: "Iekšdurvis",
           description: "Iekšdurvis dzīvojamām telpām dažādās krāsās un faktūrās.",
-        },
-        "bidamas-durvis": {
-          name: "Bīdāmās durvis",
-          description: "Bīdāmās durvis un sistēmas telpu zonēšanai.",
         },
         "sleptas-durvis": {
           name: "Slēptās durvis",
@@ -308,6 +353,8 @@ const messages = {
       prevSlide: "Iepriekšējais slaids",
       nextSlide: "Nākamais slaids",
       goToSlide: "Dot uz {n}. slaidu",
+      chooseDoors: "Izvēlies durvis",
+      partnership: "Sadarbība",
     },
     search: {
       title: "Meklēšana",
@@ -406,6 +453,13 @@ const messages = {
       sortCheap: "Lētākie vispirms",
       sortExpensive: "Dārgākie vispirms",
       sortNew: "Jaunumi",
+            size: "Izmērs",
+      features: "Īpašības",
+      glass: "Ar stiklu",
+      newOnly: "Jaunums",
+      offerOnly: "Akcija",
+      activeFilters: "Izvēlētie filtri",
+      nothingFound: "Pēc izvēlētajiem filtriem nekas nav atrasts.",
       notFound: "Kategorija nav atrasta",
     },
     product: {
@@ -419,6 +473,7 @@ const messages = {
       addWishlist: "Pievienot vēlmēm",
       freeServices: "Bezmaksas uzmērīšana · Montāža · Piegāde visā Lietuvā",
       specs: "Specifikācija",
+      finishMaterial: "Ārējās apdares materiāls",
       set: "Komplektācija",
       installDelivery: "Montāža un piegāde",
       warranty: "Garantija",
@@ -428,10 +483,15 @@ const messages = {
       close: "Aizvērt",
       offerBadge: "Piedāvājums",
       newBadge: "Jaunums",
+      inStock: "Ir noliktavā",
+      inStockFactory: "Ražotāja noliktavā",
+      tabDescription: "Apraksts",
+      tabSpecs: "Raksturojums",
     },
     contacts: {
       title: "Kontakti",
       relatedToProduct: "Pieteikums saistīts ar produktu:",
+      prefill: "Vēlos piedāvājumu par modeli:",
       contactUs: "Sazinies ar mums",
       phone: "Tālrunis",
       email: "E-pasts",
@@ -446,6 +506,42 @@ const messages = {
       thanks: "Paldies! Sazināsimies tuvākajā laikā.",
       mapTitle: "TN Baltic — karte",
     },
+    finishes: {
+      title: "Apdare un dizains",
+      lead:
+        "Frēzējuma raksti, dekoratīvie elementi un visas krāsu paletes, no kurām veido durvju izskatu. Katru rakstu var kombinēt ar jebkuru krāsu.",
+      itemsCount: "varianti",
+      openImage: "Palielināt",
+      close: "Aizvērt",
+      note: "Krāsu toņi ekrānā var atšķirties no reālajiem. Paraugiem vērsieties salonā.",
+    },
+    partners: {
+      title: "Sadarbība",
+      lead: "Meklējam partnerus Latvijā un ārpus tās — salonus, montētājus, būvfirmas un projektētājus. Aizpildi pieteikumu, un sazināsimies ar sadarbības nosacījumiem.",
+      benefitsTitle: "Ko piedāvājam",
+      benefit1: "Partneru cenas un atlaides atkarībā no apgrozījuma",
+      benefit2: "Paraugi, katalogi un materiāli salonam",
+      benefit3: "Piegāde visā valstī un ražotāja garantija",
+      benefit4: "Tehniskās konsultācijas un atbalsts uzmērīšanā",
+      formTitle: "Sadarbības pieteikums",
+      company: "Uzņēmums",
+      person: "Kontaktpersona",
+      phone: "Tālrunis",
+      email: "E-pasts",
+      city: "Pilsēta / reģions",
+      website: "Mājaslapa (nav obligāti)",
+      activity: "Darbības joma",
+      activitySalon: "Durvju salons / tirdzniecība",
+      activityInstaller: "Montāža",
+      activityBuilder: "Būvniecības uzņēmums",
+      activityDesigner: "Arhitekts / dizainers",
+      activityOther: "Cits",
+      message: "Komentārs",
+      messagePlaceholder: "Īsi par savu darbību un plānotajiem apjomiem",
+      consent: "Piekrītu savu datu apstrādei pieteikuma izskatīšanai.",
+      submit: "Nosūtīt pieteikumu",
+      thanks: "Paldies! Pieteikums saņemts — sazināsimies 1–2 darba dienu laikā.",
+    },
   },
   en: {
     nav: {
@@ -453,9 +549,10 @@ const messages = {
       exteriorApartment: "Apartment Entrance Doors",
       exteriorHouse: "House Entrance Doors",
       interior: "Interior Doors",
-      sliding: "Sliding Doors",
       hidden: "Hidden Doors",
       deals: "Deals",
+      finishes: "Finishes",
+      products: "Products",
       about: "About",
       contacts: "Contacts",
       searchPlaceholder: "Search doors...",
@@ -464,7 +561,6 @@ const messages = {
       "ardurvis-dzivoklim": "Apartment Entrance Doors",
       "ardurvis-privatmajai": "House Entrance Doors",
       ieksdurvis: "Interior Doors",
-      "bidamas-durvis": "Sliding Doors",
       "sleptas-durvis": "Hidden Doors",
       details: {
         "ardurvis-dzivoklim": {
@@ -478,10 +574,6 @@ const messages = {
         ieksdurvis: {
           name: "Interior doors",
           description: "Interior doors for living spaces in various colors and finishes.",
-        },
-        "bidamas-durvis": {
-          name: "Sliding doors",
-          description: "Sliding doors and systems for zoning spaces.",
         },
         "sleptas-durvis": {
           name: "Hidden doors",
@@ -521,6 +613,8 @@ const messages = {
       prevSlide: "Previous slide",
       nextSlide: "Next slide",
       goToSlide: "Go to slide {n}",
+      chooseDoors: "Choose doors",
+      partnership: "Partnership",
     },
     search: {
       title: "Search",
@@ -618,6 +712,13 @@ const messages = {
       sortCheap: "Cheapest first",
       sortExpensive: "Most expensive first",
       sortNew: "New",
+            size: "Size",
+      features: "Features",
+      glass: "With glass",
+      newOnly: "New",
+      offerOnly: "Offer",
+      activeFilters: "Active filters",
+      nothingFound: "Nothing matches the selected filters.",
       notFound: "Category not found",
     },
     product: {
@@ -631,6 +732,7 @@ const messages = {
       addWishlist: "Add to wishlist",
       freeServices: "Free measurement · Installation · Delivery across Lithuania",
       specs: "Specification",
+      finishMaterial: "Exterior finish material",
       set: "Set",
       installDelivery: "Installation and delivery",
       warranty: "Warranty",
@@ -640,10 +742,15 @@ const messages = {
       close: "Close",
       offerBadge: "Offer",
       newBadge: "New",
+      inStock: "In stock",
+      inStockFactory: "In manufacturer's warehouse",
+      tabDescription: "Description",
+      tabSpecs: "Specifications",
     },
     contacts: {
       title: "Contacts",
       relatedToProduct: "Request related to product:",
+      prefill: "I would like an offer for the model:",
       contactUs: "Contact us",
       phone: "Phone",
       email: "Email",
@@ -657,6 +764,42 @@ const messages = {
       submit: "Send",
       thanks: "Thank you! We'll get back to you soon.",
       mapTitle: "TN Baltic — map",
+    },
+    finishes: {
+      title: "Finishes and design",
+      lead:
+        "Milling patterns, decorative elements and every colour palette the doors are built from. Any pattern can be combined with any colour.",
+      itemsCount: "options",
+      openImage: "Enlarge",
+      close: "Close",
+      note: "On-screen colours may differ from the real finish. Ask the showroom for samples.",
+    },
+    partners: {
+      title: "Partnership",
+      lead: "We are looking for partners at home and abroad — showrooms, installers, construction companies and designers. Fill in the application and we will get back to you with trade terms.",
+      benefitsTitle: "What we offer",
+      benefit1: "Partner pricing and volume-based discounts",
+      benefit2: "Samples, catalogues and showroom materials",
+      benefit3: "Nationwide delivery and a manufacturer warranty",
+      benefit4: "Technical consultation and measuring support",
+      formTitle: "Partner application",
+      company: "Company",
+      person: "Contact person",
+      phone: "Phone",
+      email: "Email",
+      city: "City / region",
+      website: "Website (optional)",
+      activity: "Field of activity",
+      activitySalon: "Door showroom / retail",
+      activityInstaller: "Installation",
+      activityBuilder: "Construction company",
+      activityDesigner: "Architect / designer",
+      activityOther: "Other",
+      message: "Comment",
+      messagePlaceholder: "A few words about your business and expected volumes",
+      consent: "I agree to my data being processed to review this application.",
+      submit: "Send application",
+      thanks: "Thank you! We received your application and will reply within 1–2 business days.",
     },
   },
 };
@@ -672,8 +815,30 @@ export function t(locale, keyPath) {
   return typeof cur === "string" ? cur : keyPath;
 }
 
+/* Catalogue data — product names, blurbs, specification rows, description
+   paragraphs, finish labels — is stored in Latvian and translated through a
+   per-locale dictionary keyed by the source string (see @/data/translations).
+   Anything the dictionary does not cover falls back to the source, so a new
+   model shows up in Latvian rather than not at all. */
+export function trData(locale, value) {
+  if (typeof value !== "string") return value;
+  if (locale === "lv") return value;
+  return catalogTranslations[locale]?.[value] ?? value;
+}
+
+/* The same, for a [label, value] specification row. */
+export function trRow(locale, row) {
+  return [trData(locale, row?.[0]), trData(locale, row?.[1])];
+}
+
 export function translateColorLabel(locale, value) {
   if (locale === "lv") return String(value);
+
+  /* Colours the dictionary knows in full read better than the token-by-token
+     pass below ("Ārpusē: balts satīns" → "Išorėje: baltas satinas"), so try it
+     first and only fall back to per-word substitution. */
+  const known = catalogTranslations[locale]?.[String(value)];
+  if (known) return known;
 
   const tokenMaps = {
     en: {

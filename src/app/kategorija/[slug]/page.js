@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { getCategoryBySlug } from "@/data/products";
 import CategoryClient from "@/components/CategoryClient";
 import { headers } from "next/headers";
@@ -7,7 +8,6 @@ const LT_CATEGORY_NAMES = {
   "ardurvis-dzivoklim": "Butui lauko durys",
   "ardurvis-privatmajai": "Namo lauko durys",
   "ieksdurvis": "Vidaus durys",
-  "bidamas-durvis": "Stumdomos durys",
   "sleptas-durvis": "Paslėptos durys",
 };
 
@@ -50,5 +50,9 @@ export async function generateMetadata({ params }) {
 
 export default async function CategoryPage({ params }) {
   const { slug } = await params;
+  /* A slug that is no longer a category (bidamas-durvis, since the sliding
+     range was dropped) has to 404 rather than render an empty catalogue, so
+     the old URL falls out of the index instead of lingering as a blank page. */
+  if (!getCategoryBySlug(slug)) notFound();
   return <CategoryClient slug={slug} />;
 }

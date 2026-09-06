@@ -32,12 +32,12 @@ export default function WishlistClient() {
   if (!products.length) {
     return (
       <div className="container py-10">
-        <div className="rounded-sm border border-line bg-white p-6 text-[15px] text-muted">
+        <div className="border border-line bg-white p-6 text-[15px] text-muted">
           {t(locale, "wishlist.empty")}
           <div className="mt-4">
             <Link
               href={withLocaleHref(locale, "/")}
-              className="inline-flex rounded-sm bg-accent px-5 py-2 text-white hover:opacity-95"
+              className="btn btn-accent"
             >
               {t(locale, "search.backHome")}
             </Link>
@@ -49,7 +49,7 @@ export default function WishlistClient() {
 
   return (
     <div className="container py-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {products.map((p) => (
           <div key={p.id} className="min-w-0">
             <ProductCard product={p} />

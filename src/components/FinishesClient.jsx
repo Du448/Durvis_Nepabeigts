@@ -1,0 +1,220 @@
+"use client";
+
+import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import PageTitle from "@/components/PageTitle";
+import RevealGrid from "@/components/anim/RevealGrid";
+import { finishSections } from "@/data/finishes";
+import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
+
+/* Reference page for everything a door's look is assembled from: milling
+   patterns, decorative inserts and the three colour palettes. Each section is
+   a swatch grid; a swatch opens full size, since the texture is the point. */
+
+export default function FinishesClient() {
+  const locale = getLocaleFromPathname(usePathname());
+  /* The viewer holds the whole group, so one can page through a palette
+     without closing it: arrows, keyboard, or a swipe on touch. */
+  const [lightbox, setLightbox] = useState(null);
+  const [touchX, setTouchX] = useState(null);
+
+  const current = lightbox ? lightbox.items[lightbox.index] : null;
+
+  const step = useCallback((delta) => {
+    setLightbox((state) => {
+      if (!state) return state;
+      const n = state.items.length;
+      return { ...state, index: ((state.index + delta) % n + n) % n };
+    });
+  }, []);
+
+  useEffect(() => {
+    if (!lightbox) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setLightbox(null);
+      else if (e.key === "ArrowRight") step(1);
+      else if (e.key === "ArrowLeft") step(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightbox, step]);
+
+  return (
+    <>
+      <PageTitle
+        title={t(locale, "finishes.title")}
+        description={t(locale, "finishes.lead")}
+        image="https://images.unsplash.com/photo-1603673298820-40d77252226d?auto=format&fit=crop&w=2000&q=60"
+      />
+
+      {/* Section jump bar */}
+      <nav className="sticky top-[60px] z-30 border-b border-line bg-white/95 backdrop-blur">
+        <div className="container flex flex-wrap items-center gap-x-6 gap-y-2 py-3">
+          {finishSections.map((section) => (
+            <a
+              key={section.key}
+              href={`#${section.key}`}
+              className="text-[13px] font-semibold uppercase tracking-wide text-muted transition-colors hover:text-[color:var(--color-accent)]"
+            >
+              {trData(locale, section.title)}
+            </a>
+          ))}
+        </div>
+      </nav>
+
+      {finishSections.map((section, index) => (
+        <section
+          key={section.key}
+          id={section.key}
+          className={`scroll-mt-[120px] py-12 lg:py-16 ${index % 2 ? "section-soft" : ""}`}
+        >
+          <div className="container">
+            <div className="max-w-[760px]">
+              <h2 className="t-section">{trData(locale, section.title)}</h2>
+              <p className="mt-4 text-[15px] leading-[1.7] text-ink">{trData(locale, section.lead)}</p>
+              {/* Some sections carry a build-up spec alongside the lead. */}
+              {section.notes ? (
+                <ol className="mt-4 space-y-2 border-l-2 border-line pl-4 text-[14px] leading-[1.7] text-muted">
+                  {section.notes.map((note) => (
+                    <li key={note}>{trData(locale, note)}</li>
+                  ))}
+                </ol>
+              ) : null}
+              <p className="mt-2 text-[13px] text-muted">
+                {section.groups.reduce((a, g) => a + g.items.length, 0)} {t(locale, "finishes.itemsCount")}
+              </p>
+            </div>
+
+            {section.groups.map((group, gi) => (
+              <div key={group.title || gi} className="mt-10">
+                {group.title ? (
+                  <h3 className="t-widget mb-4 border-b border-line pb-2 text-[color:var(--color-title)]">
+                    {trData(locale, group.title)}
+                  </h3>
+                ) : null}
+
+                <RevealGrid
+                  className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6"
+                  stagger={0.03}
+                >
+                  {group.items.map((item, itemIndex) => (
+                    <button
+                      key={item.image}
+                      type="button"
+                      onClick={() =>
+                        setLightbox({ items: group.items, index: itemIndex, group: group.title, aspect: section.aspect })
+                      }
+                      aria-label={`${trData(locale, item.label)} — ${t(locale, "finishes.openImage")}`}
+                      className="group block text-left"
+                    >
+                      <span
+                        className="relative block aspect-[3/4] overflow-hidden border border-line bg-white"
+                        style={section.aspect ? { aspectRatio: section.aspect } : undefined}
+                      >
+                        <Image
+                          src={item.image}
+                          alt={trData(locale, item.label)}
+                          fill
+                          unoptimized
+                          loading="lazy"
+                          sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
+                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                        />
+                      </span>
+                      <span className="mt-2 block text-[13px] leading-snug text-ink">{trData(locale, item.label)}</span>
+                    </button>
+                  ))}
+                </RevealGrid>
+              </div>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <section className="border-t border-line py-8">
+        <div className="container text-[13px] text-muted">{t(locale, "finishes.note")}</div>
+      </section>
+
+      {current ? (
+        <div
+          className="animate-fade-in fixed inset-0 z-[420] flex items-center justify-center bg-black/85 p-4"
+          onClick={() => setLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={current.label}
+          onTouchStart={(e) => setTouchX(e.touches[0].clientX)}
+          onTouchEnd={(e) => {
+            if (touchX == null) return;
+            const dx = e.changedTouches[0].clientX - touchX;
+            setTouchX(null);
+            if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setLightbox(null)}
+            aria-label={t(locale, "finishes.close")}
+            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25"
+          >
+            <X size={20} />
+          </button>
+
+          {lightbox.items.length > 1 ? (
+            <>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  step(-1);
+                }}
+                aria-label={t(locale, "product.previous")}
+                className="absolute left-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-[background-color,transform] duration-200 hover:bg-white/25 active:scale-95 sm:left-6 sm:h-14 sm:w-14"
+              >
+                <ChevronLeft size={26} strokeWidth={1.5} />
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  step(1);
+                }}
+                aria-label={t(locale, "product.next")}
+                className="absolute right-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-[background-color,transform] duration-200 hover:bg-white/25 active:scale-95 sm:right-6 sm:h-14 sm:w-14"
+              >
+                <ChevronRight size={26} strokeWidth={1.5} />
+              </button>
+            </>
+          ) : null}
+
+          <figure className="max-h-full w-full max-w-[720px]" onClick={(e) => e.stopPropagation()}>
+            <div
+              className="relative mx-auto aspect-[3/4] max-h-[76vh] w-auto"
+              style={lightbox.aspect ? { aspectRatio: lightbox.aspect } : undefined}
+            >
+              <Image
+                key={current.image}
+                src={current.image}
+                alt={trData(locale, current.label)}
+                fill
+                unoptimized
+                sizes="720px"
+                className="animate-fade-in object-contain"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-[14px] text-white">
+              {trData(locale, current.label)}
+              {lightbox.items.length > 1 ? (
+                <span className="ml-2 text-white/55">
+                  {lightbox.index + 1} / {lightbox.items.length}
+                </span>
+              ) : null}
+            </figcaption>
+          </figure>
+        </div>
+      ) : null}
+
+    </>
+  );
+}

@@ -1,5 +1,9 @@
 // Data: categories and products for the store
 
+import { factoryProducts, factoryDetails } from "./factory-products";
+import { hiddenDoors } from "./hidden-doors";
+import { catalogSpecs } from "./catalog-specs";
+
 export const categories = [
   {
     "slug": "ardurvis-dzivoklim",
@@ -20,12 +24,6 @@ export const categories = [
     "description": "Iekšdurvis dzīvojamām telpām dažādās krāsās un faktūrās."
   },
   {
-    "slug": "bidamas-durvis",
-    "name": "Bīdāmās durvis",
-    "group": "Iekšdurvis",
-    "description": "Bīdāmās durvis un sistēmas telpu zonēšanai."
-  },
-  {
     "slug": "sleptas-durvis",
     "name": "Slēptās durvis",
     "group": "Iekšdurvis",
@@ -33,10 +31,46 @@ export const categories = [
   }
 ];
 
-export const collections = ["BOSTON", "EKO", "PREMA", "PRIME", "RUBICON", "STANDART", "STILE MAX", "TEHNO", "TERMIX", "TERMO HOUSE", "TREND", "ULTRA"];
+export const collections = ["BOSTON", "EIRODURVIS", "EKO", "PREMA", "PRIME", "RUBICON", "STANDART", "STILE MAX", "TEHNO", "TERMIX", "TERMO HOUSE", "TREND", "ULTRA"];
 
-export const products = [
-  {"id": "prema-172", "name": "PREMA B-434 Modelis 172", "collection": "PREMA", "category": "ardurvis-dzivoklim", "price": 369, "oldPrice": null, "sizes": ["840×2040", "940×2040"], "colors": ["Antracīts", "Balts mats"], "thermo": false, "glass": false, "isNew": false, "clearance": false, "images": ["https://ik.imagekit.io/vbvwdejj5/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20durvju%20bildes%20/b434-172/b434-172.png"], "short": "Metāla durvis dzīvoklim ar MDF apdari abās pusēs un divām ARIKO slēdzenēm.", "specs": {"Vērtnes biezums": "72 mm", "Kārbas biezums": "85 mm", "Svars": "64/68 kg", "Slēdzenes": "2 × ARIKO (suvaldu + cilindra)", "Pildījums": "Minerālvate", "Ārējā apdare": "MDF 10mm, Antracīts", "Iekšējā apdare": "MDF 10mm, Balts mats", "Actiņa": "Ir"}},
+/* The two Termix models are faced in Stronwood rather than the moisture-resistant
+   MDF the rest of the range uses. That is a real buying argument, so both carry
+   the same panel description beside their specification. */
+const STRONWOOD = {
+  lead: [
+    "Stronwood izstrādāts specializēts kompozītmateriāla apdares panelis, kas paredzēts metāla ārdurvju ārējai apdarei, īpaši privātmājām un ieejas mezgliem, kas pakļauti tiešai āra vides iedarbībai.",
+    "Šis materiāls tika radīts kā izturīgāka alternatīva standartā izmantotajam mitrumizturīgajam MDF ar PVC plēvi, kurš ilgstošā saulē un mitrumā ar laiku mēdz delaminēties (atpūsties vai atlipt plēve).",
+  ],
+  heading: "Kas ir Stronwood un kā tas ir uzbūvēts?",
+  intro:
+    "Stronwood ir daudzslāņu kompozītmateriāla plāksne, kas apvieno koka tekstūras estētiku ar augstāku noturību pret ūdeni un temperatūras svārstībām.",
+  layers: [
+    {
+      title: "Bāzes slānis (Kompozīta pamatne)",
+      text: "Pamatnē tiek izmantots augsta blīvuma koksnes polimēra vai pastiprinātas mitrumizturīgas koksnes šķiedras kompozīts, kas apstrādāts ar hidrofobiem sveķiem. Atšķirībā no standarta MDF, tas praktiski neuzsūc mitrumu no gaisa un neuzbriest.",
+    },
+    {
+      title: "Dekoratīvais un aizsargslānis",
+      text: "Virsma tiek pārklāta ar īpašu UV staru izturīgu PVC vai HPL (High-Pressure Laminate) polimēra pārklājumu/plēvi, kas tiek presēta augstā temperatūrā un spiedienā. Šim slānim ir izteikta koka vai matēta tekstūra.",
+    },
+    {
+      title: "UV un termo-aizsardzība",
+      text: "Pārklājumā tiek izmantoti speciāli pigmenti un UV stabilizatori, kas pasargā paneli no izbālēšanas tiešos saules staros un novērš virsmas pārkaršanu/deformāciju.",
+    },
+  ],
+};
+
+const localProducts = [
+  {"id": "prema-172", "name": "PREMA B-434 Modelis 172", "collection": "PREMA", "category": "ardurvis-dzivoklim", "price": 369, "oldPrice": null, "sizes": ["840×2040", "940×2040"], "colors": ["Antracīts", "Balts mats"], "thermo": false, "glass": false, "isNew": false, "clearance": false, "images": ["https://ik.imagekit.io/vbvwdejj5/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20durvju%20bildes%20/b434-172/b434-172.png",
+    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/05/vhidni-dveri-revolyut-v-434-model-172.jpg",
+    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/01/zovnishnya-storona-vhidnih-metalevih-dverey-bulat-revolut-b-434-model-172-kvartirnogo-tipu-kolir-antracit.jpg",
+    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/05/vnutrishnya-storona-vhidnyh-metalevyh-dverej-bulat-revolut-v-434-model-172.jpg",
+    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/01/zamki-ta-furnitura-na-torci-polotna-zovnishnoi-storoni-bronedverey-bulat-revolut-b-434-model-172-kvartirnogo-tipu-kolir-antracit.jpg",
+    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/05/zamky-ta-furnitura-na-torczi-polotna-vnutrishnoyi-storony-bronedverej-bulat-revolut-v-434-model-172.jpg",
+    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/01/vidkrite-polozhennya-dverey-bulat-revolut-b-434-model-172-kvartirnogo-tipu.jpg",
+    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/01/petli-dverni-vid-bronedverey-bulat-revolut-b-434-model-172-kvartirnogo-tipu-kolir-antracit.jpg",
+    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/01/antizrizi-na-polotni-ta-pazi-pid-nih-u-dverniy-korobci-na-dveryah-bulat-revolut-b-434.jpg",
+    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/01/korobka-vihdnih-dverey-bulat-revolut-b-434-kvartirnogo-tipu.jpg"], "short": "Metāla durvis dzīvoklim ar MDF apdari abās pusēs un divām ARIKO slēdzenēm.", "specs": {"Vērtnes biezums": "72 mm", "Kārbas biezums": "85 mm", "Svars": "64/68 kg", "Slēdzenes": "2 × ARIKO (suvaldu + cilindra)", "Pildījums": "Minerālvate", "Ārējā apdare": "MDF 10mm, Antracīts", "Iekšējā apdare": "MDF 10mm, Balts mats", "Actiņa": "Ir"}},
   {"id": "prema-188", "name": "PREMA B-434 Modelis 188", "collection": "PREMA", "category": "ardurvis-dzivoklim", "price": 369, "oldPrice": null, "sizes": ["840×2040", "940×2040"], "colors": ["Dienvidu Venge"], "thermo": false, "glass": false, "isNew": false, "clearance": false, "images": [
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20b-434%20Modelis%20188/01.jpg?updatedAt=1780426696666",
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20b-434%20Modelis%20188/img_5763-copy.jpg?updatedAt=1780426705673",
@@ -50,7 +84,6 @@ export const products = [
   ], "short": "Metāla durvis dzīvoklim ar Dienvidu Venge MDF apdari un slēptu kārbas montāžu.", "specs": {"Vērtnes biezums": "72 mm", "Kārbas biezums": "85 mm", "Svars": "64/68 kg", "Slēdzenes": "2 × ARIKO", "Pildījums": "Minerālvate", "Apdare": "MDF 10mm, Dienvidu Venge", "Actiņa": "Ir"}},
   {"id": "prema-435-betons", "name": "PREMA B-434 Modelis 435 Betons/Oksīds", "collection": "PREMA", "category": "ardurvis-dzivoklim", "price": 379, "oldPrice": null, "sizes": ["840×2040", "940×2040"], "colors": ["Betons antracīts", "Oksīds balts"], "thermo": false, "glass": false, "isNew": false, "clearance": false, "images": [
     "https://ik.imagekit.io/vbvwdejj5/lithuanians/b434-435-betons-antrac%C4%ABts-oks%C4%ABds-balts.jpg?updatedAt=1780512787290",
-    "https://ik.imagekit.io/vbvwdejj5/lithuanians/b434-435-ra%C5%BEojuma-pl%C4%81ksn%C4%ABte.jpg?updatedAt=1780512788114",
     "https://ik.imagekit.io/vbvwdejj5/lithuanians/b434-435-sl%C4%93dzenes-%C4%81rpuse.jpg?updatedAt=1780512788061",
     "https://ik.imagekit.io/vbvwdejj5/lithuanians/b434-435-sl%C4%93dzenes-iek%C5%A1puse.jpg?updatedAt=1780512788052",
     "https://ik.imagekit.io/vbvwdejj5/lithuanians/b434-435-betons-antrac%C4%ABts-e%C5%86%C4%A3es.jpg?updatedAt=1780512788022",
@@ -256,12 +289,12 @@ export const products = [
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/Termix%20Adele%20Black%2011/whatsapp-image-2026-04-07-at-17.12.20-2.jpg?updatedAt=1780636648502",
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/Termix%20Adele%20Black%2011/whatsapp-image-2026-04-07-at-17.12.20.jpg?updatedAt=1780636642594",
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/Termix%20Adele%20Black%2011/whatsapp-image-2026-04-07-at-17.12.20-1.jpg?updatedAt=1780636641843"
-  ], "short": "Termix durvis ar 2 kameru reflektoro stikla paketi un nakts aizbīdni.", "specs": {"Kārbas biezums": "142 mm + termopārrāvums", "Vērtnes biezums": "104 mm", "Svars": "114/127 kg", "Stikla pakete": "2 kameru reflektorā", "Nakts aizbīdnis": "Ir"}},
+  ], "short": "Termix durvis ar 2 kameru reflektoro stikla paketi un nakts aizbīdni.", "specs": {"Kārbas biezums": "142 mm + termopārrāvums", "Vērtnes biezums": "104 mm", "Svars": "114/127 kg", "Stikla pakete": "2 kameru reflektorā", "Nakts aizbīdnis": "Ir"}, "finishMaterial": STRONWOOD},
   {"id": "termix-lampre", "name": "Termix LAMPRE 15", "collection": "TERMIX", "category": "ardurvis-privatmajai", "price": 949, "oldPrice": null, "sizes": ["850×2050", "960×2050"], "colors": ["Tumšs antracīts", "Antracīts"], "thermo": true, "glass": true, "isNew": true, "clearance": false, "images": [
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/Termix%20Lampre%2015/ekr%C4%81nuz%C5%86%C4%93mums-2026-04-07-225552.png?updatedAt=1780636642687",
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/Termix%20Lampre%2015/whatsapp-image-2026-04-07-at-17.12.52.jpg?updatedAt=1780636648109",
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/Termix%20Lampre%2015/whatsapp-image-2026-04-07-at-17.12.52-1.jpg?updatedAt=1780636640250"
-  ], "short": "Termix durvis ar Lampre apdari un reflektoro stikla paketi.", "specs": {"Kārbas biezums": "142 mm + termopārrāvums", "Vērtnes biezums": "104 mm", "Svars": "114/127 kg", "Apdare": "Lampre 15", "Stikla pakete": "2 kameru reflektorā", "Nakts aizbīdnis": "Ir"}},
+  ], "short": "Termix durvis ar Lampre apdari un reflektoro stikla paketi.", "specs": {"Kārbas biezums": "142 mm + termopārrāvums", "Vērtnes biezums": "104 mm", "Svars": "114/127 kg", "Apdare": "Lampre 15", "Stikla pakete": "2 kameru reflektorā", "Nakts aizbīdnis": "Ir"}, "finishMaterial": STRONWOOD},
   {"id": "boston-6012", "name": "Boston AG4 6012 Lite", "collection": "BOSTON", "category": "ardurvis-privatmajai", "price": 885, "oldPrice": null, "sizes": ["860×2050", "960×2050"], "colors": ["Antracīts", "Balts akmens"], "thermo": true, "glass": true, "isNew": true, "clearance": false, "images": [
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20LITE%20AG2-6012%20Antrac%C4%ABtsBalts%20Akmens/boston-6012-500x489.jpg?updatedAt=1780636645785",
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20LITE%20AG2-6012%20Antrac%C4%ABtsBalts%20Akmens/ekr%C4%81nuz%C5%86%C4%93mums-2026-02-02-205217.png?updatedAt=1780636648907",
@@ -333,13 +366,6 @@ export const products = [
   ], "short": "Alumīnija durvis ar baltu iekšpusi un četrkameru stikla paketi.", "specs": {"Biezums": "vērtne 97 / kārba 97 mm", "Slēdzenes": "2 × CBA ar termostieni, 7 atslēgas", "Stikla pakete": "95 mm četrkameru", "Siltumvadītspēja": "Uw 1.1 W/m²K"}},
   {"id": "boston-ag2-6050", "name": "Boston AG2-6050 Rūgta šokolāde/Ziloņkauls", "collection": "BOSTON", "category": "ardurvis-privatmajai", "price": 1099, "oldPrice": null, "sizes": ["860×2050", "960×2050"], "colors": ["Rūgta šokolāde", "Ziloņkauls"], "thermo": true, "glass": true, "isNew": false, "clearance": false, "images": [
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20AG2-6050/ag6050.png?updatedAt=1780636643827",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20AG2-6010%20Antrac%C4%ABts-antrac%C4%ABts/visp%C4%81r%C4%93ja-inform%C4%81cija-par-konstrukciju.png?updatedAt=1780636643849",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20AG2-6010%20Antrac%C4%ABts-antrac%C4%ABts/sl%C4%93dzene-fuhr-803.png?updatedAt=1780636643828",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20AG2-6010%20Antrac%C4%ABts-antrac%C4%ABts/kr%C4%81su-palete.png?updatedAt=1780636643765",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20AG2-6010%20Antrac%C4%ABts-antrac%C4%ABts/termop%C4%81rr%C4%81vums.png?updatedAt=1780636643504",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20AG2-6010%20Antrac%C4%ABts-antrac%C4%ABts/stikla-pake%C5%A1u-ton%C4%93jumu-sal%C4%ABdzin%C4%81jums.png?updatedAt=1780636642942",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20AG2-6010%20Antrac%C4%ABts-antrac%C4%ABts/siltin%C4%81jums-un-e%C5%86%C4%A3es.png?updatedAt=1780636642878",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Priv%C4%81tm%C4%81jas%20%C4%81rdurvju%20bildes/BOSTON%20AG2-6010%20Antrac%C4%ABts-antrac%C4%ABts/cilindrs-ar-termo-stieni.png?updatedAt=1780636642903"
   ], "short": "Alumīnija durvis šokolādes/ziloņkaula tonī ar stikla paketi.", "specs": {"Biezums": "vērtne 97 / kārba 97 mm", "Slēdzenes": "2 × CBA ar termostieni, 7 atslēgas", "Stikla pakete": "95 mm četrkameru", "Siltumvadītspēja": "Uw 1.1 W/m²K"}},
   {"id": "rv-06-balts-ultramats-melns", "name": "RV-06 Balts Ultramats st. Melns", "collection": "RV-06", "category": "ieksdurvis", "price": 129, "oldPrice": null, "sizes": ["600", "700", "800", "900 mm"], "colors": ["Balts ultramats", "Melns"], "thermo": false, "glass": false, "isNew": false, "clearance": false, "images": ["https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Ieksdurvis/RV-%2006%20balts%20ultramats%20st,%20melns.png"], "short": "RV-06 modelis baltā ultramatā tonī ar melniem akcentiem.", "specs": {"Modelis": "RV-06", "Tonis": "Balts ultramats", "Akcenti": "Melns"}},
   {"id": "rv-06-peleks-ultramats-melns", "name": "RV-06 Pelēks Ultramats st. Melns", "collection": "RV-06", "category": "ieksdurvis", "price": 139, "oldPrice": null, "sizes": ["600", "700", "800", "900 mm"], "colors": ["Pelēks ultramats", "Melns"], "thermo": false, "glass": false, "isNew": false, "clearance": false, "images": ["https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Ieksdurvis/RV-%2006%20pel%C4%93ks%20ultramats%20st,%20melns.png"], "short": "RV-06 modelis pelēkā ultramatā tonī ar melniem akcentiem.", "specs": {"Modelis": "RV-06", "Tonis": "Pelēks ultramats", "Akcenti": "Melns"}},
@@ -347,6 +373,62 @@ export const products = [
   {"id": "rv-10-zelta-rustik-melns", "name": "RV-10 Zelta Rustik st. Melns", "collection": "RV-10", "category": "ieksdurvis", "price": 149, "oldPrice": null, "sizes": ["600", "700", "800", "900 mm"], "colors": ["Zelta rustik", "Melns"], "thermo": false, "glass": false, "isNew": false, "clearance": false, "images": ["https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Ieksdurvis/RV%20-10%20Zelta%20Rustic%20st.%20Melns.png"], "short": "RV-10 modelis zelta rustik tonī ar melniem akcentiem.", "specs": {"Modelis": "RV-10", "Tonis": "Zelta rustik", "Akcenti": "Melns"}},
   {"id": "rv-10-italu-rieksts-satins", "name": "RV-10 Itāļu Rieksts st. Satīns", "collection": "RV-10", "category": "ieksdurvis", "price": 159, "oldPrice": null, "sizes": ["600", "700", "800", "900 mm"], "colors": ["Itāļu rieksts", "Satīns"], "thermo": false, "glass": true, "isNew": false, "clearance": false, "images": ["https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Ieksdurvis/RV%20-10%20It%C4%81%C4%BCu%20rieksts%20st.%20Melns.png"], "short": "RV-10 modelis itāļu rieksta tonī ar satīna stikla ielaidumiem.", "specs": {"Modelis": "RV-10", "Tonis": "Itāļu rieksts", "Stikls": "Satīns"}},
   {"id": "ml-01-rustik-blan-satins", "name": "ML-01 Rustik Blan st. Satīns", "collection": "ML-01", "category": "ieksdurvis", "price": 189, "oldPrice": null, "sizes": ["600", "700", "800", "900 mm"], "colors": ["Rustik blan", "Satīns"], "thermo": false, "glass": true, "isNew": false, "clearance": false, "images": ["https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Ieksdurvis/ML%20-%2001%20Rustic%20blant%20st.%20Sat%C4%ABns.png"], "short": "ML-01 modelis rustik blan tonī ar satīna stikla ielaidumu.", "specs": {"Modelis": "ML-01", "Tonis": "Rustik blan", "Stikls": "Satīns"}},
+];
+
+/* Model 188 is the same door as 172 — same construction, different milling and
+   film — so it carries 172's manufacturer text with the finish rows swapped. */
+const FINISH_188 = "MDF 10mm krāsa – «Dienvidu Venge» Nr.3; zīmējums «188»";
+
+function specsFor188(rows) {
+  const swapped = rows.map(([label, value]) => {
+    if (label === "PVC plēves krāsa") return [label, "Dienvidu Venge Nr.3 (abās pusēs)"];
+    if (label === "Durvju krāsa") return [label, "Tumšas durvis, iekšpusē tumšas"];
+    return [label, value];
+  });
+  const at = swapped.findIndex(([label]) => label === "Dekoratīvā apdare, MDF plātne");
+  const finishRows = [
+    ["Ārējā apdare", FINISH_188],
+    ["Iekšējā apdare", FINISH_188],
+  ];
+  return at === -1
+    ? [...swapped, ...finishRows]
+    : [...swapped.slice(0, at + 1), ...finishRows, ...swapped.slice(at + 1)];
+}
+
+/* The shop's own listings first, then the models imported from the
+   manufacturer's catalogue. Local entries pick up the manufacturer's
+   description and, failing that, the specification table from the printed
+   warehouse catalogue — without losing their own name, price or photography. */
+export const products = [
+  ...localProducts.map((p) => {
+    if (p.id === "prema-188") {
+      const base = factoryDetails["prema-172"];
+      return base
+        ? {
+            ...p,
+            video: base.video || undefined,
+            description: base.description,
+            specsFull: specsFor188(base.specsFull),
+          }
+        : { ...p, specsFull: catalogSpecs[p.id] };
+    }
+
+    const extra = factoryDetails[p.id];
+    if (extra) {
+      return {
+        // The shop stocks these itself, so the local stock label stays.
+        ...p,
+        video: extra.video || undefined,
+        description: extra.description,
+        specsFull: extra.specsFull,
+      };
+    }
+
+    const catalogue = catalogSpecs[p.id];
+    return catalogue ? { ...p, specsFull: catalogue } : p;
+  }),
+  ...hiddenDoors,
+  ...factoryProducts,
 ];
 
 export function getProductById(id) {
@@ -359,4 +441,82 @@ export function getProductsByCategory(slug) {
 
 export function getCategoryBySlug(slug) {
   return categories.find((c) => c.slug === slug);
+}
+
+/* Categories whose models are kept in stock. Per-product overrides are
+   possible via an explicit `inStock` field on the product. */
+const IN_STOCK_CATEGORIES = ["ardurvis-dzivoklim", "ardurvis-privatmajai", "ieksdurvis"];
+
+/* Models imported from the manufacturer's own catalogue carry their warehouse
+   stock, which the shop labels differently from its local stock. */
+export function stockKind(product) {
+  if (!isInStock(product)) return null;
+  return product?.stockSource === "factory" ? "factory" : "local";
+}
+
+/* Everything is priced in euro today, but the symbol still follows the entry's
+   own currency so a re-import of the factory's hryvnia list cannot quietly
+   relabel those prices as euro. */
+export function formatPrice(product, value) {
+  const amount = value == null ? product?.price : value;
+  if (amount == null) return "";
+  return product?.currency === "UAH" ? `${amount} ₴` : `${amount} €`;
+}
+
+export function isInStock(product) {
+  if (!product) return false;
+  if (typeof product.inStock === "boolean") return product.inStock;
+  return IN_STOCK_CATEGORIES.includes(product.category);
+}
+
+/* --- Card hover image ---------------------------------------------------
+   The first photo of every model is the flat outside/inside pair, so the
+   image the card swaps to on hover should show the door standing open. Three
+   ways to find it, in order of confidence:
+
+   1. Photos whose file name says so — the shop's own uploads use Latvian
+      ("atvērtā pozīcijā") and the manufacturer's older uploads Ukrainian
+      ("vidkryte polozhennya").
+   2. The manufacturer's numbered sets (0136-01.jpg, 0136-02.jpg, …) carry no
+      words, but the shoot order is fixed: photo 4 is always the open door.
+      Some sets skip a number, so match on the number, not on the position.
+   3. A handful of sets photographed by the shop have neither — those are
+      listed by hand below.
+
+   Anything left over falls back to the second photo, whatever it shows. */
+
+const OPEN_IN_NAME = /vidkry|vidkri|otkryt|otvir|atv[eē]r/i;
+const FACTORY_OPEN_SHOT = /\D0*4(?:-\d+)?\.(?:jpe?g|png)$/i;
+
+const OPEN_IMAGE_INDEX = {
+  "prema-188": 5,
+  "stilemax-light": 4,
+  "stilemax-700": 1,
+  "stilemax-350": 2,
+  "stilemax-352": 4,
+  "tehno-6": 3,
+};
+
+export function hoverImage(product) {
+  const images = product?.images || [];
+  if (images.length < 2) return images[0];
+
+  const manual = OPEN_IMAGE_INDEX[product.id];
+  if (manual != null && images[manual]) return images[manual];
+
+  const files = images.map((url) => {
+    try {
+      return decodeURIComponent(url);
+    } catch {
+      return url;
+    }
+  });
+
+  const named = files.findIndex((f) => OPEN_IN_NAME.test(f));
+  if (named > 0) return images[named];
+
+  const numbered = files.findIndex((f) => FACTORY_OPEN_SHOT.test(f.split("?")[0]));
+  if (numbered > 0) return images[numbered];
+
+  return images[1];
 }

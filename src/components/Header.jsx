@@ -1,40 +1,135 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import { usePathname } from "next/navigation";
-import { Heart, ShoppingCart, Search } from "lucide-react";
-import { useRouter } from "next/navigation";
-import { gsap } from "gsap";
+import { usePathname, useRouter } from "next/navigation";
+import { Heart, ShoppingCart, Search, X, Menu, ChevronDown } from "lucide-react";
 import { getLocaleFromPathname, withLocaleHref, locales, t } from "@/lib/i18n";
 import { readWishlistIds } from "@/lib/wishlist";
 
-function NavLink({ href, children, highlight, overlay = false }) {
+const BRAND = "Durys";
+
+/* Brand marks are not part of lucide v1, so they are inlined. */
+function InstagramIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function YoutubeIcon({ size = 18 }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="5" width="20" height="14" rx="4" />
+      <path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+/* Header modelled on m-lux.by: fixed overlay on the homepage, solid white on
+   inner pages, 105px tall at the top, shrinking to 60px once stuck, hidden on
+   scroll-down and revealed on scroll-up. */
+
+function NavLink({ href, children, light, active }) {
   return (
     <Link
       href={href}
-      className={`group relative ${overlay ? "px-3 py-2 text-[13px] uppercase tracking-wide" : "px-2 py-1 text-sm sm:text-[15px]"} text-ink hover:text-ink ${highlight ? "text-accent" : ""}`}
+      className={`group relative flex h-10 items-center whitespace-nowrap px-[9px] t-el text-[12px] transition-colors duration-200 2xl:px-[13px] 2xl:text-[13px] ${
+        light ? "text-white/95 hover:text-white" : "text-[color:var(--color-title)] hover:text-[color:var(--color-accent)]"
+      } ${active ? "!text-[color:var(--color-accent)]" : ""}`}
     >
-      <span className="inline-block">
-        {children}
-      </span>
-      <span className="pointer-events-none absolute inset-x-1 -bottom-0.5 h-[2px] origin-left scale-x-0 bg-accent transition-transform duration-300 ease-out group-hover:scale-x-100"></span>
+      {children}
     </Link>
   );
 }
 
-export default function Header() {
+/* Desktop dropdown: opens on hover and on keyboard focus, closes on Escape or
+   once focus leaves the group. */
+function NavDropdown({ label, items, light, active, locale, pathnameWithoutLocale }) {
   const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  const closeTimer = useRef(null);
+
+  const show = () => {
+    clearTimeout(closeTimer.current);
+    setOpen(true);
+  };
+  const hide = () => {
+    clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setOpen(false), 120);
+  };
+
+  useEffect(() => () => clearTimeout(closeTimer.current), []);
+
+  return (
+    <div
+      className="relative"
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      onFocus={show}
+      onBlur={hide}
+      onKeyDown={(e) => e.key === "Escape" && setOpen(false)}
+    >
+      <button
+        type="button"
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => setOpen((v) => !v)}
+        className={`group relative flex h-10 items-center gap-1 whitespace-nowrap px-[9px] t-el text-[12px] transition-colors duration-200 2xl:px-[13px] 2xl:text-[13px] ${
+          light ? "text-white/95 hover:text-white" : "text-[color:var(--color-title)] hover:text-[color:var(--color-accent)]"
+        } ${active ? "!text-[color:var(--color-accent)]" : ""}`}
+      >
+        {label}
+        <ChevronDown
+          size={14}
+          strokeWidth={2}
+          className={`transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+
+      <div
+        className={`absolute left-1/2 top-full z-50 w-[248px] -translate-x-1/2 border border-line bg-white py-2 shadow-[0_12px_30px_rgba(0,0,0,0.12)] transition-[opacity,transform] duration-200 ${
+          open ? "pointer-events-auto translate-y-0 opacity-100" : "pointer-events-none -translate-y-1 opacity-0"
+        }`}
+      >
+        {items.map((item) => (
+          <Link
+            key={item.href}
+            href={withLocaleHref(locale, item.href)}
+            onClick={() => setOpen(false)}
+            className={`block px-4 py-2.5 text-[13px] transition-colors duration-150 hover:bg-[--color-soft] hover:text-[color:var(--color-accent)] ${
+              pathnameWithoutLocale.startsWith(item.href)
+                ? "text-[color:var(--color-accent)]"
+                : "text-[color:var(--color-title)]"
+            }`}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function Header() {
+  const pathname = usePathname() || "/";
   const router = useRouter();
-  const [showSearch, setShowSearch] = useState(false);
-  const [wishlistCount, setWishlistCount] = useState(0);
-  const [scrolled, setScrolled] = useState(false);
-  const headerRef = useRef(null);
-  const hiddenRef = useRef(false);
-  const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
-  const isHome = pathname === `/${locale}` || pathname === `/${locale}/`;
+  const isHome = pathname === `/${locale}` || pathname === `/${locale}/` || pathname === "/";
+
+  const [open, setOpen] = useState(false);
+  const [productsOpen, setProductsOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [query, setQuery] = useState("");
+  const [wishlistCount, setWishlistCount] = useState(0);
+  const [stuck, setStuck] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
+
+  const light = isHome && !stuck;
 
   useEffect(() => {
     const sync = () => setWishlistCount(readWishlistIds().length);
@@ -48,65 +143,26 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    if (!open) return;
+    if (!open && !showSearch) return;
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.overflow = prev;
     };
-  }, [open]);
+  }, [open, showSearch]);
 
   useEffect(() => {
-    const el = headerRef.current;
-    if (!el || isHome) return;
-
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let lastY = window.scrollY;
-
-    const reveal = () => {
-      hiddenRef.current = false;
-      gsap.to(el, {
-        yPercent: 0,
-        duration: 0.45,
-        ease: "power3.out",
-        overwrite: true,
-        onComplete: () => gsap.set(el, { clearProps: "transform" }),
-      });
-    };
-
+    lastY.current = window.scrollY;
     const onScroll = () => {
       const y = window.scrollY;
-      setScrolled(y > 8);
-      if (!reduce) {
-        const goingDown = y > lastY;
-        if (goingDown && y > 180 && !hiddenRef.current) {
-          hiddenRef.current = true;
-          gsap.to(el, { yPercent: -100, duration: 0.45, ease: "power3.out", overwrite: true });
-        } else if (!goingDown && hiddenRef.current) {
-          reveal();
-        }
-      }
-      lastY = y;
+      setStuck(y > 60);
+      setHidden(y > lastY.current && y > 300);
+      lastY.current = y;
     };
-
+    onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      gsap.killTweensOf(el);
-      gsap.set(el, { clearProps: "transform" });
-      hiddenRef.current = false;
-    };
-  }, [isHome, pathname]);
-
-  useEffect(() => {
-    const el = headerRef.current;
-    if (!el) return;
-    if (open || showSearch) {
-      gsap.killTweensOf(el);
-      gsap.set(el, { clearProps: "transform" });
-      hiddenRef.current = false;
-    }
-  }, [open, showSearch]);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const pathnameWithoutLocale = (() => {
     const parts = pathname.split("/").filter(Boolean);
@@ -117,266 +173,293 @@ export default function Header() {
     return pathname || "/";
   })();
 
-  const buildLangHref = (nextLocale) => {
-    if (pathnameWithoutLocale === "/") return `/${nextLocale}`;
-    return `/${nextLocale}${pathnameWithoutLocale}`;
+  const buildLangHref = (nextLocale) =>
+    pathnameWithoutLocale === "/" ? `/${nextLocale}` : `/${nextLocale}${pathnameWithoutLocale}`;
+
+  const submitSearch = (e) => {
+    e.preventDefault();
+    const q = query.trim();
+    if (!q.length) return;
+    router.push(withLocaleHref(locale, `/meklet?q=${encodeURIComponent(q)}`));
+    setShowSearch(false);
+    setOpen(false);
   };
 
-  return (
-    <header
-      ref={headerRef}
-      className={`${isHome ? "absolute" : "sticky"} top-0 z-50 w-full will-change-transform ${isHome ? "bg-transparent" : "bg-bg/95 backdrop-blur supports-backdrop-filter:bg-bg/80"} ${!isHome && scrolled ? "shadow-[0_2px_16px_rgba(0,0,0,0.07)]" : ""} transition-shadow duration-300`}
-    >
-      {/* Top promo bar */}
-      <div className={`text-white text-center text-xs sm:text-sm py-2 ${isHome ? "bg-accent/90" : "bg-accent"}`}>
-        {t(locale, "header.promo")}
-      </div>
+  const productLinks = [
+    { href: "/kategorija/ardurvis-dzivoklim", label: t(locale, "nav.exteriorApartment") },
+    { href: "/kategorija/ardurvis-privatmajai", label: t(locale, "nav.exteriorHouse") },
+    { href: "/kategorija/ieksdurvis", label: t(locale, "nav.interior") },
+    { href: "/kategorija/sleptas-durvis", label: t(locale, "nav.hidden") },
+  ];
 
-      {/* Main bar */}
-      <div className={`${isHome ? "border-b border-white/20 bg-transparent" : "border-b border-line bg-bg"}`}>
-        <div className="container flex items-center gap-4 py-3">
-          {/* Left: Logo */}
-          <Link href={withLocaleHref(locale, "/")} className={`text-xl sm:text-2xl font-semibold tracking-wide ${isHome ? "text-white" : "text-ink"}`}>
-            DURŲ NAMAI
+  /* The four door categories live under one PRODUKTI dropdown; the rest of the
+     bar stays flat. */
+  const nav = [
+    { href: "/kategorija", label: t(locale, "nav.products"), children: productLinks },
+    { href: "/apdare", label: t(locale, "nav.finishes") },
+    { href: "/akcijas", label: t(locale, "nav.deals") },
+    { href: "/par-mums", label: t(locale, "nav.about") },
+    { href: "/kontakti", label: t(locale, "nav.contacts") },
+  ];
+
+  // Never slide the bar away while an overlay is open.
+  const isHidden = hidden && !open && !showSearch;
+
+  const iconTone = light ? "text-white" : "text-[color:var(--color-title)]";
+
+  return (
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-[390] transition-[transform,background-color,height,box-shadow] duration-300 ease-out ${
+          isHidden ? "-translate-y-full" : "translate-y-0"
+        } ${light ? "bg-transparent" : "bg-white shadow-[0_2px_10px_rgba(0,0,0,0.08)]"}`}
+        style={{ height: stuck || !isHome ? "60px" : "105px" }}
+      >
+        <div className="container flex h-full items-center gap-2">
+          {/* Two prints of the mark stacked, cross-fading: over the hero the
+              header is transparent and needs the white one, everywhere else
+              the colour one. Swapping the src instead would blink on the
+              first scroll while the other file loads. */}
+          <Link
+            href={withLocaleHref(locale, "/")}
+            className="relative block shrink-0"
+            aria-label={BRAND}
+          >
+            <Image
+              src="/logo.png"
+              alt={BRAND}
+              width={941}
+              height={481}
+              priority
+              className={`h-9 w-auto transition-opacity duration-300 sm:h-11 ${light ? "opacity-0" : "opacity-100"}`}
+            />
+            <Image
+              src="/logo-white.png"
+              alt=""
+              aria-hidden
+              width={941}
+              height={481}
+              priority
+              className={`absolute inset-0 h-9 w-auto transition-opacity duration-300 sm:h-11 ${light ? "opacity-100" : "opacity-0"}`}
+            />
           </Link>
 
-          {/* Center: Search */}
-          <div className={`flex-1 hidden md:flex items-center ${isHome ? "mt-2 md:mt-3" : ""}`}>
-            <form
-              className="w-full max-w-xl relative"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const q = query.trim();
-                if (q.length) router.push(withLocaleHref(locale, `/meklet?q=${encodeURIComponent(q)}`));
-              }}
-            >
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted">
-                <Search size={18} />
-              </span>
-              <input
-                type="search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                placeholder={t(locale, "nav.searchPlaceholder")}
-                className="w-full rounded-full border border-black/10 bg-white/95 shadow-sm pl-10 pr-4 h-11 text-[15px] text-ink placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[--color-accent] focus:border-transparent"
-                aria-label={t(locale, "a11y.search")}
-              />
-            </form>
-          </div>
+          <nav className="mx-auto hidden items-center xl:flex" aria-label="Main navigation">
+            {nav.map((item) =>
+              item.children ? (
+                <NavDropdown
+                  key={item.href}
+                  label={item.label}
+                  items={item.children}
+                  light={light}
+                  locale={locale}
+                  pathnameWithoutLocale={pathnameWithoutLocale}
+                  active={pathnameWithoutLocale.startsWith(item.href)}
+                />
+              ) : (
+                <NavLink
+                  key={item.href}
+                  href={withLocaleHref(locale, item.href)}
+                  light={light}
+                  active={pathnameWithoutLocale.startsWith(item.href)}
+                >
+                  {item.label}
+                </NavLink>
+              )
+            )}
+          </nav>
 
-          {/* Right: Icons */}
-          <nav className="ml-auto flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-1 rounded-sm border border-line bg-white/70 px-1 py-1">
+          <div className={`ml-auto flex items-center gap-0.5 xl:ml-0 ${iconTone}`}>
+            <div className="mr-1 hidden items-center lg:flex">
               {locales.map((l) => (
                 <Link
                   key={l}
                   href={buildLangHref(l)}
-                  onClick={() => {
-                    if (l !== locale) router.refresh();
-                  }}
-                  className={`px-2 py-1 text-xs font-semibold tracking-wide ${l === locale ? "text-accent" : "text-ink"}`}
-                  aria-label={t(locale, "a11y.language").replace("{code}", l.toUpperCase())}
+                  onClick={() => l !== locale && router.refresh()}
+                  className={`px-1.5 text-[12px] font-semibold uppercase tracking-wide transition-opacity hover:opacity-70 ${
+                    l === locale ? "text-[color:var(--color-accent)]" : ""
+                  }`}
                 >
-                  {l.toUpperCase()}
+                  {l}
                 </Link>
               ))}
             </div>
-            {/* Mobile search icon */}
-            <button
-              className="md:hidden p-2 text-ink"
-              aria-label={t(locale, "search.title")}
-              onClick={() => setShowSearch(true)}
-            >
-              <Search size={22} />
-            </button>
-            <Link href={withLocaleHref(locale, "/velmes")} aria-label={t(locale, "wishlist.title")} className="relative p-2 text-ink hover:text-ink">
-              <Heart size={22} />
-              {wishlistCount > 0 ? (
-                <span className="absolute -right-0.5 -top-0.5 min-w-[18px] h-[18px] px-1 rounded-full bg-accent text-white text-[11px] leading-[18px] text-center">
-                  {wishlistCount}
-                </span>
-              ) : null}
-            </Link>
-            <Link href={withLocaleHref(locale, "/grozs")} aria-label={t(locale, "cart.title")} className="p-2 text-ink hover:text-ink">
-              <ShoppingCart size={22} />
-            </Link>
-            {/* Mobile menu button */}
-            <button
-              className={`md:hidden p-2 ${isHome ? "text-white" : "text-ink"}`}
-              aria-label={t(locale, "category.filters")}
-              onClick={() => setOpen((v) => !v)}
-            >
-              <span className={`block h-0.5 w-5 ${isHome ? "bg-white" : "bg-ink"} mb-1`}></span>
-              <span className={`block h-0.5 w-5 ${isHome ? "bg-white" : "bg-ink"} mb-1`}></span>
-              <span className={`block h-0.5 w-5 ${isHome ? "bg-white" : "bg-ink"}`}></span>
-            </button>
-          </nav>
-        </div>
 
-        {/* Mobile search (visible under main row) */}
-        <div className="container md:hidden pb-3 px-2">
-          <form
-            className="relative"
-            onSubmit={(e) => {
-              e.preventDefault();
-              const q = query.trim();
-              if (q.length) router.push(withLocaleHref(locale, `/meklet?q=${encodeURIComponent(q)}`));
-            }}
-          >
-            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted">
-              <Search size={18} />
-            </span>
-            <input
-              type="search"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder={t(locale, "nav.searchPlaceholder")}
-              className="w-full rounded-full border border-black/10 bg-white/95 shadow-sm pl-10 pr-4 h-11 text-[15px] text-ink placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-[--color-accent] focus:border-transparent"
+            <button
+              type="button"
               aria-label={t(locale, "a11y.search")}
-            />
-          </form>
-        </div>
-      </div>
-
-      {/* Mobile search overlay */}
-      {showSearch && (
-        <div
-          className="fixed inset-0 z-50 bg-black/50 md:hidden"
-          onClick={() => setShowSearch(false)}
-        >
-          <div
-            className="absolute inset-x-0 top-0 bg-bg border-b border-line p-3"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <form
-              className="relative"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const q = query.trim();
-                if (q.length) {
-                  router.push(withLocaleHref(locale, `/meklet?q=${encodeURIComponent(q)}`));
-                  setShowSearch(false);
-                }
-              }}
+              onClick={() => setShowSearch(true)}
+              className="flex h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70"
             >
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted">
-                <Search size={18} />
+              <Search size={20} strokeWidth={1.6} />
+            </button>
+
+            <Link
+              href={withLocaleHref(locale, "/velmes")}
+              aria-label={t(locale, "wishlist.title")}
+              className="relative flex h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70"
+            >
+              <Heart size={20} strokeWidth={1.6} />
+              <span className="absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white">
+                {wishlistCount}
               </span>
+            </Link>
+
+            <Link
+              href={withLocaleHref(locale, "/grozs")}
+              aria-label={t(locale, "cart.title")}
+              className="flex h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70"
+            >
+              <ShoppingCart size={20} strokeWidth={1.6} />
+            </Link>
+
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              aria-label="Instagram"
+              className="hidden h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70 2xl:flex"
+            >
+              <InstagramIcon size={18} />
+            </a>
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              aria-label="YouTube"
+              className="hidden h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70 2xl:flex"
+            >
+              <YoutubeIcon size={18} />
+            </a>
+
+            <button
+              type="button"
+              aria-label="Menu"
+              onClick={() => setOpen(true)}
+              className="flex h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70 xl:hidden"
+            >
+              <Menu size={22} strokeWidth={1.6} />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Spacer so inner pages start below the fixed header */}
+      {!isHome ? <div style={{ height: "60px" }} aria-hidden /> : null}
+
+      {showSearch ? (
+        <div className="animate-fade-in fixed inset-0 z-[400] bg-white/98 backdrop-blur-sm">
+          <button
+            type="button"
+            aria-label={t(locale, "a11y.close")}
+            onClick={() => setShowSearch(false)}
+            className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center text-[color:var(--color-title)] transition-opacity hover:opacity-60"
+          >
+            <X size={26} strokeWidth={1.4} />
+          </button>
+          <div className="container flex h-full flex-col items-center justify-center">
+            <form onSubmit={submitSearch} className="w-full max-w-[700px]">
+              <div className="t-el mb-4 text-center text-[color:var(--color-muted)]">
+                {t(locale, "search.title")}
+              </div>
               <input
                 autoFocus
                 type="search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder={t(locale, "nav.searchPlaceholder")}
-                className="w-full rounded-sm border border-line bg-white pl-9 pr-10 py-2 text-[15px] placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-[--color-accent]"
                 aria-label={t(locale, "a11y.search")}
+                className="w-full border-0 border-b-2 border-[color:var(--color-line-strong)] bg-transparent pb-4 text-center text-[22px] text-[color:var(--color-title)] outline-none placeholder:text-[color:var(--color-muted)] sm:text-[32px]"
               />
-              <button
-                type="button"
-                aria-label={t(locale, "a11y.close")}
-                onClick={() => setShowSearch(false)}
-                className="absolute right-2 top-1/2 -translate-y-1/2 text-muted px-2"
-              >
-                ✕
-              </button>
             </form>
           </div>
         </div>
-      )}
+      ) : null}
 
-      {/* Categories bar */}
-      <div className={`${isHome ? "border-b border-white/20 bg-transparent" : "border-b border-line bg-bg"}`}>
-        <div className="container">
-          {/* Desktop nav */}
-          {!isHome ? (
-            <div className="hidden md:flex items-center gap-4 py-2">
-              <NavLink href={withLocaleHref(locale, "/jaunumi")}>{t(locale, "nav.news")}</NavLink>
-              <NavLink href={withLocaleHref(locale, "/kategorija/ardurvis-dzivoklim")}>{t(locale, "nav.exteriorApartment")}</NavLink>
-              <NavLink href={withLocaleHref(locale, "/kategorija/ardurvis-privatmajai")}>{t(locale, "nav.exteriorHouse")}</NavLink>
-              <NavLink href={withLocaleHref(locale, "/kategorija/ieksdurvis")}>{t(locale, "nav.interior")}</NavLink>
-              <NavLink href={withLocaleHref(locale, "/kategorija/bidamas-durvis")}>{t(locale, "nav.sliding")}</NavLink>
-              <NavLink href={withLocaleHref(locale, "/kategorija/sleptas-durvis")}>{t(locale, "nav.hidden")}</NavLink>
-              <NavLink href={withLocaleHref(locale, "/akcijas")} highlight>
-                {t(locale, "nav.deals")}
-              </NavLink>
-              <NavLink href={withLocaleHref(locale, "/par-mums")}>{t(locale, "nav.about")}</NavLink>
-              <NavLink href={withLocaleHref(locale, "/kontakti")}>{t(locale, "nav.contacts")}</NavLink>
-            </div>
-          ) : (
-            <div className="hidden md:flex items-center justify-center py-3 mt-4 md:mt-6 lg:mt-8">
-              <div className="mx-4 md:mx-6 lg:mx-10 max-w-6xl w-full rounded-sm border border-black/10 bg-white/95 shadow-sm">
-                <div className="flex items-center gap-1 px-2">
-                  <NavLink overlay href={withLocaleHref(locale, "/jaunumi")}>{t(locale, "nav.news")}</NavLink>
-                  <NavLink overlay href={withLocaleHref(locale, "/kategorija/ardurvis-dzivoklim")}>{t(locale, "nav.exteriorApartment")}</NavLink>
-                  <NavLink overlay href={withLocaleHref(locale, "/kategorija/ardurvis-privatmajai")}>{t(locale, "nav.exteriorHouse")}</NavLink>
-                  <NavLink overlay href={withLocaleHref(locale, "/kategorija/ieksdurvis")}>{t(locale, "nav.interior")}</NavLink>
-                  <NavLink overlay href={withLocaleHref(locale, "/kategorija/bidamas-durvis")}>{t(locale, "nav.sliding")}</NavLink>
-                  <NavLink overlay href={withLocaleHref(locale, "/kategorija/sleptas-durvis")}>{t(locale, "nav.hidden")}</NavLink>
-                  <NavLink overlay href={withLocaleHref(locale, "/akcijas")} highlight>
-                    {t(locale, "nav.deals")}
-                  </NavLink>
-                  <NavLink overlay href={withLocaleHref(locale, "/par-mums")}>{t(locale, "nav.about")}</NavLink>
-                  <NavLink overlay href={withLocaleHref(locale, "/kontakti")}>{t(locale, "nav.contacts")}</NavLink>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* Mobile nav */}
-          {open && (
-            <div
-              className="fixed inset-0 z-50 md:hidden"
-              onClick={() => setOpen(false)}
-            >
-              <div className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
-              <div
-                className="absolute inset-x-0 top-0 max-h-[85vh] overflow-auto border-b border-line bg-bg shadow-lg"
-                onClick={(e) => e.stopPropagation()}
+      {open ? (
+        <div className="fixed inset-0 z-[400] xl:hidden" onClick={() => setOpen(false)}>
+          <div className="animate-fade-in absolute inset-0 bg-black/50" />
+          <div
+            className="animate-drawer-in absolute inset-y-0 right-0 flex w-[300px] max-w-[85vw] flex-col bg-white"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex h-[60px] items-center justify-between border-b border-[color:var(--color-line)] px-5">
+              <Image src="/logo.png" alt={BRAND} width={941} height={481} className="h-7 w-auto" />
+              <button
+                type="button"
+                aria-label={t(locale, "a11y.close")}
+                onClick={() => setOpen(false)}
+                className="flex h-10 w-10 items-center justify-center"
               >
-                <div className="flex items-center justify-between px-3 py-3 border-b border-line">
-                  <div className="text-sm font-semibold tracking-wide text-ink">{t(locale, "category.filters")}</div>
-                  <button
-                    type="button"
-                    aria-label={t(locale, "a11y.close")}
-                    className="rounded-sm border border-line px-3 py-1.5 text-sm text-ink"
-                    onClick={() => setOpen(false)}
-                  >
-                    {t(locale, "a11y.close")}
-                  </button>
-                </div>
-
-                <div className="flex flex-col py-2">
-                  <div className="flex items-center gap-2 px-3 pt-2 pb-3">
-                    {locales.map((l) => (
-                      <Link
-                        key={l}
-                        href={buildLangHref(l)}
-                        onClick={() => {
-                          if (l !== locale) router.refresh();
-                          setOpen(false);
-                        }}
-                        className={`rounded-sm border border-line px-2 py-1 text-xs font-semibold tracking-wide ${l === locale ? "text-accent" : "text-ink"}`}
-                      >
-                        {l.toUpperCase()}
-                      </Link>
-                    ))}
-                  </div>
-
-                  <Link href={withLocaleHref(locale, "/jaunumi")} onClick={() => setOpen(false)} className="px-3 py-2 text-ink">{t(locale, "nav.news")}</Link>
-                  <Link href={withLocaleHref(locale, "/kategorija/ardurvis-dzivoklim")} onClick={() => setOpen(false)} className="px-3 py-2 text-ink">{t(locale, "nav.exteriorApartment")}</Link>
-                  <Link href={withLocaleHref(locale, "/kategorija/ardurvis-privatmajai")} onClick={() => setOpen(false)} className="px-3 py-2 text-ink">{t(locale, "nav.exteriorHouse")}</Link>
-                  <Link href={withLocaleHref(locale, "/kategorija/ieksdurvis")} onClick={() => setOpen(false)} className="px-3 py-2 text-ink">{t(locale, "nav.interior")}</Link>
-                  <Link href={withLocaleHref(locale, "/kategorija/bidamas-durvis")} onClick={() => setOpen(false)} className="px-3 py-2 text-ink">{t(locale, "nav.sliding")}</Link>
-                  <Link href={withLocaleHref(locale, "/kategorija/sleptas-durvis")} onClick={() => setOpen(false)} className="px-3 py-2 text-ink">{t(locale, "nav.hidden")}</Link>
-                  <Link href={withLocaleHref(locale, "/akcijas")} onClick={() => setOpen(false)} className="px-3 py-2 text-accent">{t(locale, "nav.deals")}</Link>
-                  <Link href={withLocaleHref(locale, "/par-mums")} onClick={() => setOpen(false)} className="px-3 py-2 text-ink">{t(locale, "nav.about")}</Link>
-                  <Link href={withLocaleHref(locale, "/kontakti")} onClick={() => setOpen(false)} className="px-3 py-2 text-ink">{t(locale, "nav.contacts")}</Link>
-                </div>
-              </div>
+                <X size={22} strokeWidth={1.5} />
+              </button>
             </div>
-          )}
+
+            <nav className="flex-1 overflow-y-auto">
+              {nav.map((item) =>
+                item.children ? (
+                  <div key={item.href} className="border-b border-[color:var(--color-line)]">
+                    <button
+                      type="button"
+                      onClick={() => setProductsOpen((v) => !v)}
+                      aria-expanded={productsOpen}
+                      className="t-el flex w-full items-center justify-between px-5 py-3.5 text-left text-[color:var(--color-title)]"
+                    >
+                      {item.label}
+                      <ChevronDown
+                        size={16}
+                        strokeWidth={2}
+                        className={`transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    {productsOpen ? (
+                      <div className="bg-[--color-soft] pb-1">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            href={withLocaleHref(locale, child.href)}
+                            onClick={() => setOpen(false)}
+                            className="block px-8 py-3 text-[14px] text-[color:var(--color-title)]"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
+                    ) : null}
+                  </div>
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={withLocaleHref(locale, item.href)}
+                    onClick={() => setOpen(false)}
+                    className="t-el block border-b border-[color:var(--color-line)] px-5 py-3.5 text-[color:var(--color-title)]"
+                  >
+                    {item.label}
+                  </Link>
+                )
+              )}
+            </nav>
+
+            <div className="flex items-center gap-2 border-t border-[color:var(--color-line)] px-5 py-4">
+              {locales.map((l) => (
+                <Link
+                  key={l}
+                  href={buildLangHref(l)}
+                  onClick={() => {
+                    if (l !== locale) router.refresh();
+                    setOpen(false);
+                  }}
+                  className={`border border-[color:var(--color-line)] px-2.5 py-1 text-[12px] font-semibold uppercase ${
+                    l === locale ? "text-[color:var(--color-accent)]" : "text-[color:var(--color-title)]"
+                  }`}
+                >
+                  {l}
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </header>
+      ) : null}
+    </>
   );
 }

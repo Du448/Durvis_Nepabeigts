@@ -1,7 +1,7 @@
 import { getProductById } from "@/data/products";
 import ProductClient from "@/components/ProductClient";
 import { headers } from "next/headers";
-import { getLocaleFromPathname, t } from "@/lib/i18n";
+import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
 
 export async function generateMetadata({ params }) {
   const { id } = await params;
@@ -11,7 +11,7 @@ export async function generateMetadata({ params }) {
 
   const product = getProductById(id);
   if (!product) return { title: t(locale, "product.notFound") };
-  const title = `${product.name} — ${product.collection} | Durų Namai`;
+  const title = `${trData(locale, product.name)} — ${product.collection} | Durų Namai`;
 
   const description =
     locale === "en"

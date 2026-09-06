@@ -5,7 +5,8 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { getProductById } from "@/data/products";
 import { usePathname } from "next/navigation";
-import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
+import PageTitle from "@/components/PageTitle";
+import { getLocaleFromPathname, withLocaleHref, t, trData } from "@/lib/i18n";
 
 export default function ContactsClient() {
   const locale = getLocaleFromPathname(usePathname());
@@ -17,7 +18,9 @@ export default function ContactsClient() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(() => (product ? `Vēlos piedāvājumu par modeli: ${product.name}` : ""));
+  const [message, setMessage] = useState(() =>
+    product ? `${t(locale, "contacts.prefill")} ${trData(locale, product.name)}` : ""
+  );
   const [submitted, setSubmitted] = useState(false);
 
   function onSubmit(e) {
@@ -27,23 +30,25 @@ export default function ContactsClient() {
 
   return (
     <main>
-      <section className="border-b border-line">
-        <div className="container py-6">
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-wide text-ink">{t(locale, "contacts.title")}</h1>
-          {product && (
-            <div className="mt-2 text-sm text-muted">
-              {t(locale, "contacts.relatedToProduct")} <Link className="text-ink underline" href={withLocaleHref(locale, `/produkts/${product.id}`)}>{product.name}</Link>
-            </div>
-          )}
+      <PageTitle
+        title={t(locale, "contacts.title")}
+        image="https://images.unsplash.com/photo-1697653568339-e8f8a5dd7318?auto=format&fit=crop&w=2000&q=60"
+      />
+      {product ? (
+        <div className="container pt-8 text-sm text-muted">
+          {t(locale, "contacts.relatedToProduct")}{" "}
+          <Link className="text-ink underline" href={withLocaleHref(locale, `/produkts/${product.id}`)}>
+            {trData(locale, product.name)}
+          </Link>
         </div>
-      </section>
+      ) : null}
 
       <section>
-        <div className="container py-6">
+        <div className="container py-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Left: contact info + map */}
             <div className="space-y-4">
-              <div className="rounded-sm border border-line bg-white p-4">
+              <div className="border border-line bg-white p-4">
                 <div className="text-sm font-semibold tracking-wide text-ink mb-2">{t(locale, "contacts.contactUs")}</div>
                 <div className="text-[15px] text-ink">
                   <div className="mb-2">
@@ -66,7 +71,7 @@ export default function ContactsClient() {
                 </div>
               </div>
 
-              <div className="rounded-sm border border-line overflow-hidden">
+              <div className="border border-line overflow-hidden">
                 <iframe
                   title={t(locale, "contacts.mapTitle")}
                   src="https://www.google.com/maps?q=D%C5%BE%C5%ABk%C5%B3%20g.%2017%2C%20%C5%A0veicarijos%20k.%2C%20LT-55301%20Jonavos%20r.&output=embed"
@@ -79,7 +84,7 @@ export default function ContactsClient() {
 
             {/* Right: form */}
             <div>
-              <form onSubmit={onSubmit} className="rounded-sm border border-line bg-white p-4 space-y-4">
+              <form onSubmit={onSubmit} className="border border-line bg-white p-4 space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm text-muted mb-1">{t(locale, "contacts.formName")}</label>
@@ -88,7 +93,7 @@ export default function ContactsClient() {
                       value={name}
                       onChange={(e) => setName(e.target.value)}
                       required
-                      className="w-full rounded-sm border border-line bg-white px-3 py-2 text-[15px] text-ink"
+                      className="field"
                     />
                   </div>
                   <div>
@@ -98,7 +103,7 @@ export default function ContactsClient() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       required
-                      className="w-full rounded-sm border border-line bg-white px-3 py-2 text-[15px] text-ink"
+                      className="field"
                     />
                   </div>
                 </div>
@@ -109,7 +114,7 @@ export default function ContactsClient() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full rounded-sm border border-line bg-white px-3 py-2 text-[15px] text-ink"
+                    className="field"
                   />
                 </div>
                 <div>
@@ -118,12 +123,12 @@ export default function ContactsClient() {
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     rows={5}
-                    className="w-full rounded-sm border border-line bg-white px-3 py-2 text-[15px] text-ink"
+                    className="field"
                     placeholder={t(locale, "contacts.formPlaceholder")}
                   />
                 </div>
                 <div className="flex items-center gap-3">
-                  <button type="submit" className="bg-accent hover:bg-accent-dark text-white rounded-sm px-5 py-2">
+                  <button type="submit" className="btn btn-accent">
                     {t(locale, "contacts.submit")}
                   </button>
                 </div>

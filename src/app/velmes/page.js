@@ -1,3 +1,4 @@
+import PageTitle from "@/components/PageTitle";
 import { headers } from "next/headers";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
 import WishlistClient from "@/components/WishlistClient";
@@ -30,12 +31,7 @@ export default async function VelmesPage() {
 
   return (
     <main>
-      <section className="border-b border-line">
-        <div className="container py-6">
-          <h1 className="text-3xl sm:text-4xl font-semibold tracking-wide text-ink">{t(locale, "wishlist.title")}</h1>
-          <p className="mt-2 text-muted">{t(locale, "wishlist.description")}</p>
-        </div>
-      </section>
+      <PageTitle title={t(locale, "wishlist.title")} description={t(locale, "wishlist.description")} />
 
       <WishlistClient />
     </main>

@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import { headers } from "next/headers";
 import { getLocaleFromPathname } from "@/lib/i18n";
 
-// Using system font stack via Tailwind's font-sans to avoid build-time fetch
+// Montserrat is loaded via <link> rather than next/font to avoid a build-time fetch.
 
 export const dynamic = "force-dynamic";
 
@@ -23,10 +23,6 @@ export const metadata = {
   alternates: {
     canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://tnbaltic.lt",
   },
-  icons: {
-    icon: "/favicon.ico",
-    other: [{ rel: "logo", url: "/logo.svg" }],
-  },
 };
 
 export default async function RootLayout({ children }) {
@@ -36,9 +32,17 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang={locale}>
-      <body className={`antialiased`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="antialiased">
         <Header />
-        {children}
+        <div className="site-main">{children}</div>
         <Footer />
       </body>
     </html>

@@ -1,73 +1,376 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Design tokens — modelled on m-lux.by (Woodmart/Metalux)
+   Montserrat · radius 0 · uppercase micro-typography · green accent
+   ========================================================================== */
+
 @theme inline {
-  --color-ink: #1A1A1A; /* main text */
-  --color-muted: #6B6B6B; /* secondary text */
-  --color-line: #E6E6E6; /* thin lines, borders */
-  --color-bg: #FFFFFF; /* background */
-  --color-soft: #F5F5F5; /* soft section bg */
-  --color-accent: #C8102E; /* primary accent */
-  --color-accent-dark: #9E0C24; /* accent hover */
-  --font-sans: var(--font-inter);
-  --radius-sm: 4px;
-  --radius: 6px;
-  --container-max: 1280px;
-  --container-padding: 1rem; /* 16px mobile-first */
-}
-html {
-  color: var(--color-ink);
-  background-color: var(--color-bg);
+  --color-ink: #222222;        /* body text */
+  --color-title: #242424;      /* headings */
+  --color-muted: #767676;      /* secondary text */
+  --color-line: rgba(0, 0, 0, 0.105);
+  --color-line-strong: rgba(0, 0, 0, 0.2);
+  --color-bg: #ffffff;
+  --color-soft: #f7f7f7;
+  --color-soft-2: #f1f1f1;
+  --color-accent: #037743;      /* primary green */
+  --color-accent-dark: #026036;
+  --color-alt: #fbbc34;
+  --color-dark: #000000;        /* footer */
+
+  /* Stock badges. Green means the model is on our own shelf and ships now;
+     amber means it sits at the manufacturer's warehouse, so the customer
+     should read a lead time into it. */
+  --color-stock: #037743;
+  --color-stock-soft: #e6f3ec;
+  --color-stock-factory: #8a5b07;
+  --color-stock-factory-soft: #fbf1dd;
+
+  --font-sans: "Montserrat", Arial, Helvetica, sans-serif;
+
+  --radius-sm: 0px;
+  --radius: 0px;
+
+  --container-max: 1300px;
+  --container-padding: 15px;
 }
 
-body {
-  @apply antialiased font-sans text-[15px] leading-7 sm:text-base;
-}
-h1, h2, h3, h4, h5, h6 {
-  @apply text-ink font-semibold tracking-wide;
+:root {
+  --header-h: 105px;
+  --header-h-sticky: 60px;
 }
 
-h1 {@apply text-3xl sm:text-4xl leading-tight;}
-h2 {@apply text-2xl sm:text-3xl leading-snug;}
-h3 {@apply text-xl sm:text-2xl leading-snug;}
-.text-muted { color: var(--color-muted); }
-.text-ink { color: var(--color-ink); }
-.border-line { border-color: var(--color-line); }
-.bg-accent { background-color: var(--color-accent); }
-.hover\:bg-accent-dark:hover { background-color: var(--color-accent-dark); }
-.text-accent { color: var(--color-accent); }
-.container {
-  max-width: var(--container-max);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--container-padding);
-  padding-right: var(--container-padding);
-}
-section { @apply py-10 sm:py-14; }
-.section-soft { background-color: var(--color-soft); }
+/* Base element styles live in @layer base so Tailwind utilities can still
+   override them (unlayered rules would otherwise win the cascade). */
+@layer base {
+  html {
+    color: var(--color-ink);
+    background-color: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+  }
 
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-@keyframes drawer-in {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
-}
-.animate-fade-in { animation: fade-in 0.25s ease-out both; }
-.animate-drawer-in { animation: drawer-in 0.35s cubic-bezier(0.22, 1, 0.36, 1) both; }
+  body {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-ink);
+  }
 
-@media (prefers-reduced-motion: reduce) {
-  .animate-fade-in,
-  .animate-drawer-in {
-    animation: none;
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-title);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: normal;
+  }
+
+  h1 { font-size: 30px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 20px; }
+  h4 { font-size: 18px; }
+
+  @media (min-width: 768px) {
+    h1 { font-size: 36px; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 22px; }
   }
 }
 
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+  width: 100%;
+}
+
+/* --- Typographic roles -------------------------------------------------- */
+
+/* Header / nav / buttons: 13px 600 uppercase */
+.t-el {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* Widget & column titles: 16px 600 uppercase */
+.t-widget {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.4;
+  color: var(--color-title);
+}
+
+/* Section headline: 36px 500, sentence case */
+.t-section {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--color-title);
+}
+@media (min-width: 768px) {
+  .t-section { font-size: 36px; }
+}
+
+/* Hero caption: huge uppercase, white on media */
+.t-hero {
+  color: #fff;
+  font-weight: 700;
+  font-size: clamp(22px, 6vw, 76px);
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+@media (max-width: 1024px) {
+  .t-hero { font-size: clamp(20px, 5.5vw, 56px); }
+}
+@media (max-width: 767px) {
+  .t-hero { font-size: clamp(18px, 5.8vw, 32px); letter-spacing: 0.005em; }
+}
+
+/* --- Buttons ------------------------------------------------------------ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 42px;
+  padding-inline: 25px;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1;
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease;
+  cursor: pointer;
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+.btn-accent:hover { background-color: var(--color-accent-dark); }
+
+.btn-default {
+  background-color: var(--color-soft);
+  color: #333;
+}
+.btn-default:hover { background-color: #efefef; }
+
+.btn-outline-light {
+  border: 2px solid #fff;
+  color: #fff;
+  background: transparent;
+}
+.btn-outline-light:hover { background-color: #fff; color: var(--color-title); }
+
+/* Translucent hero button — glass over the photograph, as on bulat-doors */
+.btn-glass {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease;
+}
+.btn-glass:hover {
+  background-color: rgba(255, 255, 255, 0.24);
+  border-color: #fff;
+}
+.btn-glass-accent {
+  border-color: rgba(3, 119, 67, 0.75);
+  background-color: rgba(3, 119, 67, 0.42);
+}
+.btn-glass-accent:hover {
+  background-color: rgba(3, 119, 67, 0.7);
+  border-color: var(--color-accent);
+}
+
+.btn-outline-dark {
+  border: 2px solid var(--color-title);
+  color: var(--color-title);
+  background: transparent;
+}
+.btn-outline-dark:hover { background-color: var(--color-title); color: #fff; }
+
+/* --- Filter sidebar ------------------------------------------------------
+   Modelled on the bulat-doors catalogue: stacked attribute groups, long
+   option lists scrolling inside their own box, and a two-handle price
+   slider sitting above the min/max inputs. */
+
+.filter-scroll { max-height: 232px; overflow-y: auto; padding-right: 6px; }
+.filter-scroll::-webkit-scrollbar { width: 6px; }
+.filter-scroll::-webkit-scrollbar-thumb { background: var(--color-line-strong); }
+
+.range-dual { position: relative; height: 26px; }
+.range-dual-track,
+.range-dual-fill { position: absolute; top: 11px; height: 3px; }
+.range-dual-track { left: 0; right: 0; background: var(--color-line); }
+.range-dual-fill { background: var(--color-accent); }
+.range-dual input[type="range"] {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 26px;
+  margin: 0;
+  background: transparent;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.range-dual input[type="range"]:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+.range-dual input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: auto;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-line-strong);
+  cursor: pointer;
+}
+.range-dual input[type="range"]::-moz-range-thumb {
+  pointer-events: auto;
+  height: 14px;
+  width: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: var(--color-accent);
+  box-shadow: 0 0 0 1px var(--color-line-strong);
+  cursor: pointer;
+}
+
+/* Removable chip for an active filter */
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--color-line-strong);
+  padding: 4px 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-ink);
+  transition: border-color .2s ease, color .2s ease;
+}
+.filter-chip:hover { border-color: var(--color-title); }
+
+/* --- Forms -------------------------------------------------------------- */
+
+.field {
+  height: 42px;
+  border: 2px solid var(--color-line);
+  border-radius: 0;
+  background: transparent;
+  padding-inline: 15px;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color .25s ease;
+}
+.field:focus {
+  outline: none;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+/* --- Layout helpers ----------------------------------------------------- */
+
+.section-soft { background-color: var(--color-soft); }
+
+/* Split section: 50% media / 50% content, as on m-lux.by */
+/* --- Hero stage ---------------------------------------------------------
+   Every hero photograph is roughly 3:2. The stage used to be full-bleed with a
+   height of min(100svh, 1000px), which on a 27" monitor made it 2.5:1 and on a
+   phone 0.46:1 - so `cover` was cutting 41% off the height there and 69% off
+   the width here. Two changes fix it:
+
+   1. The height now follows the viewport width, so the stage keeps roughly the
+      photograph's own proportions instead of drifting into a letterbox slot.
+   2. Where the stage is still wider than 2:1 - big desktop monitors and
+      ultrawides - the photograph is fitted whole and a blurred, darkened copy
+      of itself fills what is left, rather than the middle band being all the
+      visitor ever sees. The query is on the stage, not the viewport, because
+      the two have different aspect ratios. */
+
+.hero-stage {
+  height: min(100svh, clamp(440px, 66vw, 1200px));
+  container-type: size;
+}
+
+.hero-photo,
+.hero-photo-fill {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero-photo-fill {
+  filter: blur(34px) brightness(0.7);
+  transform: scale(1.15);
+}
+
+@container (min-aspect-ratio: 2 / 1) {
+  .hero-photo { background-size: contain; }
+}
+
+.split { display: flex; flex-direction: column; }
+@media (min-width: 1025px) {
+  .split { flex-direction: row; min-height: 736px; }
+  .split > * { flex: 1 1 50%; min-width: 0; }
+}
+.split-media {
+  background-size: cover;
+  background-position: center;
+  min-height: 320px;
+}
+.split-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 15px;
+}
+.split-body > * { margin-left: auto; margin-right: auto; }
+@media (min-width: 768px) { .split-body { padding: 70px 40px; } }
+@media (min-width: 1025px) { .split-body { padding: 70px; } }
+
+/* --- Footer reveal ------------------------------------------------------
+   As on m-lux.by: the footer is pinned to the bottom of the viewport and the
+   page content slides up over it, uncovering the footer at the end of the
+   scroll. Enabled by Footer.jsx (which measures the footer and sets
+   --footer-h) only on wide viewports where the footer is short enough. */
+
+.site-main { background-color: var(--color-bg); }
+
+html.footer-reveal .site-footer {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 0;
+}
+html.footer-reveal .site-main {
+  position: relative;
+  z-index: 1;
+  margin-bottom: var(--footer-h, 0px);
+}
+
+/* --- Motion ------------------------------------------------------------- */
+
+@keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes drawer-in { from { transform: translateX(100%) } to { transform: translateX(0) } }
+.animate-fade-in { animation: fade-in .25s ease-out both; }
+.animate-drawer-in { animation: drawer-in .35s cubic-bezier(.22,1,.36,1) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in, .animate-drawer-in { animation: none; }
+}
+
 /* Utility: hide native scrollbars but keep scrolling */
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
-}
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }

@@ -2,16 +2,20 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Heart, ArrowRight } from "lucide-react";
+import { Heart, Eye } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
+import { getLocaleFromPathname, withLocaleHref, t, trData } from "@/lib/i18n";
 import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
+import { isInStock, stockKind, formatPrice, hoverImage } from "@/data/products";
 
-export default function ProductCard({ product }) {
+/* Product card modelled on m-lux.by: 1px hairline border, 15px padding,
+   square image, centred name and price, action icons revealed on hover. */
+
+export default function ProductCard({ product, bare = false }) {
   const locale = getLocaleFromPathname(usePathname());
   const [wishlisted, setWishlisted] = useState(false);
-  const [activeIdx, setActiveIdx] = useState(0);
+  const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
     const sync = () => setWishlisted(isWishlisted(product.id));
@@ -23,103 +27,119 @@ export default function ProductCard({ product }) {
       window.removeEventListener("wishlist:change", sync);
     };
   }, [product.id]);
+
   const hasOffer = product.oldPrice != null && product.oldPrice > product.price;
-  const discount = hasOffer
-    ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100)
-    : 0;
+  const images = product.images || [];
+  const shown = hovered ? hoverImage(product) : images[0];
+  const href = withLocaleHref(locale, `/produkts/${product.id}`);
 
   return (
-    <Link
-      href={withLocaleHref(locale, `/produkts/${product.id}`)}
-      className="group block rounded-sm bg-white p-3 cursor-pointer transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_40px_-16px_rgba(0,0,0,0.22)] motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+    <div
+      className={`group relative flex h-full flex-col bg-white text-center ${
+        bare
+          ? ""
+          : "border border-[color:var(--color-line)] p-[15px] transition-colors duration-300 hover:border-[color:var(--color-line-strong)]"
+      }`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
     >
-      {/* Image area */}
-      <div className="relative mb-3 overflow-hidden rounded-sm" onMouseLeave={() => setActiveIdx(0)}>
-        {product.images && product.images.length > 0 ? (
-          <div className="relative aspect-3/4 bg-white">
-            <Image
-              src={product.images[activeIdx]}
-              alt={product.name}
-              fill
-              unoptimized
-              sizes="(max-width: 768px) 100vw, 25vw"
-              className="object-contain transition-transform duration-500 ease-out will-change-transform group-hover:scale-[1.06] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
-            />
-          </div>
+      {/* Image */}
+      <Link href={href} className="relative block aspect-square overflow-hidden bg-white">
+        {shown ? (
+          <Image
+            src={shown}
+            alt={trData(locale, product.name)}
+            fill
+            unoptimized
+            sizes="(max-width: 768px) 50vw, 300px"
+            className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+          />
         ) : (
-          <div className="aspect-3/4 bg-[--color-soft] flex items-center justify-center text-muted text-sm">
-            <span>{t(locale, "product.image")}</span>
-          </div>
-        )}
-        {/* Hover overlay */}
-        <div className="pointer-events-none absolute inset-0 bg-ink/0 transition-colors duration-300 group-hover:bg-ink/5" />
-        <div className="pointer-events-none absolute right-2 bottom-2 translate-y-2 opacity-0 transition-[transform,opacity] duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:transition-none motion-reduce:translate-y-0">
-          <span className="inline-flex items-center justify-center rounded-full bg-white/90 p-1.5 shadow-sm">
-            <ArrowRight size={16} className="text-ink" />
+          <span className="flex h-full w-full items-center justify-center bg-[color:var(--color-soft)] text-[color:var(--color-muted)]">
+            {t(locale, "product.image")}
           </span>
-        </div>
-        {/* Thumbnails on hover */}
-        {product.images && product.images.length > 1 ? (
-          <div className="absolute left-1/2 bottom-2 -translate-x-1/2 flex items-center gap-1 opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-            {product.images.slice(0, 6).map((src, idx) => (
-              <button
-                key={idx}
-                type="button"
-                className={`h-8 w-8 rounded-sm border ${idx === activeIdx ? "border-[--color-accent]" : "border-line"} bg-white/80 overflow-hidden`}
-                aria-label={`${product.name} thumbnail ${idx + 1}`}
-                onMouseEnter={() => setActiveIdx(idx)}
-                onFocus={() => setActiveIdx(idx)}
-              >
-                <span className="relative block h-full w-full">
-                  <Image src={src} alt="" fill unoptimized sizes="48px" className="object-contain" />
-                </span>
-              </button>
-            ))}
-          </div>
+        )}
+      </Link>
+
+      {/* Labels */}
+      <div className={`pointer-events-none absolute z-10 flex flex-col items-start gap-1 ${
+          bare ? "left-0 top-0" : "left-[15px] top-[15px]"
+        }`}>
+        {hasOffer ? (
+          <span className="bg-[color:var(--color-accent)] px-2 py-1 text-[11px] font-semibold uppercase leading-none text-white">
+            {t(locale, "product.offerBadge")}
+          </span>
         ) : null}
-        {/* Badges */}
-        <div className="absolute left-2 top-2 flex flex-col gap-1">
-          {hasOffer && (
-            <span className="rounded-sm bg-accent px-2 py-0.5 text-xs font-medium text-white">
-              {t(locale, "product.offerBadge")}
-            </span>
-          )}
-          {product.isNew && (
-            <span className="rounded-sm bg-ink px-2 py-0.5 text-xs font-medium text-white">
-              {t(locale, "product.newBadge")}
-            </span>
-          )}
-        </div>
-        {/* Wishlist icon */}
+        {product.isNew ? (
+          <span className="bg-[color:var(--color-title)] px-2 py-1 text-[11px] font-semibold uppercase leading-none text-white">
+            {t(locale, "product.newBadge")}
+          </span>
+        ) : null}
+        {isInStock(product) ? (
+          <span
+            className={`px-2 py-1 text-[11px] font-semibold uppercase leading-none ${
+              stockKind(product) === "factory"
+                ? "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]"
+                : "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]"
+            }`}
+          >
+            {t(locale, stockKind(product) === "factory" ? "product.inStockFactory" : "product.inStock")}
+          </span>
+        ) : null}
+      </div>
+
+      {/* Hover action icons, top-right */}
+      <div className={`absolute z-10 flex translate-x-2 flex-col gap-[2px] opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 motion-reduce:translate-x-0 motion-reduce:opacity-100 ${
+          bare ? "right-0 top-0" : "right-[15px] top-[15px]"
+        }`}>
+        <Link
+          href={href}
+          aria-label={t(locale, "product.openImage")}
+          className="flex h-9 w-9 items-center justify-center bg-white text-[color:var(--color-title)] shadow-[0_1px_6px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-[color:var(--color-accent)] hover:text-white"
+        >
+          <Eye size={17} strokeWidth={1.6} />
+        </Link>
         <button
           type="button"
           aria-label={t(locale, "a11y.addWishlist")}
-          className={`absolute right-2 top-2 rounded-sm bg-white/80 p-1.5 shadow-sm transition-[background-color,transform] duration-200 hover:bg-white hover:scale-110 active:scale-90 ${wishlisted ? "text-accent" : "text-ink"}`}
           onClick={(e) => {
             e.preventDefault();
             toggleWishlistId(product.id);
           }}
+          className={`flex h-9 w-9 items-center justify-center bg-white shadow-[0_1px_6px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-[color:var(--color-accent)] hover:text-white ${
+            wishlisted ? "text-[color:var(--color-accent)]" : "text-[color:var(--color-title)]"
+          }`}
         >
-          <Heart size={18} />
+          <Heart size={17} strokeWidth={1.6} fill={wishlisted ? "currentColor" : "none"} />
         </button>
       </div>
 
-      {/* Text area */}
-      <div className="text-[12px] font-semibold tracking-wide text-ink">{product.collection}</div>
-      <div className="truncate text-[15px] text-muted">{product.name}</div>
+      {/* Name */}
+      <h3 className="mt-4 text-[14px] font-medium leading-[1.4] text-[color:var(--color-ink)]">
+        <Link href={href} className="transition-colors duration-200 hover:text-[color:var(--color-ink)]/75">
+          {trData(locale, product.name)}
+        </Link>
+      </h3>
+
+      {product.collection ? (
+        <div className="mt-1 text-[12px] uppercase tracking-wide text-[color:var(--color-muted)]">
+          {product.collection}
+        </div>
+      ) : null}
 
       {/* Price */}
-      <div className="mt-1 flex items-baseline gap-2">
+      <div className="mt-auto pt-3 text-[14px] text-[color:var(--color-accent)]">
         {hasOffer ? (
           <>
-            <span className="text-accent font-semibold">€{product.price}</span>
-            <span className="text-muted line-through">€{product.oldPrice}</span>
-            <span className="text-accent font-semibold">-{discount}%</span>
+            <span className="mr-2 text-[color:var(--color-muted)] line-through">
+              {formatPrice(product, product.oldPrice)}
+            </span>
+            <span>{formatPrice(product)}</span>
           </>
         ) : (
-          <span className="text-ink font-semibold">€{product.price}</span>
+          <span>{formatPrice(product)}</span>
         )}
       </div>
-    </Link>
+    </div>
   );
 }
