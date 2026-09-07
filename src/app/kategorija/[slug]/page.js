@@ -19,12 +19,13 @@ export async function generateMetadata({ params }) {
 
   const category = getCategoryBySlug(slug);
   const nameLt = LT_CATEGORY_NAMES[slug] || category?.name || "Kategorija";
+  const translated = t(locale, `categories.${slug}`);
   const name =
-    locale === "en"
-      ? category?.name || nameLt
-      : locale === "lv"
-        ? category?.name || nameLt
-        : nameLt;
+    locale === "lt"
+      ? nameLt
+      : translated && translated !== `categories.${slug}`
+        ? translated
+        : category?.name || nameLt;
 
   const title = `${name} | Durų Namai`;
   const description =

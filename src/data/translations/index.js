@@ -8,8 +8,9 @@
    in @/lib/i18n does the lookup and falls back to the source, so a string
    nobody has translated yet still renders instead of disappearing.
 
-   Only Lithuanian is filled in; English still falls through to the source
-   except for colour names, which @/lib/i18n translates token by token. */
+   Both Lithuanian and English are filled in; anything either dictionary does
+   not cover falls through to the Latvian source (colour names are additionally
+   translated token by token in @/lib/i18n). */
 
 import { ltLabels } from "./lt/labels";
 import { ltSpecValues } from "./lt/spec-values";
@@ -19,6 +20,15 @@ import { ltShorts } from "./lt/shorts";
 import { ltDescTitles, ltDescParas } from "./lt/descriptions";
 import { ltFinishText, ltFinishLabels } from "./lt/finishes";
 import { ltColors, ltSetItems } from "./lt/misc";
+
+import { enLabels } from "./en/labels";
+import { enSpecValues } from "./en/spec-values";
+import { enFullValues } from "./en/full-values";
+import { enNames } from "./en/names";
+import { enShorts } from "./en/shorts";
+import { enDescTitles, enDescParas } from "./en/descriptions";
+import { enFinishText, enFinishLabels } from "./en/finishes";
+import { enColors, enSetItems } from "./en/misc";
 
 const lt = {
   ...ltLabels,
@@ -34,4 +44,18 @@ const lt = {
   ...ltSetItems,
 };
 
-export const catalogTranslations = { lt };
+const en = {
+  ...enLabels,
+  ...enSpecValues,
+  ...enFullValues,
+  ...enNames,
+  ...enShorts,
+  ...enDescTitles,
+  ...enDescParas,
+  ...enFinishText,
+  ...enFinishLabels,
+  ...enColors,
+  ...enSetItems,
+};
+
+export const catalogTranslations = { lt, en };
