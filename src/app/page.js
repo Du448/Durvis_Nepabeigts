@@ -33,8 +33,7 @@ const HERO = [
     },
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1628744876657-abd5086695dc?auto=format&fit=crop&w=2400&q=80",
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/fH7VH.jpg",
     kicker: { lt: "LAUKO DURYS", lv: "ĀRDURVIS", en: "ENTRANCE DOORS" },
     title: {
       lt: "SUSTIPRINTA KONSTRUKCIJA IR ŠILUMOS IZOLIACIJA",
@@ -43,8 +42,7 @@ const HERO = [
     },
   },
   {
-    image:
-      "https://images.unsplash.com/photo-1697653568339-e8f8a5dd7318?auto=format&fit=crop&w=2400&q=80",
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/gvXG2.jpg",
     kicker: { lt: "SALONAS", lv: "SALONS", en: "SHOWROOM" },
     title: {
       lt: "NESTANDARTINIAI SPRENDIMAI IR INDIVIDUALŪS PROJEKTAI",
@@ -126,7 +124,14 @@ const BLOCKS = [
    oddly next to the euro prices beside them. */
 const SPLIT_SLIDER_ITEMS = 12;
 
-function splitSliderItems(slug) {
+/* The pool of twelve rotates on a fixed window so a repeat visitor does not
+   keep meeting the same dozen models. `rotation` is a whole number that steps
+   once per window (see ROTATION_WINDOW_MS); each collection's queue is turned
+   by that amount before the round-robin pick, so a different slice of every
+   collection surfaces each window. */
+const ROTATION_WINDOW_MS = 1000 * 60 * 30; // 30 minutes
+
+function splitSliderItems(slug, rotation = 0) {
   const byCollection = new Map();
   for (const p of products) {
     if (p.category !== slug || p.stockSource === "factory") continue;
@@ -135,7 +140,11 @@ function splitSliderItems(slug) {
     byCollection.get(key).push(p);
   }
 
-  const queues = [...byCollection.values()];
+  const queues = [...byCollection.values()].map((list) => {
+    if (list.length < 2) return [...list];
+    const off = (((rotation % list.length) + list.length) % list.length);
+    return [...list.slice(off), ...list.slice(0, off)];
+  });
   const picked = [];
   while (picked.length < SPLIT_SLIDER_ITEMS && queues.some((q) => q.length)) {
     for (const queue of queues) {
@@ -176,12 +185,16 @@ export default async function Home() {
 
   const viewAll = { lt: "Žiūrėti visus", lv: "Skatīt visus", en: "View all" }[locale] || "Žiūrėti visus";
 
+  /* Steps once per rotation window; page is force-dynamic, so every request
+     recomputes and a fresh slice of the range shows through. */
+  const rotation = Math.floor(Date.now() / ROTATION_WINDOW_MS);
+
   return (
     <main>
       <HeroSlider slides={slides} />
 
       {BLOCKS.map((block) => {
-        const items = splitSliderItems(block.slug);
+        const items = splitSliderItems(block.slug, rotation);
         /* Two layers rather than one: a missing generated scene simply fails
            to paint and the stock fallback underneath shows through, so the
            block is never a blank half-screen. */

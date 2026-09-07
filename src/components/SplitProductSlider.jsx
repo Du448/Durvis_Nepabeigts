@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
@@ -11,10 +11,12 @@ import ProductCard from "@/components/ProductCard";
    a cross-fade — the reference site keeps the motion understated. */
 
 const PER_PAGE = 2;
+const AUTOPLAY_MS = 5000;
 
 export default function SplitProductSlider({ products = [], className = "" }) {
   const locale = getLocaleFromPathname(usePathname());
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
   const touchX = useRef(null);
 
   const pages = [];
@@ -29,6 +31,23 @@ export default function SplitProductSlider({ products = [], className = "" }) {
      between renders and a stale index would blank the block for a frame. */
   const current = count ? Math.min(index, count - 1) : 0;
 
+  /* Cycle the visible pair on a timer so the block keeps showing more of the
+     range without the visitor touching it. Holds while the pointer is over the
+     block, while the tab is hidden, or when the system asks for reduced
+     motion. */
+  useEffect(() => {
+    if (count < 2 || paused) return;
+    if (typeof window !== "undefined" &&
+        window.matchMedia?.("(prefers-reduced-motion: reduce)").matches) return;
+
+    const id = setInterval(() => {
+      if (document.visibilityState === "visible") {
+        setIndex((i) => (i + 1) % count);
+      }
+    }, AUTOPLAY_MS);
+    return () => clearInterval(id);
+  }, [count, paused]);
+
   if (!count) return null;
 
   return (
@@ -36,6 +55,10 @@ export default function SplitProductSlider({ products = [], className = "" }) {
       className={`relative ${className}`}
       role="group"
       aria-roledescription="carousel"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
       onTouchStart={(e) => {
         touchX.current = e.touches[0].clientX;
       }}

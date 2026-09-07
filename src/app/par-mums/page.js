@@ -108,7 +108,7 @@ export default async function AboutPage() {
             </div>
             <div className="relative overflow-hidden border border-line bg-[--color-soft] aspect-4/3">
               <Image
-                src="https://images.unsplash.com/photo-1734094151911-803ee718a921?auto=format&fit=crop&w=1400&q=80"
+                src="https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/6NcPT.jpg"
                 alt=""
                 fill
                 unoptimized
