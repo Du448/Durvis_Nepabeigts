@@ -251,7 +251,9 @@ const messages = {
       formMessage: "Žinutė",
       formPlaceholder: "Jūsų klausimas ar užklausa",
       submit: "Siųsti",
+      sending: "Siunčiama...",
       thanks: "Ačiū! Susisieksime artimiausiu metu.",
+      error: "Nepavyko išsiųsti. Bandykite dar kartą arba rašykite el. paštu.",
       mapTitle: "TN Baltic — žemėlapis",
     },
     finishes: {
@@ -288,7 +290,9 @@ const messages = {
       messagePlaceholder: "Trumpai apie savo veiklą ir planuojamus kiekius",
       consent: "Sutinku, kad mano duomenys būtų tvarkomi paraiškai nagrinėti.",
       submit: "Siųsti paraišką",
+      sending: "Siunčiama...",
       thanks: "Ačiū! Paraiška gauta — susisieksime per 1–2 darbo dienas.",
+      error: "Nepavyko išsiųsti. Bandykite dar kartą arba rašykite el. paštu.",
     },
   },
   lv: {
@@ -519,7 +523,9 @@ const messages = {
       formMessage: "Ziņojums",
       formPlaceholder: "Jūsu jautājums vai pieprasījums",
       submit: "Nosūtīt",
+      sending: "Sūta...",
       thanks: "Paldies! Sazināsimies tuvākajā laikā.",
+      error: "Neizdevās nosūtīt. Lūdzu, mēģiniet vēlreiz vai rakstiet uz e-pastu.",
       mapTitle: "TN Baltic — karte",
     },
     finishes: {
@@ -556,7 +562,9 @@ const messages = {
       messagePlaceholder: "Īsi par savu darbību un plānotajiem apjomiem",
       consent: "Piekrītu savu datu apstrādei pieteikuma izskatīšanai.",
       submit: "Nosūtīt pieteikumu",
+      sending: "Sūta...",
       thanks: "Paldies! Pieteikums saņemts — sazināsimies 1–2 darba dienu laikā.",
+      error: "Neizdevās nosūtīt. Lūdzu, mēģiniet vēlreiz vai rakstiet uz e-pastu.",
     },
   },
   en: {
@@ -786,7 +794,9 @@ const messages = {
       formMessage: "Message",
       formPlaceholder: "Your question or request",
       submit: "Send",
+      sending: "Sending...",
       thanks: "Thank you! We'll get back to you soon.",
+      error: "Couldn't send your message. Please try again or email us directly.",
       mapTitle: "TN Baltic — map",
     },
     finishes: {
@@ -823,7 +833,9 @@ const messages = {
       messagePlaceholder: "A few words about your business and expected volumes",
       consent: "I agree to my data being processed to review this application.",
       submit: "Send application",
+      sending: "Sending...",
       thanks: "Thank you! We received your application and will reply within 1–2 business days.",
+      error: "Couldn't send your application. Please try again or email us directly.",
     },
   },
 };

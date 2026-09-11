@@ -23,9 +23,30 @@ export default function PartnersClient() {
     consent: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   const set = (key) => (e) =>
     setForm((f) => ({ ...f, [key]: e.target.type === "checkbox" ? e.target.checked : e.target.value }));
+
+  async function onSubmit(e) {
+    e.preventDefault();
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/partners", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("send_failed");
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
+  }
 
   const benefits = ["benefit1", "benefit2", "benefit3", "benefit4"];
   const activities = [
@@ -67,13 +88,7 @@ export default function PartnersClient() {
           <div>
             <h2 className="t-section">{t(locale, "partners.formTitle")}</h2>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSubmitted(true);
-              }}
-              className="mt-6 space-y-4 border border-line bg-white p-5"
-            >
+            <form onSubmit={onSubmit} className="mt-6 space-y-4 border border-line bg-white p-5">
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1 block text-sm text-muted" htmlFor="p-company">
@@ -151,11 +166,12 @@ export default function PartnersClient() {
                 <span>{t(locale, "partners.consent")}</span>
               </label>
 
-              <button type="submit" className="btn btn-accent">
-                {t(locale, "partners.submit")}
+              <button type="submit" disabled={sending} className="btn btn-accent disabled:opacity-60">
+                {sending ? t(locale, "partners.sending") : t(locale, "partners.submit")}
               </button>
 
               {submitted ? <div className="text-ink">{t(locale, "partners.thanks")}</div> : null}
+              {error ? <div className="text-[color:var(--color-accent)]">{t(locale, "partners.error")}</div> : null}
             </form>
           </div>
         </div>

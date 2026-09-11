@@ -22,10 +22,26 @@ export default function ContactsClient() {
     product ? `${t(locale, "contacts.prefill")} ${trData(locale, product.name)}` : ""
   );
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
-    setSubmitted(true);
+    setSending(true);
+    setError(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, email, message }),
+      });
+      if (!res.ok) throw new Error("send_failed");
+      setSubmitted(true);
+    } catch {
+      setError(true);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -128,13 +144,18 @@ export default function ContactsClient() {
                   />
                 </div>
                 <div className="flex items-center gap-3">
-                  <button type="submit" className="btn btn-accent">
-                    {t(locale, "contacts.submit")}
+                  <button type="submit" disabled={sending} className="btn btn-accent disabled:opacity-60">
+                    {sending ? t(locale, "contacts.sending") : t(locale, "contacts.submit")}
                   </button>
                 </div>
                 {submitted && (
                   <div className="text-ink">
                     {t(locale, "contacts.thanks")}
+                  </div>
+                )}
+                {error && (
+                  <div className="text-[color:var(--color-accent)]">
+                    {t(locale, "contacts.error")}
                   </div>
                 )}
               </form>
