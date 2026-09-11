@@ -168,7 +168,7 @@ export default function Manufacturer2Client() {
           onClick={() => setLightbox(null)}
           role="dialog"
           aria-modal="true"
-          aria-label={current.label}
+          aria-label={trData(locale, current.label)}
           onTouchStart={(e) => setTouchX(e.touches[0].clientX)}
           onTouchEnd={(e) => {
             if (touchX == null) return;

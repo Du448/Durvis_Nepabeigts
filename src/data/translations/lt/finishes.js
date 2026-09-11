@@ -103,4 +103,14 @@ export const ltFinishLabels = {
   "Vulkāna ozols": "Vulkano ąžuolas",
   "Zeltainais ozols": "Auksinis ąžuolas",
   "Zeltains krafts": "Auksinis kraftas",
+
+  // RAL powder-coating swatches: code stays, texture word is translated
+  "RAL 7016 tekstūra": "RAL 7016 tekstūra",
+  "RAL 7024 šagrēns": "RAL 7024 šagrenė",
+  "RAL 8017 tekstūra": "RAL 8017 tekstūra",
+  "RAL 8017 šagrēns": "RAL 8017 šagrenė",
+  "RAL 8019 tekstūra": "RAL 8019 tekstūra",
+  "RAL 8019 šagrēns": "RAL 8019 šagrenė",
+  "RAL 9003 šagrēns": "RAL 9003 šagrenė",
+  "RAL 9005 muārs": "RAL 9005 muaras",
 };

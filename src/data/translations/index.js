@@ -20,6 +20,8 @@ import { ltShorts } from "./lt/shorts";
 import { ltDescTitles, ltDescParas } from "./lt/descriptions";
 import { ltFinishText, ltFinishLabels } from "./lt/finishes";
 import { ltColors, ltSetItems } from "./lt/misc";
+import { ltManufacturer2 } from "./lt/manufacturer2";
+import { ltManufacturer2Calculator } from "./lt/manufacturer2Calculator";
 
 import { enLabels } from "./en/labels";
 import { enSpecValues } from "./en/spec-values";
@@ -42,6 +44,8 @@ const lt = {
   ...ltFinishLabels,
   ...ltColors,
   ...ltSetItems,
+  ...ltManufacturer2,
+  ...ltManufacturer2Calculator,
 };
 
 const en = {

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Check, ChevronDown, ChevronLeft, ChevronRight, X } from "lucide-react";
 import {
   CURRENCY,
@@ -17,6 +18,7 @@ import {
   casingOptions,
 } from "@/data/manufacturer2Calculator";
 import { manufacturer2Sections } from "@/data/manufacturer2";
+import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
 
 /* Ražotājs-2 door calculator: a from-scratch analog of the manufacturer's own
    calculator (bulat-doors.com.ua/calculator/) — base filters, matching
@@ -63,6 +65,7 @@ function SwatchGrid({
   onSelect,
   allowDeselect = false,
   columns = "grid-cols-[repeat(auto-fill,minmax(84px,1fr))]",
+  locale,
 }) {
   const [zoomIndex, setZoomIndex] = useState(null);
   const [touchX, setTouchX] = useState(null);
@@ -101,7 +104,7 @@ function SwatchGrid({
                 <button
                   type="button"
                   onClick={() => setZoomIndex(index)}
-                  aria-label={`${item.label} — palielināt attēlu`}
+                  aria-label={`${trData(locale, item.label)} — ${trData(locale, "palielināt attēlu")}`}
                   className="group block w-full text-left"
                 >
                   <span
@@ -111,7 +114,7 @@ function SwatchGrid({
                   >
                     <Image
                       src={item.image}
-                      alt={item.label}
+                      alt={trData(locale, item.label)}
                       fill
                       unoptimized
                       loading="lazy"
@@ -124,7 +127,7 @@ function SwatchGrid({
                   type="button"
                   onClick={() => onSelect(isActive && allowDeselect ? null : item)}
                   aria-pressed={isActive}
-                  aria-label={`${item.label} — atzīmēt kā izvēlēto`}
+                  aria-label={`${trData(locale, item.label)} — ${trData(locale, "atzīmēt kā izvēlēto")}`}
                   className={`absolute right-1.5 top-1.5 flex h-5 w-5 items-center justify-center border-2 ${
                     isActive ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)]" : "border-line bg-white"
                   }`}
@@ -137,7 +140,7 @@ function SwatchGrid({
                   isActive ? "font-semibold text-[color:var(--color-accent)]" : "text-ink"
                 }`}
               >
-                {item.label}
+                {trData(locale, item.label)}
               </span>
             </div>
           );
@@ -150,7 +153,7 @@ function SwatchGrid({
           onClick={() => setZoomIndex(null)}
           role="dialog"
           aria-modal="true"
-          aria-label={zoomItem.label}
+          aria-label={trData(locale, zoomItem.label)}
           onTouchStart={(e) => setTouchX(e.touches[0].clientX)}
           onTouchEnd={(e) => {
             if (touchX == null) return;
@@ -162,7 +165,7 @@ function SwatchGrid({
           <button
             type="button"
             onClick={() => setZoomIndex(null)}
-            aria-label="Aizvērt"
+            aria-label={trData(locale, "Aizvērt")}
             className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25"
           >
             <X size={20} />
@@ -176,7 +179,7 @@ function SwatchGrid({
                   e.stopPropagation();
                   step(-1);
                 }}
-                aria-label="Iepriekšējais"
+                aria-label={trData(locale, "Iepriekšējais")}
                 className="absolute left-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-[background-color,transform] duration-200 hover:bg-white/25 active:scale-95 sm:left-6 sm:h-14 sm:w-14"
               >
                 <ChevronLeft size={26} strokeWidth={1.5} />
@@ -187,7 +190,7 @@ function SwatchGrid({
                   e.stopPropagation();
                   step(1);
                 }}
-                aria-label="Nākamais"
+                aria-label={trData(locale, "Nākamais")}
                 className="absolute right-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-[background-color,transform] duration-200 hover:bg-white/25 active:scale-95 sm:right-6 sm:h-14 sm:w-14"
               >
                 <ChevronRight size={26} strokeWidth={1.5} />
@@ -197,10 +200,10 @@ function SwatchGrid({
 
           <figure className="max-h-full w-full max-w-[480px]" onClick={(e) => e.stopPropagation()}>
             <span className="relative mx-auto block aspect-square max-h-[76vh] w-full">
-              <Image key={zoomItem.image} src={zoomItem.image} alt={zoomItem.label} fill unoptimized sizes="480px" className="object-contain" />
+              <Image key={zoomItem.image} src={zoomItem.image} alt={trData(locale, zoomItem.label)} fill unoptimized sizes="480px" className="object-contain" />
             </span>
             <figcaption className="mt-3 text-center text-[14px] text-white">
-              {zoomItem.label}
+              {trData(locale, zoomItem.label)}
               {items.length > 1 ? (
                 <span className="ml-2 text-white/55">
                   {zoomIndex + 1} / {items.length}
@@ -214,7 +217,7 @@ function SwatchGrid({
   );
 }
 
-function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage, onDesignChange }) {
+function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage, onDesignChange, locale }) {
   const [search, setSearch] = useState("");
   const group = groups.find((g) => g.title === seriesTitle) || groups[0];
   const query = search.trim().toLowerCase();
@@ -231,7 +234,7 @@ function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage,
         >
           {groups.map((g) => (
             <option key={g.title} value={g.title}>
-              {g.title}
+              {trData(locale, g.title)}
             </option>
           ))}
         </select>
@@ -240,21 +243,21 @@ function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage,
         type="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Meklēt pēc modeļa numura..."
+        placeholder={trData(locale, "Meklēt pēc modeļa numura...")}
         className="mt-3 w-full border border-line bg-white px-3 py-1.5 text-[13px]"
       />
       <div className="mt-4">
         {items.length ? (
-          <SwatchGrid items={items} selected={designImage} onSelect={onDesignChange} allowDeselect />
+          <SwatchGrid items={items} selected={designImage} onSelect={onDesignChange} allowDeselect locale={locale} />
         ) : (
-          <p className="text-[13px] text-muted">Nekas netika atrasts.</p>
+          <p className="text-[13px] text-muted">{trData(locale, "Nekas netika atrasts.")}</p>
         )}
       </div>
     </div>
   );
 }
 
-function FilmPicker({ label, groups, groupTitle, onGroupChange, filmImage, onFilmChange }) {
+function FilmPicker({ label, groups, groupTitle, onGroupChange, filmImage, onFilmChange, locale }) {
   const [search, setSearch] = useState("");
   const group = groups.find((g) => g.title === groupTitle) || groups[0];
   const query = search.trim().toLowerCase();
@@ -276,7 +279,7 @@ function FilmPicker({ label, groups, groupTitle, onGroupChange, filmImage, onFil
           >
             {groups.map((g) => (
               <option key={g.title} value={g.title}>
-                {g.title}
+                {trData(locale, g.title)}
               </option>
             ))}
           </select>
@@ -286,14 +289,14 @@ function FilmPicker({ label, groups, groupTitle, onGroupChange, filmImage, onFil
         type="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        placeholder="Meklēt pēc krāsas nosaukuma vai numura..."
+        placeholder={trData(locale, "Meklēt pēc krāsas nosaukuma vai numura...")}
         className="mt-3 w-full border border-line bg-white px-3 py-1.5 text-[13px]"
       />
       <div className="mt-4 max-h-[340px] overflow-y-auto pr-1">
         {items.length ? (
-          <SwatchGrid items={items} selected={filmImage} onSelect={onFilmChange} />
+          <SwatchGrid items={items} selected={filmImage} onSelect={onFilmChange} locale={locale} />
         ) : (
-          <p className="text-[13px] text-muted">Nekas netika atrasts.</p>
+          <p className="text-[13px] text-muted">{trData(locale, "Nekas netika atrasts.")}</p>
         )}
       </div>
     </div>
@@ -319,6 +322,7 @@ function CollapsibleSection({ title, subtitle, defaultOpen = false, children }) 
 }
 
 export default function Manufacturer2Calculator() {
+  const locale = getLocaleFromPathname(usePathname());
   const [step, setStep] = useState("filter");
 
   const [filterPurpose, setFilterPurpose] = useState(new Set());
@@ -440,16 +444,18 @@ export default function Manufacturer2Calculator() {
     return (
       <div className="container py-12 lg:py-16">
         <div className="max-w-[760px]">
-          <h2 className="t-section">Durvju kalkulators</h2>
+          <h2 className="t-section">{trData(locale, "Durvju kalkulators")}</h2>
           <p className="mt-4 text-[15px] leading-[1.7] text-ink">
-            Atzīmē vēlamos pamatparametrus — piedāvāsim sērijas, kas atbilst tieši Tavam pieprasījumam. Cenas ir
-            mazumtirdzniecības cenas, kas spēkā no 01.08.2024.
+            {trData(
+              locale,
+              "Atzīmē vēlamos pamatparametrus — piedāvāsim sērijas, kas atbilst tieši Tavam pieprasījumam. Cenas ir mazumtirdzniecības cenas, kas spēkā no 01.08.2024."
+            )}
           </p>
         </div>
 
         <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">Durvju pielietojums</h3>
+            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Durvju pielietojums")}</h3>
             <div className="space-y-2">
               {basePurposes.map((p) => (
                 <label key={p.id} className="flex items-center gap-2 text-[14px] text-ink">
@@ -458,14 +464,14 @@ export default function Manufacturer2Calculator() {
                     checked={filterPurpose.has(p.id)}
                     onChange={() => setFilterPurpose((s) => toggleInSet(s, p.id))}
                   />
-                  {p.label}
+                  {trData(locale, p.label)}
                 </label>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">Vēlamais izmērs</h3>
+            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Vēlamais izmērs")}</h3>
             <div className="space-y-2">
               {baseSizes.map((s) => {
                 const value = s.w ? String(s.w) : "custom";
@@ -476,7 +482,7 @@ export default function Manufacturer2Calculator() {
                       checked={filterSize.has(value)}
                       onChange={() => setFilterSize((set) => toggleInSet(set, value))}
                     />
-                    {s.label}
+                    {trData(locale, s.label)}
                   </label>
                 );
               })}
@@ -484,7 +490,7 @@ export default function Manufacturer2Calculator() {
           </div>
 
           <div>
-            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">Vēršanās virziens</h3>
+            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Vēršanās virziens")}</h3>
             <div className="space-y-2">
               {openingDirections.map((d) => (
                 <label key={d.id} className="flex items-center gap-2 text-[14px] text-ink">
@@ -493,14 +499,14 @@ export default function Manufacturer2Calculator() {
                     checked={filterDirection.has(d.id)}
                     onChange={() => setFilterDirection((s) => toggleInSet(s, d.id))}
                   />
-                  {d.label}
+                  {trData(locale, d.label)}
                 </label>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">Vēršanās puse</h3>
+            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Vēršanās puse")}</h3>
             <div className="space-y-2">
               {openingSides.map((d) => (
                 <label key={d.id} className="flex items-center gap-2 text-[14px] text-ink">
@@ -509,7 +515,7 @@ export default function Manufacturer2Calculator() {
                     checked={filterSide.has(d.id)}
                     onChange={() => setFilterSide((s) => toggleInSet(s, d.id))}
                   />
-                  {d.label}
+                  {trData(locale, d.label)}
                 </label>
               ))}
             </div>
@@ -518,14 +524,14 @@ export default function Manufacturer2Calculator() {
 
         <div className="mt-10 flex flex-wrap gap-3">
           <button type="button" onClick={resetFilters} className="border border-line px-6 py-3 text-[14px] font-medium text-ink hover:border-[color:var(--color-accent)]">
-            Notīrīt filtru
+            {trData(locale, "Notīrīt filtru")}
           </button>
           <button
             type="button"
             onClick={() => setStep("results")}
             className="bg-[color:var(--color-accent)] px-6 py-3 text-[14px] font-semibold text-white hover:opacity-90"
           >
-            Atlasīt durvis
+            {trData(locale, "Atlasīt durvis")}
           </button>
         </div>
       </div>
@@ -541,11 +547,13 @@ export default function Manufacturer2Calculator() {
           onClick={() => setStep("filter")}
           className="mb-6 inline-flex items-center gap-1 text-[13px] font-semibold text-muted hover:text-ink"
         >
-          <ChevronLeft size={16} /> Atpakaļ
+          <ChevronLeft size={16} /> {trData(locale, "Atpakaļ")}
         </button>
 
-        <h2 className="t-section">Šīs sērijas atbilst Tavam pieprasījumam</h2>
-        <p className="mt-2 text-[13px] text-muted">{matchingTiers.length} sērijas</p>
+        <h2 className="t-section">{trData(locale, "Šīs sērijas atbilst Tavam pieprasījumam")}</h2>
+        <p className="mt-2 text-[13px] text-muted">
+          {matchingTiers.length} {trData(locale, "sērijas")}
+        </p>
 
         <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {matchingTiers.map((tier) => {
@@ -558,18 +566,18 @@ export default function Manufacturer2Calculator() {
                 className="group flex flex-col border border-line bg-white text-left transition-colors hover:border-[color:var(--color-accent)]"
               >
                 <span className="relative block aspect-[4/3] overflow-hidden bg-[--color-soft]">
-                  <Image src={tier.image} alt={tier.name} fill unoptimized sizes="360px" className="object-contain" />
+                  <Image src={tier.image} alt={trData(locale, tier.name)} fill unoptimized sizes="360px" className="object-contain" />
                 </span>
                 <span className="flex flex-1 flex-col p-4">
-                  <span className="t-widget text-[color:var(--color-title)]">{tier.name}</span>
+                  <span className="t-widget text-[color:var(--color-title)]">{trData(locale, tier.name)}</span>
                   <span className="mt-1 text-[13px] text-muted">
-                    {tier.sizeNote || tier.sizes.map((s) => `${s.w}×${s.h}`).join(", ")}
+                    {tier.sizeNote ? trData(locale, tier.sizeNote) : tier.sizes.map((s) => `${s.w}×${s.h}`).join(", ")}
                   </span>
                   <span className="mt-1 text-[13px] text-muted">
-                    {tier.target === "house" ? "Durvis privātmājai" : "Durvis dzīvoklim"}
+                    {tier.target === "house" ? trData(locale, "Durvis privātmājai") : trData(locale, "Durvis dzīvoklim")}
                   </span>
                   <span className="mt-3 text-[15px] font-semibold text-[color:var(--color-accent)]">
-                    no <Money value={minPrice} />
+                    {trData(locale, "no")} <Money value={minPrice} />
                   </span>
                 </span>
               </button>
@@ -578,7 +586,9 @@ export default function Manufacturer2Calculator() {
         </div>
 
         {matchingTiers.length === 0 ? (
-          <p className="mt-8 text-[14px] text-muted">Neviena sērija neatbilst izvēlētajiem filtriem. Mēģini paplašināt kritērijus.</p>
+          <p className="mt-8 text-[14px] text-muted">
+            {trData(locale, "Neviena sērija neatbilst izvēlētajiem filtriem. Mēģini paplašināt kritērijus.")}
+          </p>
         ) : null}
       </div>
     );
@@ -596,13 +606,13 @@ export default function Manufacturer2Calculator() {
           onClick={() => setStep("results")}
           className="mb-6 inline-flex items-center gap-1 text-[13px] font-semibold text-muted hover:text-ink"
         >
-          <ChevronLeft size={16} /> Atpakaļ pie sērijām
+          <ChevronLeft size={16} /> {trData(locale, "Atpakaļ pie sērijām")}
         </button>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[380px_1fr]">
           <div>
             <span className="relative block aspect-[4/5] overflow-hidden border border-line bg-[--color-soft]">
-              <Image src={selectedTier.image} alt={selectedTier.name} fill unoptimized sizes="380px" className="object-contain" />
+              <Image src={selectedTier.image} alt={trData(locale, selectedTier.name)} fill unoptimized sizes="380px" className="object-contain" />
             </span>
 
             {config.outerDesign || config.innerDesign ? (
@@ -610,41 +620,59 @@ export default function Manufacturer2Calculator() {
                 {config.outerDesign ? (
                   <div>
                     <span className="relative block aspect-square overflow-hidden border border-line bg-white">
-                      <Image src={config.outerDesign.image} alt="Izvēlētais dizains — ārpuse" fill unoptimized sizes="190px" className="object-contain" />
+                      <Image
+                        src={config.outerDesign.image}
+                        alt={trData(locale, "Izvēlētais dizains — ārpuse")}
+                        fill
+                        unoptimized
+                        sizes="190px"
+                        className="object-contain"
+                      />
                     </span>
-                    <span className="mt-1.5 block text-center text-[12px] text-muted">Ārpuse — {config.outerDesign.label}</span>
+                    <span className="mt-1.5 block text-center text-[12px] text-muted">
+                      {trData(locale, "Ārpuse")} — {trData(locale, config.outerDesign.label)}
+                    </span>
                   </div>
                 ) : null}
                 {config.innerDesign ? (
                   <div>
                     <span className="relative block aspect-square overflow-hidden border border-line bg-white">
-                      <Image src={config.innerDesign.image} alt="Izvēlētais dizains — iekšpuse" fill unoptimized sizes="190px" className="object-contain" />
+                      <Image
+                        src={config.innerDesign.image}
+                        alt={trData(locale, "Izvēlētais dizains — iekšpuse")}
+                        fill
+                        unoptimized
+                        sizes="190px"
+                        className="object-contain"
+                      />
                     </span>
-                    <span className="mt-1.5 block text-center text-[12px] text-muted">Iekšpuse — {config.innerDesign.label}</span>
+                    <span className="mt-1.5 block text-center text-[12px] text-muted">
+                      {trData(locale, "Iekšpuse")} — {trData(locale, config.innerDesign.label)}
+                    </span>
                   </div>
                 ) : null}
               </div>
             ) : null}
 
             <div className="mt-6 border border-line bg-white p-5">
-              <h2 className="t-section !text-[24px]">{selectedTier.name}</h2>
-              <p className="mt-3 text-[14px] leading-[1.7] text-ink">{selectedTier.intro}</p>
+              <h2 className="t-section !text-[24px]">{trData(locale, selectedTier.name)}</h2>
+              <p className="mt-3 text-[14px] leading-[1.7] text-ink">{trData(locale, selectedTier.intro)}</p>
               <p className="mt-3 text-[13px] text-muted">
-                <strong className="text-ink">Garantija:</strong> {selectedTier.warranty}
+                <strong className="text-ink">{trData(locale, "Garantija")}:</strong> {trData(locale, selectedTier.warranty)}
               </p>
               <p className="mt-1 text-[13px] text-muted">
-                <strong className="text-ink">Standarta izmēri:</strong>{" "}
+                <strong className="text-ink">{trData(locale, "Standarta izmēri")}:</strong>{" "}
                 {selectedTier.sizes.length
                   ? selectedTier.sizes.map((s) => `${s.w}×${s.h} mm`).join(", ")
-                  : selectedTier.sizeNote}
+                  : trData(locale, selectedTier.sizeNote)}
               </p>
 
               {selectedTier.constructionSpec ? (
                 <div className="mt-4">
-                  <h5 className="text-[13px] font-semibold text-ink">Konstrukcija</h5>
+                  <h5 className="text-[13px] font-semibold text-ink">{trData(locale, "Konstrukcija")}</h5>
                   <ul className="mt-1.5 space-y-1.5 border-l-2 border-line pl-4 text-[13px] leading-[1.6] text-muted">
                     {selectedTier.constructionSpec.map((h) => (
-                      <li key={h}>{h}</li>
+                      <li key={h}>{trData(locale, h)}</li>
                     ))}
                   </ul>
                 </div>
@@ -652,10 +680,10 @@ export default function Manufacturer2Calculator() {
 
               {selectedTier.finishSpec ? (
                 <div className="mt-4">
-                  <h5 className="text-[13px] font-semibold text-ink">Apdare un izolācija</h5>
+                  <h5 className="text-[13px] font-semibold text-ink">{trData(locale, "Apdare un izolācija")}</h5>
                   <ul className="mt-1.5 space-y-1.5 border-l-2 border-line pl-4 text-[13px] leading-[1.6] text-muted">
                     {selectedTier.finishSpec.map((h) => (
-                      <li key={h}>{h}</li>
+                      <li key={h}>{trData(locale, h)}</li>
                     ))}
                   </ul>
                 </div>
@@ -663,10 +691,10 @@ export default function Manufacturer2Calculator() {
 
               {selectedTier.hardwareSpec ? (
                 <div className="mt-4">
-                  <h5 className="text-[13px] font-semibold text-ink">Slēdzenes un furnitūra</h5>
+                  <h5 className="text-[13px] font-semibold text-ink">{trData(locale, "Slēdzenes un furnitūra")}</h5>
                   <ul className="mt-1.5 space-y-1.5 border-l-2 border-line pl-4 text-[13px] leading-[1.6] text-muted">
                     {selectedTier.hardwareSpec.map((h) => (
-                      <li key={h}>{h}</li>
+                      <li key={h}>{trData(locale, h)}</li>
                     ))}
                   </ul>
                 </div>
@@ -677,7 +705,7 @@ export default function Manufacturer2Calculator() {
           <div className="space-y-8">
             {/* Size */}
             <div className="border border-line bg-white p-4">
-              <h4 className="t-widget mb-3 text-[color:var(--color-title)]">Izmērs</h4>
+              <h4 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Izmērs")}</h4>
               {selectedTier.sizes.length ? (
                 <div className="flex flex-wrap items-center gap-2">
                   {selectedTier.sizes.map((s) => (
@@ -704,7 +732,7 @@ export default function Manufacturer2Calculator() {
                           : "border-line text-ink hover:border-[color:var(--color-accent)]"
                       }`}
                     >
-                      Individuāls izmērs — {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m²
+                      {trData(locale, "Individuāls izmērs")} — {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m²
                     </button>
                   ) : null}
                 </div>
@@ -718,19 +746,19 @@ export default function Manufacturer2Calculator() {
                       : "border-line text-ink hover:border-[color:var(--color-accent)]"
                   }`}
                 >
-                  Individuāls izmērs — {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m²
+                  {trData(locale, "Individuāls izmērs")} — {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m²
                 </button>
               ) : (
-                <p className="text-[13px] text-muted">{selectedTier.sizeNote}</p>
+                <p className="text-[13px] text-muted">{trData(locale, selectedTier.sizeNote)}</p>
               )}
               {selectedTier.sizes.length && selectedTier.sizeNote ? (
-                <p className="mt-2 text-[12px] text-muted">{selectedTier.sizeNote}</p>
+                <p className="mt-2 text-[12px] text-muted">{trData(locale, selectedTier.sizeNote)}</p>
               ) : null}
 
               {selectedTier.customSizeSupported && config.sizeMode === "custom" ? (
                 <div className="mt-4 flex flex-wrap items-end gap-4 border-t border-line pt-4">
                   <label className="text-[13px] text-ink">
-                    Platums, mm
+                    {trData(locale, "Platums, mm")}
                     <input
                       type="number"
                       min={1}
@@ -741,7 +769,7 @@ export default function Manufacturer2Calculator() {
                     />
                   </label>
                   <label className="text-[13px] text-ink">
-                    Augstums, mm
+                    {trData(locale, "Augstums, mm")}
                     <input
                       type="number"
                       min={1}
@@ -766,7 +794,7 @@ export default function Manufacturer2Calculator() {
             {/* Opening direction / side */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="border border-line bg-white p-4">
-                <h4 className="t-widget mb-3 text-[color:var(--color-title)]">Vēršanās virziens</h4>
+                <h4 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Vēršanās virziens")}</h4>
                 <div className="flex flex-wrap gap-2">
                   {openingDirections
                     .filter((d) => (d.id === "outside" ? selectedTier.canOpenOutside : selectedTier.canOpenInside))
@@ -781,13 +809,13 @@ export default function Manufacturer2Calculator() {
                             : "border-line text-ink hover:border-[color:var(--color-accent)]"
                         }`}
                       >
-                        {d.label}
+                        {trData(locale, d.label)}
                       </button>
                     ))}
                 </div>
               </div>
               <div className="border border-line bg-white p-4">
-                <h4 className="t-widget mb-3 text-[color:var(--color-title)]">Vēršanās puse</h4>
+                <h4 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Vēršanās puse")}</h4>
                 <div className="flex flex-wrap gap-2">
                   {openingSides.map((d) => (
                     <button
@@ -800,7 +828,7 @@ export default function Manufacturer2Calculator() {
                           : "border-line text-ink hover:border-[color:var(--color-accent)]"
                       }`}
                     >
-                      {d.label}
+                      {trData(locale, d.label)}
                     </button>
                   ))}
                 </div>
@@ -810,8 +838,8 @@ export default function Manufacturer2Calculator() {
             {/* Locks — multiple upgrades can be combined, same as the source calculator */}
             {!selectedTier.smartLock ? (
               <CollapsibleSection
-                title="Papildu opcija maiņai — slēdzenes un cilindri"
-                subtitle="Var atzīmēt vairākas — cenas summējas ar bāzes komplektāciju."
+                title={trData(locale, "Papildu opcija maiņai — slēdzenes un cilindri")}
+                subtitle={trData(locale, "Var atzīmēt vairākas — cenas summējas ar bāzes komplektāciju.")}
               >
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
                   {lockSet.map((lock) => {
@@ -834,12 +862,12 @@ export default function Manufacturer2Calculator() {
                         </span>
                         {lock.image ? (
                           <span className="relative mb-2 block aspect-square w-full overflow-hidden bg-[--color-soft]">
-                            <Image src={lock.image} alt={lock.name} fill unoptimized sizes="120px" className="object-contain" />
+                            <Image src={lock.image} alt={trData(locale, lock.name)} fill unoptimized sizes="120px" className="object-contain" />
                           </span>
                         ) : null}
-                        <span className="block font-medium text-ink">{lock.name}</span>
+                        <span className="block font-medium text-ink">{trData(locale, lock.name)}</span>
                         {isIncluded ? (
-                          <span className="font-semibold text-green-700">Jau iekļauts standartā</span>
+                          <span className="font-semibold text-green-700">{trData(locale, "Jau iekļauts standartā")}</span>
                         ) : (
                           <span className="text-[color:var(--color-accent)]">
                             +<Money value={lock.price} />
@@ -852,12 +880,12 @@ export default function Manufacturer2Calculator() {
               </CollapsibleSection>
             ) : (
               <div className="border border-line bg-white p-4 text-[13px] text-muted">
-                Šai sērijai ir iekļauta viedā slēdzene — atsevišķa cilindra jaunināšana nav nepieciešama.
+                {trData(locale, "Šai sērijai ir iekļauta viedā slēdzene — atsevišķa cilindra jaunināšana nav nepieciešama.")}
               </div>
             )}
 
             {/* Hardware colour */}
-            <CollapsibleSection title="Furnitūras krāsa">
+            <CollapsibleSection title={trData(locale, "Furnitūras krāsa")}>
               <div className="flex flex-wrap gap-2">
                 {furnitureOptions.map((f) => (
                   <button
@@ -870,58 +898,62 @@ export default function Manufacturer2Calculator() {
                         : "border-line text-ink hover:border-[color:var(--color-accent)]"
                     }`}
                   >
-                    {f.name}
+                    {trData(locale, f.name)}
                   </button>
                 ))}
               </div>
             </CollapsibleSection>
 
             {/* Leaf design: outer + inner */}
-            <CollapsibleSection title="Durvju vērtnes dizains">
+            <CollapsibleSection title={trData(locale, "Durvju vērtnes dizains")}>
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <DesignPicker
-                  label="Zīmējums — ārpuse"
+                  label={trData(locale, "Zīmējums — ārpuse")}
                   groups={dizainsSection.groups}
                   seriesTitle={config.outerSeriesTitle}
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, outerSeriesTitle: title }))}
                   designImage={config.outerDesign?.image}
                   onDesignChange={(item) => setConfig((c) => ({ ...c, outerDesign: item }))}
+                  locale={locale}
                 />
                 <DesignPicker
-                  label="Zīmējums — iekšpuse"
+                  label={trData(locale, "Zīmējums — iekšpuse")}
                   groups={dizainsSection.groups}
                   seriesTitle={config.innerSeriesTitle}
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, innerSeriesTitle: title }))}
                   designImage={config.innerDesign?.image}
                   onDesignChange={(item) => setConfig((c) => ({ ...c, innerDesign: item }))}
+                  locale={locale}
                 />
               </div>
             </CollapsibleSection>
 
             {/* Film colour: outer + inner */}
-            <CollapsibleSection title="Pārklājuma plēves krāsa">
+            <CollapsibleSection title={trData(locale, "Pārklājuma plēves krāsa")}>
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <FilmPicker
-                  label="Plēve — ārpuse"
+                  label={trData(locale, "Plēve — ārpuse")}
                   groups={filmGroupsForTier}
                   groupTitle={config.outerFilmGroupTitle}
                   onGroupChange={(title) => setConfig((c) => ({ ...c, outerFilmGroupTitle: title }))}
                   filmImage={config.outerFilm.image}
                   onFilmChange={(item) => setConfig((c) => ({ ...c, outerFilm: item }))}
+                  locale={locale}
                 />
                 <FilmPicker
-                  label="Plēve — iekšpuse"
+                  label={trData(locale, "Plēve — iekšpuse")}
                   groups={filmGroupsForTier}
                   groupTitle={config.innerFilmGroupTitle}
                   onGroupChange={(title) => setConfig((c) => ({ ...c, innerFilmGroupTitle: title }))}
                   filmImage={config.innerFilm.image}
                   onFilmChange={(item) => setConfig((c) => ({ ...c, innerFilm: item }))}
+                  locale={locale}
                 />
               </div>
             </CollapsibleSection>
 
             {/* Frame coating */}
-            <CollapsibleSection title="Kārbas pārklājums">
+            <CollapsibleSection title={trData(locale, "Kārbas pārklājums")}>
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <select
                   value={config.frameGroupTitle}
@@ -933,7 +965,7 @@ export default function Manufacturer2Calculator() {
                 >
                   {ralSection.groups.map((g) => (
                     <option key={g.title} value={g.title}>
-                      {g.title}
+                      {trData(locale, g.title)}
                     </option>
                   ))}
                 </select>
@@ -943,12 +975,13 @@ export default function Manufacturer2Calculator() {
                   items={ralSection.groups.find((g) => g.title === config.frameGroupTitle).items}
                   selected={config.frameSwatch.image}
                   onSelect={(item) => setConfig((c) => ({ ...c, frameSwatch: item }))}
+                  locale={locale}
                 />
               </div>
             </CollapsibleSection>
 
             {/* Peephole */}
-            <CollapsibleSection title="Skata acs">
+            <CollapsibleSection title={trData(locale, "Skata acs")}>
               <div className="flex flex-wrap gap-2">
                 {peepholeOptions.map((p) => (
                   <button
@@ -961,7 +994,7 @@ export default function Manufacturer2Calculator() {
                         : "border-line text-ink hover:border-[color:var(--color-accent)]"
                     }`}
                   >
-                    {p.name}
+                    {trData(locale, p.name)}
                     {p.price ? (
                       <>
                         {" "}
@@ -974,7 +1007,7 @@ export default function Manufacturer2Calculator() {
             </CollapsibleSection>
 
             {/* Additional options */}
-            <CollapsibleSection title="Papildu opcijas">
+            <CollapsibleSection title={trData(locale, "Papildu opcijas")}>
               <div className="space-y-2.5">
                 {additionalOptions.map((opt) => {
                   const isIncluded = (selectedTier.includedExtras || []).includes(opt.id);
@@ -989,10 +1022,10 @@ export default function Manufacturer2Calculator() {
                           disabled={isIncluded}
                           onChange={() => setConfig((c) => ({ ...c, extraOptions: toggleInSet(c.extraOptions, opt.id) }))}
                         />
-                        {opt.name}
+                        {trData(locale, opt.name)}
                       </span>
                       {isIncluded ? (
-                        <span className="whitespace-nowrap font-semibold text-green-700">Jau iekļauts standartā</span>
+                        <span className="whitespace-nowrap font-semibold text-green-700">{trData(locale, "Jau iekļauts standartā")}</span>
                       ) : (
                         <span className="whitespace-nowrap font-medium text-[color:var(--color-accent)]">
                           +<Money value={opt.price} />
@@ -1006,8 +1039,11 @@ export default function Manufacturer2Calculator() {
 
             {/* MDF izstrādājumi (aplodes) */}
             <CollapsibleSection
-              title="MDF izstrādājumi (aplodes)"
-              subtitle="Aplodes un MDF paneļu komplekti — cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja)."
+              title={trData(locale, "MDF izstrādājumi (aplodes)")}
+              subtitle={trData(
+                locale,
+                "Aplodes un MDF paneļu komplekti — cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja)."
+              )}
             >
               <div className="space-y-2.5">
                 {casingOptions.map((opt) => (
@@ -1019,7 +1055,7 @@ export default function Manufacturer2Calculator() {
                         checked={config.extraOptions.has(opt.id)}
                         onChange={() => setConfig((c) => ({ ...c, extraOptions: toggleInSet(c.extraOptions, opt.id) }))}
                       />
-                      {opt.name}
+                      {trData(locale, opt.name)}
                     </span>
                     <span className="whitespace-nowrap font-medium text-[color:var(--color-accent)]">
                       +<Money value={opt.price} />
@@ -1032,18 +1068,18 @@ export default function Manufacturer2Calculator() {
             {/* Summary */}
             <div className="border-2 border-[color:var(--color-accent)] bg-[--color-soft] p-5">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <span className="t-widget text-[color:var(--color-title)]">Provizoriskā summa</span>
+                <span className="t-widget text-[color:var(--color-title)]">{trData(locale, "Provizoriskā summa")}</span>
                 <span className="text-[26px] font-semibold text-[color:var(--color-accent)]">
                   <Money value={total} />
                 </span>
               </div>
               <p className="mt-2 text-[12px] leading-[1.6] text-muted">
-                Cena aprēķināta pēc mazumtirdzniecības cenrāža (spēkā no 01.08.2024). Galīgā cena tiek apstiprināta
-                pasūtījuma noformēšanas brīdī. Skata acs: {activePeephole?.name}.
+                {trData(locale, "Cena aprēķināta pēc mazumtirdzniecības cenrāža (spēkā no 01.08.2024). Galīgā cena tiek apstiprināta pasūtījuma noformēšanas brīdī.")}{" "}
+                {trData(locale, "Skata acs")}: {trData(locale, activePeephole?.name)}.
                 {config.sizeMode === "custom" && selectedTier.customSizeSupported ? (
                   <>
                     {" "}
-                    Individuālā izmēra cena aprēķināta pēc formulas: platums (m) × augstums (m) ×{" "}
+                    {trData(locale, "Individuālā izmēra cena aprēķināta pēc formulas: platums (m) × augstums (m) ×")}{" "}
                     {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m².
                   </>
                 ) : null}
@@ -1052,7 +1088,7 @@ export default function Manufacturer2Calculator() {
                 href="/kontakti"
                 className="btn btn-accent mt-4 inline-block"
               >
-                Pieprasīt piedāvājumu
+                {trData(locale, "Pieprasīt piedāvājumu")}
               </a>
             </div>
           </div>
