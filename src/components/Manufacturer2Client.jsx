@@ -6,23 +6,26 @@ import { usePathname } from "next/navigation";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import PageTitle from "@/components/PageTitle";
 import RevealGrid from "@/components/anim/RevealGrid";
-import { finishSections } from "@/data/finishes";
+import Manufacturer2Calculator from "@/components/Manufacturer2Calculator";
+import { manufacturer2Sections } from "@/data/manufacturer2";
 import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
 
-/* Reference page for everything a door's look is assembled from: milling
-   patterns, decorative inserts and the three colour palettes. Each section is
-   a swatch grid; a swatch opens full size, since the texture is the point. */
+const CALCULATOR_KEY = "kalkulators";
+const tabs = [...manufacturer2Sections, { key: CALCULATOR_KEY, title: "Kalkulators" }];
 
-export default function FinishesClient() {
+/* Ražotājs-2 reference catalogue (Bulat, Chernihiv): door design series,
+   film colours and the powder-coating palette. Same swatch-grid + lightbox
+   pattern as FinishesClient, driven by manufacturer2Sections. */
+
+export default function Manufacturer2Client() {
   const locale = getLocaleFromPathname(usePathname());
-  /* The viewer holds the whole group, so one can page through a palette
-     without closing it: arrows, keyboard, or a swipe on touch. */
   const [lightbox, setLightbox] = useState(null);
   const [touchX, setTouchX] = useState(null);
-  const [activeSectionKey, setActiveSectionKey] = useState(finishSections[0]?.key);
+  const [activeSectionKey, setActiveSectionKey] = useState(manufacturer2Sections[0]?.key);
   const [activeGroupIndex, setActiveGroupIndex] = useState(0);
 
-  const section = finishSections.find((s) => s.key === activeSectionKey) || finishSections[0];
+  const isCalculator = activeSectionKey === CALCULATOR_KEY;
+  const section = manufacturer2Sections.find((s) => s.key === activeSectionKey) || manufacturer2Sections[0];
   const group = section?.groups[activeGroupIndex] || section?.groups[0];
 
   const selectSection = (key) => {
@@ -54,23 +57,22 @@ export default function FinishesClient() {
   return (
     <>
       <PageTitle
-        title={t(locale, "finishes.title")}
-        description={t(locale, "finishes.lead")}
-        image="https://images.unsplash.com/photo-1603673298820-40d77252226d?auto=format&fit=crop&w=2000&q=60"
+        title={t(locale, "pages.manufacturer2.title")}
+        description={t(locale, "pages.manufacturer2.description")}
+        image="https://images.unsplash.com/photo-1595514535215-9a5e5b3e5e0f?auto=format&fit=crop&w=2000&q=60"
       />
 
-      {/* Section tab bar — only the selected section renders below */}
       <nav className="sticky top-[60px] z-30 border-b border-line bg-white/95 backdrop-blur">
         <div className="container flex flex-wrap items-center gap-x-6 gap-y-2 py-3">
-          {finishSections.map((s) => (
+          {tabs.map((s) => (
             <button
               key={s.key}
               type="button"
               onClick={() => selectSection(s.key)}
-              aria-selected={s.key === section.key}
+              aria-selected={s.key === activeSectionKey}
               role="tab"
               className={`text-[13px] font-semibold uppercase tracking-wide transition-colors ${
-                s.key === section.key ? "text-[color:var(--color-accent)]" : "text-muted hover:text-ink"
+                s.key === activeSectionKey ? "text-[color:var(--color-accent)]" : "text-muted hover:text-ink"
               }`}
             >
               {trData(locale, s.title)}
@@ -79,20 +81,14 @@ export default function FinishesClient() {
         </div>
       </nav>
 
-      {section ? (
+      {isCalculator ? <Manufacturer2Calculator /> : null}
+
+      {!isCalculator && section ? (
         <section className="py-12 lg:py-16">
           <div className="container">
             <div className="max-w-[760px]">
               <h2 className="t-section">{trData(locale, section.title)}</h2>
               <p className="mt-4 text-[15px] leading-[1.7] text-ink">{trData(locale, section.lead)}</p>
-              {/* Some sections carry a build-up spec alongside the lead. */}
-              {section.notes ? (
-                <ol className="mt-4 space-y-2 border-l-2 border-line pl-4 text-[14px] leading-[1.7] text-muted">
-                  {section.notes.map((note) => (
-                    <li key={note}>{trData(locale, note)}</li>
-                  ))}
-                </ol>
-              ) : null}
               <p className="mt-2 text-[13px] text-muted">
                 {section.groups.reduce((a, g) => a + g.items.length, 0)} {t(locale, "finishes.itemsCount")}
               </p>
@@ -160,9 +156,11 @@ export default function FinishesClient() {
         </section>
       ) : null}
 
-      <section className="border-t border-line py-8">
-        <div className="container text-[13px] text-muted">{t(locale, "finishes.note")}</div>
-      </section>
+      {!isCalculator ? (
+        <section className="border-t border-line py-8">
+          <div className="container text-[13px] text-muted">{t(locale, "finishes.note")}</div>
+        </section>
+      ) : null}
 
       {current ? (
         <div
@@ -241,7 +239,6 @@ export default function FinishesClient() {
           </figure>
         </div>
       ) : null}
-
     </>
   );
 }

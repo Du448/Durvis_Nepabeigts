@@ -121,7 +121,7 @@ export default function Header() {
   const isHome = pathname === `/${locale}` || pathname === `/${locale}/` || pathname === "/";
 
   const [open, setOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
+  const [openGroups, setOpenGroups] = useState({});
   const [showSearch, setShowSearch] = useState(false);
   const [query, setQuery] = useState("");
   const [wishlistCount, setWishlistCount] = useState(0);
@@ -192,11 +192,16 @@ export default function Header() {
     { href: "/kategorija/sleptas-durvis", label: t(locale, "nav.hidden") },
   ];
 
+  const individualSolutionLinks = [
+    { href: "/apdare", label: t(locale, "nav.manufacturer1") },
+    { href: "/razotajs-2", label: t(locale, "nav.manufacturer2") },
+  ];
+
   /* The four door categories live under one PRODUKTI dropdown; the rest of the
      bar stays flat. */
   const nav = [
     { href: "/kategorija", label: t(locale, "nav.products"), children: productLinks },
-    { href: "/apdare", label: t(locale, "nav.finishes") },
+    { href: "/individualie-risinajumi", label: t(locale, "nav.individualSolutions"), children: individualSolutionLinks },
     { href: "/akcijas", label: t(locale, "nav.deals") },
     { href: "/par-mums", label: t(locale, "nav.about") },
     { href: "/kontakti", label: t(locale, "nav.contacts") },
@@ -254,7 +259,7 @@ export default function Header() {
                   light={light}
                   locale={locale}
                   pathnameWithoutLocale={pathnameWithoutLocale}
-                  active={pathnameWithoutLocale.startsWith(item.href)}
+                  active={item.children.some((child) => pathnameWithoutLocale.startsWith(child.href))}
                 />
               ) : (
                 <NavLink
@@ -401,18 +406,20 @@ export default function Header() {
                   <div key={item.href} className="border-b border-[color:var(--color-line)]">
                     <button
                       type="button"
-                      onClick={() => setProductsOpen((v) => !v)}
-                      aria-expanded={productsOpen}
+                      onClick={() =>
+                        setOpenGroups((v) => ({ ...v, [item.href]: !v[item.href] }))
+                      }
+                      aria-expanded={!!openGroups[item.href]}
                       className="t-el flex w-full items-center justify-between px-5 py-3.5 text-left text-[color:var(--color-title)]"
                     >
                       {item.label}
                       <ChevronDown
                         size={16}
                         strokeWidth={2}
-                        className={`transition-transform duration-200 ${productsOpen ? "rotate-180" : ""}`}
+                        className={`transition-transform duration-200 ${openGroups[item.href] ? "rotate-180" : ""}`}
                       />
                     </button>
-                    {productsOpen ? (
+                    {openGroups[item.href] ? (
                       <div className="bg-[--color-soft] pb-1">
                         {item.children.map((child) => (
                           <Link

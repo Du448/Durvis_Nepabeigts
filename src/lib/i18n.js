@@ -32,6 +32,9 @@ const messages = {
       hidden: "Paslėptos durys",
       deals: "Akcijos",
       finishes: "Apdailė",
+      individualSolutions: "Individualūs sprendimai",
+      manufacturer1: "Gamintojas - 1",
+      manufacturer2: "Gamintojas - 2",
       products: "Produktai",
       about: "Apie mus",
       contacts: "Kontaktai",
@@ -120,6 +123,11 @@ const messages = {
       no: "Ne",
     },
     pages: {
+      manufacturer2: {
+        title: "Gamintojas - 2",
+        description:
+          "Durų dizaino serijos, plėvelės spalvos ir milteliniai dažai iš Bulat gamyklos (Černihivas).",
+      },
       deals: {
         title: "Akcijos",
         description:
@@ -292,6 +300,9 @@ const messages = {
       hidden: "Slēptās durvis",
       deals: "Akcijas",
       finishes: "Apdare",
+      individualSolutions: "Individuālie risinājumi",
+      manufacturer1: "Ražotājs - 1",
+      manufacturer2: "Ražotājs - 2",
       products: "Produkti",
       about: "Par mums",
       contacts: "Kontakti",
@@ -380,6 +391,11 @@ const messages = {
       no: "Nav",
     },
     pages: {
+      manufacturer2: {
+        title: "Ražotājs - 2",
+        description:
+          "Durvju dizaina sērijas, plēves krāsas un pulverkrāsojums no Bulat ražotnes (Čerņihiva).",
+      },
       deals: {
         title: "Akcijas",
         description:
@@ -552,6 +568,9 @@ const messages = {
       hidden: "Hidden Doors",
       deals: "Deals",
       finishes: "Finishes",
+      individualSolutions: "Individual solutions",
+      manufacturer1: "Manufacturer - 1",
+      manufacturer2: "Manufacturer - 2",
       products: "Products",
       about: "About",
       contacts: "Contacts",
@@ -640,6 +659,11 @@ const messages = {
       no: "No",
     },
     pages: {
+      manufacturer2: {
+        title: "Manufacturer - 2",
+        description:
+          "Door design series, film colours and powder coating from the Bulat factory (Chernihiv).",
+      },
       deals: {
         title: "Deals",
         description:
