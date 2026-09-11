@@ -57,7 +57,13 @@ function Money({ value }) {
 // never pushes its image out of line with the rest of the row. Clicking the
 // image opens a full-size preview; picking a swatch is a separate checkbox
 // so the two actions (look closer vs. choose) don't collide on one click.
-function SwatchGrid({ items, selected, onSelect, columns = "grid-cols-[repeat(auto-fill,minmax(84px,1fr))]" }) {
+function SwatchGrid({
+  items,
+  selected,
+  onSelect,
+  allowDeselect = false,
+  columns = "grid-cols-[repeat(auto-fill,minmax(84px,1fr))]",
+}) {
   const [zoomIndex, setZoomIndex] = useState(null);
   const [touchX, setTouchX] = useState(null);
   const zoomItem = zoomIndex !== null ? items[zoomIndex] : null;
@@ -116,7 +122,7 @@ function SwatchGrid({ items, selected, onSelect, columns = "grid-cols-[repeat(au
                 </button>
                 <button
                   type="button"
-                  onClick={() => onSelect(item)}
+                  onClick={() => onSelect(isActive && allowDeselect ? null : item)}
                   aria-pressed={isActive}
                   aria-label={`${item.label} — atzīmēt kā izvēlēto`}
                   className={`absolute right-1.5 top-1.5 flex h-5 w-5 items-center justify-center border-2 ${
@@ -219,11 +225,7 @@ function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage,
         <h4 className="t-widget text-[color:var(--color-title)]">{label}</h4>
         <select
           value={group.title}
-          onChange={(e) => {
-            const g = groups.find((x) => x.title === e.target.value);
-            onSeriesChange(e.target.value);
-            onDesignChange(g.items[0]);
-          }}
+          onChange={(e) => onSeriesChange(e.target.value)}
           disabled={!!query}
           className="border border-line bg-white px-3 py-1.5 text-[13px] disabled:opacity-50"
         >
@@ -243,7 +245,7 @@ function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage,
       />
       <div className="mt-4">
         {items.length ? (
-          <SwatchGrid items={items} selected={designImage} onSelect={onDesignChange} />
+          <SwatchGrid items={items} selected={designImage} onSelect={onDesignChange} allowDeselect />
         ) : (
           <p className="text-[13px] text-muted">Nekas netika atrasts.</p>
         )}
@@ -371,7 +373,6 @@ export default function Manufacturer2Calculator() {
 
   const startConfiguring = (tier) => {
     const defaultFilm = filmGroupsForTierFor(tier).groups[0].items[0];
-    const defaultDesign = dizainsSection.groups[0].items[0];
     const defaultRalGroup = ralSection.groups[0];
     const included = tier.includedExtras || [];
     const lockSetIds = new Set((lockSets[tier.lockSet] || []).map((l) => l.id));
@@ -387,9 +388,9 @@ export default function Manufacturer2Calculator() {
       lockIds: new Set(included.filter((id) => lockSetIds.has(id))),
       furnitureId: "black-matte",
       outerSeriesTitle: dizainsSection.groups[0].title,
-      outerDesign: defaultDesign,
+      outerDesign: null,
       innerSeriesTitle: dizainsSection.groups[0].title,
-      innerDesign: defaultDesign,
+      innerDesign: null,
       outerFilmGroupTitle: filmGroupsForTierFor(tier).groups[0].title,
       outerFilm: defaultFilm,
       innerFilmGroupTitle: filmGroupsForTierFor(tier).groups[0].title,
@@ -604,20 +605,26 @@ export default function Manufacturer2Calculator() {
               <Image src={selectedTier.image} alt={selectedTier.name} fill unoptimized sizes="380px" className="object-contain" />
             </span>
 
-            <div className="mt-3 grid grid-cols-2 gap-3">
-              <div>
-                <span className="relative block aspect-square overflow-hidden border border-line bg-white">
-                  <Image src={config.outerDesign.image} alt="Izvēlētais dizains — ārpuse" fill unoptimized sizes="190px" className="object-contain" />
-                </span>
-                <span className="mt-1.5 block text-center text-[12px] text-muted">Ārpuse — {config.outerDesign.label}</span>
+            {config.outerDesign || config.innerDesign ? (
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                {config.outerDesign ? (
+                  <div>
+                    <span className="relative block aspect-square overflow-hidden border border-line bg-white">
+                      <Image src={config.outerDesign.image} alt="Izvēlētais dizains — ārpuse" fill unoptimized sizes="190px" className="object-contain" />
+                    </span>
+                    <span className="mt-1.5 block text-center text-[12px] text-muted">Ārpuse — {config.outerDesign.label}</span>
+                  </div>
+                ) : null}
+                {config.innerDesign ? (
+                  <div>
+                    <span className="relative block aspect-square overflow-hidden border border-line bg-white">
+                      <Image src={config.innerDesign.image} alt="Izvēlētais dizains — iekšpuse" fill unoptimized sizes="190px" className="object-contain" />
+                    </span>
+                    <span className="mt-1.5 block text-center text-[12px] text-muted">Iekšpuse — {config.innerDesign.label}</span>
+                  </div>
+                ) : null}
               </div>
-              <div>
-                <span className="relative block aspect-square overflow-hidden border border-line bg-white">
-                  <Image src={config.innerDesign.image} alt="Izvēlētais dizains — iekšpuse" fill unoptimized sizes="190px" className="object-contain" />
-                </span>
-                <span className="mt-1.5 block text-center text-[12px] text-muted">Iekšpuse — {config.innerDesign.label}</span>
-              </div>
-            </div>
+            ) : null}
 
             <div className="mt-6 border border-line bg-white p-5">
               <h2 className="t-section !text-[24px]">{selectedTier.name}</h2>
@@ -877,7 +884,7 @@ export default function Manufacturer2Calculator() {
                   groups={dizainsSection.groups}
                   seriesTitle={config.outerSeriesTitle}
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, outerSeriesTitle: title }))}
-                  designImage={config.outerDesign.image}
+                  designImage={config.outerDesign?.image}
                   onDesignChange={(item) => setConfig((c) => ({ ...c, outerDesign: item }))}
                 />
                 <DesignPicker
@@ -885,7 +892,7 @@ export default function Manufacturer2Calculator() {
                   groups={dizainsSection.groups}
                   seriesTitle={config.innerSeriesTitle}
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, innerSeriesTitle: title }))}
-                  designImage={config.innerDesign.image}
+                  designImage={config.innerDesign?.image}
                   onDesignChange={(item) => setConfig((c) => ({ ...c, innerDesign: item }))}
                 />
               </div>
