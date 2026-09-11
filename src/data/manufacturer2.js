@@ -10,7 +10,7 @@ const B0909 = "https://www.bulat-doors.com.ua/wp-content/uploads/2023/09/";
 
 function series(prefix, entries) {
   return entries.map(([label, file, base]) => ({
-    label: `Modelis ${label}`,
+    label,
     image: `${base || prefix}${file}`,
   }));
 }

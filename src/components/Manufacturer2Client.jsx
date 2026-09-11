@@ -143,7 +143,7 @@ export default function Manufacturer2Client() {
                           unoptimized
                           loading="lazy"
                           sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
-                          className="object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+                          className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
                         />
                       </span>
                       <span className="mt-2 block text-[13px] leading-snug text-ink">{trData(locale, item.label)}</span>
