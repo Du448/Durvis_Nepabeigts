@@ -23,6 +23,7 @@ export const manufacturer2Sections = [
     groups: [
       {
         title: "100. sērija",
+        included: true,
         items: series(B100, [
           ["105", "model-105-1.jpg"], ["111", "model-111-2.jpg"], ["112", "model-112-1-1.jpg"],
           ["117", "model-117-1-1.jpg"], ["122", "model-122-1-1.jpg"], ["131", "model-131-1-1.jpg"],
@@ -46,6 +47,7 @@ export const manufacturer2Sections = [
       },
       {
         title: "200. sērija",
+        included: true,
         items: series(B100, [
           ["201", "model-201-2.jpg"], ["204", "204-foto.jpg"], ["215", "model-215-3.jpg"],
           ["216", "model-216-1.jpg"], ["218", "model-218-1.jpg"], ["219", "219.jpg"],
@@ -69,6 +71,7 @@ export const manufacturer2Sections = [
       },
       {
         title: "400. sērija",
+        surchargeOptionId: "series-400-inlay",
         items: series(B100, [
           ["412", "model-412-2.jpg"], ["418", "model-418-2.jpg"], ["420", "model-420-2.jpg"],
           ["423", "model-423-2.jpg"], ["424", "model-424-1.jpg"], ["425", "model-425-2.jpg"],
@@ -79,6 +82,7 @@ export const manufacturer2Sections = [
       },
       {
         title: "500. sērija",
+        surchargeOptionId: "series-500-molding",
         items: series(B100, [
           ["508", "model-508-2.jpg"], ["513", "model-513-1.jpg"], ["514", "model-514-1-1.jpg"],
           ["515", "model-515-1.jpg"], ["516", "model-516-1.jpg"], ["517", "model-517-2.jpg"],
@@ -112,6 +116,7 @@ export const manufacturer2Sections = [
       },
       {
         title: "600. sērija",
+        surchargeOptionId: "series-600-mirror",
         items: series(B100, [
           ["604 tonēts", "model-604-tonovane.jpg"], ["605", "model-605-1.jpg"],
           ["606", "model-606-2.jpg"], ["607", "model-607-1.jpg"],
@@ -120,6 +125,7 @@ export const manufacturer2Sections = [
       },
       {
         title: "800. sērija",
+        surchargeOptionId: "series-800-3d",
         items: series(B100, [
           ["801", "model-801-1.jpg"], ["802", "802.jpg"], ["803", "model-803-2.jpg"],
           ["805", "model-805-2.jpg"], ["806", "model-806-1.jpg"], ["808", "model-808-2.jpg"],
@@ -127,6 +133,7 @@ export const manufacturer2Sections = [
       },
       {
         title: "900. sērija",
+        surchargeOptionId: "series-900-glass",
         items: series(B100, [
           ["901", "model-901-3.jpg"], ["902", "model-902-2.jpg"], ["903", "model-903-1.jpg"],
           ["905", "model-905-1.jpg"], ["906", "model-906-1.jpg"], ["907", "model-907-1.jpg"],

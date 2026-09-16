@@ -27,6 +27,153 @@ import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
    Prices are still the manufacturer's own reference figures (see data file);
    the summary is deliberately framed as a request, not a checkout total. */
 
+// These are shown as a checkbox directly under the matching series in the
+// leaf-design picker instead, so they're hidden from the general options list.
+const SERIES_DESIGN_SURCHARGE_IDS = new Set([
+  "series-400-inlay",
+  "series-500-molding",
+  "series-600-mirror",
+  "model-607-tinted-mirror",
+  "series-800-3d",
+  "series-900-glass",
+]);
+
+function TierGallery({ images, alt, locale }) {
+  const [index, setIndex] = useState(0);
+  const [zoomOpen, setZoomOpen] = useState(false);
+  const [touchX, setTouchX] = useState(null);
+  const gallery = images && images.length ? images : [];
+  const step = (delta) => setIndex((i) => ((i + delta) % gallery.length + gallery.length) % gallery.length);
+
+  useEffect(() => {
+    if (!zoomOpen) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setZoomOpen(false);
+      else if (e.key === "ArrowRight") step(1);
+      else if (e.key === "ArrowLeft") step(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomOpen, gallery.length]);
+
+  if (!gallery.length) return null;
+  return (
+    <div>
+      <div className="relative">
+        <button
+          type="button"
+          onClick={() => setZoomOpen(true)}
+          aria-label={`${alt} — ${trData(locale, "palielināt attēlu")}`}
+          className="block w-full cursor-zoom-in"
+        >
+          <span className="relative block aspect-[4/5] overflow-hidden border border-line bg-[--color-soft]">
+            <Image src={gallery[index]} alt={alt} fill unoptimized sizes="380px" className="object-contain" />
+          </span>
+        </button>
+        {gallery.length > 1 ? (
+          <>
+            <button
+              type="button"
+              onClick={() => step(-1)}
+              aria-label="Previous"
+              className="absolute left-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-ink shadow hover:bg-white"
+            >
+              <ChevronLeft size={18} />
+            </button>
+            <button
+              type="button"
+              onClick={() => step(1)}
+              aria-label="Next"
+              className="absolute right-2 top-1/2 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/80 text-ink shadow hover:bg-white"
+            >
+              <ChevronRight size={18} />
+            </button>
+          </>
+        ) : null}
+      </div>
+      {gallery.length > 1 ? (
+        <div className="mt-3 flex items-center gap-1.5">
+          {gallery.map((src, i) => (
+            <button
+              key={src + i}
+              type="button"
+              onClick={() => setIndex(i)}
+              aria-label={`${i + 1}/${gallery.length}`}
+              className={`h-1.5 flex-1 rounded-full transition-colors ${
+                i === index ? "bg-[color:var(--color-accent)]" : "bg-line hover:bg-muted"
+              }`}
+            />
+          ))}
+        </div>
+      ) : null}
+
+      {zoomOpen ? (
+        <div
+          className="fixed inset-0 z-[420] flex items-center justify-center bg-black/85 p-4"
+          onClick={() => setZoomOpen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={alt}
+          onTouchStart={(e) => setTouchX(e.touches[0].clientX)}
+          onTouchEnd={(e) => {
+            if (touchX == null) return;
+            const dx = e.changedTouches[0].clientX - touchX;
+            setTouchX(null);
+            if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setZoomOpen(false)}
+            aria-label={trData(locale, "Aizvērt")}
+            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25"
+          >
+            <X size={20} />
+          </button>
+
+          {gallery.length > 1 ? (
+            <>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  step(-1);
+                }}
+                aria-label={trData(locale, "Iepriekšējais")}
+                className="absolute left-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-[background-color,transform] duration-200 hover:bg-white/25 active:scale-95 sm:left-6 sm:h-14 sm:w-14"
+              >
+                <ChevronLeft size={26} strokeWidth={1.5} />
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  step(1);
+                }}
+                aria-label={trData(locale, "Nākamais")}
+                className="absolute right-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-[background-color,transform] duration-200 hover:bg-white/25 active:scale-95 sm:right-6 sm:h-14 sm:w-14"
+              >
+                <ChevronRight size={26} strokeWidth={1.5} />
+              </button>
+            </>
+          ) : null}
+
+          <figure className="max-h-full w-full max-w-[720px]" onClick={(e) => e.stopPropagation()}>
+            <span className="relative mx-auto block aspect-[4/5] max-h-[80vh] w-full">
+              <Image key={gallery[index]} src={gallery[index]} alt={alt} fill unoptimized sizes="720px" className="object-contain" />
+            </span>
+            {gallery.length > 1 ? (
+              <figcaption className="mt-3 text-center text-[14px] text-white/70">
+                {index + 1} / {gallery.length}
+              </figcaption>
+            ) : null}
+          </figure>
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
 function toggleInSet(set, value) {
   const next = new Set(set);
   if (next.has(value)) next.delete(value);
@@ -217,11 +364,24 @@ function SwatchGrid({
   );
 }
 
-function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage, onDesignChange, locale }) {
+function seriesOptionLabel(locale, g) {
+  const title = trData(locale, g.title);
+  if (g.included) return `${title} — ${trData(locale, "iekļauta")}`;
+  if (g.surchargeOptionId) {
+    const opt = additionalOptions.find((o) => o.id === g.surchargeOptionId);
+    return opt ? `${title} — +${opt.price} ${CURRENCY}` : title;
+  }
+  return `${title} — ${trData(locale, "cena pēc pieprasījuma")}`;
+}
+
+function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage, onDesignChange, extraOptions, includedExtras = [], onToggleExtra, locale }) {
   const [search, setSearch] = useState("");
   const group = groups.find((g) => g.title === seriesTitle) || groups[0];
   const query = search.trim().toLowerCase();
   const items = query ? groups.flatMap((g) => g.items).filter((item) => item.label.toLowerCase().includes(query)) : group.items;
+  const surchargeOpt = group.surchargeOptionId ? additionalOptions.find((o) => o.id === group.surchargeOptionId) : null;
+  const surchargeIncludedInTier = surchargeOpt ? includedExtras.includes(surchargeOpt.id) : false;
+  const surchargeChecked = surchargeOpt ? extraOptions?.has(surchargeOpt.id) : false;
   return (
     <div className="border border-line bg-white p-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -234,10 +394,35 @@ function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage,
         >
           {groups.map((g) => (
             <option key={g.title} value={g.title}>
-              {trData(locale, g.title)}
+              {seriesOptionLabel(locale, g)}
             </option>
           ))}
         </select>
+      </div>
+      <div className="mt-2">
+        {group.included ? (
+          <span className="inline-block border border-green-700 bg-green-50 px-2 py-0.5 text-[12px] font-semibold text-green-700">
+            {trData(locale, "Iekļauts pamatcenā")}
+          </span>
+        ) : surchargeOpt ? (
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="inline-block border border-[color:var(--color-accent)] bg-[color:var(--color-accent)]/10 px-2 py-0.5 text-[12px] font-semibold text-[color:var(--color-accent)]">
+              +<Money value={surchargeOpt.price} /> {trData(locale, "piemaksa (viena puse)")}
+            </span>
+            {surchargeIncludedInTier ? (
+              <span className="text-[12px] font-medium text-green-700">{trData(locale, "Jau iekļauts standartā")}</span>
+            ) : (
+              <label className="flex items-center gap-1.5 text-[12px] text-ink">
+                <input type="checkbox" checked={!!surchargeChecked} onChange={() => onToggleExtra?.(surchargeOpt.id)} />
+                {trData(locale, "Pievienot piemaksu pasūtījumam")}
+              </label>
+            )}
+          </div>
+        ) : (
+          <span className="inline-block border border-line bg-neutral-50 px-2 py-0.5 text-[12px] font-medium text-muted">
+            {trData(locale, "Cena pēc pieprasījuma")}
+          </span>
+        )}
       </div>
       <input
         type="search"
@@ -327,8 +512,6 @@ export default function Manufacturer2Calculator() {
 
   const [filterPurpose, setFilterPurpose] = useState(new Set());
   const [filterSize, setFilterSize] = useState(new Set());
-  const [filterDirection, setFilterDirection] = useState(new Set());
-  const [filterSide, setFilterSide] = useState(new Set());
 
   const [selectedTierId, setSelectedTierId] = useState(null);
 
@@ -350,19 +533,11 @@ export default function Manufacturer2Calculator() {
   const resetFilters = () => {
     setFilterPurpose(new Set());
     setFilterSize(new Set());
-    setFilterDirection(new Set());
-    setFilterSide(new Set());
   };
 
   const matchingTiers = useMemo(() => {
     return doorTiers.filter((tier) => {
       if (filterPurpose.size && !filterPurpose.has(tier.target)) return false;
-      if (filterDirection.size) {
-        const wantsOutside = filterDirection.has("outside");
-        const wantsInside = filterDirection.has("inside");
-        if (wantsOutside && !tier.canOpenOutside) return false;
-        if (wantsInside && !tier.canOpenInside) return false;
-      }
       if (filterSize.size) {
         const wantsCustom = filterSize.has("custom");
         const wantsFixed = [...filterSize].some((v) => v !== "custom");
@@ -373,7 +548,7 @@ export default function Manufacturer2Calculator() {
       }
       return true;
     });
-  }, [filterPurpose, filterDirection, filterSize]);
+  }, [filterPurpose, filterSize]);
 
   const startConfiguring = (tier) => {
     const defaultFilm = filmGroupsForTierFor(tier).groups[0].items[0];
@@ -453,7 +628,7 @@ export default function Manufacturer2Calculator() {
           </p>
         </div>
 
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
           <div>
             <h3 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Durvju pielietojums")}</h3>
             <div className="space-y-2">
@@ -489,37 +664,6 @@ export default function Manufacturer2Calculator() {
             </div>
           </div>
 
-          <div>
-            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Vēršanās virziens")}</h3>
-            <div className="space-y-2">
-              {openingDirections.map((d) => (
-                <label key={d.id} className="flex items-center gap-2 text-[14px] text-ink">
-                  <input
-                    type="checkbox"
-                    checked={filterDirection.has(d.id)}
-                    onChange={() => setFilterDirection((s) => toggleInSet(s, d.id))}
-                  />
-                  {trData(locale, d.label)}
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Vēršanās puse")}</h3>
-            <div className="space-y-2">
-              {openingSides.map((d) => (
-                <label key={d.id} className="flex items-center gap-2 text-[14px] text-ink">
-                  <input
-                    type="checkbox"
-                    checked={filterSide.has(d.id)}
-                    onChange={() => setFilterSide((s) => toggleInSet(s, d.id))}
-                  />
-                  {trData(locale, d.label)}
-                </label>
-              ))}
-            </div>
-          </div>
         </div>
 
         <div className="mt-10 flex flex-wrap gap-3">
@@ -555,7 +699,7 @@ export default function Manufacturer2Calculator() {
           {matchingTiers.length} {trData(locale, "sērijas")}
         </p>
 
-        <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {matchingTiers.map((tier) => {
             const minPrice = tier.sizes.length ? Math.min(...tier.sizes.map((s) => s.price)) : tier.basePrice;
             return (
@@ -563,21 +707,29 @@ export default function Manufacturer2Calculator() {
                 key={tier.id}
                 type="button"
                 onClick={() => startConfiguring(tier)}
-                className="group flex flex-col border border-line bg-white text-left transition-colors hover:border-[color:var(--color-accent)]"
+                className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-left shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[color:var(--color-accent)] hover:shadow-lg"
               >
-                <span className="relative block aspect-[4/3] overflow-hidden bg-[--color-soft]">
-                  <Image src={tier.image} alt={trData(locale, tier.name)} fill unoptimized sizes="360px" className="object-contain" />
+                <span className="relative block aspect-square overflow-hidden bg-[--color-soft] p-3">
+                  <Image
+                    src={tier.image}
+                    alt={trData(locale, tier.name)}
+                    fill
+                    unoptimized
+                    sizes="220px"
+                    className="object-contain p-2 transition-transform duration-300 ease-out group-hover:scale-[1.06]"
+                  />
+                  <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted shadow-sm backdrop-blur">
+                    {tier.target === "house" ? trData(locale, "Privātmājai") : trData(locale, "Dzīvoklim")}
+                  </span>
                 </span>
-                <span className="flex flex-1 flex-col p-4">
-                  <span className="t-widget text-[color:var(--color-title)]">{trData(locale, tier.name)}</span>
-                  <span className="mt-1 text-[13px] text-muted">
+                <span className="flex flex-1 flex-col gap-1 p-3">
+                  <span className="t-widget leading-tight text-[color:var(--color-title)]">{trData(locale, tier.name)}</span>
+                  <span className="text-[12px] leading-snug text-muted">
                     {tier.sizeNote ? trData(locale, tier.sizeNote) : tier.sizes.map((s) => `${s.w}×${s.h}`).join(", ")}
                   </span>
-                  <span className="mt-1 text-[13px] text-muted">
-                    {tier.target === "house" ? trData(locale, "Durvis privātmājai") : trData(locale, "Durvis dzīvoklim")}
-                  </span>
-                  <span className="mt-3 text-[15px] font-semibold text-[color:var(--color-accent)]">
-                    {trData(locale, "no")} <Money value={minPrice} />
+                  <span className="mt-1.5 inline-flex w-fit items-center gap-1 rounded-full bg-[color:var(--color-accent)]/10 px-2.5 py-1 text-[13px] font-semibold text-[color:var(--color-accent)] transition-colors group-hover:bg-[color:var(--color-accent)] group-hover:text-white">
+                    <span>{trData(locale, "no")}</span>
+                    <Money value={minPrice} />
                   </span>
                 </span>
               </button>
@@ -611,9 +763,12 @@ export default function Manufacturer2Calculator() {
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[380px_1fr]">
           <div>
-            <span className="relative block aspect-[4/5] overflow-hidden border border-line bg-[--color-soft]">
-              <Image src={selectedTier.image} alt={trData(locale, selectedTier.name)} fill unoptimized sizes="380px" className="object-contain" />
-            </span>
+            <TierGallery
+              key={selectedTier.id}
+              images={selectedTier.images || [selectedTier.image]}
+              alt={trData(locale, selectedTier.name)}
+              locale={locale}
+            />
 
             {config.outerDesign || config.innerDesign ? (
               <div className="mt-3 grid grid-cols-2 gap-3">
@@ -842,7 +997,12 @@ export default function Manufacturer2Calculator() {
                 subtitle={trData(locale, "Var atzīmēt vairākas — cenas summējas ar bāzes komplektāciju.")}
               >
                 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-                  {lockSet.map((lock) => {
+                  {[...lockSet]
+                    .sort((a, b) => {
+                      const included = selectedTier.includedExtras || [];
+                      return included.includes(b.id) - included.includes(a.id);
+                    })
+                    .map((lock) => {
                     const isIncluded = (selectedTier.includedExtras || []).includes(lock.id);
                     const isChecked = isIncluded || config.lockIds.has(lock.id);
                     return (
@@ -914,6 +1074,9 @@ export default function Manufacturer2Calculator() {
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, outerSeriesTitle: title }))}
                   designImage={config.outerDesign?.image}
                   onDesignChange={(item) => setConfig((c) => ({ ...c, outerDesign: item }))}
+                  extraOptions={config.extraOptions}
+                  includedExtras={selectedTier.includedExtras || []}
+                  onToggleExtra={(optId) => setConfig((c) => ({ ...c, extraOptions: toggleInSet(c.extraOptions, optId) }))}
                   locale={locale}
                 />
                 <DesignPicker
@@ -923,6 +1086,9 @@ export default function Manufacturer2Calculator() {
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, innerSeriesTitle: title }))}
                   designImage={config.innerDesign?.image}
                   onDesignChange={(item) => setConfig((c) => ({ ...c, innerDesign: item }))}
+                  extraOptions={config.extraOptions}
+                  includedExtras={selectedTier.includedExtras || []}
+                  onToggleExtra={(optId) => setConfig((c) => ({ ...c, extraOptions: toggleInSet(c.extraOptions, optId) }))}
                   locale={locale}
                 />
               </div>
@@ -1009,7 +1175,7 @@ export default function Manufacturer2Calculator() {
             {/* Additional options */}
             <CollapsibleSection title={trData(locale, "Papildu opcijas")}>
               <div className="space-y-2.5">
-                {additionalOptions.map((opt) => {
+                {additionalOptions.filter((opt) => !SERIES_DESIGN_SURCHARGE_IDS.has(opt.id)).map((opt) => {
                   const isIncluded = (selectedTier.includedExtras || []).includes(opt.id);
                   const isChecked = isIncluded || config.extraOptions.has(opt.id);
                   return (

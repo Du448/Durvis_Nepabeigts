@@ -8,7 +8,17 @@ import PageTitle from "@/components/PageTitle";
 import RevealGrid from "@/components/anim/RevealGrid";
 import Manufacturer2Calculator from "@/components/Manufacturer2Calculator";
 import { manufacturer2Sections } from "@/data/manufacturer2";
+import { additionalOptions } from "@/data/manufacturer2Calculator";
 import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
+
+function seriesBadge(locale, g) {
+  if (g.included) return { text: trData(locale, "Iekļauta pamatcenā"), tone: "included" };
+  if (g.surchargeOptionId) {
+    const opt = additionalOptions.find((o) => o.id === g.surchargeOptionId);
+    return opt ? { text: `+${opt.price} €`, tone: "surcharge" } : null;
+  }
+  return null;
+}
 
 const CALCULATOR_KEY = "kalkulators";
 const tabs = [...manufacturer2Sections, { key: CALCULATOR_KEY, title: "Kalkulators" }];
@@ -96,22 +106,41 @@ export default function Manufacturer2Client() {
 
             {section.groups.length > 1 ? (
               <div className="mt-8 flex flex-wrap items-center gap-2 border-b border-line pb-4">
-                {section.groups.map((g, gi) => (
-                  <button
-                    key={g.title || gi}
-                    type="button"
-                    onClick={() => setActiveGroupIndex(gi)}
-                    aria-selected={gi === activeGroupIndex}
-                    role="tab"
-                    className={`border px-4 py-2 text-[13px] font-medium transition-colors ${
-                      gi === activeGroupIndex
-                        ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)] text-white"
-                        : "border-line text-ink hover:border-[color:var(--color-accent)]"
-                    }`}
-                  >
-                    {trData(locale, g.title)}
-                  </button>
-                ))}
+                {section.groups.map((g, gi) => {
+                  const badge = seriesBadge(locale, g);
+                  const active = gi === activeGroupIndex;
+                  return (
+                    <button
+                      key={g.title || gi}
+                      type="button"
+                      onClick={() => setActiveGroupIndex(gi)}
+                      aria-selected={active}
+                      role="tab"
+                      className={`flex items-center gap-2 border px-4 py-2 text-[13px] font-medium transition-colors ${
+                        active
+                          ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)] text-white"
+                          : "border-line text-ink hover:border-[color:var(--color-accent)]"
+                      }`}
+                    >
+                      {trData(locale, g.title)}
+                      {badge ? (
+                        <span
+                          className={`rounded-sm px-1.5 py-0.5 text-[11px] font-semibold ${
+                            badge.tone === "included"
+                              ? active
+                                ? "bg-white/20 text-white"
+                                : "bg-green-50 text-green-700"
+                              : active
+                                ? "bg-white/20 text-white"
+                                : "bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)]"
+                          }`}
+                        >
+                          {badge.text}
+                        </span>
+                      ) : null}
+                    </button>
+                  );
+                })}
               </div>
             ) : null}
 
