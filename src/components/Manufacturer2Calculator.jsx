@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Check, ChevronDown, ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -12,6 +12,9 @@ import {
   openingSides,
   doorTiers,
   lockSets,
+  lockBrandOptions,
+  steelThicknessOptions,
+  glazingOptions,
   furnitureOptions,
   peepholeOptions,
   additionalOptions,
@@ -38,7 +41,20 @@ const SERIES_DESIGN_SURCHARGE_IDS = new Set([
   "series-900-glass",
 ]);
 
-function TierGallery({ images, alt, locale }) {
+// Stands in for a door photo the manufacturer hasn't shot yet (their own
+// calculator shows the same gap) — a plain "coming soon" notice instead of
+// pulling in their Ukrainian-language placeholder graphic.
+function PhotoPendingPlaceholder({ locale, className = "" }) {
+  return (
+    <span
+      className={`flex h-full w-full flex-col items-center justify-center gap-2 border-2 border-dashed border-line text-center ${className}`}
+    >
+      <span className="text-[13px] font-semibold uppercase tracking-wide text-muted">{trData(locale, "Drīzumā")}</span>
+    </span>
+  );
+}
+
+function TierGallery({ images, alt, locale, photoPending }) {
   const [index, setIndex] = useState(0);
   const [zoomOpen, setZoomOpen] = useState(false);
   const [touchX, setTouchX] = useState(null);
@@ -56,7 +72,14 @@ function TierGallery({ images, alt, locale }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [zoomOpen, gallery.length]);
 
-  if (!gallery.length) return null;
+  if (!gallery.length) {
+    if (!photoPending) return null;
+    return (
+      <span className="relative block aspect-[4/5] overflow-hidden bg-[--color-soft]">
+        <PhotoPendingPlaceholder locale={locale} />
+      </span>
+    );
+  }
   return (
     <div>
       <div className="relative">
@@ -174,11 +197,188 @@ function TierGallery({ images, alt, locale }) {
   );
 }
 
+// "kale" and "securemme" only match tiers whose lock is exclusively that
+// brand — a tier carrying both (e.g. Standarts, Garants) is a "mix" match
+// instead, never a match for either brand filtered on its own.
+function tierMatchesLockBrand(tier, brandId) {
+  const brands = tier.lockBrands || [];
+  const hasKale = brands.includes("kale");
+  const hasSecuremme = brands.includes("securemme");
+  if (brandId === "kale") return hasKale && !hasSecuremme;
+  if (brandId === "securemme") return hasSecuremme && !hasKale;
+  if (brandId === "mix") return hasKale && hasSecuremme;
+  return brands.includes(brandId);
+}
+
+function tierMinPrice(tier) {
+  return tier.sizes.length ? Math.min(...tier.sizes.map((s) => s.price)) : tier.basePrice;
+}
+
+const ALL_TIER_PRICES = doorTiers.map(tierMinPrice);
+const PRICE_BOUNDS = { min: Math.min(...ALL_TIER_PRICES), max: Math.max(...ALL_TIER_PRICES) };
+
+// Smallest opening the manufacturer will build a custom-size door for.
+const CUSTOM_SIZE_MIN = { w: 760, h: 1850 };
+
+// Mirrors baseSizes, mapping each entry to a dropdown option id — fixed
+// sizes use their width in mm, "Individuāls izmērs" uses "custom" and
+// matches tiers via `customSizeSupported` (see matchingTiers below).
+const sizeFilterOptions = baseSizes.map((s) => ({ id: s.w ? String(s.w) : "custom", label: s.label }));
+
 function toggleInSet(set, value) {
   const next = new Set(set);
   if (next.has(value)) next.delete(value);
   else next.add(value);
   return next;
+}
+
+// Closes an open dropdown filter on an outside click/tap or Escape.
+function useCloseOnOutside(open, onClose) {
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) onClose();
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open, onClose]);
+  return ref;
+}
+
+// One dropdown filter button (lock brand, steel thickness, glazing, opening
+// direction) — a closed trigger showing the label + active count, opening a
+// checkbox panel for a multi-select "OR within the group" filter.
+function FilterDropdown({ label, options, selected, onToggle, onClear, locale }) {
+  const [open, setOpen] = useState(false);
+  const ref = useCloseOnOutside(open, () => setOpen(false));
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className={`flex items-center gap-1.5 border px-3 py-2 text-[13px] font-medium transition-colors ${
+          selected.size
+            ? "border-[color:var(--color-accent)] text-[color:var(--color-accent)]"
+            : "border-line text-ink hover:border-[color:var(--color-accent)]"
+        }`}
+      >
+        {trData(locale, label)}
+        {selected.size ? (
+          <span className="flex h-4 min-w-[16px] items-center justify-center rounded-full bg-[color:var(--color-accent)] px-1 text-[10px] font-semibold text-white">
+            {selected.size}
+          </span>
+        ) : null}
+        <ChevronDown size={14} className={`transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+
+      {open ? (
+        <div className="absolute left-0 top-full z-20 mt-1 min-w-[220px] border border-line bg-white p-3 shadow-lg">
+          <div className="space-y-2">
+            {options.map((opt) => (
+              <label key={opt.id} className="flex items-center gap-2 text-[13px] text-ink">
+                <input type="checkbox" checked={selected.has(opt.id)} onChange={() => onToggle(opt.id)} />
+                {trData(locale, opt.label)}
+              </label>
+            ))}
+          </div>
+          {selected.size ? (
+            <button
+              type="button"
+              onClick={onClear}
+              className="mt-3 text-[12px] font-medium text-muted underline-offset-2 hover:text-ink hover:underline"
+            >
+              {trData(locale, "Notīrīt")}
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+// Dropdown filter for the min/max price range — same trigger shape as
+// FilterDropdown, but the panel holds the two range sliders instead of
+// checkboxes.
+function PriceRangeDropdown({ min, max, bounds, onChangeMin, onChangeMax, locale }) {
+  const [open, setOpen] = useState(false);
+  const ref = useCloseOnOutside(open, () => setOpen(false));
+  const active = min !== bounds.min || max !== bounds.max;
+  const span = Math.max(1, bounds.max - bounds.min);
+  const fillLeft = ((min - bounds.min) / span) * 100;
+  const fillRight = ((bounds.max - max) / span) * 100;
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className={`flex items-center gap-1.5 border px-3 py-2 text-[13px] font-medium transition-colors ${
+          active ? "border-[color:var(--color-accent)] text-[color:var(--color-accent)]" : "border-line text-ink hover:border-[color:var(--color-accent)]"
+        }`}
+      >
+        {trData(locale, "Cena")}
+        {active ? (
+          <span className="whitespace-nowrap text-[12px] font-medium">
+            <Money value={min} /> – <Money value={max} />
+          </span>
+        ) : null}
+        <ChevronDown size={14} className={`transition-transform ${open ? "rotate-180" : ""}`} />
+      </button>
+
+      {open ? (
+        <div className="absolute left-0 top-full z-20 mt-1 w-[260px] border border-line bg-white p-4 shadow-lg">
+          <span className="mb-3 block text-[13px] font-medium text-ink">
+            <Money value={min} /> – <Money value={max} />
+          </span>
+          <div className="range-dual">
+            <span className="range-dual-track" />
+            <span className="range-dual-fill" style={{ left: `${fillLeft}%`, right: `${fillRight}%` }} />
+            <input
+              type="range"
+              min={bounds.min}
+              max={bounds.max}
+              step={5}
+              value={min}
+              onChange={(e) => onChangeMin(Math.min(Number(e.target.value), max))}
+              aria-label={trData(locale, "Cena no")}
+            />
+            <input
+              type="range"
+              min={bounds.min}
+              max={bounds.max}
+              step={5}
+              value={max}
+              onChange={(e) => onChangeMax(Math.max(Number(e.target.value), min))}
+              aria-label={trData(locale, "Cena līdz")}
+            />
+          </div>
+          {active ? (
+            <button
+              type="button"
+              onClick={() => {
+                onChangeMin(bounds.min);
+                onChangeMax(bounds.max);
+              }}
+              className="mt-3 text-[12px] font-medium text-muted underline-offset-2 hover:text-ink hover:underline"
+            >
+              {trData(locale, "Notīrīt")}
+            </button>
+          ) : null}
+        </div>
+      ) : null}
+    </div>
+  );
 }
 
 // Individual (non-standard) size pricing: width(m) x height(m) x price-per-m2,
@@ -508,10 +708,16 @@ function CollapsibleSection({ title, subtitle, defaultOpen = false, children }) 
 
 export default function Manufacturer2Calculator() {
   const locale = getLocaleFromPathname(usePathname());
-  const [step, setStep] = useState("filter");
+  const [step, setStep] = useState("results");
 
   const [filterPurpose, setFilterPurpose] = useState(new Set());
   const [filterSize, setFilterSize] = useState(new Set());
+  const [filterLockBrand, setFilterLockBrand] = useState(new Set());
+  const [filterThickness, setFilterThickness] = useState(new Set());
+  const [filterGlazing, setFilterGlazing] = useState(new Set());
+  const [filterInsideOpeningOnly, setFilterInsideOpeningOnly] = useState(false);
+  const [filterPriceMin, setFilterPriceMin] = useState(PRICE_BOUNDS.min);
+  const [filterPriceMax, setFilterPriceMax] = useState(PRICE_BOUNDS.max);
 
   const [selectedTierId, setSelectedTierId] = useState(null);
 
@@ -533,6 +739,12 @@ export default function Manufacturer2Calculator() {
   const resetFilters = () => {
     setFilterPurpose(new Set());
     setFilterSize(new Set());
+    setFilterLockBrand(new Set());
+    setFilterThickness(new Set());
+    setFilterGlazing(new Set());
+    setFilterInsideOpeningOnly(false);
+    setFilterPriceMin(PRICE_BOUNDS.min);
+    setFilterPriceMax(PRICE_BOUNDS.max);
   };
 
   const matchingTiers = useMemo(() => {
@@ -546,9 +758,41 @@ export default function Manufacturer2Calculator() {
         if (!(hasFixedMatch || hasCustomMatch)) return false;
         if (wantsFixed && !hasFixedMatch && !hasCustomMatch) return false;
       }
+      if (filterLockBrand.size) {
+        if (![...filterLockBrand].some((b) => tierMatchesLockBrand(tier, b))) return false;
+      }
+      if (filterThickness.size && !filterThickness.has(tier.steelThickness)) return false;
+      if (filterGlazing.size) {
+        const wants = [...filterGlazing];
+        const matchesWith = wants.includes("with") && tier.hasGlazing;
+        const matchesWithout = wants.includes("without") && !tier.hasGlazing;
+        if (!matchesWith && !matchesWithout) return false;
+      }
+      if (filterInsideOpeningOnly && !tier.canOpenInside) return false;
+      const minPrice = tierMinPrice(tier);
+      if (minPrice < filterPriceMin || minPrice > filterPriceMax) return false;
       return true;
     });
-  }, [filterPurpose, filterSize]);
+  }, [
+    filterPurpose,
+    filterSize,
+    filterLockBrand,
+    filterThickness,
+    filterGlazing,
+    filterInsideOpeningOnly,
+    filterPriceMin,
+    filterPriceMax,
+  ]);
+
+  const anyFilterActive =
+    filterPurpose.size > 0 ||
+    filterSize.size > 0 ||
+    filterLockBrand.size > 0 ||
+    filterThickness.size > 0 ||
+    filterGlazing.size > 0 ||
+    filterInsideOpeningOnly ||
+    filterPriceMin !== PRICE_BOUNDS.min ||
+    filterPriceMax !== PRICE_BOUNDS.max;
 
   const startConfiguring = (tier) => {
     const defaultFilm = filmGroupsForTierFor(tier).groups[0].items[0];
@@ -614,90 +858,92 @@ export default function Manufacturer2Calculator() {
     return sum;
   }, [selectedTier, config]);
 
-  /* Step 1 — base filters */
-  if (step === "filter") {
-    return (
-      <div className="container py-12 lg:py-16">
-        <div className="max-w-[760px]">
-          <h2 className="t-section">{trData(locale, "Durvju kalkulators")}</h2>
-          <p className="mt-4 text-[15px] leading-[1.7] text-ink">
-            {trData(
-              locale,
-              "Atzīmē vēlamos pamatparametrus — piedāvāsim sērijas, kas atbilst tieši Tavam pieprasījumam. Cenas ir mazumtirdzniecības cenas, kas spēkā no 01.08.2024."
-            )}
-          </p>
-        </div>
-
-        <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-2">
-          <div>
-            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Durvju pielietojums")}</h3>
-            <div className="space-y-2">
-              {basePurposes.map((p) => (
-                <label key={p.id} className="flex items-center gap-2 text-[14px] text-ink">
-                  <input
-                    type="checkbox"
-                    checked={filterPurpose.has(p.id)}
-                    onChange={() => setFilterPurpose((s) => toggleInSet(s, p.id))}
-                  />
-                  {trData(locale, p.label)}
-                </label>
-              ))}
-            </div>
-          </div>
-
-          <div>
-            <h3 className="t-widget mb-3 text-[color:var(--color-title)]">{trData(locale, "Vēlamais izmērs")}</h3>
-            <div className="space-y-2">
-              {baseSizes.map((s) => {
-                const value = s.w ? String(s.w) : "custom";
-                return (
-                  <label key={value} className="flex items-center gap-2 text-[14px] text-ink">
-                    <input
-                      type="checkbox"
-                      checked={filterSize.has(value)}
-                      onChange={() => setFilterSize((set) => toggleInSet(set, value))}
-                    />
-                    {trData(locale, s.label)}
-                  </label>
-                );
-              })}
-            </div>
-          </div>
-
-        </div>
-
-        <div className="mt-10 flex flex-wrap gap-3">
-          <button type="button" onClick={resetFilters} className="border border-line px-6 py-3 text-[14px] font-medium text-ink hover:border-[color:var(--color-accent)]">
-            {trData(locale, "Notīrīt filtru")}
-          </button>
-          <button
-            type="button"
-            onClick={() => setStep("results")}
-            className="bg-[color:var(--color-accent)] px-6 py-3 text-[14px] font-semibold text-white hover:opacity-90"
-          >
-            {trData(locale, "Atlasīt durvis")}
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  /* Step 2 — matching tiers */
+  /* Matching tiers, filtered live by the dropdown row below */
   if (step === "results") {
     return (
       <div className="container py-12 lg:py-16">
-        <button
-          type="button"
-          onClick={() => setStep("filter")}
-          className="mb-6 inline-flex items-center gap-1 text-[13px] font-semibold text-muted hover:text-ink"
-        >
-          <ChevronLeft size={16} /> {trData(locale, "Atpakaļ")}
-        </button>
-
-        <h2 className="t-section">{trData(locale, "Šīs sērijas atbilst Tavam pieprasījumam")}</h2>
-        <p className="mt-2 text-[13px] text-muted">
+        <div className="max-w-[760px]">
+          <h2 className="t-section">{trData(locale, "Šīs sērijas atbilst Tavam pieprasījumam")}</h2>
+          <p className="mt-4 text-[15px] leading-[1.7] text-ink">
+            {trData(
+              locale,
+              "Atzīmē vēlamos parametrus — piedāvāsim sērijas, kas atbilst tieši Tavam pieprasījumam. Cenas ir mazumtirdzniecības cenas, kas spēkā no 01.08.2024."
+            )}
+          </p>
+        </div>
+        <p className="mt-4 text-[13px] text-muted">
           {matchingTiers.length} {trData(locale, "sērijas")}
         </p>
+
+        <div className="mt-6 flex flex-wrap items-center gap-2 border-b border-line pb-6">
+          <FilterDropdown
+            label="Durvju pielietojums"
+            options={basePurposes}
+            selected={filterPurpose}
+            onToggle={(id) => setFilterPurpose((s) => toggleInSet(s, id))}
+            onClear={() => setFilterPurpose(new Set())}
+            locale={locale}
+          />
+          <FilterDropdown
+            label="Vēlamais izmērs"
+            options={sizeFilterOptions}
+            selected={filterSize}
+            onToggle={(id) => setFilterSize((s) => toggleInSet(s, id))}
+            onClear={() => setFilterSize(new Set())}
+            locale={locale}
+          />
+          <FilterDropdown
+            label="Slēdzenes veids"
+            options={lockBrandOptions}
+            selected={filterLockBrand}
+            onToggle={(id) => setFilterLockBrand((s) => toggleInSet(s, id))}
+            onClear={() => setFilterLockBrand(new Set())}
+            locale={locale}
+          />
+          <FilterDropdown
+            label="Tērauda biezums"
+            options={steelThicknessOptions}
+            selected={filterThickness}
+            onToggle={(id) => setFilterThickness((s) => toggleInSet(s, id))}
+            onClear={() => setFilterThickness(new Set())}
+            locale={locale}
+          />
+          <FilterDropdown
+            label="Stiklojums"
+            options={glazingOptions}
+            selected={filterGlazing}
+            onToggle={(id) => setFilterGlazing((s) => toggleInSet(s, id))}
+            onClear={() => setFilterGlazing(new Set())}
+            locale={locale}
+          />
+          <PriceRangeDropdown
+            min={filterPriceMin}
+            max={filterPriceMax}
+            bounds={PRICE_BOUNDS}
+            onChangeMin={setFilterPriceMin}
+            onChangeMax={setFilterPriceMax}
+            locale={locale}
+          />
+
+          <label className="flex items-center gap-2 border border-line px-3 py-2 text-[13px] font-medium text-ink">
+            <input
+              type="checkbox"
+              checked={filterInsideOpeningOnly}
+              onChange={(e) => setFilterInsideOpeningOnly(e.target.checked)}
+            />
+            {trData(locale, "Atbalsta vēršanos uz iekšu")}
+          </label>
+
+          {anyFilterActive ? (
+            <button
+              type="button"
+              onClick={resetFilters}
+              className="text-[13px] font-medium text-muted underline-offset-2 hover:text-ink hover:underline"
+            >
+              {trData(locale, "Notīrīt visus filtrus")}
+            </button>
+          ) : null}
+        </div>
 
         <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
           {matchingTiers.map((tier) => {
@@ -710,14 +956,18 @@ export default function Manufacturer2Calculator() {
                 className="group flex flex-col overflow-hidden rounded-xl border border-line bg-white text-left shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[color:var(--color-accent)] hover:shadow-lg"
               >
                 <span className="relative block aspect-square overflow-hidden bg-[--color-soft] p-3">
-                  <Image
-                    src={tier.image}
-                    alt={trData(locale, tier.name)}
-                    fill
-                    unoptimized
-                    sizes="220px"
-                    className="object-contain p-2 transition-transform duration-300 ease-out group-hover:scale-[1.06]"
-                  />
+                  {tier.photoPending ? (
+                    <PhotoPendingPlaceholder locale={locale} />
+                  ) : (
+                    <Image
+                      src={tier.image}
+                      alt={trData(locale, tier.name)}
+                      fill
+                      unoptimized
+                      sizes="220px"
+                      className="object-contain p-2 transition-transform duration-300 ease-out group-hover:scale-[1.06]"
+                    />
+                  )}
                   <span className="absolute left-2 top-2 rounded-full bg-white/90 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted shadow-sm backdrop-blur">
                     {tier.target === "house" ? trData(locale, "Privātmājai") : trData(locale, "Dzīvoklim")}
                   </span>
@@ -768,6 +1018,7 @@ export default function Manufacturer2Calculator() {
               images={selectedTier.images || [selectedTier.image]}
               alt={trData(locale, selectedTier.name)}
               locale={locale}
+              photoPending={selectedTier.photoPending}
             />
 
             {config.outerDesign || config.innerDesign ? (
@@ -916,10 +1167,11 @@ export default function Manufacturer2Calculator() {
                     {trData(locale, "Platums, mm")}
                     <input
                       type="number"
-                      min={1}
+                      min={CUSTOM_SIZE_MIN.w}
                       step={1}
                       value={config.customWidth}
                       onChange={(e) => setConfig((c) => ({ ...c, customWidth: e.target.value }))}
+                      onBlur={(e) => setConfig((c) => ({ ...c, customWidth: Math.max(CUSTOM_SIZE_MIN.w, Number(e.target.value) || 0) }))}
                       className="mt-1 block w-28 border border-line px-2 py-1.5 text-[13px]"
                     />
                   </label>
@@ -927,10 +1179,11 @@ export default function Manufacturer2Calculator() {
                     {trData(locale, "Augstums, mm")}
                     <input
                       type="number"
-                      min={1}
+                      min={CUSTOM_SIZE_MIN.h}
                       step={1}
                       value={config.customHeight}
                       onChange={(e) => setConfig((c) => ({ ...c, customHeight: e.target.value }))}
+                      onBlur={(e) => setConfig((c) => ({ ...c, customHeight: Math.max(CUSTOM_SIZE_MIN.h, Number(e.target.value) || 0) }))}
                       className="mt-1 block w-28 border border-line px-2 py-1.5 text-[13px]"
                     />
                   </label>
