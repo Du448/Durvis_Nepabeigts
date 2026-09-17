@@ -235,6 +235,7 @@ const messages = {
       inStockFactory: "Gamintojo sandėlyje",
       tabDescription: "Aprašymas",
       tabSpecs: "Charakteristikos",
+      individualSolution: "Galimas individualus sprendimas",
     },
     contacts: {
       title: "Kontaktai",
@@ -507,6 +508,7 @@ const messages = {
       inStockFactory: "Ražotāja noliktavā",
       tabDescription: "Apraksts",
       tabSpecs: "Raksturojums",
+      individualSolution: "Pieejams individuāls risinājums",
     },
     contacts: {
       title: "Kontakti",
@@ -778,6 +780,7 @@ const messages = {
       inStockFactory: "In manufacturer's warehouse",
       tabDescription: "Description",
       tabSpecs: "Specifications",
+      individualSolution: "Individual solution available",
     },
     contacts: {
       title: "Contacts",

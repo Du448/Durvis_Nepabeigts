@@ -18,18 +18,18 @@ export async function POST(request) {
     return NextResponse.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
 
-  const text = [`Vārds: ${name}`, `Telefons: ${phone}`, `E-pasts: ${email}`, "", "Ziņa:", message].join("\n");
+  const text = [`Vardas: ${name}`, `Telefonas: ${phone}`, `El. paštas: ${email}`, "", "Žinutė:", message].join("\n");
   const html = `
-    <p><strong>Vārds:</strong> ${escapeHtml(name)}</p>
-    <p><strong>Telefons:</strong> ${escapeHtml(phone)}</p>
-    <p><strong>E-pasts:</strong> ${escapeHtml(email)}</p>
-    <p><strong>Ziņa:</strong></p>
+    <p><strong>Vardas:</strong> ${escapeHtml(name)}</p>
+    <p><strong>Telefonas:</strong> ${escapeHtml(phone)}</p>
+    <p><strong>El. paštas:</strong> ${escapeHtml(email)}</p>
+    <p><strong>Žinutė:</strong></p>
     <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
   `;
 
   try {
     await sendFormEmail({
-      subject: `Jauna ziņa no kontaktu formas — ${name}`,
+      subject: `Nauja žinutė iš kontaktų formos — ${name}`,
       replyTo: email,
       text,
       html,

@@ -1834,13 +1834,74 @@ export const lockSets = {
     { id: "mottura-champions-55", name: "Cilindrs Mottura Champions 55 (5 atslēgas)", price: 445, image: "https://www.bulat-doors.com.ua/wp-content/uploads/2023/09/cilindr-mottura-c55.jpg" },
     { id: "abloy-protec2", name: "Cilindrs Abloy Protec 2 (5 atslēgas)", price: 345, image: "https://www.bulat-doors.com.ua/wp-content/uploads/2023/09/cilindr-abloy-protec-2.jpg" },
     { id: "disec-magnetic", name: "Aizsargs DISEC MAGNETIC (3 atslēgas), melns", price: 290, image: "https://www.bulat-doors.com.ua/wp-content/uploads/2023/10/disec-magnetic.jpg" },
-    { id: "smart-lock-tedee", name: "Smart lock Tedee, grafīts (Polija)", price: 410, image: null },
-    { id: "lock-hub-white", name: "Slēdzenes centrmezgls, balts (Polija)", price: 170, image: null },
-    { id: "upper-lock-securemme-2019", name: "Augšējā slēdzene Securemme 2019 (Itālija)", price: 35, image: null },
+    {
+      id: "smart-lock-tedee",
+      name: "Smart lock Tedee, grafīts (Polija)",
+      price: 410,
+      image: "https://tedee.com/app/uploads/2024/03/pro-black.png",
+      images: [
+        "https://tedee.com/app/uploads/2024/03/pro-black.png",
+        "https://tedee.com/app/uploads/2021/11/R_B_Lock_Perspective1.png",
+        "https://tedee.com/app/uploads/2021/11/R_B_Lock_Front2.png",
+        "https://tedee.com/app/uploads/2021/08/R_Lock_variantblack.png",
+        "https://tedee.com/app/uploads/2021/11/R_B_Lock_Door3.png",
+      ],
+      description:
+        'Tedee PRO viedā slēdzene — atver un aizver durvis ar telefonu, automātiska aizvēršana/atvēršana Bluetooth zonā, koplietojamas "virtuālās atslēgas" ģimenei vai darbiniekiem, darbojas ar Apple Home/Siri. Svars 196 g, izmērs Ø45×55 mm. Uzstādīšanai nepieciešams saderīgs cilindrs/adapteris (nav komplektā). Attālinātai vadībai un paziņojumiem ārpus mājas nepieciešams Tedee Bridge centrmezgls (skatīt zemāk).',
+    },
+    {
+      id: "lock-hub-white",
+      name: "Slēdzenes centrmezgls, balts (Polija)",
+      price: 170,
+      image: "https://tedee.com/app/uploads/2024/04/Bridge-CEF.jpg",
+      images: [
+        "https://tedee.com/app/uploads/2024/04/Bridge-CEF.jpg",
+        "https://tedee.com/app/uploads/2024/03/Bridge-SET-CEF-1.jpg",
+        "https://tedee.com/app/uploads/2024/03/Bridge-SET-CEF-3.jpg",
+        "https://tedee.com/app/uploads/2024/03/Bridge-SET-CEF-BOX.jpg",
+      ],
+      description:
+        "Tedee Bridge centrmezgls savieno Tedee viedo slēdzeni ar Wi-Fi — ļauj atvērt durvis un saņemt paziņojumus attālināti (arī esot prom no mājas), atbalsta Google Assistant/Alexa un integrāciju ar viedās mājas sistēmām. Savienojas ar slēdzeni caur Bluetooth — jānovieto ne tālāk kā 2 m no tās. Svars 51,6 g, izmērs 64,5×63,5×28 mm, barošana no elektrotīkla (adapteris komplektā). Nepieciešams tikai attālinātai piekļuvei — bez tā slēdzene strādā Bluetooth diapazonā (no telefona).",
+    },
+    {
+      id: "upper-lock-securemme-2019",
+      name: "Augšējā slēdzene Securemme 2019 (Itālija)",
+      price: 35,
+      image: "https://740.com.ua/content/images/44/1200x1200l80mc100/dvernoy-zamok-securemme-2019-57189797760820.webp",
+      images: [
+        "https://740.com.ua/content/images/44/1200x1200l80mc100/dvernoy-zamok-securemme-2019-57189797760820.webp",
+        "https://740.com.ua/content/images/44/1200x1200l80mc100/dvernoy-zamok-securemme-2019-51457681698013.webp",
+        "https://740.com.ua/content/images/44/1200x1200l80mc100/dvernoy-zamok-securemme-2019-49996769260825.webp",
+        "https://740.com.ua/content/images/44/1200x1200l80mc100/dvernoy-zamok-securemme-2019-15744104510127.webp",
+      ],
+      description:
+        "Securemme 2019 — sauvalžu (lever) trīsriģeļu slēdzene ar vienpusēju aizvēršanu, riģeļu diametrs 16 mm, izvirzījums 40 mm. \"Antipicking\" sistēma pasargā pret atslēgšanu ar āķi, kā arī iestrādāta mangāna plāksne pret izurbšanu. Piegādē 5 atslēgas. Uzstādāma gan kreisajām, gan labajām durvīm.",
+    },
     { id: "lower-lock-securemme-2061", name: "Apakšējā slēdzene Securemme 2061 (Itālija)", price: 35, image: "https://www.bulat-doors.com.ua/wp-content/uploads/2023/09/nizhniy-zamok-securemme-2061-pid-cilindr-italiya-cilindroviy-tovshchina-rigelya-16-mm.jpg" },
-    { id: "manganese-plate", name: "Mangāna plāksne monobloku slēdzenēm (Mottura)", price: 40, image: null },
-    { id: "mottura-54797-matic", name: "Monobloks Mottura 54.797 MATIC (2+5 atslēgas) — vienreizēja pārkodēšana", price: 135, image: null },
-    { id: "mottura-54j797-mykey", name: "Monobloks Mottura 54.J797 My Key (1+5 atslēgas) — vairākkārtēja pārkodēšana", price: 185, image: null },
+    {
+      id: "manganese-plate",
+      name: "Mangāna plāksne monobloku slēdzenēm (Mottura)",
+      price: 40,
+      image: "https://matteoda.it/19831-large_default/manganese-plate-for-mottura-3dkey-94421-lock.jpg",
+      description:
+        "Augstas cietības mangāna tērauda plāksne, kas montējas slēdzenes/cilindra vietā, lai pasargātu pret izurbšanu un izlaušanu. Trieciena vai urbšanas gadījumā tērauds sacietē, padarot mēģinājumu tikt cauri ārkārtīgi grūtu. Uzstāda bez durvju vai kārbas pārbūves.",
+    },
+    {
+      id: "mottura-54797-matic",
+      name: "Monobloks Mottura 54.797 MATIC (2+5 atslēgas) — vienreizēja pārkodēšana",
+      price: 135,
+      image: "https://ventum.lv/image/cache/webp/catalog/products/2353/full-mottura-54-797-1000x1000.webp",
+      description:
+        "Mottura 54.797 MATIC — iestrādājams (monobloka) slēdzenes korpuss ar sauvalžu galveno mehānismu un cilindra kontroles funkciju. MATIC sistēma ļauj vienu reizi pārkodēt atslēgu komplektu (piemēram, ja atslēgas nozaudētas), nemainot visu slēdzeni. Piegādē 2 servisa + 5 galvenās atslēgas.",
+    },
+    {
+      id: "mottura-54j797-mykey",
+      name: "Monobloks Mottura 54.J797 My Key (1+5 atslēgas) — vairākkārtēja pārkodēšana",
+      price: 185,
+      image: "https://www.moyzamok.ru/pages/photos/mottura/locks/54j787dx.jpg",
+      description:
+        "Mottura 54.J797 My Key — kombinēta (PLURISYSTEM) slēdzene: augšējais sauvalžu mehānisms nodrošina galveno spēka aizvēršanu, apakšējais cilindrs — kontroles funkciju; abi mehānismi aizverami savstarpēji atkarīgi. My Key atslēgas ir asimetriskas (kreisā/labā puse atšķiras), un dublikātu var izgatavot tikai uzrādot oriģinālu un īpašnieka karti — augstāka aizsardzība pret neatļautu kopēšanu. Piegādē 1 servisa + 5 galvenās atslēgas.",
+    },
   ],
 };
 
@@ -1853,8 +1914,36 @@ export const furnitureOptions = [
 export const peepholeOptions = [
   { id: "none", name: "Bez acs", price: 0 },
   { id: "standard", name: "Standarta actiņa (Securemme, iekļauta)", price: 0, image: "https://www.bulat-doors.com.ua/wp-content/uploads/2023/09/dverne-vichko-bronedverey-prestizh.jpg" },
-  { id: "yale-500", name: "Yale 500 viedā actiņa", price: 125, image: "https://www.bulat-doors.com.ua/wp-content/uploads/2023/10/yale-500.jpg" },
-  { id: "yale-5800", name: "Yale 5800 viedā actiņa (kustības sensors, foto/video, zvans, atmiņas karte)", price: 225, image: "https://www.bulat-doors.com.ua/wp-content/uploads/2023/10/yale-5800.jpg" },
+  {
+    id: "yale-500",
+    name: "Yale 500 viedā actiņa",
+    price: 125,
+    image: "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%20500%202000x2000_1-5",
+    images: [
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%20500%202000x2000_1-5",
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%20500%202000x2000_2-6",
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%20500%202000x2000_3-6",
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%20500%202000x2000_4-5",
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%20500%202000x2000_5-5",
+    ],
+    description:
+      "Digitālā skatlūka ekrāns 3,2\" ar tiešraides attēlu un 105° skata leņķi. Elastīgs stiprinājums dažāda biezuma durvīm. Komplektā: kamera, ekrāns un baterijas (4×AAA).",
+  },
+  {
+    id: "yale-5800",
+    name: "Yale 5800 viedā actiņa (kustības sensors, foto/video, zvans, atmiņas karte)",
+    price: 225,
+    image: "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%205800%202000x2000_1-4",
+    images: [
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%205800%202000x2000_1-4",
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%205800%202000x2000_2-4",
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%205800%202000x2000_3-5",
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%205800%202000x2000_4-5",
+      "https://gw-assets.assaabloy.com/is/image/assaabloy/DDV%205800%202000x2000_5-5",
+    ],
+    description:
+      "Digitālā skatlūka ekrāns 4,3\" ar tiešraides attēlu, 110° skata leņķi un infrasarkano nakts redzamību. Automātiski uzņem un saglabā foto/video ar laika zīmogu, kad konstatēta kustība; iebūvēts 80 dB zvans. Komplektā: kamera/zvans, ekrāns, baterijas un 4GB atmiņas karte.",
+  },
 ];
 
 // "PAPILDU ELEMENTI" from the retail price list.

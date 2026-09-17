@@ -214,6 +214,33 @@ function tierMinPrice(tier) {
   return tier.sizes.length ? Math.min(...tier.sizes.map((s) => s.price)) : tier.basePrice;
 }
 
+// Tedee (tedee.com) fits any standard European-profile cylinder via a clip-on
+// adapter — every cylinder brand in this catalogue (Kale, Securemme, Mottura,
+// Abloy) is that profile, so brand alone never rules it out. The one real
+// distinction the spec text carries is single vs. dual-cylinder ("tandēma
+// sistēma" / "2 cilindri" / "duetu sistēma"): a smart lock only turns one
+// knob, so on a tandem setup it covers just one of the two locks. Physical
+// clearance (door-frame gap) still has to be confirmed on site per Tedee's
+// own install guide — that can't be known from the catalogue data.
+function tedeeCylinderCompat(tier) {
+  const specLine = (tier.hardwareSpec || []).find((line) => line.startsWith("Cilindrs"));
+  if (!specLine) return null;
+  const isDualCylinder = /tand[eē]m|duetu|2\s*cilind/i.test(specLine);
+  return isDualCylinder
+    ? {
+        level: "partial",
+        label: "Tedee — der 1 no 2 cilindriem",
+        note:
+          "Šai sērijai ir divi atsevišķi cilindri (tandēma sistēma). Tedee var uzstādīt uz viena no tiem ar adapteri — otrs paliek ar atslēgu. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.",
+      }
+    : {
+        level: "yes",
+        label: "Tedee — der šai sērijai",
+        note:
+          "Standarta Eiropas profila cilindrs — Tedee uzstāda ar klipša adapteri, cilindru mainīt nevajag. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.",
+      };
+}
+
 const ALL_TIER_PRICES = doorTiers.map(tierMinPrice);
 const PRICE_BOUNDS = { min: Math.min(...ALL_TIER_PRICES), max: Math.max(...ALL_TIER_PRICES) };
 
@@ -703,6 +730,297 @@ function CollapsibleSection({ title, subtitle, defaultOpen = false, children }) 
       </button>
       {open ? <div className="mt-4">{children}</div> : null}
     </div>
+  );
+}
+
+// Small "i" button next to a peephole/lock option that reveals its spec
+// blurb in a floating panel — closes the same way the filter dropdowns do
+// (outside click / Escape), so it reads as one consistent popup pattern on
+// the page. Some callers nest this inside a <label> (the lock checkboxes),
+// so the click also calls preventDefault to stop the label from toggling
+// its checkbox when the "i" is what was actually clicked.
+function InfoPopoverButton({ description, locale }) {
+  const [open, setOpen] = useState(false);
+  const ref = useCloseOnOutside(open, () => setOpen(false));
+  if (!description) return null;
+  return (
+    <span className="relative inline-block" ref={ref}>
+      <button
+        type="button"
+        onClick={(e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          setOpen((o) => !o);
+        }}
+        aria-label={trData(locale, "Vairāk informācijas")}
+        aria-expanded={open}
+        className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)]"
+      >
+        i
+      </button>
+      {open ? (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="absolute left-1/2 top-full z-30 mt-2 w-[240px] -translate-x-1/2 border border-line bg-white p-3 text-left text-[12px] font-normal leading-[1.6] text-ink shadow-lg"
+        >
+          {trData(locale, description)}
+        </div>
+      ) : null}
+    </span>
+  );
+}
+
+// Shared state for a picker whose cards each open a full manufacturer photo
+// gallery (peephole options, smart-lock hardware) — tracks which item's
+// gallery is open and the current slide, with arrow-key navigation.
+function useGalleryZoom(items) {
+  const [zoomId, setZoomId] = useState(null);
+  const [zoomIndex, setZoomIndex] = useState(0);
+  const zoomItem = items.find((o) => o.id === zoomId) || null;
+  const gallery = zoomItem ? zoomItem.images || (zoomItem.image ? [zoomItem.image] : []) : [];
+
+  const stepZoom = useCallback(
+    (delta) => setZoomIndex((i) => ((i + delta) % gallery.length + gallery.length) % gallery.length),
+    [gallery.length]
+  );
+  const openZoom = useCallback((id) => {
+    setZoomIndex(0);
+    setZoomId(id);
+  }, []);
+  const closeZoom = useCallback(() => setZoomId(null), []);
+
+  useEffect(() => {
+    if (!zoomItem) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") closeZoom();
+      else if (e.key === "ArrowRight") stepZoom(1);
+      else if (e.key === "ArrowLeft") stepZoom(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [zoomItem, stepZoom, closeZoom]);
+
+  return { zoomItem, gallery, zoomIndex, openZoom, closeZoom, stepZoom };
+}
+
+// Full-screen photo viewer for a useGalleryZoom() gallery — prev/next when
+// there's more than one image, same visual language as TierGallery's zoom.
+function GalleryZoomOverlay({ item, gallery, index, onStep, onClose, locale }) {
+  if (!item) return null;
+  return (
+    <div
+      className="fixed inset-0 z-[420] flex items-center justify-center bg-black/85 p-4"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={trData(locale, item.name)}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label={trData(locale, "Aizvērt")}
+        className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25"
+      >
+        <X size={20} />
+      </button>
+
+      {gallery.length > 1 ? (
+        <>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onStep(-1);
+            }}
+            aria-label={trData(locale, "Iepriekšējais")}
+            className="absolute left-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25 sm:left-6 sm:h-14 sm:w-14"
+          >
+            <ChevronLeft size={26} strokeWidth={1.5} />
+          </button>
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              onStep(1);
+            }}
+            aria-label={trData(locale, "Nākamais")}
+            className="absolute right-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25 sm:right-6 sm:h-14 sm:w-14"
+          >
+            <ChevronRight size={26} strokeWidth={1.5} />
+          </button>
+        </>
+      ) : null}
+
+      <figure className="max-h-full w-full max-w-[480px]" onClick={(e) => e.stopPropagation()}>
+        <span className="relative mx-auto block aspect-square max-h-[76vh] w-full">
+          <Image key={gallery[index]} src={gallery[index]} alt={trData(locale, item.name)} fill unoptimized sizes="480px" className="object-contain" />
+        </span>
+        <figcaption className="mt-3 text-center text-[14px] text-white">
+          {trData(locale, item.name)}
+          {gallery.length > 1 ? (
+            <span className="ml-2 text-white/55">
+              {index + 1} / {gallery.length}
+            </span>
+          ) : null}
+        </figcaption>
+      </figure>
+    </div>
+  );
+}
+
+// A small photo thumbnail shared by the peephole cards and lock cards — click
+// to open the full gallery, with a count badge when there's more than one
+// shot. `onOpen` gets its own click handling so it works both as a bare
+// button (peephole) and nested inside a <label> (lock checkboxes).
+function GalleryThumbButton({ item, onOpen, className, imgClassName, imgSizes = "150px" }) {
+  return (
+    <button
+      type="button"
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        onOpen(item.id);
+      }}
+      aria-label={item.zoomLabel}
+      className={className}
+    >
+      <Image src={item.image} alt={item.zoomLabel} fill unoptimized sizes={imgSizes} className={imgClassName} />
+      {item.images?.length > 1 ? (
+        <span className="absolute bottom-1 right-1 rounded-full bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+          {item.images.length}
+        </span>
+      ) : null}
+    </button>
+  );
+}
+
+// Peephole ("Skata acs") picker — a small card per option with its own photo
+// (click to zoom into the full manufacturer gallery) and, for the Yale smart
+// viewers, an "i" popup with the manufacturer's spec blurb.
+function PeepholePicker({ options, selectedId, onSelect, locale }) {
+  const { zoomItem, gallery, zoomIndex, openZoom, closeZoom, stepZoom } = useGalleryZoom(options);
+
+  return (
+    <>
+      <div className="flex flex-wrap gap-3">
+        {options.map((p) => {
+          const isActive = selectedId === p.id;
+          return (
+            <div
+              key={p.id}
+              role="button"
+              tabIndex={0}
+              onClick={() => onSelect(p.id)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  onSelect(p.id);
+                }
+              }}
+              className={`flex w-[152px] cursor-pointer flex-col gap-2 border p-3 text-[13px] font-medium ${
+                isActive
+                  ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)]/5"
+                  : "border-line hover:border-[color:var(--color-accent)]"
+              }`}
+            >
+              {p.image ? (
+                <GalleryThumbButton
+                  item={{ ...p, zoomLabel: `${trData(locale, p.name)} — ${trData(locale, "palielināt attēlu")}` }}
+                  onOpen={openZoom}
+                  className="relative block aspect-square w-full cursor-zoom-in overflow-hidden border border-line bg-white"
+                  imgClassName="object-contain p-2"
+                />
+              ) : null}
+              <span className="flex items-start justify-between gap-2">
+                <span className={isActive ? "text-[color:var(--color-accent)]" : "text-ink"}>
+                  {trData(locale, p.name)}
+                  {p.price ? (
+                    <>
+                      {" "}
+                      +<Money value={p.price} />
+                    </>
+                  ) : null}
+                </span>
+                <InfoPopoverButton description={p.description} locale={locale} />
+              </span>
+            </div>
+          );
+        })}
+      </div>
+
+      <GalleryZoomOverlay item={zoomItem} gallery={gallery} index={zoomIndex} onStep={stepZoom} onClose={closeZoom} locale={locale} />
+    </>
+  );
+}
+
+// Small pill next to a lock option showing whether it fits this tier's
+// cylinder (see tedeeCylinderCompat) — green "fits" or amber "fits one of
+// two", with an "i" popup carrying the full explanation.
+function CompatBadge({ compat, locale }) {
+  if (!compat) return null;
+  const tone =
+    compat.level === "yes" ? "border-green-700 bg-green-50 text-green-700" : "border-amber-600 bg-amber-50 text-amber-700";
+  return (
+    <span className={`mt-1.5 flex w-fit items-center gap-1.5 border px-1.5 py-0.5 text-[11px] font-semibold leading-none ${tone}`}>
+      {trData(locale, compat.label)}
+      <InfoPopoverButton description={compat.note} locale={locale} />
+    </span>
+  );
+}
+
+// Lock/cylinder upgrade grid ("Papildu opcija maiņai") — same checkbox-card
+// layout as before, now with a clickable photo (full gallery for the Tedee
+// smart-lock hardware), an "i" spec popup where a description is set, and
+// (via `compatById`) a per-tier cylinder-fit badge for specific lock ids.
+function LockOptionsGrid({ lockSet, includedIds, checkedIds, onToggle, locale, compatById }) {
+  const sorted = useMemo(
+    () => [...lockSet].sort((a, b) => includedIds.includes(b.id) - includedIds.includes(a.id)),
+    [lockSet, includedIds]
+  );
+  const { zoomItem, gallery, zoomIndex, openZoom, closeZoom, stepZoom } = useGalleryZoom(sorted);
+
+  return (
+    <>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        {sorted.map((lock) => {
+          const isIncluded = includedIds.includes(lock.id);
+          const isChecked = isIncluded || checkedIds.has(lock.id);
+          return (
+            <label
+              key={lock.id}
+              className={`block border p-3 text-left text-[13px] ${isIncluded ? "cursor-default" : "cursor-pointer"} ${
+                isChecked ? "border-[color:var(--color-accent)]" : "border-line hover:border-[color:var(--color-accent)]"
+              }`}
+            >
+              <span className="mb-2 flex items-start justify-between gap-2">
+                <input type="checkbox" checked={isChecked} disabled={isIncluded} onChange={() => onToggle(lock.id)} />
+                <InfoPopoverButton description={lock.description} locale={locale} />
+              </span>
+              {lock.image ? (
+                <GalleryThumbButton
+                  item={{ ...lock, zoomLabel: `${trData(locale, lock.name)} — ${trData(locale, "palielināt attēlu")}` }}
+                  onOpen={openZoom}
+                  className="relative mb-2 block aspect-square w-full cursor-zoom-in overflow-hidden bg-[--color-soft]"
+                  imgClassName="object-contain"
+                  imgSizes="120px"
+                />
+              ) : null}
+              <span className="block font-medium text-ink">{trData(locale, lock.name)}</span>
+              {isIncluded ? (
+                <span className="font-semibold text-green-700">{trData(locale, "Jau iekļauts standartā")}</span>
+              ) : (
+                <span className="text-[color:var(--color-accent)]">
+                  +<Money value={lock.price} />
+                </span>
+              )}
+              <CompatBadge compat={compatById?.[lock.id]} locale={locale} />
+            </label>
+          );
+        })}
+      </div>
+
+      <GalleryZoomOverlay item={zoomItem} gallery={gallery} index={zoomIndex} onStep={stepZoom} onClose={closeZoom} locale={locale} />
+    </>
   );
 }
 
@@ -1249,47 +1567,14 @@ export default function Manufacturer2Calculator() {
                 title={trData(locale, "Papildu opcija maiņai — slēdzenes un cilindri")}
                 subtitle={trData(locale, "Var atzīmēt vairākas — cenas summējas ar bāzes komplektāciju.")}
               >
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-                  {[...lockSet]
-                    .sort((a, b) => {
-                      const included = selectedTier.includedExtras || [];
-                      return included.includes(b.id) - included.includes(a.id);
-                    })
-                    .map((lock) => {
-                    const isIncluded = (selectedTier.includedExtras || []).includes(lock.id);
-                    const isChecked = isIncluded || config.lockIds.has(lock.id);
-                    return (
-                      <label
-                        key={lock.id}
-                        className={`block border p-3 text-left text-[13px] ${isIncluded ? "cursor-default" : "cursor-pointer"} ${
-                          isChecked ? "border-[color:var(--color-accent)]" : "border-line hover:border-[color:var(--color-accent)]"
-                        }`}
-                      >
-                        <span className="mb-2 flex items-start justify-between gap-2">
-                          <input
-                            type="checkbox"
-                            checked={isChecked}
-                            disabled={isIncluded}
-                            onChange={() => setConfig((c) => ({ ...c, lockIds: toggleInSet(c.lockIds, lock.id) }))}
-                          />
-                        </span>
-                        {lock.image ? (
-                          <span className="relative mb-2 block aspect-square w-full overflow-hidden bg-[--color-soft]">
-                            <Image src={lock.image} alt={trData(locale, lock.name)} fill unoptimized sizes="120px" className="object-contain" />
-                          </span>
-                        ) : null}
-                        <span className="block font-medium text-ink">{trData(locale, lock.name)}</span>
-                        {isIncluded ? (
-                          <span className="font-semibold text-green-700">{trData(locale, "Jau iekļauts standartā")}</span>
-                        ) : (
-                          <span className="text-[color:var(--color-accent)]">
-                            +<Money value={lock.price} />
-                          </span>
-                        )}
-                      </label>
-                    );
-                  })}
-                </div>
+                <LockOptionsGrid
+                  lockSet={lockSet}
+                  includedIds={selectedTier.includedExtras || []}
+                  checkedIds={config.lockIds}
+                  onToggle={(id) => setConfig((c) => ({ ...c, lockIds: toggleInSet(c.lockIds, id) }))}
+                  locale={locale}
+                  compatById={{ "smart-lock-tedee": tedeeCylinderCompat(selectedTier) }}
+                />
               </CollapsibleSection>
             ) : (
               <div className="border border-line bg-white p-4 text-[13px] text-muted">
@@ -1401,28 +1686,12 @@ export default function Manufacturer2Calculator() {
 
             {/* Peephole */}
             <CollapsibleSection title={trData(locale, "Skata acs")}>
-              <div className="flex flex-wrap gap-2">
-                {peepholeOptions.map((p) => (
-                  <button
-                    key={p.id}
-                    type="button"
-                    onClick={() => setConfig((c) => ({ ...c, peepholeId: p.id }))}
-                    className={`border px-4 py-2 text-[13px] font-medium ${
-                      config.peepholeId === p.id
-                        ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)] text-white"
-                        : "border-line text-ink hover:border-[color:var(--color-accent)]"
-                    }`}
-                  >
-                    {trData(locale, p.name)}
-                    {p.price ? (
-                      <>
-                        {" "}
-                        +<Money value={p.price} />
-                      </>
-                    ) : null}
-                  </button>
-                ))}
-              </div>
+              <PeepholePicker
+                options={peepholeOptions}
+                selectedId={config.peepholeId}
+                onSelect={(id) => setConfig((c) => ({ ...c, peepholeId: id }))}
+                locale={locale}
+              />
             </CollapsibleSection>
 
             {/* Additional options */}

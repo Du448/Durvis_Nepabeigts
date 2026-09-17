@@ -24,31 +24,31 @@ export async function POST(request) {
   }
 
   const fields = [
-    ["Uzņēmums", company],
-    ["Kontaktpersona", person],
-    ["Telefons", phone],
-    ["E-pasts", email],
-    ["Pilsēta / reģions", city],
-    ["Vietne", website || "—"],
-    ["Darbības joma", activity],
+    ["Įmonė", company],
+    ["Kontaktinis asmuo", person],
+    ["Telefonas", phone],
+    ["El. paštas", email],
+    ["Miestas / regionas", city],
+    ["Svetainė", website || "—"],
+    ["Veiklos sritis", activity],
   ];
 
   const text = [
     ...fields.map(([label, value]) => `${label}: ${value}`),
     "",
-    "Komentārs:",
+    "Komentaras:",
     message,
   ].join("\n");
 
   const html = `
     ${fields.map(([label, value]) => `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>`).join("\n")}
-    <p><strong>Komentārs:</strong></p>
+    <p><strong>Komentaras:</strong></p>
     <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
   `;
 
   try {
     await sendFormEmail({
-      subject: `Jauns partnera pieteikums — ${company}`,
+      subject: `Naujas partnerio prašymas — ${company}`,
       replyTo: email,
       text,
       html,

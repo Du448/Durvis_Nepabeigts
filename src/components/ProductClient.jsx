@@ -13,6 +13,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, translateColorLabel, withLocaleHref, t, trData } from "@/lib/i18n";
 import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
+import { hasManufacturer2Series } from "@/lib/manufacturer2Series";
 
 /* Interior doors are photographed as narrow studio renders about 275x585px.
    Poured into the 3:4 box the entrance doors need, they get blown up well past
@@ -302,6 +303,15 @@ export default function ProductClient({ id }) {
                     {t(locale, stockKind(product) === "factory" ? "product.inStockFactory" : "product.inStock")}
                   </span>
                 ) : null}
+                {hasManufacturer2Series(product.name) ? (
+                  <Link
+                    href={withLocaleHref(locale, "/razotajs-2")}
+                    className="inline-flex items-center gap-1.5 bg-[color:var(--color-accent)]/10 px-2.5 py-1 text-[11px] font-semibold uppercase leading-none text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
+                  >
+                    <Shield size={12} />
+                    {t(locale, "product.individualSolution")}
+                  </Link>
+                ) : null}
               </div>
               <h1 className="mt-2 text-[28px] font-medium leading-[1.3] text-[color:var(--color-title)] sm:text-[36px]">{productName}</h1>
 
@@ -501,61 +511,63 @@ export default function ProductClient({ id }) {
 
       {lightboxOpen && (
         <div
-          className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 overflow-y-auto bg-black/80 p-4"
           onClick={() => setLightboxOpen(false)}
         >
-          <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              className="absolute right-2 top-2 text-white text-xl"
-              aria-label={t(locale, "product.close")}
-              onClick={() => setLightboxOpen(false)}
-            >
-              ✕
-            </button>
-            <div className="relative w-full aspect-video bg-black">
-              <Image
-                src={images[lightboxIdx]}
-                alt={`${productName} — ${t(locale, "product.openImage")}`}
-                fill
-                unoptimized
-                referrerPolicy="no-referrer"
-                sizes="100vw"
-                className="object-contain"
-              />
-            </div>
-            <div className="mt-3 flex items-center justify-between">
+          <div className="flex min-h-full items-center justify-center">
+            <div className="relative w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
               <button
                 type="button"
-                className="border border-line bg-white/10 text-white px-3 py-1.5"
-                onClick={() => setLightboxIdx((i) => (i - 1 + images.length) % images.length)}
+                className="absolute right-2 top-2 text-white text-xl"
+                aria-label={t(locale, "product.close")}
+                onClick={() => setLightboxOpen(false)}
               >
-                {t(locale, "product.previous")}
+                ✕
               </button>
-              <div className="text-white text-sm">
-                {lightboxIdx + 1} / {images.length}
+              <div className="relative h-[min(70vh,640px)] w-full bg-black">
+                <Image
+                  src={images[lightboxIdx]}
+                  alt={`${productName} — ${t(locale, "product.openImage")}`}
+                  fill
+                  unoptimized
+                  referrerPolicy="no-referrer"
+                  sizes="100vw"
+                  className="object-contain"
+                />
               </div>
-              <button
-                type="button"
-                className="border border-line bg-white/10 text-white px-3 py-1.5"
-                onClick={() => setLightboxIdx((i) => (i + 1) % images.length)}
-              >
-                {t(locale, "product.next")}
-              </button>
-            </div>
-            <div className="mt-3 grid grid-cols-5 gap-2">
-              {images.map((src, idx) => (
+              <div className="mt-3 flex items-center justify-between">
                 <button
-                  key={idx}
-                  className={`aspect-square border ${idx === lightboxIdx ? 'border-[--color-accent]' : 'border-line'} bg-[--color-soft]`}
-                  onClick={() => setLightboxIdx(idx)}
-                  aria-label={t(locale, "product.imageN").replace("{n}", String(idx + 1))}
+                  type="button"
+                  className="border border-line bg-white/10 text-white px-3 py-1.5"
+                  onClick={() => setLightboxIdx((i) => (i - 1 + images.length) % images.length)}
                 >
-                  <span className="relative block h-full w-full overflow-hidden">
-                    <Image src={src} alt={productName} fill unoptimized referrerPolicy="no-referrer" sizes="100px" className="object-contain" />
-                  </span>
+                  {t(locale, "product.previous")}
                 </button>
-              ))}
+                <div className="text-white text-sm">
+                  {lightboxIdx + 1} / {images.length}
+                </div>
+                <button
+                  type="button"
+                  className="border border-line bg-white/10 text-white px-3 py-1.5"
+                  onClick={() => setLightboxIdx((i) => (i + 1) % images.length)}
+                >
+                  {t(locale, "product.next")}
+                </button>
+              </div>
+              <div className="mt-3 grid grid-cols-[repeat(auto-fill,minmax(56px,1fr))] gap-1.5">
+                {images.map((src, idx) => (
+                  <button
+                    key={idx}
+                    className={`aspect-square border ${idx === lightboxIdx ? 'border-[--color-accent]' : 'border-line'} bg-[--color-soft]`}
+                    onClick={() => setLightboxIdx(idx)}
+                    aria-label={t(locale, "product.imageN").replace("{n}", String(idx + 1))}
+                  >
+                    <span className="relative block h-full w-full overflow-hidden">
+                      <Image src={src} alt={productName} fill unoptimized referrerPolicy="no-referrer" sizes="80px" className="object-contain" />
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
         </div>
