@@ -14,6 +14,7 @@ import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, translateColorLabel, withLocaleHref, t, trData } from "@/lib/i18n";
 import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
 import { hasManufacturer2Series, manufacturer2ColorQuery } from "@/lib/manufacturer2Series";
+import { finishesColorQuery } from "@/lib/finishesLink";
 
 /* Interior doors are photographed as narrow studio renders about 275x585px.
    Poured into the 3:4 box the entrance doors need, they get blown up well past
@@ -339,14 +340,21 @@ export default function ProductClient({ id }) {
                         <span className="border border-line px-3 py-1.5">{translateColorLabel(locale, product.colors[1])}</span>
                       </>
                     ) : null}
-                    {hasManufacturer2Series(product.name) ? (
+                    {product.collection === "BOSTON" ? null : hasManufacturer2Series(product.name) ? (
                       <Link
                         href={withLocaleHref(locale, `/razotajs-2${manufacturer2ColorQuery(product)}`)}
                         className="border border-[color:var(--color-accent)] px-3 py-1.5 text-[13px] font-semibold text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
                       >
                         {t(locale, "product.changeShade")}
                       </Link>
-                    ) : null}
+                    ) : (
+                      <Link
+                        href={withLocaleHref(locale, `/apdare${finishesColorQuery(product)}`)}
+                        className="border border-[color:var(--color-accent)] px-3 py-1.5 text-[13px] font-semibold text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
+                      >
+                        {t(locale, "product.changeShade")}
+                      </Link>
+                    )}
                   </div>
                 </div>
               ) : null}

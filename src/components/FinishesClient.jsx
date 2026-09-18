@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import PageTitle from "@/components/PageTitle";
 import RevealGrid from "@/components/anim/RevealGrid";
@@ -15,11 +15,17 @@ import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
 
 export default function FinishesClient() {
   const locale = getLocaleFromPathname(usePathname());
+  const searchParams = useSearchParams();
   /* The viewer holds the whole group, so one can page through a palette
      without closing it: arrows, keyboard, or a swipe on touch. */
   const [lightbox, setLightbox] = useState(null);
   const [touchX, setTouchX] = useState(null);
-  const [activeSectionKey, setActiveSectionKey] = useState(finishSections[0]?.key);
+  // Deep-linked from a product page's "Toņu maiņa" button, e.g.
+  // /apdare?section=pvc — falls back to the first section.
+  const [activeSectionKey, setActiveSectionKey] = useState(() => {
+    const requested = searchParams.get("section");
+    return finishSections.some((s) => s.key === requested) ? requested : finishSections[0]?.key;
+  });
   const [activeGroupIndex, setActiveGroupIndex] = useState(0);
 
   const section = finishSections.find((s) => s.key === activeSectionKey) || finishSections[0];
