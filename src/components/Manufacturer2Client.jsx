@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import PageTitle from "@/components/PageTitle";
 import RevealGrid from "@/components/anim/RevealGrid";
@@ -29,10 +29,19 @@ const tabs = [...manufacturer2Sections, { key: CALCULATOR_KEY, title: "Kalkulato
 
 export default function Manufacturer2Client() {
   const locale = getLocaleFromPathname(usePathname());
+  const searchParams = useSearchParams();
   const [lightbox, setLightbox] = useState(null);
   const [touchX, setTouchX] = useState(null);
-  const [activeSectionKey, setActiveSectionKey] = useState(manufacturer2Sections[0]?.key);
-  const [activeGroupIndex, setActiveGroupIndex] = useState(0);
+  // Deep-linked from a product page's "Toņu maiņa" button, e.g.
+  // /razotajs-2?section=krasas&group=1 — falls back to the first section.
+  const [activeSectionKey, setActiveSectionKey] = useState(() => {
+    const requested = searchParams.get("section");
+    return manufacturer2Sections.some((s) => s.key === requested) ? requested : manufacturer2Sections[0]?.key;
+  });
+  const [activeGroupIndex, setActiveGroupIndex] = useState(() => {
+    const requested = Number(searchParams.get("group"));
+    return Number.isInteger(requested) && requested >= 0 ? requested : 0;
+  });
 
   const isCalculator = activeSectionKey === CALCULATOR_KEY;
   const section = manufacturer2Sections.find((s) => s.key === activeSectionKey) || manufacturer2Sections[0];

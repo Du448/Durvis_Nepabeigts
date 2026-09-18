@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Manufacturer2Client from "@/components/Manufacturer2Client";
 import { headers } from "next/headers";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
@@ -28,7 +29,9 @@ export async function generateMetadata() {
 export default function Manufacturer2Page() {
   return (
     <main>
-      <Manufacturer2Client />
+      <Suspense fallback={null}>
+        <Manufacturer2Client />
+      </Suspense>
     </main>
   );
 }

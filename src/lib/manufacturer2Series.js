@@ -27,3 +27,25 @@ export function hasManufacturer2Series(productName) {
   if (!productName) return false;
   return seriesPatterns.some((pattern) => pattern.test(productName));
 }
+
+// manufacturer2.js "krasas" groups, in definition order: [0] the PVC film
+// used on apartment-entrance leaves, [1] the weather-resistant Winshield PVC
+// film used on the street side of house-entrance leaves.
+const KRASAS_GROUP_INDEX = { "ardurvis-dzivoklim": 0, "ardurvis-privatmajai": 1 };
+
+// Where a catalogue product's own colour swatches actually come from: a RAL
+// code in the colour name (e.g. "Antracīts RAL 7016") means the door is
+// powder-coated rather than PVC-film wrapped, so it points at the "ral"
+// (pulverkrāsojuma) section instead of "krasas" (film colours).
+export function manufacturer2ColorLinkParams(product) {
+  const hasRal = (product.colors || []).some((c) => /\bRAL\b/i.test(c));
+  if (hasRal) return { section: "ral" };
+  const group = KRASAS_GROUP_INDEX[product.category];
+  return group === undefined ? { section: "krasas" } : { section: "krasas", group: String(group) };
+}
+
+// Query string (with leading "?") for the "Toņu maiņa" link — appended to
+// "/razotajs-2" before running the result through withLocaleHref().
+export function manufacturer2ColorQuery(product) {
+  return `?${new URLSearchParams(manufacturer2ColorLinkParams(product)).toString()}`;
+}

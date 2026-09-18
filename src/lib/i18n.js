@@ -236,6 +236,7 @@ const messages = {
       tabDescription: "Aprašymas",
       tabSpecs: "Charakteristikos",
       individualSolution: "Galimas individualus sprendimas",
+      changeShade: "Keisti atspalvį",
     },
     contacts: {
       title: "Kontaktai",
@@ -509,6 +510,7 @@ const messages = {
       tabDescription: "Apraksts",
       tabSpecs: "Raksturojums",
       individualSolution: "Pieejams individuāls risinājums",
+      changeShade: "Toņu maiņa",
     },
     contacts: {
       title: "Kontakti",
@@ -781,6 +783,7 @@ const messages = {
       tabDescription: "Description",
       tabSpecs: "Specifications",
       individualSolution: "Individual solution available",
+      changeShade: "Change shade",
     },
     contacts: {
       title: "Contacts",
