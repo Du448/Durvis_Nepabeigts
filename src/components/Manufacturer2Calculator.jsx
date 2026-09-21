@@ -1754,7 +1754,7 @@ export default function Manufacturer2Calculator() {
             </CollapsibleSection>
 
             {/* Summary */}
-            <div className="border-2 border-[color:var(--color-accent)] bg-[--color-soft] p-5">
+            <div id="calc-summary" className="border-2 border-[color:var(--color-accent)] bg-[--color-soft] p-5">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <span className="t-widget text-[color:var(--color-title)]">{trData(locale, "Provizoriskā summa")}</span>
                 <span className="text-[26px] font-semibold text-[color:var(--color-accent)]">
@@ -1781,9 +1781,31 @@ export default function Manufacturer2Calculator() {
             </div>
           </div>
         </div>
+
+        <FloatingPrice total={total} locale={locale} />
       </div>
     );
   }
 
   return null;
+}
+
+// Sticky pill in the bottom-right corner, visible throughout the whole
+// configurator so the price is always on screen as options are toggled —
+// not just once you've scrolled all the way down to the full summary.
+// Clicking it jumps to that summary (#calc-summary) and its "Pieprasīt
+// piedāvājumu" button.
+function FloatingPrice({ total, locale }) {
+  return (
+    <button
+      type="button"
+      onClick={() => document.getElementById("calc-summary")?.scrollIntoView({ behavior: "smooth", block: "center" })}
+      className="fixed bottom-4 right-4 z-40 flex items-center gap-2.5 rounded-full border-2 border-[color:var(--color-accent)] bg-white px-4 py-2.5 shadow-xl transition-transform hover:-translate-y-0.5 sm:bottom-6 sm:right-6 sm:px-5 sm:py-3"
+    >
+      <span className="hidden text-[12px] font-medium text-muted sm:inline">{trData(locale, "Provizoriskā summa")}</span>
+      <span className="text-[17px] font-semibold text-[color:var(--color-accent)] sm:text-[18px]">
+        <Money value={total} />
+      </span>
+    </button>
+  );
 }
