@@ -31,6 +31,8 @@ import { enShorts } from "./en/shorts";
 import { enDescTitles, enDescParas } from "./en/descriptions";
 import { enFinishText, enFinishLabels } from "./en/finishes";
 import { enColors, enSetItems } from "./en/misc";
+import { enManufacturer2 } from "./en/manufacturer2";
+import { enManufacturer2Calculator } from "./en/manufacturer2Calculator";
 
 const lt = {
   ...ltLabels,
@@ -60,6 +62,8 @@ const en = {
   ...enFinishLabels,
   ...enColors,
   ...enSetItems,
+  ...enManufacturer2,
+  ...enManufacturer2Calculator,
 };
 
 export const catalogTranslations = { lt, en };

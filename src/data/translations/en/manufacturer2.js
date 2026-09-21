@@ -1,0 +1,160 @@
+/* English for the Ražotājs-2 (Bulat) reference catalogue: section titles,
+   leads, group titles and swatch labels for door design series, PVC/Winshield
+   film colours and powder coating. Bare model numbers ("105", "277" …) need
+   no entry — trData falls back to the source, which is already just a
+   number. Only labels that carry actual words are listed here. */
+
+export const enManufacturer2 = {
+  // Tab title (Manufacturer2Client)
+  "Kalkulators": "Calculator",
+  "Iekļauta pamatcenā": "Included in the base price",
+
+  // Section titles
+  "Durvju dizaina sērijas": "Door design series",
+  "Pārklājuma plēves krāsas": "Coating film colours",
+  "Pulverkrāsojuma katalogs": "Powder coating catalogue",
+
+  // Leads
+  "Bulat ražotnes (Čerņihiva) durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
+    "Catalogue of milling patterns for door leaves from the Bulat factory (Chernihiv) — over 200 models, grouped into series by milling depth and style. Any pattern can be made for any door model and combined with any coating colour from the palettes below.",
+  "Divi plēves seguma veidi: iekštelpu PVC plēve durvīm dzīvoklī un izturīgākā Winshield plēve ārdurvīm ielas pusē. Abas pārklāj MDF apdares plāksni un ir pieejamas jebkurai vērtnes frēzējuma sērijai.":
+    "Two types of film coating: indoor PVC film for apartment doors and the more durable Winshield film for the street side of house entrance doors. Both cover the MDF finish panel and are available for any leaf-milling series.",
+  "Metāla karkasam un kārbai izmantotais pulverkrāsojums — matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.":
+    "Powder coating used for the metal frame and casing — a matte finish or a wood-texture imitation. The paint is baked at high temperature, so the surface resists scratches and corrosion.",
+
+  // Design-series group titles
+  "100. sērija": "Series 100",
+  "200. sērija": "Series 200",
+  "400. sērija": "Series 400",
+  "500. sērija": "Series 500",
+  "600. sērija": "Series 600",
+  "800. sērija": "Series 800",
+  "900. sērija": "Series 900",
+  "Iela": "Street",
+
+  // Extra design-series entries (100. sērija)
+  "Gluda (bez frēzējuma)": "Smooth (no milling)",
+  "Individuāli pēc pasūtījuma": "Custom-made to order",
+
+  // Numbered model variants with extra words
+  "604 tonēts": "604 tinted",
+  "607 tonēts": "607 tinted",
+  "706 (1200 mm)": "706 (1200 mm)",
+  "710 (1200 mm)": "710 (1200 mm)",
+  "705 (1200 mm)": "705 (1200 mm)",
+  "711 (1200 mm)": "711 (1200 mm)",
+  "716 (1200 mm)": "716 (1200 mm)",
+
+  // Film colour group titles
+  "Durvīm dzīvoklī (PVC plēve)": "Apartment doors (PVC film)",
+  "Durvīm ielas pusē (Winshield)": "Street side doors (Winshield)",
+
+  // PVC film swatches (apartment)
+  "Nr. 1 Rieksts tumšs": "No. 1 Dark walnut",
+  "Nr. 3 Venge dienvidu (tumšs)": "No. 3 Wenge southern (dark)",
+  "Nr. 12 Venge Horizonts tumšs": "No. 12 Wenge Horizon dark",
+  "Nr. 13 Venge Horizonts pelēks": "No. 13 Wenge Horizon grey",
+  "Nr. 14 Betons tumšs": "No. 14 Dark concrete",
+  "Nr. 15 Ozols Šato": "No. 15 Oak Chateau",
+  "Nr. 17 Balta struktūra": "No. 17 White structure",
+  "Nr. 20 Provansas priede": "No. 20 Provence pine",
+  "Nr. 21 Ozols Sonoma": "No. 21 Oak Sonoma",
+  "Nr. 22 Antracīts": "No. 22 Anthracite",
+  "Nr. 23 Betons tumši pelēks": "No. 23 Dark grey concrete",
+  "Nr. 25 Betons pelēks": "No. 25 Grey concrete",
+  "Nr. 26 Betons bēšs": "No. 26 Beige concrete",
+  "Nr. 29 Marmors pelēks": "No. 29 Grey marble",
+  "Nr. 30 Marmors tumšs": "No. 30 Dark marble",
+  "Nr. 31 Ozols Šale sirmais": "No. 31 Oak Chalet grey",
+  "Nr. 34 Koka grieziens brūns": "No. 34 Wood cut brown",
+  "Nr. 37 Balts matēts gluds": "No. 37 White matte smooth",
+  "Nr. 38 Ozols Grafīts": "No. 38 Oak Graphite",
+  "Nr. 67 Slāneklis tumšs": "No. 67 Dark slate",
+  "Nr. 68 Ozols Nemo sudraba": "No. 68 Oak Nemo silver",
+  "Nr. 69 Ozols Nemo karbona": "No. 69 Oak Nemo carbon",
+  "Nr. 70 Platīna koks": "No. 70 Platinum wood",
+  "Nr. 72 Musona koks": "No. 72 Monsoon wood",
+  "Nr. 74 Melna šagrēna": "No. 74 Black shagreen",
+  "Nr. 75 Koka grieziens, konjaka tonis": "No. 75 Wood cut, cognac tone",
+  "Nr. 76 Ozols tabakas": "No. 76 Oak tobacco",
+  "Nr. 82 Koka grieziens, medus tonis": "No. 82 Wood cut, honey tone",
+  "Nr. 84 Ozols Nemo latte": "No. 84 Oak Nemo latte",
+  "Nr. 85 Titāns horizontāls": "No. 85 Titanium horizontal",
+  "Nr. 86 Šale horizontāls": "No. 86 Chalet horizontal",
+  "Nr. 89 Pelēks šīferis": "No. 89 Grey slate",
+  "Nr. 90 Krējuma brašs": "No. 90 Cream brass",
+  "Nr. 94 Pelnu metālisks": "No. 94 Metallic ash",
+  "Nr. 95 Betons antracīts": "No. 95 Anthracite concrete",
+  "Nr. 105 Ozols Sahāras horizontāls": "No. 105 Oak Sahara horizontal",
+  "Nr. 106 Ozols Traupa horizontāls": "No. 106 Oak Traupa horizontal",
+  "Nr. 107 Grifelis, struktūra soft": "No. 107 Slate, soft structure",
+  "Nr. 108 Plombīrs, struktūra soft": "No. 108 Plombir, soft structure",
+  "Nr. 115 Sahāra, struktūra soft": "No. 115 Sahara, soft structure",
+  "Nr. 120 Balta šagrēna": "No. 120 White shagreen",
+  "Nr. 122 Oksīds balts": "No. 122 Oxide white",
+  "Nr. 123 Musona koks, gaišs": "No. 123 Monsoon wood, light",
+  "Nr. 124 Rustikls Avinjona blanc": "No. 124 Rustic Avignon blanc",
+  "Nr. 125 Mamba morions": "No. 125 Mamba morion",
+  "Nr. 127 Roksī antracīts pelēks": "No. 127 Roxy anthracite grey",
+  "Nr. 128 Ozols Dorato tumšs": "No. 128 Oak Dorato dark",
+  "Nr. 130 Oksīds tumšs": "No. 130 Oxide dark",
+  "Nr. 131 Oksīds gaišs": "No. 131 Oxide light",
+  "Nr. 132 Cements balts": "No. 132 White cement",
+  "Nr. 134 Akmens grieziens": "No. 134 Stone cut",
+  "Nr. 135 Balta struktūra, horizontāla": "No. 135 White structure, horizontal",
+  "Nr. 136 Venge Parma": "No. 136 Wenge Parma",
+  "Nr. 138 Hroms": "No. 138 Chrome",
+  "Nr. 139 Alva, supermatēts": "No. 139 Pewter, super matte",
+  "Nr. 140 Ziloņkauls, supermatēts": "No. 140 Ivory, super matte",
+  "Nr. 141 Kašmirs, supermatēts": "No. 141 Cashmere, super matte",
+  "Nr. 143 Dreamwood tumšs": "No. 143 Dreamwood dark",
+  "Nr. 144 Dreamwood gaišs": "No. 144 Dreamwood light",
+  "Nr. 145 Venge Palermo": "No. 145 Wenge Palermo",
+  "Nr. 146 Oksīds melns": "No. 146 Oxide black",
+  "Nr. 147 Reljefs akmens, Sjena": "No. 147 Relief stone, Siena",
+  "Nr. 148 Oksīds melns (viss dekors)": "No. 148 Oxide black (full décor)",
+
+  // Winshield film swatches (street side)
+  "Antracīts smilškrāsas 59S-1": "Anthracite sand 59S-1",
+  "Antracīts pelēks 58P-1": "Anthracite grey 58P-1",
+  "Betons pelēks 123A-1": "Concrete grey 123A-1",
+  "Balts 05P-1": "White 05P-1",
+  "Balts satīns 06S-1": "White satin 06S-1",
+  "Ozols zeltains 89P-1": "Oak golden 89P-1",
+  "Ozols polārais 91P-1": "Oak polar 91P-1",
+  "Ozols pelēks 93P-1": "Oak grey 93P-1",
+  "Ozols Sonoma 92P-1": "Oak Sonoma 92P-1",
+  "Ozols tumšs 23P-1": "Oak dark 23P-1",
+  "Lapegle vulkāniskā 136N-1": "Larch volcanic 136N-1",
+  "Lapegle morēna 134N-1": "Larch moraine 134N-1",
+  "Lapegle dabīgā 131N-1": "Larch natural 131N-1",
+  "Piena tonis 51R-5": "Milk tone 51R-5",
+  "Pelēks gaišs 108S-1": "Light grey 108S-1",
+  "Venge tumšs 20P-1": "Wenge dark 20P-1",
+  "Rieksts dabīgais 25P-1": "Walnut natural 25P-1",
+  "Pelēks skandināvu 38D-1": "Scandinavian grey 38D-1",
+  "Titāns 32S-1": "Titanium 32S-1",
+  "Antracīts stilīgs 58N-1": "Anthracite stylish 58N-1",
+  "Melns auksts, smilškrāsas 110S-1": "Cool black, sand 110S-1",
+  "Ozols Montāna 130N-1": "Oak Montana 130N-1",
+  "Tīkoks gaišs 34H-1": "Teak light 34H-1",
+  "Rieksts konjaka tonī 37P-1": "Walnut cognac tone 37P-1",
+  "Kapučīno 53R-5": "Cappuccino 53R-5",
+
+  // Powder coating — matte
+  "Matēts pārklājums": "Matte coating",
+  "Metāliski melns": "Metallic black",
+  "Metāliski pelēks (antracīts)": "Metallic grey (anthracite)",
+  "Metāliski grafīts": "Metallic graphite",
+  "Metāliski brūns (koka tonis)": "Metallic brown (wood tone)",
+  "Metāliski balts": "Metallic white",
+  "Metāliski Chalet (pelēks)": "Metallic Chalet (grey)",
+  "Metāliski tumši antracīts": "Metallic dark anthracite",
+
+  // Powder coating — wood texture
+  "Koka tekstūras pārklājums": "Wood-texture coating",
+  "Antracīts": "Anthracite",
+  "Tumši antracīts": "Dark anthracite",
+  "Ozols bronza": "Oak bronze",
+  "Venge tumšs": "Wenge dark",
+};
