@@ -125,8 +125,7 @@ const messages = {
     pages: {
       manufacturer2: {
         title: "Gamintojas - 2",
-        description:
-          "Durų dizaino serijos, plėvelės spalvos ir milteliniai dažai iš Bulat gamyklos (Černihivas).",
+        description: "Durų dizaino serijos, plėvelės spalvos ir milteliniai dažai.",
       },
       deals: {
         title: "Akcijos",
@@ -399,8 +398,7 @@ const messages = {
     pages: {
       manufacturer2: {
         title: "Ražotājs - 2",
-        description:
-          "Durvju dizaina sērijas, plēves krāsas un pulverkrāsojums no Bulat ražotnes (Čerņihiva).",
+        description: "Durvju dizaina sērijas, plēves krāsas un pulverkrāsojums.",
       },
       deals: {
         title: "Akcijas",
@@ -673,8 +671,7 @@ const messages = {
     pages: {
       manufacturer2: {
         title: "Manufacturer - 2",
-        description:
-          "Door design series, film colours and powder coating from the Bulat factory (Chernihiv).",
+        description: "Door design series, film colours and powder coating.",
       },
       deals: {
         title: "Deals",

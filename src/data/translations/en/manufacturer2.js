@@ -15,8 +15,8 @@ export const enManufacturer2 = {
   "Pulverkrāsojuma katalogs": "Powder coating catalogue",
 
   // Leads
-  "Bulat ražotnes (Čerņihiva) durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
-    "Catalogue of milling patterns for door leaves from the Bulat factory (Chernihiv) — over 200 models, grouped into series by milling depth and style. Any pattern can be made for any door model and combined with any coating colour from the palettes below.",
+  "Durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
+    "Catalogue of milling patterns for door leaves — over 200 models, grouped into series by milling depth and style. Any pattern can be made for any door model and combined with any coating colour from the palettes below.",
   "Divi plēves seguma veidi: iekštelpu PVC plēve durvīm dzīvoklī un izturīgākā Winshield plēve ārdurvīm ielas pusē. Abas pārklāj MDF apdares plāksni un ir pieejamas jebkurai vērtnes frēzējuma sērijai.":
     "Two types of film coating: indoor PVC film for apartment doors and the more durable Winshield film for the street side of house entrance doors. Both cover the MDF finish panel and are available for any leaf-milling series.",
   "Metāla karkasam un kārbai izmantotais pulverkrāsojums — matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.":

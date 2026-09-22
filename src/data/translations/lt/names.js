@@ -12,108 +12,108 @@ export const ltNames = {
   "Boston AG4 6059 Lite Rūgta šokolāde": "Boston AG4 6059 Lite karti šokoladinė",
   "Boston AG4 6110 Lite Rūgta šokolāde": "Boston AG4 6110 Lite karti šokoladinė",
 
-  "Bulat Cottage, modelis 705/431. Krāsa: Metalic anthracite / Ārpusē: antracīts pelēks":
-    "Bulat Cottage, modelis 705/431. Spalva: Metalic anthracite / išorėje: antracitas pilkas",
-  "Bulat Cottage, modelis 705/431. Krāsa: Metalic anthracite / Ārpusē: balts satīns":
-    "Bulat Cottage, modelis 705/431. Spalva: Metalic anthracite / išorėje: baltas satinas",
-  "Bulat Cottage, modelis 710/265. Krāsa: Metalic anthracite / Ārpusē: antracīts pelēks":
-    "Bulat Cottage, modelis 710/265. Spalva: Metalic anthracite / išorėje: antracitas pilkas",
-  "Bulat Cottage, modelis 710/265. Krāsa: Metalic anthracite / Ārpusē: balts satīns":
-    "Bulat Cottage, modelis 710/265. Spalva: Metalic anthracite / išorėje: baltas satinas",
+  "Cottage, modelis 705/431. Krāsa: Metalic anthracite / Ārpusē: antracīts pelēks":
+    "Cottage, modelis 705/431. Spalva: Metalic anthracite / išorėje: antracitas pilkas",
+  "Cottage, modelis 705/431. Krāsa: Metalic anthracite / Ārpusē: balts satīns":
+    "Cottage, modelis 705/431. Spalva: Metalic anthracite / išorėje: baltas satinas",
+  "Cottage, modelis 710/265. Krāsa: Metalic anthracite / Ārpusē: antracīts pelēks":
+    "Cottage, modelis 710/265. Spalva: Metalic anthracite / išorėje: antracitas pilkas",
+  "Cottage, modelis 710/265. Krāsa: Metalic anthracite / Ārpusē: balts satīns":
+    "Cottage, modelis 710/265. Spalva: Metalic anthracite / išorėje: baltas satinas",
 
-  "Bulat Expert (kvadro) Mottura, modelis 570/568. Krāsa: Ozols dorato tumšs / Alva supermatēts":
-    "Bulat Expert (kvadro) Mottura, modelis 570/568. Spalva: ąžuolas dorato tamsus / alavas supermatinis",
-  "Bulat Fortezza (kvadro) Securemme, modelis 563/556. Krāsa: Akmens grieziens / Pelēks šīferis":
-    "Bulat Fortezza (kvadro) Securemme, modelis 563/556. Spalva: akmens pjūvis / pilkas šiferis",
-  "Bulat Olimp (kvadro) Mottura, modelis 571/238. Krāsa: Dreamwood tumšs / Alva supermatēts":
-    "Bulat Olimp (kvadro) Mottura, modelis 571/238. Spalva: Dreamwood tamsus / alavas supermatinis",
-  "Bulat Olimp (kvadro) Mottura, modelis 589. Krāsa: Oksīds tumšs":
-    "Bulat Olimp (kvadro) Mottura, modelis 589. Spalva: oksidas tamsus",
-  "Bulat Tandem (kvadro) Kale, modelis 276. Krāsa: Dreamwood tumšs":
-    "Bulat Tandem (kvadro) Kale, modelis 276. Spalva: Dreamwood tamsus",
-  "Bulat Tandem (kvadro) Kale, modelis 586/gluds. Krāsa: Oksīds melns, viss dekors / Balts matēts gluds":
-    "Bulat Tandem (kvadro) Kale, modelis 586/lygus. Spalva: oksidas juodas, visas dekoras / balta matinė lygi",
-  "Bulat Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Дрімвуд темний. Bezatslēgas piekļuve":
-    "Bulat Tandem Elektro (kvadro) Kale, modelis 566. Spalva: Dreamwood tamsus. Berakčio atrakinimo sistema",
-  "Bulat Termo Expert (kvadro) Mottura, modelis 550/253. Krāsa: Roxy antracīts pelēks / Balts matēts":
-    "Bulat Termo Expert (kvadro) Mottura, modelis 550/253. Spalva: Roxy antracitas pilkas / balta matinė",
+  "Expert (kvadro) Mottura, modelis 570/568. Krāsa: Ozols dorato tumšs / Alva supermatēts":
+    "Expert (kvadro) Mottura, modelis 570/568. Spalva: ąžuolas dorato tamsus / alavas supermatinis",
+  "Fortezza (kvadro) Securemme, modelis 563/556. Krāsa: Akmens grieziens / Pelēks šīferis":
+    "Fortezza (kvadro) Securemme, modelis 563/556. Spalva: akmens pjūvis / pilkas šiferis",
+  "Olimp (kvadro) Mottura, modelis 571/238. Krāsa: Dreamwood tumšs / Alva supermatēts":
+    "Olimp (kvadro) Mottura, modelis 571/238. Spalva: Dreamwood tamsus / alavas supermatinis",
+  "Olimp (kvadro) Mottura, modelis 589. Krāsa: Oksīds tumšs":
+    "Olimp (kvadro) Mottura, modelis 589. Spalva: oksidas tamsus",
+  "Tandem (kvadro) Kale, modelis 276. Krāsa: Dreamwood tumšs":
+    "Tandem (kvadro) Kale, modelis 276. Spalva: Dreamwood tamsus",
+  "Tandem (kvadro) Kale, modelis 586/gluds. Krāsa: Oksīds melns, viss dekors / Balts matēts gluds":
+    "Tandem (kvadro) Kale, modelis 586/lygus. Spalva: oksidas juodas, visas dekoras / balta matinė lygi",
+  "Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Дрімвуд темний. Bezatslēgas piekļuve":
+    "Tandem Elektro (kvadro) Kale, modelis 566. Spalva: Dreamwood tamsus. Berakčio atrakinimo sistema",
+  "Termo Expert (kvadro) Mottura, modelis 550/253. Krāsa: Roxy antracīts pelēks / Balts matēts":
+    "Termo Expert (kvadro) Mottura, modelis 550/253. Spalva: Roxy antracitas pilkas / balta matinė",
 
-  "Bulat Termo House Elektro, modelis 705/431. Krāsa: Venge tumšs / Ārpusē: balts satīns":
-    "Bulat Termo House Elektro, modelis 705/431. Spalva: vengė tamsi / išorėje: baltas satinas",
-  "Bulat Termo House Elektro, modelis 705/431. Krāsa: Антрацит темний / Ārpusē: balts satīns":
-    "Bulat Termo House Elektro, modelis 705/431. Spalva: tamsus antracitas / išorėje: baltas satinas",
-  "Bulat Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns":
-    "Bulat Termo House Elektro, modelis 706/431 - 1200 mm. Spalva: vengė tamsi / išorėje: baltas satinas",
-  "Bulat Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Антрацит темний / Ārpusē: balts satīns":
-    "Bulat Termo House Elektro, modelis 706/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: baltas satinas",
+  "Termo House Elektro, modelis 705/431. Krāsa: Venge tumšs / Ārpusē: balts satīns":
+    "Termo House Elektro, modelis 705/431. Spalva: vengė tamsi / išorėje: baltas satinas",
+  "Termo House Elektro, modelis 705/431. Krāsa: Антрацит темний / Ārpusē: balts satīns":
+    "Termo House Elektro, modelis 705/431. Spalva: tamsus antracitas / išorėje: baltas satinas",
+  "Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns":
+    "Termo House Elektro, modelis 706/431 - 1200 mm. Spalva: vengė tamsi / išorėje: baltas satinas",
+  "Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Антрацит темний / Ārpusē: balts satīns":
+    "Termo House Elektro, modelis 706/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: baltas satinas",
 
-  "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
-    "Bulat Termo House, modelis 705/431 - 1200 mm. Spalva: ąžuolas bronza / išorėje: pieno spalva",
-  "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
-    "Bulat Termo House, modelis 705/431 - 1200 mm. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
-  "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks":
-    "Bulat Termo House, modelis 705/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: antracitas pilkas",
-  "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
-    "Bulat Termo House, modelis 705/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: baltas satinas",
-  "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns":
-    "Bulat Termo House, modelis 705/431 - 1200 mm. Spalva: vengė tamsi / išorėje: baltas satinas",
-  "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs":
-    "Bulat Termo House, modelis 705/431 - 1200 mm. Spalva: vengė tamsi / išorėje: vengė tamsi",
-  "Bulat Termo House, modelis 705/431. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
-    "Bulat Termo House, modelis 705/431. Spalva: ąžuolas bronza / išorėje: pieno spalva",
-  "Bulat Termo House, modelis 705/431. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
-    "Bulat Termo House, modelis 705/431. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
-  "Bulat Termo House, modelis 705/431. Krāsa: Venge tumšs / Ārpusē: venge tumšs":
-    "Bulat Termo House, modelis 705/431. Spalva: vengė tamsi / išorėje: vengė tamsi",
-  "Bulat Termo House, modelis 706/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
-    "Bulat Termo House, modelis 706/431 - 1200 mm. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
-  "Bulat Termo House, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns":
-    "Bulat Termo House, modelis 706/431 - 1200 mm. Spalva: vengė tamsi / išorėje: baltas satinas",
-  "Bulat Termo House, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs":
-    "Bulat Termo House, modelis 706/431 - 1200 mm. Spalva: vengė tamsi / išorėje: vengė tamsi",
-  "Bulat Termo House, modelis 706/431 - 1200mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
-    "Bulat Termo House, modelis 706/431 - 1200 mm. Spalva: ąžuolas bronza / išorėje: pieno spalva",
-  "Bulat Termo House, modelis 706/431 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks":
-    "Bulat Termo House, modelis 706/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: antracitas pilkas",
-  "Bulat Termo House, modelis 706/431 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
-    "Bulat Termo House, modelis 706/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: baltas satinas",
-  "Bulat Termo House, modelis 710/265 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
-    "Bulat Termo House, modelis 710/265 - 1200 mm. Spalva: ąžuolas bronza / išorėje: pieno spalva",
-  "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
-    "Bulat Termo House, modelis 710/265 - 1200 mm. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
-  "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks":
-    "Bulat Termo House, modelis 710/265 - 1200 mm. Spalva: tamsus antracitas / išorėje: antracitas pilkas",
-  "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
-    "Bulat Termo House, modelis 710/265 - 1200 mm. Spalva: tamsus antracitas / išorėje: baltas satinas",
-  "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Venge tumšs / Ārpusē: balts satīns":
-    "Bulat Termo House, modelis 710/265 - 1200 mm. Spalva: vengė tamsi / išorėje: baltas satinas",
-  "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs":
-    "Bulat Termo House, modelis 710/265 - 1200 mm. Spalva: vengė tamsi / išorėje: vengė tamsi",
-  "Bulat Termo House, modelis 710/265. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
-    "Bulat Termo House, modelis 710/265. Spalva: ąžuolas bronza / išorėje: pieno spalva",
-  "Bulat Termo House, modelis 710/265. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
-    "Bulat Termo House, modelis 710/265. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
-  "Bulat Termo House, modelis 710/265. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
-    "Bulat Termo House, modelis 710/265. Spalva: tamsus antracitas / išorėje: baltas satinas",
-  "Bulat Termo House, modelis 710/265. Krāsa: Venge tumšs / Ārpusē: balts satīns":
-    "Bulat Termo House, modelis 710/265. Spalva: vengė tamsi / išorėje: baltas satinas",
+  "Termo House, modelis 705/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
+    "Termo House, modelis 705/431 - 1200 mm. Spalva: ąžuolas bronza / išorėje: pieno spalva",
+  "Termo House, modelis 705/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
+    "Termo House, modelis 705/431 - 1200 mm. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
+  "Termo House, modelis 705/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks":
+    "Termo House, modelis 705/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: antracitas pilkas",
+  "Termo House, modelis 705/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
+    "Termo House, modelis 705/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: baltas satinas",
+  "Termo House, modelis 705/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns":
+    "Termo House, modelis 705/431 - 1200 mm. Spalva: vengė tamsi / išorėje: baltas satinas",
+  "Termo House, modelis 705/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs":
+    "Termo House, modelis 705/431 - 1200 mm. Spalva: vengė tamsi / išorėje: vengė tamsi",
+  "Termo House, modelis 705/431. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
+    "Termo House, modelis 705/431. Spalva: ąžuolas bronza / išorėje: pieno spalva",
+  "Termo House, modelis 705/431. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
+    "Termo House, modelis 705/431. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
+  "Termo House, modelis 705/431. Krāsa: Venge tumšs / Ārpusē: venge tumšs":
+    "Termo House, modelis 705/431. Spalva: vengė tamsi / išorėje: vengė tamsi",
+  "Termo House, modelis 706/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
+    "Termo House, modelis 706/431 - 1200 mm. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
+  "Termo House, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns":
+    "Termo House, modelis 706/431 - 1200 mm. Spalva: vengė tamsi / išorėje: baltas satinas",
+  "Termo House, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs":
+    "Termo House, modelis 706/431 - 1200 mm. Spalva: vengė tamsi / išorėje: vengė tamsi",
+  "Termo House, modelis 706/431 - 1200mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
+    "Termo House, modelis 706/431 - 1200 mm. Spalva: ąžuolas bronza / išorėje: pieno spalva",
+  "Termo House, modelis 706/431 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks":
+    "Termo House, modelis 706/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: antracitas pilkas",
+  "Termo House, modelis 706/431 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
+    "Termo House, modelis 706/431 - 1200 mm. Spalva: tamsus antracitas / išorėje: baltas satinas",
+  "Termo House, modelis 710/265 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
+    "Termo House, modelis 710/265 - 1200 mm. Spalva: ąžuolas bronza / išorėje: pieno spalva",
+  "Termo House, modelis 710/265 - 1200mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
+    "Termo House, modelis 710/265 - 1200 mm. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
+  "Termo House, modelis 710/265 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks":
+    "Termo House, modelis 710/265 - 1200 mm. Spalva: tamsus antracitas / išorėje: antracitas pilkas",
+  "Termo House, modelis 710/265 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
+    "Termo House, modelis 710/265 - 1200 mm. Spalva: tamsus antracitas / išorėje: baltas satinas",
+  "Termo House, modelis 710/265 - 1200mm. Krāsa: Venge tumšs / Ārpusē: balts satīns":
+    "Termo House, modelis 710/265 - 1200 mm. Spalva: vengė tamsi / išorėje: baltas satinas",
+  "Termo House, modelis 710/265 - 1200mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs":
+    "Termo House, modelis 710/265 - 1200 mm. Spalva: vengė tamsi / išorėje: vengė tamsi",
+  "Termo House, modelis 710/265. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
+    "Termo House, modelis 710/265. Spalva: ąžuolas bronza / išorėje: pieno spalva",
+  "Termo House, modelis 710/265. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls":
+    "Termo House, modelis 710/265. Spalva: ąžuolas bronza / išorėje: riešutas natūralus",
+  "Termo House, modelis 710/265. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
+    "Termo House, modelis 710/265. Spalva: tamsus antracitas / išorėje: baltas satinas",
+  "Termo House, modelis 710/265. Krāsa: Venge tumšs / Ārpusē: balts satīns":
+    "Termo House, modelis 710/265. Spalva: vengė tamsi / išorėje: baltas satinas",
 
-  "Bulat Termo Olimp (kvadro) Mottura, modelis 575/568. Krāsa: Oksīds melns / Balts matēts":
-    "Bulat Termo Olimp (kvadro) Mottura, modelis 575/568. Spalva: oksidas juodas / balta matinė",
-  "Bulat Termo Status (kvadro) Securemme, modelis 269/263. Krāsa: Hroms / Balts matēts":
-    "Bulat Termo Status (kvadro) Securemme, modelis 269/263. Spalva: chromas / balta matinė",
-  "Bulat Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Білий матовий гладкий. Bezatslēgas piekļuve":
-    "Bulat Termo Tandem Elektro (kvadro) Kale, modelis 590/lygus. Spalva: akmens pjūvis / balta matinė lygi. Berakčio atrakinimo sistema",
-  "Bulat Termo Ultra (kvadro) Kale, modelis 567/gluds. Krāsa: Hroms / Balts matēts":
-    "Bulat Termo Ultra (kvadro) Kale, modelis 567/lygus. Spalva: chromas / balta matinė",
-  "Bulat Ultra (kvadro) Kale, modelis 547/251. Krāsa: Ardenu rieksts / Rustic Avignon Blanc":
-    "Bulat Ultra (kvadro) Kale, modelis 547/251. Spalva: Ardėnų riešutas / Rustic Avignon Blanc",
-  "Bulat Ultra (kvadro) Securemme, modelis 540/249. Krāsa: Akmens grieziens / Balts matēts gluds":
-    "Bulat Ultra (kvadro) Securemme, modelis 540/249. Spalva: akmens pjūvis / balta matinė lygi",
-  "Bulat Ultra (kvadro) Securemme, modelis 557/607 тоноване spogulis. Krāsa: Pelnu metālika / Сірий шифер.":
-    "Bulat Ultra (kvadro) Securemme, modelis 557/607, tonuotas veidrodis. Spalva: pelenų metalikas / pilkas šiferis",
-  "Bulat Ultra (kvadro) Securemme, modelis 587/276. Krāsa: Musona koks / Alva supermatēts":
-    "Bulat Ultra (kvadro) Securemme, modelis 587/276. Spalva: musono mediena / alavas supermatinis",
+  "Termo Olimp (kvadro) Mottura, modelis 575/568. Krāsa: Oksīds melns / Balts matēts":
+    "Termo Olimp (kvadro) Mottura, modelis 575/568. Spalva: oksidas juodas / balta matinė",
+  "Termo Status (kvadro) Securemme, modelis 269/263. Krāsa: Hroms / Balts matēts":
+    "Termo Status (kvadro) Securemme, modelis 269/263. Spalva: chromas / balta matinė",
+  "Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Білий матовий гладкий. Bezatslēgas piekļuve":
+    "Termo Tandem Elektro (kvadro) Kale, modelis 590/lygus. Spalva: akmens pjūvis / balta matinė lygi. Berakčio atrakinimo sistema",
+  "Termo Ultra (kvadro) Kale, modelis 567/gluds. Krāsa: Hroms / Balts matēts":
+    "Termo Ultra (kvadro) Kale, modelis 567/lygus. Spalva: chromas / balta matinė",
+  "Ultra (kvadro) Kale, modelis 547/251. Krāsa: Ardenu rieksts / Rustic Avignon Blanc":
+    "Ultra (kvadro) Kale, modelis 547/251. Spalva: Ardėnų riešutas / Rustic Avignon Blanc",
+  "Ultra (kvadro) Securemme, modelis 540/249. Krāsa: Akmens grieziens / Balts matēts gluds":
+    "Ultra (kvadro) Securemme, modelis 540/249. Spalva: akmens pjūvis / balta matinė lygi",
+  "Ultra (kvadro) Securemme, modelis 557/607 тоноване spogulis. Krāsa: Pelnu metālika / Сірий шифер.":
+    "Ultra (kvadro) Securemme, modelis 557/607, tonuotas veidrodis. Spalva: pelenų metalikas / pilkas šiferis",
+  "Ultra (kvadro) Securemme, modelis 587/276. Krāsa: Musona koks / Alva supermatēts":
+    "Ultra (kvadro) Securemme, modelis 587/276. Spalva: musono mediena / alavas supermatinis",
 
   "Citadel B-434 (kvadro), modelis 155. Krāsa: Oksīds tumšs / Oksīds gaišs":
     "Citadel B-434 (kvadro), modelis 155. Spalva: oksidas tamsus / oksidas šviesus",

@@ -18,6 +18,7 @@ const IK500 = `${IK}series500without/`;
 const IK600 = `${IK}series600without/`;
 const IK800 = `${IK}series800without/`;
 const IK900 = `${IK}series900without/`;
+const IKSTREET = `${IK}streetwithout/`;
 
 function series(prefix, entries) {
   return entries.map(([label, file, base]) => ({
@@ -30,7 +31,7 @@ export const manufacturer2Sections = [
   {
     key: "dizains",
     title: "Durvju dizaina sērijas",
-    lead: "Bulat ražotnes (Čerņihiva) durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.",
+    lead: "Durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.",
     groups: [
       {
         title: "100. sērija",
@@ -163,10 +164,12 @@ export const manufacturer2Sections = [
       },
       {
         title: "Iela",
-        items: series(B100, [
-          ["710", "710-950.jpg"], ["705", "705-950.jpg"], ["706 (1200 mm)", "706-1200-2-1.jpg"],
-          ["710 (1200 mm)", "710-1200.jpg"], ["705 (1200 mm)", "705-1200.jpg"], ["707", "707-950.jpg"],
-          ["711 (1200 mm)", "711-1200.jpg"], ["716 (1200 mm)", "716-1200.jpg"],
+        items: series(IKSTREET, [
+          ["710", "710.png"], ["705", "705.jpg"], ["706 (1200 mm)", "706%201200mm.jpg"],
+          ["710 (1200 mm)", "710%201200mm.png"], ["707", "707.png"],
+          ["711 (1200 mm)", "711%201200mm.png"], ["716 (1200 mm)", "716%201200mm.png"],
+        ]).concat([
+          { label: "705 (1200 mm)", image: `${IK}705-1200.png` },
         ]),
       },
     ],

@@ -41,6 +41,10 @@ const SERIES_DESIGN_SURCHARGE_IDS = new Set([
   "series-900-glass",
 ]);
 
+// Priced automatically from the "Vēršanās virziens" choice instead, so it's
+// hidden from the general options list.
+const INSIDE_OPENING_OPTION_ID = "inside-opening";
+
 // Stands in for a door photo the manufacturer hasn't shot yet (their own
 // calculator shows the same gap) — a plain "coming soon" notice instead of
 // pulling in their Ukrainian-language placeholder graphic.
@@ -601,14 +605,13 @@ function seriesOptionLabel(locale, g) {
   return `${title} — ${trData(locale, "cena pēc pieprasījuma")}`;
 }
 
-function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage, onDesignChange, extraOptions, includedExtras = [], onToggleExtra, locale }) {
+function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage, onDesignChange, includedExtras = [], locale }) {
   const [search, setSearch] = useState("");
   const group = groups.find((g) => g.title === seriesTitle) || groups[0];
   const query = search.trim().toLowerCase();
   const items = query ? groups.flatMap((g) => g.items).filter((item) => item.label.toLowerCase().includes(query)) : group.items;
   const surchargeOpt = group.surchargeOptionId ? additionalOptions.find((o) => o.id === group.surchargeOptionId) : null;
   const surchargeIncludedInTier = surchargeOpt ? includedExtras.includes(surchargeOpt.id) : false;
-  const surchargeChecked = surchargeOpt ? extraOptions?.has(surchargeOpt.id) : false;
   return (
     <div className="border border-line bg-white p-4">
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -638,12 +641,7 @@ function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage,
             </span>
             {surchargeIncludedInTier ? (
               <span className="text-[12px] font-medium text-green-700">{trData(locale, "Jau iekļauts standartā")}</span>
-            ) : (
-              <label className="flex items-center gap-1.5 text-[12px] text-ink">
-                <input type="checkbox" checked={!!surchargeChecked} onChange={() => onToggleExtra?.(surchargeOpt.id)} />
-                {trData(locale, "Pievienot piemaksu pasūtījumam")}
-              </label>
-            )}
+            ) : null}
           </div>
         ) : (
           <span className="inline-block border border-line bg-neutral-50 px-2 py-0.5 text-[12px] font-medium text-muted">
@@ -1168,6 +1166,18 @@ export default function Manufacturer2Calculator() {
     }
     const peephole = peepholeOptions.find((p) => p.id === config.peepholeId);
     if (peephole) sum += peephole.price;
+    if (config.openingDirection === "inside" && !included.includes(INSIDE_OPENING_OPTION_ID)) {
+      const insideOpening = additionalOptions.find((o) => o.id === INSIDE_OPENING_OPTION_ID);
+      if (insideOpening) sum += insideOpening.price;
+    }
+    // Design-series surcharges (e.g. 400/500/600 series) apply per side — each
+    // of outer/inner leaf design independently adds its series' surcharge.
+    for (const seriesTitle of [config.outerSeriesTitle, config.innerSeriesTitle]) {
+      const group = dizainsSection.groups.find((g) => g.title === seriesTitle);
+      if (!group?.surchargeOptionId || included.includes(group.surchargeOptionId)) continue;
+      const surcharge = additionalOptions.find((o) => o.id === group.surchargeOptionId);
+      if (surcharge) sum += surcharge.price;
+    }
     for (const optId of config.extraOptions) {
       if (included.includes(optId)) continue;
       const opt = additionalOptions.find((o) => o.id === optId) || casingOptions.find((o) => o.id === optId);
@@ -1181,13 +1191,7 @@ export default function Manufacturer2Calculator() {
     return (
       <div className="container py-12 lg:py-16">
         <div className="max-w-[760px]">
-          <h2 className="t-section">{trData(locale, "Šīs sērijas atbilst Tavam pieprasījumam")}</h2>
-          <p className="mt-4 text-[15px] leading-[1.7] text-ink">
-            {trData(
-              locale,
-              "Atzīmē vēlamos parametrus — piedāvāsim sērijas, kas atbilst tieši Tavam pieprasījumam. Cenas ir mazumtirdzniecības cenas, kas spēkā no 01.08.2024."
-            )}
-          </p>
+          <h2 className="t-section">{trData(locale, "INDIVIDUĀLO PASŪTĪJUMU APRĒĶINĀŠANAS KALKULATORS")}</h2>
         </div>
         <p className="mt-4 text-[13px] text-muted">
           {matchingTiers.length} {trData(locale, "sērijas")}
@@ -1331,16 +1335,18 @@ export default function Manufacturer2Calculator() {
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[380px_1fr]">
           <div>
-            <TierGallery
-              key={selectedTier.id}
-              images={selectedTier.images || [selectedTier.image]}
-              alt={trData(locale, selectedTier.name)}
-              locale={locale}
-              photoPending={selectedTier.photoPending}
-            />
+            {config.outerDesign || config.innerDesign ? null : (
+              <TierGallery
+                key={selectedTier.id}
+                images={selectedTier.images || [selectedTier.image]}
+                alt={trData(locale, selectedTier.name)}
+                locale={locale}
+                photoPending={selectedTier.photoPending}
+              />
+            )}
 
             {config.outerDesign || config.innerDesign ? (
-              <div className="mt-3 grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3">
                 {config.outerDesign ? (
                   <div>
                     <span className="relative block aspect-square overflow-hidden border border-line bg-white">
@@ -1612,9 +1618,7 @@ export default function Manufacturer2Calculator() {
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, outerSeriesTitle: title }))}
                   designImage={config.outerDesign?.image}
                   onDesignChange={(item) => setConfig((c) => ({ ...c, outerDesign: item }))}
-                  extraOptions={config.extraOptions}
                   includedExtras={selectedTier.includedExtras || []}
-                  onToggleExtra={(optId) => setConfig((c) => ({ ...c, extraOptions: toggleInSet(c.extraOptions, optId) }))}
                   locale={locale}
                 />
                 <DesignPicker
@@ -1624,9 +1628,7 @@ export default function Manufacturer2Calculator() {
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, innerSeriesTitle: title }))}
                   designImage={config.innerDesign?.image}
                   onDesignChange={(item) => setConfig((c) => ({ ...c, innerDesign: item }))}
-                  extraOptions={config.extraOptions}
                   includedExtras={selectedTier.includedExtras || []}
-                  onToggleExtra={(optId) => setConfig((c) => ({ ...c, extraOptions: toggleInSet(c.extraOptions, optId) }))}
                   locale={locale}
                 />
               </div>
@@ -1697,7 +1699,9 @@ export default function Manufacturer2Calculator() {
             {/* Additional options */}
             <CollapsibleSection title={trData(locale, "Papildu opcijas")}>
               <div className="space-y-2.5">
-                {additionalOptions.filter((opt) => !SERIES_DESIGN_SURCHARGE_IDS.has(opt.id)).map((opt) => {
+                {additionalOptions
+                  .filter((opt) => !SERIES_DESIGN_SURCHARGE_IDS.has(opt.id) && opt.id !== INSIDE_OPENING_OPTION_ID)
+                  .map((opt) => {
                   const isIncluded = (selectedTier.includedExtras || []).includes(opt.id);
                   const isChecked = isIncluded || config.extraOptions.has(opt.id);
                   return (

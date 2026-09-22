@@ -37,7 +37,7 @@ export const enManufacturer2Calculator = {
   "Notīrīt filtru": "Clear filter",
   "Atlasīt durvis": "Select doors",
   "Atpakaļ": "Back",
-  "Šīs sērijas atbilst Tavam pieprasījumam": "These series match your request",
+  "INDIVIDUĀLO PASŪTĪJUMU APRĒĶINĀŠANAS KALKULATORS": "CUSTOM ORDER PRICING CALCULATOR",
   "sērijas": "series",
   "Durvis privātmājai": "Doors for a house",
   "Durvis dzīvoklim": "Doors for an apartment",
@@ -94,7 +94,7 @@ export const enManufacturer2Calculator = {
 
   // ---- Base filters (manufacturer2Calculator.js) ----
   "Uz āru (uz sevi)": "Outward (towards you)",
-  "Uz iekšu (no sevis) — +60 € (skatīt Papildu opcijas)": "Inward (away from you) — +€60 (see Additional options)",
+  "Uz iekšu (no sevis) — +60 €": "Inward (away from you) — +€60",
   "Kreisā": "Left",
   "Labā": "Right",
   "Viedā slēdzene (Smart)": "Smart lock",

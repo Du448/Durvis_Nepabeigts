@@ -14,8 +14,8 @@ export const ltManufacturer2 = {
   "Pulverkrāsojuma katalogs": "Miltelinio dažymo katalogas",
 
   // Leads
-  "Bulat ražotnes (Čerņihiva) durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
-    "Bulat gamyklos (Černihivas) durų varčių frezavimo katalogas — daugiau nei 200 modelių, suskirstytų į serijas pagal frezavimo gylį ir stilių. Kiekvienas raštas gali būti pagamintas bet kuriam durų modeliui ir derinamas su bet kuria dangos spalva iš žemiau matomų palečių.",
+  "Durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
+    "Durų varčių frezavimo katalogas — daugiau nei 200 modelių, suskirstytų į serijas pagal frezavimo gylį ir stilių. Kiekvienas raštas gali būti pagamintas bet kuriam durų modeliui ir derinamas su bet kuria dangos spalva iš žemiau matomų palečių.",
   "Divi plēves seguma veidi: iekštelpu PVC plēve durvīm dzīvoklī un izturīgākā Winshield plēve ārdurvīm ielas pusē. Abas pārklāj MDF apdares plāksni un ir pieejamas jebkurai vērtnes frēzējuma sērijai.":
     "Dviejų tipų plėvelės danga: vidaus PVC plėvelė durims bute ir atsparesnė Winshield plėvelė lauko durims iš gatvės pusės. Abi dengia MDF apdailos plokštę ir yra prieinamos bet kuriai varčios frezavimo serijai.",
   "Metāla karkasam un kārbai izmantotais pulverkrāsojums — matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.":

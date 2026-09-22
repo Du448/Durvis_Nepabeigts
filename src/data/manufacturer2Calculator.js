@@ -62,7 +62,7 @@ export const glazingOptions = [
 
 export const openingDirections = [
   { id: "outside", label: "Uz āru (uz sevi)" },
-  { id: "inside", label: "Uz iekšu (no sevis) — +60 € (skatīt Papildu opcijas)" },
+  { id: "inside", label: "Uz iekšu (no sevis) — +60 €" },
 ];
 
 export const openingSides = [

@@ -26,7 +26,7 @@ export const ltManufacturer2Calculator = {
   "Notīrīt filtru": "Išvalyti filtrą",
   "Atlasīt durvis": "Atrinkti duris",
   "Atpakaļ": "Atgal",
-  "Šīs sērijas atbilst Tavam pieprasījumam": "Šios serijos atitinka Tavo pageidavimą",
+  "INDIVIDUĀLO PASŪTĪJUMU APRĒĶINĀŠANAS KALKULATORS": "INDIVIDUALIŲ UŽSAKYMŲ SKAIČIAVIMO KALKULIATORIUS",
   "sērijas": "serijos",
   "Durvis privātmājai": "Durys namui",
   "Durvis dzīvoklim": "Durys butui",
@@ -75,7 +75,7 @@ export const ltManufacturer2Calculator = {
 
   // ---- Base filters (manufacturer2Calculator.js) ----
   "Uz āru (uz sevi)": "Į lauką (į save)",
-  "Uz iekšu (no sevis) — +60 € (skatīt Papildu opcijas)": "Į vidų (nuo savęs) — +60 € (žr. Papildomos opcijos)",
+  "Uz iekšu (no sevis) — +60 €": "Į vidų (nuo savęs) — +60 €",
   "Kreisā": "Kairė",
   "Labā": "Dešinė",
 

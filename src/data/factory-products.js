@@ -7,7 +7,7 @@
 export const factoryProducts = [
  {
   "id": "ultra-kale-547-251-ardenu-rieksts-rustic-avignon-blanc",
-  "name": "Bulat Ultra (kvadro) Kale, modelis 547/251. Krāsa: Ardenu rieksts / Rustic Avignon Blanc",
+  "name": "Ultra (kvadro) Kale, modelis 547/251. Krāsa: Ardenu rieksts / Rustic Avignon Blanc",
   "collection": "ULTRA",
   "category": "ardurvis-dzivoklim",
   "price": 721,
@@ -35,7 +35,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/08/0136-05.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/08/0136-06.jpg",
   ],
-  "short": "Bulat Ultra (kvadro) Kale, modelis 547/251, artikuls: 0136 - dizaina un uzticamības iemiesojums. Šīs durvis ir aprīkotas ar Turcijas slēdzenēm KALE 257 (suvaldu) un KALE 252 (cilindra).",
+  "short": "Ultra (kvadro) Kale, modelis 547/251, artikuls: 0136 - dizaina un uzticamības iemiesojums. Šīs durvis ir aprīkotas ar Turcijas slēdzenēm KALE 257 (suvaldu) un KALE 252 (cilindra).",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -191,14 +191,14 @@ export const factoryProducts = [
      "Kārba ir no liekta profila, siltināta ar minerālvati, un trīs blīvējuma kontūras nodrošinās durvīm vislabāko skaņas izolāciju, lai lieks troksnis no kāpņu telpas jūs netraucētu.",
      "Piespiedes regulators ļauj durvis vērt plūdeni un nodrošina maksimāli ciešu blīvējuma piekļaušanos kārbai labākai siltuma un skaņas izolācijai. 6 stingruma ribas vērtnē un 6 stingruma ribas kārbā garantē izstrādājuma izturību.",
      "Durvju dizains pārsteidz ar eleganci - tajā ietilpst melna kompozīta moldingi un vertikāla frēzēšana uz iekšējās un ārējās apdares.",
-     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Nepiekāpieties kvalitātē, izvēloties durvis savam mājoklim - pasūtiet Bulat Ultra (kvadro) Kale."
+     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Nepiekāpieties kvalitātē, izvēloties durvis savam mājoklim - pasūtiet Ultra (kvadro) Kale."
     ]
    }
   ]
  },
  {
   "id": "termo-house-706-431-1200-mm-ozols-bronza-rieksts-naturals",
-  "name": "Bulat Termo House, modelis 706/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
+  "name": "Termo House, modelis 706/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1465,
@@ -226,7 +226,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0135-07.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 706/431 - 1200 mm, artikuls: 0135 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 706/431 - 1200 mm, artikuls: 0135 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -456,14 +456,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 145 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-706-431-1200-mm-venge-tumss-venge-tumss",
-  "name": "Bulat Termo House, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs",
+  "name": "Termo House, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1465,
@@ -491,7 +491,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0134-07.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 706/431 - 1200 mm, artikuls: 0134 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 706/431 - 1200 mm, artikuls: 0134 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -721,14 +721,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 145 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "ultra-securemme-587-276-musona-koks-alva-supermatets",
-  "name": "Bulat Ultra (kvadro) Securemme, modelis 587/276. Krāsa: Musona koks / Alva supermatēts",
+  "name": "Ultra (kvadro) Securemme, modelis 587/276. Krāsa: Musona koks / Alva supermatēts",
   "collection": "ULTRA",
   "category": "ardurvis-dzivoklim",
   "price": 785,
@@ -758,7 +758,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/02/0133-07.jpg",
   ],
   "video": "https://youtu.be/CLPWAIDbthA?si=APRvdXsMJFrSGdaf",
-  "short": "Dzīvokļa durvis Bulat Ultra (kvadro) Securemme, modelis 587/276, artikuls: 0133 - atbilst augstākajiem kvalitātes standartiem. Tās ir aprīkotas ar itāļu slēdzenēm, kas garantē jūsu telpu drošību: augšējā slēdzene - Securemme 2019 suvaldu tipa, apakšējā - cilindra Securemme 2061, un Securemme nakts aizbīdnis, kas pieejams tikai no iekšpuses.",
+  "short": "Dzīvokļa durvis Ultra (kvadro) Securemme, modelis 587/276, artikuls: 0133 - atbilst augstākajiem kvalitātes standartiem. Tās ir aprīkotas ar itāļu slēdzenēm, kas garantē jūsu telpu drošību: augšējā slēdzene - Securemme 2019 suvaldu tipa, apakšējā - cilindra Securemme 2061, un Securemme nakts aizbīdnis, kas pieejams tikai no iekšpuses.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -970,14 +970,14 @@ export const factoryProducts = [
    {
     "title": "Durvju svars",
     "body": [
-     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
  },
  {
   "id": "tandem-kale-276-dreamwood-tumss",
-  "name": "Bulat Tandem (kvadro) Kale, modelis 276. Krāsa: Dreamwood tumšs",
+  "name": "Tandem (kvadro) Kale, modelis 276. Krāsa: Dreamwood tumšs",
   "collection": "TANDEM",
   "category": "ardurvis-dzivoklim",
   "price": 721,
@@ -1007,7 +1007,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/01/0132-0011.jpg",
   ],
   "video": "https://youtu.be/fgkIPTHbwqU?si=k_5SVedTwm8rn4E3",
-  "short": "Durvis Bulat Tandem (kvadro) Kale, modelis 276, artikuls: 0132. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā. Vērtnes biezums ir 105 mm. Durvju svars var sasniegt 103 kg.",
+  "short": "Durvis Tandem (kvadro) Kale, modelis 276, artikuls: 0132. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā. Vērtnes biezums ir 105 mm. Durvju svars var sasniegt 103 kg.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -1220,14 +1220,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 97 kg vai 103 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
  },
  {
   "id": "cottage-710-265-metalic-anthracite-balts-satins",
-  "name": "Bulat Cottage, modelis 710/265. Krāsa: Metalic anthracite / Ārpusē: balts satīns",
+  "name": "Cottage, modelis 710/265. Krāsa: Metalic anthracite / Ārpusē: balts satīns",
   "collection": "COTTAGE",
   "category": "ardurvis-privatmajai",
   "price": 849,
@@ -1259,7 +1259,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/12/0129-11.jpg",
   ],
   "video": "https://youtu.be/yzWdgWHsk7w?si=ZEySsNacriUWQEGO",
-  "short": "Bulat Kotedž, modelis 710/265, artikuls: 0131 - ideāls variants tiem, kas meklē uzticamas un stilīgas ārdurvis. Neatkarīgi no laikapstākļiem šīs durvis ir gatavas sargāt jūsu mājokli.",
+  "short": "Kotedž, modelis 710/265, artikuls: 0131 - ideāls variants tiem, kas meklē uzticamas un stilīgas ārdurvis. Neatkarīgi no laikapstākļiem šīs durvis ir gatavas sargāt jūsu mājokli.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm",
@@ -1475,14 +1475,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 88-93 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "cottage-705-431-metalic-anthracite-balts-satins",
-  "name": "Bulat Cottage, modelis 705/431. Krāsa: Metalic anthracite / Ārpusē: balts satīns",
+  "name": "Cottage, modelis 705/431. Krāsa: Metalic anthracite / Ārpusē: balts satīns",
   "collection": "COTTAGE",
   "category": "ardurvis-privatmajai",
   "price": 973,
@@ -1512,7 +1512,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0130-10.jpg",
   ],
   "video": "https://youtu.be/yzWdgWHsk7w?si=ZEySsNacriUWQEGO",
-  "short": "Bulat Kotedž 705/431, artikuls: 0130 - variants tiem, kas meklē uzticamas ārdurvis ar stiklu.",
+  "short": "Kotedž 705/431, artikuls: 0130 - variants tiem, kas meklē uzticamas ārdurvis ar stiklu.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm",
@@ -1738,14 +1738,14 @@ export const factoryProducts = [
     "title": "Stikla pakete",
     "body": [
      "Durvis ir aprīkotas ar divām divkameru energotaupošām tonētām stikla paketēm, katras gaismas ailas izmērs - 1233×88 mm.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "cottage-710-265-metalic-anthracite-antracits-peleks",
-  "name": "Bulat Cottage, modelis 710/265. Krāsa: Metalic anthracite / Ārpusē: antracīts pelēks",
+  "name": "Cottage, modelis 710/265. Krāsa: Metalic anthracite / Ārpusē: antracīts pelēks",
   "collection": "COTTAGE",
   "category": "ardurvis-privatmajai",
   "price": 849,
@@ -1775,7 +1775,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0129-07.jpg",
   ],
   "video": "https://youtu.be/yzWdgWHsk7w?si=ZEySsNacriUWQEGO",
-  "short": "Bulat Kotedž, modelis 710/265, artikuls: 0129 - ideāls variants tiem, kas meklē uzticamas un stilīgas ārdurvis. Neatkarīgi no laikapstākļiem šīs durvis ir gatavas sargāt jūsu mājokli.",
+  "short": "Kotedž, modelis 710/265, artikuls: 0129 - ideāls variants tiem, kas meklē uzticamas un stilīgas ārdurvis. Neatkarīgi no laikapstākļiem šīs durvis ir gatavas sargāt jūsu mājokli.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm",
@@ -1991,14 +1991,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 88-93 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "cottage-705-431-metalic-anthracite-antracits-peleks",
-  "name": "Bulat Cottage, modelis 705/431. Krāsa: Metalic anthracite / Ārpusē: antracīts pelēks",
+  "name": "Cottage, modelis 705/431. Krāsa: Metalic anthracite / Ārpusē: antracīts pelēks",
   "collection": "COTTAGE",
   "category": "ardurvis-privatmajai",
   "price": 973,
@@ -2029,7 +2029,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0128-11.jpg",
   ],
   "video": "https://youtu.be/yzWdgWHsk7w?si=ZEySsNacriUWQEGO",
-  "short": "Bulat Kotedž 705/431, artikuls: 0128 - variants tiem, kas meklē uzticamas ārdurvis ar stiklu.",
+  "short": "Kotedž 705/431, artikuls: 0128 - variants tiem, kas meklē uzticamas ārdurvis ar stiklu.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm",
@@ -2255,14 +2255,14 @@ export const factoryProducts = [
     "title": "Stikla pakete",
     "body": [
      "Durvis ir aprīkotas ar divām divkameru energotaupošām tonētām stikla paketēm, katras gaismas ailas izmērs - 1233×88 mm.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "olimp-mottura-589-oksids-tumss",
-  "name": "Bulat Olimp (kvadro) Mottura, modelis 589. Krāsa: Oksīds tumšs",
+  "name": "Olimp (kvadro) Mottura, modelis 589. Krāsa: Oksīds tumšs",
   "collection": "OLIMP",
   "category": "ardurvis-dzivoklim",
   "price": 999,
@@ -2292,7 +2292,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/12/0127-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/12/0127-11.jpg",
   ],
-  "short": "Bulat Olimp (kvadro) Mottura, modelis 589, artikuls: 0127 - drošības un mūsdienīga dizaina apvienojums. Durvīm ir 4. pretuzlaušanas klase, jo tās ir aprīkotas ar itāļu Mottura un Securemme slēdzenēm, kas garantē uzticamību un aizsardzību.",
+  "short": "Olimp (kvadro) Mottura, modelis 589, artikuls: 0127 - drošības un mūsdienīga dizaina apvienojums. Durvīm ir 4. pretuzlaušanas klase, jo tās ir aprīkotas ar itāļu Mottura un Securemme slēdzenēm, kas garantē uzticamību un aizsardzību.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -2447,7 +2447,7 @@ export const factoryProducts = [
      "Metāla biezums kārbā - 1,5 mm. Metāla loksnes biezums vērtnē - 1,5 mm. Svars sasniedz 117 kg, kas apliecina durvju uzticamību. Maksimālu siltuma un skaņas izolāciju nodrošina siltinājums ar minerālvati un folijas siltinājumu. Trīs blīvējuma kontūras vērtnē pasargās jūsu dzīvokli no caurvēja un nepatīkamām smakām no kāpņu telpas.",
      "Durvju dizainu papildina melna kompozīta uzliktņi, kas tām piešķir mūsdienīgu izskatu. Durvju krāsa ir pelēka gan no ārpuses, gan no iekšpuses, kas padara tās universālas dažādiem interjeriem.",
      "Durvju furnitūra ir veidota stilīgā kvadrātveida dizainā, kas durvīm piešķir eleganci un oriģinalitāti. Durvis ir aprīkotas ar pastiprinātu cinka rokturi ar pretkorozijas pārklājumu.",
-     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Bulat Olimp durvis, jo tā ir labākā izvēle kāpņu telpas durvīm!"
+     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Olimp durvis, jo tā ir labākā izvēle kāpņu telpas durvīm!"
     ]
    }
   ]
@@ -2693,7 +2693,7 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 69 kg vai 74 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
@@ -2939,7 +2939,7 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 69 kg vai 74 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
@@ -3184,7 +3184,7 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 89 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
@@ -3767,7 +3767,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-tandem-elektro-kale-590-gluds-akmens-grieziens-bezatsl",
-  "name": "Bulat Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Білий матовий гладкий. Bezatslēgas piekļuve",
+  "name": "Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Білий матовий гладкий. Bezatslēgas piekļuve",
   "collection": "TANDEM ELEKTRO",
   "category": "ardurvis-dzivoklim",
   "price": 1050,
@@ -3798,7 +3798,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0120-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0120-11.jpg"
   ],
-  "short": "Bulat Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds, artikuls: 0120. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā Metallic Black/White - melnā/baltā krāsā. Vērtnes biezums ir 105 mm. Durvju svars 104-108 kg. Uzstādīts nerūsējošā tērauda slieksnis aizsardzībai pret bojājumiem.",
+  "short": "Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds, artikuls: 0120. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā Metallic Black/White - melnā/baltā krāsā. Vērtnes biezums ir 105 mm. Durvju svars 104-108 kg. Uzstādīts nerūsējošā tērauda slieksnis aizsardzībai pret bojājumiem.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -3956,14 +3956,14 @@ export const factoryProducts = [
      "Vērtnes biezums ir 105 mm. Pateicoties minerālvatei un folijas siltinājumam, durvīm ir augsts siltuma un skaņas izolācijas līmenis. Piespiedes regulators nodrošina maksimālu blīvējuma piekļaušanos kārbai, kas palīdz izvairīties no siltuma zudumiem un nevēlamu skaņu un smaku iekļūšanas.",
      "Eņģes uz gultņiem nodrošina mīkstu un klusu durvju vēršanos. Bruņu uzlikas ir kvadrātveida un iegremdētas.",
      "Ārējie vertikālie melnā kompozīta ielaidumi šīm durvīm piešķir mūsdienīgu izskatu. Plēve ar vertikālu struktūru pievieno stilu un eleganci.",
-     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija furnitūrai - 3 gadi. Pasūtiet Bulat Elektro durvis, jo tā ir labākā izvēle bezatslēgas piekļuves durvīm, kas ir pieejamas noliktavā!"
+     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija furnitūrai - 3 gadi. Pasūtiet Elektro durvis, jo tā ir labākā izvēle bezatslēgas piekļuves durvīm, kas ir pieejamas noliktavā!"
     ]
    }
   ]
  },
  {
   "id": "tandem-kale-586-gluds-oksids-melns-viss-dekors-balts-matets-",
-  "name": "Bulat Tandem (kvadro) Kale, modelis 586/gluds. Krāsa: Oksīds melns, viss dekors / Balts matēts gluds",
+  "name": "Tandem (kvadro) Kale, modelis 586/gluds. Krāsa: Oksīds melns, viss dekors / Balts matēts gluds",
   "collection": "TANDEM",
   "category": "ardurvis-dzivoklim",
   "price": 721,
@@ -3995,7 +3995,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-11.jpg"
   ],
   "video": "https://youtu.be/fgkIPTHbwqU?si=k_5SVedTwm8rn4E3",
-  "short": "Durvis Bulat Tandem (kvadro) Kale, modelis 586/gluds, artikuls: 0119. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā. Vērtnes biezums ir 105 mm. Durvju svars var sasniegt 103 kg.",
+  "short": "Durvis Tandem (kvadro) Kale, modelis 586/gluds, artikuls: 0119. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā. Vērtnes biezums ir 105 mm. Durvju svars var sasniegt 103 kg.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -4208,7 +4208,7 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 97 kg vai 103 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
@@ -4453,7 +4453,7 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 89 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
@@ -4698,7 +4698,7 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 89 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
@@ -4942,14 +4942,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 89 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-elektro-706-431-1200-mm-venge-tumss-balts-satins",
-  "name": "Bulat Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns",
+  "name": "Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE ELEKTRO",
   "category": "ardurvis-privatmajai",
   "price": 1733,
@@ -4977,7 +4977,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0115-06.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0115-10.jpg",
   ],
-  "short": "Bulat Termo House Elektro 706/431 - 1200 mm, artikuls: 0115 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House Elektro 706/431 - 1200 mm, artikuls: 0115 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -5134,14 +5134,14 @@ export const factoryProducts = [
      "Vērtnes biezums ir 95 mm. Pateicoties bazalta vatei, folijas siltinājumam un korķa kokam, durvīm ir augsts siltuma un skaņas izolācijas līmenis.",
      "No durvju ārpuses ir uzstādīts sendvičpanelis - 0,8 mm bieza tērauda loksne kopā ar 20 mm biezu ekstrudētu putupolistirolu. Inovatīvais pārklājums ietver cinka grunti pret koroziju, aizsargkrāsu pret ultravioleto starojumu un koka struktūras uzklāšanu. No iekšpuses ir uzstādīts mitrumizturīgs MDF, kas pārklāts ar mitrumizturīgu Izraēlas PVC plēvi Winshield.",
      "Durvis ir aprīkotas ar Turcijas cilindra tipa slēdzeni Kale 257 un Turcijas cilindra mehānismu 50×30 stieņa tipa, bet apakšējās slēdzenes lomu pilda elektroniskā slēdzene PES Monoblok. Durvis ir komplektētas arī ar Securemme nakts aizbīdni. Melnā furnitūra ar pretkorozijas pārklājumu nebaidās no mitruma un ultravioletā starojuma. Durvju rokturis ir izgatavots no cinka maksimālai izturībai.",
-     "Durvis atbilst DSTU standartiem, un tām ir kvalitātes sertifikāts. Garantija izstrādājumam - 5 gadi, kalpošanas laiks - 25 gadi. Pasūtiet Bulat Termo House - tā ir labākā durvju izvēle privātmājai."
+     "Durvis atbilst DSTU standartiem, un tām ir kvalitātes sertifikāts. Garantija izstrādājumam - 5 gadi, kalpošanas laiks - 25 gadi. Pasūtiet Termo House - tā ir labākā durvju izvēle privātmājai."
     ]
    }
   ]
  },
  {
   "id": "termo-house-elektro-705-431-venge-tumss-balts-satins",
-  "name": "Bulat Termo House Elektro, modelis 705/431. Krāsa: Venge tumšs / Ārpusē: balts satīns",
+  "name": "Termo House Elektro, modelis 705/431. Krāsa: Venge tumšs / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE ELEKTRO",
   "category": "ardurvis-privatmajai",
   "price": 1324,
@@ -5171,7 +5171,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0114-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0114-11.jpg",
   ],
-  "short": "Bulat Termo House Elektro 705/431, artikuls: 0114 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House Elektro 705/431, artikuls: 0114 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -5328,14 +5328,14 @@ export const factoryProducts = [
      "Vērtnes biezums ir 95 mm. Pateicoties bazalta vatei, folijas siltinājumam un korķa kokam, durvīm ir augsts siltuma un skaņas izolācijas līmenis.",
      "No durvju ārpuses ir uzstādīts sendvičpanelis - 0,8 mm bieza tērauda loksne kopā ar 20 mm biezu ekstrudētu putupolistirolu. Inovatīvais pārklājums ietver cinka grunti pret koroziju, aizsargkrāsu pret ultravioleto starojumu un koka struktūras uzklāšanu. No iekšpuses ir uzstādīts mitrumizturīgs MDF, kas pārklāts ar mitrumizturīgu Izraēlas PVC plēvi Winshield.",
      "Durvis ir aprīkotas ar Turcijas cilindra tipa slēdzeni Kale 257 un Turcijas cilindra mehānismu 50×30 stieņa tipa, bet apakšējās slēdzenes lomu pilda elektroniskā slēdzene PES Monoblok. Durvis ir komplektētas arī ar Securemme nakts aizbīdni. Melnā furnitūra ar pretkorozijas pārklājumu nebaidās no mitruma un ultravioletā starojuma. Durvju rokturis ir izgatavots no cinka maksimālai izturībai.",
-     "Durvis atbilst DSTU standartiem, un tām ir kvalitātes sertifikāts. Garantija izstrādājumam - 5 gadi, kalpošanas laiks - 25 gadi. Pasūtiet Bulat Termo House - tā ir labākā durvju izvēle privātmājai."
+     "Durvis atbilst DSTU standartiem, un tām ir kvalitātes sertifikāts. Garantija izstrādājumam - 5 gadi, kalpošanas laiks - 25 gadi. Pasūtiet Termo House - tā ir labākā durvju izvēle privātmājai."
     ]
    }
   ]
  },
  {
   "id": "termo-house-elektro-706-431-1200-mm-balts-satins",
-  "name": "Bulat Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Антрацит темний / Ārpusē: balts satīns",
+  "name": "Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Антрацит темний / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE ELEKTRO",
   "category": "ardurvis-privatmajai",
   "price": 1733,
@@ -5363,7 +5363,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0113-06.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0113-10.jpg",
   ],
-  "short": "Bulat Termo House Elektro 706/431 - 1200 mm, artikuls: 0113 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House Elektro 706/431 - 1200 mm, artikuls: 0113 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -5520,14 +5520,14 @@ export const factoryProducts = [
      "Vērtnes biezums ir 95 mm. Pateicoties bazalta vatei, folijas siltinājumam un korķa kokam, durvīm ir augsts siltuma un skaņas izolācijas līmenis.",
      "No durvju ārpuses ir uzstādīts sendvičpanelis - 0,8 mm bieza tērauda loksne kopā ar 20 mm biezu ekstrudētu putupolistirolu. Inovatīvais pārklājums ietver cinka grunti pret koroziju, aizsargkrāsu pret ultravioleto starojumu un koka struktūras uzklāšanu. No iekšpuses ir uzstādīts mitrumizturīgs MDF, kas pārklāts ar mitrumizturīgu Izraēlas PVC plēvi Winshield.",
      "Durvis ir aprīkotas ar Turcijas cilindra tipa slēdzeni Kale 257 un Turcijas cilindra mehānismu 50×30 stieņa tipa, bet apakšējās slēdzenes lomu pilda elektroniskā slēdzene PES Monoblok. Durvis ir komplektētas arī ar Securemme nakts aizbīdni. Melnā furnitūra ar pretkorozijas pārklājumu nebaidās no mitruma un ultravioletā starojuma. Durvju rokturis ir izgatavots no cinka maksimālai izturībai.",
-     "Durvis atbilst DSTU standartiem, un tām ir kvalitātes sertifikāts. Garantija izstrādājumam - 5 gadi, kalpošanas laiks - 25 gadi. Pasūtiet Bulat Termo House - tā ir labākā durvju izvēle privātmājai."
+     "Durvis atbilst DSTU standartiem, un tām ir kvalitātes sertifikāts. Garantija izstrādājumam - 5 gadi, kalpošanas laiks - 25 gadi. Pasūtiet Termo House - tā ir labākā durvju izvēle privātmājai."
     ]
    }
   ]
  },
  {
   "id": "termo-house-elektro-705-431-balts-satins",
-  "name": "Bulat Termo House Elektro, modelis 705/431. Krāsa: Антрацит темний / Ārpusē: balts satīns",
+  "name": "Termo House Elektro, modelis 705/431. Krāsa: Антрацит темний / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE ELEKTRO",
   "category": "ardurvis-privatmajai",
   "price": 1324,
@@ -5557,7 +5557,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0112-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0112-11.jpg",
   ],
-  "short": "Bulat Termo House Elektro 705/431, artikuls: 0112 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House Elektro 705/431, artikuls: 0112 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -5714,7 +5714,7 @@ export const factoryProducts = [
      "Vērtnes biezums ir 95 mm. Pateicoties bazalta vatei, folijas siltinājumam un korķa kokam, durvīm ir augsts siltuma un skaņas izolācijas līmenis.",
      "No durvju ārpuses ir uzstādīts sendvičpanelis - 0,8 mm bieza tērauda loksne kopā ar 20 mm biezu ekstrudētu putupolistirolu. Inovatīvais pārklājums ietver cinka grunti pret koroziju, aizsargkrāsu pret ultravioleto starojumu un koka struktūras uzklāšanu. No iekšpuses ir uzstādīts mitrumizturīgs MDF, kas pārklāts ar mitrumizturīgu Izraēlas PVC plēvi Winshield.",
      "Durvis ir aprīkotas ar Turcijas cilindra tipa slēdzeni Kale 257 un Turcijas cilindra mehānismu 50×30 stieņa tipa, bet apakšējās slēdzenes lomu pilda elektroniskā slēdzene PES Monoblok. Durvis ir komplektētas arī ar Securemme nakts aizbīdni. Melnā furnitūra ar pretkorozijas pārklājumu nebaidās no mitruma un ultravioletā starojuma. Durvju rokturis ir izgatavots no cinka maksimālai izturībai.",
-     "Durvis atbilst DSTU standartiem, un tām ir kvalitātes sertifikāts. Garantija izstrādājumam - 5 gadi, kalpošanas laiks - 25 gadi. Pasūtiet Bulat Termo House - tā ir labākā durvju izvēle privātmājai."
+     "Durvis atbilst DSTU standartiem, un tām ir kvalitātes sertifikāts. Garantija izstrādājumam - 5 gadi, kalpošanas laiks - 25 gadi. Pasūtiet Termo House - tā ir labākā durvju izvēle privātmājai."
     ]
    }
   ]
@@ -5962,14 +5962,14 @@ export const factoryProducts = [
    {
     "title": "Durvju svars",
     "body": [
-     "Durvju svars atkarībā no izmēra ir 82 vai 87 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Durvju svars atkarībā no izmēra ir 82 vai 87 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-705-431-1200-mm-ozols-bronza-piena-krasa",
-  "name": "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
+  "name": "Termo House, modelis 705/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1328,
@@ -5999,7 +5999,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0110-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 705/431 - 1200 mm, artikuls: 0110 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431 - 1200 mm, artikuls: 0110 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -6235,7 +6235,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-house-705-431-ozols-bronza-piena-krasa",
-  "name": "Bulat Termo House, modelis 705/431. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
+  "name": "Termo House, modelis 705/431. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1056,
@@ -6266,7 +6266,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0109-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 705/431, artikuls: 0109 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431, artikuls: 0109 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -6496,14 +6496,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 105 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-705-431-1200-mm-ozols-bronza-rieksts-naturals",
-  "name": "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
+  "name": "Termo House, modelis 705/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1328,
@@ -6533,7 +6533,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0108-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 705/431 - 1200 mm, artikuls: 0108 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431 - 1200 mm, artikuls: 0108 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -6769,7 +6769,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-house-705-431-ozols-bronza-rieksts-naturals",
-  "name": "Bulat Termo House, modelis 705/431. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
+  "name": "Termo House, modelis 705/431. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1056,
@@ -6800,7 +6800,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0107-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 705/431, artikuls: 0107 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431, artikuls: 0107 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -7030,14 +7030,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 105 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-1200mm-tumss-antracits-balts-satins",
-  "name": "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
+  "name": "Termo House, modelis 710/265 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1254,
@@ -7067,7 +7067,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0106-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265 - 1200 mm, artikuls: 0106 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265 - 1200 mm, artikuls: 0106 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -7287,14 +7287,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 125 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-705-431-1200-mm-venge-tumss-venge-tumss",
-  "name": "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs",
+  "name": "Termo House, modelis 705/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1328,
@@ -7324,7 +7324,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0105-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 705/431 - 1200 mm, artikuls: 0105 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431 - 1200 mm, artikuls: 0105 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -7560,7 +7560,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-house-705-431-venge-tumss-venge-tumss",
-  "name": "Bulat Termo House, modelis 705/431. Krāsa: Venge tumšs / Ārpusē: venge tumšs",
+  "name": "Termo House, modelis 705/431. Krāsa: Venge tumšs / Ārpusē: venge tumšs",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1056,
@@ -7590,7 +7590,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0104-10.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 705/431, artikuls: 0104 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431, artikuls: 0104 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -7820,14 +7820,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 105 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-1200mm-venge-tumss-venge-tumss",
-  "name": "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs",
+  "name": "Termo House, modelis 710/265 - 1200mm. Krāsa: Venge tumšs / Ārpusē: venge tumšs",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1254,
@@ -7857,7 +7857,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0103-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265 - 1200 mm, artikuls: 0103 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265 - 1200 mm, artikuls: 0103 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -8077,14 +8077,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 125 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-1200mm-ozols-bronza-rieksts-naturals",
-  "name": "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
+  "name": "Termo House, modelis 710/265 - 1200mm. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1254,
@@ -8114,7 +8114,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0102-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265 - 1200 mm, artikuls: 0102 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265 - 1200 mm, artikuls: 0102 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -8334,14 +8334,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 125 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-venge-tumss-balts-satins",
-  "name": "Bulat Termo House, modelis 710/265. Krāsa: Venge tumšs / Ārpusē: balts satīns",
+  "name": "Termo House, modelis 710/265. Krāsa: Venge tumšs / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 954,
@@ -8373,7 +8373,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0101-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265, artikuls: 0101 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar nerūsējošā tērauda slieksni.",
+  "short": "Termo House 710/265, artikuls: 0101 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -8593,14 +8593,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 91-96 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-706-431-1200mm-ozols-bronza-piena-krasa",
-  "name": "Bulat Termo House, modelis 706/431 - 1200mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
+  "name": "Termo House, modelis 706/431 - 1200mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1465,
@@ -8630,7 +8630,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0099-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 706/431 - 1200 mm, artikuls: 0099 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 706/431 - 1200 mm, artikuls: 0099 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -8860,14 +8860,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 145 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-1200mm-tumss-antracits-antracits-peleks",
-  "name": "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks",
+  "name": "Termo House, modelis 710/265 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1254,
@@ -8897,7 +8897,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0098-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265 - 1200 mm, artikuls: 0098 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265 - 1200 mm, artikuls: 0098 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -9117,14 +9117,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 125 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-1200mm-venge-tumss-balts-satins",
-  "name": "Bulat Termo House, modelis 710/265 - 1200mm. Krāsa: Venge tumšs / Ārpusē: balts satīns",
+  "name": "Termo House, modelis 710/265 - 1200mm. Krāsa: Venge tumšs / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1254,
@@ -9154,7 +9154,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0097-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265, artikuls: 0097 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar nerūsējošā tērauda slieksni.",
+  "short": "Termo House 710/265, artikuls: 0097 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -9374,14 +9374,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 125 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-1200-mm-ozols-bronza-piena-krasa",
-  "name": "Bulat Termo House, modelis 710/265 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
+  "name": "Termo House, modelis 710/265 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1254,
@@ -9411,7 +9411,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0093-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265 - 1200 mm, artikuls: 0093 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265 - 1200 mm, artikuls: 0093 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -9631,14 +9631,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 125 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-tumss-antracits-balts-satins",
-  "name": "Bulat Termo House, modelis 710/265. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
+  "name": "Termo House, modelis 710/265. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 954,
@@ -9670,7 +9670,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/10/0092-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265, artikuls: 0092 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265, artikuls: 0092 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -9890,14 +9890,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 91-96 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-ozols-bronza-piena-krasa",
-  "name": "Bulat Termo House, modelis 710/265. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
+  "name": "Termo House, modelis 710/265. Krāsa: Ozols bronza / Ārpusē: piena krāsa",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 954,
@@ -9928,7 +9928,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0090-10.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265, artikuls: 0090 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265, artikuls: 0090 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -10148,14 +10148,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 91-96 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-710-265-ozols-bronza-rieksts-naturals",
-  "name": "Bulat Termo House, modelis 710/265. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
+  "name": "Termo House, modelis 710/265. Krāsa: Ozols bronza / Ārpusē: rieksts naturāls",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 954,
@@ -10186,7 +10186,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0089-10.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 710/265, artikuls: 0089 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265, artikuls: 0089 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -10406,14 +10406,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 91-96 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "tandem-elektro-kale-566-bezatslegas-piekluve",
-  "name": "Bulat Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Дрімвуд темний. Bezatslēgas piekļuve",
+  "name": "Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Дрімвуд темний. Bezatslēgas piekļuve",
   "collection": "TANDEM ELEKTRO",
   "category": "ardurvis-dzivoklim",
   "price": 1009,
@@ -10447,7 +10447,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/zamok-torecz-bulat-elektro-566-drimvud-temnyj-bezlyuchovyj-dostup.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/zamok-batarejky.jpg",
   ],
-  "short": "Bulat Tandem Elektro (kvadro) Kale, artikuls: 0087. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā Metallic Black - melnā krāsā. Vērtnes biezums ir 105 mm. Durvju svars 98-102 kg. Uzstādīts nerūsējošā tērauda slieksnis aizsardzībai pret bojājumiem.",
+  "short": "Tandem Elektro (kvadro) Kale, artikuls: 0087. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā Metallic Black - melnā krāsā. Vērtnes biezums ir 105 mm. Durvju svars 98-102 kg. Uzstādīts nerūsējošā tērauda slieksnis aizsardzībai pret bojājumiem.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -10605,14 +10605,14 @@ export const factoryProducts = [
      "Vērtnes biezums ir 105 mm. Pateicoties minerālvatei un folijas siltinājumam, durvīm ir augsts siltuma un skaņas izolācijas līmenis. Piespiedes regulators nodrošina maksimālu blīvējuma piekļaušanos kārbai, kas palīdz izvairīties no siltuma zudumiem un nevēlamu skaņu un smaku iekļūšanas.",
      "Eņģes uz gultņiem nodrošina mīkstu un klusu durvju vēršanos. Bruņu uzlikas ir kvadrātveida un iegremdētas.",
      "Ārējie vertikālie melnā kompozīta ielaidumi šīm durvīm piešķir mūsdienīgu izskatu. Plēve ar vertikālu struktūru pievieno stilu un eleganci.",
-     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija furnitūrai - 3 gadi. Pasūtiet Bulat Termo Tandem Elektro durvis, jo tā ir labākā izvēle bezatslēgas piekļuves durvīm, kas ir pieejamas noliktavā!"
+     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija furnitūrai - 3 gadi. Pasūtiet Termo Tandem Elektro durvis, jo tā ir labākā izvēle bezatslēgas piekļuves durvīm, kas ir pieejamas noliktavā!"
     ]
    }
   ]
  },
  {
   "id": "expert-mottura-570-568-ozols-dorato-tumss-alva-supermatets",
-  "name": "Bulat Expert (kvadro) Mottura, modelis 570/568. Krāsa: Ozols dorato tumšs / Alva supermatēts",
+  "name": "Expert (kvadro) Mottura, modelis 570/568. Krāsa: Ozols dorato tumšs / Alva supermatēts",
   "collection": "EXPERT",
   "category": "ardurvis-dzivoklim",
   "price": 1270,
@@ -10644,7 +10644,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/dverna-korobka-bulat-expert-model-570-568-kolir-dub-dorato-temnyj-olovo-supermat-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/porig-z-nerzhaviyuchoyi-stali-na-deryah-bulat-expert-model-570-568-kolir-dub-dorato-temnyj-olovo-supermat-kvartyrnyj-typ.jpg"
   ],
-  "short": "Bulat Expert (kvadro) Mottura, artikuls: 0085. Izgatavotas no 2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā. Vērtnes biezums ir 105 mm. Durvju svars 142-152 kg.",
+  "short": "Expert (kvadro) Mottura, artikuls: 0085. Izgatavotas no 2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā. Vērtnes biezums ir 105 mm. Durvju svars 142-152 kg.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 130 mm (termopārrāvums)",
@@ -10797,17 +10797,17 @@ export const factoryProducts = [
     "title": "",
     "body": [
      "Durvis ir aprīkotas ar trim blīvējuma kontūriem. Tās ir siltinātas ar minerālvati un folijas siltinājumu, kas uzlabo siltumizolāciju un neļauj svešām smakām un troksnim iekļūt jūsu mājoklī.",
-     "Bulat Expert durvis ir komplektētas ar itāļu slēdzeni Mottura 54.797 MATIC, Securemme nakts aizbīdni, Securemme actiņu ar stikla optiku, cinka sakausējuma Smart Kvadro rokturi ar galvanisku pārklājumu un kvadrātveida melnu furnitūru.",
+     "Expert durvis ir komplektētas ar itāļu slēdzeni Mottura 54.797 MATIC, Securemme nakts aizbīdni, Securemme actiņu ar stikla optiku, cinka sakausējuma Smart Kvadro rokturi ar galvanisku pārklājumu un kvadrātveida melnu furnitūru.",
      "Durvju dizainu papildina melna kompozīta uzliktņi, kas tām piešķir mūsdienīgu izskatu. Durvju krāsa ir brūna, bet iekšpusē tās ir gaišas, kas padara tās universālas dažādiem interjeriem.",
      "Durvju furnitūra ir veidota stilīgā kvadrātveida dizainā, kas durvīm piešķir eleganci un oriģinalitāti. Durvis ir aprīkotas ar pastiprinātu cinka rokturi ar pretkorozijas pārklājumu.",
-     "Durvīm ir RC4 pretuzlaušanas klase, tās ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Bulat Expert durvis, jo tā ir labākā izvēle kāpņu telpas durvīm!"
+     "Durvīm ir RC4 pretuzlaušanas klase, tās ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Expert durvis, jo tā ir labākā izvēle kāpņu telpas durvīm!"
     ]
    }
   ]
  },
  {
   "id": "termo-olimp-mottura-575-568-oksids-melns-balts-matets",
-  "name": "Bulat Termo Olimp (kvadro) Mottura, modelis 575/568. Krāsa: Oksīds melns / Balts matēts",
+  "name": "Termo Olimp (kvadro) Mottura, modelis 575/568. Krāsa: Oksīds melns / Balts matēts",
   "collection": "OLIMP",
   "category": "ardurvis-dzivoklim",
   "price": 1069,
@@ -10838,7 +10838,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/12/0084-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/12/0084-11.jpg",
   ],
-  "short": "Bulat Termo Olimp (kvadro) Mottura, modelis 575/568, artikuls: 0084 - drošības un mūsdienīga dizaina apvienojums. Durvīm ir 4. pretuzlaušanas klase, jo tās ir aprīkotas ar itāļu Mottura un Securemme slēdzenēm, kas garantē uzticamību un aizsardzību.",
+  "short": "Termo Olimp (kvadro) Mottura, modelis 575/568, artikuls: 0084 - drošības un mūsdienīga dizaina apvienojums. Durvīm ir 4. pretuzlaušanas klase, jo tās ir aprīkotas ar itāļu Mottura un Securemme slēdzenēm, kas garantē uzticamību un aizsardzību.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm (termo)",
@@ -10993,14 +10993,14 @@ export const factoryProducts = [
      "Metāla biezums kārbā - 1,5 mm. Metāla loksnes biezums vērtnē - 1,5 mm. Svars sasniedz 122 kg, kas apliecina durvju uzticamību. Maksimālu siltuma un skaņas izolāciju nodrošina siltinājums ar minerālvati un folijas siltinājumu. Trīs blīvējuma kontūras vērtnē pasargās jūsu dzīvokli no caurvēja un nepatīkamām smakām no kāpņu telpas.",
      "Durvju dizainu papildina melna kompozīta uzliktņi, kas tām piešķir mūsdienīgu izskatu. Durvju krāsa ir brūna, bet iekšpusē tās ir gaišas, kas padara tās universālas dažādiem interjeriem.",
      "Durvju furnitūra ir veidota stilīgā kvadrātveida dizainā, kas durvīm piešķir eleganci un oriģinalitāti. Durvis ir aprīkotas ar pastiprinātu cinka rokturi ar pretkorozijas pārklājumu.",
-     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Bulat Olimp durvis, jo tā ir labākā izvēle kāpņu telpas durvīm!"
+     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Olimp durvis, jo tā ir labākā izvēle kāpņu telpas durvīm!"
     ]
    }
   ]
  },
  {
   "id": "olimp-mottura-571-238-dreamwood-tumss-alva-supermatets",
-  "name": "Bulat Olimp (kvadro) Mottura, modelis 571/238. Krāsa: Dreamwood tumšs / Alva supermatēts",
+  "name": "Olimp (kvadro) Mottura, modelis 571/238. Krāsa: Dreamwood tumšs / Alva supermatēts",
   "collection": "OLIMP",
   "category": "ardurvis-dzivoklim",
   "price": 999,
@@ -11023,7 +11023,7 @@ export const factoryProducts = [
   "images": [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/vhidni-metalevi-dveri-bulat-olimp-model-571-238-kolir-drimvud-temnyj-olovo-supermat.jpg"
   ],
-  "short": "Bulat Olimp (kvadro) Mottura, modelis 571/238, artikuls: 0083 - drošības un mūsdienīga dizaina apvienojums. Durvīm ir 4. pretuzlaušanas klase, jo tās ir aprīkotas ar itāļu Mottura un Securemme slēdzenēm, kas garantē uzticamību un aizsardzību.",
+  "short": "Olimp (kvadro) Mottura, modelis 571/238, artikuls: 0083 - drošības un mūsdienīga dizaina apvienojums. Durvīm ir 4. pretuzlaušanas klase, jo tās ir aprīkotas ar itāļu Mottura un Securemme slēdzenēm, kas garantē uzticamību un aizsardzību.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -11178,14 +11178,14 @@ export const factoryProducts = [
      "Metāla biezums kārbā - 1,5 mm. Metāla loksnes biezums vērtnē - 1,5 mm. Svars sasniedz 117 kg, kas apliecina durvju uzticamību. Maksimālu siltuma un skaņas izolāciju nodrošina siltinājums ar minerālvati un folijas siltinājumu. Trīs blīvējuma kontūras vērtnē pasargās jūsu dzīvokli no caurvēja un nepatīkamām smakām no kāpņu telpas.",
      "Durvju dizainu papildina melna kompozīta uzliktņi, kas tām piešķir mūsdienīgu izskatu. Durvju krāsa ir brūna, bet iekšpusē tās ir gaišas, kas padara tās universālas dažādiem interjeriem.",
      "Durvju furnitūra ir veidota stilīgā kvadrātveida dizainā, kas durvīm piešķir eleganci un oriģinalitāti. Durvis ir aprīkotas ar pastiprinātu cinka rokturi ar pretkorozijas pārklājumu.",
-     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Bulat Olimp durvis, jo tā ir labākā izvēle kāpņu telpas durvīm!"
+     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Olimp durvis, jo tā ir labākā izvēle kāpņu telpas durvīm!"
     ]
    }
   ]
  },
  {
   "id": "termo-ultra-kale-567-gluds-hroms-balts-matets",
-  "name": "Bulat Termo Ultra (kvadro) Kale, modelis 567/gluds. Krāsa: Hroms / Balts matēts",
+  "name": "Termo Ultra (kvadro) Kale, modelis 567/gluds. Krāsa: Hroms / Balts matēts",
   "collection": "ULTRA",
   "category": "ardurvis-dzivoklim",
   "price": 772,
@@ -11218,7 +11218,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/porig-z-nerzhaviyuchoyi-stali-na-deryah-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg"
   ],
   "video": "https://youtu.be/Pthr_uVvjuA",
-  "short": "Bulat Ultra (kvadro) Kale, modelis 567, artikuls: 0082 - uzticamības un mūsdienīga dizaina apvienojums. Durvis ir aprīkotas ar Turcijas slēdzenēm Kale 257 (suvaldu) un Kale 252 (cilindra), kā arī ar Itālijā ražotu Securemme nakts aizbīdni, kas pieejams tikai no iekšpuses.",
+  "short": "Ultra (kvadro) Kale, modelis 567, artikuls: 0082 - uzticamības un mūsdienīga dizaina apvienojums. Durvis ir aprīkotas ar Turcijas slēdzenēm Kale 257 (suvaldu) un Kale 252 (cilindra), kā arī ar Itālijā ražotu Securemme nakts aizbīdni, kas pieejams tikai no iekšpuses.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -11430,14 +11430,14 @@ export const factoryProducts = [
    {
     "title": "Durvju svars",
     "body": [
-     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
  },
  {
   "id": "termo-status-securemme-269-263-hroms-balts-matets",
-  "name": "Bulat Termo Status (kvadro) Securemme, modelis 269/263. Krāsa: Hroms / Balts matēts",
+  "name": "Termo Status (kvadro) Securemme, modelis 269/263. Krāsa: Hroms / Balts matēts",
   "collection": "STATUS",
   "category": "ardurvis-dzivoklim",
   "price": 849,
@@ -11460,7 +11460,7 @@ export const factoryProducts = [
   "images": [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/09/vhidni-metalevi-dveri-bulat-termo-status-model-269-263.-kvartyrnogo-typu.-kolir-hrom-bilyj-matovyj.jpg"
   ],
-  "short": "Bulat Termo Status (kvadro) Securemme, modelis 269/263, artikuls: 0081 - stilīgs akcents un uzticams jūsu mājokļa sargs. Durvis ir aprīkotas ar divām itāļu slēdzenēm. Augšējā slēdzene - Securemme 2019 suvaldu tipa ar nakts aizbīdni un patentētu SecureMap aizsardzības sistēmu. Apakšējā slēdzene - Securemme 2061 cilindra tipa ar Securemme cilindra mehānismu, kam ir rūdīta tērauda aizsargtapas pret uzlaušanu.",
+  "short": "Termo Status (kvadro) Securemme, modelis 269/263, artikuls: 0081 - stilīgs akcents un uzticams jūsu mājokļa sargs. Durvis ir aprīkotas ar divām itāļu slēdzenēm. Augšējā slēdzene - Securemme 2019 suvaldu tipa ar nakts aizbīdni un patentētu SecureMap aizsardzības sistēmu. Apakšējā slēdzene - Securemme 2061 cilindra tipa ar Securemme cilindra mehānismu, kam ir rūdīta tērauda aizsargtapas pret uzlaušanu.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -11615,14 +11615,14 @@ export const factoryProducts = [
      "Metāla biezums kārbā ir 1,5 mm, metāla loksnes biezums vērtnē - 1,4 mm. Slēdzeņu zonā vērtnē ir papildu pastiprinājums - 1,2 mm bieza metāla kabata. Svars sasniedz 108-117 kg, kas apliecina durvju uzticamību.",
      "Durvju kārba ir siltināta ar minerālvati un korķa koku. Kārbas un vērtnes karkass ir krāsots no abām pusēm ilgmūžīgai ekspluatācijai. Kārba ir divkrāsu: no ārpuses tumša, no iekšpuses gaiša.",
      "Durvju vērtne 105 mm biezumā ir siltināta ar minerālvati un folijas siltinājumu. Durvīm ir trīs blīvējuma kontūras, pateicoties kurām tiek sasniegts augsts siltuma un skaņas izolācijas līmenis - tas pasargās jūsu dzīvokli no caurvēja, lieka trokšņa un nepatīkamām smakām no kāpņu telpas.",
-     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Bulat Termo Status - izvēlieties drošību un stilu savam mājoklim."
+     "Durvis ir sertificētas atbilstoši DSTU standartiem, un tām ir kvalitātes sertifikāts, kas apliecina to kvalitāti. Garantija izstrādājumam (karkass, eņģes, MDF apdare, moldingi, PVC pārklājums u.c.) - 25 gadi, kalpošanas laiks - 50 gadi. Garantija slēdzenēm - 5 gadi. Garantija rokturim - 1 gads. Pasūtiet Termo Status - izvēlieties drošību un stilu savam mājoklim."
     ]
    }
   ]
  },
  {
   "id": "termo-house-705-431-1200-mm-tumss-antracits-antracits-peleks",
-  "name": "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks",
+  "name": "Termo House, modelis 705/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1328,
@@ -11652,7 +11652,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0076-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 705/431 - 1200 mm, artikuls: 0076 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431 - 1200 mm, artikuls: 0076 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -11888,7 +11888,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-house-705-431-1200-mm-tumss-antracits-balts-satins",
-  "name": "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
+  "name": "Termo House, modelis 705/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1328,
@@ -11918,7 +11918,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0075-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 705/431 - 1200 mm, artikuls: 0075 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431 - 1200 mm, artikuls: 0075 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -12154,7 +12154,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-house-705-431-1200-mm-venge-tumss-balts-satins",
-  "name": "Bulat Termo House, modelis 705/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns",
+  "name": "Termo House, modelis 705/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1328,
@@ -12184,7 +12184,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0074-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 705/431 - 1200 mm, artikuls: 0074 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431 - 1200 mm, artikuls: 0074 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -12420,7 +12420,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-house-706-431-1200mm-tumss-antracits-balts-satins",
-  "name": "Bulat Termo House, modelis 706/431 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
+  "name": "Termo House, modelis 706/431 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1465,
@@ -12450,7 +12450,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0060-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 706/431 - 1200 mm, artikuls: 0060 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 706/431 - 1200 mm, artikuls: 0060 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -12680,14 +12680,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 145 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-706-431-1200mm-tumss-antracits-antracits-peleks",
-  "name": "Bulat Termo House, modelis 706/431 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks",
+  "name": "Termo House, modelis 706/431 - 1200mm. Krāsa: Tumšs antracīts / Ārpusē: antracīts pelēks",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1465,
@@ -12716,7 +12716,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/09/059-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 706/431 - 1200 mm, artikuls: 0059 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 706/431 - 1200 mm, artikuls: 0059 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -12946,14 +12946,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 145 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "ultra-securemme-557-607-spogulis-pelnu-metalika",
-  "name": "Bulat Ultra (kvadro) Securemme, modelis 557/607 тоноване spogulis. Krāsa: Pelnu metālika / Сірий шифер.",
+  "name": "Ultra (kvadro) Securemme, modelis 557/607 тоноване spogulis. Krāsa: Pelnu metālika / Сірий шифер.",
   "collection": "ULTRA",
   "category": "ardurvis-dzivoklim",
   "price": 881,
@@ -12976,7 +12976,7 @@ export const factoryProducts = [
   "images": [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/02/vhidni-metalevi-dveri-bulat-ultra-securemme-model-557-607-kvartirnogo-tipu-kolir-popelyastiy-metalik-siriy-shifer-kvadro.jpg"
   ],
-  "short": "Bulat Ultra (kvadro) Securemme, modelis 557/607, artikuls: 0056 - uzticamas un stilīgas durvis ar spoguli. Tās vizuāli paplašina telpu gaitenī. Pateicoties spoguļa ielaidumam, telpa piepildās ar gaismu, un pirms iziešanas var sakārtot frizūru.",
+  "short": "Ultra (kvadro) Securemme, modelis 557/607, artikuls: 0056 - uzticamas un stilīgas durvis ar spoguli. Tās vizuāli paplašina telpu gaitenī. Pateicoties spoguļa ielaidumam, telpa piepildās ar gaismu, un pirms iziešanas var sakārtot frizūru.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -13188,14 +13188,14 @@ export const factoryProducts = [
    {
     "title": "Durvju svars",
     "body": [
-     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
  },
  {
   "id": "fortezza-securemme-563-556-akmens-grieziens-peleks-siferis",
-  "name": "Bulat Fortezza (kvadro) Securemme, modelis 563/556. Krāsa: Akmens grieziens / Pelēks šīferis",
+  "name": "Fortezza (kvadro) Securemme, modelis 563/556. Krāsa: Akmens grieziens / Pelēks šīferis",
   "collection": "FORTEZZA",
   "category": "ardurvis-dzivoklim",
   "price": 1446,
@@ -13227,7 +13227,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0055-11.jpg",
   ],
   "video": "https://youtu.be/b6I9gPwraKw",
-  "short": "Bulat Fortezza (kvadro) Securemme, modelis 563/556, artikuls: 0055 - drošības un stila apvienojums. Durvīm ir 4. pretuzlaušanas klase. Tās ir aprīkotas ar itāļu reduktora tipa slēdzenēm Securemme 2663 un 2653 ar TOP GEAR sistēmu un Securemme K-64 Tandem cilindru, kas ļauj ar vienu atslēgu atslēgt gan augšējo, gan apakšējo slēdzeni.",
+  "short": "Fortezza (kvadro) Securemme, modelis 563/556, artikuls: 0055 - drošības un stila apvienojums. Durvīm ir 4. pretuzlaušanas klase. Tās ir aprīkotas ar itāļu reduktora tipa slēdzenēm Securemme 2663 un 2653 ar TOP GEAR sistēmu un Securemme K-64 Tandem cilindru, kas ļauj ar vienu atslēgu atslēgt gan augšējo, gan apakšējo slēdzeni.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 130 mm (termopārrāvums)",
@@ -13440,7 +13440,7 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 136 kg vai 146 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Fortezza bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet Fortezza bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
@@ -13688,14 +13688,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 62 kg vai 70 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
  },
  {
   "id": "ultra-securemme-540-249-akmens-grieziens-balts-matets-gluds",
-  "name": "Bulat Ultra (kvadro) Securemme, modelis 540/249. Krāsa: Akmens grieziens / Balts matēts gluds",
+  "name": "Ultra (kvadro) Securemme, modelis 540/249. Krāsa: Akmens grieziens / Balts matēts gluds",
   "collection": "ULTRA",
   "category": "ardurvis-dzivoklim",
   "price": 785,
@@ -13727,7 +13727,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0048-11.jpg",
   ],
   "video": "https://youtu.be/V_eIbTrY3cQ?",
-  "short": "Dzīvokļa durvis Bulat Ultra (kvadro) Securemme, modelis 540/249, artikuls: 0048 - atbilst augstākajiem kvalitātes standartiem. Tās ir aprīkotas ar itāļu slēdzenēm, kas garantē jūsu telpu drošību: augšējā slēdzene - Securemme 2019 suvaldu tipa, apakšējā - cilindra Securemme 2061, un Securemme nakts aizbīdnis, kas pieejams tikai no iekšpuses.",
+  "short": "Dzīvokļa durvis Ultra (kvadro) Securemme, modelis 540/249, artikuls: 0048 - atbilst augstākajiem kvalitātes standartiem. Tās ir aprīkotas ar itāļu slēdzenēm, kas garantē jūsu telpu drošību: augšējā slēdzene - Securemme 2019 suvaldu tipa, apakšējā - cilindra Securemme 2061, un Securemme nakts aizbīdnis, kas pieejams tikai no iekšpuses.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 110 mm",
@@ -13939,14 +13939,14 @@ export const factoryProducts = [
    {
     "title": "Durvju svars",
     "body": [
-     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
  },
  {
   "id": "termo-house-706-431-1200-mm-venge-tumss-balts-satins",
-  "name": "Bulat Termo House, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns",
+  "name": "Termo House, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE",
   "category": "ardurvis-privatmajai",
   "price": 1465,
@@ -13976,7 +13976,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0046-11.jpg",
   ],
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
-  "short": "Bulat Termo House 706/431 - 1200 mm, artikuls: 0047 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 706/431 - 1200 mm, artikuls: 0047 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
    "Kārbas biezums": "Liekts profils 100 mm (termo)",
@@ -14206,14 +14206,14 @@ export const factoryProducts = [
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 145 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ]
  },
  {
   "id": "termo-expert-mottura-550-253-roxy-antracits-peleks-balts-mat",
-  "name": "Bulat Termo Expert (kvadro) Mottura, modelis 550/253. Krāsa: Roxy antracīts pelēks / Balts matēts",
+  "name": "Termo Expert (kvadro) Mottura, modelis 550/253. Krāsa: Roxy antracīts pelēks / Balts matēts",
   "collection": "EXPERT",
   "category": "ardurvis-dzivoklim",
   "price": 1270,
@@ -14247,7 +14247,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0028-12.jpg",
   ],
   "video": "https://youtu.be/vDyBYKiHOjo?",
-  "short": "Bulat Termo Expert (kvadro) Mottura, modelis 550/253, artikuls: 0028 - radītas tiem, kas novērtē drošību. Durvis ir aprīkotas ar itāļu suvaldu tipa slēdzeni Mottura 54.797 MATIC un Securemme K-2 cilindru, kas garantē 4. aizsardzības līmeni.",
+  "short": "Termo Expert (kvadro) Mottura, modelis 550/253, artikuls: 0028 - radītas tiem, kas novērtē drošību. Durvis ir aprīkotas ar itāļu suvaldu tipa slēdzeni Mottura 54.797 MATIC un Securemme K-2 cilindru, kas garantē 4. aizsardzības līmeni.",
   "specs": {
    "Vērtnes biezums": "105 mm",
    "Kārbas biezums": "Liekts profils 130 mm (termopārrāvums)",
@@ -14460,7 +14460,7 @@ export const factoryProducts = [
    {
     "title": "Durvju svars",
     "body": [
-     "Durvju svars atkarībā no izmēra ir 136 kg vai 146 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Durvju svars atkarībā no izmēra ir 136 kg vai 146 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ]
@@ -14471,7 +14471,7 @@ export const factoryProducts = [
 export const factoryDetails = {
  "th-710-antracits": {
   "sourceId": 18637,
-  "short": "Bulat Termo House 710/265, artikuls: 0091 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265, artikuls: 0091 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "description": [
    {
@@ -14544,7 +14544,7 @@ export const factoryDetails = {
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 91-96 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ],
@@ -14689,7 +14689,7 @@ export const factoryDetails = {
  },
  "th-710-venge": {
   "sourceId": 18634,
-  "short": "Bulat Termo House 710/265, artikuls: 0088 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
+  "short": "Termo House 710/265, artikuls: 0088 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "description": [
    {
@@ -14762,7 +14762,7 @@ export const factoryDetails = {
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 91-96 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ],
@@ -14907,7 +14907,7 @@ export const factoryDetails = {
  },
  "th-705-431-antracits": {
   "sourceId": 14679,
-  "short": "Bulat Termo House 705/431, artikuls: 0079 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431, artikuls: 0079 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "description": [
    {
@@ -14986,7 +14986,7 @@ export const factoryDetails = {
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 105 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ],
@@ -15135,7 +15135,7 @@ export const factoryDetails = {
  },
  "th-705-431-balts": {
   "sourceId": 14678,
-  "short": "Bulat Termo House 705/431, artikuls: 0078 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431, artikuls: 0078 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "description": [
    {
@@ -15214,7 +15214,7 @@ export const factoryDetails = {
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 105 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ],
@@ -15363,7 +15363,7 @@ export const factoryDetails = {
  },
  "th-705-431-venge-balts": {
   "sourceId": 14677,
-  "short": "Bulat Termo House 705/431, artikuls: 0077 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
+  "short": "Termo House 705/431, artikuls: 0077 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "video": null,
   "description": [
    {
@@ -15442,7 +15442,7 @@ export const factoryDetails = {
     "title": "Durvju svars",
     "body": [
      "Durvju svars ir 105 kg, kas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
+     "Pasūtiet Termo House bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā mājā!"
     ]
    }
   ],
@@ -15654,7 +15654,7 @@ export const factoryDetails = {
     "title": "Durvju svars",
     "body": [
      "Durvju svars atkarībā no izmēra ir 62 kg vai 70 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot.",
-     "Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ],
@@ -15799,7 +15799,7 @@ export const factoryDetails = {
  },
  "ultra-546-spogulis": {
   "sourceId": 2744,
-  "short": "Bulat Termo Ultra (kvadro) Securemme, modelis 546/607, artikuls: 0026 - uzticamas un stilīgas durvis ar spoguli. Tās vizuāli paplašina telpu gaitenī. Pateicoties spoguļa ielaidumam, telpa piepildās ar gaismu, un pirms iziešanas var sakārtot frizūru.",
+  "short": "Termo Ultra (kvadro) Securemme, modelis 546/607, artikuls: 0026 - uzticamas un stilīgas durvis ar spoguli. Tās vizuāli paplašina telpu gaitenī. Pateicoties spoguļa ielaidumam, telpa piepildās ar gaismu, un pirms iziešanas var sakārtot frizūru.",
   "video": "https://youtu.be/KjULviAKrWA",
   "description": [
    {
@@ -15865,7 +15865,7 @@ export const factoryDetails = {
    {
     "title": "Durvju svars",
     "body": [
-     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet Bulat bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
+     "Durvju svars atkarībā no izmēra ir 92 kg vai 98 kg. Tas apliecina to izturību un uzticamību, savukārt trīs eņģes pasargā durvis no nolaišanās un nodrošina plūdenu gaitu, tās verot. Pasūtiet bruņotās durvis jau tagad un radiet mājīgu un aizsargātu telpu savā dzīvoklī!"
     ]
    }
   ],
