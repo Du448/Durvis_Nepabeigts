@@ -38,6 +38,8 @@ export const ltManufacturer2Calculator = {
   "Ārpuse": "Išorė",
   "Izvēlētais dizains — iekšpuse": "Pasirinktas raštas — vidus",
   "Iekšpuse": "Vidus",
+  "Zīmējums": "Raštas",
+  "Plēve": "Plėvelė",
   "Garantija": "Garantija",
   "Standarta izmēri": "Standartiniai dydžiai",
   "Konstrukcija": "Konstrukcija",
@@ -45,6 +47,7 @@ export const ltManufacturer2Calculator = {
   "Slēdzenes un furnitūra": "Spynos ir furnitūra",
   "Izmērs": "Dydis",
   "Individuāls izmērs": "Individualus dydis",
+  "Bāzes cena": "Bazinė kaina",
   "Platums, mm": "Plotis, mm",
   "Augstums, mm": "Aukštis, mm",
   "Papildu opcija maiņai — slēdzenes un cilindri": "Papildoma keitimo opcija — spynos ir cilindrai",
@@ -66,12 +69,24 @@ export const ltManufacturer2Calculator = {
   "MDF izstrādājumi (aplodes)": "MDF gaminiai (aplaidos)",
   "Aplodes un MDF paneļu komplekti — cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja).":
     "Aplaidų ir MDF plokščių komplektai — kainos priklauso nuo durų paskirties (butas / namas).",
+  "Montāža un piegāde": "Montavimas ir pristatymas",
+  "Saņemšana noliktavā. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.":
+    "Atsiėmimas sandėlyje. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
+  "Mērīšana": "Matavimas",
+  "Mūsu speciālists ierodas objektā un veic precīzus durvju ailas uzmērījumus pirms pasūtījuma noformēšanas.":
+    "Mūsų specialistas atvyksta į objektą ir atlieka tikslius durų angos matavimus prieš užsakymo pateikimą.",
+  "Tikai piegāde, bez montāžas": "Tik pristatymas, be montavimo",
+  "Durvis piegādājam norādītajā adresē — uzstādīšanu veicat paši vai ar saviem meistariem.":
+    "Duris pristatome nurodytu adresu — montavimą atliekate patys arba su savo meistrais.",
+  "Durvis piegādājam un uzstādām ar saviem sertificētiem montieriem.":
+    "Duris pristatome ir sumontuojame su savo sertifikuotais montuotojais.",
   "Provizoriskā summa": "Preliminari suma",
   "Cena aprēķināta pēc mazumtirdzniecības cenrāža (spēkā no 01.08.2024). Galīgā cena tiek apstiprināta pasūtījuma noformēšanas brīdī.":
     "Kaina apskaičiuota pagal mažmeninį kainoraštį (galiojantį nuo 2024-08-01). Galutinė kaina patvirtinama užsakymo įforminimo metu.",
   "Individuālā izmēra cena aprēķināta pēc formulas: platums (m) × augstums (m) ×":
     "Individualaus dydžio kaina apskaičiuojama pagal formulę: plotis (m) × aukštis (m) ×",
   "Pieprasīt piedāvājumu": "Pateikti užklausą",
+  "Lejupielādēt": "Atsisiųsti",
 
   // ---- Base filters (manufacturer2Calculator.js) ----
   "Uz āru (uz sevi)": "Į lauką (į save)",

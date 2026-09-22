@@ -33,7 +33,7 @@ export const ltNames = {
     "Tandem (kvadro) Kale, modelis 276. Spalva: Dreamwood tamsus",
   "Tandem (kvadro) Kale, modelis 586/gluds. Krāsa: Oksīds melns, viss dekors / Balts matēts gluds":
     "Tandem (kvadro) Kale, modelis 586/lygus. Spalva: oksidas juodas, visas dekoras / balta matinė lygi",
-  "Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Дрімвуд темний. Bezatslēgas piekļuve":
+  "Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Dreamwood tumšs. Bezatslēgas piekļuve":
     "Tandem Elektro (kvadro) Kale, modelis 566. Spalva: Dreamwood tamsus. Berakčio atrakinimo sistema",
   "Termo Expert (kvadro) Mottura, modelis 550/253. Krāsa: Roxy antracīts pelēks / Balts matēts":
     "Termo Expert (kvadro) Mottura, modelis 550/253. Spalva: Roxy antracitas pilkas / balta matinė",
@@ -102,7 +102,7 @@ export const ltNames = {
     "Termo Olimp (kvadro) Mottura, modelis 575/568. Spalva: oksidas juodas / balta matinė",
   "Termo Status (kvadro) Securemme, modelis 269/263. Krāsa: Hroms / Balts matēts":
     "Termo Status (kvadro) Securemme, modelis 269/263. Spalva: chromas / balta matinė",
-  "Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Білий матовий гладкий. Bezatslēgas piekļuve":
+  "Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Balts matēts gluds. Bezatslēgas piekļuve":
     "Termo Tandem Elektro (kvadro) Kale, modelis 590/lygus. Spalva: akmens pjūvis / balta matinė lygi. Berakčio atrakinimo sistema",
   "Termo Ultra (kvadro) Kale, modelis 567/gluds. Krāsa: Hroms / Balts matēts":
     "Termo Ultra (kvadro) Kale, modelis 567/lygus. Spalva: chromas / balta matinė",

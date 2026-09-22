@@ -79,8 +79,8 @@ export const enColors = {
   // Left in Ukrainian by the manufacturer's own listing
   "Антрацит темний": "Dark anthracite",
   "Сірий шифер.": "Grey slate",
-  "Білий матовий гладкий. Bezatslēgas piekļuve": "White matte smooth. Keyless access",
-  "Дрімвуд темний. Bezatslēgas piekļuve": "Dreamwood dark. Keyless access",
+  "Balts matēts gluds": "White matte smooth",
+  "Dreamwood tumšs": "Dreamwood dark",
 };
 
 export const enSetItems = {

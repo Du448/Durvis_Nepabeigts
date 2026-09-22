@@ -8,19 +8,42 @@ import { usePathname } from "next/navigation";
 import PageTitle from "@/components/PageTitle";
 import { getLocaleFromPathname, withLocaleHref, t, trData } from "@/lib/i18n";
 
+// Maps the "pakalpojumi" query codes (written by the product page's
+// fulfilment toggles) to the same translation keys those toggles show, so
+// the prefilled message states in words what the visitor picked.
+const SERVICE_OPTION_KEYS = {
+  pickup: "product.optionPickup",
+  measurement: "product.optionMeasurement",
+  deliveryOnly: "product.optionDeliveryOnly",
+  installDelivery: "product.optionInstallDelivery",
+};
+
 export default function ContactsClient() {
   const locale = getLocaleFromPathname(usePathname());
   const searchParams = useSearchParams();
   const productId = searchParams.get("produkts");
 
   const product = useMemo(() => (productId ? getProductById(productId) : null), [productId]);
+  const selectedServices = useMemo(() => {
+    const raw = searchParams.get("pakalpojumi");
+    if (!raw) return [];
+    return raw
+      .split(",")
+      .map((code) => SERVICE_OPTION_KEYS[code])
+      .filter(Boolean)
+      .map((key) => t(locale, key));
+  }, [searchParams, locale]);
 
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(() =>
-    product ? `${t(locale, "contacts.prefill")} ${trData(locale, product.name)}` : ""
-  );
+  const [message, setMessage] = useState(() => {
+    if (!product) return "";
+    const base = `${t(locale, "contacts.prefill")} ${trData(locale, product.name)}`;
+    return selectedServices.length
+      ? `${base}\n${t(locale, "contacts.servicesLabel")}: ${selectedServices.join(", ")}`
+      : base;
+  });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);

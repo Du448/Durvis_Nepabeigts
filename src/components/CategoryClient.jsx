@@ -39,6 +39,13 @@ const TYPE_OPTIONS = [
 
 const FEATURE_KEYS = ["thermo", "glass", "new", "offer"];
 
+/* Only entrance doors store [exterior, interior] face colours in `colors`.
+   Interior-door and hidden-door listings reuse the second slot for the glass
+   insert's tint, which is a different attribute — splitting it into an
+   "(iekšpuse)" group there would mislabel it, so those categories keep the
+   single merged colour list instead. */
+const FACE_COLOR_CATEGORIES = ["ardurvis-dzivoklim", "ardurvis-privatmajai"];
+
 function Group({ title, children }) {
   return (
     <div className="mb-7">
@@ -77,9 +84,11 @@ export default function CategoryClient({ slug }) {
 
   const category = getCategoryBySlug(slug);
   const allProducts = useMemo(() => getProductsByCategory(slug), [slug]);
+  const hasFaceColors = FACE_COLOR_CATEGORIES.includes(slug);
 
   const [collectionSearch, setCollectionSearch] = useState("");
   const [colorSearch, setColorSearch] = useState("");
+  const [colorSearchInside, setColorSearchInside] = useState("");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
 
   /* --- Filter state lives in the URL ------------------------------------- */
@@ -91,6 +100,7 @@ export default function CategoryClient({ slug }) {
 
   const selectedCollections = readList("kolekcija");
   const selectedColors = readList("krasa");
+  const selectedColorsInside = readList("krasa2");
   const selectedSizes = readList("izmers");
   const selectedFeatures = readList("ipasibas");
   const priceMin = searchParams.get("no") || "";
@@ -118,7 +128,7 @@ export default function CategoryClient({ slug }) {
     setParams({ [key]: current.includes(value) ? current.filter((v) => v !== value) : [...current, value] });
 
   const clearFilters = () =>
-    setParams({ kolekcija: "", krasa: "", izmers: "", ipasibas: "", no: "", lidz: "" });
+    setParams({ kolekcija: "", krasa: "", krasa2: "", izmers: "", ipasibas: "", no: "", lidz: "" });
 
   /* Colour names come out of the catalogue in Latvian; @/lib/i18n renders
      them in the page's language. */
@@ -130,9 +140,27 @@ export default function CategoryClient({ slug }) {
     () => Array.from(new Set(allProducts.map((p) => p.collection).filter(Boolean))).sort(),
     [allProducts]
   );
+  /* Catalogue colours are stored per product as [exterior, interior] (most
+     entrance doors show both; single-colour products only ever fill the
+     exterior slot). Filtering the two slots separately — instead of one
+     flat list mixing both roles — is what lets "select an exterior shade
+     AND an interior shade" narrow down to that exact combination rather
+     than to any door wearing either colour anywhere. */
   const colorOptions = useMemo(
-    () => Array.from(new Set(allProducts.flatMap((p) => p.colors || []))).sort(),
-    [allProducts]
+    () =>
+      Array.from(
+        new Set(
+          hasFaceColors
+            ? allProducts.map((p) => p.colors?.[0]).filter(Boolean)
+            : allProducts.flatMap((p) => p.colors || [])
+        )
+      ).sort(),
+    [allProducts, hasFaceColors]
+  );
+  const colorOptionsInside = useMemo(
+    () =>
+      hasFaceColors ? Array.from(new Set(allProducts.map((p) => p.colors?.[1]).filter(Boolean))).sort() : [],
+    [allProducts, hasFaceColors]
   );
   const sizeOptions = useMemo(
     () => Array.from(new Set(allProducts.flatMap((p) => p.sizes || []))).sort(),
@@ -159,7 +187,19 @@ export default function CategoryClient({ slug }) {
   const matches = (p, skip) => {
     if (skip !== "kolekcija" && selectedCollections.length && !selectedCollections.includes(p.collection))
       return false;
-    if (skip !== "krasa" && selectedColors.length && !(p.colors || []).some((c) => selectedColors.includes(c)))
+    if (skip !== "krasa" && selectedColors.length) {
+      if (hasFaceColors) {
+        if (!selectedColors.includes(p.colors?.[0])) return false;
+      } else if (!(p.colors || []).some((c) => selectedColors.includes(c))) {
+        return false;
+      }
+    }
+    if (
+      hasFaceColors &&
+      skip !== "krasa2" &&
+      selectedColorsInside.length &&
+      !selectedColorsInside.includes(p.colors?.[1])
+    )
       return false;
     if (skip !== "izmers" && selectedSizes.length && !(p.sizes || []).some((s) => selectedSizes.includes(s)))
       return false;
@@ -230,11 +270,15 @@ export default function CategoryClient({ slug }) {
 
   const collectionQuery = collectionSearch.trim().toLowerCase();
   const colorQuery = colorSearch.trim().toLowerCase();
+  const colorQueryInside = colorSearchInside.trim().toLowerCase();
   const shownCollections = collectionOptions.filter((c) => c.toLowerCase().includes(collectionQuery));
-  const shownColors = colorOptions.filter((c) => {
-    const base = String(c).toLowerCase();
-    return base.includes(colorQuery) || String(translateColorLabel(c)).toLowerCase().includes(colorQuery);
-  });
+  const filterColors = (options, query) =>
+    options.filter((c) => {
+      const base = String(c).toLowerCase();
+      return base.includes(query) || String(translateColorLabel(c)).toLowerCase().includes(query);
+    });
+  const shownColors = filterColors(colorOptions, colorQuery);
+  const shownColorsInside = filterColors(colorOptionsInside, colorQueryInside);
 
   const sliderMin = priceMin === "" ? bounds.min : Math.max(bounds.min, Number(priceMin) || bounds.min);
   const sliderMax = priceMax === "" ? bounds.max : Math.min(bounds.max, Number(priceMax) || bounds.max);
@@ -245,6 +289,12 @@ export default function CategoryClient({ slug }) {
   const activeChips = [
     ...selectedCollections.map((v) => ({ key: "kolekcija", value: v, label: v, list: selectedCollections })),
     ...selectedColors.map((v) => ({ key: "krasa", value: v, label: translateColorLabel(v), list: selectedColors })),
+    ...selectedColorsInside.map((v) => ({
+      key: "krasa2",
+      value: v,
+      label: translateColorLabel(v),
+      list: selectedColorsInside,
+    })),
     ...selectedSizes.map((v) => ({ key: "izmers", value: v, label: v, list: selectedSizes })),
     ...selectedFeatures.map((v) => ({ key: "ipasibas", value: v, label: featureLabel(v), list: selectedFeatures })),
   ];
@@ -300,7 +350,7 @@ export default function CategoryClient({ slug }) {
       ) : null}
 
       {colorOptions.length ? (
-        <Group title={t(locale, "category.color")}>
+        <Group title={colorOptionsInside.length ? t(locale, "category.colorOutside") : t(locale, "category.color")}>
           {colorOptions.length > 6 ? (
             <input
               type="text"
@@ -313,7 +363,10 @@ export default function CategoryClient({ slug }) {
           ) : null}
           <div className="filter-scroll space-y-0.5">
             {shownColors.map((c) => {
-              const count = countFor("krasa", (p) => (p.colors || []).includes(c));
+              const count = countFor(
+                "krasa",
+                hasFaceColors ? (p) => p.colors?.[0] === c : (p) => (p.colors || []).includes(c)
+              );
               return (
                 <Option
                   key={c}
@@ -326,6 +379,37 @@ export default function CategoryClient({ slug }) {
               );
             })}
             {!shownColors.length ? <div className="px-2 py-2 text-sm text-muted">—</div> : null}
+          </div>
+        </Group>
+      ) : null}
+
+      {colorOptionsInside.length ? (
+        <Group title={t(locale, "category.colorInside")}>
+          {colorOptionsInside.length > 6 ? (
+            <input
+              type="text"
+              value={colorSearchInside}
+              onChange={(e) => setColorSearchInside(e.target.value)}
+              placeholder={searchPlaceholder}
+              aria-label={t(locale, "category.colorInside")}
+              className="mb-2 min-h-9 w-full border border-line bg-white px-2 py-1 text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-[--color-accent]"
+            />
+          ) : null}
+          <div className="filter-scroll space-y-0.5">
+            {shownColorsInside.map((c) => {
+              const count = countFor("krasa2", (p) => p.colors?.[1] === c);
+              return (
+                <Option
+                  key={c}
+                  checked={selectedColorsInside.includes(c)}
+                  disabled={!count && !selectedColorsInside.includes(c)}
+                  onChange={() => toggleValue("krasa2", selectedColorsInside, c)}
+                  label={translateColorLabel(c)}
+                  count={count}
+                />
+              );
+            })}
+            {!shownColorsInside.length ? <div className="px-2 py-2 text-sm text-muted">—</div> : null}
           </div>
         </Group>
       ) : null}

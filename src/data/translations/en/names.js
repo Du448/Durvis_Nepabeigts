@@ -33,7 +33,7 @@ export const enNames = {
     "Tandem (kvadro) Kale, model 276. Color: Dreamwood dark",
   "Tandem (kvadro) Kale, modelis 586/gluds. Krāsa: Oksīds melns, viss dekors / Balts matēts gluds":
     "Tandem (kvadro) Kale, model 586/smooth. Color: oxide black, full decor / white matte smooth",
-  "Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Дрімвуд темний. Bezatslēgas piekļuve":
+  "Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Dreamwood tumšs. Bezatslēgas piekļuve":
     "Tandem Elektro (kvadro) Kale, model 566. Color: Dreamwood dark. Keyless access",
   "Termo Expert (kvadro) Mottura, modelis 550/253. Krāsa: Roxy antracīts pelēks / Balts matēts":
     "Termo Expert (kvadro) Mottura, model 550/253. Color: Roxy anthracite grey / white matte",
@@ -102,7 +102,7 @@ export const enNames = {
     "Termo Olimp (kvadro) Mottura, model 575/568. Color: oxide black / white matte",
   "Termo Status (kvadro) Securemme, modelis 269/263. Krāsa: Hroms / Balts matēts":
     "Termo Status (kvadro) Securemme, model 269/263. Color: chrome / white matte",
-  "Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Білий матовий гладкий. Bezatslēgas piekļuve":
+  "Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Balts matēts gluds. Bezatslēgas piekļuve":
     "Termo Tandem Elektro (kvadro) Kale, model 590/smooth. Color: stone cut / white matte smooth. Keyless access",
   "Termo Ultra (kvadro) Kale, modelis 567/gluds. Krāsa: Hroms / Balts matēts":
     "Termo Ultra (kvadro) Kale, model 567/smooth. Color: chrome / white matte",

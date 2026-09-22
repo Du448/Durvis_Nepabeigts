@@ -3767,7 +3767,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-tandem-elektro-kale-590-gluds-akmens-grieziens-bezatsl",
-  "name": "Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Білий матовий гладкий. Bezatslēgas piekļuve",
+  "name": "Termo Tandem Elektro (kvadro) Kale, modelis 590/gluds. Krāsa: Akmens grieziens / Balts matēts gluds. Bezatslēgas piekļuve",
   "collection": "TANDEM ELEKTRO",
   "category": "ardurvis-dzivoklim",
   "price": 1050,
@@ -3780,7 +3780,7 @@ export const factoryProducts = [
   ],
   "colors": [
    "Akmens grieziens",
-   "Білий матовий гладкий. Bezatslēgas piekļuve"
+   "Balts matēts gluds"
   ],
   "thermo": false,
   "glass": false,
@@ -10413,7 +10413,7 @@ export const factoryProducts = [
  },
  {
   "id": "tandem-elektro-kale-566-bezatslegas-piekluve",
-  "name": "Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Дрімвуд темний. Bezatslēgas piekļuve",
+  "name": "Tandem Elektro (kvadro) Kale, modelis 566. Krāsa: Dreamwood tumšs. Bezatslēgas piekļuve",
   "collection": "TANDEM ELEKTRO",
   "category": "ardurvis-dzivoklim",
   "price": 1009,
@@ -10425,7 +10425,7 @@ export const factoryProducts = [
    "950×2050"
   ],
   "colors": [
-   "Дрімвуд темний. Bezatslēgas piekļuve"
+   "Dreamwood tumšs"
   ],
   "thermo": false,
   "glass": false,

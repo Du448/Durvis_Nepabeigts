@@ -51,6 +51,8 @@ export const enManufacturer2Calculator = {
   "Ārpuse": "Outside",
   "Izvēlētais dizains — iekšpuse": "Selected design — inside",
   "Iekšpuse": "Inside",
+  "Zīmējums": "Design",
+  "Plēve": "Film",
   "Garantija": "Warranty",
   "Standarta izmēri": "Standard sizes",
   "Konstrukcija": "Construction",
@@ -58,6 +60,7 @@ export const enManufacturer2Calculator = {
   "Slēdzenes un furnitūra": "Locks and hardware",
   "Izmērs": "Size",
   "Individuāls izmērs": "Custom size",
+  "Bāzes cena": "Base price",
   "Platums, mm": "Width, mm",
   "Augstums, mm": "Height, mm",
   "Papildu opcija maiņai — slēdzenes un cilindri": "Optional upgrade — locks and cylinders",
@@ -85,12 +88,24 @@ export const enManufacturer2Calculator = {
   "MDF izstrādājumi (aplodes)": "MDF products (casings)",
   "Aplodes un MDF paneļu komplekti — cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja).":
     "Casing and MDF panel sets — prices depend on the door's purpose (apartment / house).",
+  "Montāža un piegāde": "Installation and delivery",
+  "Saņemšana noliktavā. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.":
+    "Pickup at the warehouse. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
+  "Mērīšana": "Measurement",
+  "Mūsu speciālists ierodas objektā un veic precīzus durvju ailas uzmērījumus pirms pasūtījuma noformēšanas.":
+    "Our specialist visits the site and takes precise door-opening measurements before the order is placed.",
+  "Tikai piegāde, bez montāžas": "Delivery only, no installation",
+  "Durvis piegādājam norādītajā adresē — uzstādīšanu veicat paši vai ar saviem meistariem.":
+    "We deliver the door to the given address — you handle installation yourself or with your own fitters.",
+  "Durvis piegādājam un uzstādām ar saviem sertificētiem montieriem.":
+    "We deliver and install the door with our own certified fitters.",
   "Provizoriskā summa": "Estimated total",
   "Cena aprēķināta pēc mazumtirdzniecības cenrāža (spēkā no 01.08.2024). Galīgā cena tiek apstiprināta pasūtījuma noformēšanas brīdī.":
     "The price is calculated from the retail price list (valid from 01.08.2024). The final price is confirmed when the order is placed.",
   "Individuālā izmēra cena aprēķināta pēc formulas: platums (m) × augstums (m) ×":
     "The custom-size price is calculated using the formula: width (m) × height (m) ×",
   "Pieprasīt piedāvājumu": "Request an offer",
+  "Lejupielādēt": "Download",
 
   // ---- Base filters (manufacturer2Calculator.js) ----
   "Uz āru (uz sevi)": "Outward (towards you)",

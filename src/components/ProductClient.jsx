@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Heart, Shield, ChevronUp, ChevronDown } from "lucide-react";
+import { Heart, Shield, ShieldCheck, ChevronUp, ChevronDown, ZoomIn, ZoomOut, Ruler, Wrench, Truck } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import AccordionItem from "@/components/anim/AccordionItem";
 import ProductTabs from "@/components/ProductTabs";
@@ -22,19 +22,135 @@ import { finishesColorQuery } from "@/lib/finishesLink";
    the render is shown closer to its native size. */
 const FLAT_GALLERY_CATEGORIES = ["ieksdurvis", "sleptas-durvis"];
 
+function ServiceBadge({ icon: Icon, label }) {
+  return (
+    <span className="inline-flex items-center gap-2.5">
+      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-line bg-[--color-soft] text-[color:var(--color-accent)]">
+        <Icon size={16} />
+      </span>
+      <span>{label}</span>
+    </span>
+  );
+}
+
+// Small "?" popover — closes on an outside click/tap or Escape, same pattern
+// as the calculator's info buttons.
+function ToggleHint({ text }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+    };
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+  return (
+    <span className="relative inline-block shrink-0" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className="flex h-5 w-5 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)]"
+      >
+        ?
+      </button>
+      {open ? (
+        <div className="absolute right-0 top-full z-30 mt-2 w-[220px] border border-line bg-white p-3 text-left text-[12px] font-normal leading-[1.6] text-ink shadow-lg">
+          {text}
+        </div>
+      ) : null}
+    </span>
+  );
+}
+
+// A fulfilment choice: pickup / measurement / delivery-only / install+delivery.
+// Selecting one or more writes their labels into the "Pieprasīt piedāvājumu"
+// link so the request the visitor sends already states what they want.
+function ServiceToggleRow({ checked, onChange, label, hint }) {
+  return (
+    <label className="flex min-h-11 cursor-pointer items-center gap-3 py-1">
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        onClick={onChange}
+        className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border transition-colors ${
+          checked
+            ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)]"
+            : "border-[color:var(--color-muted)]/60 bg-white"
+        }`}
+      >
+        <span
+          className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${
+            checked
+              ? "translate-x-5 shadow-sm"
+              : "translate-x-0.5 border border-[color:var(--color-muted)]/60"
+          }`}
+        />
+      </button>
+      <span className="flex-1 text-[15px] text-ink">{label}</span>
+      {hint ? <ToggleHint text={hint} /> : null}
+    </label>
+  );
+}
+
 export default function ProductClient({ id }) {
   const locale = getLocaleFromPathname(usePathname());
   const product = getProductById(id);
   const productImages = product?.images && product.images.length > 0 ? product.images : ["placeholder"];
   const images = productImages;
-  const galleryAspect = FLAT_GALLERY_CATEGORIES.includes(product?.category)
-    ? "lg:aspect-[3/2]"
-    : "";
+  const isFlatGallery = FLAT_GALLERY_CATEGORIES.includes(product?.category);
+  const galleryAspect = isFlatGallery ? "lg:aspect-[3/2]" : "";
   const [activeIdx, setActiveIdx] = useState(0);
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [activeSize, setActiveSize] = useState(product?.sizes?.[0] || "");
+  const [serviceOptions, setServiceOptions] = useState({
+    pickup: false,
+    measurement: false,
+    deliveryOnly: false,
+    installDelivery: false,
+  });
+  const toggleServiceOption = (key) =>
+    setServiceOptions((prev) => ({ ...prev, [key]: !prev[key] }));
+  const selectedServiceCodes = Object.entries(serviceOptions)
+    .filter(([, on]) => on)
+    .map(([key]) => key);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIdx, setLightboxIdx] = useState(0);
+  const [lightboxZoom, setLightboxZoom] = useState(1);
+  const lightboxScrollRef = useRef(null);
+  const ZOOM_MIN = 1;
+  const ZOOM_MAX = 2.6;
+  const ZOOM_STEP = 0.4;
+  const zoomIn = () => setLightboxZoom((z) => Math.min(ZOOM_MAX, +(z + ZOOM_STEP).toFixed(2)));
+  const zoomOut = () => setLightboxZoom((z) => Math.max(ZOOM_MIN, +(z - ZOOM_STEP).toFixed(2)));
+  const goToLightboxIdx = (updater) => {
+    setLightboxZoom(1);
+    setLightboxIdx(updater);
+  };
+
+  /* Growing the zoomed layer keeps it pinned at the scroll container's
+     top-left corner by default, which reads as a lopsided, half-black crop
+     rather than a closer look at the photo. Recentre the scroll position
+     on every zoom change so the same spot the viewer was looking at stays
+     in the middle of the frame. */
+  useEffect(() => {
+    const el = lightboxScrollRef.current;
+    if (!el) return;
+    el.scrollTo({
+      left: (el.scrollWidth - el.clientWidth) / 2,
+      top: (el.scrollHeight - el.clientHeight) / 2,
+    });
+  }, [lightboxZoom, lightboxIdx]);
   const [wishlisted, setWishlisted] = useState(false);
   const thumbsRef = useRef(null);
   const mediaRef = useRef(null);
@@ -54,6 +170,7 @@ export default function ProductClient({ id }) {
   };
 
   const measureMedia = useCallback(() => {
+    if (!isFlatGallery) return;
     const box = mediaRef.current;
     if (!box) return;
     const img = box.querySelector("img");
@@ -62,7 +179,7 @@ export default function ProductClient({ id }) {
     const ratio = img?.naturalWidth && img?.naturalHeight ? img.naturalWidth / img.naturalHeight : null;
     const painted = ratio ? Math.min(height, width / ratio) : height;
     setMediaHeight(Math.round(painted));
-  }, []);
+  }, [isFlatGallery]);
 
   const updateScrollButtons = () => {
     const el = thumbsRef.current;
@@ -232,9 +349,10 @@ export default function ProductClient({ id }) {
                         type="button"
                         onClick={() => {
                           setLightboxIdx(activeIdx);
+                          setLightboxZoom(1);
                           setLightboxOpen(true);
                         }}
-                        className="relative block w-full h-full"
+                        className="group relative block w-full h-full cursor-zoom-in"
                         aria-label={t(locale, "product.openImage")}
                       >
                         <Image
@@ -248,6 +366,12 @@ export default function ProductClient({ id }) {
                           sizes="(max-width: 1024px) 100vw, 50vw"
                           className="object-contain object-top"
                         />
+                        <span
+                          aria-hidden
+                          className="pointer-events-none absolute bottom-3 right-3 inline-flex h-9 w-9 items-center justify-center border border-line bg-white/90 text-ink opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100"
+                        >
+                          <ZoomIn size={18} />
+                        </span>
                       </button>
                     )}
                   </div>
@@ -387,7 +511,14 @@ export default function ProductClient({ id }) {
               <div className="mt-6 flex flex-wrap gap-3">
                 <MagneticButton>
                   <Link
-                    href={withLocaleHref(locale, `/kontakti?produkts=${encodeURIComponent(product.id)}`)}
+                    href={withLocaleHref(
+                      locale,
+                      `/kontakti?produkts=${encodeURIComponent(product.id)}${
+                        selectedServiceCodes.length
+                          ? `&pakalpojumi=${encodeURIComponent(selectedServiceCodes.join(","))}`
+                          : ""
+                      }`
+                    )}
                     className="btn btn-accent"
                   >
                     {t(locale, "product.requestOffer")}
@@ -495,14 +626,51 @@ export default function ProductClient({ id }) {
                       ))}
                     </ul>
                   ) : (
-                    t(locale, "pages.services.description")
+                    <div>
+                      <div className="flex flex-wrap gap-x-6 gap-y-3">
+                        <ServiceBadge icon={Ruler} label={t(locale, "product.featureMeasurement")} />
+                        <ServiceBadge icon={Wrench} label={t(locale, "product.featureInstall")} />
+                        <ServiceBadge icon={ShieldCheck} label={t(locale, "product.featureWarranty")} />
+                        <ServiceBadge icon={Truck} label={t(locale, "product.featureDelivery")} />
+                      </div>
+                      <div className="mt-3 text-[13px] text-muted">{t(locale, "product.detailsComingLater")}</div>
+                    </div>
                   )}
                 </AccordionItem>
                 <AccordionItem title={t(locale, "product.installDelivery")}>
-                  {t(locale, "product.freeServices")}
+                  <div className="divide-y divide-[--color-line]">
+                    <ServiceToggleRow
+                      checked={serviceOptions.pickup}
+                      onChange={() => toggleServiceOption("pickup")}
+                      label={t(locale, "product.optionPickup")}
+                    />
+                    <ServiceToggleRow
+                      checked={serviceOptions.measurement}
+                      onChange={() => toggleServiceOption("measurement")}
+                      label={t(locale, "product.optionMeasurement")}
+                      hint={t(locale, "product.optionMeasurementHint")}
+                    />
+                    <ServiceToggleRow
+                      checked={serviceOptions.deliveryOnly}
+                      onChange={() => toggleServiceOption("deliveryOnly")}
+                      label={t(locale, "product.optionDeliveryOnly")}
+                      hint={t(locale, "product.optionDeliveryOnlyHint")}
+                    />
+                    <ServiceToggleRow
+                      checked={serviceOptions.installDelivery}
+                      onChange={() => toggleServiceOption("installDelivery")}
+                      label={t(locale, "product.optionInstallDelivery")}
+                      hint={t(locale, "product.optionInstallDeliveryHint")}
+                    />
+                  </div>
                 </AccordionItem>
                 <AccordionItem title={t(locale, "product.warranty")}>
-                  {t(locale, "pages.about.featuresDesc3")}
+                  <div className="flex items-center gap-2.5">
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-line bg-[--color-soft] text-[color:var(--color-accent)]">
+                      <ShieldCheck size={16} />
+                    </span>
+                    <span>{t(locale, "pages.about.featuresDesc3")}</span>
+                  </div>
                 </AccordionItem>
               </div>
             </div>
@@ -531,31 +699,60 @@ export default function ProductClient({ id }) {
           onClick={() => setLightboxOpen(false)}
         >
           <div className="flex min-h-full items-center justify-center">
-            <div className="relative w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
-              <button
-                type="button"
-                className="absolute right-2 top-2 text-white text-xl"
-                aria-label={t(locale, "product.close")}
-                onClick={() => setLightboxOpen(false)}
+            <div className="relative w-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
+              <div className="absolute right-2 top-2 z-20 flex items-center gap-1.5">
+                <button
+                  type="button"
+                  className="inline-flex h-9 w-9 items-center justify-center border border-white/30 bg-black/40 text-white disabled:opacity-30"
+                  aria-label={t(locale, "product.zoomOut")}
+                  onClick={zoomOut}
+                  disabled={lightboxZoom <= ZOOM_MIN}
+                >
+                  <ZoomOut size={18} />
+                </button>
+                <button
+                  type="button"
+                  className="inline-flex h-9 w-9 items-center justify-center border border-white/30 bg-black/40 text-white disabled:opacity-30"
+                  aria-label={t(locale, "product.zoomIn")}
+                  onClick={zoomIn}
+                  disabled={lightboxZoom >= ZOOM_MAX}
+                >
+                  <ZoomIn size={18} />
+                </button>
+                <button
+                  type="button"
+                  className="ml-1 text-white text-xl"
+                  aria-label={t(locale, "product.close")}
+                  onClick={() => setLightboxOpen(false)}
+                >
+                  ✕
+                </button>
+              </div>
+              <div
+                ref={lightboxScrollRef}
+                className={`relative h-[min(75vh,720px)] w-full overflow-auto bg-black no-scrollbar ${lightboxZoom > ZOOM_MIN ? "cursor-zoom-out" : "cursor-zoom-in"}`}
+                onClick={() => (lightboxZoom > ZOOM_MIN ? setLightboxZoom(ZOOM_MIN) : zoomIn())}
               >
-                ✕
-              </button>
-              <div className="relative h-[min(70vh,640px)] w-full bg-black">
-                <Image
-                  src={images[lightboxIdx]}
-                  alt={`${productName} — ${t(locale, "product.openImage")}`}
-                  fill
-                  unoptimized
-                  referrerPolicy="no-referrer"
-                  sizes="100vw"
-                  className="object-contain"
-                />
+                <div
+                  className="relative mx-auto"
+                  style={{ width: `${lightboxZoom * 100}%`, height: `${lightboxZoom * 100}%`, minWidth: "100%", minHeight: "100%" }}
+                >
+                  <Image
+                    src={images[lightboxIdx]}
+                    alt={`${productName} — ${t(locale, "product.openImage")}`}
+                    fill
+                    unoptimized
+                    referrerPolicy="no-referrer"
+                    sizes="100vw"
+                    className="object-contain"
+                  />
+                </div>
               </div>
               <div className="mt-3 flex items-center justify-between">
                 <button
                   type="button"
                   className="border border-line bg-white/10 text-white px-3 py-1.5"
-                  onClick={() => setLightboxIdx((i) => (i - 1 + images.length) % images.length)}
+                  onClick={() => goToLightboxIdx((i) => (i - 1 + images.length) % images.length)}
                 >
                   {t(locale, "product.previous")}
                 </button>
@@ -565,7 +762,7 @@ export default function ProductClient({ id }) {
                 <button
                   type="button"
                   className="border border-line bg-white/10 text-white px-3 py-1.5"
-                  onClick={() => setLightboxIdx((i) => (i + 1) % images.length)}
+                  onClick={() => goToLightboxIdx((i) => (i + 1) % images.length)}
                 >
                   {t(locale, "product.next")}
                 </button>
@@ -575,7 +772,7 @@ export default function ProductClient({ id }) {
                   <button
                     key={idx}
                     className={`aspect-square border ${idx === lightboxIdx ? 'border-[--color-accent]' : 'border-line'} bg-[--color-soft]`}
-                    onClick={() => setLightboxIdx(idx)}
+                    onClick={() => goToLightboxIdx(idx)}
                     aria-label={t(locale, "product.imageN").replace("{n}", String(idx + 1))}
                   >
                     <span className="relative block h-full w-full overflow-hidden">

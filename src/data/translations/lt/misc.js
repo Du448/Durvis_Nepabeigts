@@ -79,8 +79,8 @@ export const ltColors = {
   // Left in Ukrainian by the manufacturer's own listing
   "Антрацит темний": "Tamsus antracitas",
   "Сірий шифер.": "Pilkas šiferis",
-  "Білий матовий гладкий. Bezatslēgas piekļuve": "Balta matinė lygi. Berakčio atrakinimo sistema",
-  "Дрімвуд темний. Bezatslēgas piekļuve": "Dreamwood tamsus. Berakčio atrakinimo sistema",
+  "Balts matēts gluds": "Balta matinė lygi",
+  "Dreamwood tumšs": "Dreamwood tamsus",
 };
 
 export const ltSetItems = {

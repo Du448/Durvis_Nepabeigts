@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Check, ChevronDown, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { Check, ChevronDown, ChevronLeft, ChevronRight, Download, Loader2, X } from "lucide-react";
 import {
   CURRENCY,
   basePurposes,
@@ -713,6 +713,61 @@ function FilmPicker({ label, groups, groupTitle, onGroupChange, filmImage, onFil
   );
 }
 
+// Small "?" popover for a fulfilment toggle — closes on an outside
+// click/tap or Escape, same pattern as InfoPopoverButton below.
+function ToggleHint({ text, locale }) {
+  const [open, setOpen] = useState(false);
+  const ref = useCloseOnOutside(open, () => setOpen(false));
+  return (
+    <span className="relative inline-block shrink-0" ref={ref}>
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        aria-expanded={open}
+        className="flex h-5 w-5 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)]"
+      >
+        ?
+      </button>
+      {open ? (
+        <div className="absolute right-0 top-full z-30 mt-2 w-[220px] border border-line bg-white p-3 text-left text-[12px] font-normal leading-[1.6] text-ink shadow-lg">
+          {trData(locale, text)}
+        </div>
+      ) : null}
+    </span>
+  );
+}
+
+// One fulfilment choice (pickup / measurement / delivery-only /
+// install+delivery) in the "Montāža un piegāde" section — mirrors the same
+// toggle used on the product page so the two read as one design.
+function ServiceToggleRow({ checked, onChange, label, hint, locale }) {
+  return (
+    <label className="flex min-h-11 cursor-pointer items-center gap-3 py-1">
+      <button
+        type="button"
+        role="switch"
+        aria-checked={checked}
+        onClick={onChange}
+        className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border transition-colors ${
+          checked
+            ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)]"
+            : "border-[color:var(--color-muted)]/60 bg-white"
+        }`}
+      >
+        <span
+          className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform ${
+            checked
+              ? "translate-x-5 shadow-sm"
+              : "translate-x-0.5 border border-[color:var(--color-muted)]/60"
+          }`}
+        />
+      </button>
+      <span className="flex-1 text-[14px] text-ink">{trData(locale, label)}</span>
+      {hint ? <ToggleHint text={hint} locale={locale} /> : null}
+    </label>
+  );
+}
+
 // Collapsed by default — each configurator step (locks onward) can be
 // expanded on demand instead of forcing one long scroll of open panels.
 function CollapsibleSection({ title, subtitle, defaultOpen = false, children }) {
@@ -1051,6 +1106,7 @@ export default function Manufacturer2Calculator() {
   }, [selectedTier, krasasSection]);
 
   const [config, setConfig] = useState(null);
+  const [pdfDownloading, setPdfDownloading] = useState(false);
 
   const resetFilters = () => {
     setFilterPurpose(new Set());
@@ -1138,6 +1194,7 @@ export default function Manufacturer2Calculator() {
       frameSwatch: defaultRalGroup.items[0],
       peepholeId: tier.peepholeDefault || "standard",
       extraOptions: new Set(included.filter((id) => extraOptionIds.has(id))),
+      serviceOptions: { pickup: false, measurement: false, deliveryOnly: false, installDelivery: false },
     });
     setStep("configure");
   };
@@ -1151,24 +1208,33 @@ export default function Manufacturer2Calculator() {
     };
   }
 
-  const total = useMemo(() => {
-    if (!selectedTier || !config) return 0;
+  // Itemised so the on-screen total and the downloadable PDF always agree —
+  // both are just a sum over this same list, never two parallel calculations.
+  const priceBreakdown = useMemo(() => {
+    if (!selectedTier || !config) return [];
     const included = selectedTier.includedExtras || [];
-    let sum =
-      config.sizeMode === "custom" && selectedTier.customSizeSupported
-        ? customSizePrice(config.customWidth, config.customHeight, selectedTier.sqmPrice)
-        : config.size?.price ?? selectedTier.basePrice ?? 0;
+    const lines = [];
+    lines.push({
+      label:
+        config.sizeMode === "custom" && selectedTier.customSizeSupported
+          ? "Individuāls izmērs"
+          : "Bāzes cena",
+      price:
+        config.sizeMode === "custom" && selectedTier.customSizeSupported
+          ? customSizePrice(config.customWidth, config.customHeight, selectedTier.sqmPrice)
+          : (config.size?.price ?? selectedTier.basePrice ?? 0),
+    });
     const lockSet = lockSets[selectedTier.lockSet] || [];
     for (const lockId of config.lockIds) {
       if (included.includes(lockId)) continue;
       const lock = lockSet.find((l) => l.id === lockId);
-      if (lock) sum += lock.price;
+      if (lock) lines.push({ label: lock.name, price: lock.price });
     }
     const peephole = peepholeOptions.find((p) => p.id === config.peepholeId);
-    if (peephole) sum += peephole.price;
+    if (peephole && peephole.price) lines.push({ label: peephole.name, price: peephole.price });
     if (config.openingDirection === "inside" && !included.includes(INSIDE_OPENING_OPTION_ID)) {
       const insideOpening = additionalOptions.find((o) => o.id === INSIDE_OPENING_OPTION_ID);
-      if (insideOpening) sum += insideOpening.price;
+      if (insideOpening) lines.push({ label: insideOpening.name, price: insideOpening.price });
     }
     // Design-series surcharges (e.g. 400/500/600 series) apply per side — each
     // of outer/inner leaf design independently adds its series' surcharge.
@@ -1176,15 +1242,17 @@ export default function Manufacturer2Calculator() {
       const group = dizainsSection.groups.find((g) => g.title === seriesTitle);
       if (!group?.surchargeOptionId || included.includes(group.surchargeOptionId)) continue;
       const surcharge = additionalOptions.find((o) => o.id === group.surchargeOptionId);
-      if (surcharge) sum += surcharge.price;
+      if (surcharge) lines.push({ label: surcharge.name, price: surcharge.price });
     }
     for (const optId of config.extraOptions) {
       if (included.includes(optId)) continue;
       const opt = additionalOptions.find((o) => o.id === optId) || casingOptions.find((o) => o.id === optId);
-      if (opt) sum += opt.price;
+      if (opt) lines.push({ label: opt.name, price: opt.price });
     }
-    return sum;
+    return lines;
   }, [selectedTier, config]);
+
+  const total = useMemo(() => priceBreakdown.reduce((sum, line) => sum + line.price, 0), [priceBreakdown]);
 
   /* Matching tiers, filtered live by the dropdown row below */
   if (step === "results") {
@@ -1322,6 +1390,82 @@ export default function Manufacturer2Calculator() {
   if (step === "configure" && selectedTier && config) {
     const lockSet = lockSets[selectedTier.lockSet] || [];
     const activePeephole = peepholeOptions.find((p) => p.id === config.peepholeId);
+    const activeFurniture = furnitureOptions.find((f) => f.id === config.furnitureId);
+    const sizeLabel =
+      config.sizeMode === "custom" && selectedTier.customSizeSupported
+        ? `${config.customWidth}×${config.customHeight} mm`
+        : config.size
+          ? `${config.size.w}×${config.size.h} mm`
+          : trData(locale, selectedTier.sizeNote);
+    const lockLabels = [...config.lockIds]
+      .map((id) => lockSet.find((l) => l.id === id)?.name)
+      .filter(Boolean)
+      .map((name) => trData(locale, name));
+    const extraOptionLabels = [...config.extraOptions]
+      .map((id) => (additionalOptions.find((o) => o.id === id) || casingOptions.find((o) => o.id === id))?.name)
+      .filter(Boolean)
+      .map((name) => trData(locale, name));
+    const SERVICE_OPTION_LABELS = [
+      ["pickup", "Saņemšana noliktavā. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r."],
+      ["measurement", "Mērīšana"],
+      ["deliveryOnly", "Tikai piegāde, bez montāžas"],
+      ["installDelivery", "Montāža un piegāde"],
+    ];
+
+    const handleDownloadPdf = async () => {
+      setPdfDownloading(true);
+      try {
+        const { generateConfiguratorPdf } = await import("@/lib/generateConfiguratorPdf");
+        const specRows = [
+          { label: trData(locale, "Izmērs"), value: sizeLabel },
+          {
+            label: trData(locale, "Vēršanās virziens"),
+            value: trData(locale, openingDirections.find((d) => d.id === config.openingDirection)?.label || ""),
+          },
+          {
+            label: trData(locale, "Vēršanās puse"),
+            value: trData(locale, openingSides.find((d) => d.id === config.openingSide)?.label || ""),
+          },
+          lockLabels.length ? { label: trData(locale, "Slēdzenes"), value: lockLabels.join(", ") } : null,
+          activeFurniture ? { label: trData(locale, "Furnitūras krāsa"), value: trData(locale, activeFurniture.name) } : null,
+          config.outerDesign
+            ? { label: `${trData(locale, "Zīmējums")} — ${trData(locale, "Ārpuse")}`, value: trData(locale, config.outerDesign.label) }
+            : null,
+          config.innerDesign
+            ? { label: `${trData(locale, "Zīmējums")} — ${trData(locale, "Iekšpuse")}`, value: trData(locale, config.innerDesign.label) }
+            : null,
+          { label: `${trData(locale, "Plēve")} — ${trData(locale, "Ārpuse")}`, value: trData(locale, config.outerFilm.label) },
+          { label: `${trData(locale, "Plēve")} — ${trData(locale, "Iekšpuse")}`, value: trData(locale, config.innerFilm.label) },
+          { label: trData(locale, "Kārbas pārklājums"), value: trData(locale, config.frameSwatch.label) },
+          activePeephole ? { label: trData(locale, "Skata acs"), value: trData(locale, activePeephole.name) } : null,
+          extraOptionLabels.length ? { label: trData(locale, "Papildu opcijas"), value: extraOptionLabels.join(", ") } : null,
+        ].filter(Boolean);
+
+        await generateConfiguratorPdf({
+          locale,
+          tierName: trData(locale, selectedTier.name),
+          tierIntro: selectedTier.intro ? trData(locale, selectedTier.intro) : "",
+          tierTarget: trData(locale, selectedTier.target === "house" ? "Privātmājai" : "Dzīvoklim"),
+          mainImageUrl: config.outerDesign?.image || selectedTier.image,
+          secondaryImage: config.innerDesign ? { url: config.innerDesign.image } : null,
+          specRows,
+          serviceOptions: SERVICE_OPTION_LABELS.map(([key, label]) => ({
+            label: trData(locale, label),
+            on: !!config.serviceOptions[key],
+          })),
+          priceLines: priceBreakdown.map((line) => ({ label: trData(locale, line.label), price: line.price })),
+          total,
+          contact: {
+            phone: "+370 662 13171",
+            email: "info@tnbaltic.lt",
+            address: "Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
+          },
+          fileName: `${(selectedTier.id || "piedavajums").toString()}.pdf`,
+        });
+      } finally {
+        setPdfDownloading(false);
+      }
+    };
 
     return (
       <div className="container py-12 lg:py-16">
@@ -1757,6 +1901,59 @@ export default function Manufacturer2Calculator() {
               </div>
             </CollapsibleSection>
 
+            {/* Montāža un piegāde */}
+            <CollapsibleSection title={trData(locale, "Montāža un piegāde")}>
+              <div className="divide-y divide-[--color-line]">
+                <ServiceToggleRow
+                  checked={config.serviceOptions.pickup}
+                  onChange={() =>
+                    setConfig((c) => ({
+                      ...c,
+                      serviceOptions: { ...c.serviceOptions, pickup: !c.serviceOptions.pickup },
+                    }))
+                  }
+                  label="Saņemšana noliktavā. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r."
+                  locale={locale}
+                />
+                <ServiceToggleRow
+                  checked={config.serviceOptions.measurement}
+                  onChange={() =>
+                    setConfig((c) => ({
+                      ...c,
+                      serviceOptions: { ...c.serviceOptions, measurement: !c.serviceOptions.measurement },
+                    }))
+                  }
+                  label="Mērīšana"
+                  hint="Mūsu speciālists ierodas objektā un veic precīzus durvju ailas uzmērījumus pirms pasūtījuma noformēšanas."
+                  locale={locale}
+                />
+                <ServiceToggleRow
+                  checked={config.serviceOptions.deliveryOnly}
+                  onChange={() =>
+                    setConfig((c) => ({
+                      ...c,
+                      serviceOptions: { ...c.serviceOptions, deliveryOnly: !c.serviceOptions.deliveryOnly },
+                    }))
+                  }
+                  label="Tikai piegāde, bez montāžas"
+                  hint="Durvis piegādājam norādītajā adresē — uzstādīšanu veicat paši vai ar saviem meistariem."
+                  locale={locale}
+                />
+                <ServiceToggleRow
+                  checked={config.serviceOptions.installDelivery}
+                  onChange={() =>
+                    setConfig((c) => ({
+                      ...c,
+                      serviceOptions: { ...c.serviceOptions, installDelivery: !c.serviceOptions.installDelivery },
+                    }))
+                  }
+                  label="Montāža un piegāde"
+                  hint="Durvis piegādājam un uzstādām ar saviem sertificētiem montieriem."
+                  locale={locale}
+                />
+              </div>
+            </CollapsibleSection>
+
             {/* Summary */}
             <div id="calc-summary" className="border-2 border-[color:var(--color-accent)] bg-[--color-soft] p-5">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -1776,12 +1973,24 @@ export default function Manufacturer2Calculator() {
                   </>
                 ) : null}
               </p>
-              <a
-                href="/kontakti"
-                className="btn btn-accent mt-4 inline-block"
-              >
-                {trData(locale, "Pieprasīt piedāvājumu")}
-              </a>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <a href="/kontakti" className="btn btn-accent inline-block">
+                  {trData(locale, "Pieprasīt piedāvājumu")}
+                </a>
+                <button
+                  type="button"
+                  onClick={handleDownloadPdf}
+                  disabled={pdfDownloading}
+                  className="btn btn-outline-dark inline-flex items-center gap-2 disabled:opacity-60"
+                >
+                  {pdfDownloading ? (
+                    <Loader2 size={16} className="animate-spin" />
+                  ) : (
+                    <Download size={16} />
+                  )}
+                  {trData(locale, "Lejupielādēt")}
+                </button>
+              </div>
             </div>
           </div>
         </div>
