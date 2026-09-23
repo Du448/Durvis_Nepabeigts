@@ -4,7 +4,7 @@
    (Securemme, Kale, Mottura, Abloy, DISEC, MUL-T-LOCK, Winshield, Yale,
    Tedee, RAL codes, tier codenames already international like Tandem, Ultra,
    Trend, Alfa, Expert, Grand, Fortezza, Omega, Power, Cottage) are kept as
-   in the source — only the descriptive Latvian words are translated. */
+   in the source - only the descriptive Latvian words are translated. */
 
 export const ltManufacturer2Calculator = {
   // ---- Hardcoded JSX literals (Manufacturer2Calculator.jsx) ----
@@ -17,8 +17,8 @@ export const ltManufacturer2Calculator = {
   "Nekas netika atrasts.": "Nieko nerasta.",
   "Meklēt pēc krāsas nosaukuma vai numura...": "Ieškoti pagal spalvos pavadinimą arba numerį...",
   "Durvju kalkulators": "Durų kalkuliatorius",
-  "Atzīmē vēlamos pamatparametrus — piedāvāsim sērijas, kas atbilst tieši Tavam pieprasījumam. Cenas ir mazumtirdzniecības cenas, kas spēkā no 01.08.2024.":
-    "Pažymėk norimus pagrindinius parametrus — pasiūlysime serijas, atitinkančias būtent Tavo poreikį. Kainos yra mažmeninės, galiojančios nuo 2024-08-01.",
+  "Atzīmē vēlamos pamatparametrus - piedāvāsim sērijas, kas atbilst tieši Tavam pieprasījumam. Cenas ir mazumtirdzniecības cenas, kas spēkā no 01.08.2024.":
+    "Pažymėk norimus pagrindinius parametrus - pasiūlysime serijas, atitinkančias būtent Tavo poreikį. Kainos yra mažmeninės, galiojančios nuo 2024-08-01.",
   "Durvju pielietojums": "Durų paskirtis",
   "Vēlamais izmērs": "Pageidaujamas dydis",
   "Vēršanās virziens": "Atidarymo kryptis",
@@ -34,9 +34,9 @@ export const ltManufacturer2Calculator = {
   "Neviena sērija neatbilst izvēlētajiem filtriem. Mēģini paplašināt kritērijus.":
     "Nė viena serija neatitinka pasirinktų filtrų. Pabandyk išplėsti kriterijus.",
   "Atpakaļ pie sērijām": "Atgal prie serijų",
-  "Izvēlētais dizains — ārpuse": "Pasirinktas raštas — išorė",
+  "Izvēlētais dizains - ārpuse": "Pasirinktas raštas - išorė",
   "Ārpuse": "Išorė",
-  "Izvēlētais dizains — iekšpuse": "Pasirinktas raštas — vidus",
+  "Izvēlētais dizains - iekšpuse": "Pasirinktas raštas - vidus",
   "Iekšpuse": "Vidus",
   "Zīmējums": "Raštas",
   "Plēve": "Plėvelė",
@@ -50,25 +50,25 @@ export const ltManufacturer2Calculator = {
   "Bāzes cena": "Bazinė kaina",
   "Platums, mm": "Plotis, mm",
   "Augstums, mm": "Aukštis, mm",
-  "Papildu opcija maiņai — slēdzenes un cilindri": "Papildoma keitimo opcija — spynos ir cilindrai",
-  "Var atzīmēt vairākas — cenas summējas ar bāzes komplektāciju.":
-    "Galima pažymėti kelias — kainos susumuojamos su bazine komplektacija.",
+  "Papildu opcija maiņai - slēdzenes un cilindri": "Papildoma keitimo opcija - spynos ir cilindrai",
+  "Var atzīmēt vairākas - cenas summējas ar bāzes komplektāciju.":
+    "Galima pažymėti kelias - kainos susumuojamos su bazine komplektacija.",
   "Jau iekļauts standartā": "Jau įtraukta į standartą",
-  "Šai sērijai ir iekļauta viedā slēdzene — atsevišķa cilindra jaunināšana nav nepieciešama.":
-    "Šioje serijoje jau įtraukta išmanioji spyna — atskiro cilindro atnaujinimo nereikia.",
+  "Šai sērijai ir iekļauta viedā slēdzene - atsevišķa cilindra jaunināšana nav nepieciešama.":
+    "Šioje serijoje jau įtraukta išmanioji spyna - atskiro cilindro atnaujinimo nereikia.",
   "Furnitūras krāsa": "Furnitūros spalva",
   "Durvju vērtnes dizains": "Durų varčios raštas",
-  "Zīmējums — ārpuse": "Raštas — išorė",
-  "Zīmējums — iekšpuse": "Raštas — vidus",
+  "Zīmējums - ārpuse": "Raštas - išorė",
+  "Zīmējums - iekšpuse": "Raštas - vidus",
   "Pārklājuma plēves krāsa": "Dangos plėvelės spalva",
-  "Plēve — ārpuse": "Plėvelė — išorė",
-  "Plēve — iekšpuse": "Plėvelė — vidus",
+  "Plēve - ārpuse": "Plėvelė - išorė",
+  "Plēve - iekšpuse": "Plėvelė - vidus",
   "Kārbas pārklājums": "Staktos danga",
   "Skata acs": "Durų akutė",
   "Papildu opcijas": "Papildomos opcijos",
   "MDF izstrādājumi (aplodes)": "MDF gaminiai (aplaidos)",
-  "Aplodes un MDF paneļu komplekti — cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja).":
-    "Aplaidų ir MDF plokščių komplektai — kainos priklauso nuo durų paskirties (butas / namas).",
+  "Aplodes un MDF paneļu komplekti - cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja).":
+    "Aplaidų ir MDF plokščių komplektai - kainos priklauso nuo durų paskirties (butas / namas).",
   "Montāža un piegāde": "Montavimas ir pristatymas",
   "Saņemšana noliktavā. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.":
     "Atsiėmimas sandėlyje. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
@@ -76,8 +76,8 @@ export const ltManufacturer2Calculator = {
   "Mūsu speciālists ierodas objektā un veic precīzus durvju ailas uzmērījumus pirms pasūtījuma noformēšanas.":
     "Mūsų specialistas atvyksta į objektą ir atlieka tikslius durų angos matavimus prieš užsakymo pateikimą.",
   "Tikai piegāde, bez montāžas": "Tik pristatymas, be montavimo",
-  "Durvis piegādājam norādītajā adresē — uzstādīšanu veicat paši vai ar saviem meistariem.":
-    "Duris pristatome nurodytu adresu — montavimą atliekate patys arba su savo meistrais.",
+  "Durvis piegādājam norādītajā adresē - uzstādīšanu veicat paši vai ar saviem meistariem.":
+    "Duris pristatome nurodytu adresu - montavimą atliekate patys arba su savo meistrais.",
   "Durvis piegādājam un uzstādām ar saviem sertificētiem montieriem.":
     "Duris pristatome ir sumontuojame su savo sertifikuotais montuotojais.",
   "Provizoriskā summa": "Preliminari suma",
@@ -87,10 +87,29 @@ export const ltManufacturer2Calculator = {
     "Individualaus dydžio kaina apskaičiuojama pagal formulę: plotis (m) × aukštis (m) ×",
   "Pieprasīt piedāvājumu": "Pateikti užklausą",
   "Lejupielādēt": "Atsisiųsti",
+  "Drīzumā": "Netrukus",
+  "Notīrīt": "Išvalyti",
+  "Cena": "Kaina",
+  "Cena no": "Kaina nuo",
+  "Cena līdz": "Kaina iki",
+  "Vairāk informācijas": "Daugiau informacijos",
+  "Slēdzenes veids": "Spynos tipas",
+  "Tērauda biezums": "Plieno storis",
+  "Stiklojums": "Stiklinimas",
+  "Atbalsta vēršanos uz iekšu": "Palaiko atidarymą į vidų",
+  "Notīrīt visus filtrus": "Išvalyti visus filtrus",
+  "Privātmājai": "Namui",
+  "Dzīvoklim": "Butui",
+  "iekļauta": "įtraukta",
+  "cena pēc pieprasījuma": "kaina pagal užklausą",
+  "Iekļauts pamatcenā": "Įtraukta į bazinę kainą",
+  "piemaksa (viena puse)": "priemoka (viena pusė)",
+  "Cena pēc pieprasījuma": "Kaina pagal užklausą",
+  "Individuālā izmēra cena": "Individualaus dydžio kaina",
 
   // ---- Base filters (manufacturer2Calculator.js) ----
   "Uz āru (uz sevi)": "Į lauką (į save)",
-  "Uz iekšu (no sevis) — +60 €": "Į vidų (nuo savęs) — +60 €",
+  "Uz iekšu (no sevis) - +60 €": "Į vidų (nuo savęs) - +60 €",
   "Kreisā": "Kairė",
   "Labā": "Dešinė",
 
@@ -116,7 +135,7 @@ export const ltManufacturer2Calculator = {
   "Skaņas un siltuma izolācija: minerālvate 2 slāņi 50 mm, 15 kg/m³, folijas izolācija":
     "Garso ir šilumos izoliacija: mineralinė vata 2 sluoksniai po 50 mm, 15 kg/m³, folijos izoliacija",
   "2 blīvējuma kontūri": "2 sandarinimo kontūrai",
-  "MDF aplodas biezums/platums 16 mm/80 mm — slēptā montāža": "MDF aplaidos storis/plotis 16 mm/80 mm — paslėptas montavimas",
+  "MDF aplodas biezums/platums 16 mm/80 mm - slēptā montāža": "MDF aplaidos storis/plotis 16 mm/80 mm - paslėptas montavimas",
 
   "Svars 92–98 kg": "Svoris 92–98 kg",
   "Kārba 110 mm: pastiprināta slēdzeņu rīģeļu plāksne (1,2 mm), 6 stingruma ribas":
@@ -126,7 +145,7 @@ export const ltManufacturer2Calculator = {
   "3 eņģes (d-27/120 mm) ar pretnoņemamiem aizsargiem (14 mm)":
     "3 vyriai (d-27/120 mm) su apsauga nuo nuėmimo (14 mm)",
   "3 blīvējuma kontūri": "3 sandarinimo kontūrai",
-  "MDF aplodas biezums/platums 22 mm/80 mm — slēptā montāža": "MDF aplaidos storis/plotis 22 mm/80 mm — paslėptas montavimas",
+  "MDF aplodas biezums/platums 22 mm/80 mm - slēptā montāža": "MDF aplaidos storis/plotis 22 mm/80 mm - paslėptas montavimas",
 
   "Auksti velmēts tērauds 1,5 mm, pulverkrāsa ar matētu apdari (180°C)":
     "Šaltai valcuotas plienas 1,5 mm, milteliniai dažai su matine apdaila (180°C)",
@@ -157,21 +176,21 @@ export const ltManufacturer2Calculator = {
     "Varčios storis 100/95 mm (priklausomai nuo pločio), 7 standumo briaunos, metalo storis 1,2 mm, plieno lakštas 1 mm",
   "3 eņģes (d-24/120 mm) ar pretnoņemamiem aizsargiem (14 mm), durvju rāmis pārklāts ar metālu, nerūsējošā tērauda slieksnis":
     "3 vyriai (d-24/120 mm) su apsauga nuo nuėmimo (14 mm), durų rėmas dengtas metalu, nerūdijančio plieno slenkstis",
-  "Ārējā apdare: sendvičpanelis — 0,8 mm tērauda loksne + 20 mm ekstrudēts putupolistirols, cinka gruntējums, UV aizsargājoša krāsa":
-    "Išorės apdaila: sumuštinio panelė — 0,8 mm plieno lakštas + 20 mm ekstruzinis putų polistirenas, cinko gruntas, UV apsauginiai dažai",
+  "Ārējā apdare: sendvičpanelis - 0,8 mm tērauda loksne + 20 mm ekstrudēts putupolistirols, cinka gruntējums, UV aizsargājoša krāsa":
+    "Išorės apdaila: sumuštinio panelė - 0,8 mm plieno lakštas + 20 mm ekstruzinis putų polistirenas, cinko gruntas, UV apsauginiai dažai",
   "Iekšējā apdare: 16 mm mitrumizturīgs MDF panelis, Winshield PVC plēve (Izraēla)":
     "Vidaus apdaila: 16 mm drėgmei atsparus MDF panelis, Winshield PVC plėvelė (Izraelis)",
   "Vērtnes mala bez MDF apšuvuma": "Varčios kraštas be MDF apkalimo",
   "Metāla aploda 60 mm, monolīta ar durvju rāmi": "Metalinė aplaida 60 mm, monolitinė su durų rėmu",
 
-  "Kārba 100 mm ar termopārrāvumu: pastiprināta slēdzeņu rīģeļu plāksne (1,2 mm), 6 stingruma ribas, piespiešanās regulators, 6 uzstādīšanas vietas, papildu siltumizolācija — korķa koks":
-    "Stakta 100 mm su termopertrauka: sustiprinta spynų skląsčių plokštė (1,2 mm), 6 standumo briaunos, prispaudimo reguliatorius, 6 montavimo vietos, papildoma šilumos izoliacija — kamštinė mediena",
+  "Kārba 100 mm ar termopārrāvumu: pastiprināta slēdzeņu rīģeļu plāksne (1,2 mm), 6 stingruma ribas, piespiešanās regulators, 6 uzstādīšanas vietas, papildu siltumizolācija - korķa koks":
+    "Stakta 100 mm su termopertrauka: sustiprinta spynų skląsčių plokštė (1,2 mm), 6 standumo briaunos, prispaudimo reguliatorius, 6 montavimo vietos, papildoma šilumos izoliacija - kamštinė mediena",
   "Vērtnes biezums 95 mm, 7 stingruma ribas, metāla biezums 1,2 mm, tērauda loksne 1,2 mm":
     "Varčios storis 95 mm, 7 standumo briaunos, metalo storis 1,2 mm, plieno lakštas 1,2 mm",
   "3 eņģes (d-24/120 mm) ar pretnoņemamiem aizsargiem (14 mm), nerūsējošā tērauda slieksnis":
     "3 vyriai (d-24/120 mm) su apsauga nuo nuėmimo (14 mm), nerūdijančio plieno slenkstis",
-  "Ārējā apdare: sendvičpanelis — 0,8 mm tērauda loksne + 20 mm ekstrudēts putupolistirols, cinka gruntējums, UV krāsa ar koka struktūras efektu":
-    "Išorės apdaila: sumuštinio panelė — 0,8 mm plieno lakštas + 20 mm ekstruzinis putų polistirenas, cinko gruntas, UV dažai su medienos faktūros efektu",
+  "Ārējā apdare: sendvičpanelis - 0,8 mm tērauda loksne + 20 mm ekstrudēts putupolistirols, cinka gruntējums, UV krāsa ar koka struktūras efektu":
+    "Išorės apdaila: sumuštinio panelė - 0,8 mm plieno lakštas + 20 mm ekstruzinis putų polistirenas, cinko gruntas, UV dažai su medienos faktūros efektu",
   "Vērtnes mala apšūta ar MDF": "Varčios kraštas apkaltas MDF",
   "Skaņas un siltuma izolācija: minerālvate 2 slāņi 50 mm, folijas izolācija":
     "Garso ir šilumos izoliacija: mineralinė vata 2 sluoksniai po 50 mm, folijos izoliacija",
@@ -181,8 +200,8 @@ export const ltManufacturer2Calculator = {
   "Auksti velmēts tērauds 1,5 mm, pulverkrāsa ar UV aizsardzību un cinka gruntējumu pret koroziju (180°C)":
     "Šaltai valcuotas plienas 1,5 mm, milteliniai dažai su UV apsauga ir cinko gruntu nuo korozijos (180°C)",
   "Svars 103–160 kg atkarībā no izmēra": "Svoris 103–160 kg priklausomai nuo dydžio",
-  "Kārba 110 mm ar termopārrāvumu: pastiprināta slēdzeņu rīģeļu plāksne (2 mm), 6 stingruma ribas, piespiešanās regulators, 6 uzstādīšanas vietas, papildu siltumizolācija — korķa koks":
-    "Stakta 110 mm su termopertrauka: sustiprinta spynų skląsčių plokštė (2 mm), 6 standumo briaunos, prispaudimo reguliatorius, 6 montavimo vietos, papildoma šilumos izoliacija — kamštinė mediena",
+  "Kārba 110 mm ar termopārrāvumu: pastiprināta slēdzeņu rīģeļu plāksne (2 mm), 6 stingruma ribas, piespiešanās regulators, 6 uzstādīšanas vietas, papildu siltumizolācija - korķa koks":
+    "Stakta 110 mm su termopertrauka: sustiprinta spynų skląsčių plokštė (2 mm), 6 standumo briaunos, prispaudimo reguliatorius, 6 montavimo vietos, papildoma šilumos izoliacija - kamštinė mediena",
   "Vērtnes biezums 105 mm, 7 stingruma ribas, metāla biezums 1,5 mm, tērauda loksne 1,4 mm":
     "Varčios storis 105 mm, 7 standumo briaunos, metalo storis 1,5 mm, plieno lakštas 1,4 mm",
   "Skaņas un siltuma izolācija: minerālvate, folijas izolācija": "Garso ir šilumos izoliacija: mineralinė vata, folijos izoliacija",
@@ -200,8 +219,8 @@ export const ltManufacturer2Calculator = {
     "Bazinės dviejų kontūrų lauko durys butui su patikima 1,2 mm plieno konstrukcija ir gera šilumos izoliacija.",
   "Divkontūru ārdurvis dzīvoklim ar kvadrātveida furnitūru, pieejamas arī platākā 1200 mm versijā.":
     "Dviejų kontūrų lauko durys butui su kvadratine furnitūra, taip pat prieinamos platesnės 1200 mm versijos.",
-  "Trīskontūru ārdurvis dzīvoklim ar Tandem tipa slēdzeņu sistēmu — divi cilindri, kas slēdzas sinhroni.":
-    "Trijų kontūrų lauko durys butui su Tandem tipo spynų sistema — du cilindrai, kurie užsirakina sinchroniškai.",
+  "Trīskontūru ārdurvis dzīvoklim ar Tandem tipa slēdzeņu sistēmu - divi cilindri, kas slēdzas sinhroni.":
+    "Trijų kontūrų lauko durys butui su Tandem tipo spynų sistema - du cilindrai, kurie užsirakina sinchroniškai.",
   "Trīskontūru ārdurvis dzīvoklim ar Kale slēdzeņu sistēmu un augstu siltuma un skaņas izolāciju.":
     "Trijų kontūrų lauko durys butui su Kale spynų sistema ir aukšta šilumos bei garso izoliacija.",
   "Trīskontūru ārdurvis dzīvoklim ar deviatora tipa augšējo slēdzeni un Mottura monobloku.":
@@ -224,8 +243,8 @@ export const ltManufacturer2Calculator = {
     "Premium klasės trijų kontūrų lauko durys su DISEC šarvine apkala ir MUL-T-LOCK 3-WAY reduktoriaus spyna.",
   "Sērijas flagmanis: 2 mm tērauda konstrukcija, nerūsējošā tērauda slieksnis un Mottura 3D KEY slēdzene.":
     "Serijos flagmanas: 2 mm plieno konstrukcija, nerūdijančio plieno slenkstis ir Mottura 3D KEY spyna.",
-  "Divkontūru ārdurvis privātmājai bez stiklojuma — izturīgas pret laikapstākļu maiņu.":
-    "Dviejų kontūrų lauko durys namui be stiklinimo — atsparios oro sąlygų pokyčiams.",
+  "Divkontūru ārdurvis privātmājai bez stiklojuma - izturīgas pret laikapstākļu maiņu.":
+    "Dviejų kontūrų lauko durys namui be stiklinimo - atsparios oro sąlygų pokyčiams.",
   "Cottage sērija ar vienu stikla paketi (1233×88 mm gaismas atvērums).":
     "Cottage serija su vienu stiklo paketu (1233×88 mm šviesos anga).",
   "Cottage sērija ar divām stikla paketēm (1233×88 mm gaismas atvērums katrā).":
@@ -244,7 +263,7 @@ export const ltManufacturer2Calculator = {
     "Termo Street su termopertrauka ir dviem energiją taupančiais dviejų kamerų toniruotais stiklo paketais.",
 
   // ---- Size note ----
-  "850/950 mm izmērā nav pieejams — tikai 1200 mm.": "850/950 mm dydžio nėra — tik 1200 mm.",
+  "850/950 mm izmērā nav pieejams - tikai 1200 mm.": "850/950 mm dydžio nėra - tik 1200 mm.",
 
   // ---- Hardware spec bullets (per tier) ----
   "Augšējā slēdzene: Securemme 2029 (Itālija), dekoratīvā uzlika ovāla, hroms":
@@ -264,8 +283,8 @@ export const ltManufacturer2Calculator = {
 
   "Augšējā slēdzene: Kale 257 zem cilindra (Turcija), bruņu plāksne kvadrāta, mat. hroms/melns":
     "Viršutinė spyna: Kale 257 po cilindru (Turkija), šarvinė plokštė kvadratinė, mat. chromas/juoda",
-  "Cilindrs: Kale (Turcija), 5 atslēgas, izmērs 50×50T — 2 cilindru komplekta tandēma sistēma":
-    "Cilindras: Kale (Turkija), 5 raktai, dydis 50×50T — 2 cilindrų komplekto tandeminė sistema",
+  "Cilindrs: Kale (Turcija), 5 atslēgas, izmērs 50×50T - 2 cilindru komplekta tandēma sistēma":
+    "Cilindras: Kale (Turkija), 5 raktai, dydis 50×50T - 2 cilindrų komplekto tandeminė sistema",
   "Bruņuzlika: kvadrāta, mat. hroms/melns": "Šarvinė apkala: kvadratinė, mat. chromas/juoda",
 
   "Augšējā slēdzene: Kale 257 (Turcija), dekoratīvā uzlika kvadrāta, mat. hroms/melns":
@@ -275,13 +294,13 @@ export const ltManufacturer2Calculator = {
   "Augšējā slēdzene: deviatoru sistēma uz augšu un leju, dekoratīvā uzlika kvadrāta, mat. hroms/melns":
     "Viršutinė spyna: deviatoriaus sistema aukštyn ir žemyn, dekoratyvinė apkala kvadratinė, mat. chromas/juoda",
   "Apakšējā slēdzene: monobloks Mottura 54.797 (Itālija)": "Apatinė spyna: monoblokas Mottura 54.797 (Italija)",
-  "Cilindrs: Securemme K-2 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi — jau iekļauts standartā":
-    "Cilindras: Securemme K-2 (1+5 raktai) (Italija), dydis 50×30 kaiščiai — jau įtraukta į standartą",
+  "Cilindrs: Securemme K-2 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi - jau iekļauts standartā":
+    "Cilindras: Securemme K-2 (1+5 raktai) (Italija), dydis 50×30 kaiščiai - jau įtraukta į standartą",
 
   "Augšējā slēdzene: Kale 257 LX ar nakts slēdzi (Turcija), dekoratīvā uzlika kvadrāta, mat. hroms/melns":
     "Viršutinė spyna: Kale 257 LX su nakties skląsčiu (Turkija), dekoratyvinė apkala kvadratinė, mat. chromas/juoda",
-  "Apakšējā slēdzene: Securemme 2061 (Itālija) — jau iekļauts standartā":
-    "Apatinė spyna: Securemme 2061 (Italija) — jau įtraukta į standartą",
+  "Apakšējā slēdzene: Securemme 2061 (Itālija) - jau iekļauts standartā":
+    "Apatinė spyna: Securemme 2061 (Italija) - jau įtraukta į standartą",
   "Nakts aizbīdnis: uzstādīts augšējās slēdzenes pamatnē": "Nakties skląstis: įmontuotas viršutinės spynos korpuse",
 
   "Augšējā slēdzene: Securemme 2030 ar nakts slēdzi (Turcija), dekoratīvā uzlika kvadrāta, mat. hroms/melns":
@@ -292,21 +311,21 @@ export const ltManufacturer2Calculator = {
     "Viršutinė spyna: Securemme 2663 TOP GEAR reduktoriaus (Italija), deviatoriaus sistema, dekoratyvinė apkala kvadratinė, mat. chromas/juoda",
   "Apakšējā slēdzene: Securemme 2653 TOP GEAR reduktora, deviatoru sistēma (Itālija)":
     "Apatinė spyna: Securemme 2653 TOP GEAR reduktoriaus, deviatoriaus sistema (Italija)",
-  "Cilindrs: Securemme K-2 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi — 2 cilindri komplektā":
-    "Cilindras: Securemme K-2 (1+5 raktai) (Italija), dydis 50×30 kaiščiai — 2 cilindrai komplekte",
+  "Cilindrs: Securemme K-2 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi - 2 cilindri komplektā":
+    "Cilindras: Securemme K-2 (1+5 raktai) (Italija), dydis 50×30 kaiščiai - 2 cilindrai komplekte",
 
-  "Apakšējā slēdzene: monobloks Mottura 54.797 MATIC (2+5 atslēgas) (Itālija) — jau iekļauts standartā":
-    "Apatinė spyna: monoblokas Mottura 54.797 MATIC (2+5 raktai) (Italija) — jau įtraukta į standartą",
+  "Apakšējā slēdzene: monobloks Mottura 54.797 MATIC (2+5 atslēgas) (Itālija) - jau iekļauts standartā":
+    "Apatinė spyna: monoblokas Mottura 54.797 MATIC (2+5 raktai) (Italija) - jau įtraukta į standartą",
 
-  "Apakšējā slēdzene: monobloks Mottura 54.J797 My Key (1+5 atslēgas) (Itālija) — jau iekļauts standartā":
-    "Apatinė spyna: monoblokas Mottura 54.J797 My Key (1+5 raktai) (Italija) — jau įtraukta į standartą",
-  "Cilindrs: Securemme K-64 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi — jau iekļauts standartā":
-    "Cilindras: Securemme K-64 (1+5 raktai) (Italija), dydis 50×30 kaiščiai — jau įtraukta į standartą",
+  "Apakšējā slēdzene: monobloks Mottura 54.J797 My Key (1+5 atslēgas) (Itālija) - jau iekļauts standartā":
+    "Apatinė spyna: monoblokas Mottura 54.J797 My Key (1+5 raktai) (Italija) - jau įtraukta į standartą",
+  "Cilindrs: Securemme K-64 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi - jau iekļauts standartā":
+    "Cilindras: Securemme K-64 (1+5 raktai) (Italija), dydis 50×30 kaiščiai - jau įtraukta į standartą",
 
   "Augšējā slēdzene: Securemme 2663 TOP GEAR reduktora (Itālija), deviatoru sistēma, bruņu uzlika kvadrāta, mat. hroms/melns":
     "Viršutinė spyna: Securemme 2663 TOP GEAR reduktoriaus (Italija), deviatoriaus sistema, šarvinė apkala kvadratinė, mat. chromas/juoda",
-  "Cilindrs: Securemme K-64 duetu sistēma (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi — 2 cilindru komplekti — jau iekļauts standartā":
-    "Cilindras: Securemme K-64 dueto sistema (1+5 raktai) (Italija), dydis 50×30 kaiščiai — 2 cilindrų komplektai — jau įtraukta į standartą",
+  "Cilindrs: Securemme K-64 duetu sistēma (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi - 2 cilindru komplekti - jau iekļauts standartā":
+    "Cilindras: Securemme K-64 dueto sistema (1+5 raktai) (Italija), dydis 50×30 kaiščiai - 2 cilindrų komplektai - jau įtraukta į standartą",
   "Bruņuzlika: kvadrāts, mat. hroms/melns": "Šarvinė apkala: kvadratinė, mat. chromas/juoda",
 
   "Augšējā slēdzene: deviatoru sistēma uz augšu un leju, bruņu uzlika Disec Omega (Itālija), mat. hroms/melns":
@@ -336,10 +355,10 @@ export const ltManufacturer2Calculator = {
 
   "Augšējā slēdzene: Securemme 2069 zem cilindra (Itālija), bruņu apšuvums kvadrāts, melns":
     "Viršutinė spyna: Securemme 2069 po cilindru (Italija), šarvinė apkala kvadratinė, juoda",
-  "Apakšējā slēdzene: Securemme 2061 zem cilindra (Itālija) — jau iekļauts standartā":
-    "Apatinė spyna: Securemme 2061 po cilindru (Italija) — jau įtraukta į standartą",
-  "Cilindrs: Securemme (Itālija) K-22, izmērs 60×50T, tandēma sistēma — jau iekļauts standartā":
-    "Cilindras: Securemme (Italija) K-22, dydis 60×50T, tandeminė sistema — jau įtraukta į standartą",
+  "Apakšējā slēdzene: Securemme 2061 zem cilindra (Itālija) - jau iekļauts standartā":
+    "Apatinė spyna: Securemme 2061 po cilindru (Italija) - jau įtraukta į standartą",
+  "Cilindrs: Securemme (Itālija) K-22, izmērs 60×50T, tandēma sistēma - jau iekļauts standartā":
+    "Cilindras: Securemme (Italija) K-22, dydis 60×50T, tandeminė sistema - jau įtraukta į standartą",
   "Stiklapakete (energoefektīva divkameru, ar tonējumu): izmērs 1233×88 mm (tīrais gaismas atvērums)":
     "Stiklo paketas (energiją taupantis dviejų kamerų, toniruotas): dydis 1233×88 mm (grynoji šviesos anga)",
   "Stiklapaketes (energoefektīvas divkameru, ar tonējumu): izmērs 1233×88 mm (tīrais gaismas atvērums) katrā":
@@ -360,10 +379,10 @@ export const ltManufacturer2Calculator = {
   "Augšējā slēdzene Securemme 2019 (Itālija)": "Viršutinė spyna Securemme 2019 (Italija)",
   "Apakšējā slēdzene Securemme 2061 (Itālija)": "Apatinė spyna Securemme 2061 (Italija)",
   "Mangāna plāksne monobloku slēdzenēm (Mottura)": "Mangano plokštelė monoblokinėms spynoms (Mottura)",
-  "Monobloks Mottura 54.797 MATIC (2+5 atslēgas) — vienreizēja pārkodēšana":
-    "Monoblokas Mottura 54.797 MATIC (2+5 raktai) — vienkartinis perkodavimas",
-  "Monobloks Mottura 54.J797 My Key (1+5 atslēgas) — vairākkārtēja pārkodēšana":
-    "Monoblokas Mottura 54.J797 My Key (1+5 raktai) — daugkartinis perkodavimas",
+  "Monobloks Mottura 54.797 MATIC (2+5 atslēgas) - vienreizēja pārkodēšana":
+    "Monoblokas Mottura 54.797 MATIC (2+5 raktai) - vienkartinis perkodavimas",
+  "Monobloks Mottura 54.J797 My Key (1+5 atslēgas) - vairākkārtēja pārkodēšana":
+    "Monoblokas Mottura 54.J797 My Key (1+5 raktai) - daugkartinis perkodavimas",
 
   // ---- Furniture ----
   "Furnitūra melna matēta": "Furnitūra juoda matinė",
@@ -380,8 +399,8 @@ export const ltManufacturer2Calculator = {
   "Paātrināta izgatavošana 14 kalendārās dienās (tikai dzīvokļa tipa 2050×850/950 mm)":
     "Pagreitinta gamyba per 14 kalendorinių dienų (tik buto tipo 2050×850/950 mm)",
   "Durvis atveramas uz iekšpusi": "Durys atidaromos į vidų",
-  "Ārdurvju (ielu) tipa durvis — mitrumizturīga MDF un Winshield PVC plēve (Izraēla)":
-    "Lauko (gatvės) tipo durys — drėgmei atsparus MDF ir Winshield PVC plėvelė (Izraelis)",
+  "Ārdurvju (ielu) tipa durvis - mitrumizturīga MDF un Winshield PVC plēve (Izraēla)":
+    "Lauko (gatvės) tipo durys - drėgmei atsparus MDF ir Winshield PVC plėvelė (Izraelis)",
   "Individuāla zīmējuma izstrāde": "Individualaus rašto sukūrimas",
   "PVC plēve pēc pasūtījuma (nav kataloga), viena puse": "PVC plėvelė pagal užsakymą (nėra kataloge), viena pusė",
   "Zīmējumu sērija 400, MDF ieliktņi, viena puse": "Raštų serija 400, MDF įdėklai, viena pusė",
@@ -398,13 +417,13 @@ export const ltManufacturer2Calculator = {
     "Termopertrauka ir dvispalvis rėmas, individualūs dydžiai (įtrauktas nerūdijančio plieno slenkstis)",
 
   // ---- Casing / MDF products ----
-  "Aplodes — standarta izmēra komplekts, dzīvokļa tipa (visu veidu durvīm)":
-    "Aplaidos — standartinio dydžio komplektas, buto tipo (visų tipų durims)",
-  "Aplodes — standarta izmēra komplekts, privātmāju tipa (visu veidu durvīm)":
-    "Aplaidos — standartinio dydžio komplektas, namo tipo (visų tipų durims)",
-  "Augšējā aplode — platuma izmaiņa līdz 400 mm": "Viršutinė aplaida — pločio pakeitimas iki 400 mm",
-  "Aplodes komplekts — platuma diapazons 90–300 mm, dzīvokļa tipa": "Aplaidų komplektas — pločio diapazonas 90–300 mm, buto tipo",
-  "Aplodes komplekts — platuma diapazons 90–300 mm, privātmāju tipa": "Aplaidų komplektas — pločio diapazonas 90–300 mm, namo tipo",
+  "Aplodes - standarta izmēra komplekts, dzīvokļa tipa (visu veidu durvīm)":
+    "Aplaidos - standartinio dydžio komplektas, buto tipo (visų tipų durims)",
+  "Aplodes - standarta izmēra komplekts, privātmāju tipa (visu veidu durvīm)":
+    "Aplaidos - standartinio dydžio komplektas, namo tipo (visų tipų durims)",
+  "Augšējā aplode - platuma izmaiņa līdz 400 mm": "Viršutinė aplaida - pločio pakeitimas iki 400 mm",
+  "Aplodes komplekts - platuma diapazons 90–300 mm, dzīvokļa tipa": "Aplaidų komplektas - pločio diapazonas 90–300 mm, buto tipo",
+  "Aplodes komplekts - platuma diapazons 90–300 mm, privātmāju tipa": "Aplaidų komplektas - pločio diapazonas 90–300 mm, namo tipo",
   "MDF paneļa komplekts ar aplodēm, dzīvokļa tipa": "MDF plokštės komplektas su aplaidomis, buto tipo",
   "MDF paneļa komplekts ar aplodēm, privātmāju tipa": "MDF plokštės komplektas su aplaidomis, namo tipo",
   "MDF izstrādājumi pēc pasūtījuma, dzīvokļa tips (min. no 1 m²), €/m²":

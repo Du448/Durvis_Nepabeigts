@@ -1,12 +1,25 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { Paperclip, X } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { getProductById } from "@/data/products";
 import { usePathname } from "next/navigation";
 import PageTitle from "@/components/PageTitle";
 import { getLocaleFromPathname, withLocaleHref, t, trData } from "@/lib/i18n";
+
+// Key the "Pieprasīt piedāvājumu" button (Ražotājs-2 calculator) writes to
+// sessionStorage before navigating here: a base64 data URL of the offer PDF
+// it just generated, so this form can auto-attach it without a round trip
+// through a server upload.
+const PENDING_PDF_KEY = "pendingOfferPdf";
+
+function formatFileSize(bytes) {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
 
 // Maps the "pakalpojumi" query codes (written by the product page's
 // fulfilment toggles) to the same translation keys those toggles show, so
@@ -47,16 +60,54 @@ export default function ContactsClient() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
+  const [files, setFiles] = useState([]);
+
+  // Picks up the PDF the Ražotājs-2 calculator's "Pieprasīt piedāvājumu"
+  // button stashed in sessionStorage right before navigating here, and
+  // attaches it automatically - the visitor doesn't have to re-download and
+  // re-upload their own configured offer.
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem(PENDING_PDF_KEY);
+      if (!raw) return;
+      sessionStorage.removeItem(PENDING_PDF_KEY);
+      const { name: fileName, dataUrl } = JSON.parse(raw);
+      if (!dataUrl) return;
+      fetch(dataUrl)
+        .then((res) => res.blob())
+        .then((blob) => {
+          const file = new File([blob], fileName || "piedavajums.pdf", { type: "application/pdf" });
+          setFiles((prev) => [...prev, file]);
+        })
+        .catch(() => {});
+    } catch {
+      // sessionStorage can throw in private-browsing/locked-down contexts -
+      // the form still works without the auto-attached PDF.
+    }
+  }, []);
+
+  function addFiles(fileList) {
+    setFiles((prev) => [...prev, ...Array.from(fileList)]);
+  }
+
+  function removeFile(index) {
+    setFiles((prev) => prev.filter((_, i) => i !== index));
+  }
 
   async function onSubmit(e) {
     e.preventDefault();
     setSending(true);
     setError(false);
     try {
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("phone", phone);
+      formData.append("email", email);
+      formData.append("message", message);
+      files.forEach((file) => formData.append("files", file, file.name));
       const res = await fetch("/api/contact", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, email, message }),
+        body: formData,
       });
       if (!res.ok) throw new Error("send_failed");
       setSubmitted(true);
@@ -165,6 +216,46 @@ export default function ContactsClient() {
                     className="field"
                     placeholder={t(locale, "contacts.formPlaceholder")}
                   />
+                </div>
+                <div>
+                  <label className="block text-sm text-muted mb-1">{t(locale, "contacts.attachments")}</label>
+                  {files.length > 0 && (
+                    <ul className="mb-2 space-y-1">
+                      {files.map((file, i) => (
+                        <li
+                          key={`${file.name}-${i}`}
+                          className="flex items-center justify-between gap-2 border border-line bg-[--color-soft] px-3 py-1.5 text-[13px] text-ink"
+                        >
+                          <span className="flex min-w-0 items-center gap-2">
+                            <Paperclip size={14} className="shrink-0 text-muted" />
+                            <span className="truncate">{file.name}</span>
+                            <span className="shrink-0 text-muted">({formatFileSize(file.size)})</span>
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => removeFile(i)}
+                            aria-label={t(locale, "contacts.removeFile")}
+                            className="shrink-0 text-muted hover:text-ink"
+                          >
+                            <X size={14} />
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <label className="btn btn-outline-dark inline-flex cursor-pointer items-center gap-2">
+                    <Paperclip size={14} />
+                    {t(locale, "contacts.addFiles")}
+                    <input
+                      type="file"
+                      multiple
+                      className="hidden"
+                      onChange={(e) => {
+                        if (e.target.files?.length) addFiles(e.target.files);
+                        e.target.value = "";
+                      }}
+                    />
+                  </label>
                 </div>
                 <div className="flex items-center gap-3">
                   <button type="submit" disabled={sending} className="btn btn-accent disabled:opacity-60">

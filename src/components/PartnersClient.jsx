@@ -6,7 +6,7 @@ import { Check } from "lucide-react";
 import PageTitle from "@/components/PageTitle";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
 
-/* Partner application page — the destination of the hero's "Sadarbība"
+/* Partner application page - the destination of the hero's "Sadarbība"
    button. Same understated form styling as the contacts page. */
 
 export default function PartnersClient() {

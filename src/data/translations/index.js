@@ -3,7 +3,7 @@
    The product data (products.js, factory-products.js, catalog-specs.js,
    hidden-doors.js, finishes.js) is generated from the manufacturer's and the
    warehouse's own listings and is stored in Latvian. Rather than forking that
-   data per language — which would be lost the next time it is regenerated —
+   data per language - which would be lost the next time it is regenerated -
    each locale gets a dictionary keyed by the Latvian source string. `trData`
    in @/lib/i18n does the lookup and falls back to the source, so a string
    nobody has translated yet still renders instead of disappearing.

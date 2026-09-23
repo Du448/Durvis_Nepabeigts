@@ -1,6 +1,6 @@
 // Specification tables ("Raksturojums") for the shop's own models, taken from
 // the printed warehouse catalogue (Noliktavas produkti, 23.03.2026).
-// Generated — regenerate rather than hand-editing.
+// Generated - regenerate rather than hand-editing.
 
 export const catalogSpecs = {
  "prema-172": [

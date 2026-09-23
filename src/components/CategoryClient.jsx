@@ -17,7 +17,7 @@ import { getLocaleFromPathname, withLocaleHref, t, translateColorLabel as transl
 /* Catalogue filtering modelled on bulat-doors.com.ua: a permanent sidebar of
    stacked attribute groups (door type, collection, colour, size, price,
    features), every option multi-select with a live count, applied the moment
-   it is clicked and written into the query string — so a filtered view can be
+   it is clicked and written into the query string - so a filtered view can be
    shared, bookmarked and reached again with the back button. */
 
 /* The same scene renders the homepage blocks use: each one shows a door that
@@ -41,7 +41,7 @@ const FEATURE_KEYS = ["thermo", "glass", "new", "offer"];
 
 /* Only entrance doors store [exterior, interior] face colours in `colors`.
    Interior-door and hidden-door listings reuse the second slot for the glass
-   insert's tint, which is a different attribute — splitting it into an
+   insert's tint, which is a different attribute - splitting it into an
    "(iekšpuse)" group there would mislabel it, so those categories keep the
    single merged colour list instead. */
 const FACE_COLOR_CATEGORIES = ["ardurvis-dzivoklim", "ardurvis-privatmajai"];
@@ -142,8 +142,8 @@ export default function CategoryClient({ slug }) {
   );
   /* Catalogue colours are stored per product as [exterior, interior] (most
      entrance doors show both; single-colour products only ever fill the
-     exterior slot). Filtering the two slots separately — instead of one
-     flat list mixing both roles — is what lets "select an exterior shade
+     exterior slot). Filtering the two slots separately - instead of one
+     flat list mixing both roles - is what lets "select an exterior shade
      AND an interior shade" narrow down to that exact combination rather
      than to any door wearing either colour anywhere. */
   const colorOptions = useMemo(
@@ -344,7 +344,7 @@ export default function CategoryClient({ slug }) {
                 />
               );
             })}
-            {!shownCollections.length ? <div className="px-2 py-2 text-sm text-muted">—</div> : null}
+            {!shownCollections.length ? <div className="px-2 py-2 text-sm text-muted">-</div> : null}
           </div>
         </Group>
       ) : null}
@@ -378,7 +378,7 @@ export default function CategoryClient({ slug }) {
                 />
               );
             })}
-            {!shownColors.length ? <div className="px-2 py-2 text-sm text-muted">—</div> : null}
+            {!shownColors.length ? <div className="px-2 py-2 text-sm text-muted">-</div> : null}
           </div>
         </Group>
       ) : null}
@@ -409,7 +409,7 @@ export default function CategoryClient({ slug }) {
                 />
               );
             })}
-            {!shownColorsInside.length ? <div className="px-2 py-2 text-sm text-muted">—</div> : null}
+            {!shownColorsInside.length ? <div className="px-2 py-2 text-sm text-muted">-</div> : null}
           </div>
         </Group>
       ) : null}

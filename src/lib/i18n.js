@@ -134,14 +134,14 @@ const messages = {
       },
       news: {
         title: "Naujienos",
-        description: "Naujausi durų modeliai mūsų asortimente — atrask naujausias kolekcijas ir dizainus.",
+        description: "Naujausi durų modeliai mūsų asortimente - atrask naujausias kolekcijas ir dizainus.",
       },
       about: {
         title: "Apie mus",
         intro1:
           "Siūlome kokybiškas lauko ir vidaus duris su pristatymu ir profesionaliu montavimu visoje Lietuvoje.",
         intro2:
-          "Asortimente — šimtai skirtingų stilių ir spalvų modelių. Padėsime išsirinkti sprendimą jūsų namams.",
+          "Asortimente - šimtai skirtingų stilių ir spalvų modelių. Padėsime išsirinkti sprendimą jūsų namams.",
         intro3:
           "Kviečiame apsilankyti mūsų salone, kur duris galima apžiūrėti ir palyginti gyvai, bei gauti specialisto konsultaciją.",
         cta: "Susisiekti",
@@ -156,7 +156,7 @@ const messages = {
       },
       services: {
         title: "Paslaugos",
-        description: "Matavimas, montavimas, garantija ir pristatymas — detalesnė informacija bus pridėta vėliau.",
+        description: "Matavimas, montavimas, garantija ir pristatymas - detalesnė informacija bus pridėta vėliau.",
       },
     },
     header: {
@@ -250,7 +250,7 @@ const messages = {
       optionMeasurementHint:
         "Mūsų specialistas atvyksta į objektą ir atlieka tikslius durų angos matavimus prieš užsakymo pateikimą.",
       optionDeliveryOnly: "Tik pristatymas, be montavimo",
-      optionDeliveryOnlyHint: "Duris pristatome nurodytu adresu — montavimą atliekate patys arba su savo meistrais.",
+      optionDeliveryOnlyHint: "Duris pristatome nurodytu adresu - montavimą atliekate patys arba su savo meistrais.",
       optionInstallDelivery: "Montavimas ir pristatymas",
       optionInstallDeliveryHint: "Duris pristatome ir sumontuojame su savo sertifikuotais montuotojais.",
     },
@@ -269,11 +269,14 @@ const messages = {
       formEmail: "El. paštas",
       formMessage: "Žinutė",
       formPlaceholder: "Jūsų klausimas ar užklausa",
+      attachments: "Priedai",
+      addFiles: "Pridėti failus",
+      removeFile: "Pašalinti",
       submit: "Siųsti",
       sending: "Siunčiama...",
       thanks: "Ačiū! Susisieksime artimiausiu metu.",
       error: "Nepavyko išsiųsti. Bandykite dar kartą arba rašykite el. paštu.",
-      mapTitle: "TN Baltic — žemėlapis",
+      mapTitle: "TN Baltic - žemėlapis",
     },
     finishes: {
       title: "Apdaila ir dizainas",
@@ -286,7 +289,7 @@ const messages = {
     },
     partners: {
       title: "Bendradarbiavimas",
-      lead: "Ieškome partnerių Lietuvoje ir užsienyje — salonų, montuotojų, statybos bendrovių ir projektuotojų. Užpildyk paraišką ir susisieksime su prekybos sąlygomis.",
+      lead: "Ieškome partnerių Lietuvoje ir užsienyje - salonų, montuotojų, statybos bendrovių ir projektuotojų. Užpildyk paraišką ir susisieksime su prekybos sąlygomis.",
       benefitsTitle: "Ką siūlome",
       benefit1: "Partnerių kainos ir laipsniškos nuolaidos pagal apyvartą",
       benefit2: "Pavyzdžiai, katalogai ir salono medžiaga",
@@ -310,7 +313,7 @@ const messages = {
       consent: "Sutinku, kad mano duomenys būtų tvarkomi paraiškai nagrinėti.",
       submit: "Siųsti paraišką",
       sending: "Siunčiama...",
-      thanks: "Ačiū! Paraiška gauta — susisieksime per 1–2 darbo dienas.",
+      thanks: "Ačiū! Paraiška gauta - susisieksime per 1–2 darbo dienas.",
       error: "Nepavyko išsiųsti. Bandykite dar kartą arba rašykite el. paštu.",
     },
   },
@@ -425,7 +428,7 @@ const messages = {
       },
       news: {
         title: "Jaunumi",
-        description: "Jaunākie durvju modeļi mūsu sortimentā — iepazīsti svaigākās kolekcijas un dizainus.",
+        description: "Jaunākie durvju modeļi mūsu sortimentā - iepazīsti svaigākās kolekcijas un dizainus.",
       },
       about: {
         title: "Par mums",
@@ -447,7 +450,7 @@ const messages = {
       },
       services: {
         title: "Pakalpojumi",
-        description: "Uzmērīšana, montāža, garantija un piegāde — detalizēta informācija tiks pievienota vēlāk.",
+        description: "Uzmērīšana, montāža, garantija un piegāde - detalizēta informācija tiks pievienota vēlāk.",
       },
     },
     header: {
@@ -541,7 +544,7 @@ const messages = {
       optionMeasurementHint:
         "Mūsu speciālists ierodas objektā un veic precīzus durvju ailas uzmērījumus pirms pasūtījuma noformēšanas.",
       optionDeliveryOnly: "Tikai piegāde, bez montāžas",
-      optionDeliveryOnlyHint: "Durvis piegādājam norādītajā adresē — uzstādīšanu veicat paši vai ar saviem meistariem.",
+      optionDeliveryOnlyHint: "Durvis piegādājam norādītajā adresē - uzstādīšanu veicat paši vai ar saviem meistariem.",
       optionInstallDelivery: "Montāža un piegāde",
       optionInstallDeliveryHint: "Durvis piegādājam un uzstādām ar saviem sertificētiem montieriem.",
     },
@@ -560,11 +563,14 @@ const messages = {
       formEmail: "E-pasts",
       formMessage: "Ziņojums",
       formPlaceholder: "Jūsu jautājums vai pieprasījums",
+      attachments: "Pielikumi",
+      addFiles: "Pievienot failus",
+      removeFile: "Noņemt",
       submit: "Nosūtīt",
       sending: "Sūta...",
       thanks: "Paldies! Sazināsimies tuvākajā laikā.",
       error: "Neizdevās nosūtīt. Lūdzu, mēģiniet vēlreiz vai rakstiet uz e-pastu.",
-      mapTitle: "TN Baltic — karte",
+      mapTitle: "TN Baltic - karte",
     },
     finishes: {
       title: "Apdare un dizains",
@@ -577,7 +583,7 @@ const messages = {
     },
     partners: {
       title: "Sadarbība",
-      lead: "Meklējam partnerus Latvijā un ārpus tās — salonus, montētājus, būvfirmas un projektētājus. Aizpildi pieteikumu, un sazināsimies ar sadarbības nosacījumiem.",
+      lead: "Meklējam partnerus Latvijā un ārpus tās - salonus, montētājus, būvfirmas un projektētājus. Aizpildi pieteikumu, un sazināsimies ar sadarbības nosacījumiem.",
       benefitsTitle: "Ko piedāvājam",
       benefit1: "Partneru cenas un atlaides atkarībā no apgrozījuma",
       benefit2: "Paraugi, katalogi un materiāli salonam",
@@ -601,7 +607,7 @@ const messages = {
       consent: "Piekrītu savu datu apstrādei pieteikuma izskatīšanai.",
       submit: "Nosūtīt pieteikumu",
       sending: "Sūta...",
-      thanks: "Paldies! Pieteikums saņemts — sazināsimies 1–2 darba dienu laikā.",
+      thanks: "Paldies! Pieteikums saņemts - sazināsimies 1–2 darba dienu laikā.",
       error: "Neizdevās nosūtīt. Lūdzu, mēģiniet vēlreiz vai rakstiet uz e-pastu.",
     },
   },
@@ -716,7 +722,7 @@ const messages = {
       },
       news: {
         title: "News",
-        description: "The newest door models in our assortment — explore the latest collections and designs.",
+        description: "The newest door models in our assortment - explore the latest collections and designs.",
       },
       about: {
         title: "About",
@@ -737,7 +743,7 @@ const messages = {
       },
       services: {
         title: "Services",
-        description: "Measurement, installation, warranty and delivery — detailed information will be added later.",
+        description: "Measurement, installation, warranty and delivery - detailed information will be added later.",
       },
     },
     header: {
@@ -831,7 +837,7 @@ const messages = {
       optionMeasurementHint:
         "Our specialist visits the site and takes precise door-opening measurements before the order is placed.",
       optionDeliveryOnly: "Delivery only, no installation",
-      optionDeliveryOnlyHint: "We deliver the door to the given address — you handle installation yourself or with your own fitters.",
+      optionDeliveryOnlyHint: "We deliver the door to the given address - you handle installation yourself or with your own fitters.",
       optionInstallDelivery: "Installation and delivery",
       optionInstallDeliveryHint: "We deliver and install the door with our own certified fitters.",
     },
@@ -850,11 +856,14 @@ const messages = {
       formEmail: "Email",
       formMessage: "Message",
       formPlaceholder: "Your question or request",
+      attachments: "Attachments",
+      addFiles: "Add files",
+      removeFile: "Remove",
       submit: "Send",
       sending: "Sending...",
       thanks: "Thank you! We'll get back to you soon.",
       error: "Couldn't send your message. Please try again or email us directly.",
-      mapTitle: "TN Baltic — map",
+      mapTitle: "TN Baltic - map",
     },
     finishes: {
       title: "Finishes and design",
@@ -867,7 +876,7 @@ const messages = {
     },
     partners: {
       title: "Partnership",
-      lead: "We are looking for partners at home and abroad — showrooms, installers, construction companies and designers. Fill in the application and we will get back to you with trade terms.",
+      lead: "We are looking for partners at home and abroad - showrooms, installers, construction companies and designers. Fill in the application and we will get back to you with trade terms.",
       benefitsTitle: "What we offer",
       benefit1: "Partner pricing and volume-based discounts",
       benefit2: "Samples, catalogues and showroom materials",
@@ -908,8 +917,8 @@ export function t(locale, keyPath) {
   return typeof cur === "string" ? cur : keyPath;
 }
 
-/* Catalogue data — product names, blurbs, specification rows, description
-   paragraphs, finish labels — is stored in Latvian and translated through a
+/* Catalogue data - product names, blurbs, specification rows, description
+   paragraphs, finish labels - is stored in Latvian and translated through a
    per-locale dictionary keyed by the source string (see @/data/translations).
    Anything the dictionary does not cover falls back to the source, so a new
    model shows up in Latvian rather than not at all. */

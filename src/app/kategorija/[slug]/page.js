@@ -30,10 +30,10 @@ export async function generateMetadata({ params }) {
   const title = `${name} | Durų Namai`;
   const description =
     locale === "en"
-      ? `${name} — exterior and interior doors. Installation and delivery across Lithuania.`
+      ? `${name} - exterior and interior doors. Installation and delivery across Lithuania.`
       : locale === "lv"
-        ? `${name} — metāla un iekšdurvis. Montāža un piegāde visā Lietuvā.`
-        : `${name} — metalinės durys ir vidaus durys. Montavimas ir pristatymas visoje Lietuvoje.`;
+        ? `${name} - metāla un iekšdurvis. Montāža un piegāde visā Lietuvā.`
+        : `${name} - metalinės durys ir vidaus durys. Montavimas ir pristatymas visoje Lietuvoje.`;
 
   const ogLocale = locale === "lv" ? "lv_LV" : locale === "en" ? "en_US" : "lt_LT";
   return {

@@ -1,6 +1,6 @@
 /* English for the values in the short specification block (product.specs).
    Brand names, model codes, dimensions and country-of-origin marks that read
-   the same in either language are left out — the lookup falls through to the
+   the same in either language are left out - the lookup falls through to the
    source string. */
 
 export const enSpecValues = {

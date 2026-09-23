@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Design tokens — modelled on m-lux.by (Woodmart/Metalux)
+   Design tokens - modelled on m-lux.by (Woodmart/Metalux)
    Montserrat · radius 0 · uppercase micro-typography · green accent
    ========================================================================== */
 
@@ -169,7 +169,7 @@
 }
 .btn-outline-light:hover { background-color: #fff; color: var(--color-title); }
 
-/* Translucent hero button — glass over the photograph, as on bulat-doors */
+/* Translucent hero button - glass over the photograph, as on bulat-doors */
 .btn-glass {
   border: 1px solid rgba(255, 255, 255, 0.55);
   background-color: rgba(255, 255, 255, 0.12);

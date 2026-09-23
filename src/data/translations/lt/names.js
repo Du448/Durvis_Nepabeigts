@@ -1,5 +1,5 @@
 /* Lithuanian for the catalogue's model names. Manufacturer, series and model
-   numbers are kept verbatim — only the descriptive tail (colour, "Krāsa:",
+   numbers are kept verbatim - only the descriptive tail (colour, "Krāsa:",
    "Ārpusē:", door type) is translated. A handful of source names still carry
    Ukrainian colour names from the manufacturer's own listing; those are
    rendered in Lithuanian here too. */

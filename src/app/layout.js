@@ -9,11 +9,11 @@ import { getLocaleFromPathname } from "@/lib/i18n";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Durų Namai — lauko ir vidaus durys Lietuvoje",
+  title: "Durų Namai - lauko ir vidaus durys Lietuvoje",
   description:
     "Durų Namai: lauko ir vidaus durys, profesionalus montavimas ir pristatymas visoje Lietuvoje. Platus asortimentas, konsultacijos ir garantija.",
   openGraph: {
-    title: "Durų Namai — lauko ir vidaus durys Lietuvoje",
+    title: "Durų Namai - lauko ir vidaus durys Lietuvoje",
     description:
       "Durų Namai: lauko ir vidaus durys, montavimas ir pristatymas visoje Lietuvoje.",
     siteName: "Durų Namai",

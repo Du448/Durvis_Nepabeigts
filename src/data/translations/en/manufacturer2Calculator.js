@@ -4,7 +4,7 @@
    (Securemme, Kale, Mottura, Abloy, DISEC, MUL-T-LOCK, Winshield, Yale,
    Tedee, RAL codes, tier codenames already international like Tandem, Ultra,
    Trend, Alfa, Expert, Grand, Fortezza, Omega, Power, Cottage) are kept as
-   in the source — only the descriptive Latvian words are translated. */
+   in the source - only the descriptive Latvian words are translated. */
 
 export const enManufacturer2Calculator = {
   // ---- Hardcoded JSX literals (Manufacturer2Calculator.jsx) ----
@@ -23,8 +23,8 @@ export const enManufacturer2Calculator = {
   "Nekas netika atrasts.": "Nothing found.",
   "Meklēt pēc krāsas nosaukuma vai numura...": "Search by colour name or number...",
   "Durvju kalkulators": "Door calculator",
-  "Atzīmē vēlamos parametrus — piedāvāsim sērijas, kas atbilst tieši Tavam pieprasījumam. Cenas ir mazumtirdzniecības cenas, kas spēkā no 01.08.2024.":
-    "Select the parameters you want — we'll show the series that match your request exactly. Prices are retail prices valid from 01.08.2024.",
+  "Atzīmē vēlamos parametrus - piedāvāsim sērijas, kas atbilst tieši Tavam pieprasījumam. Cenas ir mazumtirdzniecības cenas, kas spēkā no 01.08.2024.":
+    "Select the parameters you want - we'll show the series that match your request exactly. Prices are retail prices valid from 01.08.2024.",
   "Durvju pielietojums": "Door purpose",
   "Vēlamais izmērs": "Preferred size",
   "Slēdzenes veids": "Lock type",
@@ -47,9 +47,9 @@ export const enManufacturer2Calculator = {
   "Neviena sērija neatbilst izvēlētajiem filtriem. Mēģini paplašināt kritērijus.":
     "No series matches the selected filters. Try broadening your criteria.",
   "Atpakaļ pie sērijām": "Back to series",
-  "Izvēlētais dizains — ārpuse": "Selected design — outside",
+  "Izvēlētais dizains - ārpuse": "Selected design - outside",
   "Ārpuse": "Outside",
-  "Izvēlētais dizains — iekšpuse": "Selected design — inside",
+  "Izvēlētais dizains - iekšpuse": "Selected design - inside",
   "Iekšpuse": "Inside",
   "Zīmējums": "Design",
   "Plēve": "Film",
@@ -63,31 +63,32 @@ export const enManufacturer2Calculator = {
   "Bāzes cena": "Base price",
   "Platums, mm": "Width, mm",
   "Augstums, mm": "Height, mm",
-  "Papildu opcija maiņai — slēdzenes un cilindri": "Optional upgrade — locks and cylinders",
-  "Var atzīmēt vairākas — cenas summējas ar bāzes komplektāciju.":
-    "You can select several — prices add on top of the base set.",
+  "Papildu opcija maiņai - slēdzenes un cilindri": "Optional upgrade - locks and cylinders",
+  "Var atzīmēt vairākas - cenas summējas ar bāzes komplektāciju.":
+    "You can select several - prices add on top of the base set.",
   "Jau iekļauts standartā": "Already included as standard",
-  "Šai sērijai ir iekļauta viedā slēdzene — atsevišķa cilindra jaunināšana nav nepieciešama.":
-    "This series already includes a smart lock — a separate cylinder upgrade is not needed.",
+  "Šai sērijai ir iekļauta viedā slēdzene - atsevišķa cilindra jaunināšana nav nepieciešama.":
+    "This series already includes a smart lock - a separate cylinder upgrade is not needed.",
   "iekļauta": "included",
   "cena pēc pieprasījuma": "price on request",
   "Iekļauts pamatcenā": "Included in the base price",
   "piemaksa (viena puse)": "surcharge (one side)",
   "Pievienot piemaksu pasūtījumam": "Add the surcharge to the order",
   "Cena pēc pieprasījuma": "Price on request",
+  "Individuālā izmēra cena": "Custom size price",
   "Furnitūras krāsa": "Hardware colour",
   "Durvju vērtnes dizains": "Door leaf design",
-  "Zīmējums — ārpuse": "Pattern — outside",
-  "Zīmējums — iekšpuse": "Pattern — inside",
+  "Zīmējums - ārpuse": "Pattern - outside",
+  "Zīmējums - iekšpuse": "Pattern - inside",
   "Pārklājuma plēves krāsa": "Coating film colour",
-  "Plēve — ārpuse": "Film — outside",
-  "Plēve — iekšpuse": "Film — inside",
+  "Plēve - ārpuse": "Film - outside",
+  "Plēve - iekšpuse": "Film - inside",
   "Kārbas pārklājums": "Frame coating",
   "Skata acs": "Peephole",
   "Papildu opcijas": "Additional options",
   "MDF izstrādājumi (aplodes)": "MDF products (casings)",
-  "Aplodes un MDF paneļu komplekti — cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja).":
-    "Casing and MDF panel sets — prices depend on the door's purpose (apartment / house).",
+  "Aplodes un MDF paneļu komplekti - cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja).":
+    "Casing and MDF panel sets - prices depend on the door's purpose (apartment / house).",
   "Montāža un piegāde": "Installation and delivery",
   "Saņemšana noliktavā. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.":
     "Pickup at the warehouse. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
@@ -95,8 +96,8 @@ export const enManufacturer2Calculator = {
   "Mūsu speciālists ierodas objektā un veic precīzus durvju ailas uzmērījumus pirms pasūtījuma noformēšanas.":
     "Our specialist visits the site and takes precise door-opening measurements before the order is placed.",
   "Tikai piegāde, bez montāžas": "Delivery only, no installation",
-  "Durvis piegādājam norādītajā adresē — uzstādīšanu veicat paši vai ar saviem meistariem.":
-    "We deliver the door to the given address — you handle installation yourself or with your own fitters.",
+  "Durvis piegādājam norādītajā adresē - uzstādīšanu veicat paši vai ar saviem meistariem.":
+    "We deliver the door to the given address - you handle installation yourself or with your own fitters.",
   "Durvis piegādājam un uzstādām ar saviem sertificētiem montieriem.":
     "We deliver and install the door with our own certified fitters.",
   "Provizoriskā summa": "Estimated total",
@@ -109,7 +110,7 @@ export const enManufacturer2Calculator = {
 
   // ---- Base filters (manufacturer2Calculator.js) ----
   "Uz āru (uz sevi)": "Outward (towards you)",
-  "Uz iekšu (no sevis) — +60 €": "Inward (away from you) — +€60",
+  "Uz iekšu (no sevis) - +60 €": "Inward (away from you) - +€60",
   "Kreisā": "Left",
   "Labā": "Right",
   "Viedā slēdzene (Smart)": "Smart lock",
@@ -141,7 +142,7 @@ export const enManufacturer2Calculator = {
   "Skaņas un siltuma izolācija: minerālvate 2 slāņi 50 mm, 15 kg/m³, folijas izolācija":
     "Sound and thermal insulation: mineral wool, 2 layers of 50 mm, 15 kg/m³, foil insulation",
   "2 blīvējuma kontūri": "2 sealing contours",
-  "MDF aplodas biezums/platums 16 mm/80 mm — slēptā montāža": "MDF casing thickness/width 16 mm/80 mm — hidden mounting",
+  "MDF aplodas biezums/platums 16 mm/80 mm - slēptā montāža": "MDF casing thickness/width 16 mm/80 mm - hidden mounting",
 
   "Svars 92–98 kg": "Weight 92–98 kg",
   "Kārba 110 mm: pastiprināta slēdzeņu rīģeļu plāksne (1,2 mm), 6 stingruma ribas":
@@ -151,7 +152,7 @@ export const enManufacturer2Calculator = {
   "3 eņģes (d-27/120 mm) ar pretnoņemamiem aizsargiem (14 mm)":
     "3 hinges (d-27/120 mm) with anti-removal guards (14 mm)",
   "3 blīvējuma kontūri": "3 sealing contours",
-  "MDF aplodas biezums/platums 22 mm/80 mm — slēptā montāža": "MDF casing thickness/width 22 mm/80 mm — hidden mounting",
+  "MDF aplodas biezums/platums 22 mm/80 mm - slēptā montāža": "MDF casing thickness/width 22 mm/80 mm - hidden mounting",
 
   "Auksti velmēts tērauds 1,5 mm, pulverkrāsa ar matētu apdari (180°C)":
     "Cold-rolled steel 1.5 mm, powder coating with a matte finish (180°C)",
@@ -182,21 +183,21 @@ export const enManufacturer2Calculator = {
     "Leaf thickness 100/95 mm (depending on width), 7 stiffening ribs, metal thickness 1.2 mm, steel sheet 1 mm",
   "3 eņģes (d-24/120 mm) ar pretnoņemamiem aizsargiem (14 mm), durvju rāmis pārklāts ar metālu, nerūsējošā tērauda slieksnis":
     "3 hinges (d-24/120 mm) with anti-removal guards (14 mm), door frame clad in metal, stainless steel threshold",
-  "Ārējā apdare: sendvičpanelis — 0,8 mm tērauda loksne + 20 mm ekstrudēts putupolistirols, cinka gruntējums, UV aizsargājoša krāsa":
-    "Exterior finish: sandwich panel — 0.8 mm steel sheet + 20 mm extruded polystyrene foam, zinc primer, UV-protective paint",
+  "Ārējā apdare: sendvičpanelis - 0,8 mm tērauda loksne + 20 mm ekstrudēts putupolistirols, cinka gruntējums, UV aizsargājoša krāsa":
+    "Exterior finish: sandwich panel - 0.8 mm steel sheet + 20 mm extruded polystyrene foam, zinc primer, UV-protective paint",
   "Iekšējā apdare: 16 mm mitrumizturīgs MDF panelis, Winshield PVC plēve (Izraēla)":
     "Interior finish: 16 mm moisture-resistant MDF panel, Winshield PVC film (Israel)",
   "Vērtnes mala bez MDF apšuvuma": "Leaf edge without MDF cladding",
   "Metāla aploda 60 mm, monolīta ar durvju rāmi": "Metal casing 60 mm, integral with the door frame",
 
-  "Kārba 100 mm ar termopārrāvumu: pastiprināta slēdzeņu rīģeļu plāksne (1,2 mm), 6 stingruma ribas, piespiešanās regulators, 6 uzstādīšanas vietas, papildu siltumizolācija — korķa koks":
-    "Frame 100 mm with thermal break: reinforced lock-bolt plate (1.2 mm), 6 stiffening ribs, pressure adjuster, 6 installation points, extra thermal insulation — cork wood",
+  "Kārba 100 mm ar termopārrāvumu: pastiprināta slēdzeņu rīģeļu plāksne (1,2 mm), 6 stingruma ribas, piespiešanās regulators, 6 uzstādīšanas vietas, papildu siltumizolācija - korķa koks":
+    "Frame 100 mm with thermal break: reinforced lock-bolt plate (1.2 mm), 6 stiffening ribs, pressure adjuster, 6 installation points, extra thermal insulation - cork wood",
   "Vērtnes biezums 95 mm, 7 stingruma ribas, metāla biezums 1,2 mm, tērauda loksne 1,2 mm":
     "Leaf thickness 95 mm, 7 stiffening ribs, metal thickness 1.2 mm, steel sheet 1.2 mm",
   "3 eņģes (d-24/120 mm) ar pretnoņemamiem aizsargiem (14 mm), nerūsējošā tērauda slieksnis":
     "3 hinges (d-24/120 mm) with anti-removal guards (14 mm), stainless steel threshold",
-  "Ārējā apdare: sendvičpanelis — 0,8 mm tērauda loksne + 20 mm ekstrudēts putupolistirols, cinka gruntējums, UV krāsa ar koka struktūras efektu":
-    "Exterior finish: sandwich panel — 0.8 mm steel sheet + 20 mm extruded polystyrene foam, zinc primer, UV paint with a wood-texture effect",
+  "Ārējā apdare: sendvičpanelis - 0,8 mm tērauda loksne + 20 mm ekstrudēts putupolistirols, cinka gruntējums, UV krāsa ar koka struktūras efektu":
+    "Exterior finish: sandwich panel - 0.8 mm steel sheet + 20 mm extruded polystyrene foam, zinc primer, UV paint with a wood-texture effect",
   "Vērtnes mala apšūta ar MDF": "Leaf edge clad with MDF",
   "Skaņas un siltuma izolācija: minerālvate 2 slāņi 50 mm, folijas izolācija":
     "Sound and thermal insulation: mineral wool, 2 layers of 50 mm, foil insulation",
@@ -206,8 +207,8 @@ export const enManufacturer2Calculator = {
   "Auksti velmēts tērauds 1,5 mm, pulverkrāsa ar UV aizsardzību un cinka gruntējumu pret koroziju (180°C)":
     "Cold-rolled steel 1.5 mm, powder coating with UV protection and a zinc primer against corrosion (180°C)",
   "Svars 103–160 kg atkarībā no izmēra": "Weight 103–160 kg depending on size",
-  "Kārba 110 mm ar termopārrāvumu: pastiprināta slēdzeņu rīģeļu plāksne (2 mm), 6 stingruma ribas, piespiešanās regulators, 6 uzstādīšanas vietas, papildu siltumizolācija — korķa koks":
-    "Frame 110 mm with thermal break: reinforced lock-bolt plate (2 mm), 6 stiffening ribs, pressure adjuster, 6 installation points, extra thermal insulation — cork wood",
+  "Kārba 110 mm ar termopārrāvumu: pastiprināta slēdzeņu rīģeļu plāksne (2 mm), 6 stingruma ribas, piespiešanās regulators, 6 uzstādīšanas vietas, papildu siltumizolācija - korķa koks":
+    "Frame 110 mm with thermal break: reinforced lock-bolt plate (2 mm), 6 stiffening ribs, pressure adjuster, 6 installation points, extra thermal insulation - cork wood",
   "Vērtnes biezums 105 mm, 7 stingruma ribas, metāla biezums 1,5 mm, tērauda loksne 1,4 mm":
     "Leaf thickness 105 mm, 7 stiffening ribs, metal thickness 1.5 mm, steel sheet 1.4 mm",
   "Skaņas un siltuma izolācija: minerālvate, folijas izolācija": "Sound and thermal insulation: mineral wool, foil insulation",
@@ -225,8 +226,8 @@ export const enManufacturer2Calculator = {
     "A base two-contour entrance door for an apartment with a solid 1.2 mm steel construction and good thermal insulation.",
   "Divkontūru ārdurvis dzīvoklim ar kvadrātveida furnitūru, pieejamas arī platākā 1200 mm versijā.":
     "A two-contour entrance door for an apartment with square hardware, also available in a wider 1200 mm version.",
-  "Trīskontūru ārdurvis dzīvoklim ar Tandem tipa slēdzeņu sistēmu — divi cilindri, kas slēdzas sinhroni.":
-    "A three-contour entrance door for an apartment with a Tandem-type lock system — two cylinders that lock in sync.",
+  "Trīskontūru ārdurvis dzīvoklim ar Tandem tipa slēdzeņu sistēmu - divi cilindri, kas slēdzas sinhroni.":
+    "A three-contour entrance door for an apartment with a Tandem-type lock system - two cylinders that lock in sync.",
   "Trīskontūru ārdurvis dzīvoklim ar Kale slēdzeņu sistēmu un augstu siltuma un skaņas izolāciju.":
     "A three-contour entrance door for an apartment with a Kale lock system and high thermal and sound insulation.",
   "Trīskontūru ārdurvis dzīvoklim ar deviatora tipa augšējo slēdzeni un Mottura monobloku.":
@@ -249,8 +250,8 @@ export const enManufacturer2Calculator = {
     "A premium three-contour entrance door with a DISEC armoured plate and a MUL-T-LOCK 3-WAY gearbox lock.",
   "Sērijas flagmanis: 2 mm tērauda konstrukcija, nerūsējošā tērauda slieksnis un Mottura 3D KEY slēdzene.":
     "The series flagship: 2 mm steel construction, a stainless steel threshold and a Mottura 3D KEY lock.",
-  "Divkontūru ārdurvis privātmājai bez stiklojuma — izturīgas pret laikapstākļu maiņu.":
-    "A two-contour entrance door for a house without glazing — resistant to changing weather.",
+  "Divkontūru ārdurvis privātmājai bez stiklojuma - izturīgas pret laikapstākļu maiņu.":
+    "A two-contour entrance door for a house without glazing - resistant to changing weather.",
   "Cottage sērija ar vienu stikla paketi (1233×88 mm gaismas atvērums).":
     "Cottage series with a single glass unit (1233×88 mm light opening).",
   "Cottage sērija ar divām stikla paketēm (1233×88 mm gaismas atvērums katrā).":
@@ -271,8 +272,8 @@ export const enManufacturer2Calculator = {
     "A three-contour entrance door for an apartment with a PES MOPS smart electronic lock and a Tandem cylinder system.",
   "Trīskontūru ārdurvis dzīvoklim ar pastiprinātu 1,5 mm tērauda konstrukciju un viedo PES MOPS elektronisko slēdzeni.":
     "A three-contour entrance door for an apartment with a reinforced 1.5 mm steel construction and a PES MOPS smart electronic lock.",
-  "Uz iekšpusi paveramas ārdurvis privātmājai bez ārējas metāla lištes un bez stiklojuma — ietaupa vietu nelielā ieejā.":
-    "An inward-opening entrance door for a house without an outer metal trim and without glazing — saves space in a small entryway.",
+  "Uz iekšpusi paveramas ārdurvis privātmājai bez ārējas metāla lištes un bez stiklojuma - ietaupa vietu nelielā ieejā.":
+    "An inward-opening entrance door for a house without an outer metal trim and without glazing - saves space in a small entryway.",
   "Uz iekšpusi paveramas ārdurvis privātmājai ar energoefektīvu divkameru stikla paketi (1233×88 mm).":
     "An inward-opening entrance door for a house with an energy-efficient double-chamber glass unit (1233×88 mm).",
   "Ārdurvis privātmājai ar termopārrāvumu un viedo PES MOPS elektronisko apakšējo slēdzeni, bez stiklojuma.":
@@ -289,7 +290,7 @@ export const enManufacturer2Calculator = {
     "Termo Street Elektro with a thermal break, two energy-efficient tinted glass units and a PES MOPS smart electronic bottom lock.",
 
   // ---- Size note ----
-  "850/950 mm izmērā nav pieejams — tikai 1200 mm.": "Not available in 850/950 mm — only 1200 mm.",
+  "850/950 mm izmērā nav pieejams - tikai 1200 mm.": "Not available in 850/950 mm - only 1200 mm.",
 
   // ---- Hardware spec bullets (per tier) ----
   "Augšējā slēdzene: Securemme 2029 (Itālija), dekoratīvā uzlika ovāla, hroms":
@@ -309,8 +310,8 @@ export const enManufacturer2Calculator = {
 
   "Augšējā slēdzene: Kale 257 zem cilindra (Turcija), bruņu plāksne kvadrāta, mat. hroms/melns":
     "Top lock: Kale 257 under-cylinder (Turkey), square armoured plate, matte chrome/black",
-  "Cilindrs: Kale (Turcija), 5 atslēgas, izmērs 50×50T — 2 cilindru komplekta tandēma sistēma":
-    "Cylinder: Kale (Turkey), 5 keys, size 50×50T — Tandem system, 2-cylinder set",
+  "Cilindrs: Kale (Turcija), 5 atslēgas, izmērs 50×50T - 2 cilindru komplekta tandēma sistēma":
+    "Cylinder: Kale (Turkey), 5 keys, size 50×50T - Tandem system, 2-cylinder set",
   "Bruņuzlika: kvadrāta, mat. hroms/melns": "Armoured plate: square, matte chrome/black",
 
   "Augšējā slēdzene: Kale 257 (Turcija), dekoratīvā uzlika kvadrāta, mat. hroms/melns":
@@ -320,13 +321,13 @@ export const enManufacturer2Calculator = {
   "Augšējā slēdzene: deviatoru sistēma uz augšu un leju, dekoratīvā uzlika kvadrāta, mat. hroms/melns":
     "Top lock: deviator system, up and down, square decorative plate, matte chrome/black",
   "Apakšējā slēdzene: monobloks Mottura 54.797 (Itālija)": "Bottom lock: Mottura 54.797 monoblock (Italy)",
-  "Cilindrs: Securemme K-2 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi — jau iekļauts standartā":
-    "Cylinder: Securemme K-2 (1+5 keys) (Italy), size 50×30 pins — already included as standard",
+  "Cilindrs: Securemme K-2 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi - jau iekļauts standartā":
+    "Cylinder: Securemme K-2 (1+5 keys) (Italy), size 50×30 pins - already included as standard",
 
   "Augšējā slēdzene: Kale 257 LX ar nakts slēdzi (Turcija), dekoratīvā uzlika kvadrāta, mat. hroms/melns":
     "Top lock: Kale 257 LX with night latch (Turkey), square decorative plate, matte chrome/black",
-  "Apakšējā slēdzene: Securemme 2061 (Itālija) — jau iekļauts standartā":
-    "Bottom lock: Securemme 2061 (Italy) — already included as standard",
+  "Apakšējā slēdzene: Securemme 2061 (Itālija) - jau iekļauts standartā":
+    "Bottom lock: Securemme 2061 (Italy) - already included as standard",
   "Nakts aizbīdnis: uzstādīts augšējās slēdzenes pamatnē": "Night latch: built into the top lock body",
 
   "Augšējā slēdzene: Securemme 2030 ar nakts slēdzi (Turcija), dekoratīvā uzlika kvadrāta, mat. hroms/melns":
@@ -337,21 +338,21 @@ export const enManufacturer2Calculator = {
     "Top lock: Securemme 2663 TOP GEAR gearbox (Italy), deviator system, square decorative plate, matte chrome/black",
   "Apakšējā slēdzene: Securemme 2653 TOP GEAR reduktora, deviatoru sistēma (Itālija)":
     "Bottom lock: Securemme 2653 TOP GEAR gearbox, deviator system (Italy)",
-  "Cilindrs: Securemme K-2 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi — 2 cilindri komplektā":
-    "Cylinder: Securemme K-2 (1+5 keys) (Italy), size 50×30 pins — 2 cylinders in the set",
+  "Cilindrs: Securemme K-2 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi - 2 cilindri komplektā":
+    "Cylinder: Securemme K-2 (1+5 keys) (Italy), size 50×30 pins - 2 cylinders in the set",
 
-  "Apakšējā slēdzene: monobloks Mottura 54.797 MATIC (2+5 atslēgas) (Itālija) — jau iekļauts standartā":
-    "Bottom lock: Mottura 54.797 MATIC monoblock (2+5 keys) (Italy) — already included as standard",
+  "Apakšējā slēdzene: monobloks Mottura 54.797 MATIC (2+5 atslēgas) (Itālija) - jau iekļauts standartā":
+    "Bottom lock: Mottura 54.797 MATIC monoblock (2+5 keys) (Italy) - already included as standard",
 
-  "Apakšējā slēdzene: monobloks Mottura 54.J797 My Key (1+5 atslēgas) (Itālija) — jau iekļauts standartā":
-    "Bottom lock: Mottura 54.J797 My Key monoblock (1+5 keys) (Italy) — already included as standard",
-  "Cilindrs: Securemme K-64 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi — jau iekļauts standartā":
-    "Cylinder: Securemme K-64 (1+5 keys) (Italy), size 50×30 pins — already included as standard",
+  "Apakšējā slēdzene: monobloks Mottura 54.J797 My Key (1+5 atslēgas) (Itālija) - jau iekļauts standartā":
+    "Bottom lock: Mottura 54.J797 My Key monoblock (1+5 keys) (Italy) - already included as standard",
+  "Cilindrs: Securemme K-64 (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi - jau iekļauts standartā":
+    "Cylinder: Securemme K-64 (1+5 keys) (Italy), size 50×30 pins - already included as standard",
 
   "Augšējā slēdzene: Securemme 2663 TOP GEAR reduktora (Itālija), deviatoru sistēma, bruņu uzlika kvadrāta, mat. hroms/melns":
     "Top lock: Securemme 2663 TOP GEAR gearbox (Italy), deviator system, square armoured plate, matte chrome/black",
-  "Cilindrs: Securemme K-64 duetu sistēma (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi — 2 cilindru komplekti — jau iekļauts standartā":
-    "Cylinder: Securemme K-64 duet system (1+5 keys) (Italy), size 50×30 pins — 2 cylinder sets — already included as standard",
+  "Cilindrs: Securemme K-64 duetu sistēma (1+5 atslēgas) (Itālija), izmērs 50×30 stieņi - 2 cilindru komplekti - jau iekļauts standartā":
+    "Cylinder: Securemme K-64 duet system (1+5 keys) (Italy), size 50×30 pins - 2 cylinder sets - already included as standard",
   "Bruņuzlika: kvadrāts, mat. hroms/melns": "Armoured plate: square, matte chrome/black",
 
   "Augšējā slēdzene: deviatoru sistēma uz augšu un leju, bruņu uzlika Disec Omega (Itālija), mat. hroms/melns":
@@ -381,18 +382,18 @@ export const enManufacturer2Calculator = {
 
   "Augšējā slēdzene: Securemme 2069 zem cilindra (Itālija), bruņu apšuvums kvadrāts, melns":
     "Top lock: Securemme 2069 under-cylinder (Italy), square armoured cladding, black",
-  "Apakšējā slēdzene: Securemme 2061 zem cilindra (Itālija) — jau iekļauts standartā":
-    "Bottom lock: Securemme 2061 under-cylinder (Italy) — already included as standard",
-  "Cilindrs: Securemme (Itālija) K-22, izmērs 60×50T, tandēma sistēma — jau iekļauts standartā":
-    "Cylinder: Securemme (Italy) K-22, size 60×50T, Tandem system — already included as standard",
+  "Apakšējā slēdzene: Securemme 2061 zem cilindra (Itālija) - jau iekļauts standartā":
+    "Bottom lock: Securemme 2061 under-cylinder (Italy) - already included as standard",
+  "Cilindrs: Securemme (Itālija) K-22, izmērs 60×50T, tandēma sistēma - jau iekļauts standartā":
+    "Cylinder: Securemme (Italy) K-22, size 60×50T, Tandem system - already included as standard",
   "Stiklapakete (energoefektīva divkameru, ar tonējumu): izmērs 1233×88 mm (tīrais gaismas atvērums)":
     "Glass unit (energy-efficient double-chamber, tinted): size 1233×88 mm (clear light opening)",
   "Stiklapaketes (energoefektīvas divkameru, ar tonējumu): izmērs 1233×88 mm (tīrais gaismas atvērums) katrā":
     "Glass units (energy-efficient double-chamber, tinted): size 1233×88 mm (clear light opening) each",
   "Apakšējā slēdzene: PES Monoblok (analogs Kale 252), cilindrs 50×30 zem stieņa, Tandem sistēma":
     "Bottom lock: PES Monoblok (equivalent to Kale 252), cylinder 50×30 under-pin, Tandem system",
-  "Viedā rokturis-slēdzene PES MOPS (melna) — atvēršana ar tālruni, PIN kodu, NFC vai pirkstu nospiedumu":
-    "Smart handle-lock PES MOPS (black) — opens with a phone, PIN code, NFC or fingerprint",
+  "Viedā rokturis-slēdzene PES MOPS (melna) - atvēršana ar tālruni, PIN kodu, NFC vai pirkstu nospiedumu":
+    "Smart handle-lock PES MOPS (black) - opens with a phone, PIN code, NFC or fingerprint",
   "Augšējā slēdzene: Kale 257 ar suvalžu mehānismu (Turcija), dekoratīvā uzlika":
     "Top lock: Kale 257 with lever mechanism (Turkey), decorative plate",
   "Apakšējā slēdzene: PES Monoblok korpuss (analogs Kale 252) bez cilindra, kvadrāta bruņu uzlika (melna)":
@@ -406,8 +407,8 @@ export const enManufacturer2Calculator = {
   "Stiklapaketes (energoefektīvas divkameru): izmērs 1233×88 mm (gaismas atvērums) katrā":
     "Glass units (energy-efficient double-chamber): size 1233×88 mm (light opening) each",
   "Apakšējā slēdzene: viedā PES MOPS slēdzene": "Bottom lock: PES MOPS smart lock",
-  "Viedā rokturis-slēdzene PES MOPS (melna) — atvēršana ar tālruni, pirksta nospiedumu, PIN, NFC vai RFID":
-    "Smart handle-lock PES MOPS (black) — opens with a phone, fingerprint, PIN, NFC or RFID",
+  "Viedā rokturis-slēdzene PES MOPS (melna) - atvēršana ar tālruni, pirksta nospiedumu, PIN, NFC vai RFID":
+    "Smart handle-lock PES MOPS (black) - opens with a phone, fingerprint, PIN, NFC or RFID",
   "Nerūsējošā tērauda slieksnis": "Stainless steel threshold",
   "Stiklapakete (energoefektīva divkameru, tonēta): izmērs 1233×88 mm (gaismas atvērums)":
     "Glass unit (energy-efficient double-chamber, tinted): size 1233×88 mm (light opening)",
@@ -429,10 +430,10 @@ export const enManufacturer2Calculator = {
   "Augšējā slēdzene Securemme 2019 (Itālija)": "Top lock Securemme 2019 (Italy)",
   "Apakšējā slēdzene Securemme 2061 (Itālija)": "Bottom lock Securemme 2061 (Italy)",
   "Mangāna plāksne monobloku slēdzenēm (Mottura)": "Manganese plate for monoblock locks (Mottura)",
-  "Monobloks Mottura 54.797 MATIC (2+5 atslēgas) — vienreizēja pārkodēšana":
-    "Mottura 54.797 MATIC monoblock (2+5 keys) — single re-keying",
-  "Monobloks Mottura 54.J797 My Key (1+5 atslēgas) — vairākkārtēja pārkodēšana":
-    "Mottura 54.J797 My Key monoblock (1+5 keys) — multiple re-keying",
+  "Monobloks Mottura 54.797 MATIC (2+5 atslēgas) - vienreizēja pārkodēšana":
+    "Mottura 54.797 MATIC monoblock (2+5 keys) - single re-keying",
+  "Monobloks Mottura 54.J797 My Key (1+5 atslēgas) - vairākkārtēja pārkodēšana":
+    "Mottura 54.J797 My Key monoblock (1+5 keys) - multiple re-keying",
 
   // ---- Furniture ----
   "Furnitūra melna matēta": "Matte black hardware",
@@ -449,8 +450,8 @@ export const enManufacturer2Calculator = {
   "Paātrināta izgatavošana 14 kalendārās dienās (tikai dzīvokļa tipa 2050×850/950 mm)":
     "Expedited production in 14 calendar days (apartment type 2050×850/950 mm only)",
   "Durvis atveramas uz iekšpusi": "Door opens inward",
-  "Ārdurvju (ielu) tipa durvis — mitrumizturīga MDF un Winshield PVC plēve (Izraēla)":
-    "Street entrance-type door — moisture-resistant MDF and Winshield PVC film (Israel)",
+  "Ārdurvju (ielu) tipa durvis - mitrumizturīga MDF un Winshield PVC plēve (Izraēla)":
+    "Street entrance-type door - moisture-resistant MDF and Winshield PVC film (Israel)",
   "Individuāla zīmējuma izstrāde": "Custom pattern development",
   "PVC plēve pēc pasūtījuma (nav kataloga), viena puse": "Custom PVC film (not in the catalogue), one side",
   "Zīmējumu sērija 400, MDF ieliktņi, viena puse": "Pattern series 400, MDF inlays, one side",
@@ -467,13 +468,13 @@ export const enManufacturer2Calculator = {
     "Thermal break and two-tone frame, custom sizes (stainless steel threshold included)",
 
   // ---- Casing / MDF products ----
-  "Aplodes — standarta izmēra komplekts, dzīvokļa tipa (visu veidu durvīm)":
-    "Casings — standard-size set, apartment type (all door types)",
-  "Aplodes — standarta izmēra komplekts, privātmāju tipa (visu veidu durvīm)":
-    "Casings — standard-size set, house type (all door types)",
-  "Augšējā aplode — platuma izmaiņa līdz 400 mm": "Top casing — width adjustment up to 400 mm",
-  "Aplodes komplekts — platuma diapazons 90–300 mm, dzīvokļa tipa": "Casing set — width range 90–300 mm, apartment type",
-  "Aplodes komplekts — platuma diapazons 90–300 mm, privātmāju tipa": "Casing set — width range 90–300 mm, house type",
+  "Aplodes - standarta izmēra komplekts, dzīvokļa tipa (visu veidu durvīm)":
+    "Casings - standard-size set, apartment type (all door types)",
+  "Aplodes - standarta izmēra komplekts, privātmāju tipa (visu veidu durvīm)":
+    "Casings - standard-size set, house type (all door types)",
+  "Augšējā aplode - platuma izmaiņa līdz 400 mm": "Top casing - width adjustment up to 400 mm",
+  "Aplodes komplekts - platuma diapazons 90–300 mm, dzīvokļa tipa": "Casing set - width range 90–300 mm, apartment type",
+  "Aplodes komplekts - platuma diapazons 90–300 mm, privātmāju tipa": "Casing set - width range 90–300 mm, house type",
   "MDF paneļa komplekts ar aplodēm, dzīvokļa tipa": "MDF panel set with casings, apartment type",
   "MDF paneļa komplekts ar aplodēm, privātmāju tipa": "MDF panel set with casings, house type",
   "MDF izstrādājumi pēc pasūtījuma, dzīvokļa tips (min. no 1 m²), €/m²":

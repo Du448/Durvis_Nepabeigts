@@ -8,7 +8,7 @@ import ProductCard from "@/components/ProductCard";
 
 /* Paged product carousel for the 50/50 split blocks, as on m-lux.by: two
    models per page, dots underneath, no frames around the group. Switching is
-   a cross-fade — the reference site keeps the motion understated. */
+   a cross-fade - the reference site keeps the motion understated. */
 
 const PER_PAGE = 2;
 const AUTOPLAY_MS = 5000;
@@ -27,7 +27,7 @@ export default function SplitProductSlider({ products = [], className = "" }) {
   const count = pages.length;
   const goTo = useCallback((i) => setIndex(((i % count) + count) % count), [count]);
 
-  /* Clamp during render rather than in an effect — the product list can shrink
+  /* Clamp during render rather than in an effect - the product list can shrink
      between renders and a stale index would blank the block for a frame. */
   const current = count ? Math.min(index, count - 1) : 0;
 
@@ -86,7 +86,7 @@ export default function SplitProductSlider({ products = [], className = "" }) {
         ))}
       </div>
 
-      {/* Arrows — revealed when the pointer is anywhere over the section */}
+      {/* Arrows - revealed when the pointer is anywhere over the section */}
       {count > 1 ? (
         <>
           <button

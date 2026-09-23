@@ -2,7 +2,7 @@
 // Only models the factory lists as in stock; prices are the euro retail
 // prices. Every entry carries the manufacturer's own description
 // ("Apraksts") and specification table ("Raksturojums") translated to Latvian.
-// Generated — edit the source data rather than hand-patching this file.
+// Generated - edit the source data rather than hand-patching this file.
 
 export const factoryProducts = [
  {

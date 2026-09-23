@@ -3,9 +3,9 @@ import tls from "node:tls";
 
 // Minimal dependency-free SMTP client for the site's forms (kontakti,
 // sadarbiba). nodemailer (both v6 and v10) hangs indefinitely on this host's
-// network when opening an SMTPS connection — a raw socket handshake to the
+// network when opening an SMTPS connection - a raw socket handshake to the
 // same server works fine, so this talks the protocol directly instead.
-// Configure via env vars (see .env.example) — sendFormEmail() throws until
+// Configure via env vars (see .env.example) - sendFormEmail() throws until
 // SMTP_HOST/SMTP_USER/SMTP_PASS are set, instead of silently no-op'ing.
 
 const RESPONSE_TIMEOUT_MS = 15000;
@@ -67,39 +67,71 @@ function base64Body(value) {
   return b64.replace(/.{1,76}/g, (line) => `${line}\r\n`).trimEnd();
 }
 
-function buildMessage({ from, to, replyTo, subject, text, html }) {
-  const boundary = `----=_Boundary_${Date.now().toString(16)}_${Math.random().toString(16).slice(2)}`;
+function base64Buffer(buffer) {
+  return buffer.toString("base64").replace(/.{1,76}/g, (line) => `${line}\r\n`).trimEnd();
+}
+
+function buildMessage({ from, to, replyTo, subject, text, html, attachments = [] }) {
+  const altBoundary = `----=_Alt_${Date.now().toString(16)}_${Math.random().toString(16).slice(2)}`;
+  const mixedBoundary = `----=_Mixed_${Date.now().toString(16)}_${Math.random().toString(16).slice(2)}`;
   const headers = [
     `From: ${from}`,
     `To: ${to}`,
     replyTo ? `Reply-To: ${replyTo}` : null,
     `Subject: ${encodeMimeWord(subject)}`,
     "MIME-Version: 1.0",
-    `Content-Type: multipart/alternative; boundary="${boundary}"`,
+    attachments.length
+      ? `Content-Type: multipart/mixed; boundary="${mixedBoundary}"`
+      : `Content-Type: multipart/alternative; boundary="${altBoundary}"`,
   ].filter(Boolean);
 
-  const body = [
-    `--${boundary}`,
+  const altPart = [
+    `--${altBoundary}`,
     'Content-Type: text/plain; charset="UTF-8"',
     "Content-Transfer-Encoding: base64",
     "",
     base64Body(text),
-    `--${boundary}`,
+    `--${altBoundary}`,
     'Content-Type: text/html; charset="UTF-8"',
     "Content-Transfer-Encoding: base64",
     "",
     base64Body(html),
-    `--${boundary}--`,
+    `--${altBoundary}--`,
+  ].join("\r\n");
+
+  if (!attachments.length) {
+    return `${headers.join("\r\n")}\r\n\r\n${altPart}`;
+  }
+
+  const attachmentParts = attachments.map((att) => {
+    const filename = encodeMimeWord(att.filename || "attachment");
+    return [
+      `--${mixedBoundary}`,
+      `Content-Type: ${att.contentType || "application/octet-stream"}; name="${filename}"`,
+      "Content-Transfer-Encoding: base64",
+      `Content-Disposition: attachment; filename="${filename}"`,
+      "",
+      base64Buffer(att.content),
+    ].join("\r\n");
+  });
+
+  const body = [
+    `--${mixedBoundary}`,
+    `Content-Type: multipart/alternative; boundary="${altBoundary}"`,
+    "",
+    altPart,
+    ...attachmentParts,
+    `--${mixedBoundary}--`,
   ].join("\r\n");
 
   return `${headers.join("\r\n")}\r\n\r\n${body}`;
 }
 
-export async function sendFormEmail({ subject, replyTo, text, html }) {
+export async function sendFormEmail({ subject, replyTo, text, html, attachments }) {
   const { SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS } = process.env;
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
     throw new Error(
-      "SMTP nav nokonfigurēts — iestatiet SMTP_HOST, SMTP_USER un SMTP_PASS (skatiet .env.example)."
+      "SMTP nav nokonfigurēts - iestatiet SMTP_HOST, SMTP_USER un SMTP_PASS (skatiet .env.example)."
     );
   }
   const port = Number(SMTP_PORT) || 587;
@@ -108,7 +140,7 @@ export async function sendFormEmail({ subject, replyTo, text, html }) {
   const from = process.env.CONTACT_FROM_EMAIL || SMTP_USER;
 
   // Only for local dev machines whose antivirus/network intercepts TLS with
-  // its own certificate (e.g. AVG) — never set this in production.
+  // its own certificate (e.g. AVG) - never set this in production.
   const rejectUnauthorized = process.env.SMTP_ALLOW_INSECURE_TLS !== "true";
 
   let socket = secure
@@ -143,7 +175,7 @@ export async function sendFormEmail({ subject, replyTo, text, html }) {
     await sendCommand(socket, `RCPT TO:<${to}>`, [250, 251], "RCPT TO");
     await sendCommand(socket, "DATA", [354], "DATA");
 
-    const message = buildMessage({ from, to, replyTo, subject, text, html });
+    const message = buildMessage({ from, to, replyTo, subject, text, html, attachments });
     const dotStuffed = message
       .split("\r\n")
       .map((line) => (line.startsWith(".") ? `.${line}` : line))

@@ -1,6 +1,6 @@
 /* Lithuanian for the finishes page: section titles, leads and notes, plus the
    swatch labels. Milling-pattern codes (Adel 1, B-105, Grille 12, PVC-90, RAL
-   numbers …) are the manufacturer's own designations and stay as they are —
+   numbers …) are the manufacturer's own designations and stay as they are -
    only the descriptive labels are translated. */
 
 /* Numbered decorative-insert series: the label is the same phrase with a

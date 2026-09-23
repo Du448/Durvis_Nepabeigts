@@ -1,7 +1,7 @@
 /* English for the Ražotājs-2 (Bulat) reference catalogue: section titles,
    leads, group titles and swatch labels for door design series, PVC/Winshield
    film colours and powder coating. Bare model numbers ("105", "277" …) need
-   no entry — trData falls back to the source, which is already just a
+   no entry - trData falls back to the source, which is already just a
    number. Only labels that carry actual words are listed here. */
 
 export const enManufacturer2 = {
@@ -15,12 +15,12 @@ export const enManufacturer2 = {
   "Pulverkrāsojuma katalogs": "Powder coating catalogue",
 
   // Leads
-  "Durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
-    "Catalogue of milling patterns for door leaves — over 200 models, grouped into series by milling depth and style. Any pattern can be made for any door model and combined with any coating colour from the palettes below.",
+  "Durvju vērtņu frēzējumu katalogs - vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
+    "Catalogue of milling patterns for door leaves - over 200 models, grouped into series by milling depth and style. Any pattern can be made for any door model and combined with any coating colour from the palettes below.",
   "Divi plēves seguma veidi: iekštelpu PVC plēve durvīm dzīvoklī un izturīgākā Winshield plēve ārdurvīm ielas pusē. Abas pārklāj MDF apdares plāksni un ir pieejamas jebkurai vērtnes frēzējuma sērijai.":
     "Two types of film coating: indoor PVC film for apartment doors and the more durable Winshield film for the street side of house entrance doors. Both cover the MDF finish panel and are available for any leaf-milling series.",
-  "Metāla karkasam un kārbai izmantotais pulverkrāsojums — matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.":
-    "Powder coating used for the metal frame and casing — a matte finish or a wood-texture imitation. The paint is baked at high temperature, so the surface resists scratches and corrosion.",
+  "Metāla karkasam un kārbai izmantotais pulverkrāsojums - matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.":
+    "Powder coating used for the metal frame and casing - a matte finish or a wood-texture imitation. The paint is baked at high temperature, so the surface resists scratches and corrosion.",
 
   // Design-series group titles
   "100. sērija": "Series 100",
@@ -141,7 +141,7 @@ export const enManufacturer2 = {
   "Rieksts konjaka tonī 37P-1": "Walnut cognac tone 37P-1",
   "Kapučīno 53R-5": "Cappuccino 53R-5",
 
-  // Powder coating — matte
+  // Powder coating - matte
   "Matēts pārklājums": "Matte coating",
   "Metāliski melns": "Metallic black",
   "Metāliski pelēks (antracīts)": "Metallic grey (anthracite)",
@@ -151,7 +151,7 @@ export const enManufacturer2 = {
   "Metāliski Chalet (pelēks)": "Metallic Chalet (grey)",
   "Metāliski tumši antracīts": "Metallic dark anthracite",
 
-  // Powder coating — wood texture
+  // Powder coating - wood texture
   "Koka tekstūras pārklājums": "Wood-texture coating",
   "Antracīts": "Anthracite",
   "Tumši antracīts": "Dark anthracite",

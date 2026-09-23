@@ -42,7 +42,7 @@ export default function Footer() {
   const locale = getLocaleFromPathname(pathname);
   const ref = useRef(null);
 
-  /* Pin the footer and let the page slide over it — only when the viewport is
+  /* Pin the footer and let the page slide over it - only when the viewport is
      wide and tall enough for the whole footer to stay visible underneath. */
   useEffect(() => {
     const el = ref.current;

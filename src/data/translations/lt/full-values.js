@@ -1,6 +1,6 @@
 /* Lithuanian for the values in the full specification tables
    (product.specsFull and catalogSpecs). Purely numeric rows, RAL codes and
-   manufacturer part numbers are absent on purpose — the lookup falls through
+   manufacturer part numbers are absent on purpose - the lookup falls through
    to the source string when there is nothing to translate. */
 
 export const ltFullValues = {

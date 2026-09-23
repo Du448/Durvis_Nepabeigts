@@ -3,7 +3,7 @@
 // Latvian, images are the manufacturer's swatch photography. The Stronwood
 // section comes from the TN Baltic "MATERIALS STRONWOOD" catalogue instead,
 // with its swatch photos extracted into public/finishes/stronwood/.
-// Generated — regenerate rather than hand-editing.
+// Generated - regenerate rather than hand-editing.
 
 export const finishSections = [
  {

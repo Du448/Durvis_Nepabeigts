@@ -33,7 +33,7 @@ function ServiceBadge({ icon: Icon, label }) {
   );
 }
 
-// Small "?" popover — closes on an outside click/tap or Escape, same pattern
+// Small "?" popover - closes on an outside click/tap or Escape, same pattern
 // as the calculator's info buttons.
 function ToggleHint({ text }) {
   const [open, setOpen] = useState(false);
@@ -314,7 +314,7 @@ export default function ProductClient({ id }) {
                               <span className="relative block h-full w-full overflow-hidden">
                                 <Image
                                   src={src}
-                                  alt={`${productName} — ${t(locale, "product.imageN").replace("{n}", String(idx + 1))}`}
+                                  alt={`${productName} - ${t(locale, "product.imageN").replace("{n}", String(idx + 1))}`}
                                   fill
                                   unoptimized
                                   referrerPolicy="no-referrer"
@@ -397,7 +397,7 @@ export default function ProductClient({ id }) {
                       <span className="relative block h-full w-full overflow-hidden">
                         <Image
                           src={src}
-                          alt={`${productName} — ${t(locale, "product.imageN").replace("{n}", String(idx + 1))}`}
+                          alt={`${productName} - ${t(locale, "product.imageN").replace("{n}", String(idx + 1))}`}
                           fill
                           unoptimized
                           referrerPolicy="no-referrer"
@@ -739,7 +739,7 @@ export default function ProductClient({ id }) {
                 >
                   <Image
                     src={images[lightboxIdx]}
-                    alt={`${productName} — ${t(locale, "product.openImage")}`}
+                    alt={`${productName} - ${t(locale, "product.openImage")}`}
                     fill
                     unoptimized
                     referrerPolicy="no-referrer"

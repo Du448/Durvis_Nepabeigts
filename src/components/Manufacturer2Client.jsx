@@ -33,7 +33,7 @@ export default function Manufacturer2Client() {
   const [lightbox, setLightbox] = useState(null);
   const [touchX, setTouchX] = useState(null);
   // Deep-linked from a product page's "Toņu maiņa" button, e.g.
-  // /razotajs-2?section=krasas&group=1 — falls back to the first section.
+  // /razotajs-2?section=krasas&group=1 - falls back to the first section.
   const [activeSectionKey, setActiveSectionKey] = useState(() => {
     const requested = searchParams.get("section");
     return manufacturer2Sections.some((s) => s.key === requested) ? requested : manufacturer2Sections[0]?.key;
@@ -167,7 +167,7 @@ export default function Manufacturer2Client() {
                       onClick={() =>
                         setLightbox({ items: group.items, index: itemIndex, group: group.title, aspect: section.aspect })
                       }
-                      aria-label={`${trData(locale, item.label)} — ${t(locale, "finishes.openImage")}`}
+                      aria-label={`${trData(locale, item.label)} - ${t(locale, "finishes.openImage")}`}
                       className="group block text-left"
                     >
                       <span

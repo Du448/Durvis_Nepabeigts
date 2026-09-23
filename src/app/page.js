@@ -12,7 +12,7 @@ export const dynamic = "force-dynamic";
 const pick = (locale, obj) => obj[locale] ?? obj.lt;
 
 /* Homepage structure mirrors m-lux.by: a cinematic hero followed by
-   alternating 50/50 blocks — full-bleed photography on one half, a white
+   alternating 50/50 blocks - full-bleed photography on one half, a white
    editorial panel with a headline, a short paragraph and two models on the
    other.
 
@@ -58,9 +58,9 @@ const BLOCKS = [
     image:
       "https://images.unsplash.com/photo-1771354959667-96360bf59eab?auto=format&fit=crop&w=1600&q=80",
     title: {
-      lt: "Buto lauko durys — svarbus žingsnis saugumo link",
-      lv: "Ārdurvis dzīvoklim — svarīgs solis drošībai",
-      en: "Apartment entrance doors — a key step towards safety",
+      lt: "Buto lauko durys - svarbus žingsnis saugumo link",
+      lv: "Ārdurvis dzīvoklim - svarīgs solis drošībai",
+      en: "Apartment entrance doors - a key step towards safety",
     },
     text: {
       lt: "Patikima konstrukcija su standumo briaunomis, kelių kontūrų sandarinimas ir dviguba spynų sistema. Apgalvota apsauga nuo jėga vykdomo įsilaužimo.",
@@ -74,9 +74,9 @@ const BLOCKS = [
     image:
       "https://images.unsplash.com/photo-1613544723301-176686aa9f09?auto=format&fit=crop&w=1600&q=80",
     title: {
-      lt: "Termo durys namams — šiluma, tyla, garantija",
-      lv: "Termodurvis privātmājai — siltums, klusums, garantija",
-      en: "Thermal doors for houses — warmth, quiet, warranty",
+      lt: "Termo durys namams - šiluma, tyla, garantija",
+      lv: "Termodurvis privātmājai - siltums, klusums, garantija",
+      en: "Thermal doors for houses - warmth, quiet, warranty",
     },
     text: {
       lt: "Termo pertrauka, sustiprintas užpildas ir atsparios orui dangos. Suteikiame garantiją ir prisiimame visus įsipareigojimus dėl aptarnavimo.",
@@ -89,9 +89,9 @@ const BLOCKS = [
     image:
       "https://images.unsplash.com/photo-1603673298820-40d77252226d?auto=format&fit=crop&w=1600&q=80",
     title: {
-      lt: "Vidaus durys — vientisas interjero sprendimas",
-      lv: "Iekšdurvis — vienots interjera risinājums",
-      en: "Interior doors — a coherent interior solution",
+      lt: "Vidaus durys - vientisas interjero sprendimas",
+      lv: "Iekšdurvis - vienots interjera risinājums",
+      en: "Interior doors - a coherent interior solution",
     },
     text: {
       lt: "Gaminame duris nestandartinių matmenų, efektingus modelius su sieninėmis plokštėmis ir įgyvendiname dizaino projektus pagal jūsų pageidavimus.",
@@ -238,7 +238,7 @@ export default async function Home() {
         );
       })}
 
-      {/* New arrivals — full-width row, as on the reference site */}
+      {/* New arrivals - full-width row, as on the reference site */}
       <section className="section-soft py-16">
         <div className="container">
           <h2 className="t-section mb-8 text-center">{t(locale, "home.newArrivals")}</h2>

@@ -1,11 +1,26 @@
 import { NextResponse } from "next/server";
 
-// Fetches a catalogue photo server-side and streams it back same-origin —
+// Fetches a catalogue photo server-side and streams it back same-origin -
 // a fallback for the PDF generator's image fetch, since some sources
 // answer a browser's own cross-origin fetch() inconsistently even when
 // their headers claim to allow it. Restricted to the hosts the catalogue
 // actually uses, so this can't be turned into an open image proxy.
-const ALLOWED_HOSTS = new Set(["ik.imagekit.io", "www.bulat-doors.com.ua", "bulat-doors.com.ua"]);
+const ALLOWED_HOSTS = new Set([
+  "ik.imagekit.io",
+  "www.bulat-doors.com.ua",
+  "bulat-doors.com.ua",
+  "tedee.com",
+  "www.tedee.com",
+  "740.com.ua",
+  "www.740.com.ua",
+  "matteoda.it",
+  "www.matteoda.it",
+  "ventum.lv",
+  "www.ventum.lv",
+  "moyzamok.ru",
+  "www.moyzamok.ru",
+  "gw-assets.assaabloy.com",
+]);
 
 export async function GET(request) {
   const url = request.nextUrl.searchParams.get("url");

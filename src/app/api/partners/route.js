@@ -29,7 +29,7 @@ export async function POST(request) {
     ["Telefonas", phone],
     ["El. paštas", email],
     ["Miestas / regionas", city],
-    ["Svetainė", website || "—"],
+    ["Svetainė", website || "-"],
     ["Veiklos sritis", activity],
   ];
 
@@ -48,7 +48,7 @@ export async function POST(request) {
 
   try {
     await sendFormEmail({
-      subject: `Naujas partnerio prašymas — ${company}`,
+      subject: `Naujas partnerio prašymas - ${company}`,
       replyTo: email,
       text,
       html,

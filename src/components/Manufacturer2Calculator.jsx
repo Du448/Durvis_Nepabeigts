@@ -21,10 +21,10 @@ import {
   casingOptions,
 } from "@/data/manufacturer2Calculator";
 import { manufacturer2Sections } from "@/data/manufacturer2";
-import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
+import { getLocaleFromPathname, t, trData, withLocaleHref } from "@/lib/i18n";
 
 /* Ražotājs-2 door calculator: a from-scratch analog of the manufacturer's own
-   calculator (bulat-doors.com.ua/calculator/) — base filters, matching
+   calculator (bulat-doors.com.ua/calculator/) - base filters, matching
    product tiers, then a per-tier configurator (locks, hardware colour, leaf
    design/colour outside+inside, frame coating, peephole, extra options).
    Prices are still the manufacturer's own reference figures (see data file);
@@ -46,7 +46,7 @@ const SERIES_DESIGN_SURCHARGE_IDS = new Set([
 const INSIDE_OPENING_OPTION_ID = "inside-opening";
 
 // Stands in for a door photo the manufacturer hasn't shot yet (their own
-// calculator shows the same gap) — a plain "coming soon" notice instead of
+// calculator shows the same gap) - a plain "coming soon" notice instead of
 // pulling in their Ukrainian-language placeholder graphic.
 function PhotoPendingPlaceholder({ locale, className = "" }) {
   return (
@@ -90,7 +90,7 @@ function TierGallery({ images, alt, locale, photoPending }) {
         <button
           type="button"
           onClick={() => setZoomOpen(true)}
-          aria-label={`${alt} — ${trData(locale, "palielināt attēlu")}`}
+          aria-label={`${alt} - ${trData(locale, "palielināt attēlu")}`}
           className="block w-full cursor-zoom-in"
         >
           <span className="relative block aspect-[4/5] overflow-hidden border border-line bg-[--color-soft]">
@@ -202,7 +202,7 @@ function TierGallery({ images, alt, locale, photoPending }) {
 }
 
 // "kale" and "securemme" only match tiers whose lock is exclusively that
-// brand — a tier carrying both (e.g. Standarts, Garants) is a "mix" match
+// brand - a tier carrying both (e.g. Standarts, Garants) is a "mix" match
 // instead, never a match for either brand filtered on its own.
 function tierMatchesLockBrand(tier, brandId) {
   const brands = tier.lockBrands || [];
@@ -219,13 +219,13 @@ function tierMinPrice(tier) {
 }
 
 // Tedee (tedee.com) fits any standard European-profile cylinder via a clip-on
-// adapter — every cylinder brand in this catalogue (Kale, Securemme, Mottura,
+// adapter - every cylinder brand in this catalogue (Kale, Securemme, Mottura,
 // Abloy) is that profile, so brand alone never rules it out. The one real
 // distinction the spec text carries is single vs. dual-cylinder ("tandēma
 // sistēma" / "2 cilindri" / "duetu sistēma"): a smart lock only turns one
 // knob, so on a tandem setup it covers just one of the two locks. Physical
 // clearance (door-frame gap) still has to be confirmed on site per Tedee's
-// own install guide — that can't be known from the catalogue data.
+// own install guide - that can't be known from the catalogue data.
 function tedeeCylinderCompat(tier) {
   const specLine = (tier.hardwareSpec || []).find((line) => line.startsWith("Cilindrs"));
   if (!specLine) return null;
@@ -233,15 +233,15 @@ function tedeeCylinderCompat(tier) {
   return isDualCylinder
     ? {
         level: "partial",
-        label: "Tedee — der 1 no 2 cilindriem",
+        label: "Tedee - der 1 no 2 cilindriem",
         note:
-          "Šai sērijai ir divi atsevišķi cilindri (tandēma sistēma). Tedee var uzstādīt uz viena no tiem ar adapteri — otrs paliek ar atslēgu. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.",
+          "Šai sērijai ir divi atsevišķi cilindri (tandēma sistēma). Tedee var uzstādīt uz viena no tiem ar adapteri - otrs paliek ar atslēgu. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.",
       }
     : {
         level: "yes",
-        label: "Tedee — der šai sērijai",
+        label: "Tedee - der šai sērijai",
         note:
-          "Standarta Eiropas profila cilindrs — Tedee uzstāda ar klipša adapteri, cilindru mainīt nevajag. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.",
+          "Standarta Eiropas profila cilindrs - Tedee uzstāda ar klipša adapteri, cilindru mainīt nevajag. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.",
       };
 }
 
@@ -251,7 +251,7 @@ const PRICE_BOUNDS = { min: Math.min(...ALL_TIER_PRICES), max: Math.max(...ALL_T
 // Smallest opening the manufacturer will build a custom-size door for.
 const CUSTOM_SIZE_MIN = { w: 760, h: 1850 };
 
-// Mirrors baseSizes, mapping each entry to a dropdown option id — fixed
+// Mirrors baseSizes, mapping each entry to a dropdown option id - fixed
 // sizes use their width in mm, "Individuāls izmērs" uses "custom" and
 // matches tiers via `customSizeSupported` (see matchingTiers below).
 const sizeFilterOptions = baseSizes.map((s) => ({ id: s.w ? String(s.w) : "custom", label: s.label }));
@@ -285,7 +285,7 @@ function useCloseOnOutside(open, onClose) {
 }
 
 // One dropdown filter button (lock brand, steel thickness, glazing, opening
-// direction) — a closed trigger showing the label + active count, opening a
+// direction) - a closed trigger showing the label + active count, opening a
 // checkbox panel for a multi-select "OR within the group" filter.
 function FilterDropdown({ label, options, selected, onToggle, onClear, locale }) {
   const [open, setOpen] = useState(false);
@@ -337,7 +337,7 @@ function FilterDropdown({ label, options, selected, onToggle, onClear, locale })
   );
 }
 
-// Dropdown filter for the min/max price range — same trigger shape as
+// Dropdown filter for the min/max price range - same trigger shape as
 // FilterDropdown, but the panel holds the two range sliders instead of
 // checkboxes.
 function PriceRangeDropdown({ min, max, bounds, onChangeMin, onChangeMax, locale }) {
@@ -415,6 +415,7 @@ function PriceRangeDropdown({ min, max, bounds, onChangeMin, onChangeMax, locale
 // Individual (non-standard) size pricing: width(m) x height(m) x price-per-m2,
 // e.g. Garant sērija 1050x2150mm => 1.05 x 2.15 x 640 = 1444.80 EUR.
 function customSizePrice(widthMm, heightMm, sqmPrice) {
+  if (!sqmPrice) return 0;
   const w = Number(widthMm) || 0;
   const h = Number(heightMm) || 0;
   return Math.round((w / 1000) * (h / 1000) * sqmPrice * 100) / 100;
@@ -429,7 +430,7 @@ function Money({ value }) {
 }
 
 // auto-fill + minmax sizes columns to the ACTUAL container width rather than
-// the viewport (unlike grid-cols-N sm:/lg: breakpoints) — this grid sits
+// the viewport (unlike grid-cols-N sm:/lg: breakpoints) - this grid sits
 // inside layouts whose width varies independently of the viewport (e.g. two
 // FilmPickers side by side), so a viewport breakpoint alone under-sizes each
 // column there and wraps multi-word labels into overlapping rows.
@@ -482,7 +483,7 @@ function SwatchGrid({
                 <button
                   type="button"
                   onClick={() => setZoomIndex(index)}
-                  aria-label={`${trData(locale, item.label)} — ${trData(locale, "palielināt attēlu")}`}
+                  aria-label={`${trData(locale, item.label)} - ${trData(locale, "palielināt attēlu")}`}
                   className="group block w-full text-left"
                 >
                   <span
@@ -505,7 +506,7 @@ function SwatchGrid({
                   type="button"
                   onClick={() => onSelect(isActive && allowDeselect ? null : item)}
                   aria-pressed={isActive}
-                  aria-label={`${trData(locale, item.label)} — ${trData(locale, "atzīmēt kā izvēlēto")}`}
+                  aria-label={`${trData(locale, item.label)} - ${trData(locale, "atzīmēt kā izvēlēto")}`}
                   className={`absolute right-1.5 top-1.5 flex h-5 w-5 items-center justify-center border-2 ${
                     isActive ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)]" : "border-line bg-white"
                   }`}
@@ -597,12 +598,12 @@ function SwatchGrid({
 
 function seriesOptionLabel(locale, g) {
   const title = trData(locale, g.title);
-  if (g.included) return `${title} — ${trData(locale, "iekļauta")}`;
+  if (g.included) return `${title} - ${trData(locale, "iekļauta")}`;
   if (g.surchargeOptionId) {
     const opt = additionalOptions.find((o) => o.id === g.surchargeOptionId);
-    return opt ? `${title} — +${opt.price} ${CURRENCY}` : title;
+    return opt ? `${title} - +${opt.price} ${CURRENCY}` : title;
   }
-  return `${title} — ${trData(locale, "cena pēc pieprasījuma")}`;
+  return `${title} - ${trData(locale, "cena pēc pieprasījuma")}`;
 }
 
 function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage, onDesignChange, includedExtras = [], locale }) {
@@ -713,7 +714,7 @@ function FilmPicker({ label, groups, groupTitle, onGroupChange, filmImage, onFil
   );
 }
 
-// Small "?" popover for a fulfilment toggle — closes on an outside
+// Small "?" popover for a fulfilment toggle - closes on an outside
 // click/tap or Escape, same pattern as InfoPopoverButton below.
 function ToggleHint({ text, locale }) {
   const [open, setOpen] = useState(false);
@@ -738,7 +739,7 @@ function ToggleHint({ text, locale }) {
 }
 
 // One fulfilment choice (pickup / measurement / delivery-only /
-// install+delivery) in the "Montāža un piegāde" section — mirrors the same
+// install+delivery) in the "Montāža un piegāde" section - mirrors the same
 // toggle used on the product page so the two read as one design.
 function ServiceToggleRow({ checked, onChange, label, hint, locale }) {
   return (
@@ -768,7 +769,7 @@ function ServiceToggleRow({ checked, onChange, label, hint, locale }) {
   );
 }
 
-// Collapsed by default — each configurator step (locks onward) can be
+// Collapsed by default - each configurator step (locks onward) can be
 // expanded on demand instead of forcing one long scroll of open panels.
 function CollapsibleSection({ title, subtitle, defaultOpen = false, children }) {
   const [open, setOpen] = useState(defaultOpen);
@@ -787,7 +788,7 @@ function CollapsibleSection({ title, subtitle, defaultOpen = false, children }) 
 }
 
 // Small "i" button next to a peephole/lock option that reveals its spec
-// blurb in a floating panel — closes the same way the filter dropdowns do
+// blurb in a floating panel - closes the same way the filter dropdowns do
 // (outside click / Escape), so it reads as one consistent popup pattern on
 // the page. Some callers nest this inside a <label> (the lock checkboxes),
 // so the click also calls preventDefault to stop the label from toggling
@@ -824,7 +825,7 @@ function InfoPopoverButton({ description, locale }) {
 }
 
 // Shared state for a picker whose cards each open a full manufacturer photo
-// gallery (peephole options, smart-lock hardware) — tracks which item's
+// gallery (peephole options, smart-lock hardware) - tracks which item's
 // gallery is open and the current slide, with arrow-key navigation.
 function useGalleryZoom(items) {
   const [zoomId, setZoomId] = useState(null);
@@ -856,7 +857,7 @@ function useGalleryZoom(items) {
   return { zoomItem, gallery, zoomIndex, openZoom, closeZoom, stepZoom };
 }
 
-// Full-screen photo viewer for a useGalleryZoom() gallery — prev/next when
+// Full-screen photo viewer for a useGalleryZoom() gallery - prev/next when
 // there's more than one image, same visual language as TierGallery's zoom.
 function GalleryZoomOverlay({ item, gallery, index, onStep, onClose, locale }) {
   if (!item) return null;
@@ -921,7 +922,7 @@ function GalleryZoomOverlay({ item, gallery, index, onStep, onClose, locale }) {
   );
 }
 
-// A small photo thumbnail shared by the peephole cards and lock cards — click
+// A small photo thumbnail shared by the peephole cards and lock cards - click
 // to open the full gallery, with a count badge when there's more than one
 // shot. `onOpen` gets its own click handling so it works both as a bare
 // button (peephole) and nested inside a <label> (lock checkboxes).
@@ -947,7 +948,7 @@ function GalleryThumbButton({ item, onOpen, className, imgClassName, imgSizes = 
   );
 }
 
-// Peephole ("Skata acs") picker — a small card per option with its own photo
+// Peephole ("Skata acs") picker - a small card per option with its own photo
 // (click to zoom into the full manufacturer gallery) and, for the Yale smart
 // viewers, an "i" popup with the manufacturer's spec blurb.
 function PeepholePicker({ options, selectedId, onSelect, locale }) {
@@ -978,7 +979,7 @@ function PeepholePicker({ options, selectedId, onSelect, locale }) {
             >
               {p.image ? (
                 <GalleryThumbButton
-                  item={{ ...p, zoomLabel: `${trData(locale, p.name)} — ${trData(locale, "palielināt attēlu")}` }}
+                  item={{ ...p, zoomLabel: `${trData(locale, p.name)} - ${trData(locale, "palielināt attēlu")}` }}
                   onOpen={openZoom}
                   className="relative block aspect-square w-full cursor-zoom-in overflow-hidden border border-line bg-white"
                   imgClassName="object-contain p-2"
@@ -1007,7 +1008,7 @@ function PeepholePicker({ options, selectedId, onSelect, locale }) {
 }
 
 // Small pill next to a lock option showing whether it fits this tier's
-// cylinder (see tedeeCylinderCompat) — green "fits" or amber "fits one of
+// cylinder (see tedeeCylinderCompat) - green "fits" or amber "fits one of
 // two", with an "i" popup carrying the full explanation.
 function CompatBadge({ compat, locale }) {
   if (!compat) return null;
@@ -1021,7 +1022,7 @@ function CompatBadge({ compat, locale }) {
   );
 }
 
-// Lock/cylinder upgrade grid ("Papildu opcija maiņai") — same checkbox-card
+// Lock/cylinder upgrade grid ("Papildu opcija maiņai") - same checkbox-card
 // layout as before, now with a clickable photo (full gallery for the Tedee
 // smart-lock hardware), an "i" spec popup where a description is set, and
 // (via `compatById`) a per-tier cylinder-fit badge for specific lock ids.
@@ -1051,7 +1052,7 @@ function LockOptionsGrid({ lockSet, includedIds, checkedIds, onToggle, locale, c
               </span>
               {lock.image ? (
                 <GalleryThumbButton
-                  item={{ ...lock, zoomLabel: `${trData(locale, lock.name)} — ${trData(locale, "palielināt attēlu")}` }}
+                  item={{ ...lock, zoomLabel: `${trData(locale, lock.name)} - ${trData(locale, "palielināt attēlu")}` }}
                   onOpen={openZoom}
                   className="relative mb-2 block aspect-square w-full cursor-zoom-in overflow-hidden bg-[--color-soft]"
                   imgClassName="object-contain"
@@ -1107,6 +1108,7 @@ export default function Manufacturer2Calculator() {
 
   const [config, setConfig] = useState(null);
   const [pdfDownloading, setPdfDownloading] = useState(false);
+  const [offerRequesting, setOfferRequesting] = useState(false);
 
   const resetFilters = () => {
     setFilterPurpose(new Set());
@@ -1173,6 +1175,7 @@ export default function Manufacturer2Calculator() {
     const lockSetIds = new Set((lockSets[tier.lockSet] || []).map((l) => l.id));
     const extraOptionIds = new Set([...additionalOptions, ...casingOptions].map((o) => o.id));
     setSelectedTierId(tier.id);
+    if (typeof window !== "undefined") window.scrollTo(0, 0);
     setConfig({
       sizeMode: "fixed",
       size: tier.sizes[0] || { w: null, h: null, price: tier.basePrice || 0 },
@@ -1208,7 +1211,7 @@ export default function Manufacturer2Calculator() {
     };
   }
 
-  // Itemised so the on-screen total and the downloadable PDF always agree —
+  // Itemised so the on-screen total and the downloadable PDF always agree -
   // both are just a sum over this same list, never two parallel calculations.
   const priceBreakdown = useMemo(() => {
     if (!selectedTier || !config) return [];
@@ -1236,7 +1239,7 @@ export default function Manufacturer2Calculator() {
       const insideOpening = additionalOptions.find((o) => o.id === INSIDE_OPENING_OPTION_ID);
       if (insideOpening) lines.push({ label: insideOpening.name, price: insideOpening.price });
     }
-    // Design-series surcharges (e.g. 400/500/600 series) apply per side — each
+    // Design-series surcharges (e.g. 400/500/600 series) apply per side - each
     // of outer/inner leaf design independently adds its series' surcharge.
     for (const seriesTitle of [config.outerSeriesTitle, config.innerSeriesTitle]) {
       const group = dizainsSection.groups.find((g) => g.title === seriesTitle);
@@ -1386,7 +1389,7 @@ export default function Manufacturer2Calculator() {
     );
   }
 
-  /* Step 3 — configure the chosen tier */
+  /* Step 3 - configure the chosen tier */
   if (step === "configure" && selectedTier && config) {
     const lockSet = lockSets[selectedTier.lockSet] || [];
     const activePeephole = peepholeOptions.find((p) => p.id === config.peepholeId);
@@ -1412,58 +1415,115 @@ export default function Manufacturer2Calculator() {
       ["installDelivery", "Montāža un piegāde"],
     ];
 
+    function buildPdfPayload() {
+      const specRows = [
+        { label: trData(locale, "Izmērs"), value: sizeLabel },
+        {
+          label: trData(locale, "Vēršanās virziens"),
+          value: trData(locale, openingDirections.find((d) => d.id === config.openingDirection)?.label || ""),
+        },
+        {
+          label: trData(locale, "Vēršanās puse"),
+          value: trData(locale, openingSides.find((d) => d.id === config.openingSide)?.label || ""),
+        },
+        lockLabels.length ? { label: trData(locale, "Slēdzenes"), value: lockLabels.join(", ") } : null,
+        activeFurniture ? { label: trData(locale, "Furnitūras krāsa"), value: trData(locale, activeFurniture.name) } : null,
+        config.outerDesign
+          ? { label: `${trData(locale, "Zīmējums")} - ${trData(locale, "Ārpuse")}`, value: trData(locale, config.outerDesign.label) }
+          : null,
+        config.innerDesign
+          ? { label: `${trData(locale, "Zīmējums")} - ${trData(locale, "Iekšpuse")}`, value: trData(locale, config.innerDesign.label) }
+          : null,
+        { label: `${trData(locale, "Plēve")} - ${trData(locale, "Ārpuse")}`, value: trData(locale, config.outerFilm.label) },
+        { label: `${trData(locale, "Plēve")} - ${trData(locale, "Iekšpuse")}`, value: trData(locale, config.innerFilm.label) },
+        { label: trData(locale, "Kārbas pārklājums"), value: trData(locale, config.frameSwatch.label) },
+        activePeephole ? { label: trData(locale, "Skata acs"), value: trData(locale, activePeephole.name) } : null,
+        extraOptionLabels.length ? { label: trData(locale, "Papildu opcijas"), value: extraOptionLabels.join(", ") } : null,
+      ].filter(Boolean);
+
+      const lockPhotos = [...config.lockIds]
+        .map((id) => lockSet.find((l) => l.id === id))
+        .filter((lock) => lock?.image)
+        .map((lock) => ({ label: trData(locale, lock.name), url: lock.image }));
+      const extraPhotos = [
+        config.outerFilm?.image
+          ? { label: `${trData(locale, "Plēve")} - ${trData(locale, "Ārpuse")}`, url: config.outerFilm.image }
+          : null,
+        config.innerFilm?.image
+          ? { label: `${trData(locale, "Plēve")} - ${trData(locale, "Iekšpuse")}`, url: config.innerFilm.image }
+          : null,
+        config.frameSwatch?.image
+          ? { label: trData(locale, "Kārbas pārklājums"), url: config.frameSwatch.image }
+          : null,
+        activePeephole?.image ? { label: trData(locale, "Skata acs"), url: activePeephole.image } : null,
+        ...lockPhotos,
+      ].filter(Boolean);
+
+      return {
+        locale,
+        tierName: trData(locale, selectedTier.name),
+        tierIntro: selectedTier.intro ? trData(locale, selectedTier.intro) : "",
+        tierTarget: trData(locale, selectedTier.target === "house" ? "Privātmājai" : "Dzīvoklim"),
+        mainImageUrl: config.outerDesign?.image || selectedTier.image,
+        mainImageLabel: config.outerDesign ? trData(locale, config.outerDesign.label) : undefined,
+        secondaryImage: config.innerDesign
+          ? { url: config.innerDesign.image, label: trData(locale, config.innerDesign.label) }
+          : null,
+        extraPhotos,
+        specRows,
+        serviceOptions: SERVICE_OPTION_LABELS.map(([key, label]) => ({
+          label: trData(locale, label),
+          on: !!config.serviceOptions[key],
+        })),
+        priceLines: priceBreakdown.map((line) => ({ label: trData(locale, line.label), price: line.price })),
+        total,
+        contact: {
+          phone: "+370 662 13171",
+          email: "info@tnbaltic.lt",
+          address: "Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
+          website: "www.ntdurys.lt",
+        },
+        fileName: `${(selectedTier.id || "piedavajums").toString()}.pdf`,
+      };
+    }
+
     const handleDownloadPdf = async () => {
       setPdfDownloading(true);
       try {
         const { generateConfiguratorPdf } = await import("@/lib/generateConfiguratorPdf");
-        const specRows = [
-          { label: trData(locale, "Izmērs"), value: sizeLabel },
-          {
-            label: trData(locale, "Vēršanās virziens"),
-            value: trData(locale, openingDirections.find((d) => d.id === config.openingDirection)?.label || ""),
-          },
-          {
-            label: trData(locale, "Vēršanās puse"),
-            value: trData(locale, openingSides.find((d) => d.id === config.openingSide)?.label || ""),
-          },
-          lockLabels.length ? { label: trData(locale, "Slēdzenes"), value: lockLabels.join(", ") } : null,
-          activeFurniture ? { label: trData(locale, "Furnitūras krāsa"), value: trData(locale, activeFurniture.name) } : null,
-          config.outerDesign
-            ? { label: `${trData(locale, "Zīmējums")} — ${trData(locale, "Ārpuse")}`, value: trData(locale, config.outerDesign.label) }
-            : null,
-          config.innerDesign
-            ? { label: `${trData(locale, "Zīmējums")} — ${trData(locale, "Iekšpuse")}`, value: trData(locale, config.innerDesign.label) }
-            : null,
-          { label: `${trData(locale, "Plēve")} — ${trData(locale, "Ārpuse")}`, value: trData(locale, config.outerFilm.label) },
-          { label: `${trData(locale, "Plēve")} — ${trData(locale, "Iekšpuse")}`, value: trData(locale, config.innerFilm.label) },
-          { label: trData(locale, "Kārbas pārklājums"), value: trData(locale, config.frameSwatch.label) },
-          activePeephole ? { label: trData(locale, "Skata acs"), value: trData(locale, activePeephole.name) } : null,
-          extraOptionLabels.length ? { label: trData(locale, "Papildu opcijas"), value: extraOptionLabels.join(", ") } : null,
-        ].filter(Boolean);
-
-        await generateConfiguratorPdf({
-          locale,
-          tierName: trData(locale, selectedTier.name),
-          tierIntro: selectedTier.intro ? trData(locale, selectedTier.intro) : "",
-          tierTarget: trData(locale, selectedTier.target === "house" ? "Privātmājai" : "Dzīvoklim"),
-          mainImageUrl: config.outerDesign?.image || selectedTier.image,
-          secondaryImage: config.innerDesign ? { url: config.innerDesign.image } : null,
-          specRows,
-          serviceOptions: SERVICE_OPTION_LABELS.map(([key, label]) => ({
-            label: trData(locale, label),
-            on: !!config.serviceOptions[key],
-          })),
-          priceLines: priceBreakdown.map((line) => ({ label: trData(locale, line.label), price: line.price })),
-          total,
-          contact: {
-            phone: "+370 662 13171",
-            email: "info@tnbaltic.lt",
-            address: "Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
-          },
-          fileName: `${(selectedTier.id || "piedavajums").toString()}.pdf`,
-        });
+        await generateConfiguratorPdf(buildPdfPayload());
       } finally {
         setPdfDownloading(false);
+      }
+    };
+
+    // "Pieprasīt piedāvājumu": builds the same offer PDF, stashes it in
+    // sessionStorage as a base64 data URL, then hands off to the contact
+    // page, which picks it up and attaches it to the enquiry automatically.
+    const handleRequestOffer = async () => {
+      setOfferRequesting(true);
+      try {
+        const { generateConfiguratorPdf } = await import("@/lib/generateConfiguratorPdf");
+        const payload = buildPdfPayload();
+        const blob = await generateConfiguratorPdf({ ...payload, returnBlob: true });
+        const dataUrl = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onloadend = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+        try {
+          sessionStorage.setItem("pendingOfferPdf", JSON.stringify({ name: payload.fileName, dataUrl }));
+        } catch {
+          // storage full/blocked (e.g. private browsing) - still send them
+          // to the contact form, just without the auto-attached PDF.
+        }
+      } catch {
+        // PDF build failed (e.g. a catalogue photo host is down) - don't
+        // block the enquiry over it, just navigate without an attachment.
+      } finally {
+        setOfferRequesting(false);
+        window.location.href = withLocaleHref(locale, "/kontakti");
       }
     };
 
@@ -1496,7 +1556,7 @@ export default function Manufacturer2Calculator() {
                     <span className="relative block aspect-square overflow-hidden border border-line bg-white">
                       <Image
                         src={config.outerDesign.image}
-                        alt={trData(locale, "Izvēlētais dizains — ārpuse")}
+                        alt={trData(locale, "Izvēlētais dizains - ārpuse")}
                         fill
                         unoptimized
                         sizes="190px"
@@ -1504,7 +1564,7 @@ export default function Manufacturer2Calculator() {
                       />
                     </span>
                     <span className="mt-1.5 block text-center text-[12px] text-muted">
-                      {trData(locale, "Ārpuse")} — {trData(locale, config.outerDesign.label)}
+                      {trData(locale, "Ārpuse")} - {trData(locale, config.outerDesign.label)}
                     </span>
                   </div>
                 ) : null}
@@ -1513,7 +1573,7 @@ export default function Manufacturer2Calculator() {
                     <span className="relative block aspect-square overflow-hidden border border-line bg-white">
                       <Image
                         src={config.innerDesign.image}
-                        alt={trData(locale, "Izvēlētais dizains — iekšpuse")}
+                        alt={trData(locale, "Izvēlētais dizains - iekšpuse")}
                         fill
                         unoptimized
                         sizes="190px"
@@ -1521,7 +1581,7 @@ export default function Manufacturer2Calculator() {
                       />
                     </span>
                     <span className="mt-1.5 block text-center text-[12px] text-muted">
-                      {trData(locale, "Iekšpuse")} — {trData(locale, config.innerDesign.label)}
+                      {trData(locale, "Iekšpuse")} - {trData(locale, config.innerDesign.label)}
                     </span>
                   </div>
                 ) : null}
@@ -1593,7 +1653,7 @@ export default function Manufacturer2Calculator() {
                           : "border-line text-ink hover:border-[color:var(--color-accent)]"
                       }`}
                     >
-                      {s.w}×{s.h} mm — <Money value={s.price} />
+                      {s.w}×{s.h} mm - <Money value={s.price} />
                     </button>
                   ))}
                   {selectedTier.customSizeSupported ? (
@@ -1606,7 +1666,10 @@ export default function Manufacturer2Calculator() {
                           : "border-line text-ink hover:border-[color:var(--color-accent)]"
                       }`}
                     >
-                      {trData(locale, "Individuāls izmērs")} — {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m²
+                      {trData(locale, "Individuāls izmērs")} -{" "}
+                      {selectedTier.sqmPrice
+                        ? `${selectedTier.sqmPrice.toLocaleString("lv-LV")} ${CURRENCY}/m²`
+                        : trData(locale, "Cena pēc pieprasījuma")}
                     </button>
                   ) : null}
                 </div>
@@ -1620,7 +1683,10 @@ export default function Manufacturer2Calculator() {
                       : "border-line text-ink hover:border-[color:var(--color-accent)]"
                   }`}
                 >
-                  {trData(locale, "Individuāls izmērs")} — {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m²
+                  {trData(locale, "Individuāls izmērs")} -{" "}
+                  {selectedTier.sqmPrice
+                    ? `${selectedTier.sqmPrice.toLocaleString("lv-LV")} ${CURRENCY}/m²`
+                    : trData(locale, "Cena pēc pieprasījuma")}
                 </button>
               ) : (
                 <p className="text-[13px] text-muted">{trData(locale, selectedTier.sizeNote)}</p>
@@ -1656,12 +1722,18 @@ export default function Manufacturer2Calculator() {
                     />
                   </label>
                   <p className="text-[13px] leading-[1.6] text-ink">
-                    {(Number(config.customWidth) / 1000 || 0).toLocaleString("lv-LV", { maximumFractionDigits: 2 })} m ×{" "}
-                    {(Number(config.customHeight) / 1000 || 0).toLocaleString("lv-LV", { maximumFractionDigits: 2 })} m ×{" "}
-                    {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m² ={" "}
-                    <strong className="text-[color:var(--color-accent)]">
-                      <Money value={customSizePrice(config.customWidth, config.customHeight, selectedTier.sqmPrice)} />
-                    </strong>
+                    {selectedTier.sqmPrice ? (
+                      <>
+                        {(Number(config.customWidth) / 1000 || 0).toLocaleString("lv-LV", { maximumFractionDigits: 2 })} m ×{" "}
+                        {(Number(config.customHeight) / 1000 || 0).toLocaleString("lv-LV", { maximumFractionDigits: 2 })} m ×{" "}
+                        {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m² ={" "}
+                        <strong className="text-[color:var(--color-accent)]">
+                          <Money value={customSizePrice(config.customWidth, config.customHeight, selectedTier.sqmPrice)} />
+                        </strong>
+                      </>
+                    ) : (
+                      <strong className="text-[color:var(--color-accent)]">{trData(locale, "Cena pēc pieprasījuma")}</strong>
+                    )}
                   </p>
                 </div>
               ) : null}
@@ -1711,11 +1783,11 @@ export default function Manufacturer2Calculator() {
               </div>
             </div>
 
-            {/* Locks — multiple upgrades can be combined, same as the source calculator */}
+            {/* Locks - multiple upgrades can be combined, same as the source calculator */}
             {!selectedTier.smartLock ? (
               <CollapsibleSection
-                title={trData(locale, "Papildu opcija maiņai — slēdzenes un cilindri")}
-                subtitle={trData(locale, "Var atzīmēt vairākas — cenas summējas ar bāzes komplektāciju.")}
+                title={trData(locale, "Papildu opcija maiņai - slēdzenes un cilindri")}
+                subtitle={trData(locale, "Var atzīmēt vairākas - cenas summējas ar bāzes komplektāciju.")}
               >
                 <LockOptionsGrid
                   lockSet={lockSet}
@@ -1728,7 +1800,7 @@ export default function Manufacturer2Calculator() {
               </CollapsibleSection>
             ) : (
               <div className="border border-line bg-white p-4 text-[13px] text-muted">
-                {trData(locale, "Šai sērijai ir iekļauta viedā slēdzene — atsevišķa cilindra jaunināšana nav nepieciešama.")}
+                {trData(locale, "Šai sērijai ir iekļauta viedā slēdzene - atsevišķa cilindra jaunināšana nav nepieciešama.")}
               </div>
             )}
 
@@ -1756,7 +1828,7 @@ export default function Manufacturer2Calculator() {
             <CollapsibleSection title={trData(locale, "Durvju vērtnes dizains")}>
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <DesignPicker
-                  label={trData(locale, "Zīmējums — ārpuse")}
+                  label={trData(locale, "Zīmējums - ārpuse")}
                   groups={dizainsSection.groups}
                   seriesTitle={config.outerSeriesTitle}
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, outerSeriesTitle: title }))}
@@ -1766,7 +1838,7 @@ export default function Manufacturer2Calculator() {
                   locale={locale}
                 />
                 <DesignPicker
-                  label={trData(locale, "Zīmējums — iekšpuse")}
+                  label={trData(locale, "Zīmējums - iekšpuse")}
                   groups={dizainsSection.groups}
                   seriesTitle={config.innerSeriesTitle}
                   onSeriesChange={(title) => setConfig((c) => ({ ...c, innerSeriesTitle: title }))}
@@ -1782,7 +1854,7 @@ export default function Manufacturer2Calculator() {
             <CollapsibleSection title={trData(locale, "Pārklājuma plēves krāsa")}>
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                 <FilmPicker
-                  label={trData(locale, "Plēve — ārpuse")}
+                  label={trData(locale, "Plēve - ārpuse")}
                   groups={filmGroupsForTier}
                   groupTitle={config.outerFilmGroupTitle}
                   onGroupChange={(title) => setConfig((c) => ({ ...c, outerFilmGroupTitle: title }))}
@@ -1791,7 +1863,7 @@ export default function Manufacturer2Calculator() {
                   locale={locale}
                 />
                 <FilmPicker
-                  label={trData(locale, "Plēve — iekšpuse")}
+                  label={trData(locale, "Plēve - iekšpuse")}
                   groups={filmGroupsForTier}
                   groupTitle={config.innerFilmGroupTitle}
                   onGroupChange={(title) => setConfig((c) => ({ ...c, innerFilmGroupTitle: title }))}
@@ -1878,7 +1950,7 @@ export default function Manufacturer2Calculator() {
               title={trData(locale, "MDF izstrādājumi (aplodes)")}
               subtitle={trData(
                 locale,
-                "Aplodes un MDF paneļu komplekti — cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja)."
+                "Aplodes un MDF paneļu komplekti - cenas atbilstoši durvju pielietojumam (dzīvoklis / privātmāja)."
               )}
             >
               <div className="space-y-2.5">
@@ -1936,7 +2008,7 @@ export default function Manufacturer2Calculator() {
                     }))
                   }
                   label="Tikai piegāde, bez montāžas"
-                  hint="Durvis piegādājam norādītajā adresē — uzstādīšanu veicat paši vai ar saviem meistariem."
+                  hint="Durvis piegādājam norādītajā adresē - uzstādīšanu veicat paši vai ar saviem meistariem."
                   locale={locale}
                 />
                 <ServiceToggleRow
@@ -1966,17 +2038,27 @@ export default function Manufacturer2Calculator() {
                 {trData(locale, "Cena aprēķināta pēc mazumtirdzniecības cenrāža (spēkā no 01.08.2024). Galīgā cena tiek apstiprināta pasūtījuma noformēšanas brīdī.")}{" "}
                 {trData(locale, "Skata acs")}: {trData(locale, activePeephole?.name)}.
                 {config.sizeMode === "custom" && selectedTier.customSizeSupported ? (
-                  <>
-                    {" "}
-                    {trData(locale, "Individuālā izmēra cena aprēķināta pēc formulas: platums (m) × augstums (m) ×")}{" "}
-                    {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m².
-                  </>
+                  selectedTier.sqmPrice ? (
+                    <>
+                      {" "}
+                      {trData(locale, "Individuālā izmēra cena aprēķināta pēc formulas: platums (m) × augstums (m) ×")}{" "}
+                      {selectedTier.sqmPrice.toLocaleString("lv-LV")} {CURRENCY}/m².
+                    </>
+                  ) : (
+                    <> {trData(locale, "Individuālā izmēra cena")}: {trData(locale, "Cena pēc pieprasījuma")}.</>
+                  )
                 ) : null}
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
-                <a href="/kontakti" className="btn btn-accent inline-block">
+                <button
+                  type="button"
+                  onClick={handleRequestOffer}
+                  disabled={offerRequesting}
+                  className="btn btn-accent inline-flex items-center gap-2 disabled:opacity-60"
+                >
+                  {offerRequesting ? <Loader2 size={16} className="animate-spin" /> : null}
                   {trData(locale, "Pieprasīt piedāvājumu")}
-                </a>
+                </button>
                 <button
                   type="button"
                   onClick={handleDownloadPdf}
@@ -2004,7 +2086,7 @@ export default function Manufacturer2Calculator() {
 }
 
 // Sticky pill in the bottom-right corner, visible throughout the whole
-// configurator so the price is always on screen as options are toggled —
+// configurator so the price is always on screen as options are toggled -
 // not just once you've scrolled all the way down to the full summary.
 // Clicking it jumps to that summary (#calc-summary) and its "Pieprasīt
 // piedāvājumu" button.

@@ -1,6 +1,6 @@
 /* English for every specification label used by the catalogue data.
    Keys are the Latvian source strings exactly as they appear in
-   factory-products.js, catalog-specs.js, products.js and hidden-doors.js —
+   factory-products.js, catalog-specs.js, products.js and hidden-doors.js -
    those files are generated, so the translation lives beside them rather than
    inside them and survives a regeneration. */
 

@@ -7,7 +7,7 @@ import { getLocaleFromPathname, t } from "@/lib/i18n";
 
 /* Cinematic hero modelled on m-lux.by: one full-bleed media stage, 1000px tall
    on desktop, with large uppercase captions that cross-fade in place. No
-   chrome, no arrows — the imagery carries the page. */
+   chrome, no arrows - the imagery carries the page. */
 
 const INTERVAL = 5200;
 
@@ -19,7 +19,7 @@ export default function HeroSlider({ slides = [] }) {
   const timers = useRef([]);
 
   /* One timeline drives both layers: the caption fades out, its text is
-     swapped while invisible, then it fades back in — so two headlines are
+     swapped while invisible, then it fades back in - so two headlines are
      never legible at once, as on the reference site. */
   const goTo = (next) => {
     timers.current.forEach(clearTimeout);
@@ -131,7 +131,7 @@ export default function HeroSlider({ slides = [] }) {
         ) : null}
       </div>
 
-      {/* Manual navigation arrows — minimal, modern */}
+      {/* Manual navigation arrows - minimal, modern */}
       {slides.length > 1 ? (
         <>
           <button

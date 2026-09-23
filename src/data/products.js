@@ -375,8 +375,8 @@ const localProducts = [
   {"id": "ml-01-rustik-blan-satins", "name": "ML-01 Rustik Blan st. Satīns", "collection": "ML-01", "category": "ieksdurvis", "price": 255, "oldPrice": null, "sizes": ["600", "700", "800", "900 mm"], "colors": ["Rustik blan", "Satīns"], "thermo": false, "glass": true, "isNew": false, "clearance": false, "images": ["https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Ieksdurvis/ML%20-%2001%20Rustic%20blant%20st.%20Sat%C4%ABns.png"], "short": "ML-01 modelis rustik blan tonī ar satīna stikla ielaidumu.", "specs": {"Modelis": "ML-01", "Tonis": "Rustik blan", "Stikls": "Satīns"}},
 ];
 
-/* Model 188 is the same door as 172 — same construction, different milling and
-   film — so it carries 172's manufacturer text with the finish rows swapped. */
+/* Model 188 is the same door as 172 - same construction, different milling and
+   film - so it carries 172's manufacturer text with the finish rows swapped. */
 const FINISH_188 = "MDF 10mm krāsa – «Dienvidu Venge» Nr.3; zīmējums «188»";
 
 function specsFor188(rows) {
@@ -398,7 +398,7 @@ function specsFor188(rows) {
 /* The shop's own listings first, then the models imported from the
    manufacturer's catalogue. Local entries pick up the manufacturer's
    description and, failing that, the specification table from the printed
-   warehouse catalogue — without losing their own name, price or photography. */
+   warehouse catalogue - without losing their own name, price or photography. */
 export const products = [
   ...localProducts.map((p) => {
     if (p.id === "prema-188") {
@@ -474,13 +474,13 @@ export function isInStock(product) {
    image the card swaps to on hover should show the door standing open. Three
    ways to find it, in order of confidence:
 
-   1. Photos whose file name says so — the shop's own uploads use Latvian
+   1. Photos whose file name says so - the shop's own uploads use Latvian
       ("atvērtā pozīcijā") and the manufacturer's older uploads Ukrainian
       ("vidkryte polozhennya").
    2. The manufacturer's numbered sets (0136-01.jpg, 0136-02.jpg, …) carry no
       words, but the shoot order is fixed: photo 4 is always the open door.
       Some sets skip a number, so match on the number, not on the position.
-   3. A handful of sets photographed by the shop have neither — those are
+   3. A handful of sets photographed by the shop have neither - those are
       listed by hand below.
 
    Anything left over falls back to the second photo, whatever it shows. */

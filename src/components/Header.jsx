@@ -10,26 +10,6 @@ import { readWishlistIds } from "@/lib/wishlist";
 
 const BRAND = "Durys";
 
-/* Brand marks are not part of lucide v1, so they are inlined. */
-function InstagramIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="2" y="2" width="20" height="20" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
-function YoutubeIcon({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <rect x="2" y="5" width="20" height="14" rx="4" />
-      <path d="M10 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
 /* Header modelled on m-lux.by: fixed overlay on the homepage, solid white on
    inner pages, 105px tall at the top, shrinking to 60px once stuck, hidden on
    scroll-down and revealed on scroll-up. */
@@ -317,25 +297,6 @@ export default function Header() {
             >
               <ShoppingCart size={20} strokeWidth={1.6} />
             </Link>
-
-            <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              aria-label="Instagram"
-              className="hidden h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70 2xl:flex"
-            >
-              <InstagramIcon size={18} />
-            </a>
-            <a
-              href="https://www.youtube.com/"
-              target="_blank"
-              rel="noopener noreferrer nofollow"
-              aria-label="YouTube"
-              className="hidden h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70 2xl:flex"
-            >
-              <YoutubeIcon size={18} />
-            </a>
 
             <button
               type="button"

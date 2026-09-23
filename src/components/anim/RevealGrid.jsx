@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 /* Staggered reveal for grid children. Uses IntersectionObserver plus a plain
-   CSS transition — the reference site fades content in the same understated
+   CSS transition - the reference site fades content in the same understated
    way, and this keeps items visible if observation never fires. */
 
 export default function RevealGrid({

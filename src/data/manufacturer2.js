@@ -31,7 +31,7 @@ export const manufacturer2Sections = [
   {
     key: "dizains",
     title: "Durvju dizaina sērijas",
-    lead: "Durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.",
+    lead: "Durvju vērtņu frēzējumu katalogs - vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.",
     groups: [
       {
         title: "100. sērija",
@@ -142,7 +142,7 @@ export const manufacturer2Sections = [
         title: "800. sērija",
         surchargeOptionId: "series-800-3d",
         // ImageKit copies of this series kept their original (non-numeric)
-        // upload filenames — mapped by hand against each door's design.
+        // upload filenames - mapped by hand against each door's design.
         items: [
           { label: "801", image: `${IK800}Q7X0E.jpg` },
           { label: "802", image: `${IK800}iI34z.jpg` },
@@ -282,7 +282,7 @@ export const manufacturer2Sections = [
   {
     key: "ral",
     title: "Pulverkrāsojuma katalogs",
-    lead: "Metāla karkasam un kārbai izmantotais pulverkrāsojums — matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.",
+    lead: "Metāla karkasam un kārbai izmantotais pulverkrāsojums - matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.",
     groups: [
       {
         title: "Matēts pārklājums",

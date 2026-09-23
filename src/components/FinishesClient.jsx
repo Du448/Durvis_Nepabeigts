@@ -21,7 +21,7 @@ export default function FinishesClient() {
   const [lightbox, setLightbox] = useState(null);
   const [touchX, setTouchX] = useState(null);
   // Deep-linked from a product page's "Toņu maiņa" button, e.g.
-  // /apdare?section=pvc — falls back to the first section.
+  // /apdare?section=pvc - falls back to the first section.
   const [activeSectionKey, setActiveSectionKey] = useState(() => {
     const requested = searchParams.get("section");
     return finishSections.some((s) => s.key === requested) ? requested : finishSections[0]?.key;
@@ -65,7 +65,7 @@ export default function FinishesClient() {
         image="https://images.unsplash.com/photo-1603673298820-40d77252226d?auto=format&fit=crop&w=2000&q=60"
       />
 
-      {/* Section tab bar — only the selected section renders below */}
+      {/* Section tab bar - only the selected section renders below */}
       <nav className="sticky top-[60px] z-30 border-b border-line bg-white/95 backdrop-blur">
         <div className="container flex flex-wrap items-center gap-x-6 gap-y-2 py-3">
           {finishSections.map((s) => (
@@ -139,7 +139,7 @@ export default function FinishesClient() {
                       onClick={() =>
                         setLightbox({ items: group.items, index: itemIndex, group: group.title, aspect: section.aspect })
                       }
-                      aria-label={`${trData(locale, item.label)} — ${t(locale, "finishes.openImage")}`}
+                      aria-label={`${trData(locale, item.label)} - ${t(locale, "finishes.openImage")}`}
                       className="group block text-left"
                     >
                       <span

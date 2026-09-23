@@ -1,12 +1,13 @@
 /* Lithuanian for the Ražotājs-2 (Bulat) reference catalogue: section titles,
    leads, group titles and swatch labels for door design series, PVC/Winshield
    film colours and powder coating. Bare model numbers ("105", "277" …) need
-   no entry — trData falls back to the source, which is already just a
+   no entry - trData falls back to the source, which is already just a
    number. Only labels that carry actual words are listed here. */
 
 export const ltManufacturer2 = {
   // Tab title (Manufacturer2Client)
   "Kalkulators": "Kalkuliatorius",
+  "Iekļauta pamatcenā": "Įtraukta į bazinę kainą",
 
   // Section titles
   "Durvju dizaina sērijas": "Durų dizaino serijos",
@@ -14,12 +15,12 @@ export const ltManufacturer2 = {
   "Pulverkrāsojuma katalogs": "Miltelinio dažymo katalogas",
 
   // Leads
-  "Durvju vērtņu frēzējumu katalogs — vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
-    "Durų varčių frezavimo katalogas — daugiau nei 200 modelių, suskirstytų į serijas pagal frezavimo gylį ir stilių. Kiekvienas raštas gali būti pagamintas bet kuriam durų modeliui ir derinamas su bet kuria dangos spalva iš žemiau matomų palečių.",
+  "Durvju vērtņu frēzējumu katalogs - vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
+    "Durų varčių frezavimo katalogas - daugiau nei 200 modelių, suskirstytų į serijas pagal frezavimo gylį ir stilių. Kiekvienas raštas gali būti pagamintas bet kuriam durų modeliui ir derinamas su bet kuria dangos spalva iš žemiau matomų palečių.",
   "Divi plēves seguma veidi: iekštelpu PVC plēve durvīm dzīvoklī un izturīgākā Winshield plēve ārdurvīm ielas pusē. Abas pārklāj MDF apdares plāksni un ir pieejamas jebkurai vērtnes frēzējuma sērijai.":
     "Dviejų tipų plėvelės danga: vidaus PVC plėvelė durims bute ir atsparesnė Winshield plėvelė lauko durims iš gatvės pusės. Abi dengia MDF apdailos plokštę ir yra prieinamos bet kuriai varčios frezavimo serijai.",
-  "Metāla karkasam un kārbai izmantotais pulverkrāsojums — matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.":
-    "Metaliniam karkasui ir staktai naudojami milteliniai dažai — matinis atlikimas arba medienos tekstūros imitacija. Dažai įdeginami aukštoje temperatūroje, todėl paviršius atsparus įbrėžimams ir korozijai.",
+  "Metāla karkasam un kārbai izmantotais pulverkrāsojums - matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.":
+    "Metaliniam karkasui ir staktai naudojami milteliniai dažai - matinis atlikimas arba medienos tekstūros imitacija. Dažai įdeginami aukštoje temperatūroje, todėl paviršius atsparus įbrėžimams ir korozijai.",
 
   // Design-series group titles
   "100. sērija": "100 serija",
@@ -140,7 +141,7 @@ export const ltManufacturer2 = {
   "Rieksts konjaka tonī 37P-1": "Riešutas konjako atspalvio 37P-1",
   "Kapučīno 53R-5": "Kapučino 53R-5",
 
-  // Powder coating — matte
+  // Powder coating - matte
   "Matēts pārklājums": "Matinė danga",
   "Metāliski melns": "Metalizuotai juoda",
   "Metāliski pelēks (antracīts)": "Metalizuotai pilka (antracitas)",
@@ -150,7 +151,7 @@ export const ltManufacturer2 = {
   "Metāliski Chalet (pelēks)": "Metalizuotai Chalet (pilka)",
   "Metāliski tumši antracīts": "Metalizuotai tamsiai antracitas",
 
-  // Powder coating — wood texture
+  // Powder coating - wood texture
   "Koka tekstūras pārklājums": "Medienos tekstūros danga",
   "Antracīts": "Antracitas",
   "Tumši antracīts": "Tamsiai antracitas",

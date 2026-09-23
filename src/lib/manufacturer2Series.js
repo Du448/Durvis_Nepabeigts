@@ -1,7 +1,7 @@
 import { doorTiers } from "@/data/manufacturer2Calculator";
 
 // Ražotājs-2 tiers are named per size ("Termo House 705") or per electric-lock
-// variant ("Tandem Elektro") — strip both suffixes to get the series name a
+// variant ("Tandem Elektro") - strip both suffixes to get the series name a
 // catalogue product would actually carry in its own name (e.g. "Garant 514").
 function seriesBaseName(tierName) {
   return tierName.replace(/\s+Elektro$/i, "").replace(/\s+\d+$/i, "").trim();
@@ -12,7 +12,7 @@ function escapeRegExp(value) {
 }
 
 // Catalogue product names use the Latvian singular ("Garant"), while the
-// calculator tier is named in the plural ("Garants") — match either.
+// calculator tier is named in the plural ("Garants") - match either.
 function seriesNamePattern(baseName) {
   const stem = escapeRegExp(baseName.replace(/s$/i, ""));
   return new RegExp(`\\b${stem}s?\\b`, "iu");
@@ -47,7 +47,7 @@ export function manufacturer2ColorLinkParams(product) {
   return group === undefined ? { section: "krasas" } : { section: "krasas", group: String(group) };
 }
 
-// Query string (with leading "?") for the "Toņu maiņa" link — appended to
+// Query string (with leading "?") for the "Toņu maiņa" link - appended to
 // "/razotajs-2" before running the result through withLocaleHref().
 export function manufacturer2ColorQuery(product) {
   return `?${new URLSearchParams(manufacturer2ColorLinkParams(product)).toString()}`;
