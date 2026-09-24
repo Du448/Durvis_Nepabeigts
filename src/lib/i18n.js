@@ -273,7 +273,6 @@ const messages = {
       addWishlist: "Pridėti į norus",
       specs: "Specifikacija",
       finishMaterial: "Išorinės apdailos medžiaga",
-      set: "Komplektacija",
       installDelivery: "Montavimas ir pristatymas",
       warranty: "Garantija",
       similar: "Panašūs modeliai",
@@ -296,7 +295,6 @@ const messages = {
       featureInstall: "Montavimas",
       featureWarranty: "Garantija",
       featureDelivery: "Pristatymas",
-      detailsComingLater: "Išsamesnė informacija bus pridėta vėliau.",
       optionPickup: "Atsiėmimas sandėlyje. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
       optionMeasurement: "Matavimas",
       optionMeasurementHint:
@@ -615,7 +613,6 @@ const messages = {
       addWishlist: "Pievienot vēlmēm",
       specs: "Specifikācija",
       finishMaterial: "Ārējās apdares materiāls",
-      set: "Komplektācija",
       installDelivery: "Montāža un piegāde",
       warranty: "Garantija",
       similar: "Līdzīgi modeļi",
@@ -638,7 +635,6 @@ const messages = {
       featureInstall: "Montāža",
       featureWarranty: "Garantija",
       featureDelivery: "Piegāde",
-      detailsComingLater: "Detalizēta informācija tiks pievienota vēlāk.",
       optionPickup: "Saņemšana noliktavā. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
       optionMeasurement: "Mērīšana",
       optionMeasurementHint:
@@ -956,7 +952,6 @@ const messages = {
       addWishlist: "Add to wishlist",
       specs: "Specification",
       finishMaterial: "Exterior finish material",
-      set: "Set",
       installDelivery: "Installation and delivery",
       warranty: "Warranty",
       similar: "Similar models",
@@ -979,7 +974,6 @@ const messages = {
       featureInstall: "Installation",
       featureWarranty: "Warranty",
       featureDelivery: "Delivery",
-      detailsComingLater: "Detailed information will be added later.",
       optionPickup: "Pickup at the warehouse. Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.",
       optionMeasurement: "Measurement",
       optionMeasurementHint:

@@ -71,7 +71,7 @@ export default async function ProductPage({ params }) {
     : null;
   const dict = buildDict(
     locale,
-    [product.name, product.short, product.specs, product.specsFull, product.description, product.finishMaterial, product.set],
+    [product.name, product.short, product.specs, product.specsFull, product.description, product.finishMaterial],
     { colors: product.colors || [] }
   );
 

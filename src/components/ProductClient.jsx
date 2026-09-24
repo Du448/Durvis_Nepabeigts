@@ -488,19 +488,6 @@ export default function ProductClient({ product, similar = [], configurator = nu
                     ) : null}
                   </AccordionItem>
                 ) : null}
-                <AccordionItem title={t(locale, "product.set")}>
-                  {/* Models that list what actually ships in the box say so;
-                      the rest say the details are still to come. */}
-                  {product.set?.length ? (
-                    <ul className="list-disc pl-5">
-                      {product.set.map((item) => (
-                        <li key={item}>{trData(locale, item)}</li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <div className="text-[13px] text-muted">{t(locale, "product.detailsComingLater")}</div>
-                  )}
-                </AccordionItem>
                 <AccordionItem title={t(locale, "product.installDelivery")}>
                   <div className="divide-y divide-[--color-line]">
                     <ServiceToggleRow

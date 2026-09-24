@@ -2128,7 +2128,7 @@ function FloatingPrice({ total, locale }) {
     <button
       type="button"
       onClick={() => document.getElementById("calc-summary")?.scrollIntoView({ behavior: scrollBehavior(), block: "center" })}
-      className="fixed bottom-4 right-4 z-40 flex items-center gap-2.5 rounded-full border-2 border-[color:var(--color-accent)] bg-white px-4 py-2.5 shadow-xl transition-transform hover:-translate-y-0.5 sm:bottom-6 sm:right-6 sm:px-5 sm:py-3"
+      className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] right-4 z-40 flex items-center gap-2.5 rounded-full border-2 border-[color:var(--color-accent)] bg-white px-4 py-2.5 shadow-xl transition-transform hover:-translate-y-0.5 md:bottom-6 sm:right-6 sm:px-5 sm:py-3"
     >
       <span className="hidden text-[12px] font-medium text-muted sm:inline">{trData(locale, "Provizoriskā summa")}</span>
       <span className="text-[17px] font-semibold text-[color:var(--color-accent)] sm:text-[18px]">
