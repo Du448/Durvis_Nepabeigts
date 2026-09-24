@@ -48,7 +48,7 @@ export default async function AdminPage() {
 
   const rows = products.map((p) => ({
     id: p.id,
-    name: trData("lt", p.name),
+    name: { lt: trData("lt", p.name), en: trData("en", p.name) },
     collection: p.collection || "",
     category: p.category,
     currency: p.currency === "UAH" ? "₴" : "€",
