@@ -26,6 +26,8 @@ const SITE = {
 export const siteTitle = (locale) => (SITE[locale] || SITE.lt).title;
 export const siteDescription = (locale) => (SITE[locale] || SITE.lt).description;
 
+const DEFAULT_OG_IMAGE = "/og-image.png";
+
 const OG_LOCALES = { lt: "lt_LT", lv: "lv_LV", en: "en_GB" };
 
 // For generateStaticParams in pages that only vary by language.
@@ -42,15 +44,22 @@ export async function resolveLocale(params) {
 /* Full metadata for one localized page: title, description, canonical and
    hreflang alternates, Open Graph and Twitter. `path` is the path without
    the locale ("" for the homepage). `image` is an absolute URL or a path on
-   this site; without one the section's opengraph-image file is used. */
+   this site; without one the site-wide /og-image.png is used. */
 export function pageMetadata({ locale, path, title, description, image, imageAlt, type = "website", noindex = false }) {
   const fullTitle = title ? `${title} | ${BRAND}` : undefined;
   const languages = Object.fromEntries(locales.map((l) => [l, localizedUrl(l, path)]));
   languages["x-default"] = localizedUrl(defaultLocale, path);
   const url = localizedUrl(locale, path);
-  const images = image
-    ? [{ url: image.startsWith("http") ? image : `${SITE_URL}${image}`, alt: imageAlt || title || BRAND }]
-    : undefined;
+  // A page's own openGraph replaces the layout's, so the site-wide image is
+  // filled in here rather than inherited.
+  const src = image || DEFAULT_OG_IMAGE;
+  const images = [
+    {
+      url: src.startsWith("http") ? src : `${SITE_URL}${src}`,
+      alt: imageAlt || title || BRAND,
+      ...(image ? {} : { width: 1200, height: 630 }),
+    },
+  ];
 
   return {
     ...(fullTitle ? { title: fullTitle } : {}),
@@ -64,13 +73,13 @@ export function pageMetadata({ locale, path, title, description, image, imageAlt
       locale: OG_LOCALES[locale] || OG_LOCALES.lt,
       alternateLocale: locales.filter((l) => l !== locale).map((l) => OG_LOCALES[l]),
       type,
-      ...(images ? { images } : {}),
+      images,
     },
     twitter: {
       card: "summary_large_image",
       title: fullTitle,
       description,
-      ...(images ? { images: images.map((i) => i.url) } : {}),
+      images: images.map((i) => i.url),
     },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
   };
