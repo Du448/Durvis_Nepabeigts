@@ -68,10 +68,12 @@ function TierGallery({ images, alt, locale, photoPending }) {
   const [zoomOpen, setZoomOpen] = useState(false);
   const [touchX, setTouchX] = useState(null);
   const gallery = images && images.length ? images : [];
-  const step = (delta) => setIndex((i) => ((i + delta) % gallery.length + gallery.length) % gallery.length);
+  const count = gallery.length;
+  const step = (delta) => setIndex((i) => ((i + delta) % count + count) % count);
 
   useEffect(() => {
     if (!zoomOpen) return;
+    const step = (delta) => setIndex((i) => ((i + delta) % count + count) % count);
     const onKey = (e) => {
       if (e.key === "Escape") setZoomOpen(false);
       else if (e.key === "ArrowRight") step(1);
@@ -79,7 +81,7 @@ function TierGallery({ images, alt, locale, photoPending }) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-  }, [zoomOpen, gallery.length]);
+  }, [zoomOpen, count]);
 
   if (!gallery.length) {
     if (!photoPending) return null;
@@ -1105,6 +1107,11 @@ function LockOptionsGrid({ lockSet, includedIds, checkedIds, onToggle, locale, c
   );
 }
 
+// Static catalogue data, looked up once rather than on every render.
+const dizainsSection = manufacturer2Sections.find((s) => s.key === "dizains");
+const krasasSection = manufacturer2Sections.find((s) => s.key === "krasas");
+const ralSection = manufacturer2Sections.find((s) => s.key === "ral");
+
 export default function Manufacturer2Calculator() {
   const { trData } = useTr();
   const locale = getLocaleFromPathname(usePathname());
@@ -1121,9 +1128,6 @@ export default function Manufacturer2Calculator() {
 
   const [selectedTierId, setSelectedTierId] = useState(null);
 
-  const dizainsSection = manufacturer2Sections.find((s) => s.key === "dizains");
-  const krasasSection = manufacturer2Sections.find((s) => s.key === "krasas");
-  const ralSection = manufacturer2Sections.find((s) => s.key === "ral");
 
   const selectedTier = doorTiers.find((t) => t.id === selectedTierId) || null;
 
@@ -1132,7 +1136,7 @@ export default function Manufacturer2Calculator() {
     return selectedTier.target === "house"
       ? krasasSection.groups.filter((g) => g.title.includes("ielas"))
       : krasasSection.groups.filter((g) => g.title.includes("dzīvoklī"));
-  }, [selectedTier, krasasSection]);
+  }, [selectedTier]);
 
   const [config, setConfig] = useState(null);
   const [pdfDownloading, setPdfDownloading] = useState(false);
