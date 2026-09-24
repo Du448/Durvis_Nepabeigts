@@ -225,7 +225,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0135-05.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0135-07.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 706/431 - 1200 mm, artikuls: 0135 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -490,7 +489,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0134-05.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0134-07.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 706/431 - 1200 mm, artikuls: 0134 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -757,7 +755,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/02/0133-06.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/02/0133-07.jpg",
   ],
-  "video": "https://youtu.be/CLPWAIDbthA?si=APRvdXsMJFrSGdaf",
   "short": "Dzīvokļa durvis Ultra (kvadro) Securemme, modelis 587/276, artikuls: 0133 - atbilst augstākajiem kvalitātes standartiem. Tās ir aprīkotas ar itāļu slēdzenēm, kas garantē jūsu telpu drošību: augšējā slēdzene - Securemme 2019 suvaldu tipa, apakšējā - cilindra Securemme 2061, un Securemme nakts aizbīdnis, kas pieejams tikai no iekšpuses.",
   "specs": {
    "Vērtnes biezums": "105 mm",
@@ -1006,7 +1003,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/01/0132-0010.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/01/0132-0011.jpg",
   ],
-  "video": "https://youtu.be/fgkIPTHbwqU?si=k_5SVedTwm8rn4E3",
   "short": "Durvis Tandem (kvadro) Kale, modelis 276, artikuls: 0132. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā. Vērtnes biezums ir 105 mm. Durvju svars var sasniegt 103 kg.",
   "specs": {
    "Vērtnes biezums": "105 mm",
@@ -1258,7 +1254,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/12/0129-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/12/0129-11.jpg",
   ],
-  "video": "https://youtu.be/yzWdgWHsk7w?si=ZEySsNacriUWQEGO",
   "short": "Kotedž, modelis 710/265, artikuls: 0131 - ideāls variants tiem, kas meklē uzticamas un stilīgas ārdurvis. Neatkarīgi no laikapstākļiem šīs durvis ir gatavas sargāt jūsu mājokli.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -1511,7 +1506,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0130-07.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0130-10.jpg",
   ],
-  "video": "https://youtu.be/yzWdgWHsk7w?si=ZEySsNacriUWQEGO",
   "short": "Kotedž 705/431, artikuls: 0130 - variants tiem, kas meklē uzticamas ārdurvis ar stiklu.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -1774,7 +1768,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0129-06.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0129-07.jpg",
   ],
-  "video": "https://youtu.be/yzWdgWHsk7w?si=ZEySsNacriUWQEGO",
   "short": "Kotedž, modelis 710/265, artikuls: 0129 - ideāls variants tiem, kas meklē uzticamas un stilīgas ārdurvis. Neatkarīgi no laikapstākļiem šīs durvis ir gatavas sargāt jūsu mājokli.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -2028,7 +2021,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0128-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0128-11.jpg",
   ],
-  "video": "https://youtu.be/yzWdgWHsk7w?si=ZEySsNacriUWQEGO",
   "short": "Kotedž 705/431, artikuls: 0128 - variants tiem, kas meklē uzticamas ārdurvis ar stiklu.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -3994,7 +3986,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-11.jpg"
   ],
-  "video": "https://youtu.be/fgkIPTHbwqU?si=k_5SVedTwm8rn4E3",
   "short": "Durvis Tandem (kvadro) Kale, modelis 586/gluds, artikuls: 0119. Izgatavotas no 1,2 mm bieza auksti velmēta tērauda. Rāmis un vērtne krāsoti ar pulverkrāsu 180° temperatūrā. Vērtnes biezums ir 105 mm. Durvju svars var sasniegt 103 kg.",
   "specs": {
    "Vērtnes biezums": "105 mm",
@@ -5998,7 +5989,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0110-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0110-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 705/431 - 1200 mm, artikuls: 0110 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -6265,7 +6255,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0109-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0109-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 705/431, artikuls: 0109 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -6532,7 +6521,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0108-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0108-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 705/431 - 1200 mm, artikuls: 0108 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -6799,7 +6787,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0107-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0107-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 705/431, artikuls: 0107 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -7066,7 +7053,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0106-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0106-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265 - 1200 mm, artikuls: 0106 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -7323,7 +7309,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0105-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0105-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 705/431 - 1200 mm, artikuls: 0105 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -7589,7 +7574,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0104-7.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0104-10.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 705/431, artikuls: 0104 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -7856,7 +7840,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0103-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0103-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265 - 1200 mm, artikuls: 0103 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -8113,7 +8096,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0102-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0102-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265 - 1200 mm, artikuls: 0102 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -8372,7 +8354,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0101-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0101-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265, artikuls: 0101 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -8629,7 +8610,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0099-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0099-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 706/431 - 1200 mm, artikuls: 0099 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -8896,7 +8876,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0098-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0098-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265 - 1200 mm, artikuls: 0098 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -9153,7 +9132,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0097-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0097-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265, artikuls: 0097 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -9410,7 +9388,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0093-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0093-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265 - 1200 mm, artikuls: 0093 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -9669,7 +9646,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/10/0092-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/10/0092-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265, artikuls: 0092 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -9927,7 +9903,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0090-7.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0090-10.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265, artikuls: 0090 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -10185,7 +10160,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0089-7.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0089-10.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 710/265, artikuls: 0089 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -11217,7 +11191,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/dverna-korobka-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/porig-z-nerzhaviyuchoyi-stali-na-deryah-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg"
   ],
-  "video": "https://youtu.be/Pthr_uVvjuA",
   "short": "Ultra (kvadro) Kale, modelis 567, artikuls: 0082 - uzticamības un mūsdienīga dizaina apvienojums. Durvis ir aprīkotas ar Turcijas slēdzenēm Kale 257 (suvaldu) un Kale 252 (cilindra), kā arī ar Itālijā ražotu Securemme nakts aizbīdni, kas pieejams tikai no iekšpuses.",
   "specs": {
    "Vērtnes biezums": "105 mm",
@@ -11651,7 +11624,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0076-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0076-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 705/431 - 1200 mm, artikuls: 0076 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -11917,7 +11889,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0075-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0075-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 705/431 - 1200 mm, artikuls: 0075 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -12183,7 +12154,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0074-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0074-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 705/431 - 1200 mm, artikuls: 0074 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -12449,7 +12419,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0060-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0060-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 706/431 - 1200 mm, artikuls: 0060 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -12715,7 +12684,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/09/0059-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/09/059-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 706/431 - 1200 mm, artikuls: 0059 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar divām tonētām divkameru energotaupošām stikla paketēm un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -13226,7 +13194,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0055-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0055-11.jpg",
   ],
-  "video": "https://youtu.be/b6I9gPwraKw",
   "short": "Fortezza (kvadro) Securemme, modelis 563/556, artikuls: 0055 - drošības un stila apvienojums. Durvīm ir 4. pretuzlaušanas klase. Tās ir aprīkotas ar itāļu reduktora tipa slēdzenēm Securemme 2663 un 2653 ar TOP GEAR sistēmu un Securemme K-64 Tandem cilindru, kas ļauj ar vienu atslēgu atslēgt gan augšējo, gan apakšējo slēdzeni.",
   "specs": {
    "Vērtnes biezums": "105 mm",
@@ -13478,7 +13445,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/01/antizrizi-na-polotni-ta-pazi-pid-nih-u-dverniy-korobci-na-dveryah-bulat-revolut-b-434-1.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/01/korobka-vihdnih-dverey-bulat-revolut-b-434.jpg"
   ],
-  "video": "https://youtu.be/7xpxRQoVDd8",
   "short": "Citadel B-434 (kvadro), modelis 155, artikuls: 0049 - kvalitātes un mūsdienīguma apvienojums. Tās noderēs tiem, kas meklē nedārgas durvis dzīvoklim.",
   "specs": {
    "Vērtnes biezums": "72 mm",
@@ -13726,7 +13692,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0048-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0048-11.jpg",
   ],
-  "video": "https://youtu.be/V_eIbTrY3cQ?",
   "short": "Dzīvokļa durvis Ultra (kvadro) Securemme, modelis 540/249, artikuls: 0048 - atbilst augstākajiem kvalitātes standartiem. Tās ir aprīkotas ar itāļu slēdzenēm, kas garantē jūsu telpu drošību: augšējā slēdzene - Securemme 2019 suvaldu tipa, apakšējā - cilindra Securemme 2061, un Securemme nakts aizbīdnis, kas pieejams tikai no iekšpuses.",
   "specs": {
    "Vērtnes biezums": "105 mm",
@@ -13975,7 +13940,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0046-10.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0046-11.jpg",
   ],
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "short": "Termo House 706/431 - 1200 mm, artikuls: 0047 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
   "specs": {
    "Vērtnes biezums": "95 mm",
@@ -14246,7 +14210,6 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0028-11.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2026/03/0028-12.jpg",
   ],
-  "video": "https://youtu.be/vDyBYKiHOjo?",
   "short": "Termo Expert (kvadro) Mottura, modelis 550/253, artikuls: 0028 - radītas tiem, kas novērtē drošību. Durvis ir aprīkotas ar itāļu suvaldu tipa slēdzeni Mottura 54.797 MATIC un Securemme K-2 cilindru, kas garantē 4. aizsardzības līmeni.",
   "specs": {
    "Vērtnes biezums": "105 mm",
@@ -14472,7 +14435,6 @@ export const factoryDetails = {
  "th-710-antracits": {
   "sourceId": 18637,
   "short": "Termo House 710/265, artikuls: 0091 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "description": [
    {
     "title": "Durvju kārba",
@@ -14690,7 +14652,6 @@ export const factoryDetails = {
  "th-710-venge": {
   "sourceId": 18634,
   "short": "Termo House 710/265, artikuls: 0088 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas.",
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "description": [
    {
     "title": "Durvju kārba",
@@ -14908,7 +14869,6 @@ export const factoryDetails = {
  "th-705-431-antracits": {
   "sourceId": 14679,
   "short": "Termo House 705/431, artikuls: 0079 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "description": [
    {
     "title": "Durvju kārba",
@@ -15136,7 +15096,6 @@ export const factoryDetails = {
  "th-705-431-balts": {
   "sourceId": 14678,
   "short": "Termo House 705/431, artikuls: 0078 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
-  "video": "https://www.youtube.com/watch?v=vTHWQnD-lqg",
   "description": [
    {
     "title": "Durvju kārba",
@@ -15364,7 +15323,6 @@ export const factoryDetails = {
  "th-705-431-venge-balts": {
   "sourceId": 14677,
   "short": "Termo House 705/431, artikuls: 0077 - laba izvēle tiem, kas meklē uzticamas ārdurvis ar stiklu un termopārrāvumu. Termopārrāvuma tehnoloģija pasargā durvis no aukstuma un novērš kondensāta veidošanos, tādējādi pasargājot izstrādājumu no korozijas. Durvis ir aprīkotas ar tonētu divkameru energotaupošu stikla paketi un nerūsējošā tērauda slieksni.",
-  "video": null,
   "description": [
    {
     "title": "Durvju vērtne",
@@ -15592,7 +15550,6 @@ export const factoryDetails = {
  "prema-172": {
   "sourceId": 7449,
   "short": "Citadel B-434 (kvadro), modelis 172, artikuls: 0050 - kvalitātes un mūsdienīguma apvienojums. Tās noderēs tiem, kas meklē nedārgas durvis dzīvoklim.",
-  "video": null,
   "description": [
    {
     "title": "Durvju vērtne",
@@ -15800,7 +15757,6 @@ export const factoryDetails = {
  "ultra-546-spogulis": {
   "sourceId": 2744,
   "short": "Termo Ultra (kvadro) Securemme, modelis 546/607, artikuls: 0026 - uzticamas un stilīgas durvis ar spoguli. Tās vizuāli paplašina telpu gaitenī. Pateicoties spoguļa ielaidumam, telpa piepildās ar gaismu, un pirms iziešanas var sakārtot frizūru.",
-  "video": "https://youtu.be/KjULviAKrWA",
   "description": [
    {
     "title": "Durvju kārba",

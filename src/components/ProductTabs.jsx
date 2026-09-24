@@ -48,10 +48,6 @@ export default function ProductTabs({ product }) {
         ];
       });
 
-  /* The manufacturer puts a walkthrough video at the top of its description
-     tab; keep it there, as a privacy-friendly nocookie embed. */
-  const videoId = (product?.video || "").match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{6,})/)?.[1];
-
   const tabs = [
     sections.length ? { key: "description", label: t(locale, "product.tabDescription") } : null,
     rows.length ? { key: "specs", label: t(locale, "product.tabSpecs") } : null,
@@ -105,18 +101,6 @@ export default function ProductTabs({ product }) {
         <div id={`${baseId}-panel`} role="tabpanel" aria-labelledby={`${baseId}-tab-${active}`}>
           {active === "description" ? (
             <div className="mt-8 max-w-[900px] space-y-7">
-              {videoId ? (
-                <div className="relative aspect-video w-full overflow-hidden bg-black">
-                  <iframe
-                    src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-                    title={product.name}
-                    loading="lazy"
-                    allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 h-full w-full border-0"
-                  />
-                </div>
-              ) : null}
               {sections.map((section, i) => (
                 <div key={section.title || i}>
                   {section.title ? (

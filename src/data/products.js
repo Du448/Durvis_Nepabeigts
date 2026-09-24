@@ -406,7 +406,6 @@ export const products = [
       return base
         ? {
             ...p,
-            video: base.video || undefined,
             description: base.description,
             specsFull: specsFor188(base.specsFull),
           }
@@ -418,7 +417,6 @@ export const products = [
       return {
         // The shop stocks these itself, so the local stock label stays.
         ...p,
-        video: extra.video || undefined,
         description: extra.description,
         specsFull: extra.specsFull,
       };
