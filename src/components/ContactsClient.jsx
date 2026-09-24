@@ -1,14 +1,16 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { Paperclip, X } from "lucide-react";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { CheckCircle2, Paperclip, Phone, X } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
-import { getProductById } from "@/data/products";
+import { track } from "@vercel/analytics";
+import { getProductById, formatPrice } from "@/data/products";
 import { usePathname } from "next/navigation";
 import PageTitle from "@/components/PageTitle";
 import ConsentMap from "@/components/ConsentMap";
-import { getLocaleFromPathname, withLocaleHref, t, trData } from "@/lib/i18n";
+import { getLocaleFromPathname, translateColorLabel, withLocaleHref, t, trData } from "@/lib/i18n";
+import { phones, mainPhone, hoursFor } from "@/lib/site";
 
 const ALLOWED_EXTENSIONS = ["pdf", "jpg", "jpeg", "png", "webp", "heic", "doc", "docx"];
 const MAX_FILES = 5;
@@ -54,12 +56,27 @@ export default function ContactsClient() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  // What the visitor was looking at on the product page, so the enquiry
+  // arrives with the exact variant instead of just a model name.
+  const offer = useMemo(() => {
+    if (!product) return null;
+    const colors = (product.colors || []).filter(Boolean).map((c) => translateColorLabel(locale, c));
+    return {
+      name: trData(locale, product.name),
+      color: colors.join(" / "),
+      size: searchParams.get("izmers") || product.sizes?.[0] || "",
+      price: formatPrice(product),
+    };
+  }, [product, searchParams, locale]);
+
   const [message, setMessage] = useState(() => {
-    if (!product) return "";
-    const base = `${t(locale, "contacts.prefill")} ${trData(locale, product.name)}`;
-    return selectedServices.length
-      ? `${base}\n${t(locale, "contacts.servicesLabel")}: ${selectedServices.join(", ")}`
-      : base;
+    if (!offer) return "";
+    const lines = [`${t(locale, "contacts.prefill")} ${offer.name}`];
+    if (offer.color) lines.push(`${t(locale, "contacts.colorLabel")}: ${offer.color}`);
+    if (offer.size) lines.push(`${t(locale, "contacts.sizeLabel")}: ${offer.size}`);
+    if (offer.price) lines.push(`${t(locale, "contacts.priceLabel")}: ${offer.price}`);
+    if (selectedServices.length) lines.push(`${t(locale, "contacts.servicesLabel")}: ${selectedServices.join(", ")}`);
+    return lines.join("\n");
   });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -68,6 +85,21 @@ export default function ContactsClient() {
   const [rejected, setRejected] = useState([]);
   const [consent, setConsent] = useState(false);
   const [honeypot, setHoneypot] = useState("");
+  const confirmRef = useRef(null);
+
+  // The confirmation is much shorter than the form it replaces, so bring it
+  // into view instead of leaving the visitor looking at the page below it.
+  useEffect(() => {
+    if (submitted) confirmRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [submitted]);
+
+  function resetForm() {
+    setMessage("");
+    setFiles([]);
+    setRejected([]);
+    setConsent(false);
+    setSubmitted(false);
+  }
 
   // Picks up the PDF the Ražotājs-2 calculator's "Pieprasīt piedāvājumu"
   // button stashed in sessionStorage right before navigating here, and
@@ -116,12 +148,22 @@ export default function ContactsClient() {
       formData.append("message", message);
       formData.append("consent", consent ? "1" : "");
       formData.append("fax_number", honeypot);
+      if (product && offer) {
+        formData.append("product_id", product.id);
+        formData.append("product_name", offer.name);
+        formData.append("product_color", offer.color);
+        formData.append("product_size", offer.size);
+        formData.append("product_price", offer.price);
+        formData.append("product_url", `${window.location.origin}${withLocaleHref(locale, `/produkts/${product.id}`)}`);
+        formData.append("services", selectedServices.join(", "));
+      }
       files.forEach((file) => formData.append("files", file, file.name));
       const res = await fetch("/api/contact", {
         method: "POST",
         body: formData,
       });
       if (!res.ok) throw new Error("send_failed");
+      track("lead_submit", { form: "contact", product: product?.id || "none", locale });
       setSubmitted(true);
     } catch {
       setError(true);
@@ -155,8 +197,9 @@ export default function ContactsClient() {
                 <div className="text-[15px] text-ink">
                   <div className="mb-2">
                     <div className="text-muted">{t(locale, "contacts.phone")}</div>
-                    <a className="block text-ink" href="tel:+37066213171">+370 662 13171</a>
-                    <a className="block text-ink" href="tel:+37060557978">+370 605 57978</a>
+                    {phones.map((p) => (
+                      <a key={p.href} className="block text-ink" href={p.href}>{p.label}</a>
+                    ))}
                   </div>
                   <div className="mb-2">
                     <div className="text-muted">{t(locale, "contacts.email")}</div>
@@ -168,7 +211,14 @@ export default function ContactsClient() {
                   </div>
                   <div>
                     <div className="text-muted">{t(locale, "contacts.hours")}</div>
-                    <div className="text-ink">9:00–18:00</div>
+                    <dl className="grid grid-cols-[auto_1fr] gap-x-4 text-ink">
+                      {hoursFor(locale).map((row) => (
+                        <div key={row.days} className="contents">
+                          <dt>{row.days}</dt>
+                          <dd>{row.time}</dd>
+                        </div>
+                      ))}
+                    </dl>
                   </div>
                 </div>
               </div>
@@ -184,6 +234,53 @@ export default function ContactsClient() {
 
             {/* Right: form */}
             <div>
+              {submitted ? (
+                <div
+                  ref={confirmRef}
+                  role="status"
+                  className="border border-line bg-white p-6 sm:p-8"
+                >
+                  <CheckCircle2 size={40} className="text-[color:var(--color-accent)]" aria-hidden />
+                  <h2 className="mt-4 text-[22px] font-medium text-[color:var(--color-title)]">
+                    {t(locale, "contacts.thanksTitle")}
+                  </h2>
+                  <p className="mt-2 text-[15px] text-ink">{t(locale, "contacts.responseTime")}</p>
+                  {offer ? (
+                    <dl className="mt-5 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 border-t border-line pt-4 text-[14px]">
+                      <dt className="text-muted">{t(locale, "contacts.productLabel")}</dt>
+                      <dd className="text-ink">{offer.name}</dd>
+                      {offer.color ? (
+                        <>
+                          <dt className="text-muted">{t(locale, "contacts.colorLabel")}</dt>
+                          <dd className="text-ink">{offer.color}</dd>
+                        </>
+                      ) : null}
+                      {offer.size ? (
+                        <>
+                          <dt className="text-muted">{t(locale, "contacts.sizeLabel")}</dt>
+                          <dd className="text-ink">{offer.size}</dd>
+                        </>
+                      ) : null}
+                      {offer.price ? (
+                        <>
+                          <dt className="text-muted">{t(locale, "contacts.priceLabel")}</dt>
+                          <dd className="text-ink">{offer.price}</dd>
+                        </>
+                      ) : null}
+                    </dl>
+                  ) : null}
+                  <div className="mt-6 border-t border-line pt-4 text-[14px] text-muted">
+                    {t(locale, "contacts.urgentCall")}{" "}
+                    <a href={mainPhone.href} className="inline-flex items-center gap-1 font-semibold text-ink underline">
+                      <Phone size={14} aria-hidden />
+                      {mainPhone.label}
+                    </a>
+                  </div>
+                  <button type="button" onClick={resetForm} className="btn btn-outline-dark mt-6">
+                    {t(locale, "contacts.sendAnother")}
+                  </button>
+                </div>
+              ) : (
               <form onSubmit={onSubmit} className="border border-line bg-white p-4 space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -307,17 +404,13 @@ export default function ContactsClient() {
                     {sending ? t(locale, "contacts.sending") : t(locale, "contacts.submit")}
                   </button>
                 </div>
-                {submitted && (
-                  <div className="text-ink">
-                    {t(locale, "contacts.thanks")}
-                  </div>
-                )}
                 {error && (
                   <div className="text-[color:var(--color-accent)]">
                     {t(locale, "contacts.error")}
                   </div>
                 )}
               </form>
+              )}
             </div>
           </div>
         </div>

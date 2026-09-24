@@ -25,7 +25,7 @@ const pick = (locale, obj) => obj[locale] ?? obj.lt;
 const HERO = [
   {
     image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/t4IY7.jpg",
-    kicker: { lt: "VIDAUS DURYS", lv: "IEKŠDURVIS", en: "INTERIOR DOORS" },
+    kicker: { lt: "LAUKO DURYS", lv: "ĀRDURVIS", en: "ENTRANCE DOORS" },
     title: {
       lt: "PATIKIMI SPRENDIMAI JŪSŲ SAUGUMUI",
       lv: "UZTICAMI RISINĀJUMI JŪSU DROŠĪBAI",
@@ -34,16 +34,16 @@ const HERO = [
   },
   {
     image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/fH7VH.jpg",
-    kicker: { lt: "LAUKO DURYS", lv: "ĀRDURVIS", en: "ENTRANCE DOORS" },
+    kicker: { lt: "VIDAUS DURYS", lv: "IEKŠDURVIS", en: "INTERIOR DOORS" },
     title: {
-      lt: "SUSTIPRINTA KONSTRUKCIJA IR ŠILUMOS IZOLIACIJA",
-      lv: "PASTIPRINĀTA KONSTRUKCIJA UN SILTUMA IZOLĀCIJA",
-      en: "REINFORCED STRUCTURE AND THERMAL INSULATION",
+      lt: "TYLA IR ESTETIKA KIEKVIENAME KAMBARYJE",
+      lv: "KLUSUMS UN ESTĒTIKA KATRĀ TELPĀ",
+      en: "QUIET AND STYLE IN EVERY ROOM",
     },
   },
   {
     image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/gvXG2.jpg",
-    kicker: { lt: "SALONAS", lv: "SALONS", en: "SHOWROOM" },
+    kicker: { lt: "INDIVIDUALŪS SPRENDIMAI", lv: "INDIVIDUĀLI RISINĀJUMI", en: "CUSTOM SOLUTIONS" },
     title: {
       lt: "NESTANDARTINIAI SPRENDIMAI IR INDIVIDUALŪS PROJEKTAI",
       lv: "NESTANDARTA RISINĀJUMI UN INDIVIDUĀLI PROJEKTI",
@@ -161,13 +161,13 @@ export default async function Home() {
   const pathname = h.get("x-invoke-path") || "/";
   const locale = getLocaleFromPathname(pathname);
 
-  /* Both hero slides carry the same pair of translucent calls to action:
-     into the catalogue, and to the partner application page. */
+  /* Every hero slide carries the same pair of calls to action: a solid one
+     into the catalogue, and a translucent one to the partner application page. */
   const heroCta = [
     {
       label: t(locale, "hero.chooseDoors"),
       href: withLocaleHref(locale, "/kategorija/ardurvis-dzivoklim"),
-      variant: "glass-accent",
+      variant: "accent",
     },
     {
       label: t(locale, "hero.partnership"),

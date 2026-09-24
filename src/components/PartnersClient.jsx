@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Check } from "lucide-react";
+import { track } from "@vercel/analytics";
 import PageTitle from "@/components/PageTitle";
 import Link from "next/link";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
@@ -42,6 +43,7 @@ export default function PartnersClient() {
         body: JSON.stringify(form),
       });
       if (!res.ok) throw new Error("send_failed");
+      track("lead_submit", { form: "partners", locale });
       setSubmitted(true);
     } catch {
       setError(true);

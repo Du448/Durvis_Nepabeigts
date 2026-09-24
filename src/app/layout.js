@@ -2,6 +2,10 @@ import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CookieBanner from "../components/CookieBanner";
+import MobileCallBar from "../components/MobileCallBar";
+import ClickTracking from "../components/ClickTracking";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { headers } from "next/headers";
 import { getLocaleFromPathname } from "@/lib/i18n";
 import { SITE_URL, alternatesFor } from "@/lib/site";
@@ -51,7 +55,13 @@ export default async function RootLayout({ children }) {
         <Header />
         <div className="site-main">{children}</div>
         <Footer />
+        <MobileCallBar />
         <CookieBanner />
+        <ClickTracking />
+        {/* Both are cookieless and collect no personal data, so they run
+            without waiting for the cookie banner. */}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -86,8 +86,16 @@ export default function HeroSlider({ slides = [] }) {
         </div>
       ))}
 
-      {/* Legibility scrim */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/35" />
+      {/* Legibility scrim: an overall wash plus a dark pool centred on the
+          caption, so white text holds up over bright skies and pale facades. */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/50" />
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse 70% 55% at 50% 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0) 100%)",
+        }}
+      />
 
       {/* Caption */}
       <div
@@ -95,12 +103,12 @@ export default function HeroSlider({ slides = [] }) {
         style={{ opacity: captionOn ? 1 : 0 }}
       >
         {caption.kicker ? (
-          <div className="mb-5 text-[12px] font-semibold uppercase tracking-[0.3em] text-white/85 sm:text-[13px]">
+          <div className="mb-5 text-[12px] font-semibold uppercase tracking-[0.3em] text-white sm:text-[13px]">
             {caption.kicker}
           </div>
         ) : null}
 
-        <h1 className="t-hero max-w-[1300px]">{caption.title}</h1>
+        <h1 className="t-hero max-w-[1300px] [text-shadow:0_2px_24px_rgba(0,0,0,0.35)]">{caption.title}</h1>
 
         {caption.subtitle ? (
           <p className="mt-5 max-w-[640px] text-[14px] text-white/85 sm:text-[16px]">

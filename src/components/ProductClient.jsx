@@ -514,6 +514,8 @@ export default function ProductClient({ id }) {
                     href={withLocaleHref(
                       locale,
                       `/kontakti?produkts=${encodeURIComponent(product.id)}${
+                        activeSize ? `&izmers=${encodeURIComponent(activeSize)}` : ""
+                      }${
                         selectedServiceCodes.length
                           ? `&pakalpojumi=${encodeURIComponent(selectedServiceCodes.join(","))}`
                           : ""

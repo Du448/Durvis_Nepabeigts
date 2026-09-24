@@ -5,7 +5,7 @@ import Image from "next/image";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { company } from "@/lib/site";
+import { company, mainPhone, hoursFor } from "@/lib/site";
 import { openCookieSettings } from "@/lib/consent";
 
 /* Footer modelled on m-lux.by: solid black, four uppercase columns,
@@ -85,8 +85,8 @@ export default function Footer() {
             <div className="space-y-1.5">
               <div>
                 <span className="text-white/60">{t(locale, "footer.phone")}: </span>
-                <a className="text-white/80 hover:text-white" href="tel:+37066213171">
-                  +370 662 13171
+                <a className="text-white/80 hover:text-white" href={mainPhone.href}>
+                  {mainPhone.label}
                 </a>
               </div>
               <div>
@@ -156,7 +156,11 @@ export default function Footer() {
                 Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r.
               </div>
               <div className="pt-2">{t(locale, "footer.hours")}</div>
-              <div className="text-white/80">9:00–18:00</div>
+              {hoursFor(locale).map((row) => (
+                <div key={row.days} className="text-white/80">
+                  {row.days}: {row.time}
+                </div>
+              ))}
             </div>
           </Col>
         </div>

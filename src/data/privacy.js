@@ -42,6 +42,7 @@ export const privacy = {
       h: "7. Slapukai ir naršyklės saugykla",
       p: [
         "Svetainė nenaudoja analitikos ar reklamos slapukų. Jūsų naršyklėje saugomi tik būtini duomenys: pageidavimų sąrašas ir jūsų slapukų pasirinkimas.",
+        "Lankomumui ir svetainės greičiui matuoti naudojame Vercel Web Analytics ir Speed Insights. Jie neįrašo slapukų ir nerenka duomenų, pagal kuriuos būtų galima jus identifikuoti: skaičiuojami tik apibendrinti peržiūrų, formų pateikimų ir paspaudimų ant telefono numerio duomenys.",
         "Google Maps žemėlapis kontaktų puslapyje įkeliamas tik jums sutikus. Tuomet Google LLC gali įrašyti savo slapukus pagal savo privatumo politiką. Svetainės šriftai įkeliami iš Google Fonts.",
         "Savo pasirinkimą galite bet kada pakeisti per nuorodą „Slapukų nustatymai“ svetainės apačioje.",
       ],
@@ -84,6 +85,7 @@ export const privacy = {
       h: "7. Sīkdatnes un pārlūka krātuve",
       p: [
         "Vietne neizmanto analītikas vai reklāmas sīkdatnes. Jūsu pārlūkā tiek glabāti tikai nepieciešamie dati: vēlmju saraksts un jūsu sīkdatņu izvēle.",
+        "Apmeklējuma un vietnes ātruma mērīšanai izmantojam Vercel Web Analytics un Speed Insights. Tie nesaglabā sīkdatnes un nevāc datus, pēc kuriem jūs varētu identificēt: tiek skaitīti tikai apkopoti skatījumu, formu iesniegšanas un tālruņa numura klikšķu dati.",
         "Google Maps karte kontaktu lapā tiek ielādēta tikai ar jūsu piekrišanu. Tad Google LLC var saglabāt savas sīkdatnes saskaņā ar savu privātuma politiku. Vietnes fonti tiek ielādēti no Google Fonts.",
         "Savu izvēli varat jebkurā laikā mainīt, izmantojot saiti “Sīkdatņu iestatījumi” vietnes apakšā.",
       ],
@@ -126,6 +128,7 @@ export const privacy = {
       h: "7. Cookies and browser storage",
       p: [
         "The website uses no analytics or advertising cookies. Only necessary data is stored in your browser: your wishlist and your cookie choice.",
+        "We use Vercel Web Analytics and Speed Insights to measure visits and site speed. They set no cookies and collect nothing that identifies you: only aggregated page views, form submissions and phone-number clicks are counted.",
         "The Google Maps map on the contacts page loads only with your consent, after which Google LLC may set its own cookies under its privacy policy. Website fonts are loaded from Google Fonts.",
         "You can change your choice at any time via the “Cookie settings” link at the bottom of the site.",
       ],

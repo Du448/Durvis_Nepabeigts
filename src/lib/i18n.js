@@ -54,10 +54,10 @@ const messages = {
       interior: "Vidaus durys",
       hidden: "Paslėptos durys",
       deals: "Akcijos",
-      finishes: "Apdailė",
+      finishes: "Apdaila",
       individualSolutions: "Individualūs sprendimai",
-      manufacturer1: "Gamintojas - 1",
-      manufacturer2: "Gamintojas - 2",
+      manufacturer1: "Apdaila ir dizainas",
+      manufacturer2: "Durų konfigūratorius",
       products: "Produktai",
       about: "Apie mus",
       contacts: "Kontaktai",
@@ -104,6 +104,7 @@ const messages = {
     },
     common: {
       home: "Pradžia",
+      call: "Skambinti",
     },
     home: {
       popularCategories: "Populiarios kategorijos",
@@ -147,7 +148,7 @@ const messages = {
     },
     pages: {
       manufacturer2: {
-        title: "Gamintojas - 2",
+        title: "Durų konfigūratorius",
         description: "Durų dizaino serijos, plėvelės spalvos ir milteliniai dažai.",
       },
       deals: {
@@ -176,6 +177,14 @@ const messages = {
         featuresDesc3: "Gamintojo ir montavimo garantija patikimam rezultatui.",
         featuresTitle4: "Nemokama konsultacija",
         featuresDesc4: "Padėsime rasti optimalų sprendimą jūsų poreikiams.",
+        showroomTitle: "Mūsų salonas",
+        showroomText:
+          "Salone eksponuojami lauko ir vidaus durų pavyzdžiai, apdailos ir spalvų paletės. Atvykite apžiūrėti durų gyvai ir pasitarti su specialistu.",
+        showroomCta: "Kaip atvykti",
+        statModels: "modelių kataloge",
+        statCollections: "kolekcijų",
+        statColors: "spalvų ir apdailų",
+        testimonialsTitle: "Klientų atsiliepimai",
       },
       services: {
         title: "Paslaugos",
@@ -300,6 +309,14 @@ const messages = {
       thanks: "Ačiū! Susisieksime artimiausiu metu.",
       error: "Nepavyko išsiųsti. Bandykite dar kartą arba rašykite el. paštu.",
       mapTitle: "TN Baltic - žemėlapis",
+      productLabel: "Modelis",
+      colorLabel: "Spalva",
+      sizeLabel: "Dydis",
+      priceLabel: "Kaina",
+      thanksTitle: "Ačiū, užklausa gauta!",
+      responseTime: "Atsakysime per 1 darbo dieną.",
+      urgentCall: "Skubu? Skambinkite:",
+      sendAnother: "Siųsti kitą užklausą",
     },
     finishes: {
       title: "Apdaila ir dizainas",
@@ -373,8 +390,8 @@ const messages = {
       deals: "Akcijas",
       finishes: "Apdare",
       individualSolutions: "Individuālie risinājumi",
-      manufacturer1: "Ražotājs - 1",
-      manufacturer2: "Ražotājs - 2",
+      manufacturer1: "Apdare un dizains",
+      manufacturer2: "Durvju konfigurators",
       products: "Produkti",
       about: "Par mums",
       contacts: "Kontakti",
@@ -421,6 +438,7 @@ const messages = {
     },
     common: {
       home: "Sākums",
+      call: "Zvanīt",
     },
     home: {
       popularCategories: "Populārās kategorijas",
@@ -464,7 +482,7 @@ const messages = {
     },
     pages: {
       manufacturer2: {
-        title: "Ražotājs - 2",
+        title: "Durvju konfigurators",
         description: "Durvju dizaina sērijas, plēves krāsas un pulverkrāsojums.",
       },
       deals: {
@@ -493,6 +511,14 @@ const messages = {
         featuresDesc3: "Ražotāja un montāžas garantija drošam rezultātam.",
         featuresTitle4: "Bezmaksas konsultācija",
         featuresDesc4: "Palīdzēsim izvēlēties optimālu risinājumu jūsu vajadzībām.",
+        showroomTitle: "Mūsu salons",
+        showroomText:
+          "Salonā izstādīti ārdurvju un iekšdurvju paraugi, apdares un krāsu paletes. Atbrauciet apskatīt durvis klātienē un konsultēties ar speciālistu.",
+        showroomCta: "Kā nokļūt",
+        statModels: "modeļi katalogā",
+        statCollections: "kolekcijas",
+        statColors: "krāsas un apdares",
+        testimonialsTitle: "Klientu atsauksmes",
       },
       services: {
         title: "Pakalpojumi",
@@ -617,6 +643,14 @@ const messages = {
       thanks: "Paldies! Sazināsimies tuvākajā laikā.",
       error: "Neizdevās nosūtīt. Lūdzu, mēģiniet vēlreiz vai rakstiet uz e-pastu.",
       mapTitle: "TN Baltic - karte",
+      productLabel: "Modelis",
+      colorLabel: "Krāsa",
+      sizeLabel: "Izmērs",
+      priceLabel: "Cena",
+      thanksTitle: "Paldies, pieteikums saņemts!",
+      responseTime: "Atbildēsim 1 darba dienas laikā.",
+      urgentCall: "Steidzami? Zvaniet:",
+      sendAnother: "Nosūtīt citu pieteikumu",
     },
     finishes: {
       title: "Apdare un dizains",
@@ -690,8 +724,8 @@ const messages = {
       deals: "Deals",
       finishes: "Finishes",
       individualSolutions: "Individual solutions",
-      manufacturer1: "Manufacturer - 1",
-      manufacturer2: "Manufacturer - 2",
+      manufacturer1: "Finishes and design",
+      manufacturer2: "Door configurator",
       products: "Products",
       about: "About",
       contacts: "Contacts",
@@ -738,6 +772,7 @@ const messages = {
     },
     common: {
       home: "Home",
+      call: "Call us",
     },
     home: {
       popularCategories: "Popular categories",
@@ -781,7 +816,7 @@ const messages = {
     },
     pages: {
       manufacturer2: {
-        title: "Manufacturer - 2",
+        title: "Door configurator",
         description: "Door design series, film colours and powder coating.",
       },
       deals: {
@@ -809,6 +844,14 @@ const messages = {
         featuresDesc3: "Manufacturer and installation warranty for peace of mind.",
         featuresTitle4: "Free consultation",
         featuresDesc4: "We'll help you choose the optimal solution for your needs.",
+        showroomTitle: "Our showroom",
+        showroomText:
+          "Our showroom displays exterior and interior door samples, finishes and colour palettes. Come and see the doors in person and talk to a specialist.",
+        showroomCta: "Get directions",
+        statModels: "models in the catalogue",
+        statCollections: "collections",
+        statColors: "colours and finishes",
+        testimonialsTitle: "Customer reviews",
       },
       services: {
         title: "Services",
@@ -933,6 +976,14 @@ const messages = {
       thanks: "Thank you! We'll get back to you soon.",
       error: "Couldn't send your message. Please try again or email us directly.",
       mapTitle: "TN Baltic - map",
+      productLabel: "Model",
+      colorLabel: "Colour",
+      sizeLabel: "Size",
+      priceLabel: "Price",
+      thanksTitle: "Thank you, we've received your enquiry!",
+      responseTime: "We'll reply within 1 business day.",
+      urgentCall: "In a hurry? Call us:",
+      sendAnother: "Send another enquiry",
     },
     finishes: {
       title: "Finishes and design",

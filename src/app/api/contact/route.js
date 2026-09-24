@@ -14,12 +14,25 @@ import {
 // rather than let the send fail after the visitor has already waited.
 const MAX_ATTACHMENTS_BYTES = 15 * 1024 * 1024;
 
+// Variant the visitor picked on the product page, sent alongside the free-text
+// message so it survives even if they rewrite the prefilled text.
+const OFFER_FIELDS = [
+  ["product_name", "Modelis"],
+  ["product_id", "ID"],
+  ["product_color", "Spalva"],
+  ["product_size", "Dydis"],
+  ["product_price", "Kaina"],
+  ["services", "Paslaugos"],
+  ["product_url", "Nuoroda"],
+];
+
 export async function POST(request) {
   const limited = rateLimited(request, "contact");
   if (limited) return limited;
 
   const contentType = request.headers.get("content-type") || "";
   let name, phone, email, message, attachments, consent, trap;
+  let offer = {};
 
   if (contentType.includes("multipart/form-data")) {
     let form;
@@ -34,6 +47,9 @@ export async function POST(request) {
     message = String(form.get("message") || "").trim();
     consent = Boolean(form.get("consent"));
     trap = form.get(HONEYPOT_FIELD);
+    offer = Object.fromEntries(
+      OFFER_FIELDS.map(([key]) => [key, String(form.get(key) || "").replace(/[\r\n]+/g, " ").trim().slice(0, 300)])
+    );
 
     const files = form.getAll("files").filter((f) => f && typeof f.arrayBuffer === "function" && f.size > 0);
     if (files.length > MAX_UPLOAD_FILES) {
@@ -74,18 +90,42 @@ export async function POST(request) {
     return NextResponse.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
 
-  const text = [`Vardas: ${name}`, `Telefonas: ${phone}`, `El. paštas: ${email}`, "", "Žinutė:", message].join("\n");
+  const offerRows = OFFER_FIELDS.filter(([key]) => offer[key]);
+  const text = [
+    `Vardas: ${name}`,
+    `Telefonas: ${phone}`,
+    `El. paštas: ${email}`,
+    ...(offerRows.length ? ["", "Produktas:", ...offerRows.map(([key, label]) => `${label}: ${offer[key]}`)] : []),
+    "",
+    "Žinutė:",
+    message,
+  ].join("\n");
+  const offerHtml = offerRows.length
+    ? `<table cellpadding="4" style="border-collapse:collapse;margin:12px 0;border:1px solid #ddd">${offerRows
+        .map(
+          ([key, label]) =>
+            `<tr><td style="color:#666">${label}</td><td>${
+              key === "product_url" && /^https?:\/\//.test(offer[key])
+                ? `<a href="${escapeHtml(offer[key])}">${escapeHtml(offer[key])}</a>`
+                : escapeHtml(offer[key])
+            }</td></tr>`
+        )
+        .join("")}</table>`
+    : "";
   const html = `
     <p><strong>Vardas:</strong> ${escapeHtml(name)}</p>
     <p><strong>Telefonas:</strong> ${escapeHtml(phone)}</p>
     <p><strong>El. paštas:</strong> ${escapeHtml(email)}</p>
+    ${offerHtml}
     <p><strong>Žinutė:</strong></p>
     <p>${escapeHtml(message).replace(/\n/g, "<br>")}</p>
   `;
 
   try {
     await sendFormEmail({
-      subject: `Nauja žinutė iš kontaktų formos - ${name}`,
+      subject: offer.product_name
+        ? `Užklausa: ${offer.product_name} - ${name}`
+        : `Nauja žinutė iš kontaktų formos - ${name}`,
       replyTo: email,
       text,
       html,
