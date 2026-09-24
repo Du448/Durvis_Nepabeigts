@@ -34,7 +34,7 @@ const OG_LOCALES = { lt: "lt_LT", lv: "lv_LV", en: "en_GB" };
 export const localeParams = () => locales.map((locale) => ({ locale }));
 
 /* The [locale] segment of the current route. Anything outside the known
-   languages is a 404 (the proxy already sends bare paths to /lt). */
+   languages is a 404 (the proxy serves unprefixed paths from /lt). */
 export async function resolveLocale(params) {
   const { locale } = await params;
   if (!locales.includes(locale)) notFound();

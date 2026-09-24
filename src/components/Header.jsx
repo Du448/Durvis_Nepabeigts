@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import { Heart, Search, X, Menu, ChevronDown } from "lucide-react";
-import { getLocaleFromPathname, withLocaleHref, locales, t } from "@/lib/i18n";
+import { getLocaleFromPathname, withLocaleHref, localePath, stripLocale, locales, t } from "@/lib/i18n";
 import { readWishlistIds } from "@/lib/wishlist";
 
 const BRAND = "NT Durys";
@@ -98,7 +98,7 @@ export default function Header() {
   const pathname = usePathname() || "/";
   const router = useRouter();
   const locale = getLocaleFromPathname(pathname);
-  const isHome = pathname === `/${locale}` || pathname === `/${locale}/` || pathname === "/";
+  const isHome = stripLocale(pathname) === "/";
 
   const [open, setOpen] = useState(false);
   const [openGroups, setOpenGroups] = useState({});
@@ -144,17 +144,8 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const pathnameWithoutLocale = (() => {
-    const parts = pathname.split("/").filter(Boolean);
-    if (locales.includes(parts[0])) {
-      const rest = parts.slice(1).join("/");
-      return rest ? `/${rest}` : "/";
-    }
-    return pathname || "/";
-  })();
-
-  const buildLangHref = (nextLocale) =>
-    pathnameWithoutLocale === "/" ? `/${nextLocale}` : `/${nextLocale}${pathnameWithoutLocale}`;
+  const pathnameWithoutLocale = stripLocale(pathname);
+  const buildLangHref = (nextLocale) => localePath(nextLocale, pathnameWithoutLocale);
 
   const submitSearch = (e) => {
     e.preventDefault();

@@ -1,3 +1,5 @@
+import { localePath } from "@/lib/i18n";
+
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://ntdurys.lt").replace(/\/$/, "");
 
 export const company = {
@@ -9,7 +11,7 @@ export const company = {
 };
 
 export function localizedUrl(locale, path) {
-  return `${SITE_URL}/${locale}${path}`;
+  return `${SITE_URL}${localePath(locale, path)}`;
 }
 
 

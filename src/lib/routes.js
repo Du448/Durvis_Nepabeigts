@@ -1,5 +1,5 @@
 /* Public URL slugs. The site's main market is Lithuania, so every language
-   uses the same Lithuanian slugs (/lt/produktas/…, /lv/produktas/…). The
+   uses the same Lithuanian slugs (/produktas/…, /lv/produktas/…). The
    catalogue data keeps its own internal category ids ("ardurvis-dzivoklim"
    etc.); only the URLs are mapped here.
 

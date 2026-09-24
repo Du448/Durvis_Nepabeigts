@@ -1,14 +1,15 @@
 import { NextResponse } from "next/server";
-import { locales, defaultLocale } from "@/lib/i18n";
+import { locales, defaultLocale, localePath } from "@/lib/i18n";
 import { legacyToCurrent } from "@/lib/routes";
 
-/* Pages live under app/[locale]/, so this only has to send visitors to a
-   URL with a language in it:
+/* Pages live under app/[locale]/, but Lithuanian - the main language - is
+   served from the root:
 
-   - "/"                         -> 307 to /lt (may one day depend on the browser language)
-   - a path without a language   -> 301 to /lt/<path>
-   - a pre-migration Latvian slug (/lt/produkts/x, /kontakti, /lv/kategorija/ieksdurvis …)
-                                 -> 301 straight to the current address, in one hop. */
+   - a path without a language (/, /kontaktai)  -> rewritten to /lt/… internally
+   - /lt or /lt/<path>                          -> 301 to the unprefixed address
+   - /lv/…, /en/…                               -> served as is
+   - a pre-migration Latvian slug (/produkts/x, /lt/kontakti, /lv/kategorija/ieksdurvis …)
+                                                -> 301 straight to the current address, in one hop. */
 
 function isPublicFile(pathname) {
   return pathname.includes(".");
@@ -17,7 +18,8 @@ function isPublicFile(pathname) {
 export function proxy(request) {
   const { pathname } = request.nextUrl;
 
-  if (pathname.startsWith("/_next") || pathname.startsWith("/api") || isPublicFile(pathname)) {
+  // "/api/" with the slash: /apie-mus is a page.
+  if (pathname.startsWith("/_next/") || pathname.startsWith("/api/") || isPublicFile(pathname)) {
     return NextResponse.next();
   }
 
@@ -26,14 +28,20 @@ export function proxy(request) {
   const locale = hasLocale ? segments[0] : defaultLocale;
   const rest = `/${(hasLocale ? segments.slice(1) : segments).join("/")}`;
   const current = legacyToCurrent(rest);
-
-  if (hasLocale && !current) return NextResponse.next();
+  const canonical = localePath(locale, current || rest);
 
   const url = request.nextUrl.clone();
-  url.pathname = `/${locale}${current || (rest === "/" ? "" : rest)}`;
-  return NextResponse.redirect(url, pathname === "/" ? 307 : 301);
+  if (canonical !== pathname) {
+    url.pathname = canonical;
+    return NextResponse.redirect(url, 301);
+  }
+
+  if (hasLocale) return NextResponse.next();
+
+  url.pathname = `/${defaultLocale}${rest === "/" ? "" : rest}`;
+  return NextResponse.rewrite(url);
 }
 
 export const config = {
-  matcher: ["/((?!_next|api|.*\\..*).*)"],
+  matcher: ["/((?!_next/|api/|.*\\..*).*)"],
 };

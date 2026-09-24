@@ -6,18 +6,32 @@ export function getLocaleFromPathname(pathname) {
   return locales.includes(seg) ? seg : defaultLocale;
 }
 
+/* The public path of a page in one language. Lithuanian is the site's main
+   language and lives at the root (/kontaktai); the others are prefixed
+   (/lv/kontaktai). `path` is the path without a language ("" or "/" for the
+   homepage) and may carry a query string. */
+export function localePath(locale, path = "") {
+  const rest = !path || path === "/" ? "" : path.startsWith("/") ? path : `/${path}`;
+  if (locale === defaultLocale || !locales.includes(locale)) return rest.startsWith("?") ? `/${rest}` : rest || "/";
+  return `/${locale}${rest}`;
+}
+
+/* Path without its language prefix ("/" for the homepage). */
+export function stripLocale(pathname) {
+  const parts = (pathname || "/").split("/").filter(Boolean);
+  if (locales.includes(parts[0])) parts.shift();
+  return `/${parts.join("/")}`;
+}
+
 export function withLocaleHref(locale, href) {
-  if (!href) return `/${locale}`;
+  if (!href) return localePath(locale, "");
   if (href.startsWith("http://") || href.startsWith("https://") || href.startsWith("mailto:") || href.startsWith("tel:")) {
     return href;
   }
-
   const normalized = href.startsWith("/") ? href : `/${href}`;
-  const parts = normalized.split("/").filter(Boolean);
-  if (locales.includes(parts[0])) return normalized;
-
-  if (normalized === "/") return `/${locale}`;
-  return `/${locale}${normalized}`;
+  const first = normalized.split(/[/?#]/).filter(Boolean)[0];
+  if (locales.includes(first)) return localePath(first, normalized.slice(first.length + 1));
+  return localePath(locale, normalized);
 }
 
 const messages = {
