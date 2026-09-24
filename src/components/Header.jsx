@@ -8,7 +8,7 @@ import { Heart, Search, X, Menu, ChevronDown } from "lucide-react";
 import { getLocaleFromPathname, withLocaleHref, locales, t } from "@/lib/i18n";
 import { readWishlistIds } from "@/lib/wishlist";
 
-const BRAND = "Durys";
+const BRAND = "NT Durys";
 
 /* Header modelled on m-lux.by: fixed overlay on the homepage, solid white on
    inner pages, 105px tall at the top, shrinking to 60px once stuck, hidden on

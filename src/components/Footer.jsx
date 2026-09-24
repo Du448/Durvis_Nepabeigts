@@ -77,7 +77,7 @@ export default function Footer() {
           <div>
             {/* The footer is solid black, so the white print of the mark. */}
             <Link href={withLocaleHref(locale, "/")} className="mb-5 block">
-              <Image src="/logo-white.png" alt="Durys" width={941} height={481} className="h-14 w-auto" />
+              <Image src="/logo-white.png" alt="NT Durys" width={941} height={481} className="h-14 w-auto" />
             </Link>
             <p className="mb-6 max-w-[280px] text-white/80">
               {TAGLINE[locale] || TAGLINE.lt}
@@ -179,7 +179,7 @@ export default function Footer() {
               {t(locale, "legal.cookieSettings")}
             </button>
             <span>
-              DURYS {new Date().getFullYear()}. {t(locale, "footer.rights")}
+              NT Durys {new Date().getFullYear()}. {t(locale, "footer.rights")}
             </span>
           </div>
         </div>

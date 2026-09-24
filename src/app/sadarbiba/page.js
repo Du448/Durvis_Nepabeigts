@@ -9,7 +9,7 @@ export async function generateMetadata() {
   const pathname = h.get("x-invoke-path") || "/";
   const locale = getLocaleFromPathname(pathname);
 
-  const title = `${t(locale, "partners.title")} | Durų Namai`;
+  const title = `${t(locale, "partners.title")} | NT Durys`;
   const description = t(locale, "partners.lead");
 
   return {
@@ -19,7 +19,7 @@ export async function generateMetadata() {
       title,
       description,
       locale: locale === "lv" ? "lv_LV" : locale === "en" ? "en_US" : "lt_LT",
-      siteName: "Durų Namai",
+      siteName: "NT Durys",
       type: "website",
     },
   };

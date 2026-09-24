@@ -27,7 +27,7 @@ export async function generateMetadata({ params }) {
         ? translated
         : category?.name || nameLt;
 
-  const title = `${name} | Durų Namai`;
+  const title = `${name} | NT Durys`;
   const description =
     locale === "en"
       ? `${name} - exterior and interior doors. Installation and delivery across Lithuania.`
@@ -43,7 +43,7 @@ export async function generateMetadata({ params }) {
       title,
       description,
       locale: ogLocale,
-      siteName: "Durų Namai",
+      siteName: "NT Durys",
       type: "website",
     },
   };

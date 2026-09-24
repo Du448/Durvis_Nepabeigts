@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 
 export const metadata = {
-  title: "404 | Durų Namai",
+  title: "404 | NT Durys",
   robots: { index: false },
 };
 

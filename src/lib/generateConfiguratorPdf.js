@@ -25,7 +25,7 @@ const CHROME = {
     insideImage: "Iekšpuse",
     selectedExtras: "Izvēlētās detaļas",
     page: "Lappuse",
-    company: "DURYS",
+    company: "NT DURYS",
     tagline: "Uzticamas un ilgmūžīgas durvis jūsu mājoklim",
   },
   lt: {
@@ -42,7 +42,7 @@ const CHROME = {
     insideImage: "Vidus",
     selectedExtras: "Pasirinktos detalės",
     page: "Puslapis",
-    company: "DURYS",
+    company: "NT DURYS",
     tagline: "Patikimos ir ilgaamžės durys jūsų namams",
   },
   en: {
@@ -59,7 +59,7 @@ const CHROME = {
     insideImage: "Inside",
     selectedExtras: "Selected details",
     page: "Page",
-    company: "DURYS",
+    company: "NT DURYS",
     tagline: "Reliable, long-lasting doors for your home",
   },
 };

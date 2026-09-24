@@ -11,7 +11,7 @@ async function currentLocale() {
 export async function generateMetadata() {
   const locale = await currentLocale();
   return {
-    title: `${t(locale, "legal.privacyTitle")} | Durų Namai`,
+    title: `${t(locale, "legal.privacyTitle")} | NT Durys`,
     description: t(locale, "legal.privacyDescription"),
   };
 }

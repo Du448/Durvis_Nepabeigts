@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   const locale = await currentLocale();
   const service = getService(slug, locale);
   if (!service) return {};
-  const title = `${service.title} | Durų Namai`;
+  const title = `${service.title} | NT Durys`;
   return {
     title,
     description: service.description,
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }) {
       title,
       description: service.description,
       locale: locale === "lv" ? "lv_LV" : locale === "en" ? "en_US" : "lt_LT",
-      siteName: "Durų Namai",
+      siteName: "NT Durys",
       type: "website",
     },
   };

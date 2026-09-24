@@ -19,14 +19,14 @@ export async function generateMetadata() {
 
 const baseMetadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Durų Namai - lauko ir vidaus durys Lietuvoje",
+  title: "NT Durys - lauko ir vidaus durys Lietuvoje",
   description:
-    "Durų Namai: lauko ir vidaus durys, profesionalus montavimas ir pristatymas visoje Lietuvoje. Platus asortimentas, konsultacijos ir garantija.",
+    "NT Durys: lauko ir vidaus durys, profesionalus montavimas ir pristatymas visoje Lietuvoje. Platus asortimentas, konsultacijos ir garantija.",
   openGraph: {
-    title: "Durų Namai - lauko ir vidaus durys Lietuvoje",
+    title: "NT Durys - lauko ir vidaus durys Lietuvoje",
     description:
-      "Durų Namai: lauko ir vidaus durys, montavimas ir pristatymas visoje Lietuvoje.",
-    siteName: "Durų Namai",
+      "NT Durys: lauko ir vidaus durys, montavimas ir pristatymas visoje Lietuvoje.",
+    siteName: "NT Durys",
     locale: "lt_LT",
     type: "website",
   },
