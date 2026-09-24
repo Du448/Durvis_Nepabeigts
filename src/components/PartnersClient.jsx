@@ -4,7 +4,8 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Check } from "lucide-react";
 import PageTitle from "@/components/PageTitle";
-import { getLocaleFromPathname, t } from "@/lib/i18n";
+import Link from "next/link";
+import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 
 /* Partner application page - the destination of the hero's "Sadarbība"
    button. Same understated form styling as the contacts page. */
@@ -21,6 +22,7 @@ export default function PartnersClient() {
     activity: "salon",
     message: "",
     consent: false,
+    fax_number: "",
   });
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -163,8 +165,20 @@ export default function PartnersClient() {
                   onChange={set("consent")}
                   required
                 />
-                <span>{t(locale, "partners.consent")}</span>
+                <span>
+                  {t(locale, "partners.consent")}{" "}
+                  <Link href={withLocaleHref(locale, "/privatumo-politika")} className="underline" target="_blank">
+                    {t(locale, "legal.privacyLink")}
+                  </Link>
+                </span>
               </label>
+
+              <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                <label>
+                  Fax
+                  <input type="text" name="fax_number" tabIndex={-1} autoComplete="off" value={form.fax_number} onChange={set("fax_number")} />
+                </label>
+              </div>
 
               <button type="submit" disabled={sending} className="btn btn-accent disabled:opacity-60">
                 {sending ? t(locale, "partners.sending") : t(locale, "partners.submit")}

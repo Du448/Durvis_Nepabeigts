@@ -24,6 +24,29 @@ export function withLocaleHref(locale, href) {
 
 const messages = {
   lt: {
+    legal: {
+      privacyTitle: "Privatumo politika",
+      privacyDescription: "Kaip tvarkome jūsų asmens duomenis ir kokius slapukus naudoja svetainė.",
+      privacyLink: "Privatumo politika",
+      cookieSettings: "Slapukų nustatymai",
+      contactConsent: "Sutinku, kad mano pateikti duomenys būtų tvarkomi atsakant į užklausą.",
+      cookieText: "Svetainė naudoja tik būtinus duomenis savo veikimui. Google Maps žemėlapis įkeliamas tik jums sutikus - Google gali įrašyti savo slapukus.",
+      cookieAccept: "Sutinku",
+      cookieDecline: "Tik būtini",
+      cookieMore: "Daugiau",
+      mapPlaceholder: "Žemėlapis įkeliamas iš Google Maps. Google gali įrašyti slapukus.",
+      mapLoad: "Rodyti žemėlapį",
+      mapOpen: "Atidaryti Google Maps",
+      fileTypesHint: "Leidžiami failai: PDF, JPG, PNG, WEBP, HEIC, DOC, DOCX (iki 5 failų, 15 MB).",
+      fileRejected: "Šio tipo failo pridėti negalima:",
+      companyCode: "Įmonės kodas",
+      vatCode: "PVM kodas",
+      notFoundTitle: "Puslapis nerastas",
+      notFoundText: "Atsiprašome, tokio puslapio nėra arba jis buvo perkeltas.",
+      notFoundHome: "Į pradžią",
+      notFoundCatalogue: "Lauko durys",
+      notFoundContact: "Susisiekti",
+    },
     nav: {
       news: "Naujienos",
       exteriorApartment: "Buto lauko durys",
@@ -156,7 +179,7 @@ const messages = {
       },
       services: {
         title: "Paslaugos",
-        description: "Matavimas, montavimas, garantija ir pristatymas - detalesnė informacija bus pridėta vėliau.",
+        description: "Matavimas, montavimas, garantija ir pristatymas visoje Lietuvoje.",
       },
     },
     header: {
@@ -318,6 +341,29 @@ const messages = {
     },
   },
   lv: {
+    legal: {
+      privacyTitle: "Privātuma politika",
+      privacyDescription: "Kā mēs apstrādājam jūsu personas datus un kādas sīkdatnes izmanto vietne.",
+      privacyLink: "Privātuma politika",
+      cookieSettings: "Sīkdatņu iestatījumi",
+      contactConsent: "Piekrītu, ka mani iesniegtie dati tiek apstrādāti, lai atbildētu uz pieprasījumu.",
+      cookieText: "Vietne savai darbībai izmanto tikai nepieciešamos datus. Google Maps karte tiek ielādēta tikai ar jūsu piekrišanu - Google var saglabāt savas sīkdatnes.",
+      cookieAccept: "Piekrītu",
+      cookieDecline: "Tikai nepieciešamās",
+      cookieMore: "Vairāk",
+      mapPlaceholder: "Karte tiek ielādēta no Google Maps. Google var saglabāt sīkdatnes.",
+      mapLoad: "Rādīt karti",
+      mapOpen: "Atvērt Google Maps",
+      fileTypesHint: "Atļautie faili: PDF, JPG, PNG, WEBP, HEIC, DOC, DOCX (līdz 5 failiem, 15 MB).",
+      fileRejected: "Šāda tipa failu pievienot nevar:",
+      companyCode: "Uzņēmuma kods",
+      vatCode: "PVN kods",
+      notFoundTitle: "Lapa nav atrasta",
+      notFoundText: "Atvainojiet, šādas lapas nav vai tā ir pārvietota.",
+      notFoundHome: "Uz sākumu",
+      notFoundCatalogue: "Ārdurvis",
+      notFoundContact: "Sazināties",
+    },
     nav: {
       news: "Jaunumi",
       exteriorApartment: "Ārdurvis dzīvoklim",
@@ -450,7 +496,7 @@ const messages = {
       },
       services: {
         title: "Pakalpojumi",
-        description: "Uzmērīšana, montāža, garantija un piegāde - detalizēta informācija tiks pievienota vēlāk.",
+        description: "Uzmērīšana, montāža, garantija un piegāde visā Lietuvā.",
       },
     },
     header: {
@@ -612,6 +658,29 @@ const messages = {
     },
   },
   en: {
+    legal: {
+      privacyTitle: "Privacy policy",
+      privacyDescription: "How we process your personal data and which cookies the website uses.",
+      privacyLink: "Privacy policy",
+      cookieSettings: "Cookie settings",
+      contactConsent: "I agree to the data I submit being processed to respond to my enquiry.",
+      cookieText: "This website only uses data it needs to work. The Google Maps map is loaded only with your consent - Google may set its own cookies.",
+      cookieAccept: "Accept",
+      cookieDecline: "Necessary only",
+      cookieMore: "Learn more",
+      mapPlaceholder: "The map is loaded from Google Maps. Google may set cookies.",
+      mapLoad: "Show map",
+      mapOpen: "Open in Google Maps",
+      fileTypesHint: "Allowed files: PDF, JPG, PNG, WEBP, HEIC, DOC, DOCX (up to 5 files, 15 MB).",
+      fileRejected: "This file type can't be attached:",
+      companyCode: "Company code",
+      vatCode: "VAT code",
+      notFoundTitle: "Page not found",
+      notFoundText: "Sorry, this page doesn't exist or has been moved.",
+      notFoundHome: "Home",
+      notFoundCatalogue: "Exterior doors",
+      notFoundContact: "Contact us",
+    },
     nav: {
       news: "News",
       exteriorApartment: "Apartment Entrance Doors",
@@ -743,7 +812,7 @@ const messages = {
       },
       services: {
         title: "Services",
-        description: "Measurement, installation, warranty and delivery - detailed information will be added later.",
+        description: "Measurement, installation, warranty and delivery across Lithuania.",
       },
     },
     header: {

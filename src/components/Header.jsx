@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Heart, ShoppingCart, Search, X, Menu, ChevronDown } from "lucide-react";
+import { Heart, Search, X, Menu, ChevronDown } from "lucide-react";
 import { getLocaleFromPathname, withLocaleHref, locales, t } from "@/lib/i18n";
 import { readWishlistIds } from "@/lib/wishlist";
 
@@ -288,14 +288,6 @@ export default function Header() {
               <span className="absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white">
                 {wishlistCount}
               </span>
-            </Link>
-
-            <Link
-              href={withLocaleHref(locale, "/grozs")}
-              aria-label={t(locale, "cart.title")}
-              className="flex h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70"
-            >
-              <ShoppingCart size={20} strokeWidth={1.6} />
             </Link>
 
             <button

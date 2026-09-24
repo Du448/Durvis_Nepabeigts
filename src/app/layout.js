@@ -1,14 +1,24 @@
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import CookieBanner from "../components/CookieBanner";
 import { headers } from "next/headers";
 import { getLocaleFromPathname } from "@/lib/i18n";
+import { SITE_URL, alternatesFor } from "@/lib/site";
 
 // Montserrat is loaded via <link> rather than next/font to avoid a build-time fetch.
 
 export const dynamic = "force-dynamic";
 
-export const metadata = {
+export async function generateMetadata() {
+  const h = await headers();
+  const pathname = h.get("x-invoke-path") || "/";
+  const locale = getLocaleFromPathname(pathname);
+  return { ...baseMetadata, alternates: alternatesFor(pathname, locale) };
+}
+
+const baseMetadata = {
+  metadataBase: new URL(SITE_URL),
   title: "Durų Namai - lauko ir vidaus durys Lietuvoje",
   description:
     "Durų Namai: lauko ir vidaus durys, profesionalus montavimas ir pristatymas visoje Lietuvoje. Platus asortimentas, konsultacijos ir garantija.",
@@ -19,9 +29,6 @@ export const metadata = {
     siteName: "Durų Namai",
     locale: "lt_LT",
     type: "website",
-  },
-  alternates: {
-    canonical: process.env.NEXT_PUBLIC_SITE_URL || "https://tnbaltic.lt",
   },
 };
 
@@ -44,6 +51,7 @@ export default async function RootLayout({ children }) {
         <Header />
         <div className="site-main">{children}</div>
         <Footer />
+        <CookieBanner />
       </body>
     </html>
   );

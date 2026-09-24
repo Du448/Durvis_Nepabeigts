@@ -7,7 +7,11 @@ import Link from "next/link";
 import { getProductById } from "@/data/products";
 import { usePathname } from "next/navigation";
 import PageTitle from "@/components/PageTitle";
+import ConsentMap from "@/components/ConsentMap";
 import { getLocaleFromPathname, withLocaleHref, t, trData } from "@/lib/i18n";
+
+const ALLOWED_EXTENSIONS = ["pdf", "jpg", "jpeg", "png", "webp", "heic", "doc", "docx"];
+const MAX_FILES = 5;
 
 // Key the "Pieprasīt piedāvājumu" button (Ražotājs-2 calculator) writes to
 // sessionStorage before navigating here: a base64 data URL of the offer PDF
@@ -61,6 +65,9 @@ export default function ContactsClient() {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
   const [files, setFiles] = useState([]);
+  const [rejected, setRejected] = useState([]);
+  const [consent, setConsent] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
 
   // Picks up the PDF the Ražotājs-2 calculator's "Pieprasīt piedāvājumu"
   // button stashed in sessionStorage right before navigating here, and
@@ -87,7 +94,10 @@ export default function ContactsClient() {
   }, []);
 
   function addFiles(fileList) {
-    setFiles((prev) => [...prev, ...Array.from(fileList)]);
+    const incoming = Array.from(fileList);
+    const ok = incoming.filter((f) => ALLOWED_EXTENSIONS.includes(f.name.split(".").pop().toLowerCase()));
+    setRejected(incoming.filter((f) => !ok.includes(f)).map((f) => f.name));
+    setFiles((prev) => [...prev, ...ok].slice(0, MAX_FILES));
   }
 
   function removeFile(index) {
@@ -104,6 +114,8 @@ export default function ContactsClient() {
       formData.append("phone", phone);
       formData.append("email", email);
       formData.append("message", message);
+      formData.append("consent", consent ? "1" : "");
+      formData.append("fax_number", honeypot);
       files.forEach((file) => formData.append("files", file, file.name));
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -162,12 +174,10 @@ export default function ContactsClient() {
               </div>
 
               <div className="border border-line overflow-hidden">
-                <iframe
+                <ConsentMap
+                  locale={locale}
                   title={t(locale, "contacts.mapTitle")}
-                  src="https://www.google.com/maps?q=D%C5%BE%C5%ABk%C5%B3%20g.%2017%2C%20%C5%A0veicarijos%20k.%2C%20LT-55301%20Jonavos%20r.&output=embed"
-                  className="w-full h-[280px] sm:h-[340px]"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
+                  query="Džūkų g. 17, Šveicarijos k., LT-55301 Jonavos r."
                 />
               </div>
             </div>
@@ -249,6 +259,7 @@ export default function ContactsClient() {
                     <input
                       type="file"
                       multiple
+                      accept={ALLOWED_EXTENSIONS.map((e) => `.${e}`).join(",")}
                       className="hidden"
                       onChange={(e) => {
                         if (e.target.files?.length) addFiles(e.target.files);
@@ -256,7 +267,41 @@ export default function ContactsClient() {
                       }}
                     />
                   </label>
+                  <p className="mt-2 text-[12px] text-muted">{t(locale, "legal.fileTypesHint")}</p>
+                  {rejected.length > 0 && (
+                    <p className="mt-1 text-[13px] text-[color:var(--color-accent)]">
+                      {t(locale, "legal.fileRejected")} {rejected.join(", ")}
+                    </p>
+                  )}
                 </div>
+                <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+                  <label>
+                    Fax
+                    <input
+                      type="text"
+                      name="fax_number"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                    />
+                  </label>
+                </div>
+                <label className="flex items-start gap-2 text-[13px] text-muted">
+                  <input
+                    type="checkbox"
+                    className="mt-[3px]"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    required
+                  />
+                  <span>
+                    {t(locale, "legal.contactConsent")}{" "}
+                    <Link href={withLocaleHref(locale, "/privatumo-politika")} className="underline" target="_blank">
+                      {t(locale, "legal.privacyLink")}
+                    </Link>
+                  </span>
+                </label>
                 <div className="flex items-center gap-3">
                   <button type="submit" disabled={sending} className="btn btn-accent disabled:opacity-60">
                     {sending ? t(locale, "contacts.sending") : t(locale, "contacts.submit")}

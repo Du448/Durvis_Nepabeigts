@@ -1,13 +1,18 @@
 import { NextResponse } from "next/server";
 import { sendFormEmail, escapeHtml } from "@/lib/mailer";
+import { HONEYPOT_FIELD, honeypotResponse, isHoneypotFilled, rateLimited } from "@/lib/formGuard";
 
 export async function POST(request) {
+  const limited = rateLimited(request, "partners");
+  if (limited) return limited;
+
   let body;
   try {
     body = await request.json();
   } catch {
     return NextResponse.json({ ok: false, error: "invalid_json" }, { status: 400 });
   }
+  if (isHoneypotFilled(body[HONEYPOT_FIELD])) return honeypotResponse();
 
   const company = String(body.company || "").trim();
   const person = String(body.person || "").trim();

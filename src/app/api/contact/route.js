@@ -1,5 +1,13 @@
 import { NextResponse } from "next/server";
 import { sendFormEmail, escapeHtml } from "@/lib/mailer";
+import {
+  HONEYPOT_FIELD,
+  MAX_UPLOAD_FILES,
+  honeypotResponse,
+  isAllowedUpload,
+  isHoneypotFilled,
+  rateLimited,
+} from "@/lib/formGuard";
 
 // Keeps the raw SMTP client's message size sane - mail servers commonly cap
 // total message size well below this, so we reject oversized uploads here
@@ -7,8 +15,11 @@ import { sendFormEmail, escapeHtml } from "@/lib/mailer";
 const MAX_ATTACHMENTS_BYTES = 15 * 1024 * 1024;
 
 export async function POST(request) {
+  const limited = rateLimited(request, "contact");
+  if (limited) return limited;
+
   const contentType = request.headers.get("content-type") || "";
-  let name, phone, email, message, attachments;
+  let name, phone, email, message, attachments, consent, trap;
 
   if (contentType.includes("multipart/form-data")) {
     let form;
@@ -21,8 +32,16 @@ export async function POST(request) {
     phone = String(form.get("phone") || "").trim();
     email = String(form.get("email") || "").trim();
     message = String(form.get("message") || "").trim();
+    consent = Boolean(form.get("consent"));
+    trap = form.get(HONEYPOT_FIELD);
 
     const files = form.getAll("files").filter((f) => f && typeof f.arrayBuffer === "function" && f.size > 0);
+    if (files.length > MAX_UPLOAD_FILES) {
+      return NextResponse.json({ ok: false, error: "too_many_files" }, { status: 400 });
+    }
+    if (!files.every(isAllowedUpload)) {
+      return NextResponse.json({ ok: false, error: "file_type_not_allowed" }, { status: 415 });
+    }
     const totalSize = files.reduce((sum, f) => sum + f.size, 0);
     if (totalSize > MAX_ATTACHMENTS_BYTES) {
       return NextResponse.json({ ok: false, error: "attachments_too_large" }, { status: 413 });
@@ -45,9 +64,13 @@ export async function POST(request) {
     phone = String(body.phone || "").trim();
     email = String(body.email || "").trim();
     message = String(body.message || "").trim();
+    consent = Boolean(body.consent);
+    trap = body[HONEYPOT_FIELD];
   }
 
-  if (!name || !phone || !email) {
+  if (isHoneypotFilled(trap)) return honeypotResponse();
+
+  if (!name || !phone || !email || !consent) {
     return NextResponse.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
 

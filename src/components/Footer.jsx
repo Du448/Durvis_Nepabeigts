@@ -5,6 +5,8 @@ import Image from "next/image";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
+import { company } from "@/lib/site";
+import { openCookieSettings } from "@/lib/consent";
 
 /* Footer modelled on m-lux.by: solid black, four uppercase columns,
    links at 80% white, thin divider above the copyright line. */
@@ -115,16 +117,16 @@ export default function Footer() {
 
           <Col title={t(locale, "footer.services")}>
             <ul className="space-y-2.5">
-              <FootLink href={withLocaleHref(locale, "/pakalpojumi/uzmerisana")}>
+              <FootLink href={withLocaleHref(locale, "/pakalpojumi/matavimas")}>
                 {t(locale, "footer.measurement")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/pakalpojumi/montaza")}>
+              <FootLink href={withLocaleHref(locale, "/pakalpojumi/montavimas")}>
                 {t(locale, "footer.installation")}
               </FootLink>
               <FootLink href={withLocaleHref(locale, "/pakalpojumi/garantija")}>
                 {t(locale, "footer.warranty")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/pakalpojumi/piegade")}>
+              <FootLink href={withLocaleHref(locale, "/pakalpojumi/pristatymas")}>
                 {t(locale, "footer.delivery")}
               </FootLink>
             </ul>
@@ -161,8 +163,25 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container py-5 text-center text-[13px] text-white/60">
-          DURYS {new Date().getFullYear()}. {t(locale, "footer.rights")}
+        <div className="container flex flex-col gap-3 py-5 text-[13px] text-white/60 lg:flex-row lg:items-center lg:justify-between">
+          <div className="space-y-1">
+            <div>
+              {company.legalName} · {t(locale, "legal.companyCode")} {company.code} · {t(locale, "legal.vatCode")}{" "}
+              {company.vat}
+            </div>
+            <div>{company.address}</div>
+          </div>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href={withLocaleHref(locale, "/privatumo-politika")} className="hover:text-white">
+              {t(locale, "legal.privacyLink")}
+            </Link>
+            <button type="button" onClick={openCookieSettings} className="hover:text-white">
+              {t(locale, "legal.cookieSettings")}
+            </button>
+            <span>
+              DURYS {new Date().getFullYear()}. {t(locale, "footer.rights")}
+            </span>
+          </div>
         </div>
       </div>
     </footer>
