@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import FinishesClient from "@/components/FinishesClient";
 import { DictProvider } from "@/components/DictProvider";
 import { finishSections } from "@/data/finishes";
@@ -25,9 +24,7 @@ export default async function FinishesPage({ params }) {
   return (
     <main>
       <DictProvider dict={buildDict(locale, finishSections)}>
-        <Suspense fallback={null}>
-          <FinishesClient />
-        </Suspense>
+        <FinishesClient />
       </DictProvider>
     </main>
   );

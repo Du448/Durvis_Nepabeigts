@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import Manufacturer2Client from "@/components/Manufacturer2Client";
 import { DictProvider } from "@/components/DictProvider";
 import { manufacturer2Sections } from "@/data/manufacturer2";
@@ -41,9 +40,7 @@ export default async function ConfiguratorPage({ params }) {
   return (
     <main>
       <DictProvider dict={dict}>
-        <Suspense fallback={null}>
-          <Manufacturer2Client />
-        </Suspense>
+        <Manufacturer2Client />
       </DictProvider>
     </main>
   );

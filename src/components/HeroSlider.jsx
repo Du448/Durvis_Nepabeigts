@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { imageProps } from "@/lib/images";
+import { imageProps, sizedImage } from "@/lib/images";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
 
 /* Cinematic hero modelled on m-lux.by: one full-bleed media stage, 1000px tall
@@ -58,6 +58,20 @@ export default function HeroSlider({ slides = [] }) {
     return () => pending.forEach(clearTimeout);
   }, []);
 
+  /* The other slides' photos are requested only once the page has loaded, so
+     on a slow connection they don't share bandwidth with the first one - the
+     page's largest paint. The first switch is 5s away, well after that. */
+  const [restReady, setRestReady] = useState(false);
+  useEffect(() => {
+    const ready = () => setRestReady(true);
+    if (document.readyState === "complete") {
+      const id = setTimeout(ready, 0);
+      return () => clearTimeout(id);
+    }
+    window.addEventListener("load", ready, { once: true });
+    return () => window.removeEventListener("load", ready);
+  }, []);
+
   if (!slides.length) {
     return null;
   }
@@ -85,26 +99,21 @@ export default function HeroSlider({ slides = [] }) {
           className="absolute inset-0 transition-opacity duration-700 ease-out"
           style={{ opacity: i === index ? 1 : 0 }}
         >
-          <Image
-            src={s.image}
-            alt=""
-            fill
-            sizes="96px"
-            quality={40}
-            loading={i === 0 ? "eager" : "lazy"}
-            className="hero-photo-fill"
-            {...imageProps(s.image)}
-          />
-          <Image
-            src={s.image}
-            alt=""
-            fill
-            sizes="100vw"
-            preload={i === 0}
-            fetchPriority={i === 0 ? "high" : undefined}
-            className="hero-photo"
-            {...imageProps(s.image)}
-          />
+          {/* Only painted (and so only downloaded) on stages wider than 2:1,
+              where the photo is letterboxed; see .hero-photo-fill. */}
+          <div className="hero-photo-fill" style={{ "--hero-fill": `url("${sizedImage(s.image, 96, 40)}")` }} />
+          {i === 0 || i === index || restReady ? (
+            <Image
+              src={s.image}
+              alt=""
+              fill
+              sizes="100vw"
+              preload={i === 0}
+              fetchPriority={i === 0 ? "high" : undefined}
+              className="hero-photo"
+              {...imageProps(s.image)}
+            />
+          ) : null}
         </div>
       ))}
 

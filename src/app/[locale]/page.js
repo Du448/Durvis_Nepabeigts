@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { products } from "@/data/products";
 import ProductCard from "@/components/ProductCard";
 import SplitProductSlider from "@/components/SplitProductSlider";
@@ -36,8 +37,9 @@ const pick = (locale, obj) => obj[locale] ?? obj.lt;
    The photography half lives in public/scenes/<slug>.webp and shows the
    category's real catalogue door installed in a room, so the door in the
    scene is the door in the slider beside it. See tools/scenes.config.mjs for
-   which product anchors which scene and how they are produced. `image` below
-   stays as the stock fallback that shows through if a scene file is missing. */
+   which product anchors which scene and how they are produced. Each block
+   renders public/scenes/<slug>.webp, lazily, so none of it competes with the
+   hero photo for bandwidth. */
 
 const HERO = [
   {
@@ -72,8 +74,6 @@ const HERO = [
 const BLOCKS = [
   {
     slug: "ardurvis-dzivoklim",
-    image:
-      "https://images.unsplash.com/photo-1771354959667-96360bf59eab?auto=format&fit=crop&w=1600&q=80",
     title: {
       lt: "Buto lauko durys - svarbus žingsnis saugumo link",
       lv: "Ārdurvis dzīvoklim - svarīgs solis drošībai",
@@ -88,8 +88,6 @@ const BLOCKS = [
   {
     slug: "ardurvis-privatmajai",
     reverse: true,
-    image:
-      "https://images.unsplash.com/photo-1613544723301-176686aa9f09?auto=format&fit=crop&w=1600&q=80",
     title: {
       lt: "Termo durys namams - šiluma, tyla, garantija",
       lv: "Termodurvis privātmājai - siltums, klusums, garantija",
@@ -103,8 +101,6 @@ const BLOCKS = [
   },
   {
     slug: "ieksdurvis",
-    image:
-      "https://images.unsplash.com/photo-1603673298820-40d77252226d?auto=format&fit=crop&w=1600&q=80",
     title: {
       lt: "Vidaus durys - vientisas interjero sprendimas",
       lv: "Iekšdurvis - vienots interjera risinājums",
@@ -119,7 +115,6 @@ const BLOCKS = [
   {
     slug: "sleptas-durvis",
     reverse: true,
-    image: "/scenes/sleptas-durvis.webp",
     title: {
       lt: "Paslėptos durys - siena be staktos",
       lv: "Slēptās durvis - siena bez redzamas kārbas",
@@ -210,18 +205,17 @@ export default async function Home({ params }) {
 
       {BLOCKS.map((block) => {
         const items = cardsFor(splitSliderItems(block.slug, rotation), locale);
-        /* Two layers rather than one: a missing generated scene simply fails
-           to paint and the stock fallback underneath shows through, so the
-           block is never a blank half-screen. */
         const media = (
-          <div
-            className="split-media"
-            style={{
-              backgroundImage: `url("/scenes/${block.slug}.webp"), url("${block.image}")`,
-            }}
-            role="img"
-            aria-label={pick(locale, block.title)}
-          />
+          <div className="split-media relative overflow-hidden">
+            <Image
+              src={`/scenes/${block.slug}.webp`}
+              alt={pick(locale, block.title)}
+              fill
+              unoptimized
+              sizes="(min-width: 1025px) 50vw, 100vw"
+              className="object-cover"
+            />
+          </div>
         );
 
         return (

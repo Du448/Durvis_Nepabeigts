@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import ContactsClient from "@/components/ContactsClient";
 import { t } from "@/lib/i18n";
 import { paths } from "@/lib/routes";
@@ -16,14 +15,10 @@ export async function generateMetadata({ params }) {
   });
 }
 
-export default async function ContactsPage({ params }) {
-  const locale = await resolveLocale(params);
-
+export default function ContactsPage() {
   return (
     <main>
-      <Suspense fallback={<div className="container py-6 text-muted">{t(locale, "loading.contacts")}</div>}>
-        <ContactsClient />
-      </Suspense>
+      <ContactsClient />
     </main>
   );
 }

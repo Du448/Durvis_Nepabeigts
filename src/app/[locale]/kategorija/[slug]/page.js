@@ -1,4 +1,3 @@
-import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { categories, getCategoryBySlug, getProductsByCategory } from "@/data/products";
 import CategoryClient from "@/components/CategoryClient";
@@ -84,16 +83,16 @@ export default async function CategoryPage({ params }) {
     <>
       <JsonLd data={breadcrumbLd} />
       <DictProvider dict={dict}>
-        {/* CategoryClient reads its filters from the query string. */}
-        <Suspense fallback={null}>
-          <CategoryClient
-            slug={id}
-            category={getCategoryBySlug(id)}
-            products={cards}
-            typeCounts={typeCounts}
-            categoryNames={categoryNames}
-          />
-        </Suspense>
+        {/* No Suspense boundary: the filters read the query string after
+            hydration (useUrlSearchParams), and a boundary would make the
+            prerendered grid stream in after the footer. */}
+        <CategoryClient
+          slug={id}
+          category={getCategoryBySlug(id)}
+          products={cards}
+          typeCounts={typeCounts}
+          categoryNames={categoryNames}
+        />
       </DictProvider>
     </>
   );

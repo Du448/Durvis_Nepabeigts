@@ -302,22 +302,29 @@
   container-type: size;
 }
 
-/* next/image (fill) layers; object-fit replaces the old background-size. */
+/* The photo is a next/image (fill). On stages wider than 2:1 it is fitted
+   whole over a blurred copy of itself; the copy is a tiny CSS background set
+   only inside that container query, so phones and ordinary screens - where
+   the photo covers the stage - never download it. */
 .hero-photo,
 .hero-photo-fill {
   position: absolute;
   inset: 0;
+}
+.hero-photo {
   object-fit: cover;
   object-position: center;
 }
-
 .hero-photo-fill {
+  background-position: center;
+  background-size: cover;
   filter: blur(34px) brightness(0.7);
   transform: scale(1.15);
 }
 
 @container (min-aspect-ratio: 2 / 1) {
   .hero-photo { object-fit: contain; }
+  .hero-photo-fill { background-image: var(--hero-fill); }
 }
 
 .split { display: flex; flex-direction: column; }
