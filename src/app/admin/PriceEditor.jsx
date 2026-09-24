@@ -50,6 +50,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
   const [resets, setResets] = useState({}); // id -> true
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("");
+  const [lang, setLang] = useState("lt");
   const [onlyChanged, setOnlyChanged] = useState(false);
   const [message, setMessage] = useState(loadError ? { kind: "error", text: loadError } : null);
   const [rowErrors, setRowErrors] = useState({});
@@ -71,13 +72,37 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
     return () => window.removeEventListener("beforeunload", warn);
   }, [dirty]);
 
+  // Remembers the last language chosen for product names, per browser (and
+  // picks up a change made in another tab, same as the wishlist does).
+  useEffect(() => {
+    const sync = () => {
+      let saved = null;
+      try {
+        saved = window.localStorage.getItem("admin-name-lang");
+      } catch {}
+      setLang(saved === "en" ? "en" : "lt");
+    };
+    sync();
+    window.addEventListener("storage", sync);
+    return () => window.removeEventListener("storage", sync);
+  }, []);
+
+  function setLangAndRemember(next) {
+    setLang(next);
+    try {
+      window.localStorage.setItem("admin-name-lang", next);
+    } catch {}
+  }
+
+  const nameOf = (row) => row.name[lang] || row.name.lt;
+
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
     return rows.filter((row) => {
       if (category && row.category !== category) return false;
       if (onlyChanged && !overrides[row.id] && !edits[row.id]) return false;
       if (!q) return true;
-      return `${row.name} ${row.collection} ${row.id}`.toLowerCase().includes(q);
+      return `${row.name.lt} ${row.name.en} ${row.collection} ${row.id}`.toLowerCase().includes(q);
     });
   }, [rows, query, category, onlyChanged, overrides, edits]);
 
@@ -169,6 +194,25 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
             </p>
           </div>
           <div className="flex items-center gap-3">
+            <div className="flex overflow-hidden rounded-md border border-neutral-300 text-[13px]">
+              {[
+                { code: "lt", label: "LT" },
+                { code: "en", label: "EN" },
+              ].map((opt) => (
+                <button
+                  key={opt.code}
+                  type="button"
+                  onClick={() => setLangAndRemember(opt.code)}
+                  aria-pressed={lang === opt.code}
+                  title="Язык названий товаров"
+                  className={`px-3 py-2 font-medium ${
+                    lang === opt.code ? "bg-emerald-800 text-white" : "bg-white text-neutral-600 hover:bg-neutral-50"
+                  }`}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
             <a href="/" target="_blank" rel="noreferrer" className="text-[14px] text-emerald-800 underline">
               Открыть сайт
             </a>
@@ -245,7 +289,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                     className={`border-b border-neutral-100 align-top ${isEdited ? "bg-amber-50" : hasOverride ? "bg-emerald-50/50" : ""}`}
                   >
                     <td className="px-3 py-2.5">
-                      <div className="font-medium">{row.name}</div>
+                      <div className="font-medium">{nameOf(row)}</div>
                       <div className="text-[12px] text-neutral-500">
                         {row.collection ? `${row.collection} · ` : ""}
                         {row.id}
@@ -257,7 +301,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                       <div className="flex items-center gap-1.5">
                         <input
                           inputMode="decimal"
-                          aria-label={`Цена: ${row.name}`}
+                          aria-label={`Цена: ${nameOf(row)}`}
                           value={v.price}
                           onChange={(e) => change(row, "price", e.target.value)}
                           className={`w-[90px] rounded-md border px-2 py-1.5 text-right ${error === "price" ? "border-red-500" : "border-neutral-300"}`}
@@ -272,7 +316,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                       <div className="flex items-center gap-1.5">
                         <input
                           inputMode="decimal"
-                          aria-label={`Старая цена: ${row.name}`}
+                          aria-label={`Старая цена: ${nameOf(row)}`}
                           value={v.oldPrice}
                           placeholder="—"
                           onChange={(e) => change(row, "oldPrice", e.target.value)}
@@ -284,7 +328,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                     <td className="px-3 py-2 text-center">
                       <input
                         type="checkbox"
-                        aria-label={`На складе: ${row.name}`}
+                        aria-label={`На складе: ${nameOf(row)}`}
                         checked={Boolean(v.inStock)}
                         onChange={(e) => change(row, "inStock", e.target.checked)}
                         className="mt-2 h-5 w-5"
