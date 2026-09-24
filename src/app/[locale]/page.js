@@ -128,13 +128,13 @@ const BLOCKS = [
   },
 ];
 
-/* Twelve models per split block - six pages of two. They are picked
+/* Six models per split block - three pages of two. They are picked
    round-robin across the category's collections rather than straight off the
    top of the list, so the block shows the breadth of the range instead of six
    variants of the same model. Models held at the manufacturer's warehouse are
    left out: their prices are still the factory's hryvnia ones and would sit
    oddly next to the euro prices beside them. */
-const SPLIT_SLIDER_ITEMS = 12;
+const SPLIT_SLIDER_ITEMS = 6;
 
 /* The pool of twelve rotates on a fixed window so a repeat visitor does not
    keep meeting the same dozen models. `rotation` is a whole number that steps

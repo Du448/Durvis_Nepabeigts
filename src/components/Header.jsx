@@ -211,19 +211,19 @@ export default function Header() {
             aria-label={BRAND}
           >
             <Image
-              src="/logo.png"
+              src="/logo-168.png"
               alt={BRAND}
-              width={941}
-              height={481}
+              width={329}
+              height={168}
               priority
               className={`h-9 w-auto transition-opacity duration-300 sm:h-11 ${light ? "opacity-0" : "opacity-100"}`}
             />
             <Image
-              src="/logo-white.png"
+              src="/logo-white-168.png"
               alt=""
               aria-hidden
-              width={941}
-              height={481}
+              width={329}
+              height={168}
               priority
               className={`absolute inset-0 h-9 w-auto transition-opacity duration-300 sm:h-11 ${light ? "opacity-100" : "opacity-0"}`}
             />
@@ -346,7 +346,7 @@ export default function Header() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex h-[60px] items-center justify-between border-b border-[color:var(--color-line)] px-5">
-              <Image src="/logo.png" alt={BRAND} width={941} height={481} className="h-7 w-auto" />
+              <Image src="/logo-168.png" alt={BRAND} width={329} height={168} className="h-7 w-auto" />
               <button
                 type="button"
                 aria-label={t(locale, "a11y.close")}

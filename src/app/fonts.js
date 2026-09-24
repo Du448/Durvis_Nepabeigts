@@ -1,10 +1,13 @@
 import localFont from "next/font/local";
 
 /* Montserrat, self-hosted (variable weight, SIL OFL - see fonts/OFL.txt).
-   Split like Google Fonts serves it: the basic Latin file covers English, the
-   latin-ext file adds the Lithuanian and Latvian letters, and the browser only
-   downloads the second one on pages that use them. Two families sharing one
-   font stack behave as one font. */
+   Split like Google Fonts serves it: the basic Latin file covers English, and
+   a second file adds the Lithuanian and Latvian letters, downloaded only on
+   pages that use them. That second file is cut down from Google's latin-ext
+   set (69 KB) to exactly those 32 letters (9 KB) with fontTools:
+     pyftsubset montserrat-latin-ext-wght-normal.woff2 --flavor=woff2
+       --layout-features='*' --unicodes=<the unicode-range below>
+   Two families sharing one font stack behave as one font. */
 
 export const montserratLatin = localFont({
   src: "./fonts/montserrat-latin-wght-normal.woff2",
@@ -25,7 +28,7 @@ export const montserratLatin = localFont({
 });
 
 export const montserratExt = localFont({
-  src: "./fonts/montserrat-latin-ext-wght-normal.woff2",
+  src: "./fonts/montserrat-ltlv-wght-normal.woff2",
   weight: "100 900",
   display: "swap",
   variable: "--font-montserrat-ext",
@@ -33,7 +36,7 @@ export const montserratExt = localFont({
     {
       prop: "unicode-range",
       value:
-        "U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF",
+        "U+0100-0101,U+0104-0105,U+010C-010D,U+0112-0113,U+0116-0119,U+0122-0123,U+012A-012B,U+012E-012F,U+0136-0137,U+013B-013C,U+0145-0146,U+0160-0161,U+016A-016B,U+0172-0173,U+017D-017E",
     },
   ],
 });
