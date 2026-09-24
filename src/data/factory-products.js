@@ -3780,7 +3780,7 @@ export const factoryProducts = [
   "isNew": false,
   "clearance": false,
   "images": [
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0120-01-1.jpg",
+   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0120-01-1.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0120-03-1.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0120-04.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0120-05.jpg",
@@ -3975,7 +3975,7 @@ export const factoryProducts = [
   "isNew": false,
   "clearance": false,
   "images": [
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-01-1.jpg",
+   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-01-1.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-04.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-05.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-06.jpg",
@@ -5324,7 +5324,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-house-elektro-706-431-1200-mm-balts-satins",
-  "name": "Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Антрацит темний / Ārpusē: balts satīns",
+  "name": "Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE ELEKTRO",
   "category": "ardurvis-privatmajai",
   "price": 1733,
@@ -5335,7 +5335,7 @@ export const factoryProducts = [
    "1200×2050"
   ],
   "colors": [
-   "Антрацит темний",
+   "Tumšs antracīts",
    "Ārpusē: balts satīns"
   ],
   "thermo": false,
@@ -5517,7 +5517,7 @@ export const factoryProducts = [
  },
  {
   "id": "termo-house-elektro-705-431-balts-satins",
-  "name": "Termo House Elektro, modelis 705/431. Krāsa: Антрацит темний / Ārpusē: balts satīns",
+  "name": "Termo House Elektro, modelis 705/431. Krāsa: Tumšs antracīts / Ārpusē: balts satīns",
   "collection": "TERMO HOUSE ELEKTRO",
   "category": "ardurvis-privatmajai",
   "price": 1324,
@@ -5528,7 +5528,7 @@ export const factoryProducts = [
    "950×2050"
   ],
   "colors": [
-   "Антрацит темний",
+   "Tumšs antracīts",
    "Ārpusē: balts satīns"
   ],
   "thermo": false,
@@ -10411,7 +10411,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/vnutrishnya-storona-bulat-elektro-566-drimvud-temnyj-bezlyuchovyj-dostup.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/vidkryte-polozhennya-bulat-elektro-566-drimvud-temnyj-bezlyuchovyj-dostup.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/furnitura-zovnishnya-storona-bulat-elektro-566-drimvud-temnyj-bezlyuchovyj-dostup.jpg",
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/furnitura-vnutrishnya-storona-bulat-elektro-566-drimvud-temnyj-bezlyuchovyj-dostup.jpg",
+   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/furnitura-vnutrishnya-storona-bulat-elektro-566-drimvud-temnyj-bezlyuchovyj-dostup.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/petli-bulat-elektro-566-drimvud-temnyj-bezlyuchovyj-dostup.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/rama-bulat-elektro-566-drimvud-temnyj-bezlyuchovyj-dostup.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/06/porig-bulat-elektro-566-drimvud-temnyj-bezlyuchovyj-dostup.jpg",
@@ -10611,7 +10611,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/vidkryte-polozhennya-dverej-bulat-expert-model-570-568-kolir-dub-dorato-temnyj-olovo-supermat-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/zamky-na-torczi-polotna-z-zovnishnoyi-storony-dverej-bulat-expert-model-570-568-kolir-dub-dorato-temnyj-olovo-supermat-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/zamky-na-torczi-polotna-z-vnutrishnoyi-storony-bulat-expert-model-570-568-kolir-dub-dorato-temnyj-olovo-supermat-kvartyrnyj-typ.jpg",
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/petli-dverni-na-dveryah-bulat-expert-model-570-568-kolir-dub-dorato-temnyj-olovo-supermat-kvartyrnyj-typ.jpg",
+   "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/petli-dverni-na-dveryah-bulat-expert-model-570-568-kolir-dub-dorato-temnyj-olovo-supermat-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/dverna-korobka-bulat-expert-model-570-568-kolir-dub-dorato-temnyj-olovo-supermat-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/porig-z-nerzhaviyuchoyi-stali-na-deryah-bulat-expert-model-570-568-kolir-dub-dorato-temnyj-olovo-supermat-kvartyrnyj-typ.jpg"
   ],
@@ -11183,7 +11183,7 @@ export const factoryProducts = [
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/vidkryte-polozhennya-dverej-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/zamky-na-torczi-polotna-z-zovnishnoyi-storony-dverej-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/zamky-na-torczi-polotna-z-vnutrishnoyi-storony-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg",
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/petli-dverni-na-dveryah-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg",
+   "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/petli-dverni-na-dveryah-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/dverna-korobka-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2024/12/porig-z-nerzhaviyuchoyi-stali-na-deryah-bulat-termo-ultra-model-567-gladka-kolir-popelyastyj-metalik-bilyj-matovyj-kvartyrnyj-typ.jpg"
   ],
@@ -12672,7 +12672,7 @@ export const factoryProducts = [
   "isNew": false,
   "clearance": false,
   "images": [
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0060-2.jpg",
+   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/08/0060-2.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/09/0059-4.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/09/0059-5.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/09/0059-6.jpg",

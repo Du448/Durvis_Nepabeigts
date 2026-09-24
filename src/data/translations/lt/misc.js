@@ -78,7 +78,6 @@ export const ltColors = {
   "Ziloņkauls": "Dramblio kaulas",
 
   // Left in Ukrainian by the manufacturer's own listing
-  "Антрацит темний": "Tamsus antracitas",
   "Сірий шифер.": "Pilkas šiferis",
   "Balts matēts gluds": "Balta matinė lygi",
   "Dreamwood tumšs": "Dreamwood tamsus",

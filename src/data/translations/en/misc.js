@@ -78,7 +78,6 @@ export const enColors = {
   "Ziloņkauls": "Ivory",
 
   // Left in Ukrainian by the manufacturer's own listing
-  "Антрацит темний": "Dark anthracite",
   "Сірий шифер.": "Grey slate",
   "Balts matēts gluds": "White matte smooth",
   "Dreamwood tumšs": "Dreamwood dark",

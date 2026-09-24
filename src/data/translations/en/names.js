@@ -40,11 +40,11 @@ export const enNames = {
 
   "Termo House Elektro, modelis 705/431. Krāsa: Venge tumšs / Ārpusē: balts satīns":
     "Termo House Elektro, model 705/431. Color: dark wenge / outside: white satin",
-  "Termo House Elektro, modelis 705/431. Krāsa: Антрацит темний / Ārpusē: balts satīns":
+  "Termo House Elektro, modelis 705/431. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
     "Termo House Elektro, model 705/431. Color: dark anthracite / outside: white satin",
   "Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Venge tumšs / Ārpusē: balts satīns":
     "Termo House Elektro, model 706/431 - 1200 mm. Color: dark wenge / outside: white satin",
-  "Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Антрацит темний / Ārpusē: balts satīns":
+  "Termo House Elektro, modelis 706/431 - 1200 mm. Krāsa: Tumšs antracīts / Ārpusē: balts satīns":
     "Termo House Elektro, model 706/431 - 1200 mm. Color: dark anthracite / outside: white satin",
 
   "Termo House, modelis 705/431 - 1200 mm. Krāsa: Ozols bronza / Ārpusē: piena krāsa":
