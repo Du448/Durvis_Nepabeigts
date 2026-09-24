@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { products, getProductById, getProductsByCategory } from "@/data/products";
+import { locksFor } from "@/data/locks";
 import ProductClient from "@/components/ProductClient";
 import { DictProvider } from "@/components/DictProvider";
 import JsonLd from "@/components/JsonLd";
@@ -112,7 +113,12 @@ export default async function ProductPage({ params }) {
       <JsonLd data={productLd} />
       <JsonLd data={breadcrumbLd} />
       <DictProvider dict={dict}>
-        <ProductClient product={product} similar={similar} configurator={configurator} />
+        <ProductClient
+          product={product}
+          similar={similar}
+          configurator={configurator}
+          locks={locksFor(product.id, locale)}
+        />
       </DictProvider>
     </>
   );

@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useId, useState } from "react";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
+import { imageProps } from "@/lib/images";
 
 /* Description / specification tabs under the product, as on the manufacturer's
    own product pages: an underlined tab strip, then either the long written
@@ -12,7 +14,12 @@ import { useTr } from "@/components/DictProvider";
    This is the product's only specification table. Models with the
    manufacturer's full table (specsFull) show that; the rest show their short
    `specs` list, with the common row labels taken from the UI dictionary. The
-   "all specifications" link in the buy box points at #charakteristikos. */
+   "all specifications" link in the buy box points at #charakteristikos.
+
+   Models whose locks the manufacturer documents get a third tab, "Slēdzenes"
+   (data in src/data/locks.js, resolved to the page's language on the
+   server): the lock's photo on the left, its table on the right, and a
+   switch between the door's locks. */
 
 export const SPECS_ANCHOR = "charakteristikos";
 export const OPEN_SPECS_EVENT = "product:open-specs";
@@ -30,7 +37,7 @@ const SPEC_LABEL_KEYS = {
   Furnitūra: "specs.hardware",
 };
 
-export default function ProductTabs({ product }) {
+export default function ProductTabs({ product, locks = [] }) {
   const { trData } = useTr();
   const locale = getLocaleFromPathname(usePathname());
   const baseId = useId();
@@ -51,6 +58,7 @@ export default function ProductTabs({ product }) {
   const tabs = [
     sections.length ? { key: "description", label: t(locale, "product.tabDescription") } : null,
     rows.length ? { key: "specs", label: t(locale, "product.tabSpecs") } : null,
+    locks.length ? { key: "locks", label: t(locale, "product.tabLocks") } : null,
   ].filter(Boolean);
 
   const [active, setActive] = useState(tabs[0]?.key || "description");
@@ -116,6 +124,8 @@ export default function ProductTabs({ product }) {
                 </div>
               ))}
             </div>
+          ) : active === "locks" ? (
+            <LockPanel locks={locks} locale={locale} />
           ) : (
             <div className="mt-8 max-w-[900px] overflow-x-auto">
               <table className="w-full border-collapse text-[15px]">
@@ -136,5 +146,71 @@ export default function ProductTabs({ product }) {
         </div>
       </div>
     </section>
+  );
+}
+
+function LockPanel({ locks, locale }) {
+  const [index, setIndex] = useState(0);
+  const lock = locks[index] || locks[0];
+
+  return (
+    <div className="mt-8">
+      {locks.length > 1 ? (
+        <div role="group" aria-label={t(locale, "product.chooseLock")} className="mb-8 flex flex-wrap gap-2">
+          {locks.map((l, i) => (
+            <button
+              key={l.id}
+              type="button"
+              aria-pressed={i === index}
+              onClick={() => setIndex(i)}
+              className={`min-h-11 border px-4 py-2 text-left transition-colors duration-200 ${
+                i === index
+                  ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)] text-white"
+                  : "border-line bg-white text-ink hover:border-[color:var(--color-accent)]"
+              }`}
+            >
+              <span className={`block text-[11px] uppercase tracking-[0.12em] ${i === index ? "text-white/80" : "text-muted"}`}>
+                {l.kind}
+              </span>
+              <span className="block text-[14px] font-medium">{l.name}</span>
+            </button>
+          ))}
+        </div>
+      ) : null}
+
+      <div className="grid gap-8 md:grid-cols-2 md:items-start lg:gap-14">
+        <div className="relative aspect-[4/3] overflow-hidden border border-line bg-white">
+          <Image
+            key={lock.image}
+            src={lock.image}
+            alt={`${lock.kind} ${lock.name}`}
+            fill
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="object-contain p-4 sm:p-6"
+            {...imageProps(lock.image)}
+          />
+        </div>
+
+        <div>
+          <p className="text-[12px] font-semibold uppercase tracking-[0.2em] text-muted">{lock.kind}</p>
+          <h3 className="mt-1 text-[20px] font-medium text-[color:var(--color-title)] sm:text-[24px]">{lock.name}</h3>
+          <div className="mt-5 overflow-x-auto">
+            <table className="w-full border-collapse text-[15px]">
+              <caption className="sr-only">{`${lock.kind} ${lock.name}`}</caption>
+              <tbody>
+                {lock.rows.map(([label, value], i) => (
+                  <tr key={`${label}-${i}`} className={i % 2 ? "bg-white" : "bg-[--color-soft]"}>
+                    <th scope="row" className="w-[50%] border border-line px-3 py-2 text-left font-normal text-muted">
+                      {label}
+                    </th>
+                    <td className="border border-line px-3 py-2 text-ink">{value}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

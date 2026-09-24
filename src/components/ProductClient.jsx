@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useId, useRef, useState } from "react";
-import { Heart, Shield, ShieldCheck, ChevronUp, ChevronDown, ZoomIn, ZoomOut, Ruler, Wrench, Truck } from "lucide-react";
+import { useEffect, useId, useRef, useState } from "react";
+import { Heart, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import AccordionItem from "@/components/anim/AccordionItem";
 import ProductTabs, { SPECS_ANCHOR, OPEN_SPECS_EVENT } from "@/components/ProductTabs";
@@ -129,13 +129,12 @@ function ServiceToggleRow({ checked, onChange, label, hint }) {
    and the configurator link (whether this model is one of its series, and the
    colour section to open) - so neither the catalogue nor the configurator's
    data has to ship to the browser. */
-export default function ProductClient({ product, similar = [], configurator = null }) {
+export default function ProductClient({ product, similar = [], configurator = null, locks = [] }) {
   const { trData, translateColorLabel } = useTr();
   const locale = getLocaleFromPathname(usePathname());
   const productImages = product?.images && product.images.length > 0 ? product.images : ["placeholder"];
   const images = productImages;
   const isFlatGallery = FLAT_GALLERY_CATEGORIES.includes(product?.category);
-  const galleryAspect = isFlatGallery ? "lg:aspect-[3/2]" : "";
   const [activeIdx, setActiveIdx] = useState(0);
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [activeSize, setActiveSize] = useState(product?.sizes?.[0] || "");
@@ -178,43 +177,9 @@ export default function ProductClient({ product, similar = [], configurator = nu
     });
   }, [lightboxZoom, lightboxIdx]);
   const [wishlisted, setWishlisted] = useState(false);
-  const thumbsRef = useRef(null);
-  const mediaRef = useRef(null);
-  const [canScrollUp, setCanScrollUp] = useState(false);
-  const [canScrollDown, setCanScrollDown] = useState(false);
-  /* Height of the photograph as actually painted inside its box. The
-     thumbnail column is clipped to it, so the strip ends exactly at the
-     bottom of the door photo and the rest is reached by scrolling. */
-  const [mediaHeight, setMediaHeight] = useState(null);
-
-  const scrollThumbs = (dir) => {
-    const el = thumbsRef.current;
-    if (!el) return;
-    const firstBtn = el.querySelector("button");
-    const step = firstBtn ? firstBtn.getBoundingClientRect().height + 8 : 80; // 8 = gap-2
-    el.scrollBy({ top: dir * step, behavior: scrollBehavior() });
-  };
-
-  const measureMedia = useCallback(() => {
-    if (!isFlatGallery) return;
-    const box = mediaRef.current;
-    if (!box) return;
-    const img = box.querySelector("img");
-    const { width, height } = box.getBoundingClientRect();
-    if (!width || !height) return;
-    const ratio = img?.naturalWidth && img?.naturalHeight ? img.naturalWidth / img.naturalHeight : null;
-    const painted = ratio ? Math.min(height, width / ratio) : height;
-    setMediaHeight(Math.round(painted));
-  }, [isFlatGallery]);
-
-  const updateScrollButtons = () => {
-    const el = thumbsRef.current;
-    if (!el) return;
-    const max = Math.max(0, el.scrollHeight - el.clientHeight);
-    const top = el.scrollTop;
-    setCanScrollUp(top > 0);
-    setCanScrollDown(top < max);
-  };
+  /* Width / height of the first photo, once it has loaded; until then a
+     typical value for the category. */
+  const [mainRatio, setMainRatio] = useState(null);
 
   useEffect(() => {
     if (!product?.id) return;
@@ -227,27 +192,6 @@ export default function ProductClient({ product, similar = [], configurator = nu
       window.removeEventListener("wishlist:change", sync);
     };
   }, [product?.id]);
-
-  useEffect(() => {
-    measureMedia();
-    const onResize = () => measureMedia();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, [measureMedia, activeIdx]);
-
-  useEffect(() => {
-    updateScrollButtons();
-    const el = thumbsRef.current;
-    if (!el) return;
-    const onScroll = () => updateScrollButtons();
-    el.addEventListener("scroll", onScroll, { passive: true });
-    const onResize = () => updateScrollButtons();
-    window.addEventListener("resize", onResize);
-    return () => {
-      el.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
-    };
-  }, [images.length]);
 
   if (!product) {
     return (
@@ -281,67 +225,14 @@ export default function ProductClient({ product, similar = [], configurator = nu
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Left: Gallery */}
             <div>
-              {/* Shared aspect box to keep thumbnails column height equal to main image */}
-              <div className={`relative aspect-[3/4] ${galleryAspect}`}>
-                <div className="absolute inset-0 grid grid-cols-1 lg:grid-cols-[112px_1fr] gap-3">
-                  {/* Vertical thumbnails (desktop) */}
-                  <div
-                    className="relative hidden h-full overflow-hidden bg-[--color-soft] lg:block"
-                    style={mediaHeight ? { height: `${mediaHeight}px` } : undefined}
-                  >
-                    <button
-                      type="button"
-                      className={`absolute left-1/2 -translate-x-1/2 top-2 z-20 inline-flex h-9 w-9 items-center justify-center border border-line bg-white shadow-md text-ink transition-opacity hover:bg-ink/10 ${canScrollUp ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                      aria-label={t(locale, "product.previous")}
-                      onClick={() => scrollThumbs(-1)}
-                    >
-                      <ChevronUp size={18} />
-                    </button>
-                    <div ref={thumbsRef} className="absolute inset-0 overflow-y-auto no-scrollbar pr-1">
-                      <div className="flex h-max flex-col gap-2">
-                        {images.map((src, idx) => (
-                          <button
-                            key={`v-${idx}`}
-                            className={`relative group aspect-square border ${idx === selectedIdx ? "border-[--color-accent]" : "border-line"} bg-[--color-soft] text-xs text-muted w-full overflow-hidden`}
-                            onClick={() => { setSelectedIdx(idx); setActiveIdx(idx); }}
-                            onMouseEnter={() => setActiveIdx(idx)}
-                            onMouseLeave={() => setActiveIdx(selectedIdx)}
-                            onFocus={() => setActiveIdx(idx)}
-                            onBlur={() => setActiveIdx(selectedIdx)}
-                            aria-label={t(locale, "product.imageN").replace("{n}", String(idx + 1))}
-                          >
-                            {src === "placeholder" ? (
-                              t(locale, "product.image")
-                            ) : (
-                              <span className="relative block h-full w-full overflow-hidden">
-                                <Image
-                                  src={src}
-                                  alt={`${productName} - ${t(locale, "product.imageN").replace("{n}", String(idx + 1))}`}
-                                  fill
-                                  {...imageProps(src)}
-                                  referrerPolicy="no-referrer"
-                                  sizes="120px"
-                                  className="object-contain object-top"
-                                />
-                              </span>
-                            )}
-                            <span aria-hidden className="pointer-events-none absolute inset-0 ring-2 ring-[var(--color-ink)] opacity-0 transition-opacity group-hover:opacity-100 group-focus:opacity-100" />
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    <button
-                      type="button"
-                      className={`absolute left-1/2 -translate-x-1/2 bottom-2 z-20 inline-flex h-9 w-9 items-center justify-center border border-line bg-white shadow-md text-ink transition-opacity hover:bg-ink/10 ${canScrollDown ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
-                      aria-label={t(locale, "product.next")}
-                      onClick={() => scrollThumbs(1)}
-                    >
-                      <ChevronDown size={18} />
-                    </button>
-                  </div>
-
-                  {/* Main image */}
-                  <div ref={mediaRef} className="relative overflow-hidden">
+              {/* Main image, sized to the first photo's own proportions so the
+                  thumbnails below sit right under it; a tall single-door photo
+                  is capped at 80% of the screen height. */}
+              <div
+                className="relative mx-auto max-h-[80vh]"
+                style={{ aspectRatio: mainRatio ?? (isFlatGallery ? 0.47 : 0.93) }}
+              >
+                  <div className="absolute inset-0 overflow-hidden">
                     {images[activeIdx] === "placeholder" ? (
                       <div className="w-full h-full bg-[--color-soft] flex items-center justify-center text-muted">
                         <span>{t(locale, "product.image")}</span>
@@ -364,9 +255,13 @@ export default function ProductClient({ product, similar = [], configurator = nu
                           {...imageProps(images[activeIdx])}
                           referrerPolicy="no-referrer"
                           preload={activeIdx === 0}
-                          onLoad={measureMedia}
+                          onLoad={(e) => {
+                            if (mainRatio || activeIdx !== 0) return;
+                            const { naturalWidth: w, naturalHeight: h } = e.currentTarget;
+                            if (w && h) setMainRatio(Math.min(1.6, Math.max(0.4, w / h)));
+                          }}
                           sizes="(max-width: 1024px) 100vw, 50vw"
-                          className="object-contain object-top"
+                          className="object-contain"
                         />
                         <span
                           aria-hidden
@@ -377,11 +272,10 @@ export default function ProductClient({ product, similar = [], configurator = nu
                       </button>
                     )}
                   </div>
-                </div>
-              </div>
+                              </div>
 
-              {/* Thumbnails grid (mobile only) */}
-              <div className="mt-3 grid grid-cols-5 gap-2 lg:hidden">
+              {/* Thumbnails under the main image */}
+              <div className={`mt-3 grid-cols-5 gap-2 sm:grid-cols-6 ${images.length > 1 ? "grid" : "hidden"}`}>
                 {images.map((src, idx) => (
                   <button
                     key={idx}
@@ -541,7 +435,13 @@ export default function ProductClient({ product, similar = [], configurator = nu
                 </button>
               </div>
 
-              <div className="mt-3 text-[15px] text-muted">{t(locale, "product.freeServices")}</div>
+              {/* What every order can include, right under the buttons. */}
+              <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-[15px] text-ink">
+                <ServiceBadge icon={Ruler} label={t(locale, "product.featureMeasurement")} />
+                <ServiceBadge icon={Wrench} label={t(locale, "product.featureInstall")} />
+                <ServiceBadge icon={ShieldCheck} label={t(locale, "product.featureWarranty")} />
+                <ServiceBadge icon={Truck} label={t(locale, "product.featureDelivery")} />
+              </div>
               {/* The specification lives in one table, in the tabs below. */}
               <a
                 href={`#${SPECS_ANCHOR}`}
@@ -590,7 +490,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
                 ) : null}
                 <AccordionItem title={t(locale, "product.set")}>
                   {/* Models that list what actually ships in the box say so;
-                      the rest fall back to the general services blurb. */}
+                      the rest say the details are still to come. */}
                   {product.set?.length ? (
                     <ul className="list-disc pl-5">
                       {product.set.map((item) => (
@@ -598,15 +498,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
                       ))}
                     </ul>
                   ) : (
-                    <div>
-                      <div className="flex flex-wrap gap-x-6 gap-y-3">
-                        <ServiceBadge icon={Ruler} label={t(locale, "product.featureMeasurement")} />
-                        <ServiceBadge icon={Wrench} label={t(locale, "product.featureInstall")} />
-                        <ServiceBadge icon={ShieldCheck} label={t(locale, "product.featureWarranty")} />
-                        <ServiceBadge icon={Truck} label={t(locale, "product.featureDelivery")} />
-                      </div>
-                      <div className="mt-3 text-[13px] text-muted">{t(locale, "product.detailsComingLater")}</div>
-                    </div>
+                    <div className="text-[13px] text-muted">{t(locale, "product.detailsComingLater")}</div>
                   )}
                 </AccordionItem>
                 <AccordionItem title={t(locale, "product.installDelivery")}>
@@ -651,7 +543,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
       </section>
 
       {/* Description / specification tabs */}
-      <ProductTabs product={product} />
+      <ProductTabs product={product} locks={locks} />
 
       {/* Similar products */}
       <section className="section-soft py-14">
