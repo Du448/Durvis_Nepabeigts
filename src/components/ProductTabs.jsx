@@ -178,38 +178,86 @@ function LockPanel({ locks, locale }) {
         </div>
       ) : null}
 
-      <div className="grid gap-8 md:grid-cols-2 md:items-start lg:gap-14">
-        <div className="relative aspect-[4/3] overflow-hidden border border-line bg-white">
-          <Image
-            key={lock.image}
-            src={lock.image}
-            alt={`${lock.kind} ${lock.name}`}
-            fill
-            sizes="(min-width: 768px) 45vw, 100vw"
-            className="object-contain p-4 sm:p-6"
-            {...imageProps(lock.image)}
-          />
-        </div>
+      <LockDetail key={lock.id} lock={lock} locale={locale} />
+    </div>
+  );
+}
 
-        <div>
-          <p className="text-[12px] font-semibold uppercase tracking-[0.2em] text-muted">{lock.kind}</p>
-          <h3 className="mt-1 text-[20px] font-medium text-[color:var(--color-title)] sm:text-[24px]">{lock.name}</h3>
-          <div className="mt-5 overflow-x-auto">
-            <table className="w-full border-collapse text-[15px]">
-              <caption className="sr-only">{`${lock.kind} ${lock.name}`}</caption>
-              <tbody>
-                {lock.rows.map(([label, value], i) => (
-                  <tr key={`${label}-${i}`} className={i % 2 ? "bg-white" : "bg-[--color-soft]"}>
-                    <th scope="row" className="w-[50%] border border-line px-3 py-2 text-left font-normal text-muted">
-                      {label}
-                    </th>
-                    <td className="border border-line px-3 py-2 text-ink">{value}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+/* One lock: photo (or a small gallery with thumbnails under it) on the left;
+   its table, and any description, on the right. Keyed by lock, so switching
+   locks starts again from the first photo. */
+function LockDetail({ lock, locale }) {
+  const [shown, setShown] = useState(0);
+  const images = lock.images || [];
+  const src = images[shown] || images[0];
+  const label = `${lock.kind} ${lock.name}`;
+
+  return (
+    <div className="grid gap-8 md:grid-cols-2 md:items-start lg:gap-14">
+      <div>
+        <div className="relative aspect-[4/3] overflow-hidden border border-line bg-white">
+          {src ? (
+            <Image
+              key={src}
+              src={src}
+              alt={images.length > 1 ? `${label} - ${shown + 1}/${images.length}` : label}
+              fill
+              sizes="(min-width: 768px) 45vw, 100vw"
+              className="object-contain p-4 sm:p-6"
+              {...imageProps(src)}
+            />
+          ) : null}
         </div>
+        {images.length > 1 ? (
+          <div className="mt-3 grid grid-cols-5 gap-2 sm:grid-cols-6">
+            {images.map((img, i) => (
+              <button
+                key={img}
+                type="button"
+                onClick={() => setShown(i)}
+                aria-label={t(locale, "product.imageN").replace("{n}", String(i + 1))}
+                aria-pressed={i === shown}
+                className={`relative aspect-square overflow-hidden border bg-white ${
+                  i === shown ? "border-[color:var(--color-accent)]" : "border-line hover:border-ink"
+                }`}
+              >
+                <Image src={img} alt="" fill sizes="96px" className="object-contain p-1" {...imageProps(img)} />
+              </button>
+            ))}
+          </div>
+        ) : null}
+      </div>
+
+      <div>
+        <p className="text-[12px] font-semibold uppercase tracking-[0.2em] text-muted">{lock.kind}</p>
+        <h3 className="mt-1 text-[20px] font-medium text-[color:var(--color-title)] sm:text-[24px]">{lock.name}</h3>
+        <div className="mt-5 overflow-x-auto">
+          <table className="w-full border-collapse text-[15px]">
+            <caption className="sr-only">{label}</caption>
+            <tbody>
+              {lock.rows.map(([rowLabel, value], i) => (
+                <tr key={`${rowLabel}-${i}`} className={i % 2 ? "bg-white" : "bg-[--color-soft]"}>
+                  <th scope="row" className="w-[50%] border border-line px-3 py-2 text-left font-normal text-muted">
+                    {rowLabel}
+                  </th>
+                  <td className="border border-line px-3 py-2 text-ink">{value}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        {lock.about ? (
+          <div className="mt-6 text-[15px] leading-[1.7] text-ink">
+            {lock.about.text ? <p>{lock.about.text}</p> : null}
+            {lock.about.points?.length ? (
+              <ul className="mt-3 list-disc space-y-1.5 pl-5">
+                {lock.about.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        ) : null}
       </div>
     </div>
   );

@@ -7,7 +7,11 @@
    translated. To change what a product shows, edit `productLocks` (which
    locks, in which order); to change a lock itself, edit it in `locks` - every
    model that uses it picks the change up. A value is either one string for
-   all languages (numbers, brand names) or { lv, lt, en }. */
+   all languages (numbers, brand names) or { lv, lt, en }.
+
+   A lock may have `images` (several photos, shown as a small gallery) in
+   place of a single `image`, and an `about` text shown under its table:
+   { lv: { text, points: [...] }, lt: ..., en: ... }. */
 
 const YES = { lv: "Ir", lt: "Yra", en: "Yes" };
 const NO = { lv: "Nav", lt: "Nėra", en: "No" };
@@ -44,6 +48,20 @@ export const LOCK_LABELS = {
   bumping: { lv: "Aizsardzība pret bampingu", lt: "Apsauga nuo „bampingo“", en: "Bump protection" },
   copying: { lv: "Aizsardzība pret atslēgu kopēšanu", lt: "Apsauga nuo raktų kopijavimo", en: "Key copy protection" },
   warranty: { lv: "Garantija", lt: "Garantija", en: "Warranty" },
+  type: { lv: "Tips", lt: "Tipas", en: "Type" },
+  color: { lv: "Krāsa", lt: "Spalva", en: "Colour" },
+  dimensions: { lv: "Paneļa izmēri", lt: "Plokštės matmenys", en: "Panel size" },
+  unlocking: { lv: "Atvēršana", lt: "Atrakinimas", en: "Unlocking" },
+  fingerprints: { lv: "Pirkstu nospiedumi", lt: "Pirštų atspaudai", en: "Fingerprints" },
+  pinCodes: { lv: "PIN kodi", lt: "PIN kodai", en: "PIN codes" },
+  cards: { lv: "Kartes / breloki MIFARE", lt: "Kortelės / pakabukai MIFARE", en: "MIFARE cards / fobs" },
+  openingTime: { lv: "Atvēršanas laiks", lt: "Atrakinimo laikas", en: "Opening time" },
+  ingress: { lv: "Aizsardzība pret mitrumu un putekļiem", lt: "Apsauga nuo drėgmės ir dulkių", en: "Moisture and dust protection" },
+  remote: { lv: "Attālināta vadība", lt: "Nuotolinis valdymas", en: "Remote control" },
+  integrations: { lv: "Integrācijas", lt: "Integracijos", en: "Integrations" },
+  power: { lv: "Barošana", lt: "Maitinimas", en: "Power" },
+  temperature: { lv: "Darba temperatūra", lt: "Darbo temperatūra", en: "Operating temperature" },
+  doorTypes: { lv: "Durvju tipi", lt: "Durų tipai", en: "Door types" },
 };
 
 export const LOCK_KINDS = {
@@ -51,6 +69,7 @@ export const LOCK_KINDS = {
   lower: { lv: "Apakšējā slēdzene", lt: "Apatinė spyna", en: "Lower lock" },
   cylinder: { lv: "Cilindrs", lt: "Cilindras", en: "Cylinder" },
   monoblock: { lv: "Monobloks", lt: "Monoblokas", en: "Monoblock" },
+  smart: { lv: "Viedslēdzene", lt: "Išmanioji spyna", en: "Smart lock" },
 };
 
 const IMG = "https://www.bulat-doors.com.ua/wp-content/uploads";
@@ -116,7 +135,7 @@ export const locks = {
   "hisar-tandem": {
     kind: "cylinder",
     name: "Hisar Kilit Tandem",
-    image: `${IMG}/2023/09/hisar-kilit-1024x504.jpg`,
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/xNPwx.jpg",
     specs: [
       ["model", "Hisar Kilit Tandem"],
       ["manufacturer", "Hisar Kilit"],
@@ -288,6 +307,100 @@ export const locks = {
       ["warranty", WARRANTY_60],
     ],
   },
+  // Photos and details from the retailer's page for PES Mops, black, on
+  // bezpeka.club (ru/pes-mops). The photos are kept in public/locks/pes-mops.
+  "pes-mops": {
+    kind: "smart",
+    name: { lv: "PES Mops, melna", lt: "PES Mops, juoda", en: "PES Mops, black" },
+    images: [1, 2, 3, 4, 5, 6].map((n) => `/locks/pes-mops/${n}.jpg`),
+    specs: [
+      ["model", "PES Mops"],
+      ["manufacturer", "PES"],
+      ["country", { lv: "Ķīna (zīmols reģistrēts Ukrainā)", lt: "Kinija (prekės ženklas registruotas Ukrainoje)", en: "China (brand registered in Ukraine)" }],
+      [
+        "type",
+        {
+          lv: "Autonoma biometriska viedslēdzene, uzliekama",
+          lt: "Autonominė biometrinė išmanioji spyna, antdedama",
+          en: "Stand-alone biometric smart lock, surface-mounted",
+        },
+      ],
+      ["color", { lv: "Melna", lt: "Juoda", en: "Black" }],
+      ["material", { lv: "Metāls, plastmasa", lt: "Metalas, plastikas", en: "Metal, plastic" }],
+      ["dimensions", "302 × 72 × 22 mm"],
+      [
+        "unlocking",
+        {
+          lv: "Pirksta nospiedums, PIN kods, karte vai brelks, NFC, lietotne Smarta Lock (Bluetooth), mehāniskā atslēga",
+          lt: "Piršto atspaudas, PIN kodas, kortelė ar pakabukas, NFC, programėlė Smarta Lock (Bluetooth), mechaninis raktas",
+          en: "Fingerprint, PIN code, card or fob, NFC, Smarta Lock app (Bluetooth), mechanical key",
+        },
+      ],
+      ["fingerprints", { lv: "līdz 200", lt: "iki 200", en: "up to 200" }],
+      ["pinCodes", { lv: "līdz 150", lt: "iki 150", en: "up to 150" }],
+      ["cards", { lv: "līdz 200", lt: "iki 200", en: "up to 200" }],
+      ["keys", { lv: "2 mehāniskās", lt: "2 mechaniniai", en: "2 mechanical" }],
+      ["openingTime", { lv: "0,3 s", lt: "0,3 s", en: "0.3 s" }],
+      ["power", { lv: "4 AA baterijas (DC 6 V)", lt: "4 AA baterijos (DC 6 V)", en: "4 AA batteries (DC 6 V)" }],
+      ["ingress", "IP55"],
+      ["temperature", { lv: "No -30 °C līdz +50 °C", lt: "Nuo -30 °C iki +50 °C", en: "-30 °C to +50 °C" }],
+      [
+        "doorTypes",
+        {
+          lv: "Koka, metāla, metālplastmasas",
+          lt: "Medinės, metalinės, metaloplastikinės",
+          en: "Wooden, metal, metal-plastic",
+        },
+      ],
+      [
+        "remote",
+        {
+          lv: "No jebkuras vietas ar Wi-Fi vārteju PES HUB (papildus)",
+          lt: "Iš bet kur su Wi-Fi šliuzu PES HUB (papildomai)",
+          en: "From anywhere with the PES HUB Wi-Fi gateway (optional)",
+        },
+      ],
+      ["integrations", "Ajax, Google Home, Amazon Alexa"],
+    ],
+    about: {
+      lv: {
+        text: "PES Mops ir universāla viedslēdzene ar mūsdienīgu dizainu un augstu drošības līmeni. Piekļuves kodu šifrēšana ļauj to droši lietot mājās, dzīvokļos un izīrējamās telpās. Slēdzeni var vadīt ar lietotni Smarta Lock telefonā vai caur tīmekļa pārlūku datorā; tā ir vienkārši uzstādāma un lietojama.",
+        points: [
+          "Vienmēr atverama arī ar mehānisko atslēgu.",
+          "Nav jāvelk vadi; uzstādot var atstāt esošās slēdzenes iestrādājamo daļu.",
+          "Paziņojumi par notikumiem telefonā.",
+          "Durvju stāvokli var uzraudzīt attālināti ar durvju sensoru (papildus).",
+          "Bezmaksas lietotne Smarta Lock Android un iOS ierīcēm.",
+          "Balss vadība ar Google Home / Amazon Alexa.",
+          "Komplektā: ārējā un iekšējā uzlika, 2 breloki, 2 atslēgas, montāžas komplekts, 2 gumijas starplikas, lietošanas instrukcija.",
+        ],
+      },
+      lt: {
+        text: "PES Mops - universali išmanioji spyna su šiuolaikišku dizainu ir aukštu saugumo lygiu. Prieigos kodų šifravimas leidžia ją saugiai naudoti namuose, butuose ir nuomojamose patalpose. Spyną galima valdyti programėle Smarta Lock telefone arba per interneto naršyklę kompiuteryje; ją paprasta sumontuoti ir naudoti.",
+        points: [
+          "Visada galima atrakinti ir mechaniniu raktu.",
+          "Nereikia tiesti laidų; montuojant galima palikti esamos spynos įleidžiamą dalį.",
+          "Pranešimai apie įvykius telefone.",
+          "Durų būseną galima stebėti nuotoliniu būdu su durų jutikliu (papildomai).",
+          "Nemokama programėlė Smarta Lock Android ir iOS įrenginiams.",
+          "Balso valdymas per Google Home / Amazon Alexa.",
+          "Komplekte: išorinis ir vidinis antdėklas, 2 pakabukai, 2 raktai, montavimo rinkinys, 2 guminiai tarpikliai, naudojimo instrukcija.",
+        ],
+      },
+      en: {
+        text: "PES Mops is a versatile smart lock with a modern design and a high level of security. Encrypted access codes make it safe to use in homes, apartments and rentals. It can be run from the Smarta Lock phone app or from a web browser on a computer, and is simple to fit and use.",
+        points: [
+          "Can always be opened with the mechanical key.",
+          "No wiring needed; the mortise part of the existing lock can stay in place.",
+          "Event notifications on your phone.",
+          "Door status can be monitored remotely with a door sensor (optional).",
+          "Free Smarta Lock app for Android and iOS.",
+          "Voice control with Google Home / Amazon Alexa.",
+          "In the box: outer and inner plates, 2 fobs, 2 keys, mounting kit, 2 rubber gaskets, user manual.",
+        ],
+      },
+    },
+  },
   "securemme-k2": {
     kind: "cylinder",
     name: "Securemme K-2",
@@ -375,8 +488,9 @@ export const productLocks = {
   /* Models the manufacturer has no locks tab for. Matched by their own
      specification rows (Augšējā / Apakšējā slēdzene, Cilindra mehānisms)
      against the rows of the models above; locks we have no data for (ARIKO,
-     PES Monoblok, Mottura 54.797 without Matic, the 40×30 cylinder) are left
-     out, so some of these show only part of the door's locks. */
+     Mottura 54.797 without Matic, the 40×30 cylinder) are left out, so some
+     of these show only part of the door's locks. The Elektro models get the PES Mops
+     smart lock their specification names. */
   // kale-257-cylinder,kale-252,hisar-tandem
   "termo-house-706-431-1200-mm-venge-tumss-venge-tumss": ["kale-257-cylinder", "kale-252", "hisar-tandem"],
   "tandem-kale-276-dreamwood-tumss": ["kale-257-cylinder", "kale-252", "hisar-tandem"],
@@ -409,13 +523,13 @@ export const productLocks = {
   "citadel-b-85-kale-544-ozols-nemo-karbons-ozols-nemo-sudraba": ["kale-252", "hisar-tandem"],
   "citadel-b-85-kale-535-dreamwood-tumss": ["kale-252", "hisar-tandem"],
   // kale-257-lever,hisar-tandem
-  "termo-tandem-elektro-kale-590-gluds-akmens-grieziens-bezatsl": ["kale-257-lever", "hisar-tandem"],
-  "tandem-elektro-kale-566-bezatslegas-piekluve": ["kale-257-lever", "hisar-tandem"],
+  "termo-tandem-elektro-kale-590-gluds-akmens-grieziens-bezatsl": ["kale-257-lever", "pes-mops", "hisar-tandem"],
+  "tandem-elektro-kale-566-bezatslegas-piekluve": ["kale-257-lever", "pes-mops", "hisar-tandem"],
   // kale-257-cylinder,hisar-tandem
-  "termo-house-elektro-706-431-1200-mm-venge-tumss-balts-satins": ["kale-257-cylinder", "hisar-tandem"],
-  "termo-house-elektro-705-431-venge-tumss-balts-satins": ["kale-257-cylinder", "hisar-tandem"],
-  "termo-house-elektro-706-431-1200-mm-balts-satins": ["kale-257-cylinder", "hisar-tandem"],
-  "termo-house-elektro-705-431-balts-satins": ["kale-257-cylinder", "hisar-tandem"],
+  "termo-house-elektro-706-431-1200-mm-venge-tumss-balts-satins": ["kale-257-cylinder", "pes-mops", "hisar-tandem"],
+  "termo-house-elektro-705-431-venge-tumss-balts-satins": ["kale-257-cylinder", "pes-mops", "hisar-tandem"],
+  "termo-house-elektro-706-431-1200-mm-balts-satins": ["kale-257-cylinder", "pes-mops", "hisar-tandem"],
+  "termo-house-elektro-705-431-balts-satins": ["kale-257-cylinder", "pes-mops", "hisar-tandem"],
 };
 
 const pick = (value, locale) => (typeof value === "string" ? value : value?.[locale] ?? value?.lv ?? "");
@@ -431,7 +545,8 @@ export function locksFor(productId, locale) {
         id,
         kind: pick(LOCK_KINDS[lock.kind], locale),
         name: pick(lock.name, locale),
-        image: lock.image,
+        images: lock.images || [lock.image],
+        about: lock.about ? lock.about[locale] || lock.about.lv : null,
         rows: lock.specs.map(([key, value]) => [pick(LOCK_LABELS[key], locale) || key, pick(value, locale)]),
       };
     })
