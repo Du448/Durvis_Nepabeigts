@@ -8,11 +8,12 @@ import PriceEditor from "./PriceEditor";
 
 export const dynamic = "force-dynamic";
 
+// Same labels the shop's own site uses for these categories (see @/lib/i18n).
 const CATEGORIES = [
-  { slug: "ardurvis-dzivoklim", name: "Входные двери для квартиры" },
-  { slug: "ardurvis-privatmajai", name: "Входные двери для дома" },
-  { slug: "ieksdurvis", name: "Межкомнатные двери" },
-  { slug: "sleptas-durvis", name: "Скрытые двери" },
+  { slug: "ardurvis-dzivoklim", name: { lt: "Buto lauko durys", en: "Apartment Entrance Doors" } },
+  { slug: "ardurvis-privatmajai", name: { lt: "Namo lauko durys", en: "House Entrance Doors" } },
+  { slug: "ieksdurvis", name: { lt: "Vidaus durys", en: "Interior Doors" } },
+  { slug: "sleptas-durvis", name: { lt: "Paslėptos durys", en: "Hidden Doors" } },
 ];
 
 function Notice({ title, children }) {
@@ -27,9 +28,9 @@ function Notice({ title, children }) {
 export default async function AdminPage() {
   if (!adminConfigured()) {
     return (
-      <Notice title="Панель не настроена">
-        В настройках проекта Vercel нужно задать переменные ADMIN_PASSWORD и ADMIN_SESSION_SECRET (не короче 32
-        символов).
+      <Notice title="Panelis nesukonfigūruotas">
+        Vercel projekto nustatymuose reikia nustatyti kintamuosius ADMIN_PASSWORD ir ADMIN_SESSION_SECRET (ne
+        trumpesnį kaip 32 simbolių).
       </Notice>
     );
   }
@@ -42,7 +43,7 @@ export default async function AdminPage() {
     try {
       overrides = await readOverridesFresh();
     } catch {
-      loadError = "Не удалось загрузить сохранённые цены. Попробуйте обновить страницу.";
+      loadError = "Nepavyko įkelti išsaugotų kainų. Pabandykite atnaujinti puslapį.";
     }
   }
 
