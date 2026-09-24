@@ -143,6 +143,13 @@ const SPLIT_SLIDER_ITEMS = 6;
    collection surfaces each window. */
 const ROTATION_WINDOW_MS = 1000 * 60 * 30; // 30 minutes
 
+/* Read outside the component: the clock is meant to vary between renders.
+   The page is regenerated every `revalidate` seconds (ISR), so each fresh
+   render picks up the next window's slice. */
+function currentRotation() {
+  return Math.floor(Date.now() / ROTATION_WINDOW_MS);
+}
+
 function splitSliderItems(slug, rotation = 0) {
   const byCollection = new Map();
   for (const p of products) {
@@ -195,9 +202,7 @@ export default async function Home({ params }) {
 
   const viewAll = { lt: "Žiūrėti visus", lv: "Skatīt visus", en: "View all" }[locale] || "Žiūrėti visus";
 
-  /* Steps once per rotation window; page is force-dynamic, so every request
-     recomputes and a fresh slice of the range shows through. */
-  const rotation = Math.floor(Date.now() / ROTATION_WINDOW_MS);
+  const rotation = currentRotation();
 
   return (
     <main>
