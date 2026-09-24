@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { products } from "@/data/products";
+import { getProducts } from "@/lib/pricedCatalog";
 import ProductCard from "@/components/ProductCard";
 import SplitProductSlider from "@/components/SplitProductSlider";
 import HeroSlider from "@/components/HeroSlider";
@@ -150,9 +150,9 @@ function currentRotation() {
   return Math.floor(Date.now() / ROTATION_WINDOW_MS);
 }
 
-function splitSliderItems(slug, rotation = 0) {
+function splitSliderItems(list, slug, rotation = 0) {
   const byCollection = new Map();
-  for (const p of products) {
+  for (const p of list) {
     if (p.category !== slug || p.stockSource === "factory") continue;
     const key = p.collection || "";
     if (!byCollection.has(key)) byCollection.set(key, []);
@@ -203,13 +203,14 @@ export default async function Home({ params }) {
   const viewAll = { lt: "Žiūrėti visus", lv: "Skatīt visus", en: "View all" }[locale] || "Žiūrėti visus";
 
   const rotation = currentRotation();
+  const products = await getProducts();
 
   return (
     <main>
       <HeroSlider slides={slides} />
 
       {BLOCKS.map((block) => {
-        const items = cardsFor(splitSliderItems(block.slug, rotation), locale);
+        const items = cardsFor(splitSliderItems(products, block.slug, rotation), locale);
         const media = (
           <div className="split-media relative overflow-hidden">
             <Image

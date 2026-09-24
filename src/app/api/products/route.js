@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getProductById } from "@/data/products";
+import { getProduct } from "@/lib/pricedCatalog";
 import { toCard } from "@/lib/catalog";
 import { translateColorLabel } from "@/lib/i18n-data";
 import { locales, defaultLocale } from "@/lib/i18n";
@@ -20,8 +20,7 @@ export async function GET(request) {
     .filter(Boolean)
     .slice(0, MAX_IDS);
 
-  const cards = ids
-    .map((id) => getProductById(id))
+  const cards = (await Promise.all(ids.map((id) => getProduct(id))))
     .filter(Boolean)
     .map((p) => ({
       ...toCard(p, locale),
@@ -30,6 +29,6 @@ export async function GET(request) {
 
   return NextResponse.json(
     { products: cards },
-    { headers: { "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400" } }
+    { headers: { "Cache-Control": "public, s-maxage=300, stale-while-revalidate=3600" } }
   );
 }

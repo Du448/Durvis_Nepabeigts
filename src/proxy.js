@@ -19,7 +19,14 @@ export function proxy(request) {
   const { pathname } = request.nextUrl;
 
   // "/api/" with the slash: /apie-mus is a page.
-  if (pathname.startsWith("/_next/") || pathname.startsWith("/api/") || isPublicFile(pathname)) {
+  // /admin is the shop's price panel: no language prefix, no redirects.
+  if (
+    pathname.startsWith("/_next/") ||
+    pathname.startsWith("/api/") ||
+    pathname === "/admin" ||
+    pathname.startsWith("/admin/") ||
+    isPublicFile(pathname)
+  ) {
     return NextResponse.next();
   }
 
@@ -43,5 +50,5 @@ export function proxy(request) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/|api/|.*\\..*).*)"],
+  matcher: ["/((?!_next/|api/|admin(?:/|$)|.*\\..*).*)"],
 };

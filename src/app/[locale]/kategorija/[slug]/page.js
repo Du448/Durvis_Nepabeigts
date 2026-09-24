@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { categories, getCategoryBySlug, getProductsByCategory } from "@/data/products";
+import { categories, getCategoryBySlug } from "@/data/products";
+import { getProducts } from "@/lib/pricedCatalog";
 import CategoryClient from "@/components/CategoryClient";
 import { DictProvider } from "@/components/DictProvider";
 import JsonLd from "@/components/JsonLd";
@@ -63,9 +64,10 @@ export async function generateMetadata({ params }) {
 export default async function CategoryPage({ params }) {
   const { locale, id } = await resolve(params);
   const { name } = categoryText(locale, id);
-  const raw = getProductsByCategory(id);
+  const all = await getProducts();
+  const raw = all.filter((p) => p.category === id);
   const cards = cardsFor(raw, locale);
-  const typeCounts = Object.fromEntries(categories.map((c) => [c.slug, getProductsByCategory(c.slug).length]));
+  const typeCounts = Object.fromEntries(categories.map((c) => [c.slug, all.filter((p) => p.category === c.slug).length]));
   const categoryNames = Object.fromEntries(categories.map((c) => [c.slug, categoryText(locale, c.slug).name]));
   // Only colour names need the dictionary here; card names come translated.
   const dict = buildDict(locale, [], { colors: raw.flatMap((p) => p.colors || []) });

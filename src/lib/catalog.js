@@ -35,10 +35,10 @@ export function cardsByIds(ids, locale) {
 
 /* Plain substring match on name and collection, in the source language and
    the page's language, so "balta" finds a door listed as "Balts". */
-export function searchProducts(query, locale) {
+export function searchProducts(query, locale, list = products) {
   const q = query.trim().toLowerCase();
   if (!q) return [];
-  return products.filter((p) => {
+  return list.filter((p) => {
     const hay = [p.name, trData(locale, p.name), p.collection || ""].join(" ").toLowerCase();
     return hay.includes(q);
   });
