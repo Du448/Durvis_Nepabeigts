@@ -17,7 +17,11 @@ const PRICES_PATH = "admin/price-overrides.json";
 // Must match how the Blob store was created (private is the default).
 const ACCESS = process.env.BLOB_ACCESS === "public" ? "public" : "private";
 
-export const blobConfigured = () => Boolean(process.env.BLOB_READ_WRITE_TOKEN);
+// A static token is one way to authenticate; a store connected via Vercel's
+// newer OIDC flow instead exposes BLOB_STORE_ID and gets its OIDC token from
+// the platform at request time, so either one means the store is usable.
+export const blobConfigured = () =>
+  Boolean(process.env.BLOB_READ_WRITE_TOKEN || process.env.BLOB_STORE_ID);
 
 const isBuild = () => process.env.NEXT_PHASE === "phase-production-build";
 
