@@ -27,7 +27,7 @@ export default function AccordionItem({ title, children, defaultOpen = false }) 
       return;
     }
 
-    if (icon) gsap.to(icon, { rotate: next ? 180 : 0, duration: 0.35, ease: "power2.out" });
+    if (icon) gsap.to(icon, { rotate: next ? 180 : 0, duration: 0.25, ease: "power2.out" });
 
     if (next) {
       gsap.fromTo(
@@ -37,13 +37,13 @@ export default function AccordionItem({ title, children, defaultOpen = false }) 
           height: "auto",
           opacity: 1,
           y: 0,
-          duration: 0.45,
+          duration: 0.3,
           ease: "power3.out",
           onComplete: () => gsap.set(body, { height: "auto" }),
         }
       );
     } else {
-      gsap.to(body, { height: 0, opacity: 0, y: -6, duration: 0.35, ease: "power2.inOut" });
+      gsap.to(body, { height: 0, opacity: 0, y: -6, duration: 0.25, ease: "power2.inOut" });
     }
   };
 

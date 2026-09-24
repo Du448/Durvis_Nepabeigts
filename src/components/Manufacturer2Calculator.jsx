@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, useId } from "react";
 import Image from "next/image";
 import { imageProps } from "@/lib/images";
+import { scrollBehavior } from "@/lib/motion";
 import { usePathname } from "next/navigation";
 import { Check, ChevronDown, ChevronLeft, ChevronRight, Download, Loader2, X } from "lucide-react";
 import {
@@ -500,7 +501,7 @@ function SwatchGrid({
                   >
                     <Image
                       src={item.image}
-                      alt={trData(locale, item.label)}
+                      alt="" // named by the caption below and the button label
                       fill
                       {...imageProps(item.image)}
                       loading="lazy"
@@ -735,9 +736,13 @@ function ToggleHint({ text, locale }) {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="flex h-5 w-5 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)]"
+        aria-label={trData(locale, "Vairāk informācijas")}
+        // 44px tap area around the small circle; the negative margin keeps the layout.
+        className="group/hint -m-3 flex h-11 w-11 items-center justify-center"
       >
-        ?
+        <span aria-hidden="true" className="flex h-5 w-5 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted group-hover/hint:border-[color:var(--color-accent)] group-hover/hint:text-[color:var(--color-accent)]">
+          ?
+        </span>
       </button>
       {open ? (
         <div className="absolute right-0 top-full z-30 mt-2 w-[220px] border border-line bg-white p-3 text-left text-[12px] font-normal leading-[1.6] text-ink shadow-lg">
@@ -753,12 +758,14 @@ function ToggleHint({ text, locale }) {
 // toggle used on the product page so the two read as one design.
 function ServiceToggleRow({ checked, onChange, label, hint, locale }) {
   const { trData } = useTr();
+  const labelId = useId();
   return (
-    <label className="flex min-h-11 cursor-pointer items-center gap-3 py-1">
+    <div className="flex min-h-11 items-center gap-3 py-1">
       <button
         type="button"
         role="switch"
         aria-checked={checked}
+        aria-labelledby={labelId}
         onClick={onChange}
         className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border transition-colors ${
           checked
@@ -774,9 +781,11 @@ function ServiceToggleRow({ checked, onChange, label, hint, locale }) {
           }`}
         />
       </button>
-      <span className="flex-1 text-[14px] text-ink">{trData(locale, label)}</span>
+      <span id={labelId} onClick={onChange} className="flex-1 cursor-pointer text-[14px] text-ink">
+        {trData(locale, label)}
+      </span>
       {hint ? <ToggleHint text={hint} locale={locale} /> : null}
-    </label>
+    </div>
   );
 }
 
@@ -820,9 +829,11 @@ function InfoPopoverButton({ description, locale }) {
         }}
         aria-label={trData(locale, "Vairāk informācijas")}
         aria-expanded={open}
-        className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)]"
+        className="group/hint -m-3 flex h-11 w-11 shrink-0 items-center justify-center"
       >
-        i
+        <span aria-hidden="true" className="flex h-5 w-5 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted group-hover/hint:border-[color:var(--color-accent)] group-hover/hint:text-[color:var(--color-accent)]">
+          i
+        </span>
       </button>
       {open ? (
         <div
@@ -2112,7 +2123,7 @@ function FloatingPrice({ total, locale }) {
   return (
     <button
       type="button"
-      onClick={() => document.getElementById("calc-summary")?.scrollIntoView({ behavior: "smooth", block: "center" })}
+      onClick={() => document.getElementById("calc-summary")?.scrollIntoView({ behavior: scrollBehavior(), block: "center" })}
       className="fixed bottom-4 right-4 z-40 flex items-center gap-2.5 rounded-full border-2 border-[color:var(--color-accent)] bg-white px-4 py-2.5 shadow-xl transition-transform hover:-translate-y-0.5 sm:bottom-6 sm:right-6 sm:px-5 sm:py-3"
     >
       <span className="hidden text-[12px] font-medium text-muted sm:inline">{trData(locale, "Provizoriskā summa")}</span>

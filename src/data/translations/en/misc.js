@@ -70,6 +70,7 @@ export const enColors = {
   "Tumšs antracīts": "Dark anthracite",
   "Tumšs ozols": "Dark oak",
   "Venge horizont": "Wenge horizon",
+  "Venge horizonts": "Wenge horizon",
   "Venge horizontāls tumšs": "Wenge horizontal dark",
   "Venge horizonts pelēks": "Wenge horizon grey",
   "Venge tumšs": "Dark wenge",

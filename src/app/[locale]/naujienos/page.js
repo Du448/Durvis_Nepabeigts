@@ -32,6 +32,9 @@ export default async function NewsPage({ params }) {
 
       <section>
         <div className="container py-12">
+          <h2 className="sr-only">
+            {news.length} {t(locale, "category.models")}
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {news.map((p) => (
               <ProductCard key={p.id} product={p} />

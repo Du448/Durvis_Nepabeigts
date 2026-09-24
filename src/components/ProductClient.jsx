@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { Heart, Shield, ShieldCheck, ChevronUp, ChevronDown, ZoomIn, ZoomOut, Ruler, Wrench, Truck } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import AccordionItem from "@/components/anim/AccordionItem";
-import ProductTabs from "@/components/ProductTabs";
+import ProductTabs, { SPECS_ANCHOR, OPEN_SPECS_EVENT } from "@/components/ProductTabs";
 import MagneticButton from "@/components/anim/MagneticButton";
 import RevealGrid from "@/components/anim/RevealGrid";
 import { isInStock, stockKind, formatPrice } from "@/lib/product-utils";
@@ -17,6 +17,7 @@ import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
 import { finishesColorQuery } from "@/lib/finishesLink";
 import { paths } from "@/lib/routes";
 import { imageProps } from "@/lib/images";
+import { scrollBehavior } from "@/lib/motion";
 
 /* Interior doors are photographed as narrow studio renders about 275x585px.
    Poured into the 3:4 box the entrance doors need, they get blown up well past
@@ -38,6 +39,8 @@ function ServiceBadge({ icon: Icon, label }) {
 // Small "?" popover - closes on an outside click/tap or Escape, same pattern
 // as the calculator's info buttons.
 function ToggleHint({ text }) {
+  const locale = getLocaleFromPathname(usePathname());
+  const hintId = useId();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   useEffect(() => {
@@ -61,12 +64,23 @@ function ToggleHint({ text }) {
         type="button"
         onClick={() => setOpen((o) => !o)}
         aria-expanded={open}
-        className="flex h-5 w-5 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted hover:border-[color:var(--color-accent)] hover:text-[color:var(--color-accent)]"
+        aria-controls={hintId}
+        aria-label={t(locale, "a11y.moreInfo")}
+        // 44px tap area around the small visual circle; the negative margin keeps the row's layout.
+        className="group/hint -m-3 flex h-11 w-11 items-center justify-center"
       >
-        ?
+        <span
+          aria-hidden="true"
+          className="flex h-5 w-5 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted group-hover/hint:border-[color:var(--color-accent)] group-hover/hint:text-[color:var(--color-accent)]"
+        >
+          ?
+        </span>
       </button>
       {open ? (
-        <div className="absolute right-0 top-full z-30 mt-2 w-[220px] border border-line bg-white p-3 text-left text-[12px] font-normal leading-[1.6] text-ink shadow-lg">
+        <div
+          id={hintId}
+          className="absolute right-0 top-full z-30 mt-2 w-[220px] border border-line bg-white p-3 text-left text-[12px] font-normal leading-[1.6] text-ink shadow-lg"
+        >
           {text}
         </div>
       ) : null}
@@ -77,13 +91,17 @@ function ToggleHint({ text }) {
 // A fulfilment choice: pickup / measurement / delivery-only / install+delivery.
 // Selecting one or more writes their labels into the "Pieprasīt piedāvājumu"
 // link so the request the visitor sends already states what they want.
+// A row rather than a <label>: the switch takes its name from the text alone,
+// and the "?" button next to it stays a separate control.
 function ServiceToggleRow({ checked, onChange, label, hint }) {
+  const labelId = useId();
   return (
-    <label className="flex min-h-11 cursor-pointer items-center gap-3 py-1">
+    <div className="flex min-h-11 items-center gap-3 py-1">
       <button
         type="button"
         role="switch"
         aria-checked={checked}
+        aria-labelledby={labelId}
         onClick={onChange}
         className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full border transition-colors ${
           checked
@@ -99,9 +117,11 @@ function ServiceToggleRow({ checked, onChange, label, hint }) {
           }`}
         />
       </button>
-      <span className="flex-1 text-[15px] text-ink">{label}</span>
+      <span id={labelId} onClick={onChange} className="flex-1 cursor-pointer text-[15px] text-ink">
+        {label}
+      </span>
       {hint ? <ToggleHint text={hint} /> : null}
-    </label>
+    </div>
   );
 }
 
@@ -172,7 +192,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
     if (!el) return;
     const firstBtn = el.querySelector("button");
     const step = firstBtn ? firstBtn.getBoundingClientRect().height + 8 : 80; // 8 = gap-2
-    el.scrollBy({ top: dir * step, behavior: "smooth" });
+    el.scrollBy({ top: dir * step, behavior: scrollBehavior() });
   };
 
   const measureMedia = useCallback(() => {
@@ -468,8 +488,11 @@ export default function ProductClient({ product, similar = [], configurator = nu
               {/* Sizes */}
               {product.sizes?.length ? (
                 <div className="mt-5">
-                  <div className="text-sm text-muted mb-2">{t(locale, "product.size")}</div>
+                  <label htmlFor="product-size" className="block text-sm text-muted mb-2">
+                    {t(locale, "product.size")}
+                  </label>
                   <select
+                    id="product-size"
                     value={activeSize}
                     onChange={(e) => setActiveSize(e.target.value)}
                     className="field max-w-[240px]"
@@ -519,52 +542,17 @@ export default function ProductClient({ product, similar = [], configurator = nu
               </div>
 
               <div className="mt-3 text-[15px] text-muted">{t(locale, "product.freeServices")}</div>
+              {/* The specification lives in one table, in the tabs below. */}
+              <a
+                href={`#${SPECS_ANCHOR}`}
+                onClick={() => window.dispatchEvent(new Event(OPEN_SPECS_EVENT))}
+                className="mt-2 inline-flex min-h-11 items-center text-[15px] font-medium text-[color:var(--color-accent)] underline underline-offset-4"
+              >
+                {t(locale, "product.allSpecs")}
+              </a>
 
               {/* Accordions */}
               <div className="mt-6 divide-y divide-[--color-line] border border-line bg-white">
-                <AccordionItem title={t(locale, "product.specs")} defaultOpen>
-                    <ul className="list-disc pl-5">
-                      {Object.entries(product.specs || {}).map(([k, v]) => {
-                        const labelKey =
-                          k === "Vērtnes biezums"
-                            ? "specs.leafThickness"
-                            : k === "Kārbas biezums"
-                              ? "specs.frameThickness"
-                              : k === "Svars"
-                                ? "specs.weight"
-                                : k === "Slēdzenes"
-                                  ? "specs.locks"
-                                  : k === "Pildījums"
-                                    ? "specs.filling"
-                                    : k === "Ārējā apdare"
-                                      ? "specs.outsideFinish"
-                                      : k === "Iekšējā apdare"
-                                        ? "specs.insideFinish"
-                                        : k === "Apdare"
-                                          ? "specs.finish"
-                                          : k === "Actiņa"
-                                            ? "specs.peephole"
-                                            : k === "Furnitūra"
-                                              ? "specs.hardware"
-                                              : null;
-
-                        const label = labelKey ? t(locale, labelKey) : trData(locale, k);
-                        const rawValue = typeof v === "string" ? v : String(v);
-                        const value =
-                          rawValue === "Ir"
-                            ? t(locale, "values.yes")
-                            : rawValue === "Nav"
-                              ? t(locale, "values.no")
-                              : trData(locale, rawValue);
-
-                        return (
-                          <li key={k}>
-                            <span className="text-muted">{label}:</span> {value}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                </AccordionItem>
                 {/* Models with a facing worth explaining (the Termix range is
                     clad in Stronwood, not the usual moisture-resistant MDF)
                     get their own section right under the specification. */}

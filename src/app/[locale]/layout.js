@@ -8,6 +8,7 @@ import JsonLd from "@/components/JsonLd";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { SITE_URL, localBusinessLd } from "@/lib/site";
+import { t } from "@/lib/i18n";
 import { localeParams, pageMetadata, resolveLocale, siteTitle, siteDescription } from "@/lib/page";
 import { fontVariables } from "../fonts";
 
@@ -38,9 +39,14 @@ export default async function LocaleLayout({ children, params }) {
   return (
     <html lang={locale} className={fontVariables}>
       <body className="antialiased">
+        <a href="#main-content" className="skip-link">
+          {t(locale, "a11y.skipToContent")}
+        </a>
         <JsonLd data={localBusinessLd(locale)} />
         <Header />
-        <div className="site-main">{children}</div>
+        <div id="main-content" tabIndex={-1} className="site-main outline-none">
+          {children}
+        </div>
         <Footer />
         <MobileCallBar />
         <CookieBanner />

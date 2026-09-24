@@ -71,7 +71,7 @@ export default function FinishesClient() {
 
       {/* Section tab bar - only the selected section renders below */}
       <nav className="sticky top-[60px] z-30 border-b border-line bg-white/95 backdrop-blur">
-        <div className="container flex flex-wrap items-center gap-x-6 gap-y-2 py-3">
+        <div role="tablist" className="container flex flex-wrap items-center gap-x-6 gap-y-2 py-1">
           {finishSections.map((s) => (
             <button
               key={s.key}
@@ -79,7 +79,7 @@ export default function FinishesClient() {
               onClick={() => selectSection(s.key)}
               aria-selected={s.key === section.key}
               role="tab"
-              className={`text-[13px] font-semibold uppercase tracking-wide transition-colors ${
+              className={`min-h-11 text-[13px] font-semibold uppercase tracking-wide transition-colors ${
                 s.key === section.key ? "text-[color:var(--color-accent)]" : "text-muted hover:text-ink"
               }`}
             >
@@ -109,7 +109,7 @@ export default function FinishesClient() {
             </div>
 
             {section.groups.length > 1 ? (
-              <div className="mt-8 flex flex-wrap items-center gap-2 border-b border-line pb-4">
+              <div role="tablist" className="mt-8 flex flex-wrap items-center gap-2 border-b border-line pb-4">
                 {section.groups.map((g, gi) => (
                   <button
                     key={g.title || gi}
@@ -117,7 +117,7 @@ export default function FinishesClient() {
                     onClick={() => setActiveGroupIndex(gi)}
                     aria-selected={gi === activeGroupIndex}
                     role="tab"
-                    className={`border px-4 py-2 text-[13px] font-medium transition-colors ${
+                    className={`min-h-11 border px-4 py-2 text-[13px] font-medium transition-colors ${
                       gi === activeGroupIndex
                         ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)] text-white"
                         : "border-line text-ink hover:border-[color:var(--color-accent)]"
@@ -152,7 +152,7 @@ export default function FinishesClient() {
                       >
                         <Image
                           src={item.image}
-                          alt={trData(locale, item.label)}
+                          alt="" // named by the caption below and the button label
                           fill
                           {...imageProps(item.image)}
                           loading="lazy"

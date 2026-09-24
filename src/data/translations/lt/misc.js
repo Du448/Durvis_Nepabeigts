@@ -70,6 +70,7 @@ export const ltColors = {
   "Tumšs antracīts": "Tamsus antracitas",
   "Tumšs ozols": "Tamsus ąžuolas",
   "Venge horizont": "Vengė horizont",
+  "Venge horizonts": "Vengė horizontas",
   "Venge horizontāls tumšs": "Vengė horizontali tamsi",
   "Venge horizonts pelēks": "Vengė horizontas pilkas",
   "Venge tumšs": "Vengė tamsi",

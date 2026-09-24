@@ -109,7 +109,7 @@ export default function SplitProductSlider({ products = [], className = "" }) {
       ) : null}
 
       {count > 1 ? (
-        <div className="mt-7 flex items-center justify-center gap-3">
+        <div className="mt-4 flex items-center justify-center">
           {pages.map((_, p) => (
             <button
               key={"dot" + p}
@@ -117,12 +117,17 @@ export default function SplitProductSlider({ products = [], className = "" }) {
               onClick={() => goTo(p)}
               aria-label={t(locale, "hero.goToSlide").replace("{n}", String(p + 1))}
               aria-current={p === current}
-              className={`h-[7px] w-[7px] rounded-full transition-colors duration-300 ${
-                p === current
-                  ? "bg-[color:var(--color-title)]"
-                  : "bg-[color:var(--color-line-strong)] hover:bg-[color:var(--color-muted)]"
-              }`}
-            />
+              className="group/dot flex h-11 w-11 items-center justify-center"
+            >
+              <span
+                aria-hidden="true"
+                className={`h-[7px] w-[7px] rounded-full transition-colors duration-300 ${
+                  p === current
+                    ? "bg-[color:var(--color-title)]"
+                    : "bg-[color:var(--color-line-strong)] group-hover/dot:bg-[color:var(--color-muted)]"
+                }`}
+              />
+            </button>
           ))}
         </div>
       ) : null}

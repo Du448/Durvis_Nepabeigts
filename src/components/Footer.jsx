@@ -20,7 +20,7 @@ const TAGLINE = {
 function Col({ title, children }) {
   return (
     <div>
-      <h3 className="t-widget mb-5 text-white">{title}</h3>
+      <h2 className="t-widget mb-5 text-white">{title}</h2>
       {children}
     </div>
   );

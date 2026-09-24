@@ -86,7 +86,7 @@ export default function Manufacturer2Client() {
       />
 
       <nav className="sticky top-[60px] z-30 border-b border-line bg-white/95 backdrop-blur">
-        <div className="container flex flex-wrap items-center gap-x-6 gap-y-2 py-3">
+        <div role="tablist" className="container flex flex-wrap items-center gap-x-6 gap-y-2 py-1">
           {tabs.map((s) => (
             <button
               key={s.key}
@@ -94,7 +94,7 @@ export default function Manufacturer2Client() {
               onClick={() => selectSection(s.key)}
               aria-selected={s.key === activeSectionKey}
               role="tab"
-              className={`text-[13px] font-semibold uppercase tracking-wide transition-colors ${
+              className={`min-h-11 text-[13px] font-semibold uppercase tracking-wide transition-colors ${
                 s.key === activeSectionKey ? "text-[color:var(--color-accent)]" : "text-muted hover:text-ink"
               }`}
             >
@@ -118,7 +118,7 @@ export default function Manufacturer2Client() {
             </div>
 
             {section.groups.length > 1 ? (
-              <div className="mt-8 flex flex-wrap items-center gap-2 border-b border-line pb-4">
+              <div role="tablist" className="mt-8 flex flex-wrap items-center gap-2 border-b border-line pb-4">
                 {section.groups.map((g, gi) => {
                   const badge = seriesBadge(trData, locale, g);
                   const active = gi === activeGroupIndex;
@@ -129,7 +129,7 @@ export default function Manufacturer2Client() {
                       onClick={() => setActiveGroupIndex(gi)}
                       aria-selected={active}
                       role="tab"
-                      className={`flex items-center gap-2 border px-4 py-2 text-[13px] font-medium transition-colors ${
+                      className={`flex min-h-11 items-center gap-2 border px-4 py-2 text-[13px] font-medium transition-colors ${
                         active
                           ? "border-[color:var(--color-accent)] bg-[color:var(--color-accent)] text-white"
                           : "border-line text-ink hover:border-[color:var(--color-accent)]"
@@ -141,10 +141,10 @@ export default function Manufacturer2Client() {
                           className={`rounded-sm px-1.5 py-0.5 text-[11px] font-semibold ${
                             badge.tone === "included"
                               ? active
-                                ? "bg-white/20 text-white"
+                                ? "bg-white text-[color:var(--color-accent)]"
                                 : "bg-green-50 text-green-700"
                               : active
-                                ? "bg-white/20 text-white"
+                                ? "bg-white text-[color:var(--color-accent)]"
                                 : "bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)]"
                           }`}
                         >
@@ -180,7 +180,7 @@ export default function Manufacturer2Client() {
                       >
                         <Image
                           src={item.image}
-                          alt={trData(locale, item.label)}
+                          alt="" // named by the caption below and the button label
                           fill
                           {...imageProps(item.image)}
                           loading="lazy"

@@ -8,7 +8,7 @@
 @theme inline {
   --color-ink: #222222;        /* body text */
   --color-title: #242424;      /* headings */
-  --color-muted: #767676;      /* secondary text */
+  --color-muted: #666666;      /* secondary text: 5.7:1 on white, 5.3:1 on --color-soft */
   --color-line: rgba(0, 0, 0, 0.105);
   --color-line-strong: rgba(0, 0, 0, 0.2);
   --color-bg: #ffffff;
@@ -17,6 +17,7 @@
   --color-accent: #037743;      /* primary green */
   --color-accent-dark: #026036;
   --color-alt: #fbbc34;
+  --color-danger: #b42318;     /* form errors (5.9:1 on white) */
   --color-dark: #000000;        /* footer */
 
   /* Stock badges. Green means the model is on our own shelf and ships now;
@@ -365,11 +366,46 @@ html.footer-reveal .site-main {
 @keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
 @keyframes drawer-in { from { transform: translateX(100%) } to { transform: translateX(0) } }
 .animate-fade-in { animation: fade-in .25s ease-out both; }
-.animate-drawer-in { animation: drawer-in .35s cubic-bezier(.22,1,.36,1) both; }
+.animate-drawer-in { animation: drawer-in .25s cubic-bezier(.22,1,.36,1) both; }
 
+/* Reduced motion: no entrance animations, cross-fades or smooth scrolling
+   anywhere. Colour/opacity feedback stays, just instant. JS-driven motion
+   (GSAP, reveal grid, hero autoplay, scrollIntoView) checks the same query. */
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in, .animate-drawer-in { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
 }
+
+/* --- Accessibility ------------------------------------------------------ */
+
+/* "Skip to content": off-screen until it receives keyboard focus. */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -100px;
+  z-index: 1000;
+  padding: 12px 18px;
+  background: var(--color-accent);
+  color: #fff;
+  font-weight: 600;
+}
+.skip-link:focus { top: 12px; }
+
+/* One visible focus ring for keyboard users across links, buttons and fields. */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* The widget heading style sets a dark colour outside Tailwind's layers, so
+   it would beat text-white in the black footer; put the white back there. */
+.site-footer .t-widget { color: #fff; }
 
 /* Utility: hide native scrollbars but keep scrolling */
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }

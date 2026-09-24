@@ -82,7 +82,7 @@ export default function HeroSlider({ slides = [] }) {
         <div
           key={s.image + i}
           aria-hidden={i !== index}
-          className="absolute inset-0 transition-opacity duration-[1200ms] ease-out"
+          className="absolute inset-0 transition-opacity duration-700 ease-out"
           style={{ opacity: i === index ? 1 : 0 }}
         >
           <Image
@@ -189,17 +189,24 @@ export default function HeroSlider({ slides = [] }) {
 
       {/* Minimal progress bars */}
       {slides.length > 1 ? (
-        <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
+        <div className="absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2">
           {slides.map((_, i) => (
             <button
               key={"dot" + i}
               type="button"
               onClick={() => goTo(i)}
               aria-label={t(locale, "hero.goToSlide").replace("{n}", String(i + 1))}
-              className={`h-[2px] transition-all duration-300 ${
-                i === index ? "w-10 bg-white" : "w-5 bg-white/45 hover:bg-white/70"
-              }`}
-            />
+              aria-current={i === index ? "true" : undefined}
+              // The bar stays 2px; the button around it is a 44px tap target.
+              className="group/dot flex h-11 items-center"
+            >
+              <span
+                aria-hidden="true"
+                className={`block h-[2px] transition-all duration-300 ${
+                  i === index ? "w-10 bg-white" : "w-5 bg-white/45 group-hover/dot:bg-white/70"
+                }`}
+              />
+            </button>
           ))}
         </div>
       ) : null}

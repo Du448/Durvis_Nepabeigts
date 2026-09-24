@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { X } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import RevealGrid from "@/components/anim/RevealGrid";
@@ -41,6 +41,9 @@ const TYPE_OPTIONS = [
 
 const FEATURE_KEYS = ["thermo", "glass", "new", "offer"];
 
+// Models shown before "Show more"; divisible by the 2- and 3-column grids.
+const PAGE_SIZE = 24;
+
 /* Only entrance doors store [exterior, interior] face colours in `colors`.
    Interior-door and hidden-door listings reuse the second slot for the glass
    insert's tint, which is a different attribute - splitting it into an
@@ -60,7 +63,7 @@ function Group({ title, children }) {
 function Option({ type = "checkbox", name, checked, onChange, label, count, disabled }) {
   return (
     <label
-      className={`-mx-2 flex min-h-9 items-center gap-2.5 px-2 text-[15px] transition-colors duration-200 ${
+      className={`-mx-2 flex min-h-11 items-center gap-2.5 px-2 md:min-h-9 text-[15px] transition-colors duration-200 ${
         disabled ? "cursor-default text-muted/60" : "cursor-pointer text-ink hover:bg-[--color-soft]"
       }`}
     >
@@ -91,6 +94,24 @@ export default function CategoryClient({ slug, category, products: allProducts, 
   const [colorSearch, setColorSearch] = useState("");
   const [colorSearchInside, setColorSearchInside] = useState("");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const filtersTriggerRef = useRef(null);
+  const closeFiltersRef = useRef(null);
+  const closeMobileFilters = useCallback(() => {
+    setMobileFiltersOpen(false);
+    filtersTriggerRef.current?.focus();
+  }, []);
+
+  /* While the panel is open the page behind it must not scroll, and focus
+     starts on its close button. */
+  useEffect(() => {
+    if (!mobileFiltersOpen) return;
+    const { overflow } = document.body.style;
+    document.body.style.overflow = "hidden";
+    closeFiltersRef.current?.focus();
+    return () => {
+      document.body.style.overflow = overflow;
+    };
+  }, [mobileFiltersOpen]);
 
   /* --- Filter state lives in the URL ------------------------------------- */
 
@@ -230,6 +251,13 @@ export default function CategoryClient({ slug, category, products: allProducts, 
     }
   })();
 
+  /* "Show more" count, tied to the filter/sort state it was expanded for:
+     any change of filters starts again from the first page. */
+  const filterKey = searchParams.toString();
+  const [shown, setShown] = useState({ key: filterKey, count: PAGE_SIZE });
+  const visibleCount = shown.key === filterKey ? shown.count : PAGE_SIZE;
+  const visible = filtered.slice(0, visibleCount);
+
   if (!category) {
     return (
       <main className="container py-10">
@@ -301,7 +329,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
   const priceActive = priceMin !== "" || priceMax !== "";
 
   const Filters = (
-    <div className="w-full max-w-[268px] shrink-0">
+    <div className="w-full shrink-0 md:max-w-[268px]">
       <Group title={typeTitle}>
         <div className="space-y-0.5">
           {TYPE_OPTIONS.map((s) => (
@@ -327,7 +355,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
               onChange={(e) => setCollectionSearch(e.target.value)}
               placeholder={searchPlaceholder}
               aria-label={t(locale, "category.collection")}
-              className="mb-2 min-h-9 w-full border border-line bg-white px-2 py-1 text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-[--color-accent]"
+              className="mb-2 min-h-11 w-full border border-line md:min-h-9 bg-white px-2 py-1 text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-[--color-accent]"
             />
           ) : null}
           <div className="filter-scroll space-y-0.5">
@@ -358,7 +386,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
               onChange={(e) => setColorSearch(e.target.value)}
               placeholder={searchPlaceholder}
               aria-label={t(locale, "category.color")}
-              className="mb-2 min-h-9 w-full border border-line bg-white px-2 py-1 text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-[--color-accent]"
+              className="mb-2 min-h-11 w-full border border-line md:min-h-9 bg-white px-2 py-1 text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-[--color-accent]"
             />
           ) : null}
           <div className="filter-scroll space-y-0.5">
@@ -392,7 +420,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
               onChange={(e) => setColorSearchInside(e.target.value)}
               placeholder={searchPlaceholder}
               aria-label={t(locale, "category.colorInside")}
-              className="mb-2 min-h-9 w-full border border-line bg-white px-2 py-1 text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-[--color-accent]"
+              className="mb-2 min-h-11 w-full border border-line md:min-h-9 bg-white px-2 py-1 text-[14px] text-ink focus:outline-none focus:ring-2 focus:ring-[--color-accent]"
             />
           ) : null}
           <div className="filter-scroll space-y-0.5">
@@ -523,9 +551,9 @@ export default function CategoryClient({ slug, category, products: allProducts, 
       <section>
         <div className="container py-6">
           <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-            <div className="text-sm text-muted">
+            <h2 className="text-sm font-normal text-muted" aria-live="polite">
               {filtered.length} {t(locale, "category.models")}
-            </div>
+            </h2>
             <div className="flex flex-wrap items-center gap-2">
               <label className="text-sm text-muted" htmlFor="sort">
                 {t(locale, "category.sort")}
@@ -545,7 +573,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
                   sit on a plain wrapper to win the cascade. */}
               <div className="md:hidden">
                 <button
-                  className="btn btn-outline-dark h-10 px-5"
+                  ref={filtersTriggerRef}
+                  type="button"
+                  aria-haspopup="dialog"
+                  aria-expanded={mobileFiltersOpen}
+                  className="btn btn-outline-dark min-h-11 px-5"
                   onClick={() => setMobileFiltersOpen(true)}
                 >
                   {t(locale, "category.filters")}
@@ -588,14 +620,34 @@ export default function CategoryClient({ slug, category, products: allProducts, 
             <div className="hidden md:block">{Filters}</div>
             <div className="flex-1">
               {filtered.length ? (
-                <RevealGrid
-                  className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-                  revealKey={`${slug}|${sort}|${filtered.map((p) => p.id).join(",")}`}
-                >
-                  {filtered.map((p) => (
-                    <ProductCard key={p.id} product={p} />
-                  ))}
-                </RevealGrid>
+                <>
+                  <RevealGrid
+                    className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+                    revealKey={`${slug}|${sort}|${visible.map((p) => p.id).join(",")}`}
+                  >
+                    {visible.map((p) => (
+                      <ProductCard key={p.id} product={p} />
+                    ))}
+                  </RevealGrid>
+                  {filtered.length > PAGE_SIZE ? (
+                    <div className="mt-10 flex flex-col items-center gap-3">
+                      <p className="text-sm text-muted" aria-live="polite">
+                        {t(locale, "category.showing")
+                          .replace("{n}", String(visible.length))
+                          .replace("{total}", String(filtered.length))}
+                      </p>
+                      {visible.length < filtered.length ? (
+                        <button
+                          type="button"
+                          className="btn btn-outline-dark min-h-11"
+                          onClick={() => setShown({ key: filterKey, count: visibleCount + PAGE_SIZE })}
+                        >
+                          {t(locale, "category.showMore")}
+                        </button>
+                      ) : null}
+                    </div>
+                  ) : null}
+                </>
               ) : (
                 <div className="border border-line p-8 text-center text-muted">
                   {t(locale, "category.nothingFound")}
@@ -606,25 +658,45 @@ export default function CategoryClient({ slug, category, products: allProducts, 
         </div>
       </section>
 
+      {/* Mobile filter panel: a modal sheet with its own scroll, a fixed
+          header and a footer that shows how many models the current choice
+          leaves - so the visitor can see the result before closing it. */}
       {mobileFiltersOpen && (
         <div
-          className="animate-fade-in fixed inset-0 z-50 bg-black/40 md:hidden"
-          onClick={() => setMobileFiltersOpen(false)}
+          className="animate-fade-in fixed inset-0 z-[400] bg-black/40 md:hidden"
+          onClick={closeMobileFilters}
         >
           <div
-            className="animate-drawer-in absolute inset-y-0 right-0 w-[85%] max-w-[320px] overflow-y-auto bg-white p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="mobile-filters-title"
+            onKeyDown={(e) => e.key === "Escape" && closeMobileFilters()}
+            className="animate-drawer-in absolute inset-y-0 right-0 flex w-[88%] max-w-[360px] flex-col bg-white"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="mb-3 flex items-center justify-between">
-              <div className="text-sm font-semibold text-ink">{t(locale, "category.filters")}</div>
+            <div className="flex items-center justify-between border-b border-line px-4 py-2">
+              <h2 id="mobile-filters-title" className="text-[16px] font-semibold text-ink">
+                {t(locale, "category.filters")}
+              </h2>
               <button
-                className="min-h-10 border border-line px-3 py-1 text-[15px] transition-colors active:bg-[--color-soft]"
-                onClick={() => setMobileFiltersOpen(false)}
+                ref={closeFiltersRef}
+                type="button"
+                aria-label={t(locale, "category.close")}
+                className="-mr-2 flex h-11 w-11 items-center justify-center text-ink"
+                onClick={closeMobileFilters}
               >
-                {t(locale, "category.close")}
+                <X size={20} />
               </button>
             </div>
-            {Filters}
+            <div className="flex-1 overflow-y-auto overscroll-contain px-4 py-4">{Filters}</div>
+            <div className="flex gap-3 border-t border-line bg-white px-4 py-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
+              <button type="button" className="btn btn-outline-dark min-h-11 flex-1 px-3" onClick={clearFilters}>
+                {t(locale, "category.clearFilters")}
+              </button>
+              <button type="button" className="btn btn-accent min-h-11 flex-1 px-3" onClick={closeMobileFilters}>
+                {t(locale, "category.showResults").replace("{n}", String(filtered.length))}
+              </button>
+            </div>
           </div>
         </div>
       )}

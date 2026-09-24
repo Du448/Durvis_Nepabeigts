@@ -7,6 +7,7 @@ import Link from "next/link";
 import { track } from "@vercel/analytics";
 import { formatPrice } from "@/lib/product-utils";
 import { paths } from "@/lib/routes";
+import { scrollBehavior } from "@/lib/motion";
 import { usePathname } from "next/navigation";
 import PageTitle from "@/components/PageTitle";
 import ConsentMap from "@/components/ConsentMap";
@@ -107,7 +108,7 @@ export default function ContactsClient() {
   // The confirmation is much shorter than the form it replaces, so bring it
   // into view instead of leaving the visitor looking at the page below it.
   useEffect(() => {
-    if (submitted) confirmRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (submitted) confirmRef.current?.scrollIntoView({ behavior: scrollBehavior(), block: "center" });
   }, [submitted]);
 
   function resetForm() {
@@ -302,8 +303,11 @@ export default function ContactsClient() {
               <form onSubmit={onSubmit} className="border border-line bg-white p-4 space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm text-muted mb-1">{t(locale, "contacts.formName")}</label>
+                    <label htmlFor="c-name" className="block text-sm text-muted mb-1">{t(locale, "contacts.formName")}</label>
                     <input
+                      id="c-name"
+                      name="name"
+                      autoComplete="name"
                       type="text"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -312,8 +316,11 @@ export default function ContactsClient() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm text-muted mb-1">{t(locale, "contacts.formPhone")}</label>
+                    <label htmlFor="c-phone" className="block text-sm text-muted mb-1">{t(locale, "contacts.formPhone")}</label>
                     <input
+                      id="c-phone"
+                      name="phone"
+                      autoComplete="tel"
                       type="tel"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
@@ -323,8 +330,11 @@ export default function ContactsClient() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm text-muted mb-1">{t(locale, "contacts.formEmail")}</label>
+                  <label htmlFor="c-email" className="block text-sm text-muted mb-1">{t(locale, "contacts.formEmail")}</label>
                   <input
+                    id="c-email"
+                    name="email"
+                    autoComplete="email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -333,8 +343,10 @@ export default function ContactsClient() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-muted mb-1">{t(locale, "contacts.formMessage")}</label>
+                  <label htmlFor="c-message" className="block text-sm text-muted mb-1">{t(locale, "contacts.formMessage")}</label>
                   <textarea
+                    id="c-message"
+                    name="message"
                     value={messageValue}
                     onChange={(e) => {
                       setMessage(e.target.value);
@@ -346,7 +358,7 @@ export default function ContactsClient() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm text-muted mb-1">{t(locale, "contacts.attachments")}</label>
+                  <p id="c-attachments" className="block text-sm text-muted mb-1">{t(locale, "contacts.attachments")}</p>
                   {files.length > 0 && (
                     <ul className="mb-2 space-y-1">
                       {files.map((file, i) => (
@@ -371,23 +383,25 @@ export default function ContactsClient() {
                       ))}
                     </ul>
                   )}
-                  <label className="btn btn-outline-dark inline-flex cursor-pointer items-center gap-2">
+                  <label className="btn btn-outline-dark inline-flex min-h-11 cursor-pointer items-center gap-2 focus-within:outline focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-[color:var(--color-accent)]">
                     <Paperclip size={14} />
                     {t(locale, "contacts.addFiles")}
                     <input
                       type="file"
                       multiple
                       accept={ALLOWED_EXTENSIONS.map((e) => `.${e}`).join(",")}
-                      className="hidden"
+                      aria-describedby="c-attachments c-file-hint"
+                      // Visually hidden but still focusable, unlike display:none.
+                      className="sr-only"
                       onChange={(e) => {
                         if (e.target.files?.length) addFiles(e.target.files);
                         e.target.value = "";
                       }}
                     />
                   </label>
-                  <p className="mt-2 text-[12px] text-muted">{t(locale, "legal.fileTypesHint")}</p>
+                  <p id="c-file-hint" className="mt-2 text-[12px] text-muted">{t(locale, "legal.fileTypesHint")}</p>
                   {rejected.length > 0 && (
-                    <p className="mt-1 text-[13px] text-[color:var(--color-accent)]">
+                    <p role="alert" className="mt-1 text-[13px] text-[color:var(--color-danger)]">
                       {t(locale, "legal.fileRejected")} {rejected.join(", ")}
                     </p>
                   )}
@@ -426,7 +440,7 @@ export default function ContactsClient() {
                   </button>
                 </div>
                 {error && (
-                  <div className="text-[color:var(--color-accent)]">
+                  <div role="alert" className="text-[color:var(--color-danger)]">
                     {t(locale, "contacts.error")}
                   </div>
                 )}

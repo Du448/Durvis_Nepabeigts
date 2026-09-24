@@ -261,7 +261,11 @@ export default function Header() {
                   key={l}
                   href={buildLangHref(l)}
                   onClick={() => l !== locale && router.refresh()}
-                  className={`px-1.5 text-[12px] font-semibold uppercase tracking-wide transition-opacity hover:opacity-70 ${
+                  hrefLang={l}
+                  lang={l}
+                  aria-label={t(locale, "a11y.language").replace("{code}", l.toUpperCase())}
+                  aria-current={l === locale ? "true" : undefined}
+                  className={`flex h-11 items-center px-1.5 text-[12px] font-semibold uppercase tracking-wide transition-opacity hover:opacity-70 ${
                     l === locale ? "text-[color:var(--color-accent)]" : ""
                   }`}
                 >
@@ -274,7 +278,7 @@ export default function Header() {
               type="button"
               aria-label={t(locale, "a11y.search")}
               onClick={() => setShowSearch(true)}
-              className="flex h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70"
+              className="flex h-11 w-11 items-center justify-center transition-opacity duration-200 hover:opacity-70"
             >
               <Search size={20} strokeWidth={1.6} />
             </button>
@@ -282,7 +286,7 @@ export default function Header() {
             <Link
               href={withLocaleHref(locale, "/norai")}
               aria-label={t(locale, "wishlist.title")}
-              className="relative flex h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70"
+              className="relative flex h-11 w-11 items-center justify-center transition-opacity duration-200 hover:opacity-70"
             >
               <Heart size={20} strokeWidth={1.6} />
               <span className="absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white">
@@ -294,7 +298,7 @@ export default function Header() {
               type="button"
               aria-label="Menu"
               onClick={() => setOpen(true)}
-              className="flex h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70 xl:hidden"
+              className="flex h-11 w-11 items-center justify-center transition-opacity duration-200 hover:opacity-70 xl:hidden"
             >
               <Menu size={22} strokeWidth={1.6} />
             </button>
@@ -311,7 +315,7 @@ export default function Header() {
             type="button"
             aria-label={t(locale, "a11y.close")}
             onClick={() => setShowSearch(false)}
-            className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center text-[color:var(--color-title)] transition-opacity hover:opacity-60"
+            className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center text-[color:var(--color-title)] transition-opacity hover:opacity-60"
           >
             <X size={26} strokeWidth={1.4} />
           </button>
@@ -347,7 +351,7 @@ export default function Header() {
                 type="button"
                 aria-label={t(locale, "a11y.close")}
                 onClick={() => setOpen(false)}
-                className="flex h-10 w-10 items-center justify-center"
+                className="flex h-11 w-11 items-center justify-center"
               >
                 <X size={22} strokeWidth={1.5} />
               </button>
@@ -409,7 +413,11 @@ export default function Header() {
                     if (l !== locale) router.refresh();
                     setOpen(false);
                   }}
-                  className={`border border-[color:var(--color-line)] px-2.5 py-1 text-[12px] font-semibold uppercase ${
+                  hrefLang={l}
+                  lang={l}
+                  aria-label={t(locale, "a11y.language").replace("{code}", l.toUpperCase())}
+                  aria-current={l === locale ? "true" : undefined}
+                  className={`flex min-h-11 min-w-11 items-center justify-center border border-[color:var(--color-line)] px-2.5 text-[12px] font-semibold uppercase ${
                     l === locale ? "text-[color:var(--color-accent)]" : "text-[color:var(--color-title)]"
                   }`}
                 >

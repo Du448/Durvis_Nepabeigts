@@ -98,37 +98,37 @@ export default function PartnersClient() {
                   <label className="mb-1 block text-sm text-muted" htmlFor="p-company">
                     {t(locale, "partners.company")}
                   </label>
-                  <input id="p-company" className="field" value={form.company} onChange={set("company")} required />
+                  <input id="p-company" autoComplete="organization" className="field" value={form.company} onChange={set("company")} required />
                 </div>
                 <div>
                   <label className="mb-1 block text-sm text-muted" htmlFor="p-person">
                     {t(locale, "partners.person")}
                   </label>
-                  <input id="p-person" className="field" value={form.person} onChange={set("person")} required />
+                  <input id="p-person" autoComplete="name" className="field" value={form.person} onChange={set("person")} required />
                 </div>
                 <div>
                   <label className="mb-1 block text-sm text-muted" htmlFor="p-phone">
                     {t(locale, "partners.phone")}
                   </label>
-                  <input id="p-phone" type="tel" className="field" value={form.phone} onChange={set("phone")} required />
+                  <input id="p-phone" type="tel" autoComplete="tel" className="field" value={form.phone} onChange={set("phone")} required />
                 </div>
                 <div>
                   <label className="mb-1 block text-sm text-muted" htmlFor="p-email">
                     {t(locale, "partners.email")}
                   </label>
-                  <input id="p-email" type="email" className="field" value={form.email} onChange={set("email")} required />
+                  <input id="p-email" type="email" autoComplete="email" className="field" value={form.email} onChange={set("email")} required />
                 </div>
                 <div>
                   <label className="mb-1 block text-sm text-muted" htmlFor="p-city">
                     {t(locale, "partners.city")}
                   </label>
-                  <input id="p-city" className="field" value={form.city} onChange={set("city")} required />
+                  <input id="p-city" autoComplete="address-level2" className="field" value={form.city} onChange={set("city")} required />
                 </div>
                 <div>
                   <label className="mb-1 block text-sm text-muted" htmlFor="p-website">
                     {t(locale, "partners.website")}
                   </label>
-                  <input id="p-website" className="field" value={form.website} onChange={set("website")} />
+                  <input id="p-website" type="url" inputMode="url" autoComplete="url" className="field" value={form.website} onChange={set("website")} />
                 </div>
               </div>
 
@@ -187,7 +187,7 @@ export default function PartnersClient() {
               </button>
 
               {submitted ? <div className="text-ink">{t(locale, "partners.thanks")}</div> : null}
-              {error ? <div className="text-[color:var(--color-accent)]">{t(locale, "partners.error")}</div> : null}
+              {error ? <div role="alert" className="text-[color:var(--color-danger)]">{t(locale, "partners.error")}</div> : null}
             </form>
           </div>
         </div>

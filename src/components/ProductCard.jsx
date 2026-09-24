@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Heart, Eye } from "lucide-react";
+import { Heart } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
@@ -33,6 +33,20 @@ export default function ProductCard({ product, bare = false }) {
   }, [product.id]);
 
   const hasOffer = product.oldPrice != null && product.oldPrice > product.price;
+  /* One badge per card, the most useful one: a deal beats "new", which beats
+     the stock label. Stacked badges covered the photo and read as noise. */
+  const badge = hasOffer
+    ? { text: t(locale, "product.offerBadge"), className: "bg-[color:var(--color-accent)] text-white" }
+    : product.isNew
+      ? { text: t(locale, "product.newBadge"), className: "bg-[color:var(--color-title)] text-white" }
+      : product.stock === "factory"
+        ? {
+            text: t(locale, "product.inStockFactory"),
+            className: "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]",
+          }
+        : product.stock
+          ? { text: t(locale, "product.inStock"), className: "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]" }
+          : null;
   const shown = hovered && product.hover ? product.hover : product.image;
   const href = withLocaleHref(locale, paths.product(product.id));
 
@@ -46,8 +60,18 @@ export default function ProductCard({ product, bare = false }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Image */}
-      <Link href={href} className="relative block aspect-square overflow-hidden bg-white">
+      {/* Image: every photo sits in the same soft box at the same scale. The
+          catalogue mixes white-backed shots, grey studio shots and cut-outs;
+          multiply blending lets the white ones take the box colour, and the
+          fixed inset keeps tall and short doors the same visual size. The
+          name link below is the card's one link for keyboard and screen
+          reader users, so this duplicate is hidden from them. */}
+      <Link
+        href={href}
+        tabIndex={-1}
+        aria-hidden="true"
+        className="relative block aspect-[4/5] overflow-hidden bg-[color:var(--color-soft)]"
+      >
         {shown ? (
           <Image
             src={shown}
@@ -55,7 +79,7 @@ export default function ProductCard({ product, bare = false }) {
             fill
             {...imageProps(shown)}
             sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 300px"
-            className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
+            className="!inset-[6%] !h-[88%] !w-[88%] object-contain mix-blend-multiply transition-transform duration-300 ease-out group-hover:scale-[1.03] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         ) : (
           <span className="flex h-full w-full items-center justify-center bg-[color:var(--color-soft)] text-[color:var(--color-muted)]">
@@ -64,52 +88,30 @@ export default function ProductCard({ product, bare = false }) {
         )}
       </Link>
 
-      {/* Labels */}
-      <div className={`pointer-events-none absolute z-10 flex flex-col items-start gap-1 ${
-          bare ? "left-0 top-0" : "left-[15px] top-[15px]"
-        }`}>
-        {hasOffer ? (
-          <span className="bg-[color:var(--color-accent)] px-2 py-1 text-[11px] font-semibold uppercase leading-none text-white">
-            {t(locale, "product.offerBadge")}
-          </span>
-        ) : null}
-        {product.isNew ? (
-          <span className="bg-[color:var(--color-title)] px-2 py-1 text-[11px] font-semibold uppercase leading-none text-white">
-            {t(locale, "product.newBadge")}
-          </span>
-        ) : null}
-        {product.stock ? (
-          <span
-            className={`px-2 py-1 text-[11px] font-semibold uppercase leading-none ${
-              product.stock === "factory"
-                ? "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]"
-                : "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]"
-            }`}
-          >
-            {t(locale, product.stock === "factory" ? "product.inStockFactory" : "product.inStock")}
-          </span>
-        ) : null}
-      </div>
+      {badge ? (
+        <span
+          className={`pointer-events-none absolute z-10 px-2 py-1 text-[11px] font-semibold uppercase leading-none ${badge.className} ${
+            bare ? "left-0 top-0" : "left-[15px] top-[15px]"
+          }`}
+        >
+          {badge.text}
+        </span>
+      ) : null}
 
-      {/* Hover action icons, top-right */}
-      <div className={`absolute z-10 flex translate-x-2 flex-col gap-[2px] opacity-0 transition-[opacity,transform] duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100 motion-reduce:translate-x-0 motion-reduce:opacity-100 ${
+      {/* Wishlist, top-right: revealed on hover with a mouse, always shown on
+          touch screens (no hover there), and 44px so it is easy to tap. */}
+      <div className={`absolute z-10 translate-x-2 opacity-0 transition-[opacity,transform] duration-200 ease-out group-hover:translate-x-0 group-hover:opacity-100 focus-within:translate-x-0 focus-within:opacity-100 motion-reduce:translate-x-0 [@media(hover:none)]:translate-x-0 [@media(hover:none)]:opacity-100 ${
           bare ? "right-0 top-0" : "right-[15px] top-[15px]"
         }`}>
-        <Link
-          href={href}
-          aria-label={t(locale, "product.openImage")}
-          className="flex h-9 w-9 items-center justify-center bg-white text-[color:var(--color-title)] shadow-[0_1px_6px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-[color:var(--color-accent)] hover:text-white"
-        >
-          <Eye size={17} strokeWidth={1.6} />
-        </Link>
         <button
           type="button"
           aria-label={t(locale, "a11y.addWishlist")}
+          aria-pressed={wishlisted}
           onClick={(e) => {
             e.preventDefault();
             toggleWishlistId(product.id);
           }}
-          className={`flex h-9 w-9 items-center justify-center bg-white shadow-[0_1px_6px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-[color:var(--color-accent)] hover:text-white ${
+          className={`flex h-11 w-11 items-center justify-center bg-white shadow-[0_1px_6px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-[color:var(--color-accent)] hover:text-white ${
             wishlisted ? "text-[color:var(--color-accent)]" : "text-[color:var(--color-title)]"
           }`}
         >

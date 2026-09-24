@@ -40,6 +40,9 @@ export default async function SearchPage({ params, searchParams }) {
 
       <section>
         <div className="container py-10">
+          <h2 className="sr-only">
+            {results.length} {t(locale, "category.models")}
+          </h2>
           {q && results.length === 0 ? (
             <div className="text-ink">
               {t(locale, "search.nothingFound")}{" "}
