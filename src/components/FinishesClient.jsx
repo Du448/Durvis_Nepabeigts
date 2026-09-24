@@ -2,20 +2,24 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname, useSearchParams } from "next/navigation";
+import { imageProps } from "@/lib/images";
+import { usePathname } from "next/navigation";
+import { useUrlSearchParams } from "@/lib/useUrlSearchParams";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import PageTitle from "@/components/PageTitle";
 import RevealGrid from "@/components/anim/RevealGrid";
 import { finishSections } from "@/data/finishes";
-import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
+import { getLocaleFromPathname, t } from "@/lib/i18n";
+import { useTr } from "@/components/DictProvider";
 
 /* Reference page for everything a door's look is assembled from: milling
    patterns, decorative inserts and the three colour palettes. Each section is
    a swatch grid; a swatch opens full size, since the texture is the point. */
 
 export default function FinishesClient() {
+  const { trData } = useTr();
   const locale = getLocaleFromPathname(usePathname());
-  const searchParams = useSearchParams();
+  const searchParams = useUrlSearchParams();
   /* The viewer holds the whole group, so one can page through a palette
      without closing it: arrows, keyboard, or a swipe on touch. */
   const [lightbox, setLightbox] = useState(null);
@@ -150,7 +154,7 @@ export default function FinishesClient() {
                           src={item.image}
                           alt={trData(locale, item.label)}
                           fill
-                          unoptimized
+                          {...imageProps(item.image)}
                           loading="lazy"
                           sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
                           className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -231,7 +235,7 @@ export default function FinishesClient() {
                 src={current.image}
                 alt={trData(locale, current.label)}
                 fill
-                unoptimized
+                {...imageProps(current.image)}
                 sizes="720px"
                 className="animate-fade-in object-contain"
               />

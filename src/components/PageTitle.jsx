@@ -1,12 +1,16 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { imageProps } from "@/lib/images";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 
 /* Photographic page-title banner, as used across m-lux.by inner pages:
    a dark cropped photo, the page name centred in white, breadcrumbs under it
-   and an optional row of category shortcuts. */
+   and an optional row of category shortcuts. The photo is an <Image> rather
+   than a CSS background so phones get a phone-sized file, and it is preloaded:
+   on inner pages this banner is the largest paint. */
 
 const DEFAULT_IMAGE =
   "https://images.unsplash.com/photo-1628744876657-abd5086695dc?auto=format&fit=crop&w=2400&q=60";
@@ -14,12 +18,13 @@ const DEFAULT_IMAGE =
 export default function PageTitle({ title, description, image, links = [], crumb }) {
   const pathname = usePathname() || "/";
   const locale = getLocaleFromPathname(pathname);
+  const src = image || DEFAULT_IMAGE;
 
   return (
     <section
-      className="relative flex min-h-[240px] flex-col items-center justify-center bg-[#0a0a0a] bg-cover bg-center px-4 py-14 text-center sm:min-h-[282px]"
-      style={{ backgroundImage: `url("${image || DEFAULT_IMAGE}")` }}
+      className="relative flex min-h-[240px] flex-col items-center justify-center overflow-hidden bg-[#0a0a0a] px-4 py-14 text-center sm:min-h-[282px]"
     >
+      <Image src={src} alt="" fill preload sizes="100vw" quality={60} className="object-cover object-center" {...imageProps(src)} />
       <div className="absolute inset-0 bg-black/60" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/40" />
 

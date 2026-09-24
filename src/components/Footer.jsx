@@ -100,16 +100,16 @@ export default function Footer() {
 
           <Col title={t(locale, "footer.assortment")}>
             <ul className="space-y-2.5">
-              <FootLink href={withLocaleHref(locale, "/kategorija/ardurvis-dzivoklim")}>
+              <FootLink href={withLocaleHref(locale, "/kategorija/buto-lauko-durys")}>
                 {t(locale, "nav.exteriorApartment")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/kategorija/ardurvis-privatmajai")}>
+              <FootLink href={withLocaleHref(locale, "/kategorija/namo-lauko-durys")}>
                 {t(locale, "nav.exteriorHouse")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/kategorija/ieksdurvis")}>
+              <FootLink href={withLocaleHref(locale, "/kategorija/vidaus-durys")}>
                 {t(locale, "nav.interior")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/kategorija/sleptas-durvis")}>
+              <FootLink href={withLocaleHref(locale, "/kategorija/pasleptos-durys")}>
                 {t(locale, "nav.hidden")}
               </FootLink>
             </ul>
@@ -117,16 +117,16 @@ export default function Footer() {
 
           <Col title={t(locale, "footer.services")}>
             <ul className="space-y-2.5">
-              <FootLink href={withLocaleHref(locale, "/pakalpojumi/matavimas")}>
+              <FootLink href={withLocaleHref(locale, "/paslaugos/matavimas")}>
                 {t(locale, "footer.measurement")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/pakalpojumi/montavimas")}>
+              <FootLink href={withLocaleHref(locale, "/paslaugos/montavimas")}>
                 {t(locale, "footer.installation")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/pakalpojumi/garantija")}>
+              <FootLink href={withLocaleHref(locale, "/paslaugos/garantija")}>
                 {t(locale, "footer.warranty")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/pakalpojumi/pristatymas")}>
+              <FootLink href={withLocaleHref(locale, "/paslaugos/pristatymas")}>
                 {t(locale, "footer.delivery")}
               </FootLink>
             </ul>
@@ -134,19 +134,19 @@ export default function Footer() {
 
           <Col title={t(locale, "footer.company")}>
             <ul className="space-y-2.5">
-              <FootLink href={withLocaleHref(locale, "/apdare")}>
+              <FootLink href={withLocaleHref(locale, "/apdaila")}>
                 {t(locale, "nav.finishes")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/par-mums")}>
+              <FootLink href={withLocaleHref(locale, "/apie-mus")}>
                 {t(locale, "nav.about")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/kontakti")}>
+              <FootLink href={withLocaleHref(locale, "/kontaktai")}>
                 {t(locale, "nav.contacts")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/jaunumi")}>
+              <FootLink href={withLocaleHref(locale, "/naujienos")}>
                 {t(locale, "nav.news")}
               </FootLink>
-              <FootLink href={withLocaleHref(locale, "/akcijas")}>
+              <FootLink href={withLocaleHref(locale, "/akcijos")}>
                 {t(locale, "nav.deals")}
               </FootLink>
             </ul>

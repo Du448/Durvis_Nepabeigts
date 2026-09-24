@@ -5,7 +5,7 @@ const SECTION_OVERRIDES = {
   "termix-adele": "stronwood",
 };
 
-// Link to the Ražotājs-1 ("/apdare") finishes reference page for a catalogue
+// Link to the Ražotājs-1 ("/apdaila") finishes reference page for a catalogue
 // product's own colour swatches - mirrors manufacturer2ColorLinkParams(): a
 // RAL code in the colour name means the door is powder-coated (points at the
 // "pulverkrasojums" section), otherwise it's PVC-film wrapped ("pvc").
@@ -17,7 +17,7 @@ export function finishesColorLinkParams(product) {
 }
 
 // Query string (with leading "?") for the "Toņu maiņa" link - appended to
-// "/apdare" before running the result through withLocaleHref().
+// "/apdaila" before running the result through withLocaleHref().
 export function finishesColorQuery(product) {
   return `?${new URLSearchParams(finishesColorLinkParams(product)).toString()}`;
 }

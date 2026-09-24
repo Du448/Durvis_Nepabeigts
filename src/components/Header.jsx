@@ -160,21 +160,21 @@ export default function Header() {
     e.preventDefault();
     const q = query.trim();
     if (!q.length) return;
-    router.push(withLocaleHref(locale, `/meklet?q=${encodeURIComponent(q)}`));
+    router.push(withLocaleHref(locale, `/paieska?q=${encodeURIComponent(q)}`));
     setShowSearch(false);
     setOpen(false);
   };
 
   const productLinks = [
-    { href: "/kategorija/ardurvis-dzivoklim", label: t(locale, "nav.exteriorApartment") },
-    { href: "/kategorija/ardurvis-privatmajai", label: t(locale, "nav.exteriorHouse") },
-    { href: "/kategorija/ieksdurvis", label: t(locale, "nav.interior") },
-    { href: "/kategorija/sleptas-durvis", label: t(locale, "nav.hidden") },
+    { href: "/kategorija/buto-lauko-durys", label: t(locale, "nav.exteriorApartment") },
+    { href: "/kategorija/namo-lauko-durys", label: t(locale, "nav.exteriorHouse") },
+    { href: "/kategorija/vidaus-durys", label: t(locale, "nav.interior") },
+    { href: "/kategorija/pasleptos-durys", label: t(locale, "nav.hidden") },
   ];
 
   const individualSolutionLinks = [
-    { href: "/apdare", label: t(locale, "nav.manufacturer1") },
-    { href: "/razotajs-2", label: t(locale, "nav.manufacturer2") },
+    { href: "/apdaila", label: t(locale, "nav.manufacturer1") },
+    { href: "/duru-konfiguratorius", label: t(locale, "nav.manufacturer2") },
   ];
 
   /* The four door categories live under one PRODUKTI dropdown; the rest of the
@@ -182,9 +182,9 @@ export default function Header() {
   const nav = [
     { href: "/kategorija", label: t(locale, "nav.products"), children: productLinks },
     { href: "/individualie-risinajumi", label: t(locale, "nav.individualSolutions"), children: individualSolutionLinks },
-    { href: "/akcijas", label: t(locale, "nav.deals") },
-    { href: "/par-mums", label: t(locale, "nav.about") },
-    { href: "/kontakti", label: t(locale, "nav.contacts") },
+    { href: "/akcijos", label: t(locale, "nav.deals") },
+    { href: "/apie-mus", label: t(locale, "nav.about") },
+    { href: "/kontaktai", label: t(locale, "nav.contacts") },
   ];
 
   // Never slide the bar away while an overlay is open.
@@ -280,7 +280,7 @@ export default function Header() {
             </button>
 
             <Link
-              href={withLocaleHref(locale, "/velmes")}
+              href={withLocaleHref(locale, "/norai")}
               aria-label={t(locale, "wishlist.title")}
               className="relative flex h-10 w-10 items-center justify-center transition-opacity duration-200 hover:opacity-70"
             >

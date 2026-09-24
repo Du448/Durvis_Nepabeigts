@@ -8,13 +8,15 @@ import AccordionItem from "@/components/anim/AccordionItem";
 import ProductTabs from "@/components/ProductTabs";
 import MagneticButton from "@/components/anim/MagneticButton";
 import RevealGrid from "@/components/anim/RevealGrid";
-import { getProductById, getProductsByCategory, isInStock, stockKind, formatPrice } from "@/data/products";
+import { isInStock, stockKind, formatPrice } from "@/lib/product-utils";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { getLocaleFromPathname, translateColorLabel, withLocaleHref, t, trData } from "@/lib/i18n";
+import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
+import { useTr } from "@/components/DictProvider";
 import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
-import { hasManufacturer2Series, manufacturer2ColorQuery } from "@/lib/manufacturer2Series";
 import { finishesColorQuery } from "@/lib/finishesLink";
+import { paths } from "@/lib/routes";
+import { imageProps } from "@/lib/images";
 
 /* Interior doors are photographed as narrow studio renders about 275x585px.
    Poured into the 3:4 box the entrance doors need, they get blown up well past
@@ -103,9 +105,13 @@ function ServiceToggleRow({ checked, onChange, label, hint }) {
   );
 }
 
-export default function ProductClient({ id }) {
+/* The server page passes the catalogue entry, four similar models as cards,
+   and the configurator link (whether this model is one of its series, and the
+   colour section to open) - so neither the catalogue nor the configurator's
+   data has to ship to the browser. */
+export default function ProductClient({ product, similar = [], configurator = null }) {
+  const { trData, translateColorLabel } = useTr();
   const locale = getLocaleFromPathname(usePathname());
-  const product = getProductById(id);
   const productImages = product?.images && product.images.length > 0 ? product.images : ["placeholder"];
   const images = productImages;
   const isFlatGallery = FLAT_GALLERY_CATEGORIES.includes(product?.category);
@@ -233,36 +239,12 @@ export default function ProductClient({ id }) {
 
   const hasOffer = product.oldPrice != null && product.oldPrice > product.price;
   const discount = hasOffer ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
-  const similar = getProductsByCategory(product.category).filter((p) => p.id !== product.id).slice(0, 4);
-
-  // JSON-LD breadcrumbs
   /* The catalogue stores names, specification rows and description copy in
-     Latvian; the dictionary in @/data/translations renders them in the page's
-     language. */
+     Latvian; the page's dictionary (DictProvider) renders them in its language. */
   const productName = trData(locale, product.name);
-
-  const breadcrumbsLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: t(locale, "common.home"),
-        item: withLocaleHref(locale, "/"),
-      },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: productName,
-        item: withLocaleHref(locale, `/produkts/${product.id}`),
-      },
-    ],
-  };
 
   return (
     <main>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbsLd) }} />
 
       <section className="border-b border-line">
         <div className="container py-5">
@@ -316,7 +298,7 @@ export default function ProductClient({ id }) {
                                   src={src}
                                   alt={`${productName} - ${t(locale, "product.imageN").replace("{n}", String(idx + 1))}`}
                                   fill
-                                  unoptimized
+                                  {...imageProps(src)}
                                   referrerPolicy="no-referrer"
                                   sizes="120px"
                                   className="object-contain object-top"
@@ -359,9 +341,9 @@ export default function ProductClient({ id }) {
                           src={images[activeIdx]}
                           alt={productName}
                           fill
-                          unoptimized
+                          {...imageProps(images[activeIdx])}
                           referrerPolicy="no-referrer"
-                          loading="eager"
+                          preload={activeIdx === 0}
                           onLoad={measureMedia}
                           sizes="(max-width: 1024px) 100vw, 50vw"
                           className="object-contain object-top"
@@ -399,7 +381,7 @@ export default function ProductClient({ id }) {
                           src={src}
                           alt={`${productName} - ${t(locale, "product.imageN").replace("{n}", String(idx + 1))}`}
                           fill
-                          unoptimized
+                          {...imageProps(src)}
                           referrerPolicy="no-referrer"
                           sizes="120px"
                           className="object-contain"
@@ -428,9 +410,9 @@ export default function ProductClient({ id }) {
                     {t(locale, stockKind(product) === "factory" ? "product.inStockFactory" : "product.inStock")}
                   </span>
                 ) : null}
-                {hasManufacturer2Series(product.name) ? (
+                {configurator ? (
                   <Link
-                    href={withLocaleHref(locale, "/razotajs-2")}
+                    href={withLocaleHref(locale, paths.configurator)}
                     className="inline-flex items-center gap-1.5 bg-[color:var(--color-accent)]/10 px-2.5 py-1 text-[11px] font-semibold uppercase leading-none text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
                   >
                     <Shield size={12} />
@@ -464,16 +446,16 @@ export default function ProductClient({ id }) {
                         <span className="border border-line px-3 py-1.5">{translateColorLabel(locale, product.colors[1])}</span>
                       </>
                     ) : null}
-                    {product.collection === "BOSTON" ? null : hasManufacturer2Series(product.name) ? (
+                    {product.collection === "BOSTON" ? null : configurator ? (
                       <Link
-                        href={withLocaleHref(locale, `/razotajs-2${manufacturer2ColorQuery(product)}`)}
+                        href={withLocaleHref(locale, `${paths.configurator}${configurator.colorQuery}`)}
                         className="border border-[color:var(--color-accent)] px-3 py-1.5 text-[13px] font-semibold text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
                       >
                         {t(locale, "product.changeShade")}
                       </Link>
                     ) : (
                       <Link
-                        href={withLocaleHref(locale, `/apdare${finishesColorQuery(product)}`)}
+                        href={withLocaleHref(locale, `${paths.finishes}${finishesColorQuery(product)}`)}
                         className="border border-[color:var(--color-accent)] px-3 py-1.5 text-[13px] font-semibold text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
                       >
                         {t(locale, "product.changeShade")}
@@ -513,7 +495,7 @@ export default function ProductClient({ id }) {
                   <Link
                     href={withLocaleHref(
                       locale,
-                      `/kontakti?produkts=${encodeURIComponent(product.id)}${
+                      `${paths.contacts}?produkts=${encodeURIComponent(product.id)}${
                         activeSize ? `&izmers=${encodeURIComponent(activeSize)}` : ""
                       }${
                         selectedServiceCodes.length
@@ -743,7 +725,7 @@ export default function ProductClient({ id }) {
                     src={images[lightboxIdx]}
                     alt={`${productName} - ${t(locale, "product.openImage")}`}
                     fill
-                    unoptimized
+                    {...imageProps(images[lightboxIdx])}
                     referrerPolicy="no-referrer"
                     sizes="100vw"
                     className="object-contain"
@@ -778,7 +760,7 @@ export default function ProductClient({ id }) {
                     aria-label={t(locale, "product.imageN").replace("{n}", String(idx + 1))}
                   >
                     <span className="relative block h-full w-full overflow-hidden">
-                      <Image src={src} alt={productName} fill unoptimized referrerPolicy="no-referrer" sizes="80px" className="object-contain" />
+                      <Image src={src} alt={productName} fill {...imageProps(src)} referrerPolicy="no-referrer" sizes="80px" className="object-contain" />
                     </span>
                   </button>
                 ))}

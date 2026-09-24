@@ -104,14 +104,14 @@ const localProducts = [
   ], "short": "Durvis ar tumšu Dreamwood koka tekstūru abās pusēs.", "specs": {"Vērtnes biezums": "72 mm", "Kārbas biezums": "85 mm", "Slēdzenes": "2 × ARIKO", "Apdare": "MDF 10mm, Dreamwood tumšs", "Actiņa": "Ir"}},
   {"id": "prema-122", "name": "PREMA B-434 Modelis 122", "collection": "PREMA", "category": "ardurvis-dzivoklim", "price": 359, "oldPrice": 399, "sizes": ["840×2040", "940×2040"], "colors": ["Dreamwood tumšs", "Balts koks"], "thermo": false, "glass": false, "isNew": false, "clearance": true, "images": [
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/01.jpg?updatedAt=1780426695853",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BBu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9456-kopiya.jpg?updatedAt=1780426703644",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BBu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9458-kopiya.jpg?updatedAt=1780426703366",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BBu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9462-kopiya.jpg?updatedAt=1780426699626",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BBu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9472-kopiya.jpg?updatedAt=1780426698343",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BBu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9464-kopiya.jpg?updatedAt=1780426697721",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BBu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9466-kopiya.jpg?updatedAt=1780426695997",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BBu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9454-kopiya.jpg?updatedAt=1780426695712",
-    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BBu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9460-kopiya.jpg?updatedAt=1780426694401"
+    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9456-kopiya.jpg?updatedAt=1780426703644",
+    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9458-kopiya.jpg?updatedAt=1780426703366",
+    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9462-kopiya.jpg?updatedAt=1780426699626",
+    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9472-kopiya.jpg?updatedAt=1780426698343",
+    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9464-kopiya.jpg?updatedAt=1780426697721",
+    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9466-kopiya.jpg?updatedAt=1780426695997",
+    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9454-kopiya.jpg?updatedAt=1780426695712",
+    "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/PREMA%20B-434%20Modelis%20122/img_9460-kopiya.jpg?updatedAt=1780426694401"
   ], "short": "Klasiska dizaina dzīvokļa durvis ar koka tekstūru.", "specs": {"Vērtnes biezums": "72 mm", "Kārbas biezums": "85 mm", "Slēdzenes": "2 × ARIKO", "Ārējā apdare": "Dreamwood tumšs", "Iekšējā apdare": "Balta koka tekstūra"}},
   {"id": "prema-606-234", "name": "PREMA B-606 Modelis 234/237", "collection": "PREMA", "category": "ardurvis-dzivoklim", "price": 529, "oldPrice": null, "sizes": ["850×2050", "950×2050"], "colors": ["Tabakas ozols", "Ozols Sudraba Nemo"], "thermo": false, "glass": false, "isNew": false, "clearance": false, "images": [
     "https://ik.imagekit.io/ohgqgb01i/LIetuvie%C5%A1u%20m%C4%81jaslapa/Dz%C4%ABvok%C4%BCu%20%C4%81rdurvju%20bildes/B-606%20modelis%20234-237/met%C4%81la-durvis-dz%C4%ABvoklim-b-617-modelis-234237-1.png?updatedAt=1780426702309",
@@ -443,80 +443,4 @@ export function getCategoryBySlug(slug) {
   return categories.find((c) => c.slug === slug);
 }
 
-/* Categories whose models are kept in stock. Per-product overrides are
-   possible via an explicit `inStock` field on the product. */
-const IN_STOCK_CATEGORIES = ["ardurvis-dzivoklim", "ardurvis-privatmajai", "ieksdurvis"];
-
-/* Models imported from the manufacturer's own catalogue carry their warehouse
-   stock, which the shop labels differently from its local stock. */
-export function stockKind(product) {
-  if (!isInStock(product)) return null;
-  return product?.stockSource === "factory" ? "factory" : "local";
-}
-
-/* Everything is priced in euro today, but the symbol still follows the entry's
-   own currency so a re-import of the factory's hryvnia list cannot quietly
-   relabel those prices as euro. */
-export function formatPrice(product, value) {
-  const amount = value == null ? product?.price : value;
-  if (amount == null) return "";
-  return product?.currency === "UAH" ? `${amount} ₴` : `${amount} €`;
-}
-
-export function isInStock(product) {
-  if (!product) return false;
-  if (typeof product.inStock === "boolean") return product.inStock;
-  return IN_STOCK_CATEGORIES.includes(product.category);
-}
-
-/* --- Card hover image ---------------------------------------------------
-   The first photo of every model is the flat outside/inside pair, so the
-   image the card swaps to on hover should show the door standing open. Three
-   ways to find it, in order of confidence:
-
-   1. Photos whose file name says so - the shop's own uploads use Latvian
-      ("atvērtā pozīcijā") and the manufacturer's older uploads Ukrainian
-      ("vidkryte polozhennya").
-   2. The manufacturer's numbered sets (0136-01.jpg, 0136-02.jpg, …) carry no
-      words, but the shoot order is fixed: photo 4 is always the open door.
-      Some sets skip a number, so match on the number, not on the position.
-   3. A handful of sets photographed by the shop have neither - those are
-      listed by hand below.
-
-   Anything left over falls back to the second photo, whatever it shows. */
-
-const OPEN_IN_NAME = /vidkry|vidkri|otkryt|otvir|atv[eē]r/i;
-const FACTORY_OPEN_SHOT = /\D0*4(?:-\d+)?\.(?:jpe?g|png)$/i;
-
-const OPEN_IMAGE_INDEX = {
-  "prema-188": 5,
-  "stilemax-light": 4,
-  "stilemax-700": 1,
-  "stilemax-350": 2,
-  "stilemax-352": 4,
-  "tehno-6": 3,
-};
-
-export function hoverImage(product) {
-  const images = product?.images || [];
-  if (images.length < 2) return images[0];
-
-  const manual = OPEN_IMAGE_INDEX[product.id];
-  if (manual != null && images[manual]) return images[manual];
-
-  const files = images.map((url) => {
-    try {
-      return decodeURIComponent(url);
-    } catch {
-      return url;
-    }
-  });
-
-  const named = files.findIndex((f) => OPEN_IN_NAME.test(f));
-  if (named > 0) return images[named];
-
-  const numbered = files.findIndex((f) => FACTORY_OPEN_SHOT.test(f.split("?")[0]));
-  if (numbered > 0) return images[numbered];
-
-  return images[1];
-}
+export { stockKind, formatPrice, isInStock, hoverImage } from "@/lib/product-utils";

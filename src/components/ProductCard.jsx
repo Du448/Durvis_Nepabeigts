@@ -5,12 +5,16 @@ import { useEffect, useState } from "react";
 import { Heart, Eye } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { getLocaleFromPathname, withLocaleHref, t, trData } from "@/lib/i18n";
+import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
-import { isInStock, stockKind, formatPrice, hoverImage } from "@/data/products";
+import { formatPrice } from "@/lib/product-utils";
+import { paths } from "@/lib/routes";
+import { imageProps } from "@/lib/images";
 
 /* Product card modelled on m-lux.by: 1px hairline border, 15px padding,
-   square image, centred name and price, action icons revealed on hover. */
+   square image, centred name and price, action icons revealed on hover.
+   Takes a card view model from @/lib/catalog (name already translated, hover
+   photo and stock label worked out on the server). */
 
 export default function ProductCard({ product, bare = false }) {
   const locale = getLocaleFromPathname(usePathname());
@@ -29,9 +33,8 @@ export default function ProductCard({ product, bare = false }) {
   }, [product.id]);
 
   const hasOffer = product.oldPrice != null && product.oldPrice > product.price;
-  const images = product.images || [];
-  const shown = hovered ? hoverImage(product) : images[0];
-  const href = withLocaleHref(locale, `/produkts/${product.id}`);
+  const shown = hovered && product.hover ? product.hover : product.image;
+  const href = withLocaleHref(locale, paths.product(product.id));
 
   return (
     <div
@@ -48,10 +51,10 @@ export default function ProductCard({ product, bare = false }) {
         {shown ? (
           <Image
             src={shown}
-            alt={trData(locale, product.name)}
+            alt={product.name}
             fill
-            unoptimized
-            sizes="(max-width: 768px) 50vw, 300px"
+            {...imageProps(shown)}
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 300px"
             className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.04] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
           />
         ) : (
@@ -75,15 +78,15 @@ export default function ProductCard({ product, bare = false }) {
             {t(locale, "product.newBadge")}
           </span>
         ) : null}
-        {isInStock(product) ? (
+        {product.stock ? (
           <span
             className={`px-2 py-1 text-[11px] font-semibold uppercase leading-none ${
-              stockKind(product) === "factory"
+              product.stock === "factory"
                 ? "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]"
                 : "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]"
             }`}
           >
-            {t(locale, stockKind(product) === "factory" ? "product.inStockFactory" : "product.inStock")}
+            {t(locale, product.stock === "factory" ? "product.inStockFactory" : "product.inStock")}
           </span>
         ) : null}
       </div>
@@ -117,7 +120,7 @@ export default function ProductCard({ product, bare = false }) {
       {/* Name */}
       <h3 className="mt-4 text-[14px] font-medium leading-[1.4] text-[color:var(--color-ink)]">
         <Link href={href} className="transition-colors duration-200 hover:text-[color:var(--color-ink)]/75">
-          {trData(locale, product.name)}
+          {product.name}
         </Link>
       </h3>
 

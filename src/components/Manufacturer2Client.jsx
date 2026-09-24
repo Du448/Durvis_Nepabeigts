@@ -2,16 +2,19 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { usePathname, useSearchParams } from "next/navigation";
+import { imageProps } from "@/lib/images";
+import { usePathname } from "next/navigation";
+import { useUrlSearchParams } from "@/lib/useUrlSearchParams";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import PageTitle from "@/components/PageTitle";
 import RevealGrid from "@/components/anim/RevealGrid";
 import Manufacturer2Calculator from "@/components/Manufacturer2Calculator";
 import { manufacturer2Sections } from "@/data/manufacturer2";
 import { additionalOptions } from "@/data/manufacturer2Calculator";
-import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
+import { getLocaleFromPathname, t } from "@/lib/i18n";
+import { useTr } from "@/components/DictProvider";
 
-function seriesBadge(locale, g) {
+function seriesBadge(trData, locale, g) {
   if (g.included) return { text: trData(locale, "Iekļauta pamatcenā"), tone: "included" };
   if (g.surchargeOptionId) {
     const opt = additionalOptions.find((o) => o.id === g.surchargeOptionId);
@@ -28,8 +31,9 @@ const tabs = [...manufacturer2Sections, { key: CALCULATOR_KEY, title: "Kalkulato
    pattern as FinishesClient, driven by manufacturer2Sections. */
 
 export default function Manufacturer2Client() {
+  const { trData } = useTr();
   const locale = getLocaleFromPathname(usePathname());
-  const searchParams = useSearchParams();
+  const searchParams = useUrlSearchParams();
   const [lightbox, setLightbox] = useState(null);
   const [touchX, setTouchX] = useState(null);
   // Deep-linked from a product page's "Toņu maiņa" button, e.g.
@@ -116,7 +120,7 @@ export default function Manufacturer2Client() {
             {section.groups.length > 1 ? (
               <div className="mt-8 flex flex-wrap items-center gap-2 border-b border-line pb-4">
                 {section.groups.map((g, gi) => {
-                  const badge = seriesBadge(locale, g);
+                  const badge = seriesBadge(trData, locale, g);
                   const active = gi === activeGroupIndex;
                   return (
                     <button
@@ -178,7 +182,7 @@ export default function Manufacturer2Client() {
                           src={item.image}
                           alt={trData(locale, item.label)}
                           fill
-                          unoptimized
+                          {...imageProps(item.image)}
                           loading="lazy"
                           sizes="(max-width: 640px) 45vw, (max-width: 1024px) 30vw, 200px"
                           className="object-contain transition-transform duration-500 ease-out group-hover:scale-[1.05] motion-reduce:transition-none motion-reduce:group-hover:scale-100"
@@ -261,7 +265,7 @@ export default function Manufacturer2Client() {
                 src={current.image}
                 alt={trData(locale, current.label)}
                 fill
-                unoptimized
+                {...imageProps(current.image)}
                 sizes="720px"
                 className="animate-fade-in object-contain"
               />

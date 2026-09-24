@@ -1,5 +1,3 @@
-import { locales, defaultLocale } from "@/lib/i18n";
-
 export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://ntdurys.lt").replace(/\/$/, "");
 
 export const company = {
@@ -10,22 +8,10 @@ export const company = {
   email: "info@tnbaltic.lt",
 };
 
-export function stripLocale(pathname) {
-  const parts = (pathname || "/").split("?")[0].split("/").filter(Boolean);
-  if (locales.includes(parts[0])) parts.shift();
-  return parts.length ? `/${parts.join("/")}` : "";
-}
-
 export function localizedUrl(locale, path) {
   return `${SITE_URL}/${locale}${path}`;
 }
 
-export function alternatesFor(pathname, locale) {
-  const path = stripLocale(pathname);
-  const languages = Object.fromEntries(locales.map((l) => [l, localizedUrl(l, path)]));
-  languages["x-default"] = localizedUrl(defaultLocale, path);
-  return { canonical: localizedUrl(locale, path), languages };
-}
 
 export const phones = [
   { href: "tel:+37066213171", label: "+370 662 13171" },
@@ -50,3 +36,42 @@ export const openingHours = {
 };
 
 export const hoursFor = (locale) => openingHours[locale] || openingHours.lt;
+
+// Machine-readable opening hours for LocalBusiness JSON-LD; keep in step with openingHours above.
+export const openingHoursSpec = [
+  { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "09:00", closes: "18:00" },
+];
+
+export const postalAddress = {
+  streetAddress: "Džūkų g. 17",
+  addressLocality: "Šveicarijos k.",
+  addressRegion: "Jonavos r.",
+  postalCode: "LT-55301",
+  addressCountry: "LT",
+};
+
+export function localBusinessLd(locale) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "@id": `${SITE_URL}/#business`,
+    name: "NT Durys",
+    legalName: company.legalName,
+    url: localizedUrl(locale, ""),
+    logo: `${SITE_URL}/logo.png`,
+    image: `${SITE_URL}/logo.png`,
+    email: company.email,
+    telephone: phones.map((p) => p.label.replace(/\s+/g, "")),
+    vatID: company.vat,
+    taxID: company.code,
+    address: { "@type": "PostalAddress", ...postalAddress },
+    areaServed: { "@type": "Country", name: "Lithuania" },
+    priceRange: "€€",
+    openingHoursSpecification: openingHoursSpec.map((s) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: s.days,
+      opens: s.opens,
+      closes: s.closes,
+    })),
+  };
+}

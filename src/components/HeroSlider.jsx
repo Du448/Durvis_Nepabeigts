@@ -2,7 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { imageProps } from "@/lib/images";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
 
 /* Cinematic hero modelled on m-lux.by: one full-bleed media stage, 1000px tall
@@ -73,7 +75,9 @@ export default function HeroSlider({ slides = [] }) {
       {/* Media stage: cross-fading full-bleed images. Two layers per slide, so
           that on a stage wider than the photograph the picture can be fitted
           whole over a blurred copy of itself instead of being cropped down to
-          its middle band. See .hero-stage in globals.css. */}
+          its middle band. See .hero-stage in globals.css. The blurred layer is
+          fetched tiny - blur hides the difference - and only the first slide's
+          photo is preloaded, since it is the page's largest paint. */}
       {slides.map((s, i) => (
         <div
           key={s.image + i}
@@ -81,8 +85,26 @@ export default function HeroSlider({ slides = [] }) {
           className="absolute inset-0 transition-opacity duration-[1200ms] ease-out"
           style={{ opacity: i === index ? 1 : 0 }}
         >
-          <div className="hero-photo-fill" style={{ backgroundImage: `url("${s.image}")` }} />
-          <div className="hero-photo" style={{ backgroundImage: `url("${s.image}")` }} />
+          <Image
+            src={s.image}
+            alt=""
+            fill
+            sizes="96px"
+            quality={40}
+            loading={i === 0 ? "eager" : "lazy"}
+            className="hero-photo-fill"
+            {...imageProps(s.image)}
+          />
+          <Image
+            src={s.image}
+            alt=""
+            fill
+            sizes="100vw"
+            preload={i === 0}
+            fetchPriority={i === 0 ? "high" : undefined}
+            className="hero-photo"
+            {...imageProps(s.image)}
+          />
         </div>
       ))}
 

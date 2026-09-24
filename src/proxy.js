@@ -1,52 +1,39 @@
 import { NextResponse } from "next/server";
+import { locales, defaultLocale } from "@/lib/i18n";
+import { legacyToCurrent } from "@/lib/routes";
 
-const locales = ["lt", "lv", "en"];
-const defaultLocale = "lt";
+/* Pages live under app/[locale]/, so this only has to send visitors to a
+   URL with a language in it:
+
+   - "/"                         -> 307 to /lt (may one day depend on the browser language)
+   - a path without a language   -> 301 to /lt/<path>
+   - a pre-migration Latvian slug (/lt/produkts/x, /kontakti, /lv/kategorija/ieksdurvis …)
+                                 -> 301 straight to the current address, in one hop. */
 
 function isPublicFile(pathname) {
   return pathname.includes(".");
 }
 
 export function proxy(request) {
-  const { pathname, search } = request.nextUrl;
+  const { pathname } = request.nextUrl;
 
-  if (
-    pathname.startsWith("/_next") ||
-    pathname.startsWith("/api") ||
-    pathname.startsWith("/favicon.ico") ||
-    pathname.startsWith("/robots.txt") ||
-    pathname.startsWith("/sitemap.xml") ||
-    isPublicFile(pathname)
-  ) {
+  if (pathname.startsWith("/_next") || pathname.startsWith("/api") || isPublicFile(pathname)) {
     return NextResponse.next();
   }
 
   const segments = pathname.split("/").filter(Boolean);
-  const first = segments[0];
-  const hasLocale = locales.includes(first);
+  const hasLocale = locales.includes(segments[0]);
+  const locale = hasLocale ? segments[0] : defaultLocale;
+  const rest = `/${(hasLocale ? segments.slice(1) : segments).join("/")}`;
+  const current = legacyToCurrent(rest);
 
-  if (!hasLocale) {
-    const url = request.nextUrl.clone();
-    url.pathname = `/${defaultLocale}${pathname}`;
-    url.search = search;
-    return NextResponse.redirect(url);
-  }
+  if (hasLocale && !current) return NextResponse.next();
 
   const url = request.nextUrl.clone();
-  url.pathname = `/${segments.slice(1).join("/")}`;
-  if (url.pathname === "") url.pathname = "/";
-  url.search = search;
-  url.searchParams.set("__l", first);
-
-  const requestHeaders = new Headers(request.headers);
-  requestHeaders.set("x-invoke-path", pathname);
-  return NextResponse.rewrite(url, {
-    request: {
-      headers: requestHeaders,
-    },
-  });
+  url.pathname = `/${locale}${current || (rest === "/" ? "" : rest)}`;
+  return NextResponse.redirect(url, pathname === "/" ? 307 : 301);
 }
 
 export const config = {
-  matcher: ["/((?!_next).*)"],
+  matcher: ["/((?!_next|api|.*\\..*).*)"],
 };

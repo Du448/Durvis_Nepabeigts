@@ -27,7 +27,7 @@
   --color-stock-factory: #8a5b07;
   --color-stock-factory-soft: #fbf1dd;
 
-  --font-sans: "Montserrat", Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-montserrat-latin), var(--font-montserrat-ext), Arial, Helvetica, sans-serif;
 
   --radius-sm: 0px;
   --radius: 0px;
@@ -301,13 +301,13 @@
   container-type: size;
 }
 
+/* next/image (fill) layers; object-fit replaces the old background-size. */
 .hero-photo,
 .hero-photo-fill {
   position: absolute;
   inset: 0;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  object-fit: cover;
+  object-position: center;
 }
 
 .hero-photo-fill {
@@ -316,7 +316,7 @@
 }
 
 @container (min-aspect-ratio: 2 / 1) {
-  .hero-photo { background-size: contain; }
+  .hero-photo { object-fit: contain; }
 }
 
 .split { display: flex; flex-direction: column; }

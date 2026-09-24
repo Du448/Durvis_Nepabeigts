@@ -5,20 +5,22 @@ import { X } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import RevealGrid from "@/components/anim/RevealGrid";
 import PageTitle from "@/components/PageTitle";
-import {
-  getProductsByCategory,
-  getCategoryBySlug,
-  products as allProductsData,
-  categories as allCategoriesData,
-} from "@/data/products";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { getLocaleFromPathname, withLocaleHref, t, translateColorLabel as translateColor } from "@/lib/i18n";
+import { usePathname, useRouter } from "next/navigation";
+import { useUrlSearchParams, replaceSearch } from "@/lib/useUrlSearchParams";
+import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
+import { useTr } from "@/components/DictProvider";
+import { paths } from "@/lib/routes";
 
 /* Catalogue filtering modelled on bulat-doors.com.ua: a permanent sidebar of
    stacked attribute groups (door type, collection, colour, size, price,
    features), every option multi-select with a live count, applied the moment
    it is clicked and written into the query string - so a filtered view can be
-   shared, bookmarked and reached again with the back button. */
+   shared, bookmarked and reached again with the back button.
+
+   The server page hands over only this category's models, as slim cards, plus
+   the model count of every category for the door-type switcher - the browser
+   never loads the rest of the catalogue. Filtering that short list happens
+   here so the page itself can stay statically generated. */
 
 /* The same scene renders the homepage blocks use: each one shows a door that
    is actually in that category's catalogue, so the banner matches what the
@@ -76,14 +78,13 @@ function Option({ type = "checkbox", name, checked, onChange, label, count, disa
   );
 }
 
-export default function CategoryClient({ slug }) {
+export default function CategoryClient({ slug, category, products: allProducts, typeCounts = {}, categoryNames = {} }) {
   const pathname = usePathname();
   const locale = getLocaleFromPathname(pathname);
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const searchParams = useUrlSearchParams();
 
-  const category = getCategoryBySlug(slug);
-  const allProducts = useMemo(() => getProductsByCategory(slug), [slug]);
+  const { trColor } = useTr();
   const hasFaceColors = FACE_COLOR_CATEGORIES.includes(slug);
 
   const [collectionSearch, setCollectionSearch] = useState("");
@@ -114,12 +115,11 @@ export default function CategoryClient({ slug }) {
         if (value === "" || value == null || (Array.isArray(value) && !value.length)) next.delete(key);
         else next.set(key, Array.isArray(value) ? value.join(",") : String(value));
       });
-      next.delete("__l"); // internal locale marker added by the proxy rewrite
       const qs = next.toString();
       /* History API rather than router.replace: filtering is a pure client
-         concern here, and a router navigation would round-trip through the
-         locale rewrite. Next still re-renders useSearchParams from this. */
-      window.history.replaceState(null, "", qs ? `${pathname}?${qs}` : pathname);
+         concern, so there is nothing to fetch. Next still re-renders
+         useSearchParams from this. */
+      replaceSearch(qs ? `${pathname}?${qs}` : pathname);
     },
     [pathname, searchParams]
   );
@@ -130,9 +130,9 @@ export default function CategoryClient({ slug }) {
   const clearFilters = () =>
     setParams({ kolekcija: "", krasa: "", krasa2: "", izmers: "", ipasibas: "", no: "", lidz: "" });
 
-  /* Colour names come out of the catalogue in Latvian; @/lib/i18n renders
-     them in the page's language. */
-  const translateColorLabel = (value) => translateColor(locale, value);
+  /* Colour names come out of the catalogue in Latvian; the page's dictionary
+     renders them in its language. */
+  const translateColorLabel = trColor;
 
   /* --- Option lists ------------------------------------------------------ */
 
@@ -253,7 +253,7 @@ export default function CategoryClient({ slug }) {
     if (k1 !== `categories.details.${s}.name`) return k1;
     const k2 = t(locale, `categories.${s}`);
     if (k2 !== `categories.${s}`) return k2;
-    return allCategoriesData.find((c) => c.slug === s)?.name || s;
+    return categoryNames[s] || s;
   };
 
   const featureLabel = (key) =>
@@ -310,9 +310,9 @@ export default function CategoryClient({ slug }) {
               type="radio"
               name="door-type"
               checked={slug === s}
-              onChange={() => router.push(withLocaleHref(locale, `/kategorija/${s}`))}
+              onChange={() => router.push(withLocaleHref(locale, paths.category(s)))}
               label={labelForSlug(s)}
-              count={allProductsData.filter((p) => p.category === s).length}
+              count={typeCounts[s] || 0}
             />
           ))}
         </div>
@@ -514,9 +514,9 @@ export default function CategoryClient({ slug }) {
         description={resolvedDescription}
         image={CATEGORY_BANNERS[slug]}
         links={TYPE_OPTIONS.map((s2) => ({
-          href: withLocaleHref(locale, `/kategorija/${s2}`),
+          href: withLocaleHref(locale, paths.category(s2)),
           label: labelForSlug(s2),
-          meta: `${getProductsByCategory(s2).length}`,
+          meta: `${typeCounts[s2] || 0}`,
         }))}
       />
 

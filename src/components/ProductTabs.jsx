@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
+import { getLocaleFromPathname, t } from "@/lib/i18n";
+import { useTr } from "@/components/DictProvider";
 
 /* Description / specification tabs under the product, as on the manufacturer's
    own product pages: an underlined tab strip, then either the long written
@@ -10,6 +11,7 @@ import { getLocaleFromPathname, t, trData } from "@/lib/i18n";
    The short "Specifikācija" accordion above the fold stays as it is. */
 
 export default function ProductTabs({ product }) {
+  const { trData } = useTr();
   const locale = getLocaleFromPathname(usePathname());
   /* Stored in Latvian alongside the rest of the catalogue data, like `short`
      and `specs`; `trData` renders it in the page's language. */

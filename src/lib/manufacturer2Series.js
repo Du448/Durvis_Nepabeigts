@@ -48,7 +48,7 @@ export function manufacturer2ColorLinkParams(product) {
 }
 
 // Query string (with leading "?") for the "Toņu maiņa" link - appended to
-// "/razotajs-2" before running the result through withLocaleHref().
+// "/duru-konfiguratorius" before running the result through withLocaleHref().
 export function manufacturer2ColorQuery(product) {
   return `?${new URLSearchParams(manufacturer2ColorLinkParams(product)).toString()}`;
 }

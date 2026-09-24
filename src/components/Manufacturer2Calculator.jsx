@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
+import { imageProps } from "@/lib/images";
 import { usePathname } from "next/navigation";
 import { Check, ChevronDown, ChevronLeft, ChevronRight, Download, Loader2, X } from "lucide-react";
 import {
@@ -21,7 +22,8 @@ import {
   casingOptions,
 } from "@/data/manufacturer2Calculator";
 import { manufacturer2Sections } from "@/data/manufacturer2";
-import { getLocaleFromPathname, t, trData, withLocaleHref } from "@/lib/i18n";
+import { getLocaleFromPathname, t, withLocaleHref } from "@/lib/i18n";
+import { useTr } from "@/components/DictProvider";
 
 /* Ražotājs-2 door calculator: a from-scratch analog of the manufacturer's own
    calculator (bulat-doors.com.ua/calculator/) - base filters, matching
@@ -49,6 +51,7 @@ const INSIDE_OPENING_OPTION_ID = "inside-opening";
 // calculator shows the same gap) - a plain "coming soon" notice instead of
 // pulling in their Ukrainian-language placeholder graphic.
 function PhotoPendingPlaceholder({ locale, className = "" }) {
+  const { trData } = useTr();
   return (
     <span
       className={`flex h-full w-full flex-col items-center justify-center gap-2 border-2 border-dashed border-line text-center ${className}`}
@@ -59,6 +62,7 @@ function PhotoPendingPlaceholder({ locale, className = "" }) {
 }
 
 function TierGallery({ images, alt, locale, photoPending }) {
+  const { trData } = useTr();
   const [index, setIndex] = useState(0);
   const [zoomOpen, setZoomOpen] = useState(false);
   const [touchX, setTouchX] = useState(null);
@@ -94,7 +98,7 @@ function TierGallery({ images, alt, locale, photoPending }) {
           className="block w-full cursor-zoom-in"
         >
           <span className="relative block aspect-[4/5] overflow-hidden border border-line bg-[--color-soft]">
-            <Image src={gallery[index]} alt={alt} fill unoptimized sizes="380px" className="object-contain" />
+            <Image src={gallery[index]} alt={alt} fill {...imageProps(gallery[index])} sizes="380px" className="object-contain" />
           </span>
         </button>
         {gallery.length > 1 ? (
@@ -187,7 +191,7 @@ function TierGallery({ images, alt, locale, photoPending }) {
 
           <figure className="max-h-full w-full max-w-[720px]" onClick={(e) => e.stopPropagation()}>
             <span className="relative mx-auto block aspect-[4/5] max-h-[80vh] w-full">
-              <Image key={gallery[index]} src={gallery[index]} alt={alt} fill unoptimized sizes="720px" className="object-contain" />
+              <Image key={gallery[index]} src={gallery[index]} alt={alt} fill {...imageProps(gallery[index])} sizes="720px" className="object-contain" />
             </span>
             {gallery.length > 1 ? (
               <figcaption className="mt-3 text-center text-[14px] text-white/70">
@@ -288,6 +292,7 @@ function useCloseOnOutside(open, onClose) {
 // direction) - a closed trigger showing the label + active count, opening a
 // checkbox panel for a multi-select "OR within the group" filter.
 function FilterDropdown({ label, options, selected, onToggle, onClear, locale }) {
+  const { trData } = useTr();
   const [open, setOpen] = useState(false);
   const ref = useCloseOnOutside(open, () => setOpen(false));
 
@@ -341,6 +346,7 @@ function FilterDropdown({ label, options, selected, onToggle, onClear, locale })
 // FilterDropdown, but the panel holds the two range sliders instead of
 // checkboxes.
 function PriceRangeDropdown({ min, max, bounds, onChangeMin, onChangeMax, locale }) {
+  const { trData } = useTr();
   const [open, setOpen] = useState(false);
   const ref = useCloseOnOutside(open, () => setOpen(false));
   const active = min !== bounds.min || max !== bounds.max;
@@ -446,6 +452,7 @@ function SwatchGrid({
   columns = "grid-cols-[repeat(auto-fill,minmax(84px,1fr))]",
   locale,
 }) {
+  const { trData } = useTr();
   const [zoomIndex, setZoomIndex] = useState(null);
   const [touchX, setTouchX] = useState(null);
   const zoomItem = zoomIndex !== null ? items[zoomIndex] : null;
@@ -495,7 +502,7 @@ function SwatchGrid({
                       src={item.image}
                       alt={trData(locale, item.label)}
                       fill
-                      unoptimized
+                      {...imageProps(item.image)}
                       loading="lazy"
                       sizes="140px"
                       className="object-contain"
@@ -579,7 +586,7 @@ function SwatchGrid({
 
           <figure className="max-h-full w-full max-w-[480px]" onClick={(e) => e.stopPropagation()}>
             <span className="relative mx-auto block aspect-square max-h-[76vh] w-full">
-              <Image key={zoomItem.image} src={zoomItem.image} alt={trData(locale, zoomItem.label)} fill unoptimized sizes="480px" className="object-contain" />
+              <Image key={zoomItem.image} src={zoomItem.image} alt={trData(locale, zoomItem.label)} fill {...imageProps(zoomItem.image)} sizes="480px" className="object-contain" />
             </span>
             <figcaption className="mt-3 text-center text-[14px] text-white">
               {trData(locale, zoomItem.label)}
@@ -596,7 +603,7 @@ function SwatchGrid({
   );
 }
 
-function seriesOptionLabel(locale, g) {
+function seriesOptionLabel(trData, locale, g) {
   const title = trData(locale, g.title);
   if (g.included) return `${title} - ${trData(locale, "iekļauta")}`;
   if (g.surchargeOptionId) {
@@ -607,6 +614,7 @@ function seriesOptionLabel(locale, g) {
 }
 
 function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage, onDesignChange, includedExtras = [], locale }) {
+  const { trData } = useTr();
   const [search, setSearch] = useState("");
   const group = groups.find((g) => g.title === seriesTitle) || groups[0];
   const query = search.trim().toLowerCase();
@@ -625,7 +633,7 @@ function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage,
         >
           {groups.map((g) => (
             <option key={g.title} value={g.title}>
-              {seriesOptionLabel(locale, g)}
+              {seriesOptionLabel(trData, locale, g)}
             </option>
           ))}
         </select>
@@ -669,6 +677,7 @@ function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage,
 }
 
 function FilmPicker({ label, groups, groupTitle, onGroupChange, filmImage, onFilmChange, locale }) {
+  const { trData } = useTr();
   const [search, setSearch] = useState("");
   const group = groups.find((g) => g.title === groupTitle) || groups[0];
   const query = search.trim().toLowerCase();
@@ -717,6 +726,7 @@ function FilmPicker({ label, groups, groupTitle, onGroupChange, filmImage, onFil
 // Small "?" popover for a fulfilment toggle - closes on an outside
 // click/tap or Escape, same pattern as InfoPopoverButton below.
 function ToggleHint({ text, locale }) {
+  const { trData } = useTr();
   const [open, setOpen] = useState(false);
   const ref = useCloseOnOutside(open, () => setOpen(false));
   return (
@@ -742,6 +752,7 @@ function ToggleHint({ text, locale }) {
 // install+delivery) in the "Montāža un piegāde" section - mirrors the same
 // toggle used on the product page so the two read as one design.
 function ServiceToggleRow({ checked, onChange, label, hint, locale }) {
+  const { trData } = useTr();
   return (
     <label className="flex min-h-11 cursor-pointer items-center gap-3 py-1">
       <button
@@ -794,6 +805,7 @@ function CollapsibleSection({ title, subtitle, defaultOpen = false, children }) 
 // so the click also calls preventDefault to stop the label from toggling
 // its checkbox when the "i" is what was actually clicked.
 function InfoPopoverButton({ description, locale }) {
+  const { trData } = useTr();
   const [open, setOpen] = useState(false);
   const ref = useCloseOnOutside(open, () => setOpen(false));
   if (!description) return null;
@@ -860,6 +872,7 @@ function useGalleryZoom(items) {
 // Full-screen photo viewer for a useGalleryZoom() gallery - prev/next when
 // there's more than one image, same visual language as TierGallery's zoom.
 function GalleryZoomOverlay({ item, gallery, index, onStep, onClose, locale }) {
+  const { trData } = useTr();
   if (!item) return null;
   return (
     <div
@@ -907,7 +920,7 @@ function GalleryZoomOverlay({ item, gallery, index, onStep, onClose, locale }) {
 
       <figure className="max-h-full w-full max-w-[480px]" onClick={(e) => e.stopPropagation()}>
         <span className="relative mx-auto block aspect-square max-h-[76vh] w-full">
-          <Image key={gallery[index]} src={gallery[index]} alt={trData(locale, item.name)} fill unoptimized sizes="480px" className="object-contain" />
+          <Image key={gallery[index]} src={gallery[index]} alt={trData(locale, item.name)} fill {...imageProps(gallery[index])} sizes="480px" className="object-contain" />
         </span>
         <figcaption className="mt-3 text-center text-[14px] text-white">
           {trData(locale, item.name)}
@@ -938,7 +951,7 @@ function GalleryThumbButton({ item, onOpen, className, imgClassName, imgSizes = 
       aria-label={item.zoomLabel}
       className={className}
     >
-      <Image src={item.image} alt={item.zoomLabel} fill unoptimized sizes={imgSizes} className={imgClassName} />
+      <Image src={item.image} alt={item.zoomLabel} fill {...imageProps(item.image)} sizes={imgSizes} className={imgClassName} />
       {item.images?.length > 1 ? (
         <span className="absolute bottom-1 right-1 rounded-full bg-black/60 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
           {item.images.length}
@@ -952,6 +965,7 @@ function GalleryThumbButton({ item, onOpen, className, imgClassName, imgSizes = 
 // (click to zoom into the full manufacturer gallery) and, for the Yale smart
 // viewers, an "i" popup with the manufacturer's spec blurb.
 function PeepholePicker({ options, selectedId, onSelect, locale }) {
+  const { trData } = useTr();
   const { zoomItem, gallery, zoomIndex, openZoom, closeZoom, stepZoom } = useGalleryZoom(options);
 
   return (
@@ -1011,6 +1025,7 @@ function PeepholePicker({ options, selectedId, onSelect, locale }) {
 // cylinder (see tedeeCylinderCompat) - green "fits" or amber "fits one of
 // two", with an "i" popup carrying the full explanation.
 function CompatBadge({ compat, locale }) {
+  const { trData } = useTr();
   if (!compat) return null;
   const tone =
     compat.level === "yes" ? "border-green-700 bg-green-50 text-green-700" : "border-amber-600 bg-amber-50 text-amber-700";
@@ -1027,6 +1042,7 @@ function CompatBadge({ compat, locale }) {
 // smart-lock hardware), an "i" spec popup where a description is set, and
 // (via `compatById`) a per-tier cylinder-fit badge for specific lock ids.
 function LockOptionsGrid({ lockSet, includedIds, checkedIds, onToggle, locale, compatById }) {
+  const { trData } = useTr();
   const sorted = useMemo(
     () => [...lockSet].sort((a, b) => includedIds.includes(b.id) - includedIds.includes(a.id)),
     [lockSet, includedIds]
@@ -1079,6 +1095,7 @@ function LockOptionsGrid({ lockSet, includedIds, checkedIds, onToggle, locale, c
 }
 
 export default function Manufacturer2Calculator() {
+  const { trData } = useTr();
   const locale = getLocaleFromPathname(usePathname());
   const [step, setStep] = useState("results");
 
@@ -1356,7 +1373,7 @@ export default function Manufacturer2Calculator() {
                       src={tier.image}
                       alt={trData(locale, tier.name)}
                       fill
-                      unoptimized
+                      {...imageProps(tier.image)}
                       sizes="220px"
                       className="object-contain p-2 transition-transform duration-300 ease-out group-hover:scale-[1.06]"
                     />
@@ -1523,7 +1540,7 @@ export default function Manufacturer2Calculator() {
         // block the enquiry over it, just navigate without an attachment.
       } finally {
         setOfferRequesting(false);
-        window.location.href = withLocaleHref(locale, "/kontakti");
+        window.location.href = withLocaleHref(locale, "/kontaktai");
       }
     };
 
@@ -1558,7 +1575,7 @@ export default function Manufacturer2Calculator() {
                         src={config.outerDesign.image}
                         alt={trData(locale, "Izvēlētais dizains - ārpuse")}
                         fill
-                        unoptimized
+                        {...imageProps(config.outerDesign.image)}
                         sizes="190px"
                         className="object-contain"
                       />
@@ -1575,7 +1592,7 @@ export default function Manufacturer2Calculator() {
                         src={config.innerDesign.image}
                         alt={trData(locale, "Izvēlētais dizains - iekšpuse")}
                         fill
-                        unoptimized
+                        {...imageProps(config.innerDesign.image)}
                         sizes="190px"
                         className="object-contain"
                       />
@@ -2091,6 +2108,7 @@ export default function Manufacturer2Calculator() {
 // Clicking it jumps to that summary (#calc-summary) and its "Pieprasīt
 // piedāvājumu" button.
 function FloatingPrice({ total, locale }) {
+  const { trData } = useTr();
   return (
     <button
       type="button"

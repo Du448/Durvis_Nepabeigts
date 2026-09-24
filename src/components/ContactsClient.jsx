@@ -2,14 +2,15 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { CheckCircle2, Paperclip, Phone, X } from "lucide-react";
-import { useSearchParams } from "next/navigation";
+import { useUrlSearchParams } from "@/lib/useUrlSearchParams";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
-import { getProductById, formatPrice } from "@/data/products";
+import { formatPrice } from "@/lib/product-utils";
+import { paths } from "@/lib/routes";
 import { usePathname } from "next/navigation";
 import PageTitle from "@/components/PageTitle";
 import ConsentMap from "@/components/ConsentMap";
-import { getLocaleFromPathname, translateColorLabel, withLocaleHref, t, trData } from "@/lib/i18n";
+import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 import { phones, mainPhone, hoursFor } from "@/lib/site";
 
 const ALLOWED_EXTENSIONS = ["pdf", "jpg", "jpeg", "png", "webp", "heic", "doc", "docx"];
@@ -39,10 +40,21 @@ const SERVICE_OPTION_KEYS = {
 
 export default function ContactsClient() {
   const locale = getLocaleFromPathname(usePathname());
-  const searchParams = useSearchParams();
+  const searchParams = useUrlSearchParams();
   const productId = searchParams.get("produkts");
 
-  const product = useMemo(() => (productId ? getProductById(productId) : null), [productId]);
+  // The product arrives from /api/products (already translated), so the
+  // catalogue doesn't have to ship with this page.
+  const [product, setProduct] = useState(null);
+  useEffect(() => {
+    if (!productId) return;
+    const controller = new AbortController();
+    fetch(`/api/products?locale=${locale}&ids=${encodeURIComponent(productId)}`, { signal: controller.signal })
+      .then((res) => (res.ok ? res.json() : { products: [] }))
+      .then((data) => setProduct(data.products?.[0] || null))
+      .catch(() => {});
+    return () => controller.abort();
+  }, [productId, locale]);
   const selectedServices = useMemo(() => {
     const raw = searchParams.get("pakalpojumi");
     if (!raw) return [];
@@ -60,16 +72,20 @@ export default function ContactsClient() {
   // arrives with the exact variant instead of just a model name.
   const offer = useMemo(() => {
     if (!product) return null;
-    const colors = (product.colors || []).filter(Boolean).map((c) => translateColorLabel(locale, c));
     return {
-      name: trData(locale, product.name),
-      color: colors.join(" / "),
+      name: product.name,
+      color: (product.colorLabels || []).join(" / "),
       size: searchParams.get("izmers") || product.sizes?.[0] || "",
       price: formatPrice(product),
     };
-  }, [product, searchParams, locale]);
+  }, [product, searchParams]);
 
-  const [message, setMessage] = useState(() => {
+  const [message, setMessage] = useState("");
+  const [messageTouched, setMessageTouched] = useState(false);
+
+  /* Prefilled once the product has loaded; after the visitor edits the field
+     their text wins. */
+  const prefill = useMemo(() => {
     if (!offer) return "";
     const lines = [`${t(locale, "contacts.prefill")} ${offer.name}`];
     if (offer.color) lines.push(`${t(locale, "contacts.colorLabel")}: ${offer.color}`);
@@ -77,7 +93,8 @@ export default function ContactsClient() {
     if (offer.price) lines.push(`${t(locale, "contacts.priceLabel")}: ${offer.price}`);
     if (selectedServices.length) lines.push(`${t(locale, "contacts.servicesLabel")}: ${selectedServices.join(", ")}`);
     return lines.join("\n");
-  });
+  }, [offer, selectedServices, locale]);
+  const messageValue = messageTouched ? message : prefill;
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
@@ -95,6 +112,7 @@ export default function ContactsClient() {
 
   function resetForm() {
     setMessage("");
+    setMessageTouched(true);
     setFiles([]);
     setRejected([]);
     setConsent(false);
@@ -145,7 +163,7 @@ export default function ContactsClient() {
       formData.append("name", name);
       formData.append("phone", phone);
       formData.append("email", email);
-      formData.append("message", message);
+      formData.append("message", messageValue);
       formData.append("consent", consent ? "1" : "");
       formData.append("fax_number", honeypot);
       if (product && offer) {
@@ -154,7 +172,7 @@ export default function ContactsClient() {
         formData.append("product_color", offer.color);
         formData.append("product_size", offer.size);
         formData.append("product_price", offer.price);
-        formData.append("product_url", `${window.location.origin}${withLocaleHref(locale, `/produkts/${product.id}`)}`);
+        formData.append("product_url", `${window.location.origin}${withLocaleHref(locale, paths.product(product.id))}`);
         formData.append("services", selectedServices.join(", "));
       }
       files.forEach((file) => formData.append("files", file, file.name));
@@ -181,8 +199,8 @@ export default function ContactsClient() {
       {product ? (
         <div className="container pt-8 text-sm text-muted">
           {t(locale, "contacts.relatedToProduct")}{" "}
-          <Link className="text-ink underline" href={withLocaleHref(locale, `/produkts/${product.id}`)}>
-            {trData(locale, product.name)}
+          <Link className="text-ink underline" href={withLocaleHref(locale, paths.product(product.id))}>
+            {product.name}
           </Link>
         </div>
       ) : null}
@@ -317,8 +335,11 @@ export default function ContactsClient() {
                 <div>
                   <label className="block text-sm text-muted mb-1">{t(locale, "contacts.formMessage")}</label>
                   <textarea
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
+                    value={messageValue}
+                    onChange={(e) => {
+                      setMessage(e.target.value);
+                      setMessageTouched(true);
+                    }}
                     rows={5}
                     className="field"
                     placeholder={t(locale, "contacts.formPlaceholder")}

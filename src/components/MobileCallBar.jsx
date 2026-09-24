@@ -23,7 +23,7 @@ export default function MobileCallBar() {
           {t(locale, "common.call")}
         </a>
         <Link
-          href={withLocaleHref(locale, "/kontakti")}
+          href={withLocaleHref(locale, "/kontaktai")}
           aria-label={t(locale, "nav.contacts")}
           className="btn btn-outline-dark flex items-center justify-center gap-2 px-4"
         >
