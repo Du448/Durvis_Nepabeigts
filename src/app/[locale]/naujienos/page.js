@@ -1,5 +1,5 @@
 import ProductCard from "@/components/ProductCard";
-import { products } from "@/data/products";
+import { getProducts } from "@/lib/pricedCatalog";
 import PageTitle from "@/components/PageTitle";
 import { t } from "@/lib/i18n";
 import { cardsFor } from "@/lib/catalog";
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
 
 export default async function NewsPage({ params }) {
   const locale = await resolveLocale(params);
-  const news = cardsFor(products.filter((p) => p.isNew === true), locale);
+  const news = cardsFor((await getProducts()).filter((p) => p.isNew === true), locale);
 
   return (
     <main>

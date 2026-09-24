@@ -2,6 +2,7 @@ import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 import { withLocaleHref, t } from "@/lib/i18n";
 import { cardsFor, searchProducts } from "@/lib/catalog";
+import { getProducts } from "@/lib/pricedCatalog";
 import { paths } from "@/lib/routes";
 import { pageMetadata, resolveLocale } from "@/lib/page";
 
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }) {
 export default async function SearchPage({ params, searchParams }) {
   const locale = await resolveLocale(params);
   const q = String((await searchParams).q || "").trim();
-  const results = cardsFor(searchProducts(q, locale), locale);
+  const results = cardsFor(searchProducts(q, locale, await getProducts()), locale);
 
   return (
     <main>

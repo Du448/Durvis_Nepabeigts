@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { products, getProductById, getProductsByCategory } from "@/data/products";
+import { products } from "@/data/products";
+import { getProduct, getProductsInCategory } from "@/lib/pricedCatalog";
 import { locksFor } from "@/data/locks";
 import ProductClient from "@/components/ProductClient";
 import { DictProvider } from "@/components/DictProvider";
@@ -30,7 +31,7 @@ const DESCRIPTION = {
 async function resolve(params) {
   const { id } = await params;
   const locale = await resolveLocale(params);
-  const product = getProductById(id);
+  const product = await getProduct(id);
   if (!product) notFound();
   return { locale, product };
 }
@@ -63,7 +64,7 @@ export default async function ProductPage({ params }) {
   const url = localizedUrl(locale, paths.product(product.id));
 
   const similar = cardsFor(
-    getProductsByCategory(product.category).filter((p) => p.id !== product.id).slice(0, 4),
+    (await getProductsInCategory(product.category)).filter((p) => p.id !== product.id).slice(0, 4),
     locale
   );
   const configurator = hasManufacturer2Series(product.name)
