@@ -3,21 +3,7 @@
 import { useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { saveAction, logoutAction } from "./actions";
-
-const SAVE_ERRORS = {
-  auth: "Сессия истекла. Войдите снова.",
-  storage: "Хранилище цен не подключено. Обратитесь к разработчику.",
-  read: "Не удалось прочитать сохранённые цены. Попробуйте ещё раз.",
-  write: "Не удалось сохранить. Попробуйте ещё раз.",
-  input: "Нет изменений для сохранения.",
-  invalid: "Проверьте выделенные строки.",
-};
-
-const FIELD_ERRORS = {
-  price: "Цена должна быть больше 0 (не более двух знаков после запятой).",
-  oldPrice: "Старая цена должна быть больше текущей или пустой.",
-  unknown: "Товар не найден.",
-};
+import { adminUi } from "./i18n";
 
 /* What a row shows: the catalogue value, replaced by any saved change. */
 function current(row, override) {
@@ -56,6 +42,8 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
   const [rowErrors, setRowErrors] = useState({});
   const [pending, startTransition] = useTransition();
 
+  const ui = adminUi[lang];
+
   const dirtyIds = useMemo(
     () => [...new Set([...Object.keys(edits), ...Object.keys(resets)])],
     [edits, resets]
@@ -72,13 +60,14 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
     return () => window.removeEventListener("beforeunload", warn);
   }, [dirty]);
 
-  // Remembers the last language chosen for product names, per browser (and
-  // picks up a change made in another tab, same as the wishlist does).
+  // Remembers the last language chosen, per browser (and picks up a change
+  // made in another tab, same as the wishlist does). Controls both the
+  // panel's own text and which of a product's names is shown.
   useEffect(() => {
     const sync = () => {
       let saved = null;
       try {
-        saved = window.localStorage.getItem("admin-name-lang");
+        saved = window.localStorage.getItem("admin-lang");
       } catch {}
       setLang(saved === "en" ? "en" : "lt");
     };
@@ -90,11 +79,12 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
   function setLangAndRemember(next) {
     setLang(next);
     try {
-      window.localStorage.setItem("admin-name-lang", next);
+      window.localStorage.setItem("admin-lang", next);
     } catch {}
   }
 
   const nameOf = (row) => row.name[lang] || row.name.lt;
+  const categoryNameOf = (c) => c.name[lang] || c.name.lt;
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -151,7 +141,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
     });
     if (Object.keys(errors).length) {
       setRowErrors(errors);
-      setMessage({ kind: "error", text: SAVE_ERRORS.invalid });
+      setMessage({ kind: "error", text: ui.saveErrors.invalid });
       return;
     }
 
@@ -162,8 +152,8 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
         setEdits({});
         setResets({});
         setRowErrors({});
-        const time = new Date(res.savedAt).toLocaleTimeString("ru-RU", { hour: "2-digit", minute: "2-digit" });
-        setMessage({ kind: "ok", text: `Сохранено в ${time}. Сайт обновится в течение минуты.` });
+        const time = new Date(res.savedAt).toLocaleTimeString(ui.timeLocale, { hour: "2-digit", minute: "2-digit" });
+        setMessage({ kind: "ok", text: ui.saved(time) });
         return;
       }
       if (res?.error === "auth") {
@@ -171,12 +161,12 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
         return;
       }
       if (res?.invalid) setRowErrors(Object.fromEntries(res.invalid.map((i) => [i.id, i.error])));
-      setMessage({ kind: "error", text: SAVE_ERRORS[res?.error] || SAVE_ERRORS.write });
+      setMessage({ kind: "error", text: ui.saveErrors[res?.error] || ui.saveErrors.write });
     });
   }
 
   async function logout() {
-    if (dirty && !window.confirm("Есть несохранённые изменения. Всё равно выйти?")) return;
+    if (dirty && !window.confirm(ui.logoutConfirm)) return;
     await logoutAction();
     router.refresh();
   }
@@ -188,10 +178,8 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
       <header className="border-b border-neutral-200 bg-white">
         <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-3 px-4 py-4">
           <div>
-            <h1 className="text-[20px] font-semibold">Управление ценами</h1>
-            <p className="text-[13px] text-neutral-500">
-              {rows.length} товаров · изменено вручную: {changedCount}
-            </p>
+            <h1 className="text-[20px] font-semibold">{ui.title}</h1>
+            <p className="text-[13px] text-neutral-500">{ui.subtitle(rows.length, changedCount)}</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="flex overflow-hidden rounded-md border border-neutral-300 text-[13px]">
@@ -204,7 +192,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                   type="button"
                   onClick={() => setLangAndRemember(opt.code)}
                   aria-pressed={lang === opt.code}
-                  title="Язык названий товаров"
+                  title={ui.langLabel}
                   className={`px-3 py-2 font-medium ${
                     lang === opt.code ? "bg-emerald-800 text-white" : "bg-white text-neutral-600 hover:bg-neutral-50"
                   }`}
@@ -214,10 +202,10 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
               ))}
             </div>
             <a href="/" target="_blank" rel="noreferrer" className="text-[14px] text-emerald-800 underline">
-              Открыть сайт
+              {ui.openSite}
             </a>
             <button type="button" onClick={logout} className="rounded-md border border-neutral-300 px-3 py-2 text-[14px] hover:bg-neutral-50">
-              Выйти
+              {ui.logout}
             </button>
           </div>
         </div>
@@ -226,54 +214,52 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
       <div className="mx-auto max-w-[1200px] px-4 pt-5">
         {!storageReady ? (
           <p className="mb-4 rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-[14px] text-amber-900">
-            Хранилище цен ещё не подключено: изменения нельзя сохранить. Обратитесь к разработчику.
+            {ui.storageWarning}
           </p>
         ) : null}
 
         <div className="flex flex-wrap items-end gap-3">
           <label className="flex min-w-[220px] flex-1 flex-col text-[13px] text-neutral-600">
-            Поиск
+            {ui.searchLabel}
             <input
               type="search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              placeholder="Название, коллекция или код"
+              placeholder={ui.searchPlaceholder}
               className="mt-1 rounded-md border border-neutral-300 bg-white px-3 py-2 text-[15px] text-neutral-900 outline-none focus:border-emerald-700"
             />
           </label>
           <label className="flex flex-col text-[13px] text-neutral-600">
-            Категория
+            {ui.categoryLabel}
             <select
               value={category}
               onChange={(e) => setCategory(e.target.value)}
               className="mt-1 rounded-md border border-neutral-300 bg-white px-3 py-2 text-[15px] text-neutral-900"
             >
-              <option value="">Все</option>
+              <option value="">{ui.categoryAll}</option>
               {categories.map((c) => (
                 <option key={c.slug} value={c.slug}>
-                  {c.name}
+                  {categoryNameOf(c)}
                 </option>
               ))}
             </select>
           </label>
           <label className="flex items-center gap-2 pb-2 text-[14px]">
             <input type="checkbox" checked={onlyChanged} onChange={(e) => setOnlyChanged(e.target.checked)} />
-            Только изменённые
+            {ui.onlyChanged}
           </label>
         </div>
 
-        <p className="mt-3 text-[13px] text-neutral-500">
-          Старая цена — зачёркнутая цена; если она заполнена, товар попадает в раздел «Акции». Оставьте поле пустым, чтобы убрать скидку.
-        </p>
+        <p className="mt-3 text-[13px] text-neutral-500">{ui.oldPriceHint}</p>
 
         <div className="mt-4 overflow-x-auto rounded-lg border border-neutral-200 bg-white">
           <table className="w-full min-w-[760px] border-collapse text-[14px]">
             <thead>
               <tr className="border-b border-neutral-200 bg-neutral-50 text-left text-[12px] uppercase tracking-wide text-neutral-500">
-                <th className="px-3 py-2.5 font-medium">Товар</th>
-                <th className="w-[130px] px-3 py-2.5 font-medium">Цена</th>
-                <th className="w-[130px] px-3 py-2.5 font-medium">Старая цена</th>
-                <th className="w-[100px] px-3 py-2.5 text-center font-medium">На складе</th>
+                <th className="px-3 py-2.5 font-medium">{ui.colProduct}</th>
+                <th className="w-[130px] px-3 py-2.5 font-medium">{ui.colPrice}</th>
+                <th className="w-[130px] px-3 py-2.5 font-medium">{ui.colOldPrice}</th>
+                <th className="w-[100px] px-3 py-2.5 text-center font-medium">{ui.colInStock}</th>
                 <th className="w-[150px] px-3 py-2.5 font-medium" />
               </tr>
             </thead>
@@ -293,15 +279,15 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                       <div className="text-[12px] text-neutral-500">
                         {row.collection ? `${row.collection} · ` : ""}
                         {row.id}
-                        {hasOverride ? " · изменено" : ""}
+                        {hasOverride ? ui.changedSuffix : ""}
                       </div>
-                      {error ? <div className="mt-1 text-[12px] text-red-700">{FIELD_ERRORS[error]}</div> : null}
+                      {error ? <div className="mt-1 text-[12px] text-red-700">{ui.fieldErrors[error]}</div> : null}
                     </td>
                     <td className="px-3 py-2">
                       <div className="flex items-center gap-1.5">
                         <input
                           inputMode="decimal"
-                          aria-label={`Цена: ${nameOf(row)}`}
+                          aria-label={ui.ariaPrice(nameOf(row))}
                           value={v.price}
                           onChange={(e) => change(row, "price", e.target.value)}
                           className={`w-[90px] rounded-md border px-2 py-1.5 text-right ${error === "price" ? "border-red-500" : "border-neutral-300"}`}
@@ -309,14 +295,14 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                         <span className="text-neutral-500">{row.currency}</span>
                       </div>
                       {Number(v.price) !== row.base.price ? (
-                        <div className="mt-1 text-[11px] text-neutral-400">в каталоге: {row.base.price}</div>
+                        <div className="mt-1 text-[11px] text-neutral-400">{ui.inCatalogue(row.base.price)}</div>
                       ) : null}
                     </td>
                     <td className="px-3 py-2">
                       <div className="flex items-center gap-1.5">
                         <input
                           inputMode="decimal"
-                          aria-label={`Старая цена: ${nameOf(row)}`}
+                          aria-label={ui.ariaOldPrice(nameOf(row))}
                           value={v.oldPrice}
                           placeholder="—"
                           onChange={(e) => change(row, "oldPrice", e.target.value)}
@@ -328,7 +314,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                     <td className="px-3 py-2 text-center">
                       <input
                         type="checkbox"
-                        aria-label={`На складе: ${nameOf(row)}`}
+                        aria-label={ui.ariaInStock(nameOf(row))}
                         checked={Boolean(v.inStock)}
                         onChange={(e) => change(row, "inStock", e.target.checked)}
                         className="mt-2 h-5 w-5"
@@ -341,7 +327,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                           onClick={() => reset(row)}
                           className="text-[13px] text-neutral-600 underline hover:text-neutral-900"
                         >
-                          Вернуть из каталога
+                          {ui.resetToCatalogue}
                         </button>
                       ) : null}
                     </td>
@@ -351,7 +337,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
               {!visible.length ? (
                 <tr>
                   <td colSpan={5} className="px-3 py-8 text-center text-neutral-500">
-                    Ничего не найдено.
+                    {ui.nothingFound}
                   </td>
                 </tr>
               ) : null}
@@ -366,7 +352,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
             role="status"
             className={`text-[14px] ${message?.kind === "error" ? "text-red-700" : message?.kind === "ok" ? "text-emerald-800" : "text-neutral-600"}`}
           >
-            {message?.text || (dirty ? `Несохранённых изменений: ${dirtyIds.length}` : "Нет несохранённых изменений.")}
+            {message?.text || (dirty ? ui.dirtyCount(dirtyIds.length) : ui.noDirty)}
           </p>
           <div className="flex gap-2">
             <button
@@ -375,7 +361,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
               disabled={!dirty || pending}
               className="rounded-md border border-neutral-300 px-4 py-2.5 text-[14px] hover:bg-neutral-50 disabled:opacity-40"
             >
-              Отменить
+              {ui.discard}
             </button>
             <button
               type="button"
@@ -383,7 +369,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
               disabled={!dirty || pending || !storageReady}
               className="rounded-md bg-emerald-800 px-5 py-2.5 text-[14px] font-semibold text-white hover:bg-emerald-900 disabled:opacity-40"
             >
-              {pending ? "Сохранение…" : `Сохранить${dirty ? ` (${dirtyIds.length})` : ""}`}
+              {pending ? ui.saving : ui.save(dirty, dirtyIds.length)}
             </button>
           </div>
         </div>
