@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import { imageProps } from "@/lib/images";
 import { usePathname } from "next/navigation";
-import { useUrlSearchParams } from "@/lib/useUrlSearchParams";
+import { replaceSearch, useUrlSearchParams } from "@/lib/useUrlSearchParams";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import PageTitle from "@/components/PageTitle";
 import RevealGrid from "@/components/anim/RevealGrid";
@@ -36,16 +36,25 @@ export default function Manufacturer2Client() {
   const searchParams = useUrlSearchParams();
   const [lightbox, setLightbox] = useState(null);
   const [touchX, setTouchX] = useState(null);
-  // Deep-linked from a product page's "Toņu maiņa" button, e.g.
-  // /razotajs-2?section=krasas&group=1 - falls back to the first section.
-  const [activeSectionKey, setActiveSectionKey] = useState(() => {
+  // Deep-linked from a product page's "Toņu maiņa" button and the header menu,
+  // e.g. /duru-konfiguratorius?section=krasas&group=1 or ?section=kalkulators;
+  // falls back to the first section.
+  const [activeSectionKey, setActiveSectionKey] = useState(manufacturer2Sections[0]?.key);
+  const [activeGroupIndex, setActiveGroupIndex] = useState(0);
+
+  /* The query string is only readable after hydration, and a menu link can
+     change it while this page is already open, so follow it whenever it
+     changes (React's "adjust state while rendering" pattern). */
+  const query = `${searchParams.get("section") || ""}|${searchParams.get("group") || ""}`;
+  const [appliedQuery, setAppliedQuery] = useState("|");
+  if (query !== appliedQuery) {
+    setAppliedQuery(query);
     const requested = searchParams.get("section");
-    return manufacturer2Sections.some((s) => s.key === requested) ? requested : manufacturer2Sections[0]?.key;
-  });
-  const [activeGroupIndex, setActiveGroupIndex] = useState(() => {
-    const requested = Number(searchParams.get("group"));
-    return Number.isInteger(requested) && requested >= 0 ? requested : 0;
-  });
+    const valid = requested === CALCULATOR_KEY || manufacturer2Sections.some((s) => s.key === requested);
+    const group = Number(searchParams.get("group"));
+    setActiveSectionKey(valid ? requested : manufacturer2Sections[0]?.key);
+    setActiveGroupIndex(valid && Number.isInteger(group) && group >= 0 ? group : 0);
+  }
 
   const isCalculator = activeSectionKey === CALCULATOR_KEY;
   const section = manufacturer2Sections.find((s) => s.key === activeSectionKey) || manufacturer2Sections[0];
@@ -54,6 +63,9 @@ export default function Manufacturer2Client() {
   const selectSection = (key) => {
     setActiveSectionKey(key);
     setActiveGroupIndex(0);
+    // Keep the address in step, so the tab can be shared and the header's
+    // configurator link still switches back to the calculator.
+    replaceSearch(`?section=${key}`);
   };
 
   const current = lightbox ? lightbox.items[lightbox.index] : null;

@@ -7,12 +7,24 @@ import { usePathname, useRouter } from "next/navigation";
 import { Heart, Search, X, Menu, ChevronDown } from "lucide-react";
 import { getLocaleFromPathname, withLocaleHref, localePath, stripLocale, locales, t } from "@/lib/i18n";
 import { readWishlistIds } from "@/lib/wishlist";
+import { replaceSearch } from "@/lib/useUrlSearchParams";
 
 const BRAND = "NT Durys";
 
 /* Header modelled on m-lux.by: fixed overlay on the homepage, solid white on
    inner pages, 105px tall at the top, shrinking to 60px once stuck, hidden on
    scroll-down and revealed on scroll-up. */
+
+/* A menu link to the page already open, differing only in its query (the
+   configurator's "?section=kalkulators"), just swaps the query string: pages
+   that read it via useUrlSearchParams follow along, and there is nothing to
+   load. */
+function followSamePageQuery(e, href) {
+  const url = new URL(href, window.location.href);
+  if (url.pathname !== window.location.pathname || url.search === window.location.search) return;
+  e.preventDefault();
+  replaceSearch(url.pathname + url.search);
+}
 
 function NavLink({ href, children, light, active }) {
   return (
@@ -79,7 +91,10 @@ function NavDropdown({ label, items, light, active, locale, pathnameWithoutLocal
           <Link
             key={item.href}
             href={withLocaleHref(locale, item.href)}
-            onClick={() => setOpen(false)}
+            onClick={(e) => {
+              followSamePageQuery(e, withLocaleHref(locale, item.href));
+              setOpen(false);
+            }}
             className={`block px-4 py-2.5 text-[13px] transition-colors duration-150 hover:bg-[--color-soft] hover:text-[color:var(--color-accent)] ${
               pathnameWithoutLocale.startsWith(item.href)
                 ? "text-[color:var(--color-accent)]"
@@ -166,6 +181,8 @@ export default function Header() {
   const individualSolutionLinks = [
     { href: "/apdaila", label: t(locale, "nav.manufacturer1") },
     { href: "/duru-konfiguratorius", label: t(locale, "nav.manufacturer2") },
+    // Same page as Ražotājs - 2, opened straight on its calculator tab.
+    { href: "/duru-konfiguratorius?section=kalkulators", label: t(locale, "nav.configurator") },
   ];
 
   /* The four door categories live under one PRODUKTI dropdown; the rest of the
@@ -373,7 +390,10 @@ export default function Header() {
                           <Link
                             key={child.href}
                             href={withLocaleHref(locale, child.href)}
-                            onClick={() => setOpen(false)}
+                            onClick={(e) => {
+                              followSamePageQuery(e, withLocaleHref(locale, child.href));
+                              setOpen(false);
+                            }}
                             className="block px-8 py-3 text-[14px] text-[color:var(--color-title)]"
                           >
                             {child.label}
