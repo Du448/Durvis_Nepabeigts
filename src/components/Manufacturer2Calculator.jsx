@@ -21,6 +21,8 @@ import {
   peepholeOptions,
   additionalOptions,
   casingOptions,
+  jambFinishOptions,
+  jambStandardColors,
 } from "@/data/manufacturer2Calculator";
 import { manufacturer2Sections } from "@/data/manufacturer2";
 import { getLocaleFromPathname, t, withLocaleHref } from "@/lib/i18n";
@@ -1229,6 +1231,8 @@ export default function Manufacturer2Calculator() {
       frameSwatch: defaultRalGroup.items[0],
       peepholeId: tier.peepholeDefault || "standard",
       extraOptions: new Set(included.filter((id) => extraOptionIds.has(id))),
+      jambFinishId: null,
+      jambColorImage: null,
       serviceOptions: { pickup: false, measurement: false, deliveryOnly: false, installDelivery: false },
     });
     setStep("configure");
@@ -1283,6 +1287,10 @@ export default function Manufacturer2Calculator() {
       if (included.includes(optId)) continue;
       const opt = additionalOptions.find((o) => o.id === optId) || casingOptions.find((o) => o.id === optId);
       if (opt) lines.push({ label: opt.name, price: opt.price });
+    }
+    if (config.jambFinishId) {
+      const jambFinish = jambFinishOptions.find((o) => o.id === config.jambFinishId);
+      if (jambFinish) lines.push({ label: jambFinish.name, price: jambFinish.price });
     }
     return lines;
   }, [selectedTier, config]);
@@ -1426,6 +1434,15 @@ export default function Manufacturer2Calculator() {
     const lockSet = lockSets[selectedTier.lockSet] || [];
     const activePeephole = peepholeOptions.find((p) => p.id === config.peepholeId);
     const activeFurniture = furnitureOptions.find((f) => f.id === config.furnitureId);
+    const activeJambFinish = jambFinishOptions.find((o) => o.id === config.jambFinishId);
+    const jambColorItems = activeJambFinish?.custom ? krasasSection.groups[0].items : jambStandardColors;
+    const activeJambColor = config.jambColorImage ? jambColorItems.find((i) => i.image === config.jambColorImage) : null;
+    const selectJambFinish = (opt) =>
+      setConfig((c) => {
+        const prevOpt = jambFinishOptions.find((o) => o.id === c.jambFinishId);
+        const sameGroup = prevOpt && !!prevOpt.standard === !!opt.standard && !!prevOpt.custom === !!opt.custom;
+        return { ...c, jambFinishId: opt.id, jambColorImage: sameGroup ? c.jambColorImage : null };
+      });
     const sizeLabel =
       config.sizeMode === "custom" && selectedTier.customSizeSupported
         ? `${config.customWidth}×${config.customHeight} mm`
@@ -1471,6 +1488,12 @@ export default function Manufacturer2Calculator() {
         { label: trData(locale, "Kārbas pārklājums"), value: trData(locale, config.frameSwatch.label) },
         activePeephole ? { label: trData(locale, "Skata acs"), value: trData(locale, activePeephole.name) } : null,
         extraOptionLabels.length ? { label: trData(locale, "Papildu opcijas"), value: extraOptionLabels.join(", ") } : null,
+        activeJambFinish
+          ? {
+              label: trData(locale, "Iekšējā ailes apdare"),
+              value: `${trData(locale, activeJambFinish.name)}${activeJambColor ? ` - ${trData(locale, activeJambColor.label)}` : ""}`,
+            }
+          : null,
       ].filter(Boolean);
 
       const lockPhotos = [...config.lockIds]
@@ -1488,6 +1511,7 @@ export default function Manufacturer2Calculator() {
           ? { label: trData(locale, "Kārbas pārklājums"), url: config.frameSwatch.image }
           : null,
         activePeephole?.image ? { label: trData(locale, "Skata acs"), url: activePeephole.image } : null,
+        activeJambColor ? { label: trData(locale, "Iekšējā ailes apdare"), url: activeJambColor.image } : null,
         ...lockPhotos,
       ].filter(Boolean);
 
@@ -1975,6 +1999,47 @@ export default function Manufacturer2Calculator() {
                   );
                 })}
               </div>
+            </CollapsibleSection>
+
+            {/* Interior jamb finishing - same tiers as the product page's own accordion */}
+            <CollapsibleSection
+              title={trData(locale, "Iekšējā ailes apdare")}
+              subtitle={trData(locale, "Iekšējās ailes apdare. Cena norādīta par materiālu.")}
+            >
+              <div className="space-y-2.5">
+                {jambFinishOptions.map((opt) => (
+                  <label key={opt.id} className="flex items-start justify-between gap-4 text-[14px] text-ink">
+                    <span className="flex items-start gap-2">
+                      <input
+                        type="radio"
+                        name="jambFinish"
+                        className="mt-1"
+                        checked={config.jambFinishId === opt.id}
+                        onChange={() => selectJambFinish(opt)}
+                      />
+                      {trData(locale, opt.name)}
+                    </span>
+                    <span className="whitespace-nowrap font-medium text-[color:var(--color-accent)]">
+                      +<Money value={opt.price} />
+                    </span>
+                  </label>
+                ))}
+              </div>
+              {activeJambFinish ? (
+                <div className="mt-4 border-t border-line pt-4">
+                  <h4 className="t-widget mb-3 text-[color:var(--color-title)]">
+                    {trData(locale, "Izvēlieties toni")}
+                    {activeJambColor ? ` - ${trData(locale, activeJambColor.label)}` : ""}
+                  </h4>
+                  <SwatchGrid
+                    items={jambColorItems}
+                    selected={config.jambColorImage}
+                    onSelect={(item) => setConfig((c) => ({ ...c, jambColorImage: item?.image || null }))}
+                    allowDeselect
+                    locale={locale}
+                  />
+                </div>
+              ) : null}
             </CollapsibleSection>
 
             {/* MDF izstrādājumi (aplodes) */}

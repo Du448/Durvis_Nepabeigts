@@ -11,6 +11,7 @@ import { cardsFor } from "@/lib/catalog";
 import { buildDict } from "@/lib/dict";
 import { isInStock } from "@/lib/product-utils";
 import { hasManufacturer2Series, manufacturer2ColorQuery } from "@/lib/manufacturer2Series";
+import { manufacturer2Sections } from "@/data/manufacturer2";
 import { sizedImage } from "@/lib/images";
 import { SITE_URL, localizedUrl } from "@/lib/site";
 import { paths } from "@/lib/routes";
@@ -70,9 +71,18 @@ export default async function ProductPage({ params }) {
   const configurator = hasManufacturer2Series(product.name)
     ? { colorQuery: manufacturer2ColorQuery(product) }
     : null;
+  const jambColors = manufacturer2Sections.find((s) => s.key === "krasas")?.groups[0]?.items || [];
   const dict = buildDict(
     locale,
-    [product.name, product.short, product.specs, product.specsFull, product.description, product.finishMaterial],
+    [
+      product.name,
+      product.short,
+      product.specs,
+      product.specsFull,
+      product.description,
+      product.finishMaterial,
+      jambColors,
+    ],
     { colors: product.colors || [] }
   );
 
@@ -119,6 +129,7 @@ export default async function ProductPage({ params }) {
           similar={similar}
           configurator={configurator}
           locks={locksFor(product.id, locale)}
+          jambColors={jambColors}
         />
       </DictProvider>
     </>

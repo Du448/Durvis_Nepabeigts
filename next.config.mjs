@@ -7,6 +7,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const nextConfig = {
   reactCompiler: true,
   outputFileTracingRoot: __dirname,
+  // pdfjs-dist (weekly stock PDF parsing, src/lib/stockPdf.js) resolves its
+  // worker script relative to its own file at runtime; webpack's bundling
+  // breaks that path. Left external, Node resolves it normally instead.
+  serverExternalPackages: ["pdfjs-dist"],
   images: {
     // ImageKit / Unsplash resize through their own URL parameters; see the loader.
     loader: "custom",

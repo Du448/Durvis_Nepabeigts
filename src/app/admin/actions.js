@@ -4,6 +4,7 @@ import { updateTag } from "next/cache";
 import { products } from "@/data/products";
 import { isInStock } from "@/lib/product-utils";
 import { PRICES_TAG, readOverridesFresh, writeOverrides, blobConfigured } from "@/lib/priceOverrides";
+import { linkStockGroup } from "@/lib/stockSync";
 import {
   isAdmin,
   passwordMatches,
@@ -95,4 +96,11 @@ export async function saveAction(changes) {
   // Expire every page that rendered a price; the next visit renders fresh.
   updateTag(PRICES_TAG);
   return { ok: true, overrides, savedAt: new Date().toISOString() };
+}
+
+export async function linkStockGroupAction({ groupKey, codes, productId, ignore }) {
+  if (!(await isAdmin())) return { ok: false, error: "auth" };
+  if (!blobConfigured()) return { ok: false, error: "storage" };
+  if (!groupKey || (!ignore && !productId)) return { ok: false, error: "input" };
+  return linkStockGroup({ groupKey, codes, productId, ignore });
 }

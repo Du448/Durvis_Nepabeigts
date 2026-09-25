@@ -303,12 +303,28 @@ const messages = {
       optionDeliveryOnlyHint: "Duris pristatome nurodytu adresu - montavimą atliekate patys arba su savo meistrais.",
       optionInstallDelivery: "Montavimas ir pristatymas",
       optionInstallDeliveryHint: "Duris pristatome ir sumontuojame su savo sertifikuotais montuotojais.",
+      jambFinish: "Vidinė angokraščio apdaila",
+      jambFinishIntro: "Vidinė angokraščio apdaila. Kaina nurodyta už medžiagą.",
+      jambFinishStandardSmall:
+        "Angokraščio apdaila iš MDF medžiagos standartinėmis spalvomis (Baltas matinis, Baltas medis, Antracitas, Wenge horizontas), angos storis iki 200mm, apvadas 80mm (be slenksčio)",
+      jambFinishStandardLarge:
+        "Angokraščio apdaila iš MDF medžiagos standartinėmis spalvomis (Baltas matinis, Baltas medis, Antracitas, Wenge horizontas), angos storis nuo 201mm iki 400mm, apvadas 80mm (be slenksčio)",
+      jambFinishCustomSmall:
+        "Angokraščio apdaila iš MDF medžiagos pasirinkta spalva pagal užsakymą (Gamintojas - 2 katalogas), angos storis iki 200mm, apvadas 80mm (be slenksčio)",
+      jambFinishCustomLarge:
+        "Angokraščio apdaila iš MDF medžiagos pasirinkta spalva pagal užsakymą (Gamintojas - 2 katalogas), angos storis nuo 201mm iki 400mm, apvadas 80mm (be slenksčio)",
+      jambFinishColorLabel: "Pasirinkite atspalvį",
+      jambColorWhiteMatte: "Baltas matinis",
+      jambColorWhiteWood: "Baltas medis",
+      jambColorAnthracite: "Antracitas",
+      jambColorWengeHorizon: "Wenge horizontas",
     },
     contacts: {
       title: "Kontaktai",
       relatedToProduct: "Užklausa susijusi su produktu:",
       prefill: "Norėčiau gauti pasiūlymą modeliui:",
       servicesLabel: "Pasirinktos paslaugos",
+      jambColorLabel: "Angokraščio apdailos atspalvis",
       contactUs: "Susisiek su mumis",
       phone: "Telefonas",
       email: "El. paštas",
@@ -643,12 +659,28 @@ const messages = {
       optionDeliveryOnlyHint: "Durvis piegādājam norādītajā adresē - uzstādīšanu veicat paši vai ar saviem meistariem.",
       optionInstallDelivery: "Montāža un piegāde",
       optionInstallDeliveryHint: "Durvis piegādājam un uzstādām ar saviem sertificētiem montieriem.",
+      jambFinish: "Iekšējā ailes apdare",
+      jambFinishIntro: "Iekšējās ailes apdare. Cena norādīta par materiālu.",
+      jambFinishStandardSmall:
+        "Ailes apdare no MDF materiāla standarta krāsās (Balts matēts, Balts koks, Antracīts, Wenge horizonts), ailes biezums līdz 200mm, oplodes 80mm (bez sliekšņa)",
+      jambFinishStandardLarge:
+        "Ailes apdare no MDF materiāla standarta krāsās (Balts matēts, Balts koks, Antracīts, Wenge horizonts), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)",
+      jambFinishCustomSmall:
+        "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums līdz 200mm, oplodes 80mm (bez sliekšņa)",
+      jambFinishCustomLarge:
+        "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)",
+      jambFinishColorLabel: "Izvēlieties toni",
+      jambColorWhiteMatte: "Balts matēts",
+      jambColorWhiteWood: "Balts koks",
+      jambColorAnthracite: "Antracīts",
+      jambColorWengeHorizon: "Wenge horizonts",
     },
     contacts: {
       title: "Kontakti",
       relatedToProduct: "Pieteikums saistīts ar produktu:",
       prefill: "Vēlos piedāvājumu par modeli:",
       servicesLabel: "Izvēlētie pakalpojumi",
+      jambColorLabel: "Ailes apdares tonis",
       contactUs: "Sazinies ar mums",
       phone: "Tālrunis",
       email: "E-pasts",
@@ -982,12 +1014,28 @@ const messages = {
       optionDeliveryOnlyHint: "We deliver the door to the given address - you handle installation yourself or with your own fitters.",
       optionInstallDelivery: "Installation and delivery",
       optionInstallDeliveryHint: "We deliver and install the door with our own certified fitters.",
+      jambFinish: "Interior jamb finishing",
+      jambFinishIntro: "Interior jamb finishing. Price shown is for the material.",
+      jambFinishStandardSmall:
+        "Jamb finishing in MDF, standard colours (White matte, White wood, Anthracite, Wenge horizon), jamb thickness up to 200mm, 80mm casing (no threshold)",
+      jambFinishStandardLarge:
+        "Jamb finishing in MDF, standard colours (White matte, White wood, Anthracite, Wenge horizon), jamb thickness from 201mm to 400mm, 80mm casing (no threshold)",
+      jambFinishCustomSmall:
+        "Jamb finishing in MDF, custom colour on request (Manufacturer - 2 catalogue), jamb thickness up to 200mm, 80mm casing (no threshold)",
+      jambFinishCustomLarge:
+        "Jamb finishing in MDF, custom colour on request (Manufacturer - 2 catalogue), jamb thickness from 201mm to 400mm, 80mm casing (no threshold)",
+      jambFinishColorLabel: "Choose a shade",
+      jambColorWhiteMatte: "White matte",
+      jambColorWhiteWood: "White wood",
+      jambColorAnthracite: "Anthracite",
+      jambColorWengeHorizon: "Wenge horizon",
     },
     contacts: {
       title: "Contacts",
       relatedToProduct: "Request related to product:",
       prefill: "I would like an offer for the model:",
       servicesLabel: "Selected services",
+      jambColorLabel: "Jamb finish shade",
       contactUs: "Contact us",
       phone: "Phone",
       email: "Email",

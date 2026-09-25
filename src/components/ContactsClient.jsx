@@ -37,6 +37,10 @@ const SERVICE_OPTION_KEYS = {
   measurement: "product.optionMeasurement",
   deliveryOnly: "product.optionDeliveryOnly",
   installDelivery: "product.optionInstallDelivery",
+  jambFinishStandardSmall: "product.jambFinishStandardSmall",
+  jambFinishStandardLarge: "product.jambFinishStandardLarge",
+  jambFinishCustomSmall: "product.jambFinishCustomSmall",
+  jambFinishCustomLarge: "product.jambFinishCustomLarge",
 };
 
 export default function ContactsClient() {
@@ -93,8 +97,10 @@ export default function ContactsClient() {
     if (offer.size) lines.push(`${t(locale, "contacts.sizeLabel")}: ${offer.size}`);
     if (offer.price) lines.push(`${t(locale, "contacts.priceLabel")}: ${offer.price}`);
     if (selectedServices.length) lines.push(`${t(locale, "contacts.servicesLabel")}: ${selectedServices.join(", ")}`);
+    const jambColor = searchParams.get("apdareKrasa");
+    if (jambColor) lines.push(`${t(locale, "contacts.jambColorLabel")}: ${jambColor}`);
     return lines.join("\n");
-  }, [offer, selectedServices, locale]);
+  }, [offer, selectedServices, searchParams, locale]);
   const messageValue = messageTouched ? message : prefill;
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);

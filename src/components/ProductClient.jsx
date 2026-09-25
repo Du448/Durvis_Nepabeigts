@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { Heart, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck } from "lucide-react";
+import { Heart, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck, X, ChevronLeft, ChevronRight } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import AccordionItem from "@/components/anim/AccordionItem";
 import ProductTabs, { SPECS_ANCHOR, OPEN_SPECS_EVENT } from "@/components/ProductTabs";
@@ -24,6 +24,27 @@ import { scrollBehavior } from "@/lib/motion";
    their own resolution, so on wide screens their gallery is half as tall and
    the render is shown closer to its native size. */
 const FLAT_GALLERY_CATEGORIES = ["ieksdurvis", "sleptas-durvis"];
+
+// Interior jamb finishing price list, shown in its own accordion on the
+// product page. Fixed service prices, not tied to any one product. The
+// "standard" tiers show the four included MDF colours below; the "custom
+// colour" tiers let the visitor pick a shade right there, from the same
+// swatches as the Ražotājs-2 configurator's "Durvīm dzīvoklī (PVC plēve)"
+// group.
+const JAMB_FINISH_ROWS = [
+  { key: "jambFinishStandardSmall", price: 90, standard: true },
+  { key: "jambFinishStandardLarge", price: 120, standard: true },
+  { key: "jambFinishCustomSmall", price: 130, custom: true },
+  { key: "jambFinishCustomLarge", price: 190, custom: true },
+];
+
+// The four included MDF colours the "standard" tiers describe.
+const STANDARD_JAMB_COLORS = [
+  { key: "jambColorWhiteMatte", image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/Balts_mat.jpg?updatedAt=1790344491443" },
+  { key: "jambColorWhiteWood", image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/Balts_koks.png?updatedAt=1790344491571" },
+  { key: "jambColorAnthracite", image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/antracyte.png?updatedAt=1790344491567" },
+  { key: "jambColorWengeHorizon", image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/Venge.jpg?updatedAt=1790344491342" },
+];
 
 function ServiceBadge({ icon: Icon, label }) {
   return (
@@ -125,11 +146,90 @@ function ServiceToggleRow({ checked, onChange, label, hint }) {
   );
 }
 
+// One of four mutually exclusive jamb-finish variants (colour x thickness).
+// Selecting one writes it into the "Pieprasīt piedāvājumu" link alongside the
+// fulfilment toggles above, the same way ServiceToggleRow's choices do.
+function JambFinishRow({ selected, onSelect, label, price }) {
+  const labelId = useId();
+  return (
+    <div className="flex items-center gap-3 py-2.5">
+      <button
+        type="button"
+        role="radio"
+        aria-checked={selected}
+        aria-labelledby={labelId}
+        onClick={onSelect}
+        className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border transition-colors ${
+          selected ? "border-[color:var(--color-accent)]" : "border-[color:var(--color-muted)]/60"
+        }`}
+      >
+        {selected ? <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--color-accent)]" /> : null}
+      </button>
+      <span id={labelId} onClick={onSelect} className="flex-1 cursor-pointer text-[15px] text-ink">
+        {label}
+      </span>
+      <span className="shrink-0 font-medium text-[color:var(--color-title)]">{price.toFixed(2)} €</span>
+    </div>
+  );
+}
+
+// The jamb-finish colour picker: a grid of swatches, each selectable (sets
+// the accordion's colour choice) and independently zoomable (opens the
+// shared lightbox below without changing the selection).
+function JambColorSwatchGrid({ items, jambColor, onSelect, onZoom, label, zoomLabel, scroll = false }) {
+  return (
+    <div className="mt-4 border-t border-line pt-4">
+      <p className="mb-3 text-[14px] font-medium text-[color:var(--color-title)]">
+        {label}
+        {jambColor ? <span className="font-normal text-muted"> - {jambColor}</span> : null}
+      </p>
+      <div
+        className={`grid grid-cols-4 gap-2 ${scroll ? "max-h-72 overflow-y-auto pr-1 sm:grid-cols-6" : ""}`}
+      >
+        {items.map((sw, index) => (
+          <div key={sw.image} className="relative">
+            <button
+              type="button"
+              onClick={() => onSelect(sw.label)}
+              aria-pressed={jambColor === sw.label}
+              title={sw.label}
+              className={`relative block aspect-square w-full overflow-hidden border transition-colors ${
+                jambColor === sw.label ? "border-[color:var(--color-accent)] ring-1 ring-[color:var(--color-accent)]" : "border-line"
+              }`}
+            >
+              <Image
+                src={sw.image}
+                alt={sw.label}
+                fill
+                {...imageProps(sw.image)}
+                loading="lazy"
+                sizes="(min-width: 640px) 15vw, 25vw"
+                className="bg-[--color-soft] object-contain"
+              />
+            </button>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                onZoom(index);
+              }}
+              aria-label={zoomLabel}
+              className="absolute right-1 top-1 flex h-6 w-6 items-center justify-center bg-black/50 text-white backdrop-blur transition-colors hover:bg-black/70"
+            >
+              <ZoomIn size={13} />
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 /* The server page passes the catalogue entry, four similar models as cards,
    and the configurator link (whether this model is one of its series, and the
    colour section to open) - so neither the catalogue nor the configurator's
    data has to ship to the browser. */
-export default function ProductClient({ product, similar = [], configurator = null, locks = [] }) {
+export default function ProductClient({ product, similar = [], configurator = null, locks = [], jambColors = [] }) {
   const { trData, translateColorLabel } = useTr();
   const locale = getLocaleFromPathname(usePathname());
   const productImages = product?.images && product.images.length > 0 ? product.images : ["placeholder"];
@@ -146,9 +246,44 @@ export default function ProductClient({ product, similar = [], configurator = nu
   });
   const toggleServiceOption = (key) =>
     setServiceOptions((prev) => ({ ...prev, [key]: !prev[key] }));
-  const selectedServiceCodes = Object.entries(serviceOptions)
-    .filter(([, on]) => on)
-    .map(([key]) => key);
+  const [jambFinishChoice, setJambFinishChoice] = useState(null);
+  const [jambColor, setJambColor] = useState(null);
+  const selectJambFinish = (key) =>
+    setJambFinishChoice((prev) => {
+      const next = prev === key ? null : key;
+      const prevRow = JAMB_FINISH_ROWS.find((r) => r.key === prev);
+      const nextRow = JAMB_FINISH_ROWS.find((r) => r.key === next);
+      if (!nextRow || nextRow.custom !== prevRow?.custom || nextRow.standard !== prevRow?.standard) {
+        setJambColor(null);
+      }
+      return next;
+    });
+  const jambFinishRow = JAMB_FINISH_ROWS.find((r) => r.key === jambFinishChoice);
+  const jambFinishIsCustom = jambFinishRow?.custom;
+  const jambFinishIsStandard = jambFinishRow?.standard;
+  const selectedServiceCodes = [
+    ...Object.entries(serviceOptions).filter(([, on]) => on).map(([key]) => key),
+    ...(jambFinishChoice ? [jambFinishChoice] : []),
+  ];
+  const customJambSwatches = jambColors.map((sw) => ({ image: sw.image, label: trData(locale, sw.label) }));
+  const standardJambSwatches = STANDARD_JAMB_COLORS.map((sw) => ({ image: sw.image, label: t(locale, `product.${sw.key}`) }));
+  const [jambColorLightbox, setJambColorLightbox] = useState(null);
+  const stepJambColorLightbox = (delta) =>
+    setJambColorLightbox((state) => {
+      if (!state) return state;
+      const n = state.items.length;
+      return { ...state, index: ((state.index + delta) % n + n) % n };
+    });
+  useEffect(() => {
+    if (!jambColorLightbox) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setJambColorLightbox(null);
+      else if (e.key === "ArrowRight") stepJambColorLightbox(1);
+      else if (e.key === "ArrowLeft") stepJambColorLightbox(-1);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [jambColorLightbox]);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIdx, setLightboxIdx] = useState(0);
   const [lightboxZoom, setLightboxZoom] = useState(1);
@@ -418,7 +553,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
                         selectedServiceCodes.length
                           ? `&pakalpojumi=${encodeURIComponent(selectedServiceCodes.join(","))}`
                           : ""
-                      }`
+                      }${jambColor ? `&apdareKrasa=${encodeURIComponent(jambColor)}` : ""}`
                     )}
                     className="btn btn-accent"
                   >
@@ -514,6 +649,41 @@ export default function ProductClient({ product, similar = [], configurator = nu
                       hint={t(locale, "product.optionInstallDeliveryHint")}
                     />
                   </div>
+                </AccordionItem>
+                <AccordionItem title={t(locale, "product.jambFinish")}>
+                  <p className="mb-3">{t(locale, "product.jambFinishIntro")}</p>
+                  <div role="radiogroup" className="divide-y divide-[--color-line]">
+                    {JAMB_FINISH_ROWS.map((row) => (
+                      <JambFinishRow
+                        key={row.key}
+                        selected={jambFinishChoice === row.key}
+                        onSelect={() => selectJambFinish(row.key)}
+                        label={t(locale, `product.${row.key}`)}
+                        price={row.price}
+                      />
+                    ))}
+                  </div>
+                  {jambFinishIsCustom ? (
+                    <JambColorSwatchGrid
+                      items={customJambSwatches}
+                      jambColor={jambColor}
+                      onSelect={setJambColor}
+                      onZoom={(index) => setJambColorLightbox({ items: customJambSwatches, index })}
+                      label={t(locale, "product.jambFinishColorLabel")}
+                      zoomLabel={t(locale, "product.zoomIn")}
+                      scroll
+                    />
+                  ) : null}
+                  {jambFinishIsStandard ? (
+                    <JambColorSwatchGrid
+                      items={standardJambSwatches}
+                      jambColor={jambColor}
+                      onSelect={setJambColor}
+                      onZoom={(index) => setJambColorLightbox({ items: standardJambSwatches, index })}
+                      label={t(locale, "product.jambFinishColorLabel")}
+                      zoomLabel={t(locale, "product.zoomIn")}
+                    />
+                  ) : null}
                 </AccordionItem>
                 <AccordionItem title={t(locale, "product.warranty")}>
                   <div className="flex items-center gap-2.5">
@@ -636,6 +806,74 @@ export default function ProductClient({ product, similar = [], configurator = nu
           </div>
         </div>
       )}
+
+      {jambColorLightbox ? (
+        <div
+          className="animate-fade-in fixed inset-0 z-[420] flex items-center justify-center bg-black/85 p-4"
+          onClick={() => setJambColorLightbox(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={jambColorLightbox.items[jambColorLightbox.index].label}
+        >
+          <button
+            type="button"
+            onClick={() => setJambColorLightbox(null)}
+            aria-label={t(locale, "product.close")}
+            className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25"
+          >
+            <X size={20} />
+          </button>
+
+          {jambColorLightbox.items.length > 1 ? (
+            <>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  stepJambColorLightbox(-1);
+                }}
+                aria-label={t(locale, "product.previous")}
+                className="absolute left-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25 sm:left-6 sm:h-14 sm:w-14"
+              >
+                <ChevronLeft size={26} strokeWidth={1.5} />
+              </button>
+              <button
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  stepJambColorLightbox(1);
+                }}
+                aria-label={t(locale, "product.next")}
+                className="absolute right-3 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white backdrop-blur transition-colors hover:bg-white/25 sm:right-6 sm:h-14 sm:w-14"
+              >
+                <ChevronRight size={26} strokeWidth={1.5} />
+              </button>
+            </>
+          ) : null}
+
+          <figure className="max-h-full w-full max-w-[720px]" onClick={(e) => e.stopPropagation()}>
+            <div className="relative mx-auto aspect-square max-h-[76vh] w-auto">
+              <Image
+                key={jambColorLightbox.items[jambColorLightbox.index].image}
+                src={jambColorLightbox.items[jambColorLightbox.index].image}
+                alt={jambColorLightbox.items[jambColorLightbox.index].label}
+                fill
+                {...imageProps(jambColorLightbox.items[jambColorLightbox.index].image)}
+                sizes="720px"
+                className="animate-fade-in bg-[--color-soft] object-contain"
+              />
+            </div>
+            <figcaption className="mt-3 text-center text-[14px] text-white">
+              {jambColorLightbox.items[jambColorLightbox.index].label}
+              {jambColorLightbox.items.length > 1 ? (
+                <span className="ml-2 text-white/55">
+                  {jambColorLightbox.index + 1} / {jambColorLightbox.items.length}
+                </span>
+              ) : null}
+            </figcaption>
+          </figure>
+        </div>
+      ) : null}
     </main>
   );
 }

@@ -1,0 +1,114 @@
+"use client";
+
+import { useMemo, useState, useTransition } from "react";
+import { useRouter } from "next/navigation";
+import { linkStockGroupAction } from "./actions";
+
+/* One-time linking step for the weekly stock PDF (see /api/telegram/stock):
+   every model+colour the file mentions that the site can't yet match to a
+   product id, so the shop owner picks it from a search box once. After
+   that, every future upload finds it automatically - see stockSync.js. */
+export default function StockMatcher({ unmatched, productOptions, storageReady }) {
+  const router = useRouter();
+  const [groups, setGroups] = useState(unmatched.groups);
+  const [picked, setPicked] = useState({}); // groupKey -> productId
+  const [pending, startTransition] = useTransition();
+  const [busyKey, setBusyKey] = useState(null);
+  const [message, setMessage] = useState(null);
+
+  const optionsById = useMemo(() => new Map(productOptions.map((o) => [o.id, o])), [productOptions]);
+
+  if (!storageReady || !groups.length) return null;
+
+  function link(group) {
+    const productId = picked[group.groupKey];
+    if (!productId || !optionsById.has(productId)) return;
+    setBusyKey(group.groupKey);
+    startTransition(async () => {
+      const res = await linkStockGroupAction({ groupKey: group.groupKey, codes: group.codes, productId });
+      setBusyKey(null);
+      if (res?.ok) {
+        setGroups((prev) => prev.filter((g) => g.groupKey !== group.groupKey));
+        setMessage({ kind: "ok", text: `Piesaistīts: ${optionsById.get(productId)?.name || productId}` });
+        router.refresh();
+      } else {
+        setMessage({ kind: "error", text: "Neizdevās saglabāt piesaisti." });
+      }
+    });
+  }
+
+  function ignore(group) {
+    setBusyKey(group.groupKey);
+    startTransition(async () => {
+      const res = await linkStockGroupAction({ groupKey: group.groupKey, ignore: true });
+      setBusyKey(null);
+      if (res?.ok) {
+        setGroups((prev) => prev.filter((g) => g.groupKey !== group.groupKey));
+      } else {
+        setMessage({ kind: "error", text: "Neizdevās saglabāt." });
+      }
+    });
+  }
+
+  return (
+    <div className="mx-auto max-w-[1200px] px-4 pt-5">
+      <div className="rounded-lg border border-amber-300 bg-amber-50 p-4">
+        <h2 className="text-[15px] font-semibold text-amber-900">
+          Atlikumu piesaiste - {groups.length} nesaistīti modeļi
+        </h2>
+        <p className="mt-1 text-[13px] text-amber-900/80">
+          Šie nosaukumi no jaunākā atlikumu faila neatbilst nevienam zināmam produktam. Piesaisti katru vienreiz -
+          turpmākajos failos tas tiks atpazīts automātiski. Ieraksti, kas nav durvju modeļi (piem. aplodes, furnitūra),
+          vari ignorēt.
+        </p>
+        {message ? (
+          <p className={`mt-2 text-[13px] ${message.kind === "error" ? "text-red-700" : "text-emerald-800"}`}>
+            {message.text}
+          </p>
+        ) : null}
+        <ul className="mt-3 divide-y divide-amber-200">
+          {groups.map((group) => (
+            <li key={group.groupKey} className="flex flex-wrap items-center gap-2 py-2.5">
+              <div className="min-w-[240px] flex-1">
+                <div className="text-[14px] font-medium text-neutral-900">{group.name}</div>
+                <div className="text-[12px] text-neutral-500">
+                  {group.codes.length} kods{group.codes.length === 1 ? "" : "i"} · kopā {group.totalQty} gab.
+                </div>
+              </div>
+              <input
+                list="stock-matcher-products"
+                placeholder="Meklē produktu..."
+                className="w-[280px] rounded-md border border-neutral-300 px-2 py-1.5 text-[13px]"
+                onChange={(e) => {
+                  const opt = productOptions.find((o) => o.name === e.target.value);
+                  setPicked((prev) => ({ ...prev, [group.groupKey]: opt?.id || "" }));
+                }}
+              />
+              <button
+                type="button"
+                disabled={pending || !picked[group.groupKey]}
+                onClick={() => link(group)}
+                className="rounded-md bg-emerald-800 px-3 py-1.5 text-[13px] font-medium text-white disabled:opacity-40"
+              >
+                {busyKey === group.groupKey ? "..." : "Piesaistīt"}
+              </button>
+              <button
+                type="button"
+                disabled={pending}
+                onClick={() => ignore(group)}
+                className="rounded-md border border-neutral-300 px-3 py-1.5 text-[13px] text-neutral-600 hover:bg-white disabled:opacity-40"
+              >
+                Ignorēt
+              </button>
+            </li>
+          ))}
+        </ul>
+        <datalist id="stock-matcher-products">
+          {productOptions.map((o) => (
+            <option key={o.id} value={o.name} />
+          ))}
+        </datalist>
+      </div>
+    </div>
+  );
+}

@@ -430,4 +430,18 @@ export const ltManufacturer2Calculator = {
     "MDF gaminiai pagal užsakymą, buto tipas (min. nuo 1 m²), €/m²",
   "MDF izstrādājumi pēc pasūtījuma, privātmājas tips (min. no 1 m²), €/m²":
     "MDF gaminiai pagal užsakymą, namo tipas (min. nuo 1 m²), €/m²",
+
+  // ---- Interior jamb finishing ----
+  "Iekšējā ailes apdare": "Vidinė angokraščio apdaila",
+  "Iekšējās ailes apdare. Cena norādīta par materiālu.": "Vidinė angokraščio apdaila. Kaina nurodyta už medžiagą.",
+  "Izvēlieties toni": "Pasirinkite atspalvį",
+  "Wenge horizonts": "Wenge horizontas",
+  "Ailes apdare no MDF materiāla standarta krāsās (Balts matēts, Balts koks, Antracīts, Wenge horizonts), ailes biezums līdz 200mm, oplodes 80mm (bez sliekšņa)":
+    "Angokraščio apdaila iš MDF medžiagos standartinėmis spalvomis (Baltas matinis, Baltas medis, Antracitas, Wenge horizontas), angos storis iki 200mm, apvadas 80mm (be slenksčio)",
+  "Ailes apdare no MDF materiāla standarta krāsās (Balts matēts, Balts koks, Antracīts, Wenge horizonts), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)":
+    "Angokraščio apdaila iš MDF medžiagos standartinėmis spalvomis (Baltas matinis, Baltas medis, Antracitas, Wenge horizontas), angos storis nuo 201mm iki 400mm, apvadas 80mm (be slenksčio)",
+  "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums līdz 200mm, oplodes 80mm (bez sliekšņa)":
+    "Angokraščio apdaila iš MDF medžiagos pasirinkta spalva pagal užsakymą (Gamintojas - 2 katalogas), angos storis iki 200mm, apvadas 80mm (be slenksčio)",
+  "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)":
+    "Angokraščio apdaila iš MDF medžiagos pasirinkta spalva pagal užsakymą (Gamintojas - 2 katalogas), angos storis nuo 201mm iki 400mm, apvadas 80mm (be slenksčio)",
 };

@@ -481,4 +481,18 @@ export const enManufacturer2Calculator = {
     "Custom MDF products, apartment type (min. from 1 m²), €/m²",
   "MDF izstrādājumi pēc pasūtījuma, privātmājas tips (min. no 1 m²), €/m²":
     "Custom MDF products, house type (min. from 1 m²), €/m²",
+
+  // ---- Interior jamb finishing ----
+  "Iekšējā ailes apdare": "Interior jamb finishing",
+  "Iekšējās ailes apdare. Cena norādīta par materiālu.": "Interior jamb finishing. Price shown is for the material.",
+  "Izvēlieties toni": "Choose a shade",
+  "Wenge horizonts": "Wenge horizon",
+  "Ailes apdare no MDF materiāla standarta krāsās (Balts matēts, Balts koks, Antracīts, Wenge horizonts), ailes biezums līdz 200mm, oplodes 80mm (bez sliekšņa)":
+    "Jamb finishing in MDF, standard colours (White matte, White wood, Anthracite, Wenge horizon), jamb thickness up to 200mm, 80mm casing (no threshold)",
+  "Ailes apdare no MDF materiāla standarta krāsās (Balts matēts, Balts koks, Antracīts, Wenge horizonts), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)":
+    "Jamb finishing in MDF, standard colours (White matte, White wood, Anthracite, Wenge horizon), jamb thickness from 201mm to 400mm, 80mm casing (no threshold)",
+  "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums līdz 200mm, oplodes 80mm (bez sliekšņa)":
+    "Jamb finishing in MDF, custom colour on request (Manufacturer - 2 catalogue), jamb thickness up to 200mm, 80mm casing (no threshold)",
+  "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)":
+    "Jamb finishing in MDF, custom colour on request (Manufacturer - 2 catalogue), jamb thickness from 201mm to 400mm, 80mm casing (no threshold)",
 };

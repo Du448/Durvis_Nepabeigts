@@ -1936,3 +1936,42 @@ export const casingOptions = [
   { id: "mdf-custom-apartment-sqm", name: "MDF izstrādājumi pēc pasūtījuma, dzīvokļa tips (min. no 1 m²), €/m²", price: 110 },
   { id: "mdf-custom-house-sqm", name: "MDF izstrādājumi pēc pasūtījuma, privātmājas tips (min. no 1 m²), €/m²", price: 140 },
 ];
+
+// Interior jamb finishing - same four tiers/prices as the product page's own
+// "Iekšējā ailes apdare" accordion (see ProductClient.jsx). "standard"/"custom"
+// pick which colour set the calculator offers below the choice: the four
+// included MDF colours (jambStandardColors) or the full Ražotājs-2 "Durvīm
+// dzīvoklī (PVC plēve)" palette (krasasSection.groups[0].items).
+export const jambFinishOptions = [
+  {
+    id: "jamb-finish-standard-small",
+    name: "Ailes apdare no MDF materiāla standarta krāsās (Balts matēts, Balts koks, Antracīts, Wenge horizonts), ailes biezums līdz 200mm, oplodes 80mm (bez sliekšņa)",
+    price: 90,
+    standard: true,
+  },
+  {
+    id: "jamb-finish-standard-large",
+    name: "Ailes apdare no MDF materiāla standarta krāsās (Balts matēts, Balts koks, Antracīts, Wenge horizonts), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)",
+    price: 120,
+    standard: true,
+  },
+  {
+    id: "jamb-finish-custom-small",
+    name: "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums līdz 200mm, oplodes 80mm (bez sliekšņa)",
+    price: 130,
+    custom: true,
+  },
+  {
+    id: "jamb-finish-custom-large",
+    name: "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)",
+    price: 190,
+    custom: true,
+  },
+];
+
+export const jambStandardColors = [
+  { image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/Balts_mat.jpg?updatedAt=1790344491443", label: "Balts matēts" },
+  { image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/Balts_koks.png?updatedAt=1790344491571", label: "Balts koks" },
+  { image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/antracyte.png?updatedAt=1790344491567", label: "Antracīts" },
+  { image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/Venge.jpg?updatedAt=1790344491342", label: "Wenge horizonts" },
+];
