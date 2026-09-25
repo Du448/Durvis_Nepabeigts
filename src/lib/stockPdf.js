@@ -2,32 +2,29 @@
    plain rows. Each row of the source table is one line at a shared y
    position: a 5-digit warehouse code, a model/colour/size description, a
    unit ("gb."), and a quantity - see stockSync.js for how these rows turn
-   into per-product in-stock flags. pdfjs-dist's text-only extraction (no
-   canvas) works in a serverless function, unlike the `pdftotext` binary. */
+   into per-product in-stock flags. unpdf wraps pdf.js without its worker
+   file, which plain pdfjs-dist cannot resolve once Vercel's serverless
+   bundler traces and packages the function. */
 
-import * as pdfjs from "pdfjs-dist/legacy/build/pdf.mjs";
+import { extractTextItems } from "unpdf";
 
 const CODE_RE = /^\d{4,6}$/;
 const QTY_RE = /^[\d.,]+$/;
 
 export async function parseStockPdf(bytes) {
-  const doc = await pdfjs.getDocument({ data: bytes, isEvalSupported: false }).promise;
+  const { items: pages } = await extractTextItems(bytes);
   const rows = [];
 
-  for (let pageNum = 1; pageNum <= doc.numPages; pageNum++) {
-    const page = await doc.getPage(pageNum);
-    const content = await page.getTextContent();
-
+  for (const items of pages) {
     // Group text items by their (rounded) baseline y - one group is one
     // table row, regardless of how pdf.js chose to split the run into items.
     const lines = new Map();
-    for (const item of content.items) {
+    for (const item of items) {
       const str = item.str;
       if (!str || !str.trim()) continue;
-      const y = Math.round(item.transform[5]);
-      const x = item.transform[4];
+      const y = Math.round(item.y);
       if (!lines.has(y)) lines.set(y, []);
-      lines.get(y).push({ x, str: str.trim() });
+      lines.get(y).push({ x: item.x, str: str.trim() });
     }
 
     for (const [, parts] of lines) {
