@@ -70,18 +70,29 @@ export function stockRowGroupKey(name) {
 
 const VARIANT_SIZE_RE = /(\d{2,4})\s*[x×]\s*(\d{2,4})(?:\s*mm)?/i;
 const VARIANT_SIDE_RE = /\b(Kreisās|Kreiss|Labās|Labs)\b/i;
+// Interior doors (RV-06, RV-10, ML-01, Stockholm, ...) have no opening side
+// in the warehouse's own naming - just a leaf width in cm as the last thing
+// before the closing bracket, e.g. "RV 06 (Balts ultramat, stikls melns, 80)".
+const VARIANT_WIDTH_RE = /,\s*(\d{2})\)\s*$/;
 
-// Pulls the size ("850×2050", normalised to the × the catalogue uses) and
-// opening side out of one warehouse row's description, for the per-variant
-// stock counts shown on the product page. Returns null when either piece is
-// missing - a row with an ambiguous side is left out of the count rather
-// than guessed.
+// Pulls the size and opening side out of one warehouse row's description,
+// for the per-variant stock counts shown on the product page.
+//  - Exterior doors: full WxH ("850×2050", normalised to the × the
+//    catalogue uses) plus a side; returns null if either is missing rather
+//    than guessing the side.
+//  - Interior doors: just a leaf width in cm, converted to the mm string
+//    the catalogue's own `sizes` use ("80" -> "800"); `side` is null.
 export function stockRowVariant(name) {
   const sizeMatch = name.match(VARIANT_SIZE_RE);
   const sideMatch = name.match(VARIANT_SIDE_RE);
-  if (!sizeMatch || !sideMatch) return null;
-  return {
-    size: `${sizeMatch[1]}×${sizeMatch[2]}`,
-    side: /^k/i.test(sideMatch[1]) ? "left" : "right",
-  };
+  if (sizeMatch && sideMatch) {
+    return { size: `${sizeMatch[1]}×${sizeMatch[2]}`, side: /^k/i.test(sideMatch[1]) ? "left" : "right" };
+  }
+  const widthMatch = name.match(VARIANT_WIDTH_RE);
+  if (widthMatch) return { size: String(Number(widthMatch[1]) * 10), side: null };
+  return null;
 }
+
+// The override.stock key for a variant: "size|side" when the door has a
+// side, or just "size" when it doesn't (interior doors).
+export const variantKey = (variant) => (variant.side ? `${variant.size}|${variant.side}` : variant.size);

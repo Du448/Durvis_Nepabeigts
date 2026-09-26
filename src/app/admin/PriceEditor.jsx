@@ -22,15 +22,21 @@ function warehouseTotal(override) {
   return total;
 }
 
-// The same quantities broken down one row per size, left/right side by
-// side, sorted the way the sizes read on the shop's own product page.
+// The same quantities broken down one row per size - left/right side by
+// side for doors with an opening side, or a single total for ones without
+// (interior doors) - sorted the way the sizes read on the product page.
 function warehouseBreakdown(override) {
   if (!override?.stock) return null;
   const bySize = new Map();
   for (const [key, qty] of Object.entries(override.stock)) {
     const [size, side] = key.split("|");
-    const row = bySize.get(size) || { size, left: 0, right: 0 };
-    row[side] = qty;
+    const row = bySize.get(size) || { size, left: 0, right: 0, total: 0, sided: false };
+    if (side === "left" || side === "right") {
+      row[side] = qty;
+      row.sided = true;
+    } else {
+      row.total = qty;
+    }
     bySize.set(size, row);
   }
   return [...bySize.values()].sort((a, b) => a.size.localeCompare(b.size, undefined, { numeric: true }));
@@ -326,7 +332,15 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                           <div className="font-medium">{ui.warehouseStock(stockTotal)}</div>
                           {stockRows.map((r) => (
                             <div key={r.size} className="text-neutral-500">
-                              {r.size} · {ui.directionLeft}: {r.left} · {ui.directionRight}: {r.right}
+                              {r.sided ? (
+                                <>
+                                  {r.size} · {ui.directionLeft}: {r.left} · {ui.directionRight}: {r.right}
+                                </>
+                              ) : (
+                                <>
+                                  {r.size} mm: {r.total} {ui.pcsSuffix}
+                                </>
+                              )}
                             </div>
                           ))}
                         </div>

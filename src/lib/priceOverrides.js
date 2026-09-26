@@ -31,7 +31,9 @@ export const blobConfigured = () =>
 
 const isBuild = () => process.env.NEXT_PHASE === "phase-production-build";
 
-const STOCK_KEY_RE = /^.{1,20}\|(left|right)$/;
+// "size|left"/"size|right" for doors with an opening side, or bare "size"
+// for ones without (interior doors) - see stockPdf.js's variantKey().
+const STOCK_KEY_RE = /^[^|]{1,20}(\|(left|right))?$/;
 
 function sanitizeStock(stock) {
   if (!stock || typeof stock !== "object") return null;

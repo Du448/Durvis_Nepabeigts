@@ -2,7 +2,7 @@ import { revalidateTag } from "next/cache";
 import { products } from "@/data/products";
 import { PRICES_TAG, readOverridesFresh, writeOverrides } from "@/lib/priceOverrides";
 import { readStockMap, writeStockMap, readUnmatchedStock, writeUnmatchedStock } from "@/lib/stockMap";
-import { stockRowGroupKey, stockRowVariant } from "@/lib/stockPdf";
+import { stockRowGroupKey, stockRowVariant, variantKey } from "@/lib/stockPdf";
 
 const byId = new Map(products.map((p) => [p.id, p]));
 
@@ -32,7 +32,7 @@ export async function syncStock(rows) {
       const variant = stockRowVariant(row.name);
       if (variant) {
         const variants = qtyByVariant.get(productId) || new Map();
-        const key = `${variant.size}|${variant.side}`;
+        const key = variantKey(variant);
         variants.set(key, (variants.get(key) || 0) + row.qty);
         qtyByVariant.set(productId, variants);
       }
@@ -128,7 +128,7 @@ export async function linkStockGroup({ groupKey, codes, productId, ignore }) {
       for (const c of codes) {
         const variant = c.name ? stockRowVariant(c.name) : null;
         if (!variant) continue;
-        const key = `${variant.size}|${variant.side}`;
+        const key = variantKey(variant);
         variants.set(key, (variants.get(key) || 0) + (Number(c.qty) || 0));
       }
       overrides[productId] = {

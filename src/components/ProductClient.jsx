@@ -239,11 +239,14 @@ export default function ProductClient({ product, similar = [], configurator = nu
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [activeSize, setActiveSize] = useState(product?.sizes?.[0] || "");
   const [activeDirection, setActiveDirection] = useState(product?.directions?.[0] || "");
-  // Exact per-size/side warehouse count, when the warehouse sync has linked
-  // this product to a warehouse code - undefined (not 0) means "no data",
-  // so the UI stays silent instead of falsely claiming zero stock.
-  const variantStock =
-    activeSize && activeDirection ? product?.stockByVariant?.[`${activeSize}|${activeDirection}`] : undefined;
+  // Exact per-size(/side) warehouse count, when the warehouse sync has
+  // linked this product to a warehouse code - undefined (not 0) means "no
+  // data", so the UI stays silent instead of falsely claiming zero stock.
+  // Doors without a `directions` list (interior doors) are keyed by size
+  // alone; doors with one are keyed "size|direction" - see stockPdf.js.
+  const variantStock = activeSize
+    ? product?.stockByVariant?.[activeDirection ? `${activeSize}|${activeDirection}` : activeSize]
+    : undefined;
   const [serviceOptions, setServiceOptions] = useState({
     pickup: false,
     measurement: false,
