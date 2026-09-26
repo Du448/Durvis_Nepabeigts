@@ -5,7 +5,13 @@ import { get, put } from "@vercel/blob";
    source of truth for everything else; this file only holds the fields the
    admin panel can change, for the products whose values differ from it:
 
-     { updatedAt, products: { "<id>": { price?, oldPrice?, inStock? } } }
+     { updatedAt, products: { "<id>": { price?, oldPrice?, inStock?, stock? } } }
+
+   `stock` is an optional per-variant quantity map keyed "<size>|<left|right>"
+   (e.g. "850×2050|left": 3), written by the warehouse stock sync for
+   products it has linked to warehouse codes. Products without a link simply
+   never get this field, and the product page falls back to the plain
+   inStock badge.
 
    It lives in Vercel Blob, so it travels with the Vercel project. Pages read
    it through a tagged cache: saving in the panel calls updateTag(PRICES_TAG),
@@ -25,12 +31,27 @@ export const blobConfigured = () =>
 
 const isBuild = () => process.env.NEXT_PHASE === "phase-production-build";
 
+const STOCK_KEY_RE = /^.{1,20}\|(left|right)$/;
+
+function sanitizeStock(stock) {
+  if (!stock || typeof stock !== "object") return null;
+  const out = {};
+  for (const [key, qty] of Object.entries(stock)) {
+    if (!STOCK_KEY_RE.test(key) || !Number.isFinite(qty) || qty < 0) continue;
+    out[key] = qty;
+    if (Object.keys(out).length >= 40) break; // sizes × sides never gets close to this
+  }
+  return Object.keys(out).length ? out : null;
+}
+
 function sanitize(entry) {
   if (!entry || typeof entry !== "object") return null;
   const out = {};
   if (Number.isFinite(entry.price)) out.price = entry.price;
   if (entry.oldPrice === null || Number.isFinite(entry.oldPrice)) out.oldPrice = entry.oldPrice;
   if (typeof entry.inStock === "boolean") out.inStock = entry.inStock;
+  const stock = sanitizeStock(entry.stock);
+  if (stock) out.stock = stock;
   return Object.keys(out).length ? out : null;
 }
 

@@ -2,7 +2,7 @@ import { revalidateTag } from "next/cache";
 import { products } from "@/data/products";
 import { PRICES_TAG, readOverridesFresh, writeOverrides } from "@/lib/priceOverrides";
 import { readStockMap, writeStockMap, readUnmatchedStock, writeUnmatchedStock } from "@/lib/stockMap";
-import { stockRowGroupKey } from "@/lib/stockPdf";
+import { stockRowGroupKey, stockRowVariant } from "@/lib/stockPdf";
 
 const byId = new Map(products.map((p) => [p.id, p]));
 
@@ -17,7 +17,8 @@ export async function syncStock(rows) {
   const nextCodeMap = { ...codeMap };
 
   const qtyByProduct = new Map();
-  const unmatched = new Map(); // groupKey -> { name, codes: [{code, qty}], totalQty }
+  const qtyByVariant = new Map(); // productId -> Map("<size>|<left|right>" -> qty)
+  const unmatched = new Map(); // groupKey -> { name, codes: [{code, qty, name}], totalQty }
 
   for (const row of rows) {
     const groupKey = stockRowGroupKey(row.name);
@@ -28,12 +29,19 @@ export async function syncStock(rows) {
     if (productId) {
       nextCodeMap[row.code] = productId;
       qtyByProduct.set(productId, (qtyByProduct.get(productId) || 0) + row.qty);
+      const variant = stockRowVariant(row.name);
+      if (variant) {
+        const variants = qtyByVariant.get(productId) || new Map();
+        const key = `${variant.size}|${variant.side}`;
+        variants.set(key, (variants.get(key) || 0) + row.qty);
+        qtyByVariant.set(productId, variants);
+      }
       continue;
     }
     if (ignored.has(groupKey)) continue;
 
     const entry = unmatched.get(groupKey) || { name: row.name, codes: [], totalQty: 0 };
-    entry.codes.push({ code: row.code, qty: row.qty });
+    entry.codes.push({ code: row.code, qty: row.qty, name: row.name });
     entry.totalQty += row.qty;
     unmatched.set(groupKey, entry);
   }
@@ -56,7 +64,11 @@ export async function syncStock(rows) {
   for (const productId of linkedProductIds) {
     if (!byId.has(productId)) continue;
     const inStock = (qtyByProduct.get(productId) || 0) > 0;
-    overrides[productId] = { ...overrides[productId], inStock };
+    // Written fresh every run (not merged with the previous week's) so a
+    // variant that drops out of the file - sold out, discontinued size -
+    // doesn't keep showing last week's count.
+    const stock = Object.fromEntries(qtyByVariant.get(productId) || []);
+    overrides[productId] = { ...overrides[productId], inStock, stock };
     if (inStock) inStockCount++;
     else outOfStockCount++;
   }
@@ -112,7 +124,18 @@ export async function linkStockGroup({ groupKey, codes, productId, ignore }) {
       overrides = null;
     }
     if (overrides) {
-      overrides[productId] = { ...overrides[productId], inStock: totalQty > 0 };
+      const variants = new Map();
+      for (const c of codes) {
+        const variant = c.name ? stockRowVariant(c.name) : null;
+        if (!variant) continue;
+        const key = `${variant.size}|${variant.side}`;
+        variants.set(key, (variants.get(key) || 0) + (Number(c.qty) || 0));
+      }
+      overrides[productId] = {
+        ...overrides[productId],
+        inStock: totalQty > 0,
+        stock: Object.fromEntries(variants),
+      };
       await writeOverrides(overrides);
       revalidateTag(PRICES_TAG);
     }

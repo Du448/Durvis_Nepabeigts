@@ -24,6 +24,7 @@ export function applyOverride(product, override) {
   // A sale price that is not above the current price would show as a "discount" upwards.
   if (next.oldPrice != null && !(next.oldPrice > next.price)) next.oldPrice = null;
   if (typeof override.inStock === "boolean") next.inStock = override.inStock;
+  if (override.stock) next.stockByVariant = override.stock;
   return next;
 }
 

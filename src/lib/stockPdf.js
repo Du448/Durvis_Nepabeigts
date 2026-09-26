@@ -67,3 +67,21 @@ export function stockRowGroupKey(name) {
     .replace(/\s{2,}/g, " ")
     .trim();
 }
+
+const VARIANT_SIZE_RE = /(\d{2,4})\s*[x×]\s*(\d{2,4})(?:\s*mm)?/i;
+const VARIANT_SIDE_RE = /\b(Kreisās|Kreiss|Labās|Labs)\b/i;
+
+// Pulls the size ("850×2050", normalised to the × the catalogue uses) and
+// opening side out of one warehouse row's description, for the per-variant
+// stock counts shown on the product page. Returns null when either piece is
+// missing - a row with an ambiguous side is left out of the count rather
+// than guessed.
+export function stockRowVariant(name) {
+  const sizeMatch = name.match(VARIANT_SIZE_RE);
+  const sideMatch = name.match(VARIANT_SIDE_RE);
+  if (!sizeMatch || !sideMatch) return null;
+  return {
+    size: `${sizeMatch[1]}×${sizeMatch[2]}`,
+    side: /^k/i.test(sideMatch[1]) ? "left" : "right",
+  };
+}
