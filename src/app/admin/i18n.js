@@ -19,6 +19,10 @@ export const adminUi = {
     categoryLabel: "Kategorija",
     categoryAll: "Visos",
     onlyChanged: "Tik pakeistos",
+    warehouseFilterLabel: "Sandėlio sąsaja",
+    warehouseFilterAll: "Visos",
+    warehouseFilterLinked: "Susietos su sandėliu",
+    warehouseFilterUnlinked: "Nesusietos su sandėliu",
     oldPriceHint:
       "Sena kaina — perbraukta kaina; jei ji užpildyta, prekė patenka į skiltį „Akcijos“. Palikite lauką tuščią, kad pašalintumėte nuolaidą.",
     colProduct: "Prekė",
@@ -69,6 +73,10 @@ export const adminUi = {
     categoryLabel: "Category",
     categoryAll: "All",
     onlyChanged: "Changed only",
+    warehouseFilterLabel: "Warehouse link",
+    warehouseFilterAll: "All",
+    warehouseFilterLinked: "Linked to warehouse",
+    warehouseFilterUnlinked: "Not linked to warehouse",
     oldPriceHint:
       "Old price is the crossed-out price; when it's filled in, the product appears under “Sale”. Leave it empty to remove the discount.",
     colProduct: "Product",

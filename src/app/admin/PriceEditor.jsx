@@ -60,6 +60,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
   const [category, setCategory] = useState("");
   const [lang, setLang] = useState("lt");
   const [onlyChanged, setOnlyChanged] = useState(false);
+  const [warehouseFilter, setWarehouseFilter] = useState(""); // "", "linked", "unlinked"
   const [message, setMessage] = useState(loadError ? { kind: "error", text: loadError } : null);
   const [rowErrors, setRowErrors] = useState({});
   const [pending, startTransition] = useTransition();
@@ -113,10 +114,13 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
     return rows.filter((row) => {
       if (category && row.category !== category) return false;
       if (onlyChanged && !overrides[row.id] && !edits[row.id]) return false;
+      const isLinked = Boolean(overrides[row.id]?.stock);
+      if (warehouseFilter === "linked" && !isLinked) return false;
+      if (warehouseFilter === "unlinked" && isLinked) return false;
       if (!q) return true;
       return `${row.name.lt} ${row.name.en} ${row.collection} ${row.id}`.toLowerCase().includes(q);
     });
-  }, [rows, query, category, onlyChanged, overrides, edits]);
+  }, [rows, query, category, onlyChanged, warehouseFilter, overrides, edits]);
 
   function valuesFor(row) {
     if (edits[row.id]) return edits[row.id];
@@ -264,6 +268,18 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                   {categoryNameOf(c)}
                 </option>
               ))}
+            </select>
+          </label>
+          <label className="flex flex-col text-[13px] text-neutral-600">
+            {ui.warehouseFilterLabel}
+            <select
+              value={warehouseFilter}
+              onChange={(e) => setWarehouseFilter(e.target.value)}
+              className="mt-1 rounded-md border border-neutral-300 bg-white px-3 py-2 text-[15px] text-neutral-900"
+            >
+              <option value="">{ui.warehouseFilterAll}</option>
+              <option value="linked">{ui.warehouseFilterLinked}</option>
+              <option value="unlinked">{ui.warehouseFilterUnlinked}</option>
             </select>
           </label>
           <label className="flex items-center gap-2 pb-2 text-[14px]">
