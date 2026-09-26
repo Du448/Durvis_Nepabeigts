@@ -241,12 +241,20 @@ export default function ProductClient({ product, similar = [], configurator = nu
   const [activeDirection, setActiveDirection] = useState(product?.directions?.[0] || "");
   // Exact per-size(/side) warehouse count, when the warehouse sync has
   // linked this product to a warehouse code - undefined (not 0) means "no
-  // data", so the UI stays silent instead of falsely claiming zero stock.
+  // data at all for this product", so the UI stays silent rather than
+  // falsely claiming zero stock. But once a product IS linked, a size or
+  // direction with no entry of its own genuinely means "none of those" -
+  // the PDF/sheet only lists variants that have quantity, so e.g. a
+  // left-hinged door with none in stock simply gets no row that week,
+  // the same way the admin panel's own breakdown already defaults an
+  // absent side to 0 - falling back to 0 here keeps the two views saying
+  // the same thing instead of one going silent where the other shows "0".
   // Doors without a `directions` list (interior doors) are keyed by size
   // alone; doors with one are keyed "size|direction" - see stockPdf.js.
-  const variantStock = activeSize
-    ? product?.stockByVariant?.[activeDirection ? `${activeSize}|${activeDirection}` : activeSize]
-    : undefined;
+  const variantStock =
+    activeSize && product?.stockByVariant
+      ? (product.stockByVariant[activeDirection ? `${activeSize}|${activeDirection}` : activeSize] ?? 0)
+      : undefined;
   const [serviceOptions, setServiceOptions] = useState({
     pickup: false,
     measurement: false,
