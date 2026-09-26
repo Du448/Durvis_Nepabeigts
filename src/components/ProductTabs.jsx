@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
 import { imageProps } from "@/lib/images";
+import BostonColorPaletteGrid from "@/components/BostonColorPaletteGrid";
 
 /* Description / specification tabs under the product, as on the manufacturer's
    own product pages: an underlined tab strip, then either the long written
@@ -141,6 +142,21 @@ export default function ProductTabs({ product, locks = [] }) {
                   ))}
                 </tbody>
               </table>
+
+              {/* Boston is finished in any of the manufacturer's nine RAL
+                  shades, not just the one this model is photographed in -
+                  shown right under the tone actually comes from ("Tonis no
+                  ārpuses/iekšpuses"), so the visitor sees the fuller choice
+                  exactly where they're already looking at colour. */}
+              {product?.collection === "BOSTON" ? (
+                <div className="mt-8">
+                  <h3 className="mb-2 text-[18px] font-medium text-[color:var(--color-title)] sm:text-[20px]">
+                    {t(locale, "product.bostonPalette")}
+                  </h3>
+                  <p className="mb-4 text-[15px] leading-[1.7] text-ink">{t(locale, "product.bostonPaletteIntro")}</p>
+                  <BostonColorPaletteGrid locale={locale} premiumLabel={t(locale, "product.bostonPalettePremium")} />
+                </div>
+              ) : null}
             </div>
           )}
         </div>
