@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import RevealGrid from "@/components/anim/RevealGrid";
 import PageTitle from "@/components/PageTitle";
@@ -56,6 +56,30 @@ function Group({ title, children }) {
     <div className="mb-7">
       <div className="t-widget mb-3 border-b border-line pb-2 text-[color:var(--color-title)]">{title}</div>
       {children}
+    </div>
+  );
+}
+
+/* Collapsible filter group, closed by default - the sidebar otherwise runs
+   long once collection, colour, size and every technical attribute are all
+   expanded at once. */
+function CollapsibleGroup({ title, children }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="mb-7">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="t-widget mb-3 flex w-full min-h-11 items-center justify-between border-b border-line pb-2 text-left text-[color:var(--color-title)]"
+      >
+        {title}
+        <ChevronDown
+          size={16}
+          className={`shrink-0 text-muted transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open ? children : null}
     </div>
   );
 }
@@ -418,7 +442,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
       </Group>
 
       {collectionOptions.length ? (
-        <Group title={t(locale, "category.collection")}>
+        <CollapsibleGroup title={t(locale, "category.collection")}>
           {collectionOptions.length > 6 ? (
             <input
               type="text"
@@ -445,11 +469,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
             })}
             {!shownCollections.length ? <div className="px-2 py-2 text-sm text-muted">-</div> : null}
           </div>
-        </Group>
+        </CollapsibleGroup>
       ) : null}
 
       {colorOptions.length ? (
-        <Group title={colorOptionsInside.length ? t(locale, "category.colorOutside") : t(locale, "category.color")}>
+        <CollapsibleGroup title={colorOptionsInside.length ? t(locale, "category.colorOutside") : t(locale, "category.color")}>
           {colorOptions.length > 6 ? (
             <input
               type="text"
@@ -479,11 +503,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
             })}
             {!shownColors.length ? <div className="px-2 py-2 text-sm text-muted">-</div> : null}
           </div>
-        </Group>
+        </CollapsibleGroup>
       ) : null}
 
       {colorOptionsInside.length ? (
-        <Group title={t(locale, "category.colorInside")}>
+        <CollapsibleGroup title={t(locale, "category.colorInside")}>
           {colorOptionsInside.length > 6 ? (
             <input
               type="text"
@@ -510,11 +534,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
             })}
             {!shownColorsInside.length ? <div className="px-2 py-2 text-sm text-muted">-</div> : null}
           </div>
-        </Group>
+        </CollapsibleGroup>
       ) : null}
 
       {sizeOptions.length ? (
-        <Group title={t(locale, "category.size")}>
+        <CollapsibleGroup title={t(locale, "category.size")}>
           <div className="filter-scroll space-y-0.5">
             {sizeOptions.map((s) => {
               const count = countFor("izmers", (p) => (p.sizes || []).includes(s));
@@ -530,11 +554,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
               );
             })}
           </div>
-        </Group>
+        </CollapsibleGroup>
       ) : null}
 
       {leafThicknessOptions.length ? (
-        <Group title={t(locale, "category.leafThickness")}>
+        <CollapsibleGroup title={t(locale, "category.leafThickness")}>
           <div className="space-y-0.5">
             {leafThicknessOptions.map((mm) => {
               const count = countFor("vertne", (p) => p.leafThickness === mm);
@@ -550,11 +574,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
               );
             })}
           </div>
-        </Group>
+        </CollapsibleGroup>
       ) : null}
 
       {metalThicknessOptions.length ? (
-        <Group title={t(locale, "category.metalThickness")}>
+        <CollapsibleGroup title={t(locale, "category.metalThickness")}>
           <div className="space-y-0.5">
             {metalThicknessOptions.map((mm) => {
               const count = countFor("metals", (p) => p.metalThickness === mm);
@@ -570,11 +594,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
               );
             })}
           </div>
-        </Group>
+        </CollapsibleGroup>
       ) : null}
 
       {sealContourOptions.length ? (
-        <Group title={t(locale, "category.sealContours")}>
+        <CollapsibleGroup title={t(locale, "category.sealContours")}>
           <div className="space-y-0.5">
             {sealContourOptions.map((n) => {
               const count = countFor("konturi", (p) => p.sealContours === n);
@@ -590,11 +614,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
               );
             })}
           </div>
-        </Group>
+        </CollapsibleGroup>
       ) : null}
 
       {thresholdOptions.length ? (
-        <Group title={t(locale, "category.threshold")}>
+        <CollapsibleGroup title={t(locale, "category.threshold")}>
           <div className="space-y-0.5">
             {thresholdOptions.map((v) => {
               const count = countFor("slieksnis", (p) => p.threshold === v);
@@ -610,10 +634,10 @@ export default function CategoryClient({ slug, category, products: allProducts, 
               );
             })}
           </div>
-        </Group>
+        </CollapsibleGroup>
       ) : null}
 
-      <Group title={t(locale, "category.price")}>
+      <CollapsibleGroup title={t(locale, "category.price")}>
         {bounds.max > bounds.min ? (
           <div className="range-dual mb-3">
             <span className="range-dual-track" />
@@ -657,9 +681,9 @@ export default function CategoryClient({ slug, category, products: allProducts, 
             className="min-h-10 w-24 border border-line bg-white px-2 py-1 text-[15px] focus:outline-none focus:ring-2 focus:ring-[--color-accent]"
           />
         </div>
-      </Group>
+      </CollapsibleGroup>
 
-      <Group title={t(locale, "category.features")}>
+      <CollapsibleGroup title={t(locale, "category.features")}>
         <div className="space-y-0.5">
           {FEATURE_KEYS.map((key) => {
             const count = countFor("ipasibas", (p) => hasFeature(p, key));
@@ -675,7 +699,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
             );
           })}
         </div>
-      </Group>
+      </CollapsibleGroup>
 
       <button
         onClick={clearFilters}
