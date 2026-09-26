@@ -81,6 +81,7 @@ export default function ContactsClient() {
       name: product.name,
       color: (product.colorLabels || []).join(" / "),
       size: searchParams.get("izmers") || product.sizes?.[0] || "",
+      direction: searchParams.get("virziens") || product.directions?.[0] || "",
       price: formatPrice(product),
     };
   }, [product, searchParams]);
@@ -95,6 +96,10 @@ export default function ContactsClient() {
     const lines = [`${t(locale, "contacts.prefill")} ${offer.name}`];
     if (offer.color) lines.push(`${t(locale, "contacts.colorLabel")}: ${offer.color}`);
     if (offer.size) lines.push(`${t(locale, "contacts.sizeLabel")}: ${offer.size}`);
+    if (offer.direction)
+      lines.push(
+        `${t(locale, "contacts.directionLabel")}: ${t(locale, offer.direction === "right" ? "product.directionRight" : "product.directionLeft")}`
+      );
     if (offer.price) lines.push(`${t(locale, "contacts.priceLabel")}: ${offer.price}`);
     if (selectedServices.length) lines.push(`${t(locale, "contacts.servicesLabel")}: ${selectedServices.join(", ")}`);
     const jambColor = searchParams.get("apdareKrasa");

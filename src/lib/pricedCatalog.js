@@ -5,9 +5,20 @@ import { getPriceOverrides } from "@/lib/priceOverrides";
    that show a price read products through these helpers instead of importing
    @/data/products directly. */
 
+// Made-to-order exterior metal doors are hinged left or right; the factory
+// builds either, so every product in these categories gets both options
+// unless its own data already specifies a narrower `directions` list.
+const DIRECTION_CATEGORIES = ["ardurvis-dzivoklim", "ardurvis-privatmajai"];
+
+export function withDirections(product) {
+  if (product.directions || !DIRECTION_CATEGORIES.includes(product.category)) return product;
+  return { ...product, directions: ["left", "right"] };
+}
+
 export function applyOverride(product, override) {
-  if (!override) return product;
-  const next = { ...product };
+  const withDefaults = withDirections(product);
+  if (!override) return withDefaults;
+  const next = { ...withDefaults };
   if (Number.isFinite(override.price)) next.price = override.price;
   if ("oldPrice" in override) next.oldPrice = override.oldPrice;
   // A sale price that is not above the current price would show as a "discount" upwards.
@@ -18,7 +29,7 @@ export function applyOverride(product, override) {
 
 export async function getProducts() {
   const overrides = await getPriceOverrides();
-  if (!Object.keys(overrides).length) return products;
+  if (!Object.keys(overrides).length) return products.map(withDirections);
   return products.map((p) => applyOverride(p, overrides[p.id]));
 }
 

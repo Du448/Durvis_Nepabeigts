@@ -24,6 +24,7 @@ export function toCard(product, locale) {
     glass: !!product.glass,
     colors: product.colors || [],
     sizes: product.sizes || [],
+    directions: product.directions || [],
   };
 }
 

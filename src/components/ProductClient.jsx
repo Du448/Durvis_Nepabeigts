@@ -238,6 +238,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
   const [activeIdx, setActiveIdx] = useState(0);
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [activeSize, setActiveSize] = useState(product?.sizes?.[0] || "");
+  const [activeDirection, setActiveDirection] = useState(product?.directions?.[0] || "");
   const [serviceOptions, setServiceOptions] = useState({
     pickup: false,
     measurement: false,
@@ -533,6 +534,27 @@ export default function ProductClient({ product, similar = [], configurator = nu
                 </div>
               ) : null}
 
+              {/* Opening direction */}
+              {product.directions?.length ? (
+                <div className="mt-5">
+                  <label htmlFor="product-direction" className="block text-sm text-muted mb-2">
+                    {t(locale, "product.direction")}
+                  </label>
+                  <select
+                    id="product-direction"
+                    value={activeDirection}
+                    onChange={(e) => setActiveDirection(e.target.value)}
+                    className="field max-w-[240px]"
+                  >
+                    {product.directions.map((d) => (
+                      <option key={d} value={d}>
+                        {t(locale, d === "right" ? "product.directionRight" : "product.directionLeft")}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              ) : null}
+
               {/* Security class */}
               {product.security ? (
                 <div className="mt-3 flex items-center gap-2 text-[15px] text-muted">
@@ -549,6 +571,8 @@ export default function ProductClient({ product, similar = [], configurator = nu
                       locale,
                       `${paths.contacts}?produkts=${encodeURIComponent(product.id)}${
                         activeSize ? `&izmers=${encodeURIComponent(activeSize)}` : ""
+                      }${
+                        activeDirection ? `&virziens=${encodeURIComponent(activeDirection)}` : ""
                       }${
                         selectedServiceCodes.length
                           ? `&pakalpojumi=${encodeURIComponent(selectedServiceCodes.join(","))}`
