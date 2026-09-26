@@ -1,9 +1,11 @@
 import { products } from "@/data/products";
 import { getPriceOverrides } from "@/lib/priceOverrides";
+import { getFactoryStock } from "@/lib/factoryStock";
 
-/* The catalogue with the admin panel's price changes applied. Server pages
-   that show a price read products through these helpers instead of importing
-   @/data/products directly. */
+/* The catalogue with the admin panel's price changes and the manufacturer's
+   live factory stock applied. Server pages that show a price or stock count
+   read products through these helpers instead of importing @/data/products
+   directly. */
 
 // Made-to-order exterior metal doors are hinged left or right; the factory
 // builds either, so every product in these categories gets both options
@@ -28,17 +30,31 @@ export function applyOverride(product, override) {
   return next;
 }
 
+// Adds the manufacturer's own warehouse quantities on top of whatever
+// stockByVariant the LV warehouse override already set - the two sources
+// never cover the same product (factory-sourced products aren't stocked
+// locally), but summing rather than replacing is safe either way.
+function withFactoryStock(product, factoryVariants) {
+  if (!factoryVariants || !factoryVariants.size) return product;
+  const merged = { ...(product.stockByVariant || {}) };
+  let anyQty = false;
+  for (const [key, qty] of factoryVariants) {
+    merged[key] = (merged[key] || 0) + qty;
+    if (qty > 0) anyQty = true;
+  }
+  return { ...product, stockByVariant: merged, inStock: product.inStock || anyQty };
+}
+
 export async function getProducts() {
-  const overrides = await getPriceOverrides();
-  if (!Object.keys(overrides).length) return products.map(withDirections);
-  return products.map((p) => applyOverride(p, overrides[p.id]));
+  const [overrides, factoryStock] = await Promise.all([getPriceOverrides(), getFactoryStock()]);
+  return products.map((p) => withFactoryStock(applyOverride(p, overrides[p.id]), factoryStock.get(p.id)));
 }
 
 export async function getProduct(id) {
   const base = products.find((p) => p.id === id);
   if (!base) return undefined;
-  const overrides = await getPriceOverrides();
-  return applyOverride(base, overrides[id]);
+  const [overrides, factoryStock] = await Promise.all([getPriceOverrides(), getFactoryStock()]);
+  return withFactoryStock(applyOverride(base, overrides[id]), factoryStock.get(id));
 }
 
 export async function getProductsInCategory(slug) {
