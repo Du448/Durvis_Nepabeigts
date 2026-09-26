@@ -143,3 +143,14 @@ export async function linkStockGroup({ groupKey, codes, productId, ignore }) {
 
   return { ok: true };
 }
+
+/* Undoes a previous "Ignorēt": the group can reappear as unmatched (and get
+   linked for real) the next time a stock PDF mentions it - it doesn't
+   reappear immediately, since the unmatched list only holds this week's
+   leftovers, not history. */
+export async function unignoreStockGroup(groupKey) {
+  const map = await readStockMap();
+  if (!map.ignoredGroups.includes(groupKey)) return { ok: true };
+  await writeStockMap({ ...map, ignoredGroups: map.ignoredGroups.filter((k) => k !== groupKey) });
+  return { ok: true };
+}

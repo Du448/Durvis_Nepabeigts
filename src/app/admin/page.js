@@ -3,10 +3,11 @@ import { isInStock } from "@/lib/product-utils";
 import { trData } from "@/lib/i18n-data";
 import { adminConfigured, isAdmin } from "@/lib/adminAuth";
 import { blobConfigured, readOverridesFresh } from "@/lib/priceOverrides";
-import { readUnmatchedStock } from "@/lib/stockMap";
+import { readUnmatchedStock, readStockMap } from "@/lib/stockMap";
 import LoginForm from "./LoginForm";
 import PriceEditor from "./PriceEditor";
 import StockMatcher from "./StockMatcher";
+import StockPdfUpload from "./StockPdfUpload";
 
 export const dynamic = "force-dynamic";
 
@@ -59,6 +60,7 @@ export default async function AdminPage() {
   }));
 
   const unmatchedStock = blobConfigured() ? await readUnmatchedStock() : { updatedAt: null, groups: [] };
+  const ignoredGroups = blobConfigured() ? (await readStockMap()).ignoredGroups : [];
   const productOptions = products.map((p) => ({
     id: p.id,
     name: `${trData("lt", p.name)} — ${p.id}`,
@@ -66,7 +68,13 @@ export default async function AdminPage() {
 
   return (
     <>
-      <StockMatcher unmatched={unmatchedStock} productOptions={productOptions} storageReady={blobConfigured()} />
+      <StockPdfUpload storageReady={blobConfigured()} />
+      <StockMatcher
+        unmatched={unmatchedStock}
+        ignoredGroups={ignoredGroups}
+        productOptions={productOptions}
+        storageReady={blobConfigured()}
+      />
       <PriceEditor
         rows={rows}
         initialOverrides={overrides}

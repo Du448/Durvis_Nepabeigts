@@ -4,7 +4,8 @@ import { updateTag } from "next/cache";
 import { products } from "@/data/products";
 import { isInStock } from "@/lib/product-utils";
 import { PRICES_TAG, readOverridesFresh, writeOverrides, blobConfigured } from "@/lib/priceOverrides";
-import { linkStockGroup } from "@/lib/stockSync";
+import { linkStockGroup, unignoreStockGroup, syncStock } from "@/lib/stockSync";
+import { parseStockPdf } from "@/lib/stockPdf";
 import {
   isAdmin,
   passwordMatches,
@@ -103,4 +104,35 @@ export async function linkStockGroupAction({ groupKey, codes, productId, ignore 
   if (!blobConfigured()) return { ok: false, error: "storage" };
   if (!groupKey || (!ignore && !productId)) return { ok: false, error: "input" };
   return linkStockGroup({ groupKey, codes, productId, ignore });
+}
+
+export async function unignoreStockGroupAction(groupKey) {
+  if (!(await isAdmin())) return { ok: false, error: "auth" };
+  if (!blobConfigured()) return { ok: false, error: "storage" };
+  if (!groupKey) return { ok: false, error: "input" };
+  return unignoreStockGroup(groupKey);
+}
+
+const MAX_STOCK_PDF_BYTES = 15 * 1024 * 1024;
+
+// Lets the shop owner re-run the same PDF the Telegram bot already
+// processed - e.g. right after un-ignoring a group, without waiting for
+// next week's upload to see it linked.
+export async function syncStockPdfAction(formData) {
+  if (!(await isAdmin())) return { ok: false, error: "auth" };
+  if (!blobConfigured()) return { ok: false, error: "storage" };
+  const file = formData?.get?.("file");
+  if (!file || typeof file === "string") return { ok: false, error: "input" };
+  if (file.size > MAX_STOCK_PDF_BYTES) return { ok: false, error: "size" };
+
+  try {
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    const rows = await parseStockPdf(bytes);
+    if (!rows.length) return { ok: false, error: "empty" };
+    const summary = await syncStock(rows);
+    return { ok: true, summary };
+  } catch (err) {
+    console.error("admin stock upload: sync failed", err);
+    return { ok: false, error: "parse" };
+  }
 }
