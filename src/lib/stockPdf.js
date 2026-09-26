@@ -74,20 +74,32 @@ const VARIANT_SIDE_RE = /\b(Kreisās|Kreiss|Labās|Labs)\b/i;
 // in the warehouse's own naming - just a leaf width in cm as the last thing
 // before the closing bracket, e.g. "RV 06 (Balts ultramat, stikls melns, 80)".
 const VARIANT_WIDTH_RE = /,\s*(\d{2})\)\s*$/;
+// Hidden-door leaves: "... (2000x800x38mm, Balta grunts, OUT univers.)" or
+// "... (2010x700x50mm, Balta grunts, INS Labā)" - height x width x leaf
+// thickness, then finish, then a swing/side note. The frame's horizontal
+// and vertical aluminium pieces (separate warehouse rows) aren't leaves and
+// aren't matched here - see stockPdf's module comment in stockSync.js for
+// why only the leaf count is shown.
+const VARIANT_LEAF_RE = /\(\d{4}x(\d{2,4})x\d{2}mm,\s*Balta grunts,\s*(?:OUT univers\.|INS Kreisā|INS Labā)\)\s*$/i;
 
 // Pulls the size and opening side out of one warehouse row's description,
 // for the per-variant stock counts shown on the product page.
 //  - Exterior doors: full WxH ("850×2050", normalised to the × the
 //    catalogue uses) plus a side; returns null if either is missing rather
 //    than guessing the side.
-//  - Interior doors: just a leaf width in cm, converted to the mm string
-//    the catalogue's own `sizes` use ("80" -> "800"); `side` is null.
+//  - Interior doors and hidden-door leaves: just a width, converted to the
+//    catalogue's own `sizes` string; `side` is null (interior doors have no
+//    side, and hidden-door leaves aren't sold by side on the site even
+//    though the warehouse tracks Kreisā/Labā separately - both count
+//    toward the same size).
 export function stockRowVariant(name) {
   const sizeMatch = name.match(VARIANT_SIZE_RE);
   const sideMatch = name.match(VARIANT_SIDE_RE);
   if (sizeMatch && sideMatch) {
     return { size: `${sizeMatch[1]}×${sizeMatch[2]}`, side: /^k/i.test(sideMatch[1]) ? "left" : "right" };
   }
+  const leafMatch = name.match(VARIANT_LEAF_RE);
+  if (leafMatch) return { size: leafMatch[1], side: null };
   const widthMatch = name.match(VARIANT_WIDTH_RE);
   if (widthMatch) return { size: String(Number(widthMatch[1]) * 10), side: null };
   return null;

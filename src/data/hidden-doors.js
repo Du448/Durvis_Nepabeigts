@@ -52,7 +52,7 @@ const OPENING_52 = "2065 × 670 / 770 / 870 / 970 mm";
 
 /* Same leaf widths as the rest of the interior range, so the size filter in
    the catalogue sidebar keeps one set of options rather than two. */
-const SIZES = ["600", "700", "800", "900 mm"];
+const SIZES = ["600", "700", "800", "900"];
 
 /* The written part of the product page. Only the construction paragraph
    changes with the configuration; the rest is the same story every time. */
