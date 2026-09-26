@@ -154,8 +154,8 @@ export const ltNames = {
   "PREMA B-434 Modelis 122": "PREMA B-434, modelis 122",
   "PREMA B-434 Modelis 172": "PREMA B-434, modelis 172",
   "PREMA B-434 Modelis 188": "PREMA B-434, modelis 188",
-  "PREMA B-434 Modelis 435 Betons/Oksīds": "PREMA B-434, modelis 435, betonas / oksidas",
-  "PREMA B-434 Modelis 435 Dreamwood": "PREMA B-434, modelis 435, Dreamwood",
+  "PREMA B-434 Modelis 535 Betons/Oksīds": "PREMA B-434, modelis 535, betonas / oksidas",
+  "PREMA B-434 Modelis 535 Dreamwood": "PREMA B-434, modelis 535, Dreamwood",
   "PREMA B-606 Modelis 234/237": "PREMA B-606, modelis 234/237",
 
   "Prime Max ar termo pārrāvumu": "Prime Max su termo pertrauka",

@@ -154,8 +154,8 @@ export const enNames = {
   "PREMA B-434 Modelis 122": "PREMA B-434, model 122",
   "PREMA B-434 Modelis 172": "PREMA B-434, model 172",
   "PREMA B-434 Modelis 188": "PREMA B-434, model 188",
-  "PREMA B-434 Modelis 435 Betons/Oksīds": "PREMA B-434, model 435, concrete / oxide",
-  "PREMA B-434 Modelis 435 Dreamwood": "PREMA B-434, model 435, Dreamwood",
+  "PREMA B-434 Modelis 535 Betons/Oksīds": "PREMA B-434, model 535, concrete / oxide",
+  "PREMA B-434 Modelis 535 Dreamwood": "PREMA B-434, model 535, Dreamwood",
   "PREMA B-606 Modelis 234/237": "PREMA B-606, model 234/237",
 
   "Prime Max ar termo pārrāvumu": "Prime Max with thermal break",
