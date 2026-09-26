@@ -124,7 +124,11 @@ export async function linkStockGroup({ groupKey, codes, productId, ignore }) {
       overrides = null;
     }
     if (overrides) {
-      const variants = new Map();
+      // Merge into whatever stock this product already has - a product can
+      // be built from several unmatched groups linked one at a time (e.g. a
+      // hidden door's leaf comes in as one group per size), and each link
+      // must add its variant rather than replace the product's whole stock.
+      const variants = new Map(Object.entries(overrides[productId]?.stock || {}));
       for (const c of codes) {
         const variant = c.name ? stockRowVariant(c.name) : null;
         if (!variant) continue;
@@ -133,7 +137,7 @@ export async function linkStockGroup({ groupKey, codes, productId, ignore }) {
       }
       overrides[productId] = {
         ...overrides[productId],
-        inStock: totalQty > 0,
+        inStock: Boolean(overrides[productId]?.inStock) || totalQty > 0,
         stock: Object.fromEntries(variants),
       };
       await writeOverrides(overrides);
