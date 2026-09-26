@@ -14,6 +14,14 @@ function current(row, override) {
   };
 }
 
+// Sum of the per-size/side warehouse quantities the stock sync wrote for
+// this product, or null when it has no warehouse link at all.
+function warehouseTotal(override) {
+  if (!override?.stock) return null;
+  const total = Object.values(override.stock).reduce((sum, n) => sum + n, 0);
+  return total;
+}
+
 const toField = (v) => (v == null ? "" : String(v));
 const parse = (s) => {
   const t = String(s).trim().replace(",", ".");
@@ -269,6 +277,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                 const isEdited = Boolean(edits[row.id] || resets[row.id]);
                 const hasOverride = Boolean(overrides[row.id]) && !resets[row.id];
                 const error = rowErrors[row.id];
+                const stockTotal = warehouseTotal(overrides[row.id]);
                 return (
                   <tr
                     key={row.id}
@@ -281,6 +290,9 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                         {row.id}
                         {hasOverride ? ui.changedSuffix : ""}
                       </div>
+                      {stockTotal !== null ? (
+                        <div className="mt-1 text-[12px] text-emerald-700">{ui.warehouseStock(stockTotal)}</div>
+                      ) : null}
                       {error ? <div className="mt-1 text-[12px] text-red-700">{ui.fieldErrors[error]}</div> : null}
                     </td>
                     <td className="px-3 py-2">
