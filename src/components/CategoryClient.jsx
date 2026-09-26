@@ -125,6 +125,10 @@ export default function CategoryClient({ slug, category, products: allProducts, 
   const selectedColorsInside = readList("krasa2");
   const selectedSizes = readList("izmers");
   const selectedFeatures = readList("ipasibas");
+  const selectedLeafThickness = readList("vertne");
+  const selectedMetalThickness = readList("metals");
+  const selectedSealContours = readList("konturi");
+  const selectedThreshold = readList("slieksnis");
   const priceMin = searchParams.get("no") || "";
   const priceMax = searchParams.get("lidz") || "";
   const sort = searchParams.get("kartot") || "popular";
@@ -149,7 +153,19 @@ export default function CategoryClient({ slug, category, products: allProducts, 
     setParams({ [key]: current.includes(value) ? current.filter((v) => v !== value) : [...current, value] });
 
   const clearFilters = () =>
-    setParams({ kolekcija: "", krasa: "", krasa2: "", izmers: "", ipasibas: "", no: "", lidz: "" });
+    setParams({
+      kolekcija: "",
+      krasa: "",
+      krasa2: "",
+      izmers: "",
+      ipasibas: "",
+      vertne: "",
+      metals: "",
+      konturi: "",
+      slieksnis: "",
+      no: "",
+      lidz: "",
+    });
 
   /* Colour names come out of the catalogue in Latvian; the page's dictionary
      renders them in its language. */
@@ -185,6 +201,22 @@ export default function CategoryClient({ slug, category, products: allProducts, 
   );
   const sizeOptions = useMemo(
     () => Array.from(new Set(allProducts.flatMap((p) => p.sizes || []))).sort(),
+    [allProducts]
+  );
+  const leafThicknessOptions = useMemo(
+    () => Array.from(new Set(allProducts.map((p) => p.leafThickness).filter(Boolean))).sort((a, b) => a - b),
+    [allProducts]
+  );
+  const metalThicknessOptions = useMemo(
+    () => Array.from(new Set(allProducts.map((p) => p.metalThickness).filter(Boolean))).sort((a, b) => a - b),
+    [allProducts]
+  );
+  const sealContourOptions = useMemo(
+    () => Array.from(new Set(allProducts.map((p) => p.sealContours).filter(Boolean))).sort((a, b) => a - b),
+    [allProducts]
+  );
+  const thresholdOptions = useMemo(
+    () => Array.from(new Set(allProducts.map((p) => p.threshold).filter(Boolean))),
     [allProducts]
   );
 
@@ -225,6 +257,14 @@ export default function CategoryClient({ slug, category, products: allProducts, 
     if (skip !== "izmers" && selectedSizes.length && !(p.sizes || []).some((s) => selectedSizes.includes(s)))
       return false;
     if (skip !== "ipasibas" && selectedFeatures.length && !selectedFeatures.every((f) => hasFeature(p, f)))
+      return false;
+    if (skip !== "vertne" && selectedLeafThickness.length && !selectedLeafThickness.includes(p.leafThickness))
+      return false;
+    if (skip !== "metals" && selectedMetalThickness.length && !selectedMetalThickness.includes(p.metalThickness))
+      return false;
+    if (skip !== "konturi" && selectedSealContours.length && !selectedSealContours.includes(p.sealContours))
+      return false;
+    if (skip !== "slieksnis" && selectedThreshold.length && !selectedThreshold.includes(p.threshold))
       return false;
     if (skip !== "cena") {
       const min = priceMin === "" ? null : Number(priceMin);
@@ -293,6 +333,13 @@ export default function CategoryClient({ slug, category, products: allProducts, 
           ? t(locale, "category.newOnly")
           : t(locale, "category.offerOnly");
 
+  const thresholdLabel = (key) =>
+    key === "stainless"
+      ? t(locale, "category.thresholdStainless")
+      : key === "aluminum-thermal"
+        ? t(locale, "category.thresholdAluminumThermal")
+        : t(locale, "category.thresholdSteel");
+
   const typeTitle = locale === "lt" ? "Durų tipas" : locale === "en" ? "Door type" : "Durvju tips";
   const searchPlaceholder = locale === "lt" ? "Ieškoti..." : locale === "en" ? "Search..." : "Meklēt...";
 
@@ -325,6 +372,30 @@ export default function CategoryClient({ slug, category, products: allProducts, 
     })),
     ...selectedSizes.map((v) => ({ key: "izmers", value: v, label: v, list: selectedSizes })),
     ...selectedFeatures.map((v) => ({ key: "ipasibas", value: v, label: featureLabel(v), list: selectedFeatures })),
+    ...selectedLeafThickness.map((v) => ({
+      key: "vertne",
+      value: v,
+      label: `${v} mm`,
+      list: selectedLeafThickness,
+    })),
+    ...selectedMetalThickness.map((v) => ({
+      key: "metals",
+      value: v,
+      label: `${v} mm`,
+      list: selectedMetalThickness,
+    })),
+    ...selectedSealContours.map((v) => ({
+      key: "konturi",
+      value: v,
+      label: t(locale, "category.sealContoursN").replace("{n}", v),
+      list: selectedSealContours,
+    })),
+    ...selectedThreshold.map((v) => ({
+      key: "slieksnis",
+      value: v,
+      label: thresholdLabel(v),
+      list: selectedThreshold,
+    })),
   ];
   const priceActive = priceMin !== "" || priceMax !== "";
 
@@ -454,6 +525,86 @@ export default function CategoryClient({ slug, category, products: allProducts, 
                   disabled={!count && !selectedSizes.includes(s)}
                   onChange={() => toggleValue("izmers", selectedSizes, s)}
                   label={s}
+                  count={count}
+                />
+              );
+            })}
+          </div>
+        </Group>
+      ) : null}
+
+      {leafThicknessOptions.length ? (
+        <Group title={t(locale, "category.leafThickness")}>
+          <div className="space-y-0.5">
+            {leafThicknessOptions.map((mm) => {
+              const count = countFor("vertne", (p) => p.leafThickness === mm);
+              return (
+                <Option
+                  key={mm}
+                  checked={selectedLeafThickness.includes(mm)}
+                  disabled={!count && !selectedLeafThickness.includes(mm)}
+                  onChange={() => toggleValue("vertne", selectedLeafThickness, mm)}
+                  label={`${mm} mm`}
+                  count={count}
+                />
+              );
+            })}
+          </div>
+        </Group>
+      ) : null}
+
+      {metalThicknessOptions.length ? (
+        <Group title={t(locale, "category.metalThickness")}>
+          <div className="space-y-0.5">
+            {metalThicknessOptions.map((mm) => {
+              const count = countFor("metals", (p) => p.metalThickness === mm);
+              return (
+                <Option
+                  key={mm}
+                  checked={selectedMetalThickness.includes(mm)}
+                  disabled={!count && !selectedMetalThickness.includes(mm)}
+                  onChange={() => toggleValue("metals", selectedMetalThickness, mm)}
+                  label={`${mm} mm`}
+                  count={count}
+                />
+              );
+            })}
+          </div>
+        </Group>
+      ) : null}
+
+      {sealContourOptions.length ? (
+        <Group title={t(locale, "category.sealContours")}>
+          <div className="space-y-0.5">
+            {sealContourOptions.map((n) => {
+              const count = countFor("konturi", (p) => p.sealContours === n);
+              return (
+                <Option
+                  key={n}
+                  checked={selectedSealContours.includes(n)}
+                  disabled={!count && !selectedSealContours.includes(n)}
+                  onChange={() => toggleValue("konturi", selectedSealContours, n)}
+                  label={t(locale, "category.sealContoursN").replace("{n}", n)}
+                  count={count}
+                />
+              );
+            })}
+          </div>
+        </Group>
+      ) : null}
+
+      {thresholdOptions.length ? (
+        <Group title={t(locale, "category.threshold")}>
+          <div className="space-y-0.5">
+            {thresholdOptions.map((v) => {
+              const count = countFor("slieksnis", (p) => p.threshold === v);
+              return (
+                <Option
+                  key={v}
+                  checked={selectedThreshold.includes(v)}
+                  disabled={!count && !selectedThreshold.includes(v)}
+                  onChange={() => toggleValue("slieksnis", selectedThreshold, v)}
+                  label={thresholdLabel(v)}
                   count={count}
                 />
               );

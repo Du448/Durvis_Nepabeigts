@@ -1,6 +1,7 @@
 import { products, getProductById } from "@/data/products";
 import { hoverImage, stockKind } from "@/lib/product-utils";
 import { trData } from "@/lib/i18n-data";
+import { leafThicknessMm, metalThicknessMm, sealContourCount, thresholdType } from "@/lib/product-specs";
 
 /* Server-side view models for the browser. A full catalogue entry carries its
    whole gallery, specification table and description paragraphs; a card only
@@ -25,6 +26,10 @@ export function toCard(product, locale) {
     colors: product.colors || [],
     sizes: product.sizes || [],
     directions: product.directions || [],
+    leafThickness: leafThicknessMm(product),
+    metalThickness: metalThicknessMm(product),
+    sealContours: sealContourCount(product),
+    threshold: thresholdType(product),
   };
 }
 
