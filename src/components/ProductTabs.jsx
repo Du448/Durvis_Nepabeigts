@@ -60,6 +60,7 @@ export default function ProductTabs({ product, locks = [] }) {
     sections.length ? { key: "description", label: t(locale, "product.tabDescription") } : null,
     rows.length ? { key: "specs", label: t(locale, "product.tabSpecs") } : null,
     locks.length ? { key: "locks", label: t(locale, "product.tabLocks") } : null,
+    product?.collection === "BOSTON" ? { key: "colors", label: t(locale, "product.bostonPalette") } : null,
   ].filter(Boolean);
 
   const [active, setActive] = useState(tabs[0]?.key || "description");
@@ -127,6 +128,11 @@ export default function ProductTabs({ product, locks = [] }) {
             </div>
           ) : active === "locks" ? (
             <LockPanel locks={locks} locale={locale} />
+          ) : active === "colors" ? (
+            <div className="mt-8 max-w-[900px]">
+              <p className="mb-4 text-[15px] leading-[1.7] text-ink">{t(locale, "product.bostonPaletteIntro")}</p>
+              <BostonColorPaletteGrid locale={locale} premiumLabel={t(locale, "product.bostonPalettePremium")} />
+            </div>
           ) : (
             <div className="mt-8 max-w-[900px] overflow-x-auto">
               <table className="w-full border-collapse text-[15px]">
@@ -142,21 +148,6 @@ export default function ProductTabs({ product, locks = [] }) {
                   ))}
                 </tbody>
               </table>
-
-              {/* Boston is finished in any of the manufacturer's nine RAL
-                  shades, not just the one this model is photographed in -
-                  shown right under the tone actually comes from ("Tonis no
-                  ārpuses/iekšpuses"), so the visitor sees the fuller choice
-                  exactly where they're already looking at colour. */}
-              {product?.collection === "BOSTON" ? (
-                <div className="mt-8">
-                  <h3 className="mb-2 text-[18px] font-medium text-[color:var(--color-title)] sm:text-[20px]">
-                    {t(locale, "product.bostonPalette")}
-                  </h3>
-                  <p className="mb-4 text-[15px] leading-[1.7] text-ink">{t(locale, "product.bostonPaletteIntro")}</p>
-                  <BostonColorPaletteGrid locale={locale} premiumLabel={t(locale, "product.bostonPalettePremium")} />
-                </div>
-              ) : null}
             </div>
           )}
         </div>
