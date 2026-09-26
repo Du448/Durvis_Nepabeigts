@@ -70,8 +70,14 @@ function parseSheetRows(csvText) {
     const cells = parseCsvLine(line);
     const name = (cells[0] || "").trim();
     if (!ROW_RE.test(name)) continue;
-    const qty = Number(cells[1]);
-    if (!Number.isFinite(qty)) continue;
+    const rawQty = Number(cells[1]);
+    if (!Number.isFinite(rawQty)) continue;
+    // The sheet's "free balance" column goes negative when a colourway is
+    // oversold beyond what's physically on the shelf (more reserved than
+    // in stock, with the rest still in production per its own column) -
+    // there's nothing to sell right now either way, so floor it at 0
+    // rather than showing e.g. "-21 pcs" on the site.
+    const qty = Math.max(0, rawQty);
     const modelMatch = name.match(MODEL_RE);
     const widthMatch = name.match(WIDTH_RE);
     const sideMatch = name.match(SIDE_RE);
