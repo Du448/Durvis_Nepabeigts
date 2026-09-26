@@ -573,7 +573,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
 
               {/* Exact warehouse count for the selected size + direction */}
               {variantStock !== undefined ? (
-                <p className="mt-2 text-sm text-muted">
+                <p className={`mt-2 text-sm ${variantStock > 0 ? "text-muted" : "text-red-600"}`}>
                   {variantStock > 0
                     ? `${t(locale, "product.stockCountPrefix")}${variantStock}${t(locale, "product.stockCountSuffix")}`
                     : t(locale, "product.stockCountZero")}
