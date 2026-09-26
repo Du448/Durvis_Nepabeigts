@@ -36,8 +36,10 @@ const WIDTH_RE = /(\d{3,4})\s*мм/i;
 const SIDE_RE = /(ліві|праві)/i;
 // The colour/finish phrase sits between the model number and the closing
 // "(<brand>) <width>мм" - e.g. "710/265 вулична Венге темний/Білий
-// атласний (Кале) 850мм" -> "Венге темний/Білий атласний".
-const COLOR_SEGMENT_RE = /\d+\/\d+\s*(?:вулична\s+)?(.+?)\s*\([^)]*\)\s*\d{3,4}\s*мм/i;
+// атласний (Кале) 850мм" -> "Венге темний/Білий атласний". The "(<brand>)"
+// part is optional - "Електро" rows go straight to "<width>мм" with no
+// brand in parentheses at all.
+const COLOR_SEGMENT_RE = /\d+\/\d+\s*(?:вулична\s+)?(.+?)\s*(?:\([^)]*\)\s*)?\d{3,4}\s*мм/i;
 
 function parseCsvLine(line) {
   const cells = [];
@@ -128,7 +130,11 @@ const COLOR_WORD_MAP = {
 };
 
 function normalizeColorTokens(text) {
-  const words = text.toLowerCase().match(/[а-яіїєґ]+|[a-z]+/giu) || [];
+  // \p{L} (any letter, any script) rather than an ASCII-only a-z run - the
+  // latter used to split Latvian diacritics (š, ā, ī...) mid-word, e.g.
+  // "Tumšs" -> "tum", which then never matched the dictionary's full
+  // "tumšs" produced from the Ukrainian side.
+  const words = text.toLowerCase().match(/[\p{L}]+/gu) || [];
   const tokens = new Set();
   for (const w of words) {
     if (w.length < 3) continue;
@@ -137,13 +143,35 @@ function normalizeColorTokens(text) {
   return tokens;
 }
 
-function rowColorTokens(rowName) {
+// Inside/outside colour segments as separate token sets, in order - a flat
+// merged set can't tell "Venge tumšs / Venge tumšs" apart from "Venge tumšs
+// / Balts satīns" (both share the inside colour, so a merged set ties);
+// comparing side-by-side by position doesn't.
+function rowColorSegments(rowName) {
   const m = rowName.match(COLOR_SEGMENT_RE);
-  return m ? normalizeColorTokens(m[1]) : new Set();
+  return m ? m[1].split("/").map(normalizeColorTokens) : [];
 }
 
-function productColorTokens(product) {
-  return normalizeColorTokens((product.colors || []).join(" "));
+function productColorSegments(product) {
+  return (product.colors || []).map(normalizeColorTokens);
+}
+
+// A uniform-colour product (e.g. "Venge tumšs" with nothing after it, same
+// shade both sides) only has one `colors` entry while a two-tone row still
+// has two segments ("Венге темний/Венге темне") - padding the shorter side
+// by repeating its last segment lets that single colour stand for both
+// sides instead of only ever being checked against side 0, which used to
+// tie it with an unrelated two-tone product that also happened to share
+// side 0's colour.
+function segmentOverlapScore(rowSegments, productSegments) {
+  let score = 0;
+  const len = Math.max(rowSegments.length, productSegments.length);
+  for (let i = 0; i < len; i++) {
+    const rowSeg = rowSegments[i] || rowSegments[rowSegments.length - 1] || new Set();
+    const productSeg = productSegments[i] || productSegments[productSegments.length - 1] || new Set();
+    for (const t of rowSeg) if (productSeg.has(t)) score++;
+  }
+  return score;
 }
 
 // model number -> every catalogue product carrying it (usually one per
@@ -166,16 +194,14 @@ function buildModelIndex() {
 // nothing rather than a guess.
 function resolveCandidate(row, candidates) {
   if (candidates.length === 1) return candidates[0];
-  const rowTokens = rowColorTokens(row.name);
-  if (!rowTokens.size) return null;
+  const rowSegments = rowColorSegments(row.name);
+  if (!rowSegments.some((s) => s.size)) return null;
 
   let best = null;
   let bestScore = 0;
   let tied = false;
   for (const product of candidates) {
-    const productTokens = productColorTokens(product);
-    let score = 0;
-    for (const t of rowTokens) if (productTokens.has(t)) score++;
+    const score = segmentOverlapScore(rowSegments, productColorSegments(product));
     if (score > bestScore) {
       best = product;
       bestScore = score;
@@ -206,12 +232,30 @@ export async function getFactoryStock() {
   const byProduct = new Map();
 
   for (const row of rows) {
-    const candidates = modelIndex.get(row.model);
+    let candidates = modelIndex.get(row.model);
     if (!candidates?.length) continue;
-    const product = resolveCandidate(row, candidates);
+
+    // "Термо Хаус Електро" and plain "Термо Хаус" share model numbers and
+    // sometimes the exact same colourway too, in which case colour and
+    // width alone tie - the row already says which one it is, right in
+    // its name, so use that before anything else.
+    const isElektroRow = /електро/i.test(row.name);
+    const elektroSplit = candidates.filter((p) => /elektro/i.test(p.name) === isElektroRow);
+    if (elektroSplit.length) candidates = elektroSplit;
+
+    // Narrow to the candidates that actually offer this row's width first -
+    // a colourway that only comes in 950mm can't be the 1200mm row even
+    // when two candidates share every colour word (e.g. the 950mm and
+    // 1200mm cuts of the same Termo House colourway are separate catalogue
+    // products with identical `colors`, so width is the only thing that
+    // tells them apart).
+    const sized = candidates
+      .map((p) => ({ product: p, size: (p.sizes || []).find((s) => s.startsWith(`${row.width}×`)) }))
+      .filter((c) => c.size);
+    if (!sized.length) continue;
+    const product = sized.length === 1 ? sized[0].product : resolveCandidate(row, sized.map((c) => c.product));
     if (!product) continue;
-    const size = (product.sizes || []).find((s) => s.startsWith(`${row.width}×`));
-    if (!size) continue;
+    const size = sized.find((c) => c.product === product).size;
 
     const variants = byProduct.get(product.id) || new Map();
     const key = `${size}|${row.side}`;
