@@ -80,18 +80,20 @@ const VARIANT_WIDTH_RE = /,\s*(\d{2})\)\s*$/;
 // and vertical aluminium pieces (separate warehouse rows) aren't leaves and
 // aren't matched here - see stockPdf's module comment in stockSync.js for
 // why only the leaf count is shown.
-const VARIANT_LEAF_RE = /\(\d{4}x(\d{2,4})x\d{2}mm,\s*Balta grunts,\s*(?:OUT univers\.|INS Kreisā|INS Labā)\)\s*$/i;
+const VARIANT_LEAF_RE = /\((\d{4})x(\d{2,4})x\d{2}mm,\s*Balta grunts,\s*(?:OUT univers\.|INS Kreisā|INS Labā)\)\s*$/i;
 
 // Pulls the size and opening side out of one warehouse row's description,
 // for the per-variant stock counts shown on the product page.
 //  - Exterior doors: full WxH ("850×2050", normalised to the × the
 //    catalogue uses) plus a side; returns null if either is missing rather
 //    than guessing the side.
-//  - Interior doors and hidden-door leaves: just a width, converted to the
-//    catalogue's own `sizes` string; `side` is null (interior doors have no
-//    side, and hidden-door leaves aren't sold by side on the site even
-//    though the warehouse tracks Kreisā/Labā separately - both count
-//    toward the same size).
+//  - Interior doors: just a width, converted to the catalogue's own `sizes`
+//    string; `side` is null (no opening side on these).
+//  - Hidden-door leaves: width×height ("700×2000"/"700×2010", height fixed
+//    by the thickness/swing config), matching the catalogue's `sizes`;
+//    `side` is null - leaves aren't sold by side on the site even though
+//    the warehouse tracks Kreisā/Labā separately, so both count toward the
+//    same size.
 export function stockRowVariant(name) {
   const sizeMatch = name.match(VARIANT_SIZE_RE);
   const sideMatch = name.match(VARIANT_SIDE_RE);
@@ -99,7 +101,7 @@ export function stockRowVariant(name) {
     return { size: `${sizeMatch[1]}×${sizeMatch[2]}`, side: /^k/i.test(sideMatch[1]) ? "left" : "right" };
   }
   const leafMatch = name.match(VARIANT_LEAF_RE);
-  if (leafMatch) return { size: leafMatch[1], side: null };
+  if (leafMatch) return { size: `${leafMatch[2]}×${leafMatch[1]}`, side: null };
   const widthMatch = name.match(VARIANT_WIDTH_RE);
   if (widthMatch) return { size: String(Number(widthMatch[1]) * 10), side: null };
   return null;

@@ -50,9 +50,12 @@ const LEAF_52 = "2010 × 600 / 700 / 800 / 900 mm";
 const OPENING_40 = "2055 × 670 / 770 / 870 / 970 mm";
 const OPENING_52 = "2065 × 670 / 770 / 870 / 970 mm";
 
-/* Same leaf widths as the rest of the interior range, so the size filter in
-   the catalogue sidebar keeps one set of options rather than two. */
-const SIZES = ["600", "700", "800", "900"];
+/* Same leaf widths as the rest of the interior range, written width×height
+   like every other product's `sizes` - the leaf height is fixed by the
+   thickness/swing configuration (2000 mm for the 40 mm outward-opening
+   range, 2010 mm for the 52 mm reversed range), not a separate choice. */
+const SIZES_40 = ["600×2000", "700×2000", "800×2000", "900×2000"];
+const SIZES_52 = ["600×2010", "700×2010", "800×2010", "900×2010"];
 
 /* The written part of the product page. Only the construction paragraph
    changes with the configuration; the rest is the same story every time. */
@@ -124,7 +127,7 @@ export const hiddenDoors = [
     price: 379,
     oldPrice: 419,
     inStock: true,
-    sizes: SIZES,
+    sizes: SIZES_40,
     colors: ["Balta grunts"],
     thermo: false,
     glass: false,
@@ -164,7 +167,7 @@ export const hiddenDoors = [
     price: 399,
     oldPrice: 439,
     inStock: true,
-    sizes: SIZES,
+    sizes: SIZES_52,
     colors: ["Balta grunts"],
     thermo: false,
     glass: false,
@@ -204,7 +207,7 @@ export const hiddenDoors = [
     price: 499,
     oldPrice: null,
     inStock: false,
-    sizes: SIZES,
+    sizes: SIZES_40,
     colors: ["Balta grunts", "Alumīnijs"],
     thermo: false,
     glass: false,
@@ -244,7 +247,7 @@ export const hiddenDoors = [
     price: 539,
     oldPrice: null,
     inStock: false,
-    sizes: SIZES,
+    sizes: SIZES_52,
     colors: ["Balta grunts", "Alumīnijs"],
     thermo: false,
     glass: false,
@@ -284,7 +287,7 @@ export const hiddenDoors = [
     price: 579,
     oldPrice: null,
     inStock: false,
-    sizes: SIZES,
+    sizes: SIZES_40,
     colors: ["Balta grunts", "Melns"],
     thermo: false,
     glass: false,
@@ -324,7 +327,7 @@ export const hiddenDoors = [
     price: 619,
     oldPrice: null,
     inStock: false,
-    sizes: SIZES,
+    sizes: SIZES_52,
     colors: ["Balta grunts", "Melns"],
     thermo: false,
     glass: false,
