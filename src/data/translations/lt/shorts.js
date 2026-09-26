@@ -14,6 +14,10 @@ export const ltShorts = {
     "Aliuminio durys su termo pertrauka, stiklo paketu ir WALA vyriais (Uw 1,1).",
   "Alumīnija durvis šokolādes/ziloņkaula tonī ar stikla paketi.":
     "Aliuminio durys šokoladinės / dramblio kaulo spalvos su stiklo paketu.",
+  "Alumīnija hibrīda durvis privātmājai ar slēptu termopārrāvumu un divām CBA slēdzenēm ar termostieni.":
+    "Aliuminio hibridinės durys namui su paslėpta termo pertrauka ir dviem CBA spynomis su termostrypiu.",
+  "Alumīnija hibrīda durvis privātmājai ar divtoņu apdari un slēptu termopārrāvumu.":
+    "Aliuminio hibridinės durys namui su dviejų atspalvių apdaila ir paslėpta termo pertrauka.",
   "Alumīnija termo durvis ar minimālistisku antracīta paneli.":
     "Aliuminio termo durys su minimalistine antracito spalvos plokšte.",
   "Alumīnija termo durvis ar slaidu stikla joslu, antracīts.":
@@ -176,8 +180,12 @@ export const ltShorts = {
     "Medienos atspalvių durys su KALE spynomis ir Schlegel sandarinimo gumomis.",
   "Metāla durvis dzīvoklim ar Dienvidu Venge MDF apdari un slēptu kārbas montāžu.":
     "Metalinės durys butui su pietų vengės MDF apdaila ir paslėptu staktos montavimu.",
+  "Metāla durvis dzīvoklim ar divtoņu MDF apdari un aizsardzību pret cilindra izurbšanu.":
+    "Metalinės durys butui su dviejų atspalvių MDF apdaila ir apsauga nuo cilindro gręžimo.",
   "Metāla durvis dzīvoklim ar MDF apdari abās pusēs un divām ARIKO slēdzenēm.":
     "Metalinės durys butui su MDF apdaila iš abiejų pusių ir dviem ARIKO spynomis.",
+  "Metāla durvis dzīvoklim ar Ozola Nemo faktūras MDF apdari abās pusēs.":
+    "Metalinės durys butui su Ozol Nemo faktūros MDF apdaila iš abiejų pusių.",
   "ML-01 modelis rustik blan tonī ar satīna stikla ielaidumu.":
     "ML-01 modelis Rustic Blanc atspalvio su satino stiklo įdėklu.",
   "ML-01 modelis stoun ozola tonī ar melnu stikla ielaidumu.":
@@ -188,6 +196,8 @@ export const ltShorts = {
     "Modernus betono dizainas su sustiprinta konstrukcija ir 3 sandarinimo kontūrais.",
   "Pastiprinātas durvis (svars līdz 115 kg) ar KALE slēdzenēm un nakts aizbīdni.":
     "Sustiprintos durys (svoris iki 115 kg) su KALE spynomis ir naktine sklende.",
+  "Pastiprinātas metāla durvis dzīvoklim ar 3 blīvējuma kontūriem un nerūsējošā tērauda slieksni.":
+    "Sustiprintos metalinės durys butui su 3 sandarinimo kontūrais ir nerūdijančio plieno slenksčiu.",
   "Pilnākā konfigurācija: reversā 52 mm vērtne ar melnu alumīnija malu un melnu rāmi. Veras uz telpas iekšpusi un pārsedz kārbu.":
     "Pilniausia konfigūracija: reversinė 52 mm varčia su juodu aliuminio kraštu ir juodu rėmu. Varstosi į patalpos vidų ir uždengia staktą.",
   "Premium alumīnija durvis ar dekoratīvo kapiteli un bronzas furnitūru.":

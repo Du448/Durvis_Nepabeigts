@@ -14,6 +14,10 @@ export const enShorts = {
     "Aluminum door with a thermal break, a glass unit and WALA hinges (Uw 1.1).",
   "Alumīnija durvis šokolādes/ziloņkaula tonī ar stikla paketi.":
     "Aluminum door in chocolate / ivory tone with a glass unit.",
+  "Alumīnija hibrīda durvis privātmājai ar slēptu termopārrāvumu un divām CBA slēdzenēm ar termostieni.":
+    "Aluminum hybrid door for a house with a concealed thermal break and two CBA locks with a thermo bar.",
+  "Alumīnija hibrīda durvis privātmājai ar divtoņu apdari un slēptu termopārrāvumu.":
+    "Aluminum hybrid door for a house with a two-tone finish and a concealed thermal break.",
   "Alumīnija termo durvis ar minimālistisku antracīta paneli.":
     "Aluminum thermal door with a minimalist anthracite panel.",
   "Alumīnija termo durvis ar slaidu stikla joslu, antracīts.":
@@ -176,8 +180,12 @@ export const enShorts = {
     "Wood-tone door with KALE locks and Schlegel sealing gaskets.",
   "Metāla durvis dzīvoklim ar Dienvidu Venge MDF apdari un slēptu kārbas montāžu.":
     "Metal apartment door with a southern-wenge MDF finish and concealed frame mounting.",
+  "Metāla durvis dzīvoklim ar divtoņu MDF apdari un aizsardzību pret cilindra izurbšanu.":
+    "Metal apartment door with a two-tone MDF finish and drill-resistant cylinder protection.",
   "Metāla durvis dzīvoklim ar MDF apdari abās pusēs un divām ARIKO slēdzenēm.":
     "Metal apartment door with an MDF finish on both sides and two ARIKO locks.",
+  "Metāla durvis dzīvoklim ar Ozola Nemo faktūras MDF apdari abās pusēs.":
+    "Metal apartment door with an Oak Nemo texture MDF finish on both sides.",
   "ML-01 modelis rustik blan tonī ar satīna stikla ielaidumu.":
     "ML-01 model in rustic blanc tone with a satin glass inlay.",
   "ML-01 modelis stoun ozola tonī ar melnu stikla ielaidumu.":
@@ -188,6 +196,8 @@ export const enShorts = {
     "Modern concrete design with a reinforced structure and 3 sealing contours.",
   "Pastiprinātas durvis (svars līdz 115 kg) ar KALE slēdzenēm un nakts aizbīdni.":
     "Reinforced door (weight up to 115 kg) with KALE locks and a night latch.",
+  "Pastiprinātas metāla durvis dzīvoklim ar 3 blīvējuma kontūriem un nerūsējošā tērauda slieksni.":
+    "Reinforced metal apartment door with 3 sealing contours and a stainless steel threshold.",
   "Pilnākā konfigurācija: reversā 52 mm vērtne ar melnu alumīnija malu un melnu rāmi. Veras uz telpas iekšpusi un pārsedz kārbu.":
     "The fullest configuration: a reverse 52 mm leaf with a black aluminum edge and a black frame. It opens inward and overlaps the frame.",
   "Premium alumīnija durvis ar dekoratīvo kapiteli un bronzas furnitūru.":

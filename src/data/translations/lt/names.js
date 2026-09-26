@@ -5,12 +5,17 @@
    rendered in Lithuanian here too. */
 
 export const ltNames = {
+  "Boston AG1-6066 Antracīts": "Boston AG1-6066 antracitas",
+  "Boston AG1-6066 Rūgta šokolāde/Ziloņkauls": "Boston AG1-6066 karti šokoladinė / dramblio kaulas",
   "Boston AG2-6010 Antracīts": "Boston AG2-6010 antracitas",
   "Boston AG2-6010 Antracīts/Balts akmens": "Boston AG2-6010 antracitas / baltas akmuo",
   "Boston AG2-6050 Rūgta šokolāde/Ziloņkauls": "Boston AG2-6050 karti šokoladinė / dramblio kaulas",
   "Boston AG4 6059 Lite Antracīts": "Boston AG4 6059 Lite antracitas",
   "Boston AG4 6059 Lite Rūgta šokolāde": "Boston AG4 6059 Lite karti šokoladinė",
   "Boston AG4 6110 Lite Rūgta šokolāde": "Boston AG4 6110 Lite karti šokoladinė",
+
+  "Citadel B-85 Modelis 195": "Citadel B-85, modelis 195",
+  "Citadel B-85 Modelis 570": "Citadel B-85, modelis 570",
 
   "Cottage, modelis 705/431. Krāsa: Metalic anthracite / Ārpusē: antracīts pelēks":
     "Cottage, modelis 705/431. Spalva: Metalic anthracite / išorėje: antracitas pilkas",
@@ -29,6 +34,7 @@ export const ltNames = {
     "Olimp (kvadro) Mottura, modelis 571/238. Spalva: Dreamwood tamsus / alavas supermatinis",
   "Olimp (kvadro) Mottura, modelis 589. Krāsa: Oksīds tumšs":
     "Olimp (kvadro) Mottura, modelis 589. Spalva: oksidas tamsus",
+  "Tandem Modelis 171": "Tandem, modelis 171",
   "Tandem (kvadro) Kale, modelis 276. Krāsa: Dreamwood tumšs":
     "Tandem (kvadro) Kale, modelis 276. Spalva: Dreamwood tamsus",
   "Tandem (kvadro) Kale, modelis 586/gluds. Krāsa: Oksīds melns, viss dekors / Balts matēts gluds":
