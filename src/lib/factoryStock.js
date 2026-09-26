@@ -29,17 +29,38 @@ const REVALIDATE_SECONDS = 30 * 60;
 // Real product rows all start with this; section/subtotal rows ("ВУЛИЧНИЙ
 // ТИП ДВЕРЕЙ", "3.В-81 Кале", ...) don't and are skipped.
 const ROW_RE = /^Двері/;
+// Most models carry a slash-separated pair (e.g. "710/265"), which is what
+// the catalogue's own "modelis 710/265" names use too. A smaller set of
+// collections (Citadel, Tandem, Olimp, Termo Ultra...) only get a single
+// number both on the sheet ("(квадро) 535", "(квадро) мод.155") and in the
+// catalogue ("modelis 535") - SINGLE_MODEL_* below covers those.
 const MODEL_RE = /\b(\d{2,4})\/(\d{2,4})\b/;
+// Anchored on "(квадро)" (this sheet's own marker for these collections)
+// rather than bare digits, which would otherwise catch widths and prices
+// too. The optional "/Гладка"-style suffix ("/smooth") is swallowed into
+// the match so it doesn't leak into the colour segment that follows.
+const SINGLE_MODEL_SHEET_RE = /\(квадро\)\s*(?:мод\.)?\s*(\d{3,4})(?:\/\S+)?/i;
+const SINGLE_MODEL_CATALOG_RE = /modelis\s+(\d{3,4})\b/i;
 const WIDTH_RE = /(\d{3,4})\s*мм/i;
 // No \b here - JS regex word boundaries are ASCII-only and don't fire
 // reliably around Cyrillic text, so anchoring on \b silently matched nothing.
 const SIDE_RE = /(ліві|праві)/i;
-// The colour/finish phrase sits between the model number and the closing
-// "(<brand>) <width>мм" - e.g. "710/265 вулична Венге темний/Білий
-// атласний (Кале) 850мм" -> "Венге темний/Білий атласний". The "(<brand>)"
-// part is optional - "Електро" rows go straight to "<width>мм" with no
-// brand in parentheses at all.
-const COLOR_SEGMENT_RE = /\d+\/\d+\s*(?:вулична\s+)?(.+?)\s*(?:\([^)]*\)\s*)?\d{3,4}\s*мм/i;
+// The colour/finish phrase sits between the end of the model match and the
+// closing "(<brand>) <width>мм" - e.g. "...Венге темний/Білий атласний
+// (Кале) 850мм" -> "Венге темний/Білий атласний". The "(<brand>)" part is
+// optional - "Електро" rows go straight to "<width>мм" with no brand in
+// parentheses at all.
+const COLOR_TAIL_RE = /^\s*(?:вулична\s+)?(.+?)\s*(?:\([^)]*\)\s*)?\d{3,4}\s*мм/i;
+
+// The colour phrase sits after wherever the model number match ends,
+// whether that was a "XXX/YYY" pair or a single "(квадро) NNN" - slicing
+// from the end of that match keeps one shared tail pattern (COLOR_TAIL_RE)
+// working for both.
+function extractColorText(name, modelMatch) {
+  const rest = name.slice(modelMatch.index + modelMatch[0].length);
+  const m = rest.match(COLOR_TAIL_RE);
+  return m ? m[1] : null;
+}
 
 function parseCsvLine(line) {
   const cells = [];
@@ -78,13 +99,19 @@ function parseSheetRows(csvText) {
     // there's nothing to sell right now either way, so floor it at 0
     // rather than showing e.g. "-21 pcs" on the site.
     const qty = Math.max(0, rawQty);
-    const modelMatch = name.match(MODEL_RE);
     const widthMatch = name.match(WIDTH_RE);
     const sideMatch = name.match(SIDE_RE);
-    if (!modelMatch || !widthMatch || !sideMatch) continue;
+    if (!widthMatch || !sideMatch) continue;
+
+    const pairMatch = name.match(MODEL_RE);
+    const singleMatch = !pairMatch && name.match(SINGLE_MODEL_SHEET_RE);
+    if (!pairMatch && !singleMatch) continue;
+
     rows.push({
       name,
-      model: `${modelMatch[1]}/${modelMatch[2]}`,
+      model: pairMatch ? `${pairMatch[1]}/${pairMatch[2]}` : singleMatch[1],
+      modelType: pairMatch ? "pair" : "single",
+      colorText: extractColorText(name, pairMatch || singleMatch),
       width: widthMatch[1],
       side: sideMatch[1].toLowerCase() === "ліві" ? "left" : "right",
       qty,
@@ -153,9 +180,8 @@ function normalizeColorTokens(text) {
 // merged set can't tell "Venge tumšs / Venge tumšs" apart from "Venge tumšs
 // / Balts satīns" (both share the inside colour, so a merged set ties);
 // comparing side-by-side by position doesn't.
-function rowColorSegments(rowName) {
-  const m = rowName.match(COLOR_SEGMENT_RE);
-  return m ? m[1].split("/").map(normalizeColorTokens) : [];
+function rowColorSegments(row) {
+  return row.colorText ? row.colorText.split("/").map(normalizeColorTokens) : [];
 }
 
 function productColorSegments(product) {
@@ -195,12 +221,29 @@ function buildModelIndex() {
   return index;
 }
 
+// Same idea as buildModelIndex, but for the single-number collections
+// (Citadel, Tandem, Olimp...). Skips anything already claimed by the pair
+// index so a genuine "modelis 580/543" is never also filed under "580".
+function buildSingleModelIndex() {
+  const index = new Map();
+  for (const p of products) {
+    if (MODEL_RE.test(p.name)) continue;
+    const match = p.name.match(SINGLE_MODEL_CATALOG_RE);
+    if (!match) continue;
+    const model = match[1];
+    const list = index.get(model) || [];
+    if (!list.includes(p)) list.push(p);
+    index.set(model, list);
+  }
+  return index;
+}
+
 // Picks the one candidate whose `colors` overlap the row's colour words
 // more than every other candidate. Ties, or zero overlap, resolve to
 // nothing rather than a guess.
 function resolveCandidate(row, candidates) {
   if (candidates.length === 1) return candidates[0];
-  const rowSegments = rowColorSegments(row.name);
+  const rowSegments = rowColorSegments(row);
   if (!rowSegments.some((s) => s.size)) return null;
 
   let best = null;
@@ -235,10 +278,12 @@ export async function getFactoryStock() {
 
   const rows = parseSheetRows(csvText);
   const modelIndex = buildModelIndex();
+  const singleModelIndex = buildSingleModelIndex();
   const byProduct = new Map();
 
   for (const row of rows) {
-    let candidates = modelIndex.get(row.model);
+    const index = row.modelType === "pair" ? modelIndex : singleModelIndex;
+    let candidates = index.get(row.model);
     if (!candidates?.length) continue;
 
     // "Термо Хаус Електро" and plain "Термо Хаус" share model numbers and
