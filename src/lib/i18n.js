@@ -324,6 +324,9 @@ const messages = {
       jambColorWhiteWood: "Baltas medis",
       jambColorAnthracite: "Antracitas",
       jambColorWengeHorizon: "Wenge horizontas",
+      bostonPalette: "Boston spalvų paletė",
+      bostonPaletteIntro: "Visos spalvos, kuriomis gamintojas gali nudažyti bet kurį Boston serijos modelį.",
+      bostonPalettePremium: "+10 % priemoka",
     },
     contacts: {
       title: "Kontaktai",
@@ -687,6 +690,9 @@ const messages = {
       jambColorWhiteWood: "Balts koks",
       jambColorAnthracite: "Antracīts",
       jambColorWengeHorizon: "Wenge horizonts",
+      bostonPalette: "Boston krāsu palete",
+      bostonPaletteIntro: "Visas krāsas, kurās ražotājs var izgatavot jebkuru Boston sērijas modeli.",
+      bostonPalettePremium: "+10% piemaksa",
     },
     contacts: {
       title: "Kontakti",
@@ -1049,6 +1055,9 @@ const messages = {
       jambColorWhiteWood: "White wood",
       jambColorAnthracite: "Anthracite",
       jambColorWengeHorizon: "Wenge horizon",
+      bostonPalette: "Boston colour palette",
+      bostonPaletteIntro: "Every colour the manufacturer can finish a Boston-series model in.",
+      bostonPalettePremium: "+10% surcharge",
     },
     contacts: {
       title: "Contacts",
