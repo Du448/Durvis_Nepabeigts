@@ -214,6 +214,7 @@ const messages = {
       moreInfo: "Daugiau informacijos",
       skipToContent: "Pereiti prie turinio",
       addWishlist: "Pridėti į norus",
+      addCompare: "Pridėti palyginimui",
     },
     cart: {
       title: "Krepšelis",
@@ -223,6 +224,17 @@ const messages = {
       title: "Norų sąrašas",
       description: "Jūsų mėgstami modeliai bus rodomi čia. Funkcija bus pridėta vėliau.",
       empty: "Norų sąrašas tuščias.",
+    },
+    compare: {
+      title: "Palyginimas",
+      description: "Jūsų pasirinkti modeliai palyginimui bus rodomi čia.",
+      empty: "Palyginimui nieko nepasirinkta.",
+      clearAll: "Išvalyti viską",
+      showAll: "Visi parametrai",
+      showDiff: "Skirtingi parametrai",
+      remove: "Pašalinti",
+      code: "Prekės kodas",
+      limitReached: "Palyginimui galima pridėti iki {n} modelių.",
     },
     loading: {
       search: "Įkeliami paieškos rezultatai…",
@@ -588,6 +600,7 @@ const messages = {
       moreInfo: "Vairāk informācijas",
       skipToContent: "Pāriet uz saturu",
       addWishlist: "Pievienot vēlmēm",
+      addCompare: "Pievienot salīdzināšanai",
     },
     cart: {
       title: "Grozs",
@@ -597,6 +610,17 @@ const messages = {
       title: "Vēlmes",
       description: "Jūsu iecienītie modeļi parādīsies šeit. Funkcija tiks pievienota vēlāk.",
       empty: "Vēlmju saraksts ir tukšs.",
+    },
+    compare: {
+      title: "Salīdzinājums",
+      description: "Jūsu izvēlētie salīdzināšanai modeļi būs redzami šeit.",
+      empty: "Salīdzināšanai nekas nav izvēlēts.",
+      clearAll: "Notīrīt visu",
+      showAll: "Visi parametri",
+      showDiff: "Atšķirīgie parametri",
+      remove: "Noņemt",
+      code: "Preces kods",
+      limitReached: "Salīdzināšanai var pievienot līdz {n} modeļiem.",
     },
     loading: {
       search: "Ielādē meklēšanas rezultātus…",
@@ -961,6 +985,7 @@ const messages = {
       moreInfo: "More information",
       skipToContent: "Skip to content",
       addWishlist: "Add to wishlist",
+      addCompare: "Add to comparison",
     },
     cart: {
       title: "Cart",
@@ -970,6 +995,17 @@ const messages = {
       title: "Wishlist",
       description: "Your favorite models will appear here. This feature will be added later.",
       empty: "Your wishlist is empty.",
+    },
+    compare: {
+      title: "Comparison",
+      description: "Your models selected for comparison will appear here.",
+      empty: "Nothing selected for comparison.",
+      clearAll: "Clear all",
+      showAll: "All parameters",
+      showDiff: "Different parameters only",
+      remove: "Remove",
+      code: "Product code",
+      limitReached: "You can compare up to {n} models.",
     },
     loading: {
       search: "Loading search results…",

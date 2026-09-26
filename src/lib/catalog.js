@@ -1,7 +1,8 @@
 import { products, getProductById } from "@/data/products";
 import { hoverImage, stockKind } from "@/lib/product-utils";
 import { trData } from "@/lib/i18n-data";
-import { leafThicknessMm, metalThicknessMm, sealContourCount, thresholdType } from "@/lib/product-specs";
+import { t } from "@/lib/i18n";
+import { leafThicknessMm, metalThicknessMm, sealContourCount, thresholdType, buildSpecRows } from "@/lib/product-specs";
 
 /* Server-side view models for the browser. A full catalogue entry carries its
    whole gallery, specification table and description paragraphs; a card only
@@ -31,6 +32,12 @@ export function toCard(product, locale) {
     sealContours: sealContourCount(product),
     threshold: thresholdType(product),
   };
+}
+
+/* The full specification table, translated - used by the compare page,
+   which (unlike a card) needs every row a product's own page shows. */
+export function specRows(product, locale) {
+  return buildSpecRows(product, (v) => trData(locale, v), (k) => t(locale, k));
 }
 
 export const cardsFor = (list, locale) => list.map((p) => toCard(p, locale));

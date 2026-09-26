@@ -19,6 +19,40 @@ function rowsOf(product) {
   return product.specsFull?.length ? product.specsFull : Object.entries(product.specs || {});
 }
 
+/* Shared with the specification-table tab and the compare page, so both
+   render the exact same rows for the exact same labels. */
+export const SPEC_LABEL_KEYS = {
+  "Vērtnes biezums": "specs.leafThickness",
+  "Kārbas biezums": "specs.frameThickness",
+  Svars: "specs.weight",
+  Slēdzenes: "specs.locks",
+  Pildījums: "specs.filling",
+  "Ārējā apdare": "specs.outsideFinish",
+  "Iekšējā apdare": "specs.insideFinish",
+  Apdare: "specs.finish",
+  Actiņa: "specs.peephole",
+  Furnitūra: "specs.hardware",
+};
+
+/* Turns a product's raw (Latvian) specification table into translated
+   [label, value] rows. `tr` translates a catalogue string ("Vērtnes
+   biezums" -> "Varčios storis"); `t` looks up a fixed UI-dictionary key
+   ("specs.leafThickness" / "values.yes"). Takes them as plain functions
+   rather than a locale, so the same logic works from a server component
+   (@/lib/i18n-data's trData) and from a client one (DictProvider's
+   per-page dictionary). */
+export function buildSpecRows(product, tr, t) {
+  return product.specsFull?.length
+    ? product.specsFull.map(([label, value]) => [tr(label), tr(value)])
+    : Object.entries(product.specs || {}).map(([label, value]) => {
+        const raw = String(value);
+        return [
+          SPEC_LABEL_KEYS[label] ? t(SPEC_LABEL_KEYS[label]) : tr(label),
+          raw === "Ir" ? t("values.yes") : raw === "Nav" ? t("values.no") : tr(raw),
+        ];
+      });
+}
+
 function findValue(rows, labels) {
   for (const [label, value] of rows) if (labels.includes(label)) return value;
   return null;

@@ -4,9 +4,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Heart, Search, X, Menu, ChevronDown } from "lucide-react";
+import { Heart, Scale, Search, X, Menu, ChevronDown } from "lucide-react";
 import { getLocaleFromPathname, withLocaleHref, localePath, stripLocale, locales, t } from "@/lib/i18n";
 import { readWishlistIds } from "@/lib/wishlist";
+import { readCompareIds } from "@/lib/compare";
 import { replaceSearch } from "@/lib/useUrlSearchParams";
 
 const BRAND = "NT Durys";
@@ -120,6 +121,7 @@ export default function Header() {
   const [showSearch, setShowSearch] = useState(false);
   const [query, setQuery] = useState("");
   const [wishlistCount, setWishlistCount] = useState(0);
+  const [compareCount, setCompareCount] = useState(0);
   const [stuck, setStuck] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
@@ -134,6 +136,17 @@ export default function Header() {
     return () => {
       window.removeEventListener("storage", sync);
       window.removeEventListener("wishlist:change", sync);
+    };
+  }, []);
+
+  useEffect(() => {
+    const sync = () => setCompareCount(readCompareIds().length);
+    sync();
+    window.addEventListener("storage", sync);
+    window.addEventListener("compare:change", sync);
+    return () => {
+      window.removeEventListener("storage", sync);
+      window.removeEventListener("compare:change", sync);
     };
   }, []);
 
@@ -290,6 +303,17 @@ export default function Header() {
             >
               <Search size={20} strokeWidth={1.6} />
             </button>
+
+            <Link
+              href={withLocaleHref(locale, "/palyginimas")}
+              aria-label={t(locale, "compare.title")}
+              className="relative flex h-11 w-11 items-center justify-center transition-opacity duration-200 hover:opacity-70"
+            >
+              <Scale size={20} strokeWidth={1.6} />
+              <span className="absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white">
+                {compareCount}
+              </span>
+            </Link>
 
             <Link
               href={withLocaleHref(locale, "/norai")}

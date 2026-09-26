@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { Heart, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Heart, Scale, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck, X, ChevronLeft, ChevronRight } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import AccordionItem from "@/components/anim/AccordionItem";
 import ProductTabs, { SPECS_ANCHOR, OPEN_SPECS_EVENT } from "@/components/ProductTabs";
@@ -14,6 +14,7 @@ import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
 import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
+import { isCompared, toggleCompareId } from "@/lib/compare";
 import { finishesColorQuery } from "@/lib/finishesLink";
 import { paths } from "@/lib/routes";
 import { imageProps } from "@/lib/images";
@@ -329,6 +330,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
     });
   }, [lightboxZoom, lightboxIdx]);
   const [wishlisted, setWishlisted] = useState(false);
+  const [compared, setCompared] = useState(false);
   /* Width / height of the first photo, once it has loaded; until then a
      typical value for the category. */
   const [mainRatio, setMainRatio] = useState(null);
@@ -342,6 +344,18 @@ export default function ProductClient({ product, similar = [], configurator = nu
     return () => {
       window.removeEventListener("storage", sync);
       window.removeEventListener("wishlist:change", sync);
+    };
+  }, [product?.id]);
+
+  useEffect(() => {
+    if (!product?.id) return;
+    const sync = () => setCompared(isCompared(product.id));
+    sync();
+    window.addEventListener("storage", sync);
+    window.addEventListener("compare:change", sync);
+    return () => {
+      window.removeEventListener("storage", sync);
+      window.removeEventListener("compare:change", sync);
     };
   }, [product?.id]);
 
@@ -616,6 +630,15 @@ export default function ProductClient({ product, similar = [], configurator = nu
                 >
                   <Heart size={18} />
                   {t(locale, "product.addWishlist")}
+                </button>
+                <button
+                  type="button"
+                  aria-pressed={compared}
+                  className={`btn btn-outline-dark ${compared ? "!border-[color:var(--color-accent)] !text-[color:var(--color-accent)]" : ""}`}
+                  onClick={() => setCompared(toggleCompareId(product.id).includes(product.id))}
+                >
+                  <Scale size={18} />
+                  {t(locale, "compare.title")}
                 </button>
               </div>
 

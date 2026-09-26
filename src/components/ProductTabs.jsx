@@ -7,6 +7,7 @@ import { getLocaleFromPathname, t } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
 import { imageProps } from "@/lib/images";
 import BostonColorPaletteGrid from "@/components/BostonColorPaletteGrid";
+import { buildSpecRows } from "@/lib/product-specs";
 
 /* Description / specification tabs under the product, as on the manufacturer's
    own product pages: an underlined tab strip, then either the long written
@@ -25,19 +26,6 @@ import BostonColorPaletteGrid from "@/components/BostonColorPaletteGrid";
 export const SPECS_ANCHOR = "charakteristikos";
 export const OPEN_SPECS_EVENT = "product:open-specs";
 
-const SPEC_LABEL_KEYS = {
-  "Vērtnes biezums": "specs.leafThickness",
-  "Kārbas biezums": "specs.frameThickness",
-  Svars: "specs.weight",
-  Slēdzenes: "specs.locks",
-  Pildījums: "specs.filling",
-  "Ārējā apdare": "specs.outsideFinish",
-  "Iekšējā apdare": "specs.insideFinish",
-  Apdare: "specs.finish",
-  Actiņa: "specs.peephole",
-  Furnitūra: "specs.hardware",
-};
-
 export default function ProductTabs({ product, locks = [] }) {
   const { trData } = useTr();
   const locale = getLocaleFromPathname(usePathname());
@@ -46,15 +34,7 @@ export default function ProductTabs({ product, locks = [] }) {
   /* Stored in Latvian alongside the rest of the catalogue data; `trData`
      renders it in the page's language. */
   const sections = product?.description || [];
-  const rows = product?.specsFull?.length
-    ? product.specsFull.map(([label, value]) => [trData(locale, label), trData(locale, value)])
-    : Object.entries(product?.specs || {}).map(([label, value]) => {
-        const raw = String(value);
-        return [
-          SPEC_LABEL_KEYS[label] ? t(locale, SPEC_LABEL_KEYS[label]) : trData(locale, label),
-          raw === "Ir" ? t(locale, "values.yes") : raw === "Nav" ? t(locale, "values.no") : trData(locale, raw),
-        ];
-      });
+  const rows = product ? buildSpecRows(product, (v) => trData(locale, v), (k) => t(locale, k)) : [];
 
   const tabs = [
     sections.length ? { key: "description", label: t(locale, "product.tabDescription") } : null,

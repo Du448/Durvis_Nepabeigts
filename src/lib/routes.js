@@ -28,6 +28,7 @@ export const paths = {
   configurator: "/duru-konfiguratorius",
   search: "/paieska",
   wishlist: "/norai",
+  compare: "/palyginimas",
   cart: "/krepselis",
   partners: "/bendradarbiavimas",
   about: "/apie-mus",

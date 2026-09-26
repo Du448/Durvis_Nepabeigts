@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Heart } from "lucide-react";
+import { Heart, Scale } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
+import { isCompared, toggleCompareId } from "@/lib/compare";
 import { formatPrice } from "@/lib/product-utils";
 import { paths } from "@/lib/routes";
 import { imageProps } from "@/lib/images";
@@ -19,6 +20,7 @@ import { imageProps } from "@/lib/images";
 export default function ProductCard({ product, bare = false }) {
   const locale = getLocaleFromPathname(usePathname());
   const [wishlisted, setWishlisted] = useState(false);
+  const [compared, setCompared] = useState(false);
   const [hovered, setHovered] = useState(false);
 
   useEffect(() => {
@@ -29,6 +31,17 @@ export default function ProductCard({ product, bare = false }) {
     return () => {
       window.removeEventListener("storage", sync);
       window.removeEventListener("wishlist:change", sync);
+    };
+  }, [product.id]);
+
+  useEffect(() => {
+    const sync = () => setCompared(isCompared(product.id));
+    sync();
+    window.addEventListener("storage", sync);
+    window.addEventListener("compare:change", sync);
+    return () => {
+      window.removeEventListener("storage", sync);
+      window.removeEventListener("compare:change", sync);
     };
   }, [product.id]);
 
@@ -98,9 +111,10 @@ export default function ProductCard({ product, bare = false }) {
         </span>
       ) : null}
 
-      {/* Wishlist, top-right: revealed on hover with a mouse, always shown on
-          touch screens (no hover there), and 44px so it is easy to tap. */}
-      <div className={`absolute z-10 translate-x-2 opacity-0 transition-[opacity,transform] duration-200 ease-out group-hover:translate-x-0 group-hover:opacity-100 focus-within:translate-x-0 focus-within:opacity-100 motion-reduce:translate-x-0 [@media(hover:none)]:translate-x-0 [@media(hover:none)]:opacity-100 ${
+      {/* Wishlist and compare, top-right: revealed on hover with a mouse,
+          always shown on touch screens (no hover there), and 44px each so
+          they are easy to tap. */}
+      <div className={`absolute z-10 flex translate-x-2 flex-col gap-1.5 opacity-0 transition-[opacity,transform] duration-200 ease-out group-hover:translate-x-0 group-hover:opacity-100 focus-within:translate-x-0 focus-within:opacity-100 motion-reduce:translate-x-0 [@media(hover:none)]:translate-x-0 [@media(hover:none)]:opacity-100 ${
           bare ? "right-0 top-0" : "right-[15px] top-[15px]"
         }`}>
         <button
@@ -116,6 +130,20 @@ export default function ProductCard({ product, bare = false }) {
           }`}
         >
           <Heart size={17} strokeWidth={1.6} fill={wishlisted ? "currentColor" : "none"} />
+        </button>
+        <button
+          type="button"
+          aria-label={t(locale, "a11y.addCompare")}
+          aria-pressed={compared}
+          onClick={(e) => {
+            e.preventDefault();
+            setCompared(toggleCompareId(product.id).includes(product.id));
+          }}
+          className={`flex h-11 w-11 items-center justify-center bg-white shadow-[0_1px_6px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-[color:var(--color-accent)] hover:text-white ${
+            compared ? "text-[color:var(--color-accent)]" : "text-[color:var(--color-title)]"
+          }`}
+        >
+          <Scale size={17} strokeWidth={1.6} />
         </button>
       </div>
 
