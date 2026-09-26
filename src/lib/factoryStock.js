@@ -41,6 +41,14 @@ const MODEL_RE = /\b(\d{2,4})\/(\d{2,4})\b/;
 // the match so it doesn't leak into the colour segment that follows.
 const SINGLE_MODEL_SHEET_RE = /\(квадро\)\s*(?:мод\.)?\s*(\d{3,4})(?:\/\S+)?/i;
 const SINGLE_MODEL_CATALOG_RE = /modelis\s+(\d{3,4})\b/i;
+// A handful of rows (the Ultra/Securemme "mirror" section, "Статус 549 .../
+// 551 ...") restate each side's model number right next to its own colour
+// instead of grouping both numbers up front - "546 Роксі Антрацит/607 Біла
+// шагрень" is model 546/607 with colours "Роксі Антрацит" and "Біла
+// шагрень", not a single "546" model followed by a colour containing a
+// slash. MODEL_RE requires the numbers adjacent so it misses this; this
+// picks the two numbers and their own colour phrase apart directly.
+const SPLIT_PAIR_RE = /(\d{2,4})\s+([^/]+?)\s*\/\s*(\d{2,4})\s+(.+?)\s*(?:\([^)]*\)\s*)?\d{3,4}\s*мм/i;
 const WIDTH_RE = /(\d{3,4})\s*мм/i;
 // No \b here - JS regex word boundaries are ASCII-only and don't fire
 // reliably around Cyrillic text, so anchoring on \b silently matched nothing.
@@ -104,14 +112,30 @@ function parseSheetRows(csvText) {
     if (!widthMatch || !sideMatch) continue;
 
     const pairMatch = name.match(MODEL_RE);
-    const singleMatch = !pairMatch && name.match(SINGLE_MODEL_SHEET_RE);
-    if (!pairMatch && !singleMatch) continue;
+    const splitMatch = !pairMatch && name.match(SPLIT_PAIR_RE);
+    const singleMatch = !pairMatch && !splitMatch && name.match(SINGLE_MODEL_SHEET_RE);
+    if (!pairMatch && !splitMatch && !singleMatch) continue;
+
+    let model, modelType, colorText;
+    if (pairMatch) {
+      model = `${pairMatch[1]}/${pairMatch[2]}`;
+      modelType = "pair";
+      colorText = extractColorText(name, pairMatch);
+    } else if (splitMatch) {
+      model = `${splitMatch[1]}/${splitMatch[3]}`;
+      modelType = "pair";
+      colorText = `${splitMatch[2]}/${splitMatch[4]}`;
+    } else {
+      model = singleMatch[1];
+      modelType = "single";
+      colorText = extractColorText(name, singleMatch);
+    }
 
     rows.push({
       name,
-      model: pairMatch ? `${pairMatch[1]}/${pairMatch[2]}` : singleMatch[1],
-      modelType: pairMatch ? "pair" : "single",
-      colorText: extractColorText(name, pairMatch || singleMatch),
+      model,
+      modelType,
+      colorText,
       width: widthMatch[1],
       side: sideMatch[1].toLowerCase() === "ліві" ? "left" : "right",
       qty,
