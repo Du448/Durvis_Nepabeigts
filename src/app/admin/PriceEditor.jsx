@@ -14,21 +14,21 @@ function current(row, override) {
   };
 }
 
-// Sum of the per-size/side warehouse quantities the stock sync wrote for
-// this product, or null when it has no warehouse link at all.
-function warehouseTotal(override) {
-  if (!override?.stock) return null;
-  const total = Object.values(override.stock).reduce((sum, n) => sum + n, 0);
-  return total;
+// Sum of a per-size/side stock map ({ "size|side": qty }), or null when
+// there's nothing for this product from that source at all. Used for both
+// the LV warehouse sync's override.stock and the live factory-sheet stock.
+function stockTotal(stock) {
+  if (!stock) return null;
+  return Object.values(stock).reduce((sum, n) => sum + n, 0);
 }
 
 // The same quantities broken down one row per size - left/right side by
 // side for doors with an opening side, or a single total for ones without
 // (interior doors) - sorted the way the sizes read on the product page.
-function warehouseBreakdown(override) {
-  if (!override?.stock) return null;
+function stockBreakdown(stock) {
+  if (!stock) return null;
   const bySize = new Map();
-  for (const [key, qty] of Object.entries(override.stock)) {
+  for (const [key, qty] of Object.entries(stock)) {
     const [size, side] = key.split("|");
     const row = bySize.get(size) || { size, left: 0, right: 0, total: 0, sided: false };
     if (side === "left" || side === "right") {
@@ -120,7 +120,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
     return rows.filter((row) => {
       if (category && row.category !== category) return false;
       if (onlyChanged && !overrides[row.id] && !edits[row.id]) return false;
-      const isLinked = Boolean(overrides[row.id]?.stock);
+      const isLinked = Boolean(overrides[row.id]?.stock) || Boolean(row.factoryStock);
       if (warehouseFilter === "linked" && !isLinked) return false;
       if (warehouseFilter === "unlinked" && isLinked) return false;
       if (!q) return true;
@@ -313,8 +313,10 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                 const isEdited = Boolean(edits[row.id] || resets[row.id]);
                 const hasOverride = Boolean(overrides[row.id]) && !resets[row.id];
                 const error = rowErrors[row.id];
-                const stockTotal = warehouseTotal(overrides[row.id]);
-                const stockRows = warehouseBreakdown(overrides[row.id]);
+                const lvTotal = stockTotal(overrides[row.id]?.stock);
+                const lvRows = stockBreakdown(overrides[row.id]?.stock);
+                const factoryTotal = stockTotal(row.factoryStock);
+                const factoryRows = stockBreakdown(row.factoryStock);
                 return (
                   <tr
                     key={row.id}
@@ -327,10 +329,28 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                         {row.id}
                         {hasOverride ? ui.changedSuffix : ""}
                       </div>
-                      {stockTotal !== null ? (
+                      {lvTotal !== null ? (
                         <div className="mt-1 text-[12px] text-emerald-700">
-                          <div className="font-medium">{ui.warehouseStock(stockTotal)}</div>
-                          {stockRows.map((r) => (
+                          <div className="font-medium">{ui.warehouseStock(lvTotal)}</div>
+                          {lvRows.map((r) => (
+                            <div key={r.size} className="text-neutral-500">
+                              {r.sided ? (
+                                <>
+                                  {r.size} · {ui.directionLeft}: {r.left} · {ui.directionRight}: {r.right}
+                                </>
+                              ) : (
+                                <>
+                                  {r.size} mm: {r.total} {ui.pcsSuffix}
+                                </>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                      ) : null}
+                      {factoryTotal !== null ? (
+                        <div className="mt-1 text-[12px] text-sky-700">
+                          <div className="font-medium">{ui.factoryStockLabel(factoryTotal)}</div>
+                          {factoryRows.map((r) => (
                             <div key={r.size} className="text-neutral-500">
                               {r.sided ? (
                                 <>

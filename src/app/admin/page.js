@@ -4,6 +4,7 @@ import { trData } from "@/lib/i18n-data";
 import { adminConfigured, isAdmin } from "@/lib/adminAuth";
 import { blobConfigured, readOverridesFresh } from "@/lib/priceOverrides";
 import { readUnmatchedStock, readStockMap } from "@/lib/stockMap";
+import { getFactoryStock } from "@/lib/factoryStock";
 import LoginForm from "./LoginForm";
 import PriceEditor from "./PriceEditor";
 import StockMatcher from "./StockMatcher";
@@ -50,6 +51,8 @@ export default async function AdminPage() {
     }
   }
 
+  const factoryStock = await getFactoryStock();
+
   const rows = products.map((p) => ({
     id: p.id,
     name: { lt: trData("lt", p.name), en: trData("en", p.name) },
@@ -57,6 +60,7 @@ export default async function AdminPage() {
     category: p.category,
     currency: p.currency === "UAH" ? "₴" : "€",
     base: { price: p.price, oldPrice: p.oldPrice ?? null, inStock: isInStock(p) },
+    factoryStock: factoryStock.has(p.id) ? Object.fromEntries(factoryStock.get(p.id)) : null,
   }));
 
   const unmatchedStock = blobConfigured() ? await readUnmatchedStock() : { updatedAt: null, groups: [] };
