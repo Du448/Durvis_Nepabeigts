@@ -1,22 +1,29 @@
 import localFont from "next/font/local";
 
-/* Montserrat, self-hosted (variable weight, SIL OFL - see fonts/OFL.txt).
+/* Poppins, self-hosted (SIL OFL - see fonts/OFL.txt). Poppins ships as static
+   weights rather than a variable font, so unlike the previous Montserrat setup
+   each weight is its own file - only the four weights actually used on the
+   site (400/500/600/700) are shipped.
    Split like Google Fonts serves it: the basic Latin file covers English, and
    a second file adds the Lithuanian and Latvian letters, downloaded only on
    pages that use them. That second file is cut down from Google's latin-ext
-   set (69 KB) to exactly those 32 letters (9 KB) with fontTools:
-     pyftsubset montserrat-latin-ext-wght-normal.woff2 --flavor=woff2
+   set to exactly those 32 letters with fontTools:
+     pyftsubset poppins-ext-<weight>.woff2 --flavor=woff2
        --layout-features='*' --unicodes=<the unicode-range below>
    Two families sharing one font stack behave as one font. */
 
-export const montserratLatin = localFont({
-  src: "./fonts/montserrat-latin-wght-normal.woff2",
-  weight: "100 900",
+export const poppinsLatin = localFont({
+  src: [
+    { path: "./fonts/poppins-latin-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/poppins-latin-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/poppins-latin-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/poppins-latin-700.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
   // No metric fallback on this half: it would sit before the latin-ext file in
   // the stack and catch the Lithuanian/Latvian letters. The ext file's
   // fallback below covers both.
-  variable: "--font-montserrat-latin",
+  variable: "--font-poppins-latin",
   adjustFontFallback: false,
   declarations: [
     {
@@ -27,11 +34,15 @@ export const montserratLatin = localFont({
   ],
 });
 
-export const montserratExt = localFont({
-  src: "./fonts/montserrat-ltlv-wght-normal.woff2",
-  weight: "100 900",
+export const poppinsExt = localFont({
+  src: [
+    { path: "./fonts/poppins-ltlv-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/poppins-ltlv-500.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/poppins-ltlv-600.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/poppins-ltlv-700.woff2", weight: "700", style: "normal" },
+  ],
   display: "swap",
-  variable: "--font-montserrat-ext",
+  variable: "--font-poppins-ext",
   declarations: [
     {
       prop: "unicode-range",
@@ -41,4 +52,4 @@ export const montserratExt = localFont({
   ],
 });
 
-export const fontVariables = `${montserratLatin.variable} ${montserratExt.variable}`;
+export const fontVariables = `${poppinsLatin.variable} ${poppinsExt.variable}`;

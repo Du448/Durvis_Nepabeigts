@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { getProduct } from "@/lib/pricedCatalog";
-import { toCard, specRows } from "@/lib/catalog";
+import { toCard, specGroups } from "@/lib/catalog";
 import { locales, defaultLocale, t } from "@/lib/i18n";
 
 /* Full comparison rows by id, for the compare page: unlike /api/products
@@ -23,7 +23,7 @@ export async function GET(request) {
   const products = found.map((p) => ({
     ...toCard(p, locale),
     categoryLabel: t(locale, `categories.${p.category}`),
-    specRows: specRows(p, locale),
+    specGroups: specGroups(p, locale),
   }));
 
   return NextResponse.json(

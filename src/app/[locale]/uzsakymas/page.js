@@ -1,5 +1,5 @@
 import PageTitle from "@/components/PageTitle";
-import CartClient from "@/components/CartClient";
+import OrderClient from "@/components/OrderClient";
 import { t } from "@/lib/i18n";
 import { paths } from "@/lib/routes";
 import { localeParams, pageMetadata, resolveLocale } from "@/lib/page";
@@ -10,20 +10,20 @@ export async function generateMetadata({ params }) {
   const locale = await resolveLocale(params);
   return pageMetadata({
     locale,
-    path: paths.cart,
-    title: t(locale, "cart.title"),
-    description: t(locale, "cart.description"),
+    path: paths.order,
+    title: t(locale, "order.title"),
+    description: t(locale, "order.description"),
     noindex: true,
   });
 }
 
-export default async function CartPage({ params }) {
+export default async function OrderPage({ params }) {
   const locale = await resolveLocale(params);
 
   return (
     <main>
-      <PageTitle title={t(locale, "cart.title")} description={t(locale, "cart.description")} />
-      <CartClient />
+      <PageTitle title={t(locale, "order.title")} description={t(locale, "order.description")} />
+      <OrderClient />
     </main>
   );
 }

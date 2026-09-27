@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { Heart, Scale, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Heart, Scale, ShoppingBag, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck, X, ChevronLeft, ChevronRight } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import AccordionItem from "@/components/anim/AccordionItem";
 import ProductTabs, { SPECS_ANCHOR, OPEN_SPECS_EVENT } from "@/components/ProductTabs";
@@ -15,6 +15,7 @@ import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
 import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
 import { isCompared, toggleCompareId } from "@/lib/compare";
+import { addToCart } from "@/lib/cart";
 import { finishesColorQuery } from "@/lib/finishesLink";
 import { paths } from "@/lib/routes";
 import { imageProps } from "@/lib/images";
@@ -49,8 +50,8 @@ const STANDARD_JAMB_COLORS = [
 
 function ServiceBadge({ icon: Icon, label }) {
   return (
-    <span className="inline-flex items-center gap-2.5">
-      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-line bg-[--color-soft] text-[color:var(--color-accent)]">
+    <span className="group inline-flex items-center gap-2.5">
+      <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-line bg-[--color-soft] text-[color:var(--color-accent)] transition-all duration-200 group-hover:scale-110 group-hover:border-[color:var(--color-accent)] group-hover:bg-[color:var(--color-accent)] group-hover:text-white">
         <Icon size={16} />
       </span>
       <span>{label}</span>
@@ -331,6 +332,10 @@ export default function ProductClient({ product, similar = [], configurator = nu
   }, [lightboxZoom, lightboxIdx]);
   const [wishlisted, setWishlisted] = useState(false);
   const [compared, setCompared] = useState(false);
+  // Same bounce 220.lv plays on its own comparison icon when a product is
+  // added - see .animate-pulsate in globals.css. Only on add, not on remove.
+  const [wishlistPulse, setWishlistPulse] = useState(0);
+  const [comparePulse, setComparePulse] = useState(0);
   /* Width / height of the first photo, once it has loaded; until then a
      typical value for the category. */
   const [mainRatio, setMainRatio] = useState(null);
@@ -358,6 +363,28 @@ export default function ProductClient({ product, similar = [], configurator = nu
       window.removeEventListener("compare:change", sync);
     };
   }, [product?.id]);
+
+  const handleAddToCart = () => {
+    if (!product) return;
+    const line = addToCart({
+      id: product.id,
+      size: activeSize,
+      direction: activeDirection,
+      services: selectedServiceCodes,
+      jambColor,
+    });
+    window.dispatchEvent(
+      new CustomEvent("cart:added", {
+        detail: {
+          name: trData(locale, product.name),
+          image: images[0] !== "placeholder" ? images[0] : null,
+          size: activeSize,
+          direction: activeDirection,
+          qty: line.qty,
+        },
+      })
+    );
+  };
 
   if (!product) {
     return (
@@ -391,61 +418,104 @@ export default function ProductClient({ product, similar = [], configurator = nu
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Left: Gallery */}
             <div>
-              {/* Main image, sized to the first photo's own proportions so the
-                  thumbnails below sit right under it; a tall single-door photo
-                  is capped at 80% of the screen height. */}
-              <div
-                className="relative mx-auto max-h-[80vh]"
-                style={{ aspectRatio: mainRatio ?? (isFlatGallery ? 0.47 : 0.93) }}
-              >
-                  <div className="absolute inset-0 overflow-hidden">
-                    {images[activeIdx] === "placeholder" ? (
-                      <div className="w-full h-full bg-[--color-soft] flex items-center justify-center text-muted">
-                        <span>{t(locale, "product.image")}</span>
-                      </div>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setLightboxIdx(activeIdx);
-                          setLightboxZoom(1);
-                          setLightboxOpen(true);
-                        }}
-                        className="group relative block w-full h-full cursor-zoom-in"
-                        aria-label={t(locale, "product.openImage")}
-                      >
-                        <Image
-                          src={images[activeIdx]}
-                          alt={productName}
-                          fill
-                          {...imageProps(images[activeIdx])}
-                          referrerPolicy="no-referrer"
-                          preload={activeIdx === 0}
-                          onLoad={(e) => {
-                            if (mainRatio || activeIdx !== 0) return;
-                            const { naturalWidth: w, naturalHeight: h } = e.currentTarget;
-                            if (w && h) setMainRatio(Math.min(1.6, Math.max(0.4, w / h)));
+              {/* A soft studio backdrop behind the photo - a flat white page
+                  reads as a spec sheet, a faint gradient + shadow reads as a
+                  photographed product. */}
+              <div className="relative border border-line bg-gradient-to-br from-[--color-soft] to-white p-4 shadow-[0_1px_28px_rgba(0,0,0,0.05)] sm:p-8">
+                {/* Wishlist / compare: icon-only, over the photo - the same
+                    treatment ProductCard gives them on a catalogue tile,
+                    instead of two more full-width buttons competing with
+                    "Pievienot grozam" below. */}
+                <div className="absolute right-3 top-3 z-10 flex flex-col gap-1.5 sm:right-4 sm:top-4">
+                  <button
+                    type="button"
+                    aria-label={t(locale, "a11y.addWishlist")}
+                    aria-pressed={wishlisted}
+                    onClick={() => {
+                      const next = toggleWishlistId(product.id);
+                      if (next.includes(product.id)) setWishlistPulse((k) => k + 1);
+                    }}
+                    className={`flex h-11 w-11 items-center justify-center bg-white shadow-[0_1px_6px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-[color:var(--color-accent)] hover:text-white ${
+                      wishlisted ? "text-[color:var(--color-accent)]" : "text-[color:var(--color-title)]"
+                    }`}
+                  >
+                    <Heart key={wishlistPulse} size={18} strokeWidth={1.6} fill={wishlisted ? "currentColor" : "none"} className={wishlistPulse ? "animate-pulsate" : ""} />
+                  </button>
+                  <button
+                    type="button"
+                    aria-label={t(locale, "compare.title")}
+                    aria-pressed={compared}
+                    onClick={() => {
+                      const next = toggleCompareId(product.id);
+                      setCompared(next.includes(product.id));
+                      if (next.includes(product.id)) setComparePulse((k) => k + 1);
+                    }}
+                    className={`flex h-11 w-11 items-center justify-center bg-white shadow-[0_1px_6px_rgba(0,0,0,0.12)] transition-colors duration-200 hover:bg-[color:var(--color-accent)] hover:text-white ${
+                      compared ? "text-[color:var(--color-accent)]" : "text-[color:var(--color-title)]"
+                    }`}
+                  >
+                    <Scale key={comparePulse} size={18} strokeWidth={1.6} className={comparePulse ? "animate-pulsate" : ""} />
+                  </button>
+                </div>
+
+                {/* Main image, sized to the first photo's own proportions so the
+                    thumbnails below sit right under it; a tall single-door photo
+                    is capped at 80% of the screen height. */}
+                <div
+                  className="relative mx-auto max-h-[80vh]"
+                  style={{ aspectRatio: mainRatio ?? (isFlatGallery ? 0.47 : 0.93) }}
+                >
+                    <div className="absolute inset-0 overflow-hidden">
+                      {images[activeIdx] === "placeholder" ? (
+                        <div className="w-full h-full bg-[--color-soft] flex items-center justify-center text-muted">
+                          <span>{t(locale, "product.image")}</span>
+                        </div>
+                      ) : (
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setLightboxIdx(activeIdx);
+                            setLightboxZoom(1);
+                            setLightboxOpen(true);
                           }}
-                          sizes="(max-width: 1024px) 100vw, 50vw"
-                          className="object-contain"
-                        />
-                        <span
-                          aria-hidden
-                          className="pointer-events-none absolute bottom-3 right-3 inline-flex h-9 w-9 items-center justify-center border border-line bg-white/90 text-ink opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100"
+                          className="group relative block w-full h-full cursor-zoom-in"
+                          aria-label={t(locale, "product.openImage")}
                         >
-                          <ZoomIn size={18} />
-                        </span>
-                      </button>
-                    )}
-                  </div>
-                              </div>
+                          <Image
+                            src={images[activeIdx]}
+                            alt={productName}
+                            fill
+                            {...imageProps(images[activeIdx])}
+                            referrerPolicy="no-referrer"
+                            preload={activeIdx === 0}
+                            onLoad={(e) => {
+                              if (mainRatio || activeIdx !== 0) return;
+                              const { naturalWidth: w, naturalHeight: h } = e.currentTarget;
+                              if (w && h) setMainRatio(Math.min(1.6, Math.max(0.4, w / h)));
+                            }}
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            className="object-contain transition-transform duration-300 group-hover:scale-[1.03]"
+                          />
+                          <span
+                            aria-hidden
+                            className="pointer-events-none absolute bottom-3 right-3 inline-flex h-9 w-9 items-center justify-center border border-line bg-white/90 text-ink opacity-0 shadow-md transition-opacity duration-150 group-hover:opacity-100"
+                          >
+                            <ZoomIn size={18} />
+                          </span>
+                        </button>
+                      )}
+                    </div>
+                </div>
+              </div>
 
               {/* Thumbnails under the main image */}
               <div className={`mt-3 grid-cols-5 gap-2 sm:grid-cols-6 ${images.length > 1 ? "grid" : "hidden"}`}>
                 {images.map((src, idx) => (
                   <button
                     key={idx}
-                    className={`relative group aspect-square border ${idx === selectedIdx ? "border-[--color-accent]" : "border-line"} bg-[--color-soft] text-xs text-muted overflow-hidden`}
+                    className={`relative group aspect-square border overflow-hidden bg-white text-xs text-muted transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
+                      idx === selectedIdx ? "border-[color:var(--color-accent)] ring-1 ring-[color:var(--color-accent)]" : "border-line"
+                    }`}
                     onClick={() => { setSelectedIdx(idx); setActiveIdx(idx); }}
                     onMouseEnter={() => setActiveIdx(idx)}
                     onMouseLeave={() => setActiveIdx(selectedIdx)}
@@ -477,7 +547,10 @@ export default function ProductClient({ product, similar = [], configurator = nu
             {/* Right: Info */}
             <div>
               <div className="flex flex-wrap items-center gap-3">
-                <div className="text-[12px] font-semibold uppercase tracking-[0.16em] text-muted">{product.collection}</div>
+                <div className="flex items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.16em] text-muted">
+                  <span aria-hidden className="h-[2px] w-5 bg-[color:var(--color-accent)]" />
+                  {product.collection}
+                </div>
                 {isInStock(product) ? (
                   <span
                     className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold uppercase leading-none ${
@@ -486,7 +559,10 @@ export default function ProductClient({ product, similar = [], configurator = nu
                         : "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]"
                     }`}
                   >
-                    <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-current" />
+                    <span aria-hidden className="relative flex h-1.5 w-1.5">
+                      <span aria-hidden className="absolute inline-flex h-full w-full animate-ping rounded-full bg-current opacity-60" />
+                      <span aria-hidden className="relative inline-flex h-1.5 w-1.5 rounded-full bg-current" />
+                    </span>
                     {t(locale, stockKind(product) === "factory" ? "product.inStockFactory" : "product.inStock")}
                   </span>
                 ) : null}
@@ -500,17 +576,25 @@ export default function ProductClient({ product, similar = [], configurator = nu
                   </Link>
                 ) : null}
               </div>
-              <h1 className="mt-2 text-[28px] font-medium leading-[1.3] text-[color:var(--color-title)] sm:text-[36px]">{productName}</h1>
+              <h1 className="mt-3 text-[30px] font-semibold leading-[1.2] tracking-tight text-[color:var(--color-title)] sm:text-[40px]">
+                {productName}
+              </h1>
 
-              <div className="mt-2 flex items-baseline gap-2">
+              <div className="mt-3 flex flex-wrap items-baseline gap-2.5">
                 {hasOffer ? (
                   <>
-                    <span className="text-[24px] text-[color:var(--color-accent)]">{formatPrice(product)}</span>
-                    <span className="text-muted line-through">{formatPrice(product, product.oldPrice)}</span>
-                    <span className="text-[color:var(--color-accent)] font-medium">-{discount}%</span>
+                    <span className="text-[32px] font-semibold leading-none text-[color:var(--color-accent)] sm:text-[38px]">
+                      {formatPrice(product)}
+                    </span>
+                    <span className="text-[16px] text-muted line-through">{formatPrice(product, product.oldPrice)}</span>
+                    <span className="inline-flex items-center bg-[color:var(--color-accent)] px-2 py-0.5 text-[12px] font-bold leading-none text-white">
+                      -{discount}%
+                    </span>
                   </>
                 ) : (
-                  <span className="text-[24px] text-[color:var(--color-accent)]">{formatPrice(product)}</span>
+                  <span className="text-[32px] font-semibold leading-none text-[color:var(--color-accent)] sm:text-[38px]">
+                    {formatPrice(product)}
+                  </span>
                 )}
               </div>
 
@@ -605,41 +689,32 @@ export default function ProductClient({ product, similar = [], configurator = nu
               {/* Actions */}
               <div className="mt-6 flex flex-wrap gap-3">
                 <MagneticButton>
-                  <Link
-                    href={withLocaleHref(
-                      locale,
-                      `${paths.contacts}?produkts=${encodeURIComponent(product.id)}${
-                        activeSize ? `&izmers=${encodeURIComponent(activeSize)}` : ""
-                      }${
-                        activeDirection ? `&virziens=${encodeURIComponent(activeDirection)}` : ""
-                      }${
-                        selectedServiceCodes.length
-                          ? `&pakalpojumi=${encodeURIComponent(selectedServiceCodes.join(","))}`
-                          : ""
-                      }${jambColor ? `&apdareKrasa=${encodeURIComponent(jambColor)}` : ""}`
-                    )}
-                    className="btn btn-accent"
+                  <button
+                    type="button"
+                    className="btn btn-accent shadow-[0_4px_16px_rgba(3,119,67,0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(3,119,67,0.4)]"
+                    onClick={handleAddToCart}
                   >
-                    {t(locale, "product.requestOffer")}
-                  </Link>
+                    <ShoppingBag size={18} />
+                    {t(locale, "product.addCart")}
+                  </button>
                 </MagneticButton>
-                <button
-                  type="button"
-                  className={`btn btn-outline-dark ${wishlisted ? "!border-[color:var(--color-accent)] !text-[color:var(--color-accent)]" : ""}`}
-                  onClick={() => toggleWishlistId(product.id)}
+                <Link
+                  href={withLocaleHref(
+                    locale,
+                    `${paths.contacts}?produkts=${encodeURIComponent(product.id)}${
+                      activeSize ? `&izmers=${encodeURIComponent(activeSize)}` : ""
+                    }${
+                      activeDirection ? `&virziens=${encodeURIComponent(activeDirection)}` : ""
+                    }${
+                      selectedServiceCodes.length
+                        ? `&pakalpojumi=${encodeURIComponent(selectedServiceCodes.join(","))}`
+                        : ""
+                    }${jambColor ? `&apdareKrasa=${encodeURIComponent(jambColor)}` : ""}`
+                  )}
+                  className="btn btn-outline-dark transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <Heart size={18} />
-                  {t(locale, "product.addWishlist")}
-                </button>
-                <button
-                  type="button"
-                  aria-pressed={compared}
-                  className={`btn btn-outline-dark ${compared ? "!border-[color:var(--color-accent)] !text-[color:var(--color-accent)]" : ""}`}
-                  onClick={() => setCompared(toggleCompareId(product.id).includes(product.id))}
-                >
-                  <Scale size={18} />
-                  {t(locale, "compare.title")}
-                </button>
+                  {t(locale, "product.requestOffer")}
+                </Link>
               </div>
 
               {/* What every order can include, right under the buttons. */}

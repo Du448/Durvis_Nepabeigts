@@ -29,6 +29,7 @@ export const paths = {
   search: "/paieska",
   wishlist: "/norai",
   compare: "/palyginimas",
+  order: "/uzsakymas",
   cart: "/krepselis",
   partners: "/bendradarbiavimas",
   about: "/apie-mus",

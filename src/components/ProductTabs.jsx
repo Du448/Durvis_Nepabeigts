@@ -3,11 +3,24 @@
 import { useEffect, useId, useState } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { Ruler, DoorOpen, Layers, Wind, KeyRound, Palette, ListChecks } from "lucide-react";
 import { getLocaleFromPathname, t } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
 import { imageProps } from "@/lib/images";
 import BostonColorPaletteGrid from "@/components/BostonColorPaletteGrid";
-import { buildSpecRows } from "@/lib/product-specs";
+import { buildSpecGroups } from "@/lib/product-specs";
+
+// One icon per spec group, matching the buy box's own accent-tinted icon
+// chips (ServiceBadge) so the two sections read as the same visual language.
+const SPEC_GROUP_ICONS = {
+  size: Ruler,
+  application: DoorOpen,
+  construction: Layers,
+  sealing: Wind,
+  locks: KeyRound,
+  finish: Palette,
+  other: ListChecks,
+};
 
 /* Description / specification tabs under the product, as on the manufacturer's
    own product pages: an underlined tab strip, then either the long written
@@ -34,11 +47,11 @@ export default function ProductTabs({ product, locks = [] }) {
   /* Stored in Latvian alongside the rest of the catalogue data; `trData`
      renders it in the page's language. */
   const sections = product?.description || [];
-  const rows = product ? buildSpecRows(product, (v) => trData(locale, v), (k) => t(locale, k)) : [];
+  const specGroups = product ? buildSpecGroups(product, (v) => trData(locale, v), (k) => t(locale, k)) : [];
 
   const tabs = [
     sections.length ? { key: "description", label: t(locale, "product.tabDescription") } : null,
-    rows.length ? { key: "specs", label: t(locale, "product.tabSpecs") } : null,
+    specGroups.length ? { key: "specs", label: t(locale, "product.tabSpecs") } : null,
     locks.length ? { key: "locks", label: t(locale, "product.tabLocks") } : null,
     product?.collection === "BOSTON" ? { key: "colors", label: t(locale, "product.bostonPalette") } : null,
   ].filter(Boolean);
@@ -88,7 +101,7 @@ export default function ProductTabs({ product, locks = [] }) {
           ))}
         </div>
 
-        <div id={`${baseId}-panel`} role="tabpanel" aria-labelledby={`${baseId}-tab-${active}`}>
+        <div id={`${baseId}-panel`} role="tabpanel" aria-labelledby={`${baseId}-tab-${active}`} key={active} className="animate-fade-in">
           {active === "description" ? (
             <div className="mt-8 max-w-[900px] space-y-7">
               {sections.map((section, i) => (
@@ -114,25 +127,57 @@ export default function ProductTabs({ product, locks = [] }) {
               <BostonColorPaletteGrid locale={locale} premiumLabel={t(locale, "product.bostonPalettePremium")} />
             </div>
           ) : (
-            <div className="mt-8 max-w-[900px] overflow-x-auto">
-              <table className="w-full border-collapse text-[15px]">
-                <caption className="sr-only">{t(locale, "product.tabSpecs")}</caption>
-                <tbody>
-                  {rows.map(([label, value], i) => (
-                    <tr key={`${label}-${i}`} className={i % 2 ? "bg-white" : "bg-[--color-soft]"}>
-                      <th scope="row" className="w-[46%] border border-line px-3 py-2 text-left font-normal text-muted">
-                        {label}
-                      </th>
-                      <td className="border border-line px-3 py-2 text-ink">{value}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="mt-8 grid gap-5 lg:grid-cols-2">
+              {specGroups.map((group) => {
+                const Icon = SPEC_GROUP_ICONS[group.key] || ListChecks;
+                return (
+                  <div
+                    key={group.key}
+                    className="border border-line border-l-[3px] border-l-[color:var(--color-accent)] bg-white p-5 shadow-[0_1px_10px_rgba(0,0,0,0.03)] transition-shadow duration-200 hover:shadow-[0_6px_24px_rgba(0,0,0,0.07)] sm:p-6"
+                  >
+                    <div className="mb-4 flex items-center gap-3 border-b border-line pb-3">
+                      <span className="flex h-9 w-9 shrink-0 items-center justify-center bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)]">
+                        <Icon size={17} />
+                      </span>
+                      <h3 className="text-[14px] font-semibold uppercase tracking-[0.08em] text-[color:var(--color-title)]">
+                        {group.title}
+                      </h3>
+                    </div>
+                    <SpecList rows={group.rows} />
+                  </div>
+                );
+              })}
             </div>
           )}
         </div>
       </div>
     </section>
+  );
+}
+
+/* Label ... dotted leader ... value, no table borders/zebra - modelled on
+   rdveikals.lv's own specification tab, which sets each row as a baseline
+   flex row with a dotted rule filling the gap instead of a bordered cell. A
+   row lights up on hover (background + accent-tinted dots) so the list feels
+   responsive rather than a static printout. */
+function SpecList({ rows, caption }) {
+  return (
+    <div>
+      {caption ? <h3 className="sr-only">{caption}</h3> : null}
+      {rows.map(([label, value], i) => (
+        <div
+          key={`${label}-${i}`}
+          className="group -mx-2 flex items-baseline gap-2 px-2 py-2 text-[13.5px] transition-colors duration-150 hover:bg-[--color-soft]"
+        >
+          <span className="shrink-0 max-w-[60%] leading-[1.45] text-muted">{label}</span>
+          <span
+            aria-hidden
+            className="mb-[3px] h-0 flex-1 border-b border-dotted border-[--color-line] transition-colors duration-150 group-hover:border-[color:var(--color-accent)]"
+          />
+          <span className="shrink-0 max-w-[40%] text-right font-semibold leading-[1.45] text-ink">{value}</span>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -218,20 +263,8 @@ function LockDetail({ lock, locale }) {
       <div>
         <p className="text-[12px] font-semibold uppercase tracking-[0.2em] text-muted">{lock.kind}</p>
         <h3 className="mt-1 text-[20px] font-medium text-[color:var(--color-title)] sm:text-[24px]">{lock.name}</h3>
-        <div className="mt-5 overflow-x-auto">
-          <table className="w-full border-collapse text-[15px]">
-            <caption className="sr-only">{label}</caption>
-            <tbody>
-              {lock.rows.map(([rowLabel, value], i) => (
-                <tr key={`${rowLabel}-${i}`} className={i % 2 ? "bg-white" : "bg-[--color-soft]"}>
-                  <th scope="row" className="w-[50%] border border-line px-3 py-2 text-left font-normal text-muted">
-                    {rowLabel}
-                  </th>
-                  <td className="border border-line px-3 py-2 text-ink">{value}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="mt-5">
+          <SpecList rows={lock.rows} caption={label} />
         </div>
         {lock.about ? (
           <div className="mt-6 text-[15px] leading-[1.7] text-ink">

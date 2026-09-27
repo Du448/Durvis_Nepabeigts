@@ -4,10 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { Heart, Scale, Search, X, Menu, ChevronDown } from "lucide-react";
+import { Heart, Scale, Search, ShoppingBag, X, Menu, ChevronDown } from "lucide-react";
 import { getLocaleFromPathname, withLocaleHref, localePath, stripLocale, locales, t } from "@/lib/i18n";
 import { readWishlistIds } from "@/lib/wishlist";
 import { readCompareIds } from "@/lib/compare";
+import { cartCount } from "@/lib/cart";
+import CartToast from "@/components/CartToast";
 import { replaceSearch } from "@/lib/useUrlSearchParams";
 
 const BRAND = "NT Durys";
@@ -122,14 +124,32 @@ export default function Header() {
   const [query, setQuery] = useState("");
   const [wishlistCount, setWishlistCount] = useState(0);
   const [compareCount, setCompareCount] = useState(0);
+  const [cartItemCount, setCartItemCount] = useState(0);
   const [stuck, setStuck] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastY = useRef(0);
 
   const light = isHome && !stuck;
 
+  /* The "added" bounce (see .animate-pulsate in globals.css, lifted from
+     220.lv's own comparison sticker) fires on a badge by remounting it with a
+     fresh React key - simpler than adding/removing a class on a timer, and it
+     can't get stuck mid-animation. Never fires on the initial mount, only when
+     a count goes up from what it was a moment ago. */
+  const [wishlistPulse, setWishlistPulse] = useState(0);
+  const [comparePulse, setComparePulse] = useState(0);
+  const [cartPulse, setCartPulse] = useState(0);
+  const prevWishlistCount = useRef(null);
+  const prevCompareCount = useRef(null);
+  const prevCartItemCount = useRef(null);
+
   useEffect(() => {
-    const sync = () => setWishlistCount(readWishlistIds().length);
+    const sync = () => {
+      const next = readWishlistIds().length;
+      if (prevWishlistCount.current !== null && next > prevWishlistCount.current) setWishlistPulse((k) => k + 1);
+      prevWishlistCount.current = next;
+      setWishlistCount(next);
+    };
     sync();
     window.addEventListener("storage", sync);
     window.addEventListener("wishlist:change", sync);
@@ -140,13 +160,34 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const sync = () => setCompareCount(readCompareIds().length);
+    const sync = () => {
+      const next = readCompareIds().length;
+      if (prevCompareCount.current !== null && next > prevCompareCount.current) setComparePulse((k) => k + 1);
+      prevCompareCount.current = next;
+      setCompareCount(next);
+    };
     sync();
     window.addEventListener("storage", sync);
     window.addEventListener("compare:change", sync);
     return () => {
       window.removeEventListener("storage", sync);
       window.removeEventListener("compare:change", sync);
+    };
+  }, []);
+
+  useEffect(() => {
+    const sync = () => {
+      const next = cartCount();
+      if (prevCartItemCount.current !== null && next > prevCartItemCount.current) setCartPulse((k) => k + 1);
+      prevCartItemCount.current = next;
+      setCartItemCount(next);
+    };
+    sync();
+    window.addEventListener("storage", sync);
+    window.addEventListener("cart:change", sync);
+    return () => {
+      window.removeEventListener("storage", sync);
+      window.removeEventListener("cart:change", sync);
     };
   }, []);
 
@@ -310,7 +351,10 @@ export default function Header() {
               className="relative flex h-11 w-11 items-center justify-center transition-opacity duration-200 hover:opacity-70"
             >
               <Scale size={20} strokeWidth={1.6} />
-              <span className="absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white">
+              <span
+                key={comparePulse}
+                className={`absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white ${comparePulse ? "animate-pulsate" : ""}`}
+              >
                 {compareCount}
               </span>
             </Link>
@@ -321,8 +365,25 @@ export default function Header() {
               className="relative flex h-11 w-11 items-center justify-center transition-opacity duration-200 hover:opacity-70"
             >
               <Heart size={20} strokeWidth={1.6} />
-              <span className="absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white">
+              <span
+                key={wishlistPulse}
+                className={`absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white ${wishlistPulse ? "animate-pulsate" : ""}`}
+              >
                 {wishlistCount}
+              </span>
+            </Link>
+
+            <Link
+              href={withLocaleHref(locale, "/krepselis")}
+              aria-label={t(locale, "cart.title")}
+              className="relative flex h-11 w-11 items-center justify-center transition-opacity duration-200 hover:opacity-70"
+            >
+              <ShoppingBag size={20} strokeWidth={1.6} />
+              <span
+                key={cartPulse}
+                className={`absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white ${cartPulse ? "animate-pulsate" : ""}`}
+              >
+                {cartItemCount}
               </span>
             </Link>
 
@@ -463,6 +524,8 @@ export default function Header() {
           </div>
         </div>
       ) : null}
+
+      <CartToast />
     </>
   );
 }

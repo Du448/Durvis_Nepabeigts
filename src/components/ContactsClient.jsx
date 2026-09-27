@@ -13,6 +13,7 @@ import PageTitle from "@/components/PageTitle";
 import ConsentMap from "@/components/ConsentMap";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
 import { phones, mainPhone, hoursFor } from "@/lib/site";
+import { SERVICE_OPTION_KEYS } from "@/lib/order-options";
 
 const ALLOWED_EXTENSIONS = ["pdf", "jpg", "jpeg", "png", "webp", "heic", "doc", "docx"];
 const MAX_FILES = 5;
@@ -28,20 +29,6 @@ function formatFileSize(bytes) {
   if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(0)} KB`;
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
 }
-
-// Maps the "pakalpojumi" query codes (written by the product page's
-// fulfilment toggles) to the same translation keys those toggles show, so
-// the prefilled message states in words what the visitor picked.
-const SERVICE_OPTION_KEYS = {
-  pickup: "product.optionPickup",
-  measurement: "product.optionMeasurement",
-  deliveryOnly: "product.optionDeliveryOnly",
-  installDelivery: "product.optionInstallDelivery",
-  jambFinishStandardSmall: "product.jambFinishStandardSmall",
-  jambFinishStandardLarge: "product.jambFinishStandardLarge",
-  jambFinishCustomSmall: "product.jambFinishCustomSmall",
-  jambFinishCustomLarge: "product.jambFinishCustomLarge",
-};
 
 export default function ContactsClient() {
   const locale = getLocaleFromPathname(usePathname());

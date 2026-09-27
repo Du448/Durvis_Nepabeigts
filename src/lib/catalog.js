@@ -2,7 +2,7 @@ import { products, getProductById } from "@/data/products";
 import { hoverImage, stockKind } from "@/lib/product-utils";
 import { trData } from "@/lib/i18n-data";
 import { t } from "@/lib/i18n";
-import { leafThicknessMm, metalThicknessMm, sealContourCount, thresholdType, buildSpecRows } from "@/lib/product-specs";
+import { leafThicknessMm, metalThicknessMm, sealContourCount, thresholdType, buildSpecRows, buildSpecGroups } from "@/lib/product-specs";
 
 /* Server-side view models for the browser. A full catalogue entry carries its
    whole gallery, specification table and description paragraphs; a card only
@@ -38,6 +38,13 @@ export function toCard(product, locale) {
    which (unlike a card) needs every row a product's own page shows. */
 export function specRows(product, locale) {
   return buildSpecRows(product, (v) => trData(locale, v), (k) => t(locale, k));
+}
+
+/* Same rows, bucketed into the product page's own spec-tab sections (see
+   ProductTabs.jsx) - so the compare page breaks each product's table down
+   the same way its own page does, instead of one flat list. */
+export function specGroups(product, locale) {
+  return buildSpecGroups(product, (v) => trData(locale, v), (k) => t(locale, k));
 }
 
 export const cardsFor = (list, locale) => list.map((p) => toCard(p, locale));

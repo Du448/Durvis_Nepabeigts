@@ -53,6 +53,58 @@ export function buildSpecRows(product, tr, t) {
       });
 }
 
+/* Buckets a product's raw (Latvian) rows into the same section headings a
+   manufacturer spec sheet uses (modelled on rdveikals.lv's own tab: rows
+   grouped under bold section headers, not one long flat list). The
+   catalogue itself carries no category per row, so each raw label is
+   keyword-matched against the first group whose test matches - anything
+   that matches nothing lands in "other" rather than being dropped. Groups
+   with no rows are left out entirely; the rest render in this fixed order. */
+const SPEC_GROUPS = [
+  { key: "size", titleKey: "product.specGroupSize", test: (l) => /izmēr|svars/.test(l) },
+  { key: "application", titleKey: "product.specGroupApplication", test: (l) => /pielietoj|vēršan|pieejamīb/.test(l) },
+  {
+    key: "construction",
+    titleKey: "product.specGroupConstruction",
+    test: (l) => /biezum|kārb|vērtn|karkas|ribas|pildīj|siltumizolācij|apmal|loksn/.test(l),
+  },
+  { key: "sealing", titleKey: "product.specGroupSealing", test: (l) => /blīvēj|slieksn/.test(l) },
+  {
+    key: "locks",
+    titleKey: "product.specGroupLocks",
+    test: (l) => /slēdzen|mehānism|furnitūr|rokturi|actiņ|aizbīdn|rīvj|eņģe|kabat/.test(l),
+  },
+  { key: "finish", titleKey: "product.specGroupFinish", test: (l) => /apdar|krāsa|krāsu|stikla|dekoratīv|plēv/.test(l) },
+  { key: "other", titleKey: "product.specGroupOther", test: () => true },
+];
+
+/* Same inputs/translation as buildSpecRows, grouped into sections. Returns
+   [{ title, rows: [label, value][] }], omitting empty groups. */
+export function buildSpecGroups(product, tr, t) {
+  const rawRows = product.specsFull?.length
+    ? product.specsFull
+    : Object.entries(product.specs || {}).map(([label, value]) => [label, String(value)]);
+
+  const buckets = new Map(SPEC_GROUPS.map((g) => [g.key, []]));
+  for (const [label, value] of rawRows) {
+    const lower = String(label).toLowerCase();
+    const group = SPEC_GROUPS.find((g) => g.test(lower));
+    const translated = product.specsFull?.length
+      ? [tr(label), tr(value)]
+      : [
+          SPEC_LABEL_KEYS[label] ? t(SPEC_LABEL_KEYS[label]) : tr(label),
+          value === "Ir" ? t("values.yes") : value === "Nav" ? t("values.no") : tr(value),
+        ];
+    buckets.get(group.key).push(translated);
+  }
+
+  return SPEC_GROUPS.filter((g) => buckets.get(g.key).length).map((g) => ({
+    key: g.key,
+    title: t(g.titleKey),
+    rows: buckets.get(g.key),
+  }));
+}
+
 function findValue(rows, labels) {
   for (const [label, value] of rows) if (labels.includes(label)) return value;
   return null;

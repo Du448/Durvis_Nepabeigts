@@ -127,7 +127,10 @@ function buildMessage({ from, to, replyTo, subject, text, html, attachments = []
   return `${headers.join("\r\n")}\r\n\r\n${body}`;
 }
 
-export async function sendFormEmail({ subject, replyTo, text, html, attachments }) {
+// `to` defaults to the shop's own inbox (CONTACT_TO_EMAIL/SMTP_USER), same as
+// every other form on the site - pass it explicitly to send somewhere else,
+// e.g. the order confirmation that goes to the customer's own address.
+export async function sendFormEmail({ to: toOverride, subject, replyTo, text, html, attachments }) {
   const { SMTP_HOST, SMTP_PORT, SMTP_SECURE, SMTP_USER, SMTP_PASS } = process.env;
   if (!SMTP_HOST || !SMTP_USER || !SMTP_PASS) {
     throw new Error(
@@ -136,7 +139,7 @@ export async function sendFormEmail({ subject, replyTo, text, html, attachments 
   }
   const port = Number(SMTP_PORT) || 587;
   const secure = SMTP_SECURE === "true" || port === 465;
-  const to = process.env.CONTACT_TO_EMAIL || SMTP_USER;
+  const to = toOverride || process.env.CONTACT_TO_EMAIL || SMTP_USER;
   const from = process.env.CONTACT_FROM_EMAIL || SMTP_USER;
 
   // Only for local dev machines whose antivirus/network intercepts TLS with
