@@ -7,8 +7,12 @@
 export const IN_STOCK_CATEGORIES = ["ardurvis-dzivoklim", "ardurvis-privatmajai", "ieksdurvis"];
 
 /* Models imported from the manufacturer's own catalogue carry their warehouse
-   stock, which the shop labels differently from its local stock. */
+   stock, which the shop labels differently from its local stock. A third
+   source, "order", is for models that are never kept on a shelf - they are
+   only ever made to order - and gets its own badge/label rather than being
+   folded into "in stock". */
 export function stockKind(product) {
+  if (product?.stockSource === "order") return "order";
   if (!isInStock(product)) return null;
   return product?.stockSource === "factory" ? "factory" : "local";
 }

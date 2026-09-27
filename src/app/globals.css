@@ -22,11 +22,14 @@
 
   /* Stock badges. Green means the model is on our own shelf and ships now;
      amber means it sits at the manufacturer's warehouse, so the customer
-     should read a lead time into it. */
+     should read a lead time into it; blue means it's made to order and
+     carries a longer lead time still. */
   --color-stock: #037743;
   --color-stock-soft: #e6f3ec;
   --color-stock-factory: #8a5b07;
   --color-stock-factory-soft: #fbf1dd;
+  --color-stock-order: #1e40af;
+  --color-stock-order-soft: #e8edfb;
 
   --font-sans: var(--font-poppins-latin), var(--font-poppins-ext), Arial, Helvetica, sans-serif;
 

@@ -62,9 +62,14 @@ export default function ProductCard({ product, bare = false }) {
             text: t(locale, "product.inStockFactory"),
             className: "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]",
           }
-        : product.stock
-          ? { text: t(locale, "product.inStock"), className: "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]" }
-          : null;
+        : product.stock === "order"
+          ? {
+              text: t(locale, "product.toOrder"),
+              className: "bg-[color:var(--color-stock-order-soft)] text-[color:var(--color-stock-order)]",
+            }
+          : product.stock
+            ? { text: t(locale, "product.inStock"), className: "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]" }
+            : null;
   const shown = hovered && product.hover ? product.hover : product.image;
   const href = withLocaleHref(locale, paths.product(product.id));
 

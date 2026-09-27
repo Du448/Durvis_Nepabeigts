@@ -551,19 +551,30 @@ export default function ProductClient({ product, similar = [], configurator = nu
                   <span aria-hidden className="h-[2px] w-5 bg-[color:var(--color-accent)]" />
                   {product.collection}
                 </div>
-                {isInStock(product) ? (
+                {isInStock(product) || stockKind(product) === "order" ? (
                   <span
                     className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold uppercase leading-none ${
                       stockKind(product) === "factory"
                         ? "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]"
-                        : "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]"
+                        : stockKind(product) === "order"
+                          ? "bg-[color:var(--color-stock-order-soft)] text-[color:var(--color-stock-order)]"
+                          : "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]"
                     }`}
                   >
                     <span aria-hidden className="relative flex h-1.5 w-1.5">
-                      <span aria-hidden className="absolute inline-flex h-full w-full animate-ping rounded-full bg-current opacity-60" />
+                      {stockKind(product) !== "order" ? (
+                        <span aria-hidden className="absolute inline-flex h-full w-full animate-ping rounded-full bg-current opacity-60" />
+                      ) : null}
                       <span aria-hidden className="relative inline-flex h-1.5 w-1.5 rounded-full bg-current" />
                     </span>
-                    {t(locale, stockKind(product) === "factory" ? "product.inStockFactory" : "product.inStock")}
+                    {t(
+                      locale,
+                      stockKind(product) === "factory"
+                        ? "product.inStockFactory"
+                        : stockKind(product) === "order"
+                          ? "product.toOrder"
+                          : "product.inStock"
+                    )}
                   </span>
                 ) : null}
                 {configurator ? (
