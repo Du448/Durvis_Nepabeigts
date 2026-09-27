@@ -3830,5 +3830,11471 @@ export const catalogSpecs = {
    "Skaņas izolācija",
    "40 db"
   ]
+ ],
+ "boston-ag4-6010": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 100mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds 1mm biezumā"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Tonis no ārpuses",
+  "Antracīts"
+ ],
+ [
+  "Tonis no iekšpuses",
+  "Balts Akmens"
+ ],
+ [
+  "Apakšējā slēdzene",
+  "«Securemme 2061» (cilindriskā), Itālija"
+ ],
+ [
+  "Cilindrs",
+  "«Guardian Basic Termo» ar Termostieni «5 atslēgas»"
+ ],
+ [
+  "Uzlika",
+  "cilindriskās slēdzenes bruņu uzlika, forma kradrātveida, krāsa Melna"
+ ],
+ [
+  "Furnitūra",
+  "krāsa Melna"
+ ],
+ [
+  "Augšējā slēdzene",
+  "«Securemme 2019» (suvaldu, 5 atslēgas), Itālija"
+ ],
+ [
+  "Uzlika",
+  "suvaldu tipa, forma kradrātveida, krāsa Melna"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "«WALA» (Polija) 3D regulācija (2gb.)"
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "2"
+ ],
+ [
+  "Stikla pakete",
+  "76mm Trīskameru"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Apledes",
+  "Ir, pieliekamas alumīnija"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Ir"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
  ]
+],
+ "boston-ag-6122": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvas alumīnija līstes (vērtnes krāsā)"
+ ],
+ [
+  "Dizains",
+  "SU4 (ārpusē); SU4 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6132": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvas alumīnija līstes (vērtnes krāsā)"
+ ],
+ [
+  "Dizains",
+  "SU4 (ārpusē); M0 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6066": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūsējošais tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M0 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6103-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna), stikls Lakobel"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna), stikls Lakobel"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6045-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M16 (ārpusē); M17 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Stiklapakete",
+  "DG51, trīskameru, bronza/hroms (pēc izvēles) ar ieliekamu dekoratīvu resti krāsa melna"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6067": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūsējošais tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M0 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6067-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "Nav"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6123-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna), stikls Lakobel"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna), stikls Lakobel"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6119": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvas alumīnija līstes (vērtnes krasā), dekor. ieliktnis (krāsa melna/ner. tērauds)"
+ ],
+ [
+  "Dizains",
+  "SU1 (ārpusē); SU1 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG58, četrkameru, grafīts"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-nature-ag-6016-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M8 (ārpusē); M26 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6107": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūs.t.)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG295, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6066-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "Nav"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6010-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6015-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M4 (ārpusē); M5 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6046-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M1 (ārpusē); M19 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Stiklapakete",
+  "DG44, četrkameru, bronza/hroms"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6120-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG196, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6123": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvas alumīnija līstes (vērtnes krasā), dekor. ieliktnis (krāsa melna), stikls Lakobel"
+ ],
+ [
+  "Dizains",
+  "SU5 (ārpusē); SU5 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6041": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG22, trīskameru, grafīts/bronza (pēc izvēles) ar ieliekamu melnu resti krāsa melna"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6039": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūs.t.)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG25, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-nature-ag-6003-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M5 (ārpusē); M5 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6052": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūs.t.)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG25, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-nature-ag-6101-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M1 (ārpusē); M19 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Stiklapakete",
+  "DG44, četrkameru, bronza/hroms"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6030": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūs.t.)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG35, četrkameru, grafīts/bronza pēc izvēles"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6107-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG26, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6057-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "Nav"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6041-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M0 (ārpusē); M0 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG22, trīskameru, grafīts/bronza (pēc izvēles) ar ieliekamu melnu resti krāsa melna"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6030-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG35, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6154": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-nature-ag-6077-p-su": [
+ [
+  "Izmērs",
+  "960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M28 (ārpusē); M28 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Stiklapakete",
+  "DG40, četrkameru, bronza/hroms, uzliekams dekoratīvs kalums (krāsa pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6044-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M21 (ārpusē); M21 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Stiklapakete",
+  "DG67, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6014": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūs.t.)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG25, četrkameru, satīns"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6014-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG25, četrkameru, satīns"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6079-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M9 (ārpusē); M9 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6132-z": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvas alumīnija līstes no ārpuses (vērtnes krāsā), iekšpusē spogulis"
+ ],
+ [
+  "Dizains",
+  "SU4 (ārpusē); M0 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6033": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvas alumīnija līstes (vērtnes krasā), dekor. ieliktnis (krāsa melna/ner. tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG34, četrkameru, UV-zīmogs"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-nature-ag-6147-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M32 (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6103": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvas alumīnija līstes (vērtnes krasā), dekor. ieliktnis (krāsa melna), stikls Lakobel"
+ ],
+ [
+  "Dizains",
+  "SU5 (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6120": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvas alumīnija līstes (vērtnes krāsā) dekoratīvs ieliktnis (krāsa melna/nerūs.t.)"
+ ],
+ [
+  "Dizains",
+  "SU2 (ārpusē); SU2 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG196, četrkameru, grafīts"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6129-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG35, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6146-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M31 (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6116-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6115-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6020-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M9 (ārpusē); M13 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6034": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūs.t.)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG45, četrkameru, grafīts/bronza pēc izvēles"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6118-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6082-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "Nav"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6119-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6019-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M14 (ārpusē); M14 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6083-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "Nav"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6122-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "Nav"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-nature-ag-6018-p-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), alumīnija štapiks (klasiskais dizains)"
+ ],
+ [
+  "Dizains",
+  "M13 (ārpusē); M13 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 8",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Pava”, ovālas formas uzlikas, krāsa: hroma/zelta/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6121-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6132-z-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles), spogulis"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "Nav"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6039-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG25, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6117-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6036-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG45, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6132-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvie dēlīši (tonis pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "Nav"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6034-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG45, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6033-su": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no ārpuses",
+  "Cinkots tērauds, tonis no ārpuses no krāsu paletes DECOLUX, dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Vērtnes apdare no iekšpuses",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melns/nerūs.tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Nav"
+ ],
+ [
+  "Stiklapakete",
+  "DG34, četrkameru, UV-zīmogs"
+ ],
+ [
+  "Aplodes",
+  "Monolīta"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna"
+ ]
+],
+ "boston-ag-6036": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūs.t.)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG45, četrkameru, grafīts/bronza pēc izvēles"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6048": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles), dekoratīvs ieliktnis (krāsa melna/nerūs.t.)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG66, četrkameru, grafīts/bronza pēc izvēles"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Nav"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindru tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6057": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Cinkots tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)."
+ ],
+ [
+  "Dizains",
+  "M0 (ārpusē); M0 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085 vai «CBA» KD-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 10 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 11 (uz pasūtījumu)",
+  "slēdzeņu sistēma «CBA» KD-6085 (1 cilindra tipa slēdzene); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 12",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1200 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 13",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis «CBA» (1800 mm), uzlikas taisnstūrformas, nerūsejošais tērauds, krāsa nerūsējošs tērauds/melna"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6149": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasisks dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē);  M(iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG264, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6131": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs ieliktnis (krāsa:melna/nerūsējoša tērauda), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē);  M(iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG261, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6144": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasisks dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē);  M(iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG298, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6044": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasisks dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M21 (ārpusē); M21 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG67, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6002": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (neoklasisks dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M2 (ārpusē); M2 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG46, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6077": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M28 (ārpusē); M28 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG40, trīskameru"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6045": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M16 (ārpusē); M17 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG51, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6021": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (neoklasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M11neo (ārpusē); M11neo (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG44, četrkameru, bronza/grafīts pēc izvēles"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6023": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (neoklasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M12 (ārpusē); M12 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG43, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6101": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (neoklasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M1 (ārpusē); M19 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG44, četrkameru, bronza/grafīts pēc izvēles"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6155-z": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), spogulis, kapitēlija, dekors “Lauva” klauvēt durvis (krāsa melna), dekoratīva pastkastīte (krāsa melna/nerūsējošais tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Spogulis",
+  "Ir"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6046": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M18 (ārpusē); M18 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG50, trīskameru, spoguļ bronza/hroms pēc izvēles (ar ieliekamu melnu ieliktni dekoratīvu resti)"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-smart-ag1-652-s": [
+ [
+  "Izmēri",
+  "860×2050, 960×2050"
+ ],
+ [
+  "Kārbas biezums",
+  "97mm alumīnija kārba ar termopārrāvumu"
+ ],
+ [
+  "Vērtnes biezums",
+  "88mm"
+ ],
+ [
+  "Ārējā apdare",
+  "MDF 12mm krāsa – «Madeiras Ozols ar melnu patinu» Nr.96 / «Melns» Nr.97"
+ ],
+ [
+  "Iekšējā apdare",
+  "MDF 12mm krāsa – «Balts soft velvet» Nr.17"
+ ],
+ [
+  "Kārba krāsota divās krāsās",
+  "«Melna» no ārpuses / «Balta» no iekšpuses"
+ ],
+ [
+  "Vērtnes pildījums",
+  "Putupolistorols"
+ ],
+ [
+  "Eņģes",
+  "2gb.  ar 3D regulēšanu visos virzienos"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm 3gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "1 uz vērtnes / 1 uz kārbas"
+ ],
+ [
+  "Augšējā slēdzene",
+  "Pretuzlaužama «CBA»(cilindriska) ar krabja sistēmu"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar aizgriezni no iekšpuses"
+ ],
+ [
+  "Apakšējā slēdzene",
+  "«SL 2» (viedā – pirkstu nospieduma nolasītājs, Wi-Fi un bluetooth, aplikācija)"
+ ],
+ [
+  "Rokturis",
+  "Ar pirksta nospieduma nolasītāju no ārpuses"
+ ],
+ [
+  "Furnitūras krāsa",
+  "Melna"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav (augšējai slēdzenei ir aizgrieznis no iekšpuses)"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija bez krāsas"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-ag1-656-sp": [
+ [
+  "Izmēri",
+  "860×2050, 960×2050"
+ ],
+ [
+  "Kārbas biezums",
+  "97mm alumīnija kārba ar termopārrāvumu"
+ ],
+ [
+  "Vērtnes biezums",
+  "88mm"
+ ],
+ [
+  "Ārējā apdare",
+  "MDF 12mm krāsa – «Loft Melns» Nr.83 / Melna glancēta stikla ieliktnis"
+ ],
+ [
+  "Iekšējā apdare",
+  "MDF 12mm krāsa – «Balts soft velvet» Nr.17 / Melna glancēta stikla ieliktnis"
+ ],
+ [
+  "Kārba krāsota divās krāsās",
+  "«Melna» no ārpuses / «Balta» no iekšpuses"
+ ],
+ [
+  "Vērtnes pildījums",
+  "Putupolistorols"
+ ],
+ [
+  "Eņģes",
+  "2gb.  ar 3D regulēšanu visos virzienos"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm 3gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "1 uz vērtnes / 1 uz kārbas"
+ ],
+ [
+  "Augšējā slēdzene",
+  "Pretuzlaužama «CBA»(cilindriska) ar krabja sistēmu"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar aizgriezni no iekšpuses"
+ ],
+ [
+  "Apakšējā slēdzene",
+  "«PSL 1» (viedā – pirkstu nospieduma nolasītājs, FACE ID kamera, Wi-Fi un bluetooth, aplikācija)"
+ ],
+ [
+  "Rokturis",
+  "Ar pirksta nospieduma nolasītāju no ārpuses"
+ ],
+ [
+  "Furnitūras krāsa",
+  "Melna"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Ir (iestrādāts viedajā slēdzenē)"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija bez krāsas"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-ag-6155": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija, dekors “Lauva” klauvēt durvis (krāsa melna), atdure (krāsa melna), dekoratīva pastkastīte (krāsa melna)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6096": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija, dekors “Lauva” klauvēt durvis (krāsa melna, zelta, bronza)"
+ ],
+ [
+  "Dizains",
+  "M31 (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6145": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija, dekors “Lauva” klauvēt durvis (krāsa melna, zelta, bronza)"
+ ],
+ [
+  "Dizains",
+  "M34 (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6146": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M31 (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6147": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M32 (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6133-z": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), spogulis, kapitēlija, knob"
+ ],
+ [
+  "Dizains",
+  "M35 (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-smart-lux-ag-s6103": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). Dekoratīvas ieliktnis melns stikls Lakobel"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG, četrkameru, grafīts/bronza (pēc izveles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ]
+],
+ "boston-smart-lux-ag-s6139": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). Dekoratīvas ieliktnis melns stikls Lakobel"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG, četrkameru, UV zīmogs gradient"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ]
+],
+ "boston-smart-lux-ag-s6131": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna/zelta"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6144": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M21 (ārpusē); M21 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna/zelta"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6149": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG, trīskameru, bronza/hroms pēc izvēles ar ieliekamu dekoratīvu resti krāsa melna/zelta"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-ag-6079": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M9 (ārpusē); M9 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6017": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M6 (ārpusē); M27 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6027": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (neoklasisks dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M7neo (ārpusē); M3neo (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6026": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (neoklasisks dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M7neo (ārpusē); M10neo (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6133": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija, knob"
+ ],
+ [
+  "Dizains",
+  "M35 (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6025": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (neoklasisks dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M3neo (ārpusē); M3neo (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6016": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M8 (ārpusē); M26 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6019": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M14 (ārpusē); M14 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6020": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M9 (ārpusē); M13 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6024": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (neoklasisks dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M10neo (ārpusē); M10neo (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6018": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M13 (ārpusē); M13 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6015": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M4 (ārpusē); M5 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-ag-6003": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M5 (ārpusē); M5 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» KDL-6085"
+ ],
+ [
+  "Cilindrs",
+  "«CBA» ar termostieni aizgrieznim"
+ ],
+ [
+  "Uzlikas slēdzenēm",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Rokturis",
+  "Saskaņā ar komplektāciju (pēc izvēles), 2gb."
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ],
+ [
+  "Tips 14",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; furnitūras komplekts “Loft”, kvadrātformas uzlikas, krāsa: nerūsējoša tērauda/melna/bronza/zelta"
+ ],
+ [
+  "Tips 15",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1200mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ],
+ [
+  "Tips 16",
+  "slēdzeņu sistēma «CBA» KDL-6085 (2 cilindra tipa slēdzenes uz vienas plāksnes); cilindrs «CBA» ar termostieni aizgrieznim; mehāniskais sprūds ar dienas-nakts funkciju; skavas tipa rokturis “Loft” (1800mm), kvadrātformas uzlikas “Loft”, krāsa: melna"
+ ]
+],
+ "boston-smart-lux-ag-s6155-z": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), spogulis, kapitēlija, dekors “Lauva” klauvēt durvis (krāsa melna), dekoratīva pastkastīte (krāsa melna/nerūsējošais tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Spogulis",
+  "Ir"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6155": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija, dekors “Lauva” klauvēt durvis (krāsa melna), dekoratīva pastkastīte (krāsa melna/nerūsējošais tērauds)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6133-z": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), spogulis, kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Spogulis",
+  "Ir"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6133": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses un iekšpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6039": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). Dekoratīvas ieliktnis"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG25, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ]
+],
+ "boston-smart-lux-ag-s6010": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). Dekoratīvas ieliktnis"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG49, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ]
+],
+ "boston-smart-lux-ag-s6041": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles)."
+ ],
+ [
+  "Dizains",
+  "M0 (ārpusē); M0 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG22, trīskameru, bronza/hroms pēc izvēles, ar melnu ieliekamu dekoratīvo resti"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ]
+],
+ "boston-smart-lux-ag-s6123": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). Dekoratīvas alumīnija līstes, ieliktnis"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG, četrkameru, grafīts/bronza (pēc izvēles)"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ]
+],
+ "boston-smart-lux-ag-s6120": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). Dekoratīvas alumīnija līstes, ieliktnis"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG, četrkameru, grafīts"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ]
+],
+ "boston-smart-lux-ag-s6119": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). Dekoratīvas alumīnija līstes, ieliktnis"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG, četrkameru, grafīts"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ]
+],
+ "boston-smart-lux-ag-s6057": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvas alumīnija līstes (krāsa pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M0ārpusē); M0 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6132-z": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvas alumīnija līstes (krāsa pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Spogulis",
+  "Ir"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6132": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvas alumīnija līstes (krāsa pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6122": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvas alumīnija līstes (krāsa pēc izvēles)"
+ ],
+ [
+  "Dizains",
+  "M (ārpusē); M (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6044": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M21 (ārpusē); M21 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG67, trīskameru, spoguļ bronza/hroms pēc izvēles (ar ieliekamu melnu ieliktni dekoratīvu resti)"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ]
+],
+ "boston-smart-lux-ag-s6045": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M16 (ārpusē); M17 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG51, trīskameru, spoguļ bronza/hroms pēc izvēles (ar ieliekamu melnu ieliktni dekoratīvu resti)"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6046": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M18 (ārpusē); M18 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG50, trīskameru, spoguļ bronza/hroms pēc izvēles (ar ieliekamu melnu ieliktni dekoratīvu resti)"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6077": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M28 (ārpusē); M28 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Stiklapakete",
+  "DG40, četrkameru, bronza/hroms, uzliekams kalums (krāsa pēc izvēles)"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6027": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M7 (ārpusē); M3 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6024": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M10 (ārpusē); M10 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6018": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M13 (ārpusē); M13 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6016": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M8 (ārpusē); M26 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6003": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M5 (ārpusē); M5 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6079": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M9 (ārpusē); M9 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6147": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M32 (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6146": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija"
+ ],
+ [
+  "Dizains",
+  "M31 (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6145": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija, dekors “Lauva” klauvēt durvis (krāsa melna)"
+ ],
+ [
+  "Dizains",
+  "M32+L (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+],
+ "boston-smart-lux-ag-s6096": [
+ [
+  "Izmērs",
+  "860x2050mm / 960×2050mm"
+ ],
+ [
+  "Vēršanās virziens",
+  "Labais / Kreisais"
+ ],
+ [
+  "Biezums",
+  "vērtne – 97mm, kārba – 97mm"
+ ],
+ [
+  "Vērtnes apdare no abām pusēm",
+  "Tērauds, atmosfērizturīgs pulverkrāsojums (tonis pēc izvēles). No ārpuses dekoratīvs alumīnija štapiks (klasiskais dizains), kapitēlija, dekors “Lauva” klauvēt durvis (krāsa melna)"
+ ],
+ [
+  "Dizains",
+  "M31+L (ārpusē); M32 (iekšpusē)"
+ ],
+ [
+  "Krāsa",
+  "pret laikapstākļiem izturīga pulverkrāsa"
+ ],
+ [
+  "Slēdzeņu sistēma",
+  "«CBA» Biometriskā slēdzene CBA PSL2 ar Face ID"
+ ],
+ [
+  "Cilindrs",
+  "Biometriskās slēdzenes komplekta cilindrs, cilindrs papildus slēdzenei “CBA” ar termostieni"
+ ],
+ [
+  "Uzlika",
+  "Viedās slēdzenes uzlika, kvadrāta uzlika “LOFT” krāsa melna"
+ ],
+ [
+  "Fornitūra",
+  "Rokturis ar pirkstu nospieduma skeneri"
+ ],
+ [
+  "Eņģu pretnoņemamie aizsargi",
+  "16mm (3gb.)"
+ ],
+ [
+  "Eņģes",
+  "Divsekcionālas uzliekamas eņģes, 3D eņģu regulēšana visos virzienos, 2 gb."
+ ],
+ [
+  "Blīvējuma kontūru skaits",
+  "3 blīvējuma kontūru konstrukcija ar 2 blīvgumijām"
+ ],
+ [
+  "Dekoratīvā kapitēlija",
+  "Ir"
+ ],
+ [
+  "Aplodes",
+  "Monolītas"
+ ],
+ [
+  "Nakts aizbīdnis",
+  "Nav"
+ ],
+ [
+  "Slieksnis",
+  "Alumīnija slieksnis ar termopārrāvumu"
+ ],
+ [
+  "Actiņa",
+  "Ir"
+ ]
+]
 };
