@@ -738,6 +738,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
                 value={sort}
                 onChange={(e) => setParams({ kartot: e.target.value === "popular" ? "" : e.target.value })}
                 className="field h-10 w-auto py-0 text-[14px]"
+                style={{ border: "none", background: "var(--color-soft)" }}
               >
                 <option value="popular">{t(locale, "category.sortPopular")}</option>
                 <option value="cheap">{t(locale, "category.sortCheap")}</option>

@@ -95,11 +95,7 @@ export default function ProductCard({ product, bare = false }) {
 
   return (
     <div
-      className={`group relative flex h-full flex-col bg-white text-center ${
-        bare
-          ? ""
-          : "border border-[color:var(--color-line)] p-[15px] transition-colors duration-300 hover:border-[color:var(--color-line-strong)]"
-      }`}
+      className={`group relative flex h-full flex-col bg-white text-center ${bare ? "" : "p-[15px]"}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >

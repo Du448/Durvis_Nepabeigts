@@ -421,7 +421,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
               {/* A soft studio backdrop behind the photo - a flat white page
                   reads as a spec sheet, a faint gradient + shadow reads as a
                   photographed product. */}
-              <div className="relative border border-line bg-gradient-to-br from-[--color-soft] to-white p-4 shadow-[0_1px_28px_rgba(0,0,0,0.05)] sm:p-8">
+              <div className="relative bg-[--color-soft] p-4 sm:p-8">
                 {/* Wishlist / compare: icon-only, over the photo - the same
                     treatment ProductCard gives them on a catalogue tile,
                     instead of two more full-width buttons competing with
@@ -513,8 +513,8 @@ export default function ProductClient({ product, similar = [], configurator = nu
                 {images.map((src, idx) => (
                   <button
                     key={idx}
-                    className={`relative group aspect-square border overflow-hidden bg-white text-xs text-muted transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${
-                      idx === selectedIdx ? "border-[color:var(--color-accent)] ring-1 ring-[color:var(--color-accent)]" : "border-line"
+                    className={`relative group aspect-square overflow-hidden bg-[--color-soft] text-xs text-muted transition-all duration-200 hover:-translate-y-0.5 ${
+                      idx === selectedIdx ? "opacity-100 ring-1 ring-[color:var(--color-accent)]" : "opacity-60 hover:opacity-100"
                     }`}
                     onClick={() => { setSelectedIdx(idx); setActiveIdx(idx); }}
                     onMouseEnter={() => setActiveIdx(idx)}
@@ -603,24 +603,24 @@ export default function ProductClient({ product, similar = [], configurator = nu
                 <div className="mt-5">
                   <div className="text-sm text-muted mb-2">{t(locale, "product.colorLabel")}</div>
                   <div className="flex flex-wrap items-center gap-2 text-[15px] text-ink">
-                    <span className="border border-line px-3 py-1.5">{translateColorLabel(locale, product.colors[0])}</span>
+                    <span className="bg-[--color-soft] px-3 py-1.5">{translateColorLabel(locale, product.colors[0])}</span>
                     {product.colors[1] ? (
                       <>
                         <span className="text-muted">/</span>
-                        <span className="border border-line px-3 py-1.5">{translateColorLabel(locale, product.colors[1])}</span>
+                        <span className="bg-[--color-soft] px-3 py-1.5">{translateColorLabel(locale, product.colors[1])}</span>
                       </>
                     ) : null}
                     {product.collection === "BOSTON" ? null : configurator ? (
                       <Link
                         href={withLocaleHref(locale, `${paths.configurator}${configurator.colorQuery}`)}
-                        className="border border-[color:var(--color-accent)] px-3 py-1.5 text-[13px] font-semibold text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
+                        className="px-3 py-1.5 text-[13px] font-semibold text-[color:var(--color-accent)] underline underline-offset-4 transition-colors hover:text-[color:var(--color-title)]"
                       >
                         {t(locale, "product.changeShade")}
                       </Link>
                     ) : (
                       <Link
                         href={withLocaleHref(locale, `${paths.finishes}${finishesColorQuery(product)}`)}
-                        className="border border-[color:var(--color-accent)] px-3 py-1.5 text-[13px] font-semibold text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
+                        className="px-3 py-1.5 text-[13px] font-semibold text-[color:var(--color-accent)] underline underline-offset-4 transition-colors hover:text-[color:var(--color-title)]"
                       >
                         {t(locale, "product.changeShade")}
                       </Link>
@@ -734,7 +734,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
               </a>
 
               {/* Accordions */}
-              <div className="mt-6 divide-y divide-[--color-line] border border-line bg-white">
+              <div className="mt-6 divide-y divide-[--color-line]">
                 {/* Models with a facing worth explaining (the Termix range is
                     clad in Stronwood, not the usual moisture-resistant MDF)
                     get their own section right under the specification. */}

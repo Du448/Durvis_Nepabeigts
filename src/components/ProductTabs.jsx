@@ -8,7 +8,10 @@ import { getLocaleFromPathname, t } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
 import { imageProps } from "@/lib/images";
 import BostonColorPaletteGrid from "@/components/BostonColorPaletteGrid";
+import ManufacturerFeatureSection from "@/components/ManufacturerFeatureSection";
 import { buildSpecGroups } from "@/lib/product-specs";
+import { getBostonConstructionSections } from "@/data/boston-construction";
+import { decoluxStyles } from "@/data/decolux-colors";
 
 // One icon per spec group, matching the buy box's own accent-tinted icon
 // chips (ServiceBadge) so the two sections read as the same visual language.
@@ -49,14 +52,22 @@ export default function ProductTabs({ product, locks = [] }) {
   const sections = product?.description || [];
   const specGroups = product ? buildSpecGroups(product, (v) => trData(locale, v), (k) => t(locale, k)) : [];
 
+  const isBoston = product?.collection === "BOSTON";
+  const isSmartLux = Boolean(product?.id?.startsWith("boston-smart-lux"));
+  const bostonConstructionSections = getBostonConstructionSections(isSmartLux);
+
   const tabs = [
     sections.length ? { key: "description", label: t(locale, "product.tabDescription") } : null,
     specGroups.length ? { key: "specs", label: t(locale, "product.tabSpecs") } : null,
     locks.length ? { key: "locks", label: t(locale, "product.tabLocks") } : null,
-    product?.collection === "BOSTON" ? { key: "colors", label: t(locale, "product.bostonPalette") } : null,
+    ...(isBoston
+      ? bostonConstructionSections.map((section) => ({ key: section.key, label: t(locale, `product.${section.tabKey}`) }))
+      : []),
+    isBoston ? { key: "colors", label: t(locale, "product.bostonPalette") } : null,
   ].filter(Boolean);
 
   const [active, setActive] = useState(tabs[0]?.key || "description");
+  const [decoluxStyle, setDecoluxStyle] = useState(decoluxStyles[0].key);
 
   // The "all specifications" link in the buy box opens the table.
   useEffect(() => {
@@ -125,16 +136,63 @@ export default function ProductTabs({ product, locks = [] }) {
             <div className="mt-8 max-w-[900px]">
               <p className="mb-4 text-[15px] leading-[1.7] text-ink">{t(locale, "product.bostonPaletteIntro")}</p>
               <BostonColorPaletteGrid locale={locale} premiumLabel={t(locale, "product.bostonPalettePremium")} />
+
+              <div className="mt-10 border-t border-line pt-8">
+                <h3 className="text-[18px] font-medium text-[color:var(--color-title)]">{t(locale, "product.decoluxPalette")}</h3>
+                <p className="mb-4 mt-2 text-[15px] leading-[1.7] text-ink">{t(locale, "product.decoluxPaletteIntro")}</p>
+
+                <div role="tablist" className="mb-5 inline-flex gap-1 bg-[--color-soft] p-1">
+                  {decoluxStyles.map((style) => (
+                    <button
+                      key={style.key}
+                      type="button"
+                      role="tab"
+                      aria-selected={decoluxStyle === style.key}
+                      onClick={() => setDecoluxStyle(style.key)}
+                      className={`min-h-9 px-3.5 text-[13px] font-medium transition-colors duration-200 ${
+                        decoluxStyle === style.key
+                          ? "bg-white text-[color:var(--color-title)] shadow-sm"
+                          : "text-muted hover:text-ink"
+                      }`}
+                    >
+                      {t(locale, `product.${style.labelKey}`)}
+                    </button>
+                  ))}
+                </div>
+
+                <BostonColorPaletteGrid
+                  key={decoluxStyle}
+                  locale={locale}
+                  items={decoluxStyles.find((s) => s.key === decoluxStyle).items}
+                />
+                <p className="mt-4 text-[13px] leading-[1.6] text-muted">{t(locale, "product.decoluxPaletteNote")}</p>
+              </div>
             </div>
-          ) : (
+          ) : bostonConstructionSections.some((section) => section.key === active) ? (
+            (() => {
+              const section = bostonConstructionSections.find((s) => s.key === active);
+              return (
+                <div className="mt-8">
+                  <ManufacturerFeatureSection
+                    heading={t(locale, `product.${section.headingKey}`)}
+                    subtitle={t(locale, `product.${section.subtitleKey}`)}
+                    note={section.noteKey ? t(locale, `product.${section.noteKey}`) : undefined}
+                    banner={section.banner}
+                    slides={section.slides.map((slide) => ({ image: slide.image, caption: t(locale, `product.${slide.captionKey}`) }))}
+                    prevLabel={t(locale, "product.previous")}
+                    nextLabel={t(locale, "product.next")}
+                    closeLabel={t(locale, "product.close")}
+                    zoomLabel={t(locale, "product.zoomIn")}
+                  />
+                </div>
+              );
+            })()
+          ) : active === "specs" ? (
             <div className="mt-8 grid gap-5 lg:grid-cols-2">
               {specGroups.map((group) => {
                 const Icon = SPEC_GROUP_ICONS[group.key] || ListChecks;
                 return (
-                  <div
-                    key={group.key}
-                    className="border border-line border-l-[3px] border-l-[color:var(--color-accent)] bg-white p-5 shadow-[0_1px_10px_rgba(0,0,0,0.03)] transition-shadow duration-200 hover:shadow-[0_6px_24px_rgba(0,0,0,0.07)] sm:p-6"
-                  >
+                  <div key={group.key} className="p-5 sm:p-6">
                     <div className="mb-4 flex items-center gap-3 border-b border-line pb-3">
                       <span className="flex h-9 w-9 shrink-0 items-center justify-center bg-[color:var(--color-accent)]/10 text-[color:var(--color-accent)]">
                         <Icon size={17} />
@@ -148,7 +206,7 @@ export default function ProductTabs({ product, locks = [] }) {
                 );
               })}
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     </section>
