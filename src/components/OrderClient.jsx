@@ -10,10 +10,47 @@ import { paths } from "@/lib/routes";
 import { useCartItems } from "@/lib/useCartItems";
 import { clearCart } from "@/lib/cart";
 import { serviceLabels } from "@/lib/order-options";
-import { formatPrice } from "@/lib/product-utils";
+import { formatPrice, linePrice } from "@/lib/product-utils";
+import { bostonHardwareOptions } from "@/data/boston-hardware";
+import { bostonColorPalette } from "@/data/boston-colors";
+import { bostonWidthBrackets, bostonHeightBrackets } from "@/data/boston-size-brackets";
+import { bostonGlassColors } from "@/data/boston-glass-colors";
 import { imageProps } from "@/lib/images";
 import { mainPhone, company } from "@/lib/site";
 import { scrollBehavior } from "@/lib/motion";
+
+// A cart line's hardware-type choice, translated for display - "" when the
+// product has no hardware options or none was picked.
+function hardwareTypeLabel(product, line, locale) {
+  const opt = bostonHardwareOptions[product?.id]?.find((o) => o.key === line?.hardwareType);
+  return opt ? t(locale, `product.${opt.labelKey}`) : "";
+}
+
+// A cart line's colour-tone choice, translated for display - "" when none
+// was picked (only made-to-order Boston models carry this field at all).
+function colorToneLabel(line, locale) {
+  const sw = bostonColorPalette.find((c) => c.ral === line?.colorTone);
+  return sw ? sw.name[locale] || sw.name.lv : "";
+}
+
+// A cart line's non-standard-size choice, translated for display - "" when
+// the shopper didn't opt into a custom size.
+function customSizeLabel(line, locale) {
+  if (!line?.customSize) return "";
+  const width = bostonWidthBrackets.find((b) => b.key === line.widthBracket);
+  const height = bostonHeightBrackets.find((b) => b.key === line.heightBracket);
+  return [width, height]
+    .filter(Boolean)
+    .map((b) => t(locale, `product.${b.labelKey}`))
+    .join(", ");
+}
+
+// A cart line's glass-tint choice, translated for display - "" when none
+// was picked.
+function glassToneLabel(line, locale) {
+  const sw = bostonGlassColors.find((g) => g.key === line?.glassTone);
+  return sw ? t(locale, `product.${sw.labelKey}`) : "";
+}
 
 /* Order checkout, modelled on rdveikals.lv's /order page: one page, two
    numbered sections (customer details, delivery), an order summary beside
@@ -82,9 +119,13 @@ export default function OrderClient() {
               ? t(locale, line.direction === "right" ? "product.directionRight" : "product.directionLeft")
               : "",
             qty: line.qty,
-            price: formatPrice(product, product.price * line.qty),
+            price: formatPrice(product, linePrice(product, line) * line.qty),
             services: serviceLabels(line.services, t, locale).join(", "),
             jambColor: line.jambColor || "",
+            hardwareType: hardwareTypeLabel(product, line, locale),
+            colorTone: colorToneLabel(line, locale),
+            customSize: customSizeLabel(line, locale),
+            glassTone: glassToneLabel(line, locale),
             url: `${window.location.origin}${withLocaleHref(locale, paths.product(product.id))}`,
           })),
           subtotal: formatPrice({ currency: "EUR" }, subtotal),
@@ -411,7 +452,16 @@ export default function OrderClient() {
               const directionLabel = line.direction
                 ? t(locale, line.direction === "right" ? "product.directionRight" : "product.directionLeft")
                 : "";
-              const chips = [line.size, directionLabel].filter(Boolean).join(" · ");
+              const chips = [
+                line.size,
+                directionLabel,
+                hardwareTypeLabel(product, line, locale),
+                colorToneLabel(line, locale),
+                customSizeLabel(line, locale),
+                glassToneLabel(line, locale),
+              ]
+                .filter(Boolean)
+                .join(" · ");
               return (
                 <li key={line.lineId} className="flex gap-3">
                   <div className="relative h-14 w-14 shrink-0 overflow-hidden bg-[--color-soft]">
@@ -433,7 +483,7 @@ export default function OrderClient() {
                     </p>
                     {chips ? <p className="text-[12px] text-muted">{chips}</p> : null}
                   </div>
-                  <span className="shrink-0 text-[13px] font-medium text-ink">{formatPrice(product, product.price * line.qty)}</span>
+                  <span className="shrink-0 text-[13px] font-medium text-ink">{formatPrice(product, linePrice(product, line) * line.qty)}</span>
                 </li>
               );
             })}

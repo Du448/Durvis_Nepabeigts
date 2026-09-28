@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname } from "@/lib/i18n";
 import { readCart } from "@/lib/cart";
+import { linePrice } from "@/lib/product-utils";
 
 /* Shared by the cart page and the order page: reads the cart's lines from
    localStorage, then fetches the products they point at from /api/products -
@@ -49,7 +50,7 @@ export function useCartItems() {
       .filter(Boolean);
   }, [loaded, lines, result]);
 
-  const subtotal = items.reduce((sum, { product, line }) => sum + product.price * line.qty, 0);
+  const subtotal = items.reduce((sum, { product, line }) => sum + linePrice(product, line) * line.qty, 0);
   const itemCount = items.reduce((sum, { line }) => sum + line.qty, 0);
 
   return { loaded, items, subtotal, itemCount };

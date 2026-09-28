@@ -51,21 +51,23 @@ export default function ProductCard({ product, bare = false }) {
   }, [product.id]);
 
   const hasOffer = product.oldPrice != null && product.oldPrice > product.price;
-  /* One badge per card, the most useful one: a deal beats "new", which beats
-     the stock label. Stacked badges covered the photo and read as noise. */
+  /* One badge per card, the most useful one: a deal beats "made to order"
+     (the customer needs that lead-time signal more than a "new" tag), which
+     beats "new", which beats the plain stock label. Stacked badges covered
+     the photo and read as noise. */
   const badge = hasOffer
     ? { text: t(locale, "product.offerBadge"), className: "bg-[color:var(--color-accent)] text-white" }
-    : product.isNew
-      ? { text: t(locale, "product.newBadge"), className: "bg-[color:var(--color-title)] text-white" }
-      : product.stock === "factory"
-        ? {
-            text: t(locale, "product.inStockFactory"),
-            className: "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]",
-          }
-        : product.stock === "order"
+    : product.stock === "order"
+      ? {
+          text: t(locale, "product.toOrder"),
+          className: "bg-[color:var(--color-stock-order-soft)] text-[color:var(--color-stock-order)]",
+        }
+      : product.isNew
+        ? { text: t(locale, "product.newBadge"), className: "bg-[color:var(--color-title)] text-white" }
+        : product.stock === "factory"
           ? {
-              text: t(locale, "product.toOrder"),
-              className: "bg-[color:var(--color-stock-order-soft)] text-[color:var(--color-stock-order)]",
+              text: t(locale, "product.inStockFactory"),
+              className: "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]",
             }
           : product.stock
             ? { text: t(locale, "product.inStock"), className: "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]" }

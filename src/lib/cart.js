@@ -29,6 +29,12 @@ function sameConfig(a, b) {
     (a.size || "") === (b.size || "") &&
     (a.direction || "") === (b.direction || "") &&
     (a.jambColor || "") === (b.jambColor || "") &&
+    (a.hardwareType || "") === (b.hardwareType || "") &&
+    (a.colorTone || "") === (b.colorTone || "") &&
+    (a.glassTone || "") === (b.glassTone || "") &&
+    !!a.customSize === !!b.customSize &&
+    (a.widthBracket || "") === (b.widthBracket || "") &&
+    (a.heightBracket || "") === (b.heightBracket || "") &&
     [...(a.services || [])].sort().join(",") === [...(b.services || [])].sort().join(",")
   );
 }

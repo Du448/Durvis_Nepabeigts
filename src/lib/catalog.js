@@ -14,6 +14,7 @@ export function toCard(product, locale) {
     id: product.id,
     name: trData(locale, product.name),
     collection: product.collection || "",
+    stockSource: product.stockSource || "",
     category: product.category,
     price: product.price,
     oldPrice: product.oldPrice ?? null,

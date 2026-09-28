@@ -58,20 +58,46 @@ export const bostonSmartHardwareSection = {
   ],
 };
 
+export const bostonGlassSection = {
+  key: "glass",
+  tabKey: "tabGlass",
+  headingKey: "glassHeading",
+  subtitleKey: "glassSubtitle",
+  noteKey: "glassNote",
+  banner: `${IMG}/glass-triplex-banner.jpg`,
+  slides: [
+    { image: `${IMG}/17-stikls-polotne.jpg`, captionKey: "glassCap1" },
+    { image: `${IMG}/18-stikls-panoram.jpg`, captionKey: "glassCap2" },
+    { image: `${IMG}/glass-bronza.jpg`, captionKey: "glassCap3" },
+    { image: `${IMG}/glass-hroms.jpg`, captionKey: "glassCap4" },
+    { image: `${IMG}/glass-bronza-restots.jpg`, captionKey: "glassCap5" },
+    { image: `${IMG}/glass-satins.jpg`, captionKey: "glassCap6" },
+    { image: `${IMG}/glass-grafits.jpg`, captionKey: "glassCap7" },
+    { image: `${IMG}/glass-hroms-restots.jpg`, captionKey: "glassCap8" },
+  ],
+};
+
 export const bostonCustomSizeSection = {
   key: "customSize",
   tabKey: "tabCustomSize",
   headingKey: "customSizeHeading",
   subtitleKey: "customSizeSubtitle",
-  banner: `${IMG}/11-nestandarta-lifestyle.jpg`,
+  noteKey: "customSizeNote",
+  banner: `${IMG}/size-lifestyle-banner.jpg`,
   slides: [
-    { image: `${IMG}/17-stikls-polotne.jpg`, captionKey: "customSizeCap1" },
-    { image: `${IMG}/18-stikls-panoram.jpg`, captionKey: "customSizeCap2" },
+    { image: `${IMG}/size-single-leaf.jpg`, captionKey: "customSizeCap1" },
+    { image: `${IMG}/size-double-leaf.jpg`, captionKey: "customSizeCap2" },
+    { image: `${IMG}/size-active-leaf.jpg`, captionKey: "customSizeCap3" },
   ],
 };
 
 /* Assembled per-product: pass `isSmartLux` (product.id starts with
    "boston-smart-lux") to swap in the biometric-lock hardware tab. */
 export function getBostonConstructionSections(isSmartLux) {
-  return [bostonConstructionSection, isSmartLux ? bostonSmartHardwareSection : bostonHardwareSection, bostonCustomSizeSection];
+  return [
+    bostonConstructionSection,
+    isSmartLux ? bostonSmartHardwareSection : bostonHardwareSection,
+    bostonGlassSection,
+    bostonCustomSizeSection,
+  ];
 }

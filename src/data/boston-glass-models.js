@@ -1,0 +1,57 @@
+/* Which made-to-order Boston models actually have a glass package in their
+   door leaf ("Stiklapakete"/"Стеклопакет" in the manufacturer's price
+   sheets - most models list "Nav"/"Нет" there, a few list an actual glass
+   spec like "DG49, četrkameru, grafīts/bronza pēc izvēles"). The catalogue's
+   own `glass` field doesn't track this (it's unset for nearly everything,
+   including several of the ids below), so the glass-tint picker on the
+   product page (see @/data/boston-glass-colors) is gated on this list
+   instead, cross-checked sheet by sheet against products.js at build time
+   the same way @/data/boston-hardware's prices were. */
+export const bostonGlassModelIds = new Set([
+  "boston-ag-6002",
+  "boston-ag-6010-su",
+  "boston-ag-6014",
+  "boston-ag-6014-su",
+  "boston-ag-6021",
+  "boston-ag-6023",
+  "boston-ag-6030",
+  "boston-ag-6030-su",
+  "boston-ag-6033",
+  "boston-ag-6033-su",
+  "boston-ag-6034",
+  "boston-ag-6034-su",
+  "boston-ag-6036",
+  "boston-ag-6036-su",
+  "boston-ag-6039",
+  "boston-ag-6039-su",
+  "boston-ag-6041",
+  "boston-ag-6044",
+  "boston-ag-6045",
+  "boston-ag-6046",
+  "boston-ag-6048",
+  "boston-ag-6052",
+  "boston-ag-6077",
+  "boston-ag-6101",
+  "boston-ag-6103",
+  "boston-ag-6107",
+  "boston-ag-6107-su",
+  "boston-ag-6115-su",
+  "boston-ag-6116-su",
+  "boston-ag-6117-su",
+  "boston-ag-6118-su",
+  "boston-ag-6119",
+  "boston-ag-6120",
+  "boston-ag-6121-su",
+  "boston-ag-6123",
+  "boston-ag-6129-su",
+  "boston-ag-6131",
+  "boston-ag-6144",
+  "boston-ag-6149",
+  "boston-ag-6154",
+  "boston-nature-ag-6041-p-su",
+  "boston-nature-ag-6044-p-su",
+  "boston-nature-ag-6045-p-su",
+  "boston-nature-ag-6046-p-su",
+  "boston-nature-ag-6077-p-su",
+  "boston-nature-ag-6101-p-su",
+]);

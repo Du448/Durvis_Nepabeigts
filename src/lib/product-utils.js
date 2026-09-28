@@ -2,6 +2,48 @@
    so client components can use them without pulling the whole catalogue into
    the browser bundle. */
 
+import { bostonHardwareOptions } from "@/data/boston-hardware";
+import { bostonColorPalette } from "@/data/boston-colors";
+import { bostonWidthBrackets, bostonHeightBrackets } from "@/data/boston-size-brackets";
+
+export function isBostonOrder(product) {
+  return product?.collection === "BOSTON" && product?.stockSource === "order";
+}
+
+/* Every made-to-order Boston model can additionally be painted in a premium
+   palette colour (+10%) and/or ordered in a non-standard single-leaf size
+   (see @/data/boston-size-brackets) - both flat percentage surcharges the
+   manufacturer's price sheet adds on top of whatever price the door already
+   has (base or hardware-type price), summed and applied once, the same way
+   the sheet's own worked examples combine a height + width surcharge. */
+export function bostonSurchargePct(product, line) {
+  if (!isBostonOrder(product)) return 0;
+  const color = bostonColorPalette.find((c) => c.ral === line?.colorTone);
+  let pct = color?.premium ? 10 : 0;
+  if (line?.customSize) {
+    const width = bostonWidthBrackets.find((b) => b.key === line.widthBracket);
+    const height = bostonHeightBrackets.find((b) => b.key === line.heightBracket);
+    pct += (width?.pct || 0) + (height?.pct || 0);
+  }
+  return pct;
+}
+
+/* A cart/order line's actual unit price: for made-to-order Boston models with
+   a hardware-type choice (see @/data/boston-hardware), that choice's own
+   price - which is the model's whole retail price with that hardware, not a
+   surcharge - otherwise just the product's catalogue price; then the Boston
+   colour/size surcharge (if any) on top. Cart lines only ever store the
+   choice keys the shopper picked, not their resulting price, so every place
+   that shows a line total re-derives it through here rather than trusting a
+   stale number written at add-to-cart time. */
+export function linePrice(product, line) {
+  const options = bostonHardwareOptions[product?.id];
+  const selected = options?.find((opt) => opt.key === line?.hardwareType);
+  const base = selected ? selected.price : product?.price;
+  const pct = bostonSurchargePct(product, line);
+  return pct ? Math.round(base * (1 + pct / 100)) : base;
+}
+
 /* Categories whose models are kept in stock. Per-product overrides are
    possible via an explicit `inStock` field on the product. */
 export const IN_STOCK_CATEGORIES = ["ardurvis-dzivoklim", "ardurvis-privatmajai", "ieksdurvis"];

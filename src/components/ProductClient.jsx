@@ -8,7 +8,7 @@ import AccordionItem from "@/components/anim/AccordionItem";
 import ProductTabs, { SPECS_ANCHOR, OPEN_SPECS_EVENT } from "@/components/ProductTabs";
 import MagneticButton from "@/components/anim/MagneticButton";
 import RevealGrid from "@/components/anim/RevealGrid";
-import { isInStock, stockKind, formatPrice } from "@/lib/product-utils";
+import { isInStock, stockKind, formatPrice, isBostonOrder, linePrice } from "@/lib/product-utils";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
@@ -17,6 +17,11 @@ import { isWishlisted, toggleWishlistId } from "@/lib/wishlist";
 import { isCompared, toggleCompareId } from "@/lib/compare";
 import { addToCart } from "@/lib/cart";
 import { finishesColorQuery } from "@/lib/finishesLink";
+import { bostonHardwareOptions } from "@/data/boston-hardware";
+import { bostonColorPalette } from "@/data/boston-colors";
+import { bostonWidthBrackets, bostonHeightBrackets } from "@/data/boston-size-brackets";
+import { bostonGlassColors } from "@/data/boston-glass-colors";
+import { bostonGlassModelIds } from "@/data/boston-glass-models";
 import { paths } from "@/lib/routes";
 import { imageProps } from "@/lib/images";
 import { scrollBehavior } from "@/lib/motion";
@@ -241,6 +246,28 @@ export default function ProductClient({ product, similar = [], configurator = nu
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [activeSize, setActiveSize] = useState(product?.sizes?.[0] || "");
   const [activeDirection, setActiveDirection] = useState(product?.directions?.[0] || "");
+  // Made-to-order Boston models price per hardware TYPE rather than a single
+  // catalogue price (see @/data/boston-hardware) - defaults to the first,
+  // cheapest option, which also happens to be the catalogue's own base price.
+  const hardwareOptions = bostonHardwareOptions[product?.id] || null;
+  const [hardwareType, setHardwareType] = useState(hardwareOptions?.[0]?.key ?? null);
+  const selectedHardware = hardwareOptions?.find((opt) => opt.key === hardwareType) ?? null;
+  // Every made-to-order Boston model can also be painted in a premium palette
+  // colour (+10%) and/or ordered oversized (+a height/width surcharge) - both
+  // flat percentages the manufacturer's price sheet adds on top of whatever
+  // price the door already has (see bostonSurchargePct in product-utils).
+  const bostonOrder = isBostonOrder(product);
+  const [colorTone, setColorTone] = useState(bostonOrder ? bostonColorPalette[0].ral : null);
+  const [customSize, setCustomSize] = useState(false);
+  const [widthBracket, setWidthBracket] = useState(bostonWidthBrackets[0].key);
+  const [heightBracket, setHeightBracket] = useState(bostonHeightBrackets[0].key);
+  const selectedColor = bostonColorPalette.find((c) => c.ral === colorTone) ?? null;
+  // A panoramic-glazing tint choice, same as jamb colour - informational for
+  // the shop, not priced (the sheet lists this palette with no surcharge).
+  // Only offered for models whose own price sheet lists an actual glass
+  // package - see @/data/boston-glass-models.
+  const hasGlass = bostonGlassModelIds.has(product?.id);
+  const [glassTone, setGlassTone] = useState(null);
   // Exact per-size(/side) warehouse count, when the warehouse sync has
   // linked this product to a warehouse code - undefined (not 0) means "no
   // data at all for this product", so the UI stays silent rather than
@@ -372,6 +399,12 @@ export default function ProductClient({ product, similar = [], configurator = nu
       direction: activeDirection,
       services: selectedServiceCodes,
       jambColor,
+      hardwareType,
+      colorTone,
+      glassTone,
+      customSize,
+      widthBracket: customSize ? widthBracket : null,
+      heightBracket: customSize ? heightBracket : null,
     });
     window.dispatchEvent(
       new CustomEvent("cart:added", {
@@ -395,6 +428,13 @@ export default function ProductClient({ product, similar = [], configurator = nu
   }
 
   const hasOffer = product.oldPrice != null && product.oldPrice > product.price;
+  const displayPrice = linePrice(product, {
+    hardwareType,
+    colorTone,
+    customSize,
+    widthBracket: customSize ? widthBracket : null,
+    heightBracket: customSize ? heightBracket : null,
+  });
   const discount = hasOffer ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
   /* The catalogue stores names, specification rows and description copy in
      Latvian; the page's dictionary (DictProvider) renders them in its language. */
@@ -595,7 +635,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
                 {hasOffer ? (
                   <>
                     <span className="text-[32px] font-semibold leading-none text-[color:var(--color-accent)] sm:text-[38px]">
-                      {formatPrice(product)}
+                      {formatPrice(product, displayPrice)}
                     </span>
                     <span className="text-[16px] text-muted line-through">{formatPrice(product, product.oldPrice)}</span>
                     <span className="inline-flex items-center bg-[color:var(--color-accent)] px-2 py-0.5 text-[12px] font-bold leading-none text-white">
@@ -604,10 +644,178 @@ export default function ProductClient({ product, similar = [], configurator = nu
                   </>
                 ) : (
                   <span className="text-[32px] font-semibold leading-none text-[color:var(--color-accent)] sm:text-[38px]">
-                    {formatPrice(product)}
+                    {formatPrice(product, displayPrice)}
                   </span>
                 )}
               </div>
+
+              {/* Hardware type (made-to-order Boston models only): each
+                  option is the model's whole retail price with that lock +
+                  handle set, not an add-on delta - see @/data/boston-hardware. */}
+              {hardwareOptions ? (
+                <div className="mt-5">
+                  <div className="text-sm text-muted mb-2">{t(locale, "product.hardwareTypeLabel")}</div>
+                  <div className="divide-y divide-[--color-line] border border-line bg-white">
+                    {hardwareOptions.map((opt) => (
+                      <button
+                        key={opt.key}
+                        type="button"
+                        role="radio"
+                        aria-checked={hardwareType === opt.key}
+                        onClick={() => setHardwareType(opt.key)}
+                        className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-[--color-soft]"
+                      >
+                        <span
+                          className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border ${
+                            hardwareType === opt.key ? "border-[color:var(--color-accent)]" : "border-[color:var(--color-muted)]/60"
+                          }`}
+                        >
+                          {hardwareType === opt.key ? <span className="h-2.5 w-2.5 rounded-full bg-[color:var(--color-accent)]" /> : null}
+                        </span>
+                        <span className="flex-1 text-[15px] text-ink">{t(locale, `product.${opt.labelKey}`)}</span>
+                        <span className="shrink-0 font-medium text-[color:var(--color-title)]">{formatPrice(product, opt.price)}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
+              {/* Colour tone (made-to-order Boston models only): the full
+                  palette from @/data/boston-colors: three shades carry a
+                  +10% surcharge, applied on top of whatever price the door
+                  already has. */}
+              {bostonOrder ? (
+                <div className="mt-5">
+                  <div className="text-sm text-muted mb-2">{t(locale, "product.colorToneLabel")}</div>
+                  <div className="flex flex-wrap gap-2.5">
+                    {bostonColorPalette.map((sw) => (
+                      <button
+                        key={sw.ral}
+                        type="button"
+                        role="radio"
+                        aria-checked={colorTone === sw.ral}
+                        title={`${sw.name[locale] || sw.name.lv}${sw.premium ? ` (${t(locale, "product.bostonPalettePremium")})` : ""}`}
+                        onClick={() => setColorTone(sw.ral)}
+                        className={`relative h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 transition-colors ${
+                          colorTone === sw.ral ? "border-[color:var(--color-accent)]" : "border-transparent"
+                        }`}
+                      >
+                        <span className="absolute inset-0.5 rounded-full ring-1 ring-black/10" style={{ backgroundColor: sw.hex }} />
+                        {sw.premium ? (
+                          <span className="absolute -right-0.5 -top-0.5 rounded-full bg-white px-1 text-[9px] font-semibold leading-tight text-[color:var(--color-accent)] shadow-sm">
+                            +10%
+                          </span>
+                        ) : null}
+                      </button>
+                    ))}
+                  </div>
+                  {selectedColor ? (
+                    <p className="mt-2 text-[13px] text-muted">
+                      {selectedColor.name[locale] || selectedColor.name.lv}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
+
+              {/* Non-standard size (made-to-order Boston models only, single
+                  leaf): a flat height + width surcharge from
+                  @/data/boston-size-brackets, applied on top of whatever
+                  price the door already has. Anything beyond these brackets
+                  (double-leaf, side-lights, toplights) still goes through
+                  "Pieprasīt piedāvājumu". */}
+              {bostonOrder ? (
+                <div className="mt-5">
+                  <label className="flex items-center gap-2 text-sm text-ink">
+                    <input
+                      type="checkbox"
+                      checked={customSize}
+                      onChange={(e) => setCustomSize(e.target.checked)}
+                      className="h-4 w-4 accent-[color:var(--color-accent)]"
+                    />
+                    {t(locale, "product.customSizeLabel")}
+                  </label>
+                  {customSize ? (
+                    <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                      <div>
+                        <label htmlFor="product-width-bracket" className="block text-sm text-muted mb-2">
+                          {t(locale, "product.widthBracketLabel")}
+                        </label>
+                        <select
+                          id="product-width-bracket"
+                          value={widthBracket}
+                          onChange={(e) => setWidthBracket(e.target.value)}
+                          className="field"
+                        >
+                          {bostonWidthBrackets.map((b) => (
+                            <option key={b.key} value={b.key}>
+                              {t(locale, `product.${b.labelKey}`)}
+                              {b.pct ? ` (+${b.pct}%)` : ""}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                      <div>
+                        <label htmlFor="product-height-bracket" className="block text-sm text-muted mb-2">
+                          {t(locale, "product.heightBracketLabel")}
+                        </label>
+                        <select
+                          id="product-height-bracket"
+                          value={heightBracket}
+                          onChange={(e) => setHeightBracket(e.target.value)}
+                          className="field"
+                        >
+                          {bostonHeightBrackets.map((b) => (
+                            <option key={b.key} value={b.key}>
+                              {t(locale, `product.${b.labelKey}`)}
+                              {b.pct ? ` (+${b.pct}%)` : ""}
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
+              ) : null}
+
+              {/* Glass tint (made-to-order Boston models whose own price
+                  sheet lists a real glass package only): the same
+                  panoramic-glazing palette shown read-only in the
+                  "Stiklojums" tab (see @/data/boston-glass-colors) - free,
+                  informational for the shop, same as jamb colour. */}
+              {bostonOrder && hasGlass ? (
+                <div className="mt-5">
+                  <div className="text-sm text-muted mb-2">{t(locale, "product.glassToneLabel")}</div>
+                  <div className="flex flex-wrap gap-2.5">
+                    {bostonGlassColors.map((sw) => (
+                      <button
+                        key={sw.key}
+                        type="button"
+                        role="radio"
+                        aria-checked={glassTone === sw.key}
+                        title={t(locale, `product.${sw.labelKey}`)}
+                        onClick={() => setGlassTone((prev) => (prev === sw.key ? null : sw.key))}
+                        className={`relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 transition-colors ${
+                          glassTone === sw.key ? "border-[color:var(--color-accent)]" : "border-transparent"
+                        }`}
+                      >
+                        <Image
+                          src={sw.image}
+                          alt={t(locale, `product.${sw.labelKey}`)}
+                          fill
+                          sizes="48px"
+                          {...imageProps(sw.image)}
+                          className="rounded-full object-cover ring-1 ring-black/10"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                  {glassTone ? (
+                    <p className="mt-2 text-[13px] text-muted">
+                      {t(locale, `product.${bostonGlassColors.find((sw) => sw.key === glassTone).labelKey}`)}
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
 
               {/* Colors (display only: exterior / interior) */}
               {product.colors?.length ? (
@@ -720,7 +928,13 @@ export default function ProductClient({ product, similar = [], configurator = nu
                       selectedServiceCodes.length
                         ? `&pakalpojumi=${encodeURIComponent(selectedServiceCodes.join(","))}`
                         : ""
-                    }${jambColor ? `&apdareKrasa=${encodeURIComponent(jambColor)}` : ""}`
+                    }${jambColor ? `&apdareKrasa=${encodeURIComponent(jambColor)}` : ""}${
+                      hardwareType ? `&furnitura=${encodeURIComponent(hardwareType)}` : ""
+                    }${bostonOrder && colorTone ? `&tonis=${encodeURIComponent(colorTone)}` : ""}${
+                      customSize
+                        ? `&platums=${encodeURIComponent(widthBracket)}&augstums=${encodeURIComponent(heightBracket)}`
+                        : ""
+                    }${glassTone ? `&stikls=${encodeURIComponent(glassTone)}` : ""}`
                   )}
                   className="btn btn-outline-dark transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
                 >

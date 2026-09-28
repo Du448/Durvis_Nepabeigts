@@ -9,7 +9,11 @@ import { paths } from "@/lib/routes";
 import { updateCartQty, removeCartLine, clearCart } from "@/lib/cart";
 import { useCartItems } from "@/lib/useCartItems";
 import { serviceLabels } from "@/lib/order-options";
-import { formatPrice } from "@/lib/product-utils";
+import { formatPrice, linePrice } from "@/lib/product-utils";
+import { bostonHardwareOptions } from "@/data/boston-hardware";
+import { bostonColorPalette } from "@/data/boston-colors";
+import { bostonWidthBrackets, bostonHeightBrackets } from "@/data/boston-size-brackets";
+import { bostonGlassColors } from "@/data/boston-glass-colors";
 import { imageProps } from "@/lib/images";
 
 /* Cart page, following the same client-reads-localStorage-then-fetches-cards
@@ -84,7 +88,22 @@ function CartLine({ line, product, locale }) {
   const directionLabel = line.direction
     ? t(locale, line.direction === "right" ? "product.directionRight" : "product.directionLeft")
     : "";
-  const chips = [line.size, directionLabel, line.jambColor, ...services].filter(Boolean);
+  const hardwareLabel = bostonHardwareOptions[product.id]?.find((opt) => opt.key === line.hardwareType);
+  const colorLabel = bostonColorPalette.find((c) => c.ral === line.colorTone);
+  const widthLabel = line.customSize ? bostonWidthBrackets.find((b) => b.key === line.widthBracket) : null;
+  const heightLabel = line.customSize ? bostonHeightBrackets.find((b) => b.key === line.heightBracket) : null;
+  const glassLabel = bostonGlassColors.find((g) => g.key === line.glassTone);
+  const chips = [
+    line.size,
+    directionLabel,
+    line.jambColor,
+    hardwareLabel ? t(locale, `product.${hardwareLabel.labelKey}`) : null,
+    colorLabel ? colorLabel.name[locale] || colorLabel.name.lv : null,
+    widthLabel ? t(locale, `product.${widthLabel.labelKey}`) : null,
+    heightLabel ? t(locale, `product.${heightLabel.labelKey}`) : null,
+    glassLabel ? t(locale, `product.${glassLabel.labelKey}`) : null,
+    ...services,
+  ].filter(Boolean);
 
   return (
     <div className="flex gap-4 border border-line bg-white p-4">
@@ -154,7 +173,7 @@ function CartLine({ line, product, locale }) {
             </button>
           </div>
           <span className="text-[15px] font-medium text-[color:var(--color-accent)]">
-            {formatPrice(product, product.price * line.qty)}
+            {formatPrice(product, linePrice(product, line) * line.qty)}
           </span>
         </div>
       </div>

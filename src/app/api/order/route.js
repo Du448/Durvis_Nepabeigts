@@ -23,9 +23,42 @@ function makeOrderNumber() {
 }
 
 const ITEM_ROW_LABELS = {
-  lt: { size: "Dydis", direction: "Pusė", qty: "Kiekis", price: "Kaina", services: "Paslaugos", jambColor: "Angokraščio tonas" },
-  lv: { size: "Izmērs", direction: "Virziens", qty: "Daudzums", price: "Cena", services: "Pakalpojumi", jambColor: "Ailes tonis" },
-  en: { size: "Size", direction: "Direction", qty: "Qty", price: "Price", services: "Services", jambColor: "Jamb colour" },
+  lt: {
+    size: "Dydis",
+    direction: "Pusė",
+    qty: "Kiekis",
+    price: "Kaina",
+    services: "Paslaugos",
+    jambColor: "Angokraščio tonas",
+    hardwareType: "Furnitūros tipas",
+    colorTone: "Spalvos tonas",
+    customSize: "Nestandartinis dydis",
+    glassTone: "Stiklo tonavimas",
+  },
+  lv: {
+    size: "Izmērs",
+    direction: "Virziens",
+    qty: "Daudzums",
+    price: "Cena",
+    services: "Pakalpojumi",
+    jambColor: "Ailes tonis",
+    hardwareType: "Furnitūras tips",
+    colorTone: "Krāsas tonis",
+    customSize: "Nestandarta izmērs",
+    glassTone: "Stikla tonējums",
+  },
+  en: {
+    size: "Size",
+    direction: "Direction",
+    qty: "Qty",
+    price: "Price",
+    services: "Services",
+    jambColor: "Jamb colour",
+    hardwareType: "Hardware type",
+    colorTone: "Colour tone",
+    customSize: "Non-standard size",
+    glassTone: "Glass tint",
+  },
 };
 
 function readItems(raw) {
@@ -38,6 +71,10 @@ function readItems(raw) {
     price: clip(item?.price, 30),
     services: clip(item?.services, 200),
     jambColor: clip(item?.jambColor, 60),
+    hardwareType: clip(item?.hardwareType, 80),
+    colorTone: clip(item?.colorTone, 60),
+    customSize: clip(item?.customSize, 100),
+    glassTone: clip(item?.glassTone, 60),
     url: clip(item?.url, 300),
   }));
 }
@@ -50,6 +87,10 @@ function itemRows(item, labels) {
     [labels.price, item.price],
     [labels.services, item.services],
     [labels.jambColor, item.jambColor],
+    [labels.hardwareType, item.hardwareType],
+    [labels.colorTone, item.colorTone],
+    [labels.customSize, item.customSize],
+    [labels.glassTone, item.glassTone],
   ].filter(([, value]) => value);
 }
 
