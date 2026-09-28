@@ -6,10 +6,8 @@ import { useUrlSearchParams } from "@/lib/useUrlSearchParams";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
 import { formatPrice, linePrice } from "@/lib/product-utils";
-import { bostonHardwareOptions } from "@/data/boston-hardware";
-import { bostonColorPalette } from "@/data/boston-colors";
-import { bostonWidthBrackets, bostonHeightBrackets } from "@/data/boston-size-brackets";
-import { bostonGlassColors } from "@/data/boston-glass-colors";
+import { decodeConfig } from "@/lib/boston-config";
+import { bostonRows } from "@/lib/boston-config-i18n";
 import { paths } from "@/lib/routes";
 import { scrollBehavior } from "@/lib/motion";
 import { usePathname } from "next/navigation";
@@ -68,31 +66,16 @@ export default function ContactsClient() {
   // arrives with the exact variant instead of just a model name.
   const offer = useMemo(() => {
     if (!product) return null;
-    const hardwareOpt = bostonHardwareOptions[product.id]?.find((opt) => opt.key === searchParams.get("furnitura"));
-    const colorOpt = bostonColorPalette.find((c) => c.ral === searchParams.get("tonis"));
-    const widthBracket = searchParams.get("platums");
-    const heightBracket = searchParams.get("augstums");
-    const widthOpt = bostonWidthBrackets.find((b) => b.key === widthBracket);
-    const heightOpt = bostonHeightBrackets.find((b) => b.key === heightBracket);
-    const hasCustomSize = Boolean(widthOpt && heightOpt);
-    const glassOpt = bostonGlassColors.find((g) => g.key === searchParams.get("stikls"));
-    const price = linePrice(product, {
-      hardwareType: searchParams.get("furnitura"),
-      colorTone: searchParams.get("tonis"),
-      customSize: hasCustomSize,
-      widthBracket,
-      heightBracket,
-    });
+    const boston = decodeConfig(searchParams.get("konfig"));
+    const line = boston ? { boston } : {};
+    const configRows = bostonRows(product, line, locale);
     return {
       name: product.name,
-      color: (product.colorLabels || []).join(" / "),
-      size: searchParams.get("izmers") || product.sizes?.[0] || "",
-      direction: searchParams.get("virziens") || product.directions?.[0] || "",
-      hardwareType: hardwareOpt ? t(locale, `product.${hardwareOpt.labelKey}`) : "",
-      colorTone: colorOpt ? colorOpt.name[locale] || colorOpt.name.lv : "",
-      customSize: hasCustomSize ? [t(locale, `product.${widthOpt.labelKey}`), t(locale, `product.${heightOpt.labelKey}`)].join(", ") : "",
-      glassTone: glassOpt ? t(locale, `product.${glassOpt.labelKey}`) : "",
-      price: formatPrice(product, price),
+      color: configRows.length ? "" : (product.colorLabels || []).join(" / "),
+      size: configRows.length ? "" : searchParams.get("izmers") || product.sizes?.[0] || "",
+      direction: configRows.length ? "" : searchParams.get("virziens") || product.directions?.[0] || "",
+      configRows,
+      price: formatPrice(product, linePrice(product, line)),
     };
   }, [product, searchParams, locale]);
 
@@ -110,10 +93,7 @@ export default function ContactsClient() {
       lines.push(
         `${t(locale, "contacts.directionLabel")}: ${t(locale, offer.direction === "right" ? "product.directionRight" : "product.directionLeft")}`
       );
-    if (offer.hardwareType) lines.push(`${t(locale, "contacts.hardwareTypeLabel")}: ${offer.hardwareType}`);
-    if (offer.colorTone) lines.push(`${t(locale, "contacts.colorToneLabel")}: ${offer.colorTone}`);
-    if (offer.customSize) lines.push(`${t(locale, "contacts.customSizeLabel")}: ${offer.customSize}`);
-    if (offer.glassTone) lines.push(`${t(locale, "contacts.glassToneLabel")}: ${offer.glassTone}`);
+    for (const [label, value] of offer.configRows) lines.push(`${label}: ${value}`);
     if (offer.price) lines.push(`${t(locale, "contacts.priceLabel")}: ${offer.price}`);
     if (selectedServices.length) lines.push(`${t(locale, "contacts.servicesLabel")}: ${selectedServices.join(", ")}`);
     const jambColor = searchParams.get("apdareKrasa");

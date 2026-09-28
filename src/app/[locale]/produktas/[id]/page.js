@@ -125,6 +125,7 @@ export default async function ProductPage({ params }) {
       <JsonLd data={breadcrumbLd} />
       <DictProvider dict={dict}>
         <ProductClient
+          key={product.id}
           product={product}
           similar={similar}
           configurator={configurator}

@@ -15,6 +15,7 @@ export function toCard(product, locale) {
     name: trData(locale, product.name),
     collection: product.collection || "",
     stockSource: product.stockSource || "",
+    capital: product.specs?.["Dekoratīvā kapitēlija"] === "Ir",
     category: product.category,
     price: product.price,
     oldPrice: product.oldPrice ?? null,

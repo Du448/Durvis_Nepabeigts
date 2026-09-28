@@ -13,7 +13,7 @@ import { imageProps } from "@/lib/images";
 // manufacturer photos (`image`) rather than a flat `hex` chip, since Decolux
 // is a printed wood/stone texture, not a paint colour - and they have no
 // RAL code, so that second line is simply omitted for them.
-export default function BostonColorPaletteGrid({ locale, premiumLabel, items = bostonColorPalette }) {
+export default function BostonColorPaletteGrid({ locale, premiumLabel, premiumPct = 20, items = bostonColorPalette }) {
   return (
     <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5">
       {items.map((sw) => (
@@ -35,7 +35,7 @@ export default function BostonColorPaletteGrid({ locale, premiumLabel, items = b
             ) : null}
             {sw.premium ? (
               <span className="absolute right-1 top-1 rounded-full bg-white/90 px-1.5 py-0.5 text-[10px] font-medium leading-none text-[color:var(--color-accent)] shadow-sm">
-                +10%
+                +{premiumPct}%
               </span>
             ) : null}
           </div>

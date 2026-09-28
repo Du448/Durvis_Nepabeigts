@@ -10,10 +10,7 @@ import { updateCartQty, removeCartLine, clearCart } from "@/lib/cart";
 import { useCartItems } from "@/lib/useCartItems";
 import { serviceLabels } from "@/lib/order-options";
 import { formatPrice, linePrice } from "@/lib/product-utils";
-import { bostonHardwareOptions } from "@/data/boston-hardware";
-import { bostonColorPalette } from "@/data/boston-colors";
-import { bostonWidthBrackets, bostonHeightBrackets } from "@/data/boston-size-brackets";
-import { bostonGlassColors } from "@/data/boston-glass-colors";
+import { bostonRows } from "@/lib/boston-config-i18n";
 import { imageProps } from "@/lib/images";
 
 /* Cart page, following the same client-reads-localStorage-then-fetches-cards
@@ -88,22 +85,8 @@ function CartLine({ line, product, locale }) {
   const directionLabel = line.direction
     ? t(locale, line.direction === "right" ? "product.directionRight" : "product.directionLeft")
     : "";
-  const hardwareLabel = bostonHardwareOptions[product.id]?.find((opt) => opt.key === line.hardwareType);
-  const colorLabel = bostonColorPalette.find((c) => c.ral === line.colorTone);
-  const widthLabel = line.customSize ? bostonWidthBrackets.find((b) => b.key === line.widthBracket) : null;
-  const heightLabel = line.customSize ? bostonHeightBrackets.find((b) => b.key === line.heightBracket) : null;
-  const glassLabel = bostonGlassColors.find((g) => g.key === line.glassTone);
-  const chips = [
-    line.size,
-    directionLabel,
-    line.jambColor,
-    hardwareLabel ? t(locale, `product.${hardwareLabel.labelKey}`) : null,
-    colorLabel ? colorLabel.name[locale] || colorLabel.name.lv : null,
-    widthLabel ? t(locale, `product.${widthLabel.labelKey}`) : null,
-    heightLabel ? t(locale, `product.${heightLabel.labelKey}`) : null,
-    glassLabel ? t(locale, `product.${glassLabel.labelKey}`) : null,
-    ...services,
-  ].filter(Boolean);
+  const configRows = bostonRows(product, line, locale);
+  const chips = [configRows.length ? null : line.size, directionLabel, line.jambColor, ...services].filter(Boolean);
 
   return (
     <div className="flex gap-4 border border-line bg-white p-4">
@@ -139,6 +122,17 @@ function CartLine({ line, product, locale }) {
             <X size={16} />
           </button>
         </div>
+
+        {configRows.length ? (
+          <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-[12px]">
+            {configRows.map(([label, value]) => (
+              <div key={label} className="contents">
+                <dt className="text-muted">{label}</dt>
+                <dd className="text-ink">{value}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : null}
 
         {chips.length ? (
           <div className="mt-2 flex flex-wrap gap-1.5">

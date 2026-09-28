@@ -8,6 +8,9 @@ import { getLocaleFromPathname, t } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
 import { imageProps } from "@/lib/images";
 import BostonColorPaletteGrid from "@/components/BostonColorPaletteGrid";
+import { bostonColorPalette } from "@/data/boston-colors";
+import { RULES_PLAIN } from "@/data/boston-config-options";
+import { bostonSpec } from "@/lib/boston-config";
 import ManufacturerFeatureSection from "@/components/ManufacturerFeatureSection";
 import { buildSpecGroups } from "@/lib/product-specs";
 import { getBostonConstructionSections } from "@/data/boston-construction";
@@ -45,6 +48,8 @@ export const OPEN_SPECS_EVENT = "product:open-specs";
 export default function ProductTabs({ product, locks = [] }) {
   const { trData } = useTr();
   const locale = getLocaleFromPathname(usePathname());
+  // Which workbook's palette and premium surcharge apply to this model.
+  const paletteRules = bostonSpec(product)?.rules ?? RULES_PLAIN;
   const baseId = useId();
 
   /* Stored in Latvian alongside the rest of the catalogue data; `trData`
@@ -135,7 +140,12 @@ export default function ProductTabs({ product, locks = [] }) {
           ) : active === "colors" ? (
             <div className="mt-8 max-w-[900px]">
               <p className="mb-4 text-[15px] leading-[1.7] text-ink">{t(locale, "product.bostonPaletteIntro")}</p>
-              <BostonColorPaletteGrid locale={locale} premiumLabel={t(locale, "product.bostonPalettePremium")} />
+              <BostonColorPaletteGrid
+                locale={locale}
+                items={bostonColorPalette.filter((c) => !c.plainOnly || paletteRules.id !== "su")}
+                premiumPct={paletteRules.premiumPct}
+                premiumLabel={t(locale, "product.bostonPalettePremium").replace("{pct}", String(paletteRules.premiumPct))}
+              />
 
               <div className="mt-10 border-t border-line pt-8">
                 <h3 className="text-[18px] font-medium text-[color:var(--color-title)]">{t(locale, "product.decoluxPalette")}</h3>

@@ -208,6 +208,22 @@ export default function ProductCard({ product, bare = false }) {
         </div>
       ) : null}
 
+      {/* Nature (P-SU) models look like their plain namesakes in a thumbnail -
+          the difference is the printed Decolux finish outside. */}
+      {product.id.endsWith("-p-su") ? (
+        <div
+          className="mx-auto mt-1.5 inline-flex items-center gap-1.5 border border-[color:var(--color-line)] px-2 py-0.5 text-[11px] text-[color:var(--color-ink)]"
+          title={t(locale, "product.decoluxCardHint")}
+        >
+          <span
+            aria-hidden
+            className="h-3 w-3 bg-cover bg-center ring-1 ring-black/10"
+            style={{ backgroundImage: "url(/images/boston-config/decolux-tik-tumss.jpg)" }}
+          />
+          {t(locale, "product.decoluxCard")}
+        </div>
+      ) : null}
+
       {/* Price */}
       <div className="mt-auto pt-3 text-[14px] text-[color:var(--color-accent)]">
         {hasOffer ? (

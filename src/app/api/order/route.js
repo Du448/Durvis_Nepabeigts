@@ -30,10 +30,6 @@ const ITEM_ROW_LABELS = {
     price: "Kaina",
     services: "Paslaugos",
     jambColor: "Angokraščio tonas",
-    hardwareType: "Furnitūros tipas",
-    colorTone: "Spalvos tonas",
-    customSize: "Nestandartinis dydis",
-    glassTone: "Stiklo tonavimas",
   },
   lv: {
     size: "Izmērs",
@@ -42,10 +38,6 @@ const ITEM_ROW_LABELS = {
     price: "Cena",
     services: "Pakalpojumi",
     jambColor: "Ailes tonis",
-    hardwareType: "Furnitūras tips",
-    colorTone: "Krāsas tonis",
-    customSize: "Nestandarta izmērs",
-    glassTone: "Stikla tonējums",
   },
   en: {
     size: "Size",
@@ -54,10 +46,6 @@ const ITEM_ROW_LABELS = {
     price: "Price",
     services: "Services",
     jambColor: "Jamb colour",
-    hardwareType: "Hardware type",
-    colorTone: "Colour tone",
-    customSize: "Non-standard size",
-    glassTone: "Glass tint",
   },
 };
 
@@ -71,10 +59,7 @@ function readItems(raw) {
     price: clip(item?.price, 30),
     services: clip(item?.services, 200),
     jambColor: clip(item?.jambColor, 60),
-    hardwareType: clip(item?.hardwareType, 80),
-    colorTone: clip(item?.colorTone, 60),
-    customSize: clip(item?.customSize, 100),
-    glassTone: clip(item?.glassTone, 60),
+    config: (Array.isArray(item?.config) ? item.config : []).slice(0, 16).map((row) => clip(row, 400)).filter(Boolean),
     url: clip(item?.url, 300),
   }));
 }
@@ -87,10 +72,10 @@ function itemRows(item, labels) {
     [labels.price, item.price],
     [labels.services, item.services],
     [labels.jambColor, item.jambColor],
-    [labels.hardwareType, item.hardwareType],
-    [labels.colorTone, item.colorTone],
-    [labels.customSize, item.customSize],
-    [labels.glassTone, item.glassTone],
+    ...item.config.map((row) => {
+      const i = row.indexOf(": ");
+      return i > 0 ? [row.slice(0, i), row.slice(i + 2)] : ["", row];
+    }),
   ].filter(([, value]) => value);
 }
 
@@ -186,7 +171,7 @@ export async function POST(request) {
       .map(
         (item, i) =>
           `<table cellpadding="4" style="border-collapse:collapse;margin:0 0 10px;border:1px solid #ddd"><tr><td colspan="2" style="font-weight:bold">${i + 1}. ${escapeHtml(item.name)}</td></tr>${itemRows(item, labels)
-            .map(([l, v]) => `<tr><td style="color:#666">${l}</td><td>${escapeHtml(v)}</td></tr>`)
+            .map(([l, v]) => `<tr><td style="color:#666">${escapeHtml(l)}</td><td>${escapeHtml(v)}</td></tr>`)
             .join("")}</table>`
       )
       .join("")}
@@ -210,7 +195,7 @@ export async function POST(request) {
     const greetName = customerType === "business" ? companyName : firstName || customerName;
     const custItemBlocks = items.map(
       (item, i) => `<tr><td colspan="2" style="font-weight:bold;padding-top:10px">${i + 1}. ${escapeHtml(item.name)}</td></tr>${itemRows(item, labels)
-        .map(([l, v]) => `<tr><td style="color:#666;padding-left:12px">${l}</td><td>${escapeHtml(v)}</td></tr>`)
+        .map(([l, v]) => `<tr><td style="color:#666;padding-left:12px">${escapeHtml(l)}</td><td>${escapeHtml(v)}</td></tr>`)
         .join("")}`
     );
     const custText = [

@@ -32,55 +32,73 @@ export default function ManufacturerFeatureSection({ heading, subtitle, note, ba
     return () => window.removeEventListener("keydown", onKey);
   }, [lightboxOpen, slides.length]);
 
-  useEffect(() => {
-    const track = trackRef.current;
-    if (!track) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduce) return;
-    const id = setInterval(() => {
-      const atEnd = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
-      const item = track.querySelector("[data-slide]");
-      const step = item ? item.getBoundingClientRect().width + 16 : track.clientWidth;
-      track.scrollTo({ left: atEnd ? 0 : track.scrollLeft + step, behavior: "smooth" });
-    }, 3200);
-    return () => clearInterval(id);
-  }, []);
+  /* Scroll positions the track can actually reach. With two slides in view,
+     three slides only have two positions - so the dots follow these, not the
+     slide count. Re-measured on resize, since how many fit depends on width. */
+  const [stops, setStops] = useState([0]);
+  const stopsRef = useRef([0]);
+  const pausedRef = useRef(false);
+  const lastInteractionRef = useRef(0);
 
   useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
+    const measure = () => {
+      const max = track.scrollWidth - track.clientWidth;
+      const base = track.getBoundingClientRect().left - track.scrollLeft;
+      const lefts = Array.from(track.querySelectorAll("[data-slide]")).map((el) =>
+        Math.min(max, Math.max(0, Math.round(el.getBoundingClientRect().left - base)))
+      );
+      const next = lefts.filter((v, i) => i === 0 || Math.abs(v - lefts[i - 1]) > 4);
+      stopsRef.current = next;
+      setStops(next);
+    };
     const onScroll = () => {
-      const items = Array.from(track.querySelectorAll("[data-slide]"));
-      const trackLeft = track.getBoundingClientRect().left;
+      const s = stopsRef.current;
       let closest = 0;
-      let min = Infinity;
-      items.forEach((el, i) => {
-        const d = Math.abs(el.getBoundingClientRect().left - trackLeft);
-        if (d < min) {
-          min = d;
-          closest = i;
-        }
+      s.forEach((v, i) => {
+        if (Math.abs(v - track.scrollLeft) < Math.abs(s[closest] - track.scrollLeft)) closest = i;
       });
       setActive(closest);
     };
+    measure();
+    const ro = new ResizeObserver(() => {
+      measure();
+      onScroll();
+    });
+    ro.observe(track);
     track.addEventListener("scroll", onScroll, { passive: true });
-    return () => track.removeEventListener("scroll", onScroll);
-  }, []);
+    return () => {
+      ro.disconnect();
+      track.removeEventListener("scroll", onScroll);
+    };
+  }, [slides.length]);
 
-  const scrollByStep = (dir) => {
+  // Unhurried autoplay that holds still while the visitor is looking at or
+  // using the carousel.
+  useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
-    const item = track.querySelector("[data-slide]");
-    const step = item ? item.getBoundingClientRect().width + 16 : track.clientWidth;
-    track.scrollBy({ left: dir * step, behavior: "smooth" });
-  };
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = setInterval(() => {
+      const s = stopsRef.current;
+      if (s.length < 2 || pausedRef.current || Date.now() - lastInteractionRef.current < 10000) return;
+      const current = s.findIndex((v) => Math.abs(v - track.scrollLeft) <= 4);
+      const next = current === -1 || current >= s.length - 1 ? 0 : current + 1;
+      track.scrollTo({ left: s[next], behavior: "smooth" });
+    }, 6500);
+    return () => clearInterval(id);
+  }, []);
 
   const scrollToIndex = (i) => {
     const track = trackRef.current;
-    const item = track?.querySelectorAll("[data-slide]")[i];
-    if (!item) return;
-    track.scrollTo({ left: item.offsetLeft, behavior: "smooth" });
+    const s = stopsRef.current;
+    if (!track || !s.length) return;
+    lastInteractionRef.current = Date.now();
+    track.scrollTo({ left: s[(i + s.length) % s.length], behavior: "smooth" });
   };
+
+  const scrollByStep = (dir) => scrollToIndex(active + dir);
 
   return (
     <div className="grid gap-8 md:grid-cols-2 md:items-stretch lg:gap-12">
@@ -94,7 +112,13 @@ export default function ManufacturerFeatureSection({ heading, subtitle, note, ba
         </h3>
         <p className="mx-auto mt-3 max-w-[520px] text-center text-[15px] leading-[1.6] text-muted">{subtitle}</p>
 
-        <div className="relative mt-8">
+        <div
+          className="relative mt-8"
+          onMouseEnter={() => (pausedRef.current = true)}
+          onMouseLeave={() => (pausedRef.current = false)}
+          onTouchStart={() => (lastInteractionRef.current = Date.now())}
+          onFocus={() => (lastInteractionRef.current = Date.now())}
+        >
           <div
             ref={trackRef}
             className="flex snap-x snap-mandatory gap-4 overflow-x-auto no-scrollbar scroll-smooth"
@@ -131,13 +155,13 @@ export default function ManufacturerFeatureSection({ heading, subtitle, note, ba
             ))}
           </div>
 
-          {slides.length > 2 ? (
+          {stops.length > 1 ? (
             <>
               <button
                 type="button"
                 onClick={() => scrollByStep(-1)}
                 aria-label={prevLabel}
-                className="absolute left-0 top-[calc(50%-14px)] hidden h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center text-muted transition-colors hover:text-[color:var(--color-accent)] sm:flex"
+                className="absolute left-1 top-[calc(50%-14px)] hidden h-9 w-9 -translate-y-1/2 items-center justify-center bg-white/85 text-ink shadow-sm transition-colors hover:text-[color:var(--color-accent)] sm:flex"
               >
                 <ChevronLeft size={22} strokeWidth={1.5} />
               </button>
@@ -145,7 +169,7 @@ export default function ManufacturerFeatureSection({ heading, subtitle, note, ba
                 type="button"
                 onClick={() => scrollByStep(1)}
                 aria-label={nextLabel}
-                className="absolute right-0 top-[calc(50%-14px)] hidden h-9 w-9 -translate-y-1/2 translate-x-1/2 items-center justify-center text-muted transition-colors hover:text-[color:var(--color-accent)] sm:flex"
+                className="absolute right-1 top-[calc(50%-14px)] hidden h-9 w-9 -translate-y-1/2 items-center justify-center bg-white/85 text-ink shadow-sm transition-colors hover:text-[color:var(--color-accent)] sm:flex"
               >
                 <ChevronRight size={22} strokeWidth={1.5} />
               </button>
@@ -153,14 +177,14 @@ export default function ManufacturerFeatureSection({ heading, subtitle, note, ba
           ) : null}
         </div>
 
-        {slides.length > 1 ? (
+        {stops.length > 1 ? (
           <div className="mt-4 flex items-center justify-center gap-1.5">
-            {slides.map((slide, i) => (
+            {stops.map((stop, i) => (
               <button
-                key={slide.image}
+                key={stop}
                 type="button"
                 onClick={() => scrollToIndex(i)}
-                aria-label={`${i + 1}`}
+                aria-label={`${i + 1} / ${stops.length}`}
                 className={`h-1.5 rounded-full transition-all duration-200 ${
                   i === active ? "w-5 bg-[color:var(--color-accent)]" : "w-1.5 bg-[color:var(--color-muted)]/35"
                 }`}
