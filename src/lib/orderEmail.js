@@ -105,3 +105,62 @@ export function buildCustomerEmail({ locale, greetName, orderNumber, items, item
   </td></tr></table>
 </body></html>`;
 }
+
+/* Internal notification to the shop (always Lithuanian). Same look as the
+   customer mail, but leads with who ordered and how to reach them. */
+export function buildShopEmail({ orderNumber, customerType, customerName, companyCode, vatCode, email, phone, deliveryLine, comment, items, itemRows, labels, subtotal }) {
+  const infoRow = (label, value, href) =>
+    value
+      ? `<tr><td valign="top" style="padding:8px 16px 8px 0;font-size:12px;color:${MUTED};width:34%;border-top:1px solid ${LINE}">${esc(label)}</td><td valign="top" style="padding:8px 0;font-size:14px;line-height:1.5;color:${INK};border-top:1px solid ${LINE}">${href ? `<a href="${esc(href)}" style="color:${ACCENT};text-decoration:none;font-weight:600">${esc(value)}</a>` : esc(value)}</td></tr>`
+      : "";
+  const cards = items.map((item, i) => itemCard(item, i, [...itemRows(item, labels), ...(item.url ? [["Nuoroda", item.url]] : [])], SITE_URL)).join("");
+
+  return `<!doctype html>
+<html lang="lt"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"></head>
+<body style="margin:0;padding:0;background:${SOFT};font-family:${FONT};color:${INK}">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent">${esc(`${customerName} - ${subtotal || ""}`)}</div>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${SOFT}"><tr><td align="center" style="padding:32px 12px">
+    <table role="presentation" width="640" cellpadding="0" cellspacing="0" style="width:640px;max-width:100%">
+
+      <tr><td style="background:#161616;border-radius:16px 16px 0 0;padding:28px 32px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+          <td><img src="${SITE_URL}/logo-white.png" height="34" alt="NT Durys" style="display:block;height:34px;width:auto;border:0"></td>
+          <td align="right" style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#7fd1a8;font-weight:700">Naujas u&#382;sakymas</td>
+        </tr></table>
+      </td></tr>
+
+      <tr><td style="background:#ffffff;padding:36px 32px 8px">
+        <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:${MUTED};font-weight:600">Nr. ${esc(orderNumber)}</div>
+        <h1 style="margin:8px 0 4px;font-size:28px;line-height:1.2;font-weight:600;letter-spacing:-.01em;color:${INK}">${esc(customerName)}</h1>
+        <div style="font-size:14px;color:${MUTED}">${customerType === "business" ? "&#302;mon&#279;" : "Privatus asmuo"}</div>
+      </td></tr>
+
+      <tr><td style="background:#ffffff;padding:20px 32px 8px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${SOFT};border-radius:12px"><tr><td style="padding:10px 22px 14px">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+            ${infoRow("El. pa\u0161tas", email, `mailto:${email}`)}
+            ${infoRow("Telefonas", phone, `tel:${phone.replace(/[^+\d]/g, "")}`)}
+            ${customerType === "business" ? infoRow("\u012emon\u0117s kodas", companyCode) : ""}
+            ${customerType === "business" ? infoRow("PVM kodas", vatCode) : ""}
+            ${infoRow("Gavimas", deliveryLine)}
+            ${infoRow("Komentaras", comment)}
+          </table>
+        </td></tr></table>
+      </td></tr>
+
+      <tr><td style="background:#ffffff;padding:24px 32px 4px">
+        <div style="font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:${MUTED};margin-bottom:14px">Prek\u0117s</div>
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${cards}</table>
+      </td></tr>
+
+      <tr><td style="background:#ffffff;padding:4px 32px 36px;border-radius:0 0 16px 16px">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#161616;border-radius:12px"><tr>
+          <td style="padding:20px 24px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#b9bcc1">Tarpin\u0117 suma</td>
+          <td align="right" style="padding:20px 24px;font-size:26px;font-weight:600;color:#ffffff;white-space:nowrap">${esc(subtotal || "")}</td>
+        </tr></table>
+      </td></tr>
+
+    </table>
+  </td></tr></table>
+</body></html>`;
+}

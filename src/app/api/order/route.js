@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
-import { sendFormEmail, escapeHtml } from "@/lib/mailer";
+import { sendFormEmail } from "@/lib/mailer";
 import { HONEYPOT_FIELD, honeypotResponse, isHoneypotFilled, rateLimited } from "@/lib/formGuard";
 import { locales, defaultLocale, t } from "@/lib/i18n";
 import { phones, company } from "@/lib/site";
-import { buildCustomerEmail } from "@/lib/orderEmail";
+import { buildCustomerEmail, buildShopEmail } from "@/lib/orderEmail";
 
 // No payment step (see @/components/OrderClient): the shop confirms the
 // final price after measurement, so placing an order here just books the
@@ -159,26 +159,7 @@ export async function POST(request) {
     .filter((line) => line !== null)
     .join("\n");
 
-  const shopHtml = `
-    <p><strong>Užsakymo Nr.:</strong> ${escapeHtml(orderNumber)}</p>
-    <p><strong>Klientas:</strong> ${customerType === "business" ? "Įmonė" : "Privatus asmuo"} - ${escapeHtml(customerName)}</p>
-    ${customerType === "business" && companyCode ? `<p><strong>Įmonės kodas:</strong> ${escapeHtml(companyCode)}</p>` : ""}
-    ${customerType === "business" && vatCode ? `<p><strong>PVM kodas:</strong> ${escapeHtml(vatCode)}</p>` : ""}
-    <p><strong>El. paštas:</strong> ${escapeHtml(email)}</p>
-    <p><strong>Telefonas:</strong> ${escapeHtml(phone)}</p>
-    <p><strong>Gavimas:</strong> ${escapeHtml(deliveryLine)}</p>
-    ${comment ? `<p><strong>Komentaras:</strong> ${escapeHtml(comment)}</p>` : ""}
-    <h3 style="margin:16px 0 8px">Prekės</h3>
-    ${items
-      .map(
-        (item, i) =>
-          `<table cellpadding="4" style="border-collapse:collapse;margin:0 0 10px;border:1px solid #ddd"><tr><td colspan="2" style="font-weight:bold">${i + 1}. ${escapeHtml(item.name)}</td></tr>${itemRows(item, labels)
-            .map(([l, v]) => `<tr><td style="color:#666">${escapeHtml(l)}</td><td>${escapeHtml(v)}</td></tr>`)
-            .join("")}</table>`
-      )
-      .join("")}
-    ${subtotal ? `<p><strong>Tarpinė suma:</strong> ${escapeHtml(subtotal)}</p>` : ""}
-  `;
+  const shopHtml = buildShopEmail({ orderNumber, customerType, customerName, companyCode, vatCode, email, phone, deliveryLine, comment, items, itemRows, labels: ITEM_ROW_LABELS.lt, subtotal });
 
   try {
     await sendFormEmail({
