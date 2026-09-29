@@ -128,6 +128,31 @@ const BLOCKS = [
   },
 ];
 
+/* A fifth split block, cross-cutting rather than category-based: every
+   "Smart Lux" and "Smart" Boston model ships with the same CBA biometric
+   lock (see boston-smart-models.js), regardless of which category it is
+   filed under. The banner is the manufacturer's own showroom photo of that
+   lock installed - see the "Konstruktīvs" tab's lifestyle banner - so the
+   keypad is visible in the same frame as the doors below it. "View all"
+   goes to the search page rather than a category, since the model matches
+   by id prefix, not by a single category id. */
+const SMART_LOCK_BLOCK = {
+  slug: "viedas-slodzenes",
+  image: "/images/boston-construction/06-lifestyle-banner.jpg",
+  title: {
+    lt: "Durys su išmania spyna - saugumas be raktų",
+    lv: "Durvis ar viedo slēdzeni - drošība bez atslēgām",
+    en: "Doors with a smart lock - security without keys",
+  },
+  text: {
+    lt: "CBA biometrinė spyna su Face ID atpažinimu, atsarginiu cilindru ir programėle telefone. Kiekvienas modelis pasirenkamas su šia spynų sistema.",
+    lv: "CBA biometriskā slēdzene ar Face ID atpazīšanu, rezerves cilindru un lietotni tālrunī. Katru modeli var izvēlēties ar šo slēdzeņu sistēmu.",
+    en: "A CBA biometric lock with Face ID recognition, a backup cylinder and a phone app. Every model here can be ordered with this lock system.",
+  },
+};
+
+const isSmartLockProduct = (p) => p.id.startsWith("boston-smart");
+
 /* Six models per split block - three pages of two. They are picked
    round-robin across the category's collections rather than straight off the
    top of the list, so the block shows the breadth of the range instead of six
@@ -150,16 +175,27 @@ function currentRotation() {
   return Math.floor(Date.now() / ROTATION_WINDOW_MS);
 }
 
-function splitSliderItems(list, slug, rotation = 0) {
+function splitSliderItems(list, matches, rotation = 0) {
   const byCollection = new Map();
   for (const p of list) {
-    if (p.category !== slug || p.stockSource === "factory") continue;
+    if (!matches(p) || p.stockSource === "factory") continue;
     const key = p.collection || "";
     if (!byCollection.has(key)) byCollection.set(key, []);
     byCollection.get(key).push(p);
   }
 
-  const queues = [...byCollection.values()].map((list) => {
+  /* When there are more collections than SPLIT_SLIDER_ITEMS, only the first
+     few (by insertion order) would ever fill the fixed number of slots, and
+     the rest would never surface no matter how long the window turns. Rotate
+     which collections lead the round-robin too, so every collection gets its
+     turn in front over enough windows, not just its items within that turn. */
+  const collectionLists = [...byCollection.values()];
+  const leadOff = collectionLists.length
+    ? (((rotation % collectionLists.length) + collectionLists.length) % collectionLists.length)
+    : 0;
+  const rotatedCollections = [...collectionLists.slice(leadOff), ...collectionLists.slice(0, leadOff)];
+
+  const queues = rotatedCollections.map((list) => {
     if (list.length < 2) return [...list];
     const off = (((rotation % list.length) + list.length) % list.length);
     return [...list.slice(off), ...list.slice(0, off)];
@@ -210,7 +246,7 @@ export default async function Home({ params }) {
       <HeroSlider slides={slides} />
 
       {BLOCKS.map((block) => {
-        const items = cardsFor(splitSliderItems(products, block.slug, rotation), locale);
+        const items = cardsFor(splitSliderItems(products, (p) => p.category === block.slug, rotation), locale);
         const media = (
           <div className="split-media relative overflow-hidden">
             <Image
@@ -235,7 +271,7 @@ export default async function Home({ params }) {
               </p>
 
               {items.length ? (
-                <SplitProductSlider className="mt-9 max-w-[600px]" products={items} />
+                <SplitProductSlider className="mt-9 w-full max-w-[600px]" products={items} />
               ) : null}
 
               <div className="mt-8">
@@ -252,6 +288,46 @@ export default async function Home({ params }) {
           </section>
         );
       })}
+
+      {/* Smart lock block - same split layout as the category blocks above,
+          but the pool is every "Smart"/"Smart Lux" Boston model regardless of
+          category, and the photo is fixed (the manufacturer's own showroom
+          shot of the lock installed) rather than a per-category scene. */}
+      {(() => {
+        const items = cardsFor(splitSliderItems(products, isSmartLockProduct, rotation), locale);
+        if (!items.length) return null;
+        return (
+          <section className="split group">
+            <div className="split-media relative overflow-hidden">
+              <Image
+                src={SMART_LOCK_BLOCK.image}
+                alt={pick(locale, SMART_LOCK_BLOCK.title)}
+                fill
+                sizes="(min-width: 1025px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+
+            <div className="split-body">
+              <h2 className="t-section max-w-[560px]">{pick(locale, SMART_LOCK_BLOCK.title)}</h2>
+              <p className="mt-5 max-w-[560px] text-[color:var(--color-ink)]">
+                {pick(locale, SMART_LOCK_BLOCK.text)}
+              </p>
+
+              <SplitProductSlider className="mt-9 w-full max-w-[600px]" products={items} />
+
+              <div className="mt-8">
+                <Link
+                  href={withLocaleHref(locale, `${paths.search}?q=smart`)}
+                  className="btn btn-outline-dark"
+                >
+                  {viewAll}
+                </Link>
+              </div>
+            </div>
+          </section>
+        );
+      })()}
 
       {/* New arrivals - full-width row, as on the reference site */}
       <section className="section-soft py-16">
