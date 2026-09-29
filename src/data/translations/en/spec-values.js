@@ -77,6 +77,7 @@ export const enSpecValues = {
   "nav": "no",
   "Nerūsējošais tērauds": "Stainless steel",
   "No noliktavas": "From stock",
+  "Drīzumā no noliktavas": "Coming soon to stock",
   "Oksīds balts": "Oxide white",
   "Otlav Invisacta IN300, slēptās eņģes": "Otlav Invisacta IN300, concealed hinges",
   "Pelēks ultramats": "Grey ultra matte",

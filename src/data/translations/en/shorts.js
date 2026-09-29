@@ -238,4 +238,9 @@ export const enShorts = {
     "Teak wood texture with a mirror on the inside and a KALE Tandem cylinder.",
   "Venge no ārpuses, balts satīns no iekšpuses, ar termopārrāvumu.":
     "Wenge outside, white satin inside, with a thermal break.",
+
+  "40 mm gruntēta vērtne, kas veras uz ārpusi, izgatavota tieši jūsu ailei: izmērs ar 5 mm soli līdz 2300 × 1100 mm, spogulis, slēptais pievilcējs un krītošais slieksnis pēc izvēles.":
+    "A 40 mm primed leaf that opens outward, made for your exact opening: any size in 5 mm steps up to 2300 × 1100 mm, with an optional mirror, concealed closer and drop seal.",
+  "Reversā 52 mm gruntētā vērtne, izgatavota tieši jūsu ailei: izmērs ar 5 mm soli līdz 2700 × 1100 mm, durvīm līdz griestiem arī bez augšējās kārbas daļas.":
+    "A reversed 52 mm primed leaf made for your exact opening: any size in 5 mm steps up to 2700 × 1100 mm, and for floor-to-ceiling doors even without the top frame member.",
 };

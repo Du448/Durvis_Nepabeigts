@@ -224,6 +224,7 @@ export const enFullValues = {
   "Jā, nosedz ārpus kārbas 50mm": "Yes, covers 50 mm beyond the frame",
   "Jā, nosedz ārpus kārbas 60mm": "Yes, covers 60 mm beyond the frame",
   "No noliktavas": "From stock",
+  "Drīzumā no noliktavas": "Coming soon to stock",
   "Durvis noliktavā": "Door in stock",
   "Pēc pasūtījuma": "Made to order",
   "Standarta": "Standard",

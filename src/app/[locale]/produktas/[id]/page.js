@@ -9,7 +9,8 @@ import { locales, t } from "@/lib/i18n";
 import { trData } from "@/lib/i18n-data";
 import { cardsFor } from "@/lib/catalog";
 import { buildDict } from "@/lib/dict";
-import { isInStock } from "@/lib/product-utils";
+import { isComingSoon, isInStock } from "@/lib/product-utils";
+import { hiddenModel } from "@/lib/hidden-config";
 import { hasManufacturer2Series, manufacturer2ColorQuery } from "@/lib/manufacturer2Series";
 import { manufacturer2Sections } from "@/data/manufacturer2";
 import { sizedImage } from "@/lib/images";
@@ -41,8 +42,9 @@ const absolute = (src) => (src.startsWith("http") ? src : `${SITE_URL}${src}`);
 
 function describe(locale, product) {
   const short = trData(locale, product.short || "");
-  const tail = (DESCRIPTION[locale] || DESCRIPTION.lt)(product.collection, product.price);
-  return short ? `${short} ${tail}` : tail;
+  // An announced model has no price yet - leave the "from" price out.
+  const tail = product.price == null ? "" : (DESCRIPTION[locale] || DESCRIPTION.lt)(product.collection, product.price);
+  return [short, tail].filter(Boolean).join(" ");
 }
 
 export async function generateMetadata({ params }) {
@@ -71,6 +73,10 @@ export default async function ProductPage({ params }) {
   const configurator = hasManufacturer2Series(product.name)
     ? { colorQuery: manufacturer2ColorQuery(product) }
     : null;
+  // "Coming soon" stock doors point at the same model made to order.
+  const twinId = hiddenModel(product)?.orderTwin;
+  const twin = twinId ? await getProduct(twinId) : null;
+  const orderTwin = twin ? { id: twin.id, price: twin.price } : null;
   const jambColors = manufacturer2Sections.find((s) => s.key === "krasas")?.groups[0]?.items || [];
   const dict = buildDict(
     locale,
@@ -97,15 +103,19 @@ export default async function ProductPage({ params }) {
     image: (product.images || []).slice(0, 4).map((src) => absolute(sizedImage(src, 1200))),
     category: categoryName.startsWith("categories.") ? undefined : categoryName,
     ...(product.collection ? { model: product.collection } : {}),
-    offers: {
-      "@type": "Offer",
-      url,
-      price: product.price,
-      priceCurrency: product.currency === "UAH" ? "UAH" : "EUR",
-      availability: isInStock(product) ? "https://schema.org/InStock" : "https://schema.org/BackOrder",
-      itemCondition: "https://schema.org/NewCondition",
-      seller: { "@id": `${SITE_URL}/#business` },
-    },
+    ...(isComingSoon(product) || product.price == null
+      ? {}
+      : {
+          offers: {
+            "@type": "Offer",
+            url,
+            price: product.price,
+            priceCurrency: product.currency === "UAH" ? "UAH" : "EUR",
+            availability: isInStock(product) ? "https://schema.org/InStock" : "https://schema.org/BackOrder",
+            itemCondition: "https://schema.org/NewCondition",
+            seller: { "@id": `${SITE_URL}/#business` },
+          },
+        }),
   };
   const breadcrumbLd = {
     "@context": "https://schema.org",
@@ -131,6 +141,7 @@ export default async function ProductPage({ params }) {
           configurator={configurator}
           locks={locksFor(product.id, locale)}
           jambColors={jambColors}
+          orderTwin={orderTwin}
         />
       </DictProvider>
     </>

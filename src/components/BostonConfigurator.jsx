@@ -31,7 +31,7 @@ import {
 const eur = (n) => `${Math.round(n).toLocaleString("lv-LV")} €`;
 const signed = (n) => (n > 0 ? `+${eur(n)}` : n < 0 ? `−${eur(-n)}` : "");
 
-function Swatch({ image, hex, label, selected, onClick, badge, size = 48 }) {
+export function Swatch({ image, hex, label, selected, onClick, badge, size = 48 }) {
   return (
     <button
       type="button"
@@ -60,7 +60,7 @@ function Swatch({ image, hex, label, selected, onClick, badge, size = 48 }) {
   );
 }
 
-function Field({ label, children, hint }) {
+export function Field({ label, children, hint }) {
   return (
     <div className="mt-4 first:mt-0">
       <div className="mb-2 text-[13px] font-medium text-[color:var(--color-title)]">
@@ -72,7 +72,7 @@ function Field({ label, children, hint }) {
   );
 }
 
-function Segmented({ options, value, onChange }) {
+export function Segmented({ options, value, onChange }) {
   return (
     <div className="grid gap-2" style={{ gridTemplateColumns: `repeat(${options.length}, minmax(0, 1fr))` }}>
       {options.map((o) => (
@@ -99,7 +99,7 @@ function Segmented({ options, value, onChange }) {
 
 /* A millimetre input that lets the visitor type freely and only clamps to
    the allowed range once they leave the field. */
-function MmInput({ label, value, min, max, onCommit, locale }) {
+export function MmInput({ label, value, min, max, onCommit, locale }) {
   const id = useId();
   const [text, setText] = useState(String(value));
   const [shown, setShown] = useState(value);
@@ -156,7 +156,7 @@ function MmSelect({ label, value, options, pctOf, extraOf, onChange }) {
   );
 }
 
-function Step({ n, title, summary, open, done, onToggle, children, onNext, nextLabel, stepRef }) {
+export function Step({ n, title, summary, open, done, onToggle, children, onNext, nextLabel, stepRef }) {
   return (
     <section
       ref={stepRef}

@@ -7,7 +7,8 @@ import Link from "next/link";
 import { track } from "@vercel/analytics";
 import { formatPrice, linePrice } from "@/lib/product-utils";
 import { decodeConfig } from "@/lib/boston-config";
-import { bostonRows } from "@/lib/boston-config-i18n";
+import { hiddenModel } from "@/lib/hidden-config";
+import { configRows as describeConfig } from "@/lib/config-rows";
 import { paths } from "@/lib/routes";
 import { scrollBehavior } from "@/lib/motion";
 import { usePathname } from "next/navigation";
@@ -66,9 +67,9 @@ export default function ContactsClient() {
   // arrives with the exact variant instead of just a model name.
   const offer = useMemo(() => {
     if (!product) return null;
-    const boston = decodeConfig(searchParams.get("konfig"));
-    const line = boston ? { boston } : {};
-    const configRows = bostonRows(product, line, locale);
+    const config = decodeConfig(searchParams.get("konfig"));
+    const line = !config ? {} : hiddenModel(product) ? { hidden: config } : { boston: config };
+    const configRows = describeConfig(product, line, locale);
     return {
       name: product.name,
       color: configRows.length ? "" : (product.colorLabels || []).join(" / "),

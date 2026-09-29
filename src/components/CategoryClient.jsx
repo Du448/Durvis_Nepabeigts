@@ -41,6 +41,20 @@ const TYPE_OPTIONS = [
 
 const FEATURE_KEYS = ["thermo", "glass", "new", "offer"];
 
+/* Availability, from the card's stock label: on a shelf (ours or the
+   manufacturer's), announced for the shelf, or made to order. */
+const AVAILABILITY_KEYS = ["stock", "soon", "order"];
+const availabilityOf = (p) =>
+  p.stock === "soon" ? "soon" : p.stock === "order" ? "order" : p.stock ? "stock" : null;
+
+/* Categories whose listing is split into one section per availability -
+   the hidden-door range is sold both from stock and made to order, from
+   the same six configurations, and the two read as different products. */
+const GROUPED_CATEGORIES = ["sleptas-durvis"];
+
+// Announced models have no price yet: they sort last and fall out of a price filter.
+const sortPrice = (p) => (typeof p.price === "number" ? p.price : Infinity);
+
 // Models shown before "Show more"; divisible by the 2- and 3-column grids.
 const PAGE_SIZE = 24;
 
@@ -153,6 +167,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
   const selectedMetalThickness = readList("metals");
   const selectedSealContours = readList("konturi");
   const selectedThreshold = readList("slieksnis");
+  const selectedAvailability = readList("pieejamiba");
   const priceMin = searchParams.get("no") || "";
   const priceMax = searchParams.get("lidz") || "";
   const sort = searchParams.get("kartot") || "new";
@@ -187,6 +202,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
       metals: "",
       konturi: "",
       slieksnis: "",
+      pieejamiba: "",
       no: "",
       lidz: "",
     });
@@ -244,6 +260,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
     [allProducts]
   );
 
+  const availabilityOptions = useMemo(
+    () => AVAILABILITY_KEYS.filter((k) => allProducts.some((p) => availabilityOf(p) === k)),
+    [allProducts]
+  );
+
   const bounds = useMemo(() => {
     const prices = allProducts.map((p) => p.price).filter((n) => typeof n === "number");
     if (!prices.length) return { min: 0, max: 0 };
@@ -290,9 +311,12 @@ export default function CategoryClient({ slug, category, products: allProducts, 
       return false;
     if (skip !== "slieksnis" && selectedThreshold.length && !selectedThreshold.includes(p.threshold))
       return false;
+    if (skip !== "pieejamiba" && selectedAvailability.length && !selectedAvailability.includes(availabilityOf(p)))
+      return false;
     if (skip !== "cena") {
       const min = priceMin === "" ? null : Number(priceMin);
       const max = priceMax === "" ? null : Number(priceMax);
+      if ((min !== null || max !== null) && typeof p.price !== "number") return false;
       if (min !== null && !Number.isNaN(min) && p.price < min) return false;
       if (max !== null && !Number.isNaN(max) && p.price > max) return false;
     }
@@ -305,9 +329,10 @@ export default function CategoryClient({ slug, category, products: allProducts, 
     const list = allProducts.filter((p) => matches(p));
     switch (sort) {
       case "cheap":
-        return [...list].sort((a, b) => a.price - b.price);
+        return [...list].sort((a, b) => sortPrice(a) - sortPrice(b));
       case "expensive":
-        return [...list].sort((a, b) => b.price - a.price);
+        // Highest first, with the unpriced (announced) models still last.
+        return [...list].sort((a, b) => (sortPrice(a) === Infinity) - (sortPrice(b) === Infinity) || b.price - a.price);
       case "new":
         return [...list].sort((a, b) => Number(b.isNew) - Number(a.isNew));
       default:
@@ -321,6 +346,11 @@ export default function CategoryClient({ slug, category, products: allProducts, 
   const [shown, setShown] = useState({ key: filterKey, count: PAGE_SIZE });
   const visibleCount = shown.key === filterKey ? shown.count : PAGE_SIZE;
   const visible = filtered.slice(0, visibleCount);
+  /* One section per availability, in shelf -> announced -> made-to-order
+     order, for the categories that are split that way. */
+  const sections = GROUPED_CATEGORIES.includes(slug)
+    ? AVAILABILITY_KEYS.map((key) => ({ key, items: visible.filter((p) => availabilityOf(p) === key) })).filter((g) => g.items.length)
+    : null;
 
   if (!category) {
     return (
@@ -363,6 +393,9 @@ export default function CategoryClient({ slug, category, products: allProducts, 
       : key === "aluminum-thermal"
         ? t(locale, "category.thresholdAluminumThermal")
         : t(locale, "category.thresholdSteel");
+
+  const availabilityLabel = (key) =>
+    t(locale, key === "soon" ? "category.availSoon" : key === "order" ? "category.availOrder" : "category.availStock");
 
   const typeTitle = locale === "lt" ? "Durų tipas" : locale === "en" ? "Door type" : "Durvju tips";
   const searchPlaceholder = locale === "lt" ? "Ieškoti..." : locale === "en" ? "Search..." : "Meklēt...";
@@ -420,6 +453,12 @@ export default function CategoryClient({ slug, category, products: allProducts, 
       label: thresholdLabel(v),
       list: selectedThreshold,
     })),
+    ...selectedAvailability.map((v) => ({
+      key: "pieejamiba",
+      value: v,
+      label: availabilityLabel(v),
+      list: selectedAvailability,
+    })),
   ];
   const priceActive = priceMin !== "" || priceMax !== "";
 
@@ -440,6 +479,26 @@ export default function CategoryClient({ slug, category, products: allProducts, 
           ))}
         </div>
       </Group>
+
+      {availabilityOptions.length > 1 ? (
+        <Group title={t(locale, "category.availability")}>
+          <div className="space-y-0.5">
+            {availabilityOptions.map((key) => {
+              const count = countFor("pieejamiba", (p) => availabilityOf(p) === key);
+              return (
+                <Option
+                  key={key}
+                  checked={selectedAvailability.includes(key)}
+                  disabled={!count && !selectedAvailability.includes(key)}
+                  onChange={() => toggleValue("pieejamiba", selectedAvailability, key)}
+                  label={availabilityLabel(key)}
+                  count={count}
+                />
+              );
+            })}
+          </div>
+        </Group>
+      ) : null}
 
       {collectionOptions.length ? (
         <CollapsibleGroup title={t(locale, "category.collection")}>
@@ -797,14 +856,41 @@ export default function CategoryClient({ slug, category, products: allProducts, 
             <div className="flex-1">
               {filtered.length ? (
                 <>
-                  <RevealGrid
-                    className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
-                    revealKey={`${slug}|${sort}|${visible.map((p) => p.id).join(",")}`}
-                  >
-                    {visible.map((p) => (
-                      <ProductCard key={p.id} product={p} />
-                    ))}
-                  </RevealGrid>
+                  {sections ? (
+                    <div className="space-y-12">
+                      {sections.map((g) => {
+                        const titleKey = g.key === "soon" ? "groupSoon" : g.key === "order" ? "groupOrder" : "groupStock";
+                        return (
+                          <section key={g.key} aria-labelledby={`avail-${g.key}`}>
+                            <div className="mb-5 border-b border-line pb-3">
+                              <h2 id={`avail-${g.key}`} className="text-[20px] font-semibold text-[color:var(--color-title)]">
+                                {t(locale, `category.${titleKey}`)}
+                                <span className="ml-2 text-[14px] font-normal text-muted">{g.items.length}</span>
+                              </h2>
+                              <p className="mt-1 text-[14px] text-muted">{t(locale, `category.${titleKey}Hint`)}</p>
+                            </div>
+                            <RevealGrid
+                              className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+                              revealKey={`${slug}|${g.key}|${sort}|${g.items.map((p) => p.id).join(",")}`}
+                            >
+                              {g.items.map((p) => (
+                                <ProductCard key={p.id} product={p} />
+                              ))}
+                            </RevealGrid>
+                          </section>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <RevealGrid
+                      className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"
+                      revealKey={`${slug}|${sort}|${visible.map((p) => p.id).join(",")}`}
+                    >
+                      {visible.map((p) => (
+                        <ProductCard key={p.id} product={p} />
+                      ))}
+                    </RevealGrid>
+                  )}
                   {filtered.length > PAGE_SIZE ? (
                     <div className="mt-10 flex flex-col items-center gap-3">
                       <p className="text-sm text-muted" aria-live="polite">

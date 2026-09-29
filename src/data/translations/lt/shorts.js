@@ -238,4 +238,9 @@ export const ltShorts = {
     "Tikmedžio faktūra su veidrodžiu iš vidaus ir KALE Tandem cilindru.",
   "Venge no ārpuses, balts satīns no iekšpuses, ar termopārrāvumu.":
     "Vengė iš išorės, baltas satinas iš vidaus, su termo pertrauka.",
+
+  "40 mm gruntēta vērtne, kas veras uz ārpusi, izgatavota tieši jūsu ailei: izmērs ar 5 mm soli līdz 2300 × 1100 mm, spogulis, slēptais pievilcējs un krītošais slieksnis pēc izvēles.":
+    "40 mm gruntuota varčia, kuri varstosi į išorę, pagaminta būtent jūsų angai: dydis 5 mm žingsniu iki 2300 × 1100 mm, veidrodis, paslėptas pritraukėjas ir nuleidžiamas slenkstis pasirinktinai.",
+  "Reversā 52 mm gruntētā vērtne, izgatavota tieši jūsu ailei: izmērs ar 5 mm soli līdz 2700 × 1100 mm, durvīm līdz griestiem arī bez augšējās kārbas daļas.":
+    "Reversinė 52 mm gruntuota varčia, pagaminta būtent jūsų angai: dydis 5 mm žingsniu iki 2700 × 1100 mm, durims iki lubų - ir be viršutinės staktos dalies.",
 };

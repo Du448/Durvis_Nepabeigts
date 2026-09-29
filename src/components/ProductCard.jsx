@@ -51,11 +51,16 @@ export default function ProductCard({ product, bare = false }) {
   }, [product.id]);
 
   const hasOffer = product.oldPrice != null && product.oldPrice > product.price;
-  /* One badge per card, the most useful one: a deal beats "made to order"
-     (the customer needs that lead-time signal more than a "new" tag), which
-     beats "new", which beats the plain stock label. Stacked badges covered
-     the photo and read as noise. */
-  const badge = hasOffer
+  // Announced but not yet on sale: no price, no quick add.
+  const soon = product.stock === "soon";
+  /* One badge per card, the most useful one: "coming soon" says the model
+     cannot be bought yet, so it goes first; then a deal beats "made to
+     order" (the customer needs that lead-time signal more than a "new"
+     tag), which beats "new", which beats the plain stock label. Stacked
+     badges covered the photo and read as noise. */
+  const badge = soon
+    ? { text: t(locale, "product.comingSoon"), className: "bg-[color:var(--color-alt)] text-black" }
+    : hasOffer
     ? { text: t(locale, "product.offerBadge"), className: "bg-[color:var(--color-accent)] text-white" }
     : product.stock === "order"
       ? {
@@ -134,16 +139,18 @@ export default function ProductCard({ product, bare = false }) {
             hover, always shown on touch screens - the same reveal pattern
             as the wishlist/compare icons above, just on a different edge so
             the two don't collide. */}
-        <div className="absolute inset-x-0 bottom-0 z-10 translate-y-full opacity-0 transition-[opacity,transform] duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 focus-within:translate-y-0 focus-within:opacity-100 motion-reduce:translate-y-0 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100">
-          <button
-            type="button"
-            onClick={handleQuickAdd}
-            className="flex min-h-11 w-full items-center justify-center gap-2 bg-[color:var(--color-accent)] text-[13px] font-medium text-white transition-colors duration-200 hover:bg-[color:var(--color-title)]"
-          >
-            <ShoppingBag size={16} strokeWidth={1.8} />
-            {t(locale, "product.addCart")}
-          </button>
-        </div>
+        {soon ? null : (
+          <div className="absolute inset-x-0 bottom-0 z-10 translate-y-full opacity-0 transition-[opacity,transform] duration-200 ease-out group-hover:translate-y-0 group-hover:opacity-100 focus-within:translate-y-0 focus-within:opacity-100 motion-reduce:translate-y-0 [@media(hover:none)]:translate-y-0 [@media(hover:none)]:opacity-100">
+            <button
+              type="button"
+              onClick={handleQuickAdd}
+              className="flex min-h-11 w-full items-center justify-center gap-2 bg-[color:var(--color-accent)] text-[13px] font-medium text-white transition-colors duration-200 hover:bg-[color:var(--color-title)]"
+            >
+              <ShoppingBag size={16} strokeWidth={1.8} />
+              {t(locale, "product.addCart")}
+            </button>
+          </div>
+        )}
       </div>
 
       {badge ? (
@@ -226,7 +233,9 @@ export default function ProductCard({ product, bare = false }) {
 
       {/* Price */}
       <div className="mt-auto pt-3 text-[14px] text-[color:var(--color-accent)]">
-        {hasOffer ? (
+        {soon ? (
+          <span className="text-[color:var(--color-muted)]">{t(locale, "product.comingSoonPrice")}</span>
+        ) : hasOffer ? (
           <>
             <span className="mr-2 text-[color:var(--color-muted)] line-through">
               {formatPrice(product, product.oldPrice)}

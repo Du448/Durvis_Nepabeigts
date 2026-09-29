@@ -10,7 +10,7 @@ import { updateCartQty, removeCartLine, clearCart } from "@/lib/cart";
 import { useCartItems } from "@/lib/useCartItems";
 import { serviceLabels } from "@/lib/order-options";
 import { formatPrice, linePrice } from "@/lib/product-utils";
-import { bostonRows } from "@/lib/boston-config-i18n";
+import { configRows } from "@/lib/config-rows";
 import { imageProps } from "@/lib/images";
 
 /* Cart page, following the same client-reads-localStorage-then-fetches-cards
@@ -85,8 +85,8 @@ function CartLine({ line, product, locale }) {
   const directionLabel = line.direction
     ? t(locale, line.direction === "right" ? "product.directionRight" : "product.directionLeft")
     : "";
-  const configRows = bostonRows(product, line, locale);
-  const chips = [configRows.length ? null : line.size, directionLabel, line.jambColor, ...services].filter(Boolean);
+  const rows = configRows(product, line, locale);
+  const chips = [rows.length ? null : line.size, directionLabel, line.jambColor, ...services].filter(Boolean);
 
   return (
     <div className="flex gap-4 border border-line bg-white p-4">
@@ -123,9 +123,9 @@ function CartLine({ line, product, locale }) {
           </button>
         </div>
 
-        {configRows.length ? (
+        {rows.length ? (
           <dl className="mt-2 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5 text-[12px]">
-            {configRows.map(([label, value]) => (
+            {rows.map(([label, value]) => (
               <div key={label} className="contents">
                 <dt className="text-muted">{label}</dt>
                 <dd className="text-ink">{value}</dd>

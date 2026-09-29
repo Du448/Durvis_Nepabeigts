@@ -1,17 +1,18 @@
 /* Slēptās iekšdurvis, from the Eirodurvis 2026 price list ("Slēptās
    iekšdurvis - durvis no noliktavas un uz pasūtījumu").
 
-   Only the retail-facing half of that list is here: the six configurations a
-   customer actually picks between, what arrives in the box, the stock and
-   made-to-order sizes, and the accessories worth choosing. The dealer
-   mechanics in the same document are deliberately left out - the base-price
-   rules behind the RAL surcharges, the frame reinforcement kit, spacer
-   manufacturing, leaves with reduced thickness, sets without the top frame
-   member, and the hinge-count matrix. Those belong in a quote, not on a
-   product page.
+   The price list offers the same six configurations twice, and so does the
+   catalogue:
+   - from stock (p. 2): the two primer models on sale now, and the four
+     aluminium / black-edge models marked "drīzumā pieejams" - listed with
+     no price and not for sale until they arrive;
+   - made to order (p. 3): all six at list price, each with the configurator
+     in @/lib/hidden-config (size in 5 mm steps, RAL, mirror, closer, drop
+     seal and the rest of pp. 4-7).
+   Which list an id is on lives in @/data/hidden-door-options.
 
-   Photography: the catalogue ships a single room render, so the two stock
-   models use the standard-height door cropped from it and the four
+   Photography: the catalogue ships a single room render, so the stock
+   models use the standard-height door cropped from it and the
    made-to-order ones the full-height door. There is no per-variant
    photography for the aluminium and black edge trims yet. */
 
@@ -99,7 +100,13 @@ function describe(construction) {
   ];
 }
 
-function specsFull({ thickness, swing, edge, frame, frameSize, leafSize, opening, stock }) {
+const AVAILABILITY = {
+  stock: "No noliktavas",
+  soon: "Drīzumā no noliktavas",
+  order: "Pēc pasūtījuma",
+};
+
+function specsFull({ thickness, swing, edge, frame, frameSize, leafSize, opening, mode }) {
   return [
     ["Vērtnes biezums", thickness],
     ["Vēršanās virziens", swing],
@@ -114,249 +121,177 @@ function specsFull({ thickness, swing, edge, frame, frameSize, leafSize, opening
     ["Ieteicamā durvju aile", opening],
     ["Maksimālais izmērs pēc pasūtījuma", "2700 × 1100 mm"],
     ["Izmēru solis pēc pasūtījuma", "5 mm"],
-    ["Pieejamība", stock ? "No noliktavas" : "Pēc pasūtījuma"],
+    ["Pieejamība", AVAILABILITY[mode]],
   ];
 }
 
-export const hiddenDoors = [
-  {
-    id: "sleptas-40-grunts",
+/* The six configurations of the price list. Each is sold from stock and
+   made to order; the entries below are built from these. */
+const CONFIGS = {
+  "40-grunts": {
+    thickness: 40,
+    edge: "primer",
     name: "Slēptās durvis 40 mm, balta grunts",
-    collection: "EIRODURVIS",
-    category: "sleptas-durvis",
-    price: 379,
-    oldPrice: 419,
-    inStock: true,
-    sizes: SIZES_40,
     colors: ["Balta grunts"],
-    thermo: false,
-    glass: false,
-    isNew: false,
-    clearance: false,
-    images: IMAGES_STOCK,
-    short:
-      "Slēpto durvju komplekts ar 40 mm gruntētu vērtni, kas veras uz ārpusi. Kārba, vērtne un divas slēptās eņģes vienā cenā, pieejams no noliktavas.",
-    specs: {
-      "Vērtnes biezums": "40 mm",
-      "Vēršanās virziens": "Uz ārpusi",
-      "Slēdzenes": "Magnētiskā, matēts hroms",
-      "Furnitūra": "Otlav Invisacta IN300, slēptās eņģes",
-      "Apdare": FINISH,
-      "Pieejamība": "No noliktavas",
-    },
-    set: SET_CONTENTS,
-    description: describe(
-      "Šai konfigurācijai vērtnes biezums ir 40 mm un tā veras uz ārpusi. Vērtnes mala ir gruntēta tāpat kā virsma, tāpēc pēc krāsošanas durvis saplūst ar sienu bez metāla akcenta."
-    ),
-    specsFull: specsFull({
-      thickness: "40 mm",
-      swing: "Uz ārpusi",
-      edge: "Gruntēta, bez alumīnija apmales",
-      frame: "Standarta",
-      frameSize: FRAME_40,
-      leafSize: LEAF_40,
-      opening: OPENING_40,
-      stock: true,
-    }),
+    construction:
+      "Šai konfigurācijai vērtnes biezums ir 40 mm un tā veras uz ārpusi. Vērtnes mala ir gruntēta tāpat kā virsma, tāpēc pēc krāsošanas durvis saplūst ar sienu bez metāla akcenta.",
+    specsEdge: null,
+    fullEdge: "Gruntēta, bez alumīnija apmales",
+    frame: "Standarta",
   },
-  {
-    id: "sleptas-52-revers-grunts",
+  "52-revers-grunts": {
+    thickness: 52,
+    edge: "primer",
     name: "Slēptās durvis 52 mm revers, balta grunts",
-    collection: "EIRODURVIS",
-    category: "sleptas-durvis",
-    price: 399,
-    oldPrice: 439,
-    inStock: true,
-    sizes: SIZES_52,
     colors: ["Balta grunts"],
-    thermo: false,
-    glass: false,
-    isNew: false,
-    clearance: false,
-    images: IMAGES_STOCK,
-    short:
-      "Reversais komplekts ar 52 mm vērtni, kas veras uz telpas iekšpusi. Vērtne pārsedz kārbu, tāpēc no aizvērtās puses kārba nav redzama vispār.",
-    specs: {
-      "Vērtnes biezums": "52 mm",
-      "Vēršanās virziens": "Uz iekšpusi (revers)",
-      "Slēdzenes": "Magnētiskā, matēts hroms",
-      "Furnitūra": "Otlav Invisacta IN300, slēptās eņģes",
-      "Apdare": FINISH,
-      "Pieejamība": "No noliktavas",
-    },
-    set: SET_CONTENTS,
-    description: describe(
-      "Šai konfigurācijai vērtnes biezums ir 52 mm un tā veras uz telpas iekšpusi. Reversajā konstrukcijā vērtnes mala pārsedz kārbu, tāpēc no aizvērtās puses redzama tikai siena un vērtne."
-    ),
-    specsFull: specsFull({
-      thickness: "52 mm",
-      swing: "Uz iekšpusi (revers)",
-      edge: "Gruntēta, ar pārsegumu pār kārbu",
-      frame: "Standarta",
-      frameSize: FRAME_52,
-      leafSize: LEAF_52,
-      opening: OPENING_52,
-      stock: true,
-    }),
+    construction:
+      "Šai konfigurācijai vērtnes biezums ir 52 mm un tā veras uz telpas iekšpusi. Reversajā konstrukcijā vērtnes mala pārsedz kārbu, tāpēc no aizvērtās puses redzama tikai siena un vērtne.",
+    specsEdge: null,
+    fullEdge: "Gruntēta, ar pārsegumu pār kārbu",
+    frame: "Standarta",
   },
-  {
-    id: "sleptas-40-alu-mala",
+  "40-alu-mala": {
+    thickness: 40,
+    edge: "alu",
     name: "Slēptās durvis 40 mm ar alumīnija malu",
-    collection: "EIRODURVIS",
-    category: "sleptas-durvis",
-    price: 499,
-    oldPrice: null,
-    inStock: false,
-    sizes: SIZES_40,
     colors: ["Balta grunts", "Alumīnijs"],
-    thermo: false,
-    glass: false,
-    isNew: true,
-    clearance: false,
-    images: IMAGES_ORDER,
     short:
       "40 mm vērtne ar alumīnija apmali pa perimetru. Apmale pasargā malu no sitieniem un veido tīru metāla līniju starp sienu un vērtni.",
-    specs: {
-      "Vērtnes biezums": "40 mm",
-      "Vēršanās virziens": "Uz ārpusi",
-      "Vērtnes mala": "Alumīnija apmale",
-      "Slēdzenes": "Magnētiskā, matēts hroms",
-      "Apdare": FINISH,
-      "Pieejamība": "Pēc pasūtījuma",
-    },
-    set: SET_CONTENTS,
-    description: describe(
-      "Šai konfigurācijai vērtnes biezums ir 40 mm un tā veras uz ārpusi. Vērtnes perimetru noslēdz alumīnija apmale: tā pasargā malu no sitieniem un pēc sienas nokrāsošanas paliek kā vienīgā redzamā metāla līnija. Apmali var nokrāsot pēc RAL kataloga par 30 €."
-    ),
-    specsFull: specsFull({
-      thickness: "40 mm",
-      swing: "Uz ārpusi",
-      edge: "Alumīnija apmale",
-      frame: "Standarta",
-      frameSize: FRAME_40,
-      leafSize: LEAF_40,
-      opening: OPENING_40,
-      stock: false,
-    }),
+    construction:
+      "Šai konfigurācijai vērtnes biezums ir 40 mm un tā veras uz ārpusi. Vērtnes perimetru noslēdz alumīnija apmale: tā pasargā malu no sitieniem un pēc sienas nokrāsošanas paliek kā vienīgā redzamā metāla līnija. Apmali var nokrāsot pēc RAL kataloga par 30 €.",
+    specsEdge: "Alumīnija apmale",
+    fullEdge: "Alumīnija apmale",
+    frame: "Standarta",
   },
-  {
-    id: "sleptas-52-revers-alu-mala",
+  "52-revers-alu-mala": {
+    thickness: 52,
+    edge: "alu",
     name: "Slēptās durvis 52 mm revers ar alumīnija malu",
-    collection: "EIRODURVIS",
-    category: "sleptas-durvis",
-    price: 539,
-    oldPrice: null,
-    inStock: false,
-    sizes: SIZES_52,
     colors: ["Balta grunts", "Alumīnijs"],
-    thermo: false,
-    glass: false,
-    isNew: true,
-    clearance: false,
-    images: IMAGES_ORDER,
     short:
       "Reversā 52 mm vērtne ar alumīnija apmali. Veras uz telpas iekšpusi, pārsedz kārbu un noslēdzas ar metāla malu pa perimetru.",
-    specs: {
-      "Vērtnes biezums": "52 mm",
-      "Vēršanās virziens": "Uz iekšpusi (revers)",
-      "Vērtnes mala": "Alumīnija apmale",
-      "Slēdzenes": "Magnētiskā, matēts hroms",
-      "Apdare": FINISH,
-      "Pieejamība": "Pēc pasūtījuma",
-    },
-    set: SET_CONTENTS,
-    description: describe(
-      "Šai konfigurācijai vērtnes biezums ir 52 mm un tā veras uz telpas iekšpusi. Vērtne pārsedz kārbu, un tās perimetru noslēdz alumīnija apmale, kuru var nokrāsot pēc RAL kataloga par 30 €."
-    ),
-    specsFull: specsFull({
-      thickness: "52 mm",
-      swing: "Uz iekšpusi (revers)",
-      edge: "Alumīnija apmale",
-      frame: "Standarta",
-      frameSize: FRAME_52,
-      leafSize: LEAF_52,
-      opening: OPENING_52,
-      stock: false,
-    }),
+    construction:
+      "Šai konfigurācijai vērtnes biezums ir 52 mm un tā veras uz telpas iekšpusi. Vērtne pārsedz kārbu, un tās perimetru noslēdz alumīnija apmale, kuru var nokrāsot pēc RAL kataloga par 30 €.",
+    specsEdge: "Alumīnija apmale",
+    fullEdge: "Alumīnija apmale",
+    frame: "Standarta",
   },
-  {
-    id: "sleptas-40-melna-mala",
+  "40-melna-mala": {
+    thickness: 40,
+    edge: "black",
     name: "Slēptās durvis 40 mm, melns rāmis un melna mala",
-    collection: "EIRODURVIS",
-    category: "sleptas-durvis",
-    price: 579,
-    oldPrice: null,
-    inStock: false,
-    sizes: SIZES_40,
     colors: ["Balta grunts", "Melns"],
-    thermo: false,
-    glass: false,
-    isNew: true,
-    clearance: false,
-    images: IMAGES_ORDER,
     short:
       "40 mm vērtne ar melnu alumīnija malu un melnu kārbas rāmi. Ap gaišo vērtni paliek tīra melna kontūra - risinājums, kad durvīm jābūt pamanāmām, nevis paslēptām.",
-    specs: {
-      "Vērtnes biezums": "40 mm",
-      "Vēršanās virziens": "Uz ārpusi",
-      "Vērtnes mala": "Melna alumīnija apmale",
-      "Rāmja krāsa": "Melns",
-      "Slēdzenes": "Magnētiskā, matēts hroms",
-      "Pieejamība": "Pēc pasūtījuma",
-    },
-    set: SET_CONTENTS,
-    description: describe(
-      "Šai konfigurācijai vērtnes biezums ir 40 mm un tā veras uz ārpusi. Kārbas rāmis un vērtnes apmale ir melnā alumīnija krāsā, tāpēc ap gaišo vērtni paliek plāna melna kontūra un durvis kļūst par grafisku sienas elementu, nevis pazūd tajā."
-    ),
-    specsFull: specsFull({
-      thickness: "40 mm",
-      swing: "Uz ārpusi",
-      edge: "Melna alumīnija apmale",
-      frame: "Melns",
-      frameSize: FRAME_40,
-      leafSize: LEAF_40,
-      opening: OPENING_40,
-      stock: false,
-    }),
+    construction:
+      "Šai konfigurācijai vērtnes biezums ir 40 mm un tā veras uz ārpusi. Kārbas rāmis un vērtnes apmale ir melnā alumīnija krāsā, tāpēc ap gaišo vērtni paliek plāna melna kontūra un durvis kļūst par grafisku sienas elementu, nevis pazūd tajā.",
+    specsEdge: "Melna alumīnija apmale",
+    fullEdge: "Melna alumīnija apmale",
+    frame: "Melns",
   },
-  {
-    id: "sleptas-52-revers-melna-mala",
+  "52-revers-melna-mala": {
+    thickness: 52,
+    edge: "black",
     name: "Slēptās durvis 52 mm revers, melns rāmis un melna mala",
-    collection: "EIRODURVIS",
-    category: "sleptas-durvis",
-    price: 619,
-    oldPrice: null,
-    inStock: false,
-    sizes: SIZES_52,
     colors: ["Balta grunts", "Melns"],
-    thermo: false,
-    glass: false,
-    isNew: true,
-    clearance: false,
-    images: IMAGES_ORDER,
     short:
       "Pilnākā konfigurācija: reversā 52 mm vērtne ar melnu alumīnija malu un melnu rāmi. Veras uz telpas iekšpusi un pārsedz kārbu.",
+    construction:
+      "Šai konfigurācijai vērtnes biezums ir 52 mm un tā veras uz telpas iekšpusi. Vērtne pārsedz kārbu, un gan rāmis, gan vērtnes apmale ir melnā alumīnija krāsā.",
+    specsEdge: "Melna alumīnija apmale",
+    fullEdge: "Melna alumīnija apmale",
+    frame: "Melns",
+  },
+};
+
+const ORDER_SUFFIX = " - uz pasūtījumu";
+
+function hiddenDoor(key, { id, mode, price, oldPrice = null, short, isNew = false }) {
+  const cfg = CONFIGS[key];
+  const is40 = cfg.thickness === 40;
+  return {
+    id,
+    name: mode === "order" ? `${cfg.name}${ORDER_SUFFIX}` : cfg.name,
+    collection: "EIRODURVIS",
+    category: "sleptas-durvis",
+    price,
+    oldPrice,
+    inStock: mode === "stock",
+    ...(mode === "order" ? { stockSource: "order" } : {}),
+    ...(mode === "soon" ? { comingSoon: true } : {}),
+    sizes: is40 ? SIZES_40 : SIZES_52,
+    colors: cfg.colors,
+    thermo: false,
+    glass: false,
+    isNew,
+    clearance: false,
+    images: mode === "order" ? IMAGES_ORDER : IMAGES_STOCK,
+    short: short || cfg.short,
     specs: {
-      "Vērtnes biezums": "52 mm",
-      "Vēršanās virziens": "Uz iekšpusi (revers)",
-      "Vērtnes mala": "Melna alumīnija apmale",
-      "Rāmja krāsa": "Melns",
+      "Vērtnes biezums": `${cfg.thickness} mm`,
+      "Vēršanās virziens": is40 ? "Uz ārpusi" : "Uz iekšpusi (revers)",
+      ...(cfg.specsEdge ? { "Vērtnes mala": cfg.specsEdge } : {}),
+      ...(cfg.frame === "Melns" ? { "Rāmja krāsa": "Melns" } : {}),
       "Slēdzenes": "Magnētiskā, matēts hroms",
-      "Pieejamība": "Pēc pasūtījuma",
+      ...(cfg.specsEdge ? {} : { "Furnitūra": "Otlav Invisacta IN300, slēptās eņģes" }),
+      ...(cfg.frame === "Melns" ? {} : { "Apdare": FINISH }),
+      "Pieejamība": AVAILABILITY[mode],
     },
     set: SET_CONTENTS,
-    description: describe(
-      "Šai konfigurācijai vērtnes biezums ir 52 mm un tā veras uz telpas iekšpusi. Vērtne pārsedz kārbu, un gan rāmis, gan vērtnes apmale ir melnā alumīnija krāsā."
-    ),
+    description: describe(cfg.construction),
     specsFull: specsFull({
-      thickness: "52 mm",
-      swing: "Uz iekšpusi (revers)",
-      edge: "Melna alumīnija apmale",
-      frame: "Melns",
-      frameSize: FRAME_52,
-      leafSize: LEAF_52,
-      opening: OPENING_52,
-      stock: false,
+      thickness: `${cfg.thickness} mm`,
+      swing: is40 ? "Uz ārpusi" : "Uz iekšpusi (revers)",
+      edge: cfg.fullEdge,
+      frame: cfg.frame,
+      frameSize: is40 ? FRAME_40 : FRAME_52,
+      leafSize: is40 ? LEAF_40 : LEAF_52,
+      opening: is40 ? OPENING_40 : OPENING_52,
+      mode,
     }),
-  },
+  };
+}
+
+export const hiddenDoors = [
+  // --- No noliktavas (p. 2) --------------------------------------------
+  hiddenDoor("40-grunts", {
+    id: "sleptas-40-grunts",
+    mode: "stock",
+    price: 379,
+    oldPrice: 419,
+    short:
+      "Slēpto durvju komplekts ar 40 mm gruntētu vērtni, kas veras uz ārpusi. Kārba, vērtne un divas slēptās eņģes vienā cenā, pieejams no noliktavas.",
+  }),
+  hiddenDoor("52-revers-grunts", {
+    id: "sleptas-52-revers-grunts",
+    mode: "stock",
+    price: 399,
+    oldPrice: 439,
+    short:
+      "Reversais komplekts ar 52 mm vērtni, kas veras uz telpas iekšpusi. Vērtne pārsedz kārbu, tāpēc no aizvērtās puses kārba nav redzama vispār.",
+  }),
+  hiddenDoor("40-alu-mala", { id: "sleptas-40-alu-mala-noliktava", mode: "soon", price: null }),
+  hiddenDoor("52-revers-alu-mala", { id: "sleptas-52-revers-alu-mala-noliktava", mode: "soon", price: null }),
+  hiddenDoor("40-melna-mala", { id: "sleptas-40-melna-mala-noliktava", mode: "soon", price: null }),
+  hiddenDoor("52-revers-melna-mala", { id: "sleptas-52-revers-melna-mala-noliktava", mode: "soon", price: null }),
+
+  // --- Uz pasūtījumu (p. 3) --------------------------------------------
+  hiddenDoor("40-grunts", {
+    id: "sleptas-40-grunts-pasutijums",
+    mode: "order",
+    price: 419,
+    short:
+      "40 mm gruntēta vērtne, kas veras uz ārpusi, izgatavota tieši jūsu ailei: izmērs ar 5 mm soli līdz 2300 × 1100 mm, spogulis, slēptais pievilcējs un krītošais slieksnis pēc izvēles.",
+  }),
+  hiddenDoor("52-revers-grunts", {
+    id: "sleptas-52-revers-grunts-pasutijums",
+    mode: "order",
+    price: 439,
+    short:
+      "Reversā 52 mm gruntētā vērtne, izgatavota tieši jūsu ailei: izmērs ar 5 mm soli līdz 2700 × 1100 mm, durvīm līdz griestiem arī bez augšējās kārbas daļas.",
+  }),
+  hiddenDoor("40-alu-mala", { id: "sleptas-40-alu-mala", mode: "order", price: 499, isNew: true }),
+  hiddenDoor("52-revers-alu-mala", { id: "sleptas-52-revers-alu-mala", mode: "order", price: 539, isNew: true }),
+  hiddenDoor("40-melna-mala", { id: "sleptas-40-melna-mala", mode: "order", price: 579, isNew: true }),
+  hiddenDoor("52-revers-melna-mala", { id: "sleptas-52-revers-melna-mala", mode: "order", price: 619, isNew: true }),
 ];

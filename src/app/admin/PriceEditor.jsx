@@ -378,7 +378,7 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
                         />
                         <span className="text-neutral-500">{row.currency}</span>
                       </div>
-                      {Number(v.price) !== row.base.price ? (
+                      {row.base.price != null && Number(v.price) !== row.base.price ? (
                         <div className="mt-1 text-[11px] text-neutral-400">{ui.inCatalogue(row.base.price)}</div>
                       ) : null}
                     </td>

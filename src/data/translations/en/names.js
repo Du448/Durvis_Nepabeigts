@@ -171,6 +171,13 @@ export const enNames = {
   "Slēptās durvis 52 mm revers, balta grunts": "Hidden doors 52 mm, reverse, white primer",
   "Slēptās durvis 52 mm revers, melns rāmis un melna mala":
     "Hidden doors 52 mm, reverse, black frame and black edge",
+  "Slēptās durvis 40 mm, balta grunts - uz pasūtījumu": "Hidden doors 40 mm, white primer - made to order",
+  "Slēptās durvis 52 mm revers, balta grunts - uz pasūtījumu": "Hidden doors 52 mm, reverse, white primer - made to order",
+  "Slēptās durvis 40 mm ar alumīnija malu - uz pasūtījumu": "Hidden doors 40 mm with aluminum edge - made to order",
+  "Slēptās durvis 52 mm revers ar alumīnija malu - uz pasūtījumu": "Hidden doors 52 mm, reverse, with aluminum edge - made to order",
+  "Slēptās durvis 40 mm, melns rāmis un melna mala - uz pasūtījumu": "Hidden doors 40 mm, black frame and black edge - made to order",
+  "Slēptās durvis 52 mm revers, melns rāmis un melna mala - uz pasūtījumu":
+    "Hidden doors 52 mm, reverse, black frame and black edge - made to order",
 
   "Termo House 705/431 Antracīts": "Termo House 705/431 anthracite",
   "Termo House 705/431 Antracīts/Balts satīns": "Termo House 705/431 anthracite / white satin",

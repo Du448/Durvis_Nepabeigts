@@ -171,6 +171,14 @@ export const ltNames = {
   "Slēptās durvis 52 mm revers, balta grunts": "Paslėptos durys 52 mm, reversas, baltas gruntas",
   "Slēptās durvis 52 mm revers, melns rāmis un melna mala":
     "Paslėptos durys 52 mm, reversas, juodas rėmas ir juodas kraštas",
+  "Slēptās durvis 40 mm, balta grunts - uz pasūtījumu": "Paslėptos durys 40 mm, baltas gruntas - pagal užsakymą",
+  "Slēptās durvis 52 mm revers, balta grunts - uz pasūtījumu": "Paslėptos durys 52 mm, reversas, baltas gruntas - pagal užsakymą",
+  "Slēptās durvis 40 mm ar alumīnija malu - uz pasūtījumu": "Paslėptos durys 40 mm su aliuminio kraštu - pagal užsakymą",
+  "Slēptās durvis 52 mm revers ar alumīnija malu - uz pasūtījumu": "Paslėptos durys 52 mm, reversas, su aliuminio kraštu - pagal užsakymą",
+  "Slēptās durvis 40 mm, melns rāmis un melna mala - uz pasūtījumu":
+    "Paslėptos durys 40 mm, juodas rėmas ir juodas kraštas - pagal užsakymą",
+  "Slēptās durvis 52 mm revers, melns rāmis un melna mala - uz pasūtījumu":
+    "Paslėptos durys 52 mm, reversas, juodas rėmas ir juodas kraštas - pagal užsakymą",
 
   "Termo House 705/431 Antracīts": "Termo House 705/431 antracitas",
   "Termo House 705/431 Antracīts/Balts satīns": "Termo House 705/431 antracitas / baltas satinas",

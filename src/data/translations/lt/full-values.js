@@ -224,6 +224,7 @@ export const ltFullValues = {
   "Jā, nosedz ārpus kārbas 50mm": "Taip, uždengia 50 mm už staktos",
   "Jā, nosedz ārpus kārbas 60mm": "Taip, uždengia 60 mm už staktos",
   "No noliktavas": "Iš sandėlio",
+  "Drīzumā no noliktavas": "Netrukus sandėlyje",
   "Durvis noliktavā": "Durys sandėlyje",
   "Pēc pasūtījuma": "Pagal užsakymą",
   "Standarta": "Standartinis",

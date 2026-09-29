@@ -3,16 +3,25 @@
    the browser bundle. */
 
 import { bostonSpec, isBostonOrder, priceBoston } from "@/lib/boston-config";
+import { hiddenSpec, isHiddenComingSoon, priceHidden } from "@/lib/hidden-config";
 
 export { isBostonOrder };
 
 /* A cart/order line's unit price. Lines store only the choices made, never
-   a price, so a configured Boston door is re-priced from its config here
-   rather than trusting a number written at add-to-cart time. */
+   a price, so a configured Boston or hidden door is re-priced from its
+   config here rather than trusting a number written at add-to-cart time. */
 export function linePrice(product, line) {
   const spec = line?.boston ? bostonSpec(product) : null;
   if (spec) return priceBoston(spec, line.boston).total;
+  const hidden = line?.hidden ? hiddenSpec(product) : null;
+  if (hidden) return priceHidden(hidden, line.hidden).total;
   return product?.price;
+}
+
+/* Announced models ("drīzumā pieejams") - listed, but not for sale yet. */
+export function isComingSoon(product) {
+  if (!product) return false;
+  return (!!product.comingSoon && product.inStock !== true) || isHiddenComingSoon(product);
 }
 
 /* Categories whose models are kept in stock. Per-product overrides are
@@ -25,6 +34,7 @@ export const IN_STOCK_CATEGORIES = ["ardurvis-dzivoklim", "ardurvis-privatmajai"
    only ever made to order - and gets its own badge/label rather than being
    folded into "in stock". */
 export function stockKind(product) {
+  if (isComingSoon(product)) return "soon";
   if (product?.stockSource === "order") return "order";
   if (!isInStock(product)) return null;
   return product?.stockSource === "factory" ? "factory" : "local";

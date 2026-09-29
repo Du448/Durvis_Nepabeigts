@@ -77,6 +77,7 @@ export const ltSpecValues = {
   "nav": "nėra",
   "Nerūsējošais tērauds": "Nerūdijantis plienas",
   "No noliktavas": "Iš sandėlio",
+  "Drīzumā no noliktavas": "Netrukus sandėlyje",
   "Oksīds balts": "Oksidas baltas",
   "Otlav Invisacta IN300, slēptās eņģes": "Otlav Invisacta IN300, paslėpti vyriai",
   "Pelēks ultramats": "Pilka ultramatinė",

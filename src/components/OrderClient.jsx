@@ -11,7 +11,7 @@ import { useCartItems } from "@/lib/useCartItems";
 import { clearCart } from "@/lib/cart";
 import { serviceLabels } from "@/lib/order-options";
 import { formatPrice, linePrice } from "@/lib/product-utils";
-import { bostonRows } from "@/lib/boston-config-i18n";
+import { configRows } from "@/lib/config-rows";
 import { imageProps } from "@/lib/images";
 import { mainPhone, company } from "@/lib/site";
 import { scrollBehavior } from "@/lib/motion";
@@ -86,7 +86,7 @@ export default function OrderClient() {
             price: formatPrice(product, linePrice(product, line) * line.qty),
             services: serviceLabels(line.services, t, locale).join(", "),
             jambColor: line.jambColor || "",
-            config: bostonRows(product, line, locale).map(([label, value]) => `${label}: ${value}`),
+            config: configRows(product, line, locale).map(([label, value]) => `${label}: ${value}`),
             url: `${window.location.origin}${withLocaleHref(locale, paths.product(product.id))}`,
             image: product.image ? new URL(product.image, window.location.origin).href : "",
           })),
@@ -415,9 +415,9 @@ export default function OrderClient() {
                 ? t(locale, line.direction === "right" ? "product.directionRight" : "product.directionLeft")
                 : "";
               const chips = [
-                line.boston ? null : line.size,
+                line.boston || line.hidden ? null : line.size,
                 directionLabel,
-                ...bostonRows(product, line, locale).map(([, value]) => value),
+                ...configRows(product, line, locale).map(([, value]) => value),
               ]
                 .filter(Boolean)
                 .join(" · ");

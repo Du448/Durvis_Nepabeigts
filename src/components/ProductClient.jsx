@@ -10,7 +10,9 @@ import MagneticButton from "@/components/anim/MagneticButton";
 import RevealGrid from "@/components/anim/RevealGrid";
 import { isInStock, stockKind, formatPrice } from "@/lib/product-utils";
 import BostonConfigurator from "@/components/BostonConfigurator";
+import HiddenDoorConfigurator from "@/components/HiddenDoorConfigurator";
 import { bostonSpec, defaultConfig, encodeConfig, priceBoston } from "@/lib/boston-config";
+import { defaultHiddenConfig, hiddenModel, hiddenSpec, priceHidden } from "@/lib/hidden-config";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
@@ -233,7 +235,7 @@ function JambColorSwatchGrid({ items, jambColor, onSelect, onZoom, label, zoomLa
    and the configurator link (whether this model is one of its series, and the
    colour section to open) - so neither the catalogue nor the configurator's
    data has to ship to the browser. */
-export default function ProductClient({ product, similar = [], configurator = null, locks = [], jambColors = [] }) {
+export default function ProductClient({ product, similar = [], configurator = null, locks = [], jambColors = [], orderTwin = null }) {
   const { trData, translateColorLabel } = useTr();
   const locale = getLocaleFromPathname(usePathname());
   // Made-to-order Boston models are configured (size, finish, hardware...)
@@ -241,6 +243,29 @@ export default function ProductClient({ product, similar = [], configurator = nu
   const [bostonSpecData] = useState(() => bostonSpec(product));
   const [bostonConfig, setBostonConfig] = useState(() => (bostonSpecData ? defaultConfig(bostonSpecData) : null));
   const bostonDouble = bostonConfig?.leaf === "double" && bostonSpecData?.doubleImage;
+  // Hidden doors: size, hinges, RAL and accessories from the Eirodurvis
+  // price list - see @/lib/hidden-config. Announced ("coming soon") stock
+  // models get no configurator and cannot be added to the cart.
+  const [hiddenSpecData] = useState(() => hiddenSpec(product));
+  const [hiddenConfig, setHiddenConfig] = useState(() => (hiddenSpecData ? defaultHiddenConfig(hiddenSpecData) : null));
+  const configured = !!(bostonConfig || hiddenConfig);
+  const comingSoon = stockKind(product) === "soon";
+  const hiddenEdge = hiddenModel(product)?.edge || null;
+  const colors = product?.colors || [];
+  const interiorSecond = ["Akcenti", "Ielaidums", "Stikls"].find((k) => product?.specs?.[k]);
+  const namedColors = !colors.length
+    ? null
+    : hiddenEdge
+      ? [
+          [t(locale, "product.leafFinish"), colors[0]],
+          colors[1] ? [t(locale, hiddenEdge === "black" ? "product.frameEdgeFinish" : "product.edgeFinish"), colors[1]] : null,
+        ].filter(Boolean)
+      : product?.category === "ieksdurvis"
+        ? [
+            [trData(locale, "Tonis"), colors[0]],
+            colors[1] ? [trData(locale, interiorSecond || "Akcenti"), colors[1]] : null,
+          ].filter(Boolean)
+        : null;
   const productImages = product?.images && product.images.length > 0 ? product.images : ["placeholder"];
   // Picking a door-and-a-half puts that version's photo first.
   const images = bostonDouble ? [bostonSpecData.doubleImage, ...productImages] : productImages;
@@ -390,6 +415,14 @@ export default function ProductClient({ product, similar = [], configurator = nu
             jambColor,
             boston: bostonConfig,
           }
+        : hiddenConfig
+        ? {
+            id: product.id,
+            size: `${hiddenConfig.width}×${hiddenConfig.height}`,
+            services: selectedServiceCodes,
+            jambColor,
+            hidden: hiddenConfig,
+          }
         : {
             id: product.id,
             size: activeSize,
@@ -420,7 +453,11 @@ export default function ProductClient({ product, similar = [], configurator = nu
   }
 
   const hasOffer = product.oldPrice != null && product.oldPrice > product.price;
-  const displayPrice = bostonConfig ? priceBoston(bostonSpecData, bostonConfig).total : product.price;
+  const displayPrice = bostonConfig
+    ? priceBoston(bostonSpecData, bostonConfig).total
+    : hiddenConfig
+      ? priceHidden(hiddenSpecData, hiddenConfig).total
+      : product.price;
   const discount = hasOffer ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
   /* The catalogue stores names, specification rows and description copy in
      Latvian; the page's dictionary (DictProvider) renders them in its language. */
@@ -577,7 +614,11 @@ export default function ProductClient({ product, similar = [], configurator = nu
                   <span aria-hidden className="h-[2px] w-5 bg-[color:var(--color-accent)]" />
                   {product.collection}
                 </div>
-                {isInStock(product) || stockKind(product) === "order" ? (
+                {comingSoon ? (
+                  <span className="inline-flex items-center gap-1.5 bg-[color:var(--color-alt)] px-2.5 py-1 text-[11px] font-semibold uppercase leading-none text-black">
+                    {t(locale, "product.comingSoonPrice")}
+                  </span>
+                ) : isInStock(product) || stockKind(product) === "order" ? (
                   <span
                     className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold uppercase leading-none ${
                       stockKind(product) === "factory"
@@ -618,7 +659,11 @@ export default function ProductClient({ product, similar = [], configurator = nu
               </h1>
 
               <div className="mt-3 flex flex-wrap items-baseline gap-2.5">
-                {hasOffer ? (
+                {comingSoon ? (
+                  <span className="text-[26px] font-semibold leading-none text-[color:var(--color-muted)] sm:text-[30px]">
+                    {t(locale, "product.comingSoonPrice")}
+                  </span>
+                ) : hasOffer ? (
                   <>
                     <span className="text-[32px] font-semibold leading-none text-[color:var(--color-accent)] sm:text-[38px]">
                       {formatPrice(product, displayPrice)}
@@ -638,9 +683,44 @@ export default function ProductClient({ product, similar = [], configurator = nu
               {bostonConfig ? (
                 <BostonConfigurator spec={bostonSpecData} config={bostonConfig} onChange={changeBostonConfig} locale={locale} />
               ) : null}
+              {hiddenConfig ? (
+                <HiddenDoorConfigurator spec={hiddenSpecData} config={hiddenConfig} onChange={setHiddenConfig} locale={locale} />
+              ) : null}
+              {comingSoon ? (
+                <div className="mt-6 border-l-2 border-[color:var(--color-alt)] bg-[--color-soft] px-4 py-3.5 text-[14px] leading-relaxed text-ink">
+                  <p>{t(locale, "product.comingSoonNote")}</p>
+                  {orderTwin ? (
+                    <p className="mt-2">
+                      {t(locale, "product.comingSoonOrder")}{" "}
+                      <Link
+                        href={withLocaleHref(locale, paths.product(orderTwin.id))}
+                        className="font-semibold text-[color:var(--color-accent)] underline underline-offset-4 hover:text-[color:var(--color-title)]"
+                      >
+                        {t(locale, "product.comingSoonOrderFrom").replace("{price}", formatPrice(product, orderTwin.price))}
+                      </Link>
+                    </p>
+                  ) : null}
+                </div>
+              ) : null}
+
+              {/* Only entrance doors have an outside / inside colour. On a
+                  hidden door the two slots are the primed leaf and its
+                  aluminium edge (with the frame, on the black models); on an
+                  interior door the shade and its accents, inlay or glass -
+                  named by the model's own spec row. */}
+              {namedColors ? (
+                <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-[15px] text-ink">
+                  {namedColors.map(([label, color]) => (
+                    <div key={label}>
+                      <div className="mb-2 text-sm text-muted">{label}</div>
+                      <span className="bg-[--color-soft] px-3 py-1.5">{translateColorLabel(locale, color)}</span>
+                    </div>
+                  ))}
+                </div>
+              ) : null}
 
               {/* Colors (display only: exterior / interior) */}
-              {product.colors?.length ? (
+              {product.colors?.length && !namedColors ? (
                 <div className="mt-5">
                   <div className="text-sm text-muted mb-2">{t(locale, "product.colorLabel")}</div>
                   <div className="flex flex-wrap items-center gap-2 text-[15px] text-ink">
@@ -651,7 +731,8 @@ export default function ProductClient({ product, similar = [], configurator = nu
                         <span className="bg-[--color-soft] px-3 py-1.5">{translateColorLabel(locale, product.colors[1])}</span>
                       </>
                     ) : null}
-                    {product.collection === "BOSTON" ? null : configurator ? (
+                    {/* The shade change (configurator / finishes page) covers entrance doors only. */}
+                    {product.collection === "BOSTON" || !product.category?.startsWith("ardurvis") ? null : configurator ? (
                       <Link
                         href={withLocaleHref(locale, `${paths.configurator}${configurator.colorQuery}`)}
                         className="px-3 py-1.5 text-[13px] font-semibold text-[color:var(--color-accent)] underline underline-offset-4 transition-colors hover:text-[color:var(--color-title)]"
@@ -671,7 +752,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
               ) : null}
 
               {/* Sizes */}
-              {product.sizes?.length && !bostonConfig ? (
+              {product.sizes?.length && !configured ? (
                 <div className="mt-5">
                   <label htmlFor="product-size" className="block text-sm text-muted mb-2">
                     {t(locale, "product.size")}
@@ -690,7 +771,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
               ) : null}
 
               {/* Opening direction */}
-              {product.directions?.length && !bostonConfig ? (
+              {product.directions?.length && !configured ? (
                 <div className="mt-5">
                   <label htmlFor="product-direction" className="block text-sm text-muted mb-2">
                     {t(locale, "product.direction")}
@@ -839,22 +920,24 @@ export default function ProductClient({ product, similar = [], configurator = nu
 
               {/* Actions - below the service / jamb choices they include. */}
               <div className="mt-6 flex flex-wrap gap-3">
-                <MagneticButton>
-                  <button
-                    type="button"
-                    className="btn btn-accent shadow-[0_4px_16px_rgba(3,119,67,0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(3,119,67,0.4)]"
-                    onClick={handleAddToCart}
-                  >
-                    <ShoppingBag size={18} />
-                    {t(locale, "product.addCart")}
-                  </button>
-                </MagneticButton>
+                {comingSoon ? null : (
+                  <MagneticButton>
+                    <button
+                      type="button"
+                      className="btn btn-accent shadow-[0_4px_16px_rgba(3,119,67,0.3)] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(3,119,67,0.4)]"
+                      onClick={handleAddToCart}
+                    >
+                      <ShoppingBag size={18} />
+                      {t(locale, "product.addCart")}
+                    </button>
+                  </MagneticButton>
+                )}
                 <Link
                   href={withLocaleHref(
                     locale,
                     `${paths.contacts}?produkts=${encodeURIComponent(product.id)}${
-                      bostonConfig
-                        ? `&konfig=${encodeConfig(bostonConfig)}`
+                      bostonConfig || hiddenConfig
+                        ? `&konfig=${encodeConfig(bostonConfig || hiddenConfig)}`
                         : `${activeSize ? `&izmers=${encodeURIComponent(activeSize)}` : ""}${
                             activeDirection ? `&virziens=${encodeURIComponent(activeDirection)}` : ""
                           }`
@@ -864,9 +947,9 @@ export default function ProductClient({ product, similar = [], configurator = nu
                         : ""
                     }${jambColor ? `&apdareKrasa=${encodeURIComponent(jambColor)}` : ""}`
                   )}
-                  className="btn btn-outline-dark transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                  className={`btn transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${comingSoon ? "btn-accent" : "btn-outline-dark"}`}
                 >
-                  {t(locale, "product.requestOffer")}
+                  {t(locale, comingSoon ? "product.notifyMe" : "product.requestOffer")}
                 </Link>
               </div>
 
