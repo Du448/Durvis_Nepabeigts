@@ -14,6 +14,7 @@ import {
   HARDWARE_TYPES,
   LAYOUTS,
   PANORAMIC_TINTS,
+  GRILLE_TINTS,
   RULES_PLAIN,
   RULES_SMART,
   RULES_SU,
@@ -159,7 +160,7 @@ export function normalize(spec, raw) {
   c.topH = clamp(c.topH, r.glazingMin, r.glazingMax);
   c.sidePos = c.sidePos === "right" ? "right" : "left";
   c.panoTint = PANORAMIC_TINTS.includes(c.panoTint) ? c.panoTint : "satins";
-  c.panoGrille = !!c.panoGrille;
+  c.panoGrille = !!c.panoGrille && c.panoTint in GRILLE_TINTS;
   c.hinge = c.hinge === "left" ? "left" : "right";
   c.opening = c.opening === "in" && !spec.smart ? "in" : "out";
 

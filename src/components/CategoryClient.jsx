@@ -155,7 +155,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
   const selectedThreshold = readList("slieksnis");
   const priceMin = searchParams.get("no") || "";
   const priceMax = searchParams.get("lidz") || "";
-  const sort = searchParams.get("kartot") || "popular";
+  const sort = searchParams.get("kartot") || "new";
 
   const setParams = useCallback(
     (changes) => {

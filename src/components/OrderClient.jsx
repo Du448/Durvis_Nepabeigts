@@ -88,6 +88,7 @@ export default function OrderClient() {
             jambColor: line.jambColor || "",
             config: bostonRows(product, line, locale).map(([label, value]) => `${label}: ${value}`),
             url: `${window.location.origin}${withLocaleHref(locale, paths.product(product.id))}`,
+            image: product.image ? new URL(product.image, window.location.origin).href : "",
           })),
           subtotal: formatPrice({ currency: "EUR" }, subtotal),
         }),

@@ -13,6 +13,7 @@ import {
   GLASS_TINTS,
   LAYOUTS,
   PANORAMIC_TINTS,
+  GRILLE_TINTS,
 } from "@/data/boston-config-options";
 import { blockSize, casingLength, colorsForType, layoutOf, normalize, priceBoston, sizeOptions, stripSteelAllowed } from "@/lib/boston-config";
 import {
@@ -133,7 +134,7 @@ function MmInput({ label, value, min, max, onCommit, locale }) {
 
 const pctFromTable = (table, v) => (table.find(([max]) => v <= max) || table[table.length - 1])[1];
 
-function MmSelect({ label, value, options, pctOf, onChange }) {
+function MmSelect({ label, value, options, pctOf, extraOf, onChange }) {
   const id = useId();
   return (
     <div>
@@ -142,10 +143,11 @@ function MmSelect({ label, value, options, pctOf, onChange }) {
       </label>
       <select id={id} value={value} onChange={(e) => onChange(Number(e.target.value))} className="field w-full">
         {options.map((o) => {
-          const pct = pctOf(o);
+          const extra = extraOf?.(o);
+          const pct = extra ? 0 : pctOf(o);
           return (
             <option key={o} value={o}>
-              {o} mm{pct ? ` (+${pct}%)` : ""}
+              {o} mm{extra ? ` (${extra})` : pct ? ` (+${pct}%)` : ""}
             </option>
           );
         })}
@@ -465,6 +467,11 @@ export default function BostonConfigurator({ spec, config, onChange, locale }) {
                               : pctFromTable(R.double.widthPct, w)
                             : R.single.widths?.find(([x]) => x === w)?.[1] ?? 0
                         }
+                        extraOf={
+                          c.leaf === "double"
+                            ? (w) => (w > R.double.stdW ? signed(priceOf({ width: w }) - priceOf({ width: R.double.stdW })) : "")
+                            : undefined
+                        }
                         onChange={(width) => set({ width })}
                       />
                     ) : (
@@ -528,16 +535,22 @@ export default function BostonConfigurator({ spec, config, onChange, locale }) {
                   <div>
                     <div className="mb-1 text-[12px] text-muted">{L("panoTint")}</div>
                     <div className="flex flex-wrap gap-1.5" role="radiogroup">
-                      {PANORAMIC_TINTS.map((k) => (
-                        <Swatch key={k} image={GLASS_TINTS[k].image} label={glassName(k, locale)} selected={c.panoTint === k} onClick={() => set({ panoTint: k })} />
+                      {[
+                        ...PANORAMIC_TINTS.map((k) => ({ k, grille: false, image: GLASS_TINTS[k].image, label: glassName(k, locale) })),
+                        ...Object.entries(GRILLE_TINTS).map(([k, image]) => ({ k, grille: true, image, label: `${glassName(k, locale)} ${L("grilleShort")}` })),
+                      ].map((o) => (
+                        <Swatch
+                          key={`${o.k}-${o.grille}`}
+                          image={o.image}
+                          label={o.label}
+                          selected={c.panoTint === o.k && c.panoGrille === o.grille}
+                          onClick={() => set({ panoTint: o.k, panoGrille: o.grille })}
+                        />
                       ))}
                     </div>
-                    {selectedName(glassName(c.panoTint, locale))}
+                    {selectedName(`${glassName(c.panoTint, locale)}${c.panoGrille ? ` ${L("grilleShort")}` : ""}`)}
+                    {c.panoGrille && R.grilleOnRequest ? <p className="mt-1 text-[12px] text-muted">{L("panoGrille")} ({L("onRequest")})</p> : null}
                   </div>
-                  <label className="flex items-center gap-2 text-[13px] text-ink">
-                    <input type="checkbox" checked={c.panoGrille} onChange={(e) => set({ panoGrille: e.target.checked })} className="h-4 w-4 accent-[color:var(--color-accent)]" />
-                    {L("panoGrille")} {R.grilleOnRequest ? <span className="text-muted">({L("onRequest")})</span> : null}
-                  </label>
                   <p className="text-[13px] font-medium text-[color:var(--color-title)]">{L("blockSize", { w: block.width, h: block.height })}</p>
                 </div>
               ) : null}

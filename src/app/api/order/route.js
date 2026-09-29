@@ -2,7 +2,8 @@ import { NextResponse } from "next/server";
 import { sendFormEmail, escapeHtml } from "@/lib/mailer";
 import { HONEYPOT_FIELD, honeypotResponse, isHoneypotFilled, rateLimited } from "@/lib/formGuard";
 import { locales, defaultLocale, t } from "@/lib/i18n";
-import { phones, hoursFor, company } from "@/lib/site";
+import { phones, company } from "@/lib/site";
+import { buildCustomerEmail } from "@/lib/orderEmail";
 
 // No payment step (see @/components/OrderClient): the shop confirms the
 // final price after measurement, so placing an order here just books the
@@ -61,6 +62,7 @@ function readItems(raw) {
     jambColor: clip(item?.jambColor, 60),
     config: (Array.isArray(item?.config) ? item.config : []).slice(0, 16).map((row) => clip(row, 400)).filter(Boolean),
     url: clip(item?.url, 300),
+    image: /^https?:\/\//i.test(String(item?.image)) ? clip(item.image, 500) : "",
   }));
 }
 
@@ -193,11 +195,6 @@ export async function POST(request) {
   // --- Confirmation to the customer, in their own language -----------------
   try {
     const greetName = customerType === "business" ? companyName : firstName || customerName;
-    const custItemBlocks = items.map(
-      (item, i) => `<tr><td colspan="2" style="font-weight:bold;padding-top:10px">${i + 1}. ${escapeHtml(item.name)}</td></tr>${itemRows(item, labels)
-        .map(([l, v]) => `<tr><td style="color:#666;padding-left:12px">${escapeHtml(l)}</td><td>${escapeHtml(v)}</td></tr>`)
-        .join("")}`
-    );
     const custText = [
       t(locale, "order.mailGreeting").replace("{name}", greetName),
       "",
@@ -219,23 +216,7 @@ export async function POST(request) {
       .filter((line) => line !== null)
       .join("\n");
 
-    const custHtml = `
-      <p>${escapeHtml(t(locale, "order.mailGreeting").replace("{name}", greetName))}</p>
-      <p>${escapeHtml(t(locale, "order.mailThanks"))}</p>
-      <p><strong>${escapeHtml(t(locale, "order.mailOrderNumber"))}:</strong> ${escapeHtml(orderNumber)}</p>
-      <h3 style="margin:16px 0 8px">${escapeHtml(t(locale, "order.mailItemsHeading"))}</h3>
-      <table cellpadding="4" style="border-collapse:collapse;border:1px solid #ddd">${custItemBlocks.join("")}</table>
-      ${subtotal ? `<p><strong>${escapeHtml(t(locale, "cart.subtotal"))}:</strong> ${escapeHtml(subtotal)}</p>` : ""}
-      <p><strong>${escapeHtml(t(locale, "order.mailDeliveryHeading"))}:</strong> ${escapeHtml(deliveryLine)}</p>
-      <p style="margin-top:16px;color:#444">${escapeHtml(t(locale, "order.mailNote"))}</p>
-      <p style="margin-top:16px"><strong>${escapeHtml(t(locale, "order.mailContactHeading"))}:</strong><br>
-        ${phones.map((p) => escapeHtml(p.label)).join("<br>")}<br>
-        ${escapeHtml(company.email)}<br>
-        ${escapeHtml(company.address)}<br>
-        ${hoursFor(locale).map((r) => `${escapeHtml(r.days)}: ${escapeHtml(r.time)}`).join("<br>")}
-      </p>
-      <p style="margin-top:16px">${escapeHtml(t(locale, "order.mailSignature"))}</p>
-    `;
+    const custHtml = buildCustomerEmail({ locale, greetName, orderNumber, items, itemRows, labels, subtotal, deliveryLine, comment });
 
     await sendFormEmail({
       to: email,

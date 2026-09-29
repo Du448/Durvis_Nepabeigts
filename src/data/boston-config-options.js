@@ -189,6 +189,12 @@ export const GLASS_TINTS = {
 };
 export const PANORAMIC_TINTS = ["satins", "bronza", "grafits", "hroms"];
 
+// The price sheets offer the inset grille only on bronze and chrome panoramic glass.
+export const GRILLE_TINTS = {
+  bronza: "/images/boston-construction/glass-bronza-restots.jpg",
+  hroms: "/images/boston-construction/glass-hroms-restots.jpg",
+};
+
 /* Glazing layouts ("TIPS 1-6"): how many side-lights and whether there's a
    toplight above the whole block. */
 export const LAYOUTS = [
