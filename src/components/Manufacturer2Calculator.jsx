@@ -681,6 +681,36 @@ function DesignPicker({ label, groups, seriesTitle, onSeriesChange, designImage,
   );
 }
 
+// The jamb-finish colour list. The custom-colour catalogue is long, so it
+// gets the same search box as FilmPicker (matching the shown and Latvian
+// names, ignoring diacritics) and a scrolling frame.
+const foldText = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+function JambColorPicker({ items, searchable, selected, onSelect, locale }) {
+  const { trData } = useTr();
+  const [search, setSearch] = useState("");
+  const query = foldText(search.trim());
+  const shown = query
+    ? items.filter((item) => foldText(`${item.label} ${trData(locale, item.label)}`).includes(query))
+    : items;
+  const grid = <SwatchGrid items={shown} selected={selected} onSelect={onSelect} allowDeselect locale={locale} />;
+  if (!searchable) return grid;
+  return (
+    <>
+      <input
+        type="search"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder={trData(locale, "Meklēt pēc krāsas nosaukuma vai numura...")}
+        className="w-full border border-line bg-white px-3 py-1.5 text-[13px]"
+      />
+      <div className="mt-4 max-h-[340px] overflow-y-auto pr-1">
+        {shown.length ? grid : <p className="text-[13px] text-muted">{trData(locale, "Nekas netika atrasts.")}</p>}
+      </div>
+    </>
+  );
+}
+
 function FilmPicker({ label, groups, groupTitle, onGroupChange, filmImage, onFilmChange, locale }) {
   const { trData } = useTr();
   const [search, setSearch] = useState("");
@@ -2031,11 +2061,11 @@ export default function Manufacturer2Calculator() {
                     {trData(locale, "Izvēlieties toni")}
                     {activeJambColor ? ` - ${trData(locale, activeJambColor.label)}` : ""}
                   </h4>
-                  <SwatchGrid
+                  <JambColorPicker
                     items={jambColorItems}
+                    searchable={!!activeJambFinish.custom}
                     selected={config.jambColorImage}
                     onSelect={(item) => setConfig((c) => ({ ...c, jambColorImage: item?.image || null }))}
-                    allowDeselect
                     locale={locale}
                   />
                 </div>

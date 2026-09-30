@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { Heart, Scale, ShoppingBag, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck, X, ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
+import { Search, Heart, Scale, ShoppingBag, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck, X, ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import AccordionItem from "@/components/anim/AccordionItem";
 import ProductTabs, { SPECS_ANCHOR, OPEN_SPECS_EVENT } from "@/components/ProductTabs";
@@ -237,18 +237,41 @@ function JambFinishRow({ selected, onSelect, label, price }) {
 
 // The jamb-finish colour picker: a grid of swatches, each selectable (sets
 // the accordion's colour choice) and independently zoomable (opens the
-// shared lightbox below without changing the selection).
-function JambColorSwatchGrid({ items, jambColor, onSelect, onZoom, label, zoomLabel, scroll = false }) {
+// shared lightbox below without changing the selection). The long custom
+// catalogue (`scroll`) gets a search box and a name under each swatch.
+const foldText = (s) => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+function JambColorSwatchGrid({ items, jambColor, onSelect, onZoom, label, zoomLabel, searchLabel, emptyLabel, scroll = false }) {
+  const [query, setQuery] = useState("");
+  const q = foldText(query.trim());
+  // Keep each swatch's index in `items` so zoom opens the right photo.
+  const shown = items
+    .map((sw, index) => ({ sw, index }))
+    .filter(({ sw }) => !q || foldText(sw.label).includes(q));
   return (
     <div className="mt-4 border-t border-line pt-4">
       <p className="mb-3 text-[14px] font-medium text-[color:var(--color-title)]">
         {label}
         {jambColor ? <span className="font-normal text-muted"> - {jambColor}</span> : null}
       </p>
+      {scroll ? (
+        <label className="relative mb-3 block">
+          <span className="sr-only">{searchLabel}</span>
+          <Search size={16} className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted" />
+          <input
+            type="search"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder={searchLabel}
+            className="field w-full !pl-9"
+          />
+        </label>
+      ) : null}
+      {scroll && !shown.length ? <p className="py-4 text-[14px] text-muted">{emptyLabel}</p> : null}
       <div
         className={`grid grid-cols-4 gap-2 ${scroll ? "max-h-72 overflow-y-auto pr-1 sm:grid-cols-6" : ""}`}
       >
-        {items.map((sw, index) => (
+        {shown.map(({ sw, index }) => (
           <div key={sw.image} className="relative">
             <button
               type="button"
@@ -280,6 +303,9 @@ function JambColorSwatchGrid({ items, jambColor, onSelect, onZoom, label, zoomLa
             >
               <ZoomIn size={13} />
             </button>
+            {scroll ? (
+              <p className="mt-1 line-clamp-2 text-[11px] leading-[1.3] text-muted">{sw.label}</p>
+            ) : null}
           </div>
         ))}
       </div>
@@ -992,6 +1018,8 @@ export default function ProductClient({ product, similar = [], configurator = nu
                       onZoom={(index) => setJambColorLightbox({ items: customJambSwatches, index })}
                       label={t(locale, "product.jambFinishColorLabel")}
                       zoomLabel={t(locale, "product.zoomIn")}
+                      searchLabel={t(locale, "product.jambColorSearch")}
+                      emptyLabel={t(locale, "product.jambColorNone")}
                       scroll
                     />
                   ) : null}
