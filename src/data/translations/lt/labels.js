@@ -118,4 +118,6 @@ export const ltLabels = {
   "Vērtnes pildījums": "Varčios užpildas",
   "Vērtnes siltinājums": "Varčios šiltinimas",
   "Vērtnes siltumizolācija": "Varčios šilumos izoliacija",
+  "Iekļauts": "Komplektacija",
+  "Veršanās virziens": "Atidarymo kryptis",
 };

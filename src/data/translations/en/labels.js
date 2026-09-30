@@ -118,4 +118,6 @@ export const enLabels = {
   "Vērtnes pildījums": "Leaf filling",
   "Vērtnes siltinājums": "Leaf insulation",
   "Vērtnes siltumizolācija": "Leaf thermal insulation",
+  "Iekļauts": "Included",
+  "Veršanās virziens": "Opening direction",
 };

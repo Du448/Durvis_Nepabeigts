@@ -104,4 +104,6 @@ export const enSpecValues = {
   "vērtne 97 / kārba 97 mm": "leaf 97 / frame 97 mm",
   "Viedslēdzene PES MOPS": "PES MOPS smart lock",
   "Zelta rustik": "Golden rustic",
+  "Mehānisms AGB ar klusās darbības mēlīti, Mat. hroms (41), WC mehānisms un pretplāksne": "AGB lock with silent latch, matte chrome (41), WC mechanism and strike plate",
+  "Universāls": "Universal (left or right)",
 };

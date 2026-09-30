@@ -24,7 +24,7 @@ import { finishesColorQuery } from "@/lib/finishesLink";
 import { paths } from "@/lib/routes";
 import { imageProps } from "@/lib/images";
 import { scrollBehavior } from "@/lib/motion";
-import { extenderOptions } from "@/lib/interior-extenders";
+import { extenderOptions, extendersTotal } from "@/lib/interior-extenders";
 
 /* Interior doors are photographed as narrow studio renders about 275x585px.
    Poured into the 3:4 box the entrance doors need, they get blown up well past
@@ -150,6 +150,29 @@ function ServiceToggleRow({ checked, onChange, label, hint }) {
       </span>
       {hint ? <ToggleHint text={hint} /> : null}
     </div>
+  );
+}
+
+// Sticky price pill, bottom-right, on products whose options change the
+// price - the same pill as the Ražotājs-2 configurator's. It stays on screen
+// while options are picked; the figure bounces on every change. Clicking it
+// jumps to the add-to-cart / request-offer buttons.
+function FloatingPrice({ label, price, targetId }) {
+  return (
+    <button
+      type="button"
+      onClick={() => document.getElementById(targetId)?.scrollIntoView({ behavior: scrollBehavior(), block: "center" })}
+      className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom))] right-4 z-40 flex items-center gap-2.5 rounded-full border-2 border-[color:var(--color-accent)] bg-white px-4 py-2.5 shadow-xl transition-transform hover:-translate-y-0.5 md:bottom-6 sm:right-6 sm:px-5 sm:py-3"
+    >
+      <span className="hidden text-[12px] font-medium text-muted sm:inline">{label}</span>
+      <span
+        key={price}
+        aria-live="polite"
+        className="animate-pulsate text-[17px] font-semibold text-[color:var(--color-accent)] sm:text-[18px]"
+      >
+        {price}
+      </span>
+    </button>
   );
 }
 
@@ -500,7 +523,9 @@ export default function ProductClient({ product, similar = [], configurator = nu
     ? priceBoston(bostonSpecData, bostonConfig).total
     : hiddenConfig
       ? priceHidden(hiddenSpecData, hiddenConfig).total
-      : product.price;
+      : product.price + extendersTotal(extendersLine);
+  // Options that move the price get the floating total.
+  const pricedOptions = !comingSoon && (configured || extenders.length > 0);
   const discount = hasOffer ? Math.round(((product.oldPrice - product.price) / product.oldPrice) * 100) : 0;
   /* The catalogue stores names, specification rows and description copy in
      Latvian; the page's dictionary (DictProvider) renders them in its language. */
@@ -843,6 +868,27 @@ export default function ProductClient({ product, similar = [], configurator = nu
                 </p>
               ) : null}
 
+              {/* Interior-door extension boards, right under the size they go with. */}
+              {extenders.length ? (
+                <div className="mt-5 max-w-[440px]">
+                  <p className="text-sm text-muted">{t(locale, "product.extenders")}</p>
+                  <p className="mt-1 text-[13px] leading-[1.5] text-muted">{t(locale, "product.extendersIntro")}</p>
+                  <div className="mt-1 divide-y divide-[--color-line]">
+                    {extenders.map((o) => (
+                      <ExtenderRow
+                        key={o.width}
+                        label={t(locale, "product.extenderBoard").replace("{w}", o.width)}
+                        price={o.price}
+                        qty={extenderQty[o.width] || 0}
+                        onChange={(qty) => setExtenderQty((prev) => ({ ...prev, [o.width]: Math.max(0, qty) }))}
+                        decreaseLabel={t(locale, "cart.decrease")}
+                        increaseLabel={t(locale, "cart.increase")}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+
               {/* Security class */}
               {product.security ? (
                 <div className="mt-3 flex items-center gap-2 text-[15px] text-muted">
@@ -924,24 +970,6 @@ export default function ProductClient({ product, similar = [], configurator = nu
                     />
                   </div>
                 </AccordionItem>
-                {extenders.length ? (
-                  <AccordionItem title={t(locale, "product.extenders")}>
-                    <p className="mb-3">{t(locale, "product.extendersIntro")}</p>
-                    <div className="divide-y divide-[--color-line]">
-                      {extenders.map((o) => (
-                        <ExtenderRow
-                          key={o.width}
-                          label={t(locale, "product.extenderBoard").replace("{w}", o.width)}
-                          price={o.price}
-                          qty={extenderQty[o.width] || 0}
-                          onChange={(qty) => setExtenderQty((prev) => ({ ...prev, [o.width]: Math.max(0, qty) }))}
-                          decreaseLabel={t(locale, "cart.decrease")}
-                          increaseLabel={t(locale, "cart.increase")}
-                        />
-                      ))}
-                    </div>
-                  </AccordionItem>
-                ) : null}
                 {isInterior ? null : (
                 <AccordionItem title={t(locale, "product.jambFinish")}>
                   <p className="mb-3">{t(locale, "product.jambFinishIntro")}</p>
@@ -982,7 +1010,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
               </div>
 
               {/* Actions - below the service / jamb choices they include. */}
-              <div className="mt-6 flex flex-wrap gap-3">
+              <div id="product-actions" className="mt-6 flex flex-wrap gap-3">
                 {comingSoon ? null : (
                   <MagneticButton>
                     <button
@@ -1033,6 +1061,14 @@ export default function ProductClient({ product, similar = [], configurator = nu
           </div>
         </div>
       </section>
+
+      {pricedOptions ? (
+        <FloatingPrice
+          label={t(locale, "product.runningTotal")}
+          price={formatPrice(product, displayPrice)}
+          targetId="product-actions"
+        />
+      ) : null}
 
       {/* Description / specification tabs */}
       <ProductTabs product={product} locks={locks} />

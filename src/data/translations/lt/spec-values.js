@@ -104,4 +104,6 @@ export const ltSpecValues = {
   "vērtne 97 / kārba 97 mm": "varčia 97 / stakta 97 mm",
   "Viedslēdzene PES MOPS": "Išmanioji spyna PES MOPS",
   "Zelta rustik": "Auksinis rustic",
+  "Mehānisms AGB ar klusās darbības mēlīti, Mat. hroms (41), WC mehānisms un pretplāksne": "AGB spyna su tyliu liežuvėliu, matinis chromas (41), WC mechanizmas ir atraminė plokštelė",
+  "Universāls": "Universalios (kairės arba dešinės)",
 };

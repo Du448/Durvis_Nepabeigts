@@ -47,7 +47,9 @@ export function stockKind(product) {
 export function formatPrice(product, value) {
   const amount = value == null ? product?.price : value;
   if (amount == null) return "";
-  return product?.currency === "UAH" ? `${amount} ₴` : `${amount} €`;
+  // Whole amounts as before; anything with cents (e.g. 10.50 € boards) to two places.
+  const shown = typeof amount === "number" && !Number.isInteger(amount) ? amount.toFixed(2) : amount;
+  return product?.currency === "UAH" ? `${shown} ₴` : `${shown} €`;
 }
 
 export function isInStock(product) {
