@@ -426,6 +426,9 @@ const messages = {
       jambFinishCustomLarge:
         "Angokraščio apdaila iš MDF medžiagos pasirinkta spalva pagal užsakymą (Gamintojas - 2 katalogas), angos storis nuo 201mm iki 400mm, apvadas 80mm (be slenksčio)",
       jambFinishColorLabel: "Pasirinkite atspalvį",
+      extenders: "Praplatinimai sienos apdailai",
+      extendersIntro: "Papildomos lentos angai praplatinti, kai siena storesnė už staktą. Atspalvis atitinka durų atspalvį, kaina nurodyta už komplektą.",
+      extenderBoard: "Lenta {w} mm",
       jambColorWhiteMatte: "Baltas matinis",
       jambColorWhiteWood: "Baltas medis",
       jambColorAnthracite: "Antracitas",
@@ -945,6 +948,9 @@ const messages = {
       jambFinishCustomLarge:
         "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)",
       jambFinishColorLabel: "Izvēlieties toni",
+      extenders: "Paplatinātāji sienas apdarei",
+      extendersIntro: "Papildu dēļi ailes paplašināšanai, ja siena ir biezāka par kārbu. Tonis atbilst durvju tonim, cena norādīta par komplektu.",
+      extenderBoard: "Dēlis {w} mm",
       jambColorWhiteMatte: "Balts matēts",
       jambColorWhiteWood: "Balts koks",
       jambColorAnthracite: "Antracīts",
@@ -1463,6 +1469,9 @@ const messages = {
       jambFinishCustomLarge:
         "Jamb finishing in MDF, custom colour on request (Manufacturer - 2 catalogue), jamb thickness from 201mm to 400mm, 80mm casing (no threshold)",
       jambFinishColorLabel: "Choose a shade",
+      extenders: "Extension boards for wall finishing",
+      extendersIntro: "Extra boards that widen the frame when the wall is thicker than the jamb. Matched to the door's tone; price is per set.",
+      extenderBoard: "Board {w} mm",
       jambColorWhiteMatte: "White matte",
       jambColorWhiteWood: "White wood",
       jambColorAnthracite: "Anthracite",

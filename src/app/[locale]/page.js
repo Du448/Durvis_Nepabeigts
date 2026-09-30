@@ -12,9 +12,9 @@ import { localeParams, pageMetadata, resolveLocale, siteTitle, siteDescription }
 
 export const generateStaticParams = localeParams;
 
-/* Static, regenerated every half hour so the split blocks move on to the next
+/* Static, regenerated every ten minutes so the split blocks move on to the next
    rotation window (ROTATION_WINDOW_MS below; route config has to be a literal). */
-export const revalidate = 1800;
+export const revalidate = 600;
 
 export async function generateMetadata({ params }) {
   const locale = await resolveLocale(params);
@@ -74,6 +74,7 @@ const HERO = [
 const BLOCKS = [
   {
     slug: "ardurvis-dzivoklim",
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/pic_apartment.png",
     title: {
       lt: "Buto lauko durys - svarbus žingsnis saugumo link",
       lv: "Ārdurvis dzīvoklim - svarīgs solis drošībai",
@@ -87,6 +88,8 @@ const BLOCKS = [
   },
   {
     slug: "ardurvis-privatmajai",
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/pic_exterior_d.png",
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/ChatGPT%20Image%20Sep%2030,%202026,%2008_56_41%20PM.png",
     reverse: true,
     title: {
       lt: "Termo durys namams - šiluma, tyla, garantija",
@@ -101,6 +104,7 @@ const BLOCKS = [
   },
   {
     slug: "ieksdurvis",
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/RV-06whiteultramatte_main.png",
     title: {
       lt: "Vidaus durys - vientisas interjero sprendimas",
       lv: "Iekšdurvis - vienots interjera risinājums",
@@ -153,20 +157,20 @@ const SMART_LOCK_BLOCK = {
 
 const isSmartLockProduct = (p) => p.id.startsWith("boston-smart");
 
-/* Six models per split block - three pages of two. They are picked
-   round-robin across the category's collections rather than straight off the
-   top of the list, so the block shows the breadth of the range instead of six
-   variants of the same model. Models held at the manufacturer's warehouse are
-   left out: their prices are still the factory's hryvnia ones and would sit
-   oddly next to the euro prices beside them. */
-const SPLIT_SLIDER_ITEMS = 6;
+/* Twelve models per split block - six pages of two. Models held at the
+   manufacturer's warehouse are left out: their prices are still the factory's
+   hryvnia ones and would sit oddly next to the euro prices beside them. */
+const SPLIT_SLIDER_ITEMS = 12;
 
-/* The pool of twelve rotates on a fixed window so a repeat visitor does not
-   keep meeting the same dozen models. `rotation` is a whole number that steps
-   once per window (see ROTATION_WINDOW_MS); each collection's queue is turned
-   by that amount before the round-robin pick, so a different slice of every
-   collection surfaces each window. */
-const ROTATION_WINDOW_MS = 1000 * 60 * 30; // 30 minutes
+/* The block pages through the category's whole range over the day: every
+   window (ROTATION_WINDOW_MS) shows the next models of one fixed, mixed
+   order, wrapping round at the end - see splitSliderItems. So a repeat
+   visitor meets new models every ten minutes, and even the largest pool
+   (Boston's ~130 new models, six per window) comes round within a day. */
+const ROTATION_WINDOW_MS = 1000 * 60 * 10; // 10 minutes
+
+/* "Jaunumi" pages through every new model the same way, four per window. */
+const NEW_ARRIVALS_ITEMS = 4;
 
 /* Read outside the component: the clock is meant to vary between renders.
    The page is regenerated every `revalidate` seconds (ISR), so each fresh
@@ -175,38 +179,65 @@ function currentRotation() {
   return Math.floor(Date.now() / ROTATION_WINDOW_MS);
 }
 
-function splitSliderItems(list, matches, rotation = 0) {
-  const byCollection = new Map();
-  for (const p of list) {
-    if (!matches(p) || p.stockSource === "factory") continue;
-    const key = p.collection || "";
-    if (!byCollection.has(key)) byCollection.set(key, []);
-    byCollection.get(key).push(p);
+/* Spread each group's items evenly through one list - a group with twice as
+   many items appears twice as often, but never in a clump at the end the way
+   a plain round-robin leaves the biggest group's tail. */
+function spreadEvenly(items, keyOf) {
+  const groups = new Map();
+  for (const item of items) {
+    const key = keyOf(item) || "";
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(item);
+  }
+  return [...groups.values()]
+    .flatMap((group) => group.map((item, i) => ({ item, pos: (i + 0.5) / group.length })))
+    .sort((x, y) => x.pos - y.pos)
+    .map((x) => x.item);
+}
+
+// `count` consecutive items of `list` for this window, wrapping round.
+function windowSlice(list, rotation, count) {
+  const n = list.length;
+  const take = Math.min(count, n);
+  const start = n ? (((rotation * count) % n) + n) % n : 0;
+  return Array.from({ length: take }, (_, i) => list[(start + i) % n]);
+}
+
+// Mixed by category first, then by collection within each category.
+function mixedOrder(items) {
+  const byCategory = new Map();
+  for (const p of items) {
+    if (!byCategory.has(p.category)) byCategory.set(p.category, []);
+    byCategory.get(p.category).push(p);
+  }
+  return spreadEvenly(
+    [...byCategory.values()].flatMap((list) => spreadEvenly(list, (p) => p.collection)),
+    (p) => p.category
+  );
+}
+
+function splitSliderItems(list, matches, rotation = 0, count = SPLIT_SLIDER_ITEMS) {
+  const pool = list.filter((p) => matches(p) && p.stockSource !== "factory");
+
+  /* One collection (Boston) makes up most of some pools - 130 of ~140 new
+     models. Mixed strictly in proportion, it would fill nearly every slot, so
+     it is capped at half: it pages through its own models in half the slots,
+     everything else pages through the other half (and, being fewer, comes
+     round several times a day). */
+  const sizes = new Map();
+  for (const p of pool) sizes.set(p.collection, (sizes.get(p.collection) || 0) + 1);
+  const [largest, largestSize = 0] = [...sizes].sort((x, y) => y[1] - x[1])[0] || [];
+  if (largestSize * 2 <= pool.length || largestSize === pool.length) {
+    return windowSlice(mixedOrder(pool), rotation, count);
   }
 
-  /* When there are more collections than SPLIT_SLIDER_ITEMS, only the first
-     few (by insertion order) would ever fill the fixed number of slots, and
-     the rest would never surface no matter how long the window turns. Rotate
-     which collections lead the round-robin too, so every collection gets its
-     turn in front over enough windows, not just its items within that turn. */
-  const collectionLists = [...byCollection.values()];
-  const leadOff = collectionLists.length
-    ? (((rotation % collectionLists.length) + collectionLists.length) % collectionLists.length)
-    : 0;
-  const rotatedCollections = [...collectionLists.slice(leadOff), ...collectionLists.slice(0, leadOff)];
-
-  const queues = rotatedCollections.map((list) => {
-    if (list.length < 2) return [...list];
-    const off = (((rotation % list.length) + list.length) % list.length);
-    return [...list.slice(off), ...list.slice(0, off)];
-  });
+  const bigSlots = Math.ceil(count / 2);
+  const big = windowSlice(mixedOrder(pool.filter((p) => p.collection === largest)), rotation, bigSlots);
+  const rest = windowSlice(mixedOrder(pool.filter((p) => p.collection !== largest)), rotation, count - bigSlots);
   const picked = [];
-  while (picked.length < SPLIT_SLIDER_ITEMS && queues.some((q) => q.length)) {
-    for (const queue of queues) {
-      if (!queue.length) continue;
-      picked.push(queue.shift());
-      if (picked.length === SPLIT_SLIDER_ITEMS) break;
-    }
+  for (let i = 0; i < Math.max(big.length, rest.length); i++) {
+    if (rest[i]) picked.push(rest[i]);
+    if (big[i]) picked.push(big[i]);
   }
   return picked;
 }
@@ -250,7 +281,7 @@ export default async function Home({ params }) {
         const media = (
           <div className="split-media relative overflow-hidden">
             <Image
-              src={`/scenes/${block.slug}.webp`}
+              src={block.image || `/scenes/${block.slug}.webp`}
               alt={pick(locale, block.title)}
               fill
               unoptimized
@@ -334,7 +365,7 @@ export default async function Home({ params }) {
         <div className="container">
           <h2 className="t-section mb-8 text-center">{t(locale, "home.newArrivals")}</h2>
           <RevealGrid className="grid grid-cols-2 gap-5 lg:grid-cols-4">
-            {cardsFor(products.filter((p) => p.isNew).slice(0, 4), locale).map((p) => (
+            {cardsFor(splitSliderItems(products, (p) => p.isNew, rotation, NEW_ARRIVALS_ITEMS), locale).map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
           </RevealGrid>

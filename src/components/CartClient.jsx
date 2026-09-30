@@ -10,7 +10,7 @@ import { updateCartQty, removeCartLine, clearCart } from "@/lib/cart";
 import { useCartItems } from "@/lib/useCartItems";
 import { serviceLabels } from "@/lib/order-options";
 import { formatPrice, linePrice } from "@/lib/product-utils";
-import { configRows } from "@/lib/config-rows";
+import { configRows, isConfiguredLine } from "@/lib/config-rows";
 import { imageProps } from "@/lib/images";
 
 /* Cart page, following the same client-reads-localStorage-then-fetches-cards
@@ -86,7 +86,7 @@ function CartLine({ line, product, locale }) {
     ? t(locale, line.direction === "right" ? "product.directionRight" : "product.directionLeft")
     : "";
   const rows = configRows(product, line, locale);
-  const chips = [rows.length ? null : line.size, directionLabel, line.jambColor, ...services].filter(Boolean);
+  const chips = [isConfiguredLine(line) ? null : line.size, directionLabel, line.jambColor, ...services].filter(Boolean);
 
   return (
     <div className="flex gap-4 border border-line bg-white p-4">

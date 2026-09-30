@@ -31,6 +31,7 @@ function sameConfig(a, b) {
     (a.jambColor || "") === (b.jambColor || "") &&
     JSON.stringify(a.boston || null) === JSON.stringify(b.boston || null) &&
     JSON.stringify(a.hidden || null) === JSON.stringify(b.hidden || null) &&
+    JSON.stringify(a.extenders || null) === JSON.stringify(b.extenders || null) &&
     [...(a.services || [])].sort().join(",") === [...(b.services || [])].sort().join(",")
   );
 }

@@ -4,6 +4,7 @@
 
 import { bostonSpec, isBostonOrder, priceBoston } from "@/lib/boston-config";
 import { hiddenSpec, isHiddenComingSoon, priceHidden } from "@/lib/hidden-config";
+import { extendersTotal } from "@/lib/interior-extenders";
 
 export { isBostonOrder };
 
@@ -15,7 +16,7 @@ export function linePrice(product, line) {
   if (spec) return priceBoston(spec, line.boston).total;
   const hidden = line?.hidden ? hiddenSpec(product) : null;
   if (hidden) return priceHidden(hidden, line.hidden).total;
-  return product?.price;
+  return (product?.price || 0) + extendersTotal(line?.extenders);
 }
 
 /* Announced models ("drīzumā pieejams") - listed, but not for sale yet. */

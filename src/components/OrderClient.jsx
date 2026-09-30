@@ -11,7 +11,7 @@ import { useCartItems } from "@/lib/useCartItems";
 import { clearCart } from "@/lib/cart";
 import { serviceLabels } from "@/lib/order-options";
 import { formatPrice, linePrice } from "@/lib/product-utils";
-import { configRows } from "@/lib/config-rows";
+import { configRows, isConfiguredLine } from "@/lib/config-rows";
 import { imageProps } from "@/lib/images";
 import { mainPhone, company } from "@/lib/site";
 import { scrollBehavior } from "@/lib/motion";
@@ -417,7 +417,7 @@ export default function OrderClient() {
               const chips = [
                 line.boston || line.hidden ? null : line.size,
                 directionLabel,
-                ...configRows(product, line, locale).map(([, value]) => value),
+                ...configRows(product, line, locale).map(([label, value]) => (isConfiguredLine(line) ? value : `${label}: ${value}`)),
               ]
                 .filter(Boolean)
                 .join(" · ");

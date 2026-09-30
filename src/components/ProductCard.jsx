@@ -53,30 +53,29 @@ export default function ProductCard({ product, bare = false }) {
   const hasOffer = product.oldPrice != null && product.oldPrice > product.price;
   // Announced but not yet on sale: no price, no quick add.
   const soon = product.stock === "soon";
-  /* One badge per card, the most useful one: "coming soon" says the model
-     cannot be bought yet, so it goes first; then a deal beats "made to
-     order" (the customer needs that lead-time signal more than a "new"
-     tag), which beats "new", which beats the plain stock label. Stacked
-     badges covered the photo and read as noise. */
-  const badge = soon
+  /* Every badge that applies, stacked top-left: the deal and "new" tags
+     first, then the one stock label ("coming soon", made to order, factory
+     stock or in stock - these are mutually exclusive). */
+  const stockBadge = soon
     ? { text: t(locale, "product.comingSoon"), className: "bg-[color:var(--color-alt)] text-black" }
-    : hasOffer
-    ? { text: t(locale, "product.offerBadge"), className: "bg-[color:var(--color-accent)] text-white" }
     : product.stock === "order"
       ? {
           text: t(locale, "product.toOrder"),
           className: "bg-[color:var(--color-stock-order-soft)] text-[color:var(--color-stock-order)]",
         }
-      : product.isNew
-        ? { text: t(locale, "product.newBadge"), className: "bg-[color:var(--color-title)] text-white" }
-        : product.stock === "factory"
-          ? {
-              text: t(locale, "product.inStockFactory"),
-              className: "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]",
-            }
-          : product.stock
-            ? { text: t(locale, "product.inStock"), className: "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]" }
-            : null;
+      : product.stock === "factory"
+        ? {
+            text: t(locale, "product.inStockFactory"),
+            className: "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]",
+          }
+        : product.stock
+          ? { text: t(locale, "product.inStock"), className: "bg-[color:var(--color-stock-soft)] text-[color:var(--color-stock)]" }
+          : null;
+  const badges = [
+    hasOffer && { text: t(locale, "product.offerBadge"), className: "bg-[color:var(--color-accent)] text-white" },
+    product.isNew && { text: t(locale, "product.newBadge"), className: "bg-[color:var(--color-title)] text-white" },
+    stockBadge,
+  ].filter(Boolean);
   const shown = hovered && product.hover ? product.hover : product.image;
   const href = withLocaleHref(locale, paths.product(product.id));
 
@@ -153,14 +152,18 @@ export default function ProductCard({ product, bare = false }) {
         )}
       </div>
 
-      {badge ? (
-        <span
-          className={`pointer-events-none absolute z-10 px-2 py-1 text-[11px] font-semibold uppercase leading-none ${badge.className} ${
+      {badges.length ? (
+        <div
+          className={`pointer-events-none absolute z-10 flex flex-col items-start gap-1 ${
             bare ? "left-0 top-0" : "left-[15px] top-[15px]"
           }`}
         >
-          {badge.text}
-        </span>
+          {badges.map((b) => (
+            <span key={b.text} className={`px-2 py-1 text-[11px] font-semibold uppercase leading-none ${b.className}`}>
+              {b.text}
+            </span>
+          ))}
+        </div>
       ) : null}
 
       {/* Wishlist and compare, top-right: revealed on hover with a mouse,

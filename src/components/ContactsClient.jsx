@@ -99,6 +99,11 @@ export default function ContactsClient() {
     if (selectedServices.length) lines.push(`${t(locale, "contacts.servicesLabel")}: ${selectedServices.join(", ")}`);
     const jambColor = searchParams.get("apdareKrasa");
     if (jambColor) lines.push(`${t(locale, "contacts.jambColorLabel")}: ${jambColor}`);
+    // Interior-door extension boards, "120:2,220:1".
+    for (const pair of (searchParams.get("paplatinataji") || "").split(",").filter(Boolean)) {
+      const [width, qty] = pair.split(":");
+      if (width && Number(qty) > 0) lines.push(`${t(locale, "product.extenderBoard").replace("{w}", width)}: ${qty}`);
+    }
     return lines.join("\n");
   }, [offer, selectedServices, searchParams, locale]);
   const messageValue = messageTouched ? message : prefill;

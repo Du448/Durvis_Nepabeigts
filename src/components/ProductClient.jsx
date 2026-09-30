@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import { Heart, Scale, ShoppingBag, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Heart, Scale, ShoppingBag, Shield, ShieldCheck, ZoomIn, ZoomOut, Ruler, Wrench, Truck, X, ChevronLeft, ChevronRight, Minus, Plus } from "lucide-react";
 import ProductCard from "@/components/ProductCard";
 import AccordionItem from "@/components/anim/AccordionItem";
 import ProductTabs, { SPECS_ANCHOR, OPEN_SPECS_EVENT } from "@/components/ProductTabs";
@@ -24,6 +24,7 @@ import { finishesColorQuery } from "@/lib/finishesLink";
 import { paths } from "@/lib/routes";
 import { imageProps } from "@/lib/images";
 import { scrollBehavior } from "@/lib/motion";
+import { extenderOptions } from "@/lib/interior-extenders";
 
 /* Interior doors are photographed as narrow studio renders about 275x585px.
    Poured into the 3:4 box the entrance doors need, they get blown up well past
@@ -148,6 +149,38 @@ function ServiceToggleRow({ checked, onChange, label, hint }) {
         {label}
       </span>
       {hint ? <ToggleHint text={hint} /> : null}
+    </div>
+  );
+}
+
+// One extension-board width with a - n + stepper; 0 means "not wanted".
+function ExtenderRow({ label, price, qty, onChange, decreaseLabel, increaseLabel }) {
+  return (
+    <div className="flex items-center gap-3 py-2.5">
+      <span className="flex-1 text-[15px] text-ink">{label}</span>
+      <span className="shrink-0 font-medium text-[color:var(--color-title)]">{price.toFixed(2)} €</span>
+      <div className="flex shrink-0 items-center border border-line">
+        <button
+          type="button"
+          aria-label={`${decreaseLabel}: ${label}`}
+          disabled={qty === 0}
+          onClick={() => onChange(qty - 1)}
+          className="flex h-9 w-9 items-center justify-center text-ink transition-colors hover:bg-[--color-soft] disabled:opacity-40"
+        >
+          <Minus size={14} />
+        </button>
+        <span className="flex h-9 w-9 items-center justify-center text-[14px] text-ink" aria-live="polite">
+          {qty}
+        </span>
+        <button
+          type="button"
+          aria-label={`${increaseLabel}: ${label}`}
+          onClick={() => onChange(qty + 1)}
+          className="flex h-9 w-9 items-center justify-center text-ink transition-colors hover:bg-[--color-soft]"
+        >
+          <Plus size={14} />
+        </button>
+      </div>
     </div>
   );
 }
@@ -317,6 +350,15 @@ export default function ProductClient({ product, similar = [], configurator = nu
       }
       return next;
     });
+  // Interior doors get extension boards in their own tone instead of the
+  // entrance doors' jamb finish.
+  const isInterior = product?.category === "ieksdurvis";
+  const extenders = isInterior ? extenderOptions(product) : [];
+  const [extenderQty, setExtenderQty] = useState({});
+  const pickedExtenders = extenders.filter((o) => extenderQty[o.width] > 0);
+  const extendersLine = pickedExtenders.length
+    ? { tone: product.colors[0], items: Object.fromEntries(pickedExtenders.map((o) => [o.width, extenderQty[o.width]])) }
+    : null;
   const jambFinishRow = JAMB_FINISH_ROWS.find((r) => r.key === jambFinishChoice);
   const jambFinishIsCustom = jambFinishRow?.custom;
   const jambFinishIsStandard = jambFinishRow?.standard;
@@ -429,6 +471,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
             direction: activeDirection,
             services: selectedServiceCodes,
             jambColor,
+            ...(extendersLine ? { extenders: extendersLine } : {}),
           }
     );
     window.dispatchEvent(
@@ -881,6 +924,25 @@ export default function ProductClient({ product, similar = [], configurator = nu
                     />
                   </div>
                 </AccordionItem>
+                {extenders.length ? (
+                  <AccordionItem title={t(locale, "product.extenders")}>
+                    <p className="mb-3">{t(locale, "product.extendersIntro")}</p>
+                    <div className="divide-y divide-[--color-line]">
+                      {extenders.map((o) => (
+                        <ExtenderRow
+                          key={o.width}
+                          label={t(locale, "product.extenderBoard").replace("{w}", o.width)}
+                          price={o.price}
+                          qty={extenderQty[o.width] || 0}
+                          onChange={(qty) => setExtenderQty((prev) => ({ ...prev, [o.width]: Math.max(0, qty) }))}
+                          decreaseLabel={t(locale, "cart.decrease")}
+                          increaseLabel={t(locale, "cart.increase")}
+                        />
+                      ))}
+                    </div>
+                  </AccordionItem>
+                ) : null}
+                {isInterior ? null : (
                 <AccordionItem title={t(locale, "product.jambFinish")}>
                   <p className="mb-3">{t(locale, "product.jambFinishIntro")}</p>
                   <div role="radiogroup" className="divide-y divide-[--color-line]">
@@ -916,6 +978,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
                     />
                   ) : null}
                 </AccordionItem>
+                )}
               </div>
 
               {/* Actions - below the service / jamb choices they include. */}
@@ -945,7 +1008,13 @@ export default function ProductClient({ product, similar = [], configurator = nu
                       selectedServiceCodes.length
                         ? `&pakalpojumi=${encodeURIComponent(selectedServiceCodes.join(","))}`
                         : ""
-                    }${jambColor ? `&apdareKrasa=${encodeURIComponent(jambColor)}` : ""}`
+                    }${jambColor ? `&apdareKrasa=${encodeURIComponent(jambColor)}` : ""}${
+                      extendersLine
+                        ? `&paplatinataji=${encodeURIComponent(
+                            Object.entries(extendersLine.items).map(([w, q]) => `${w}:${q}`).join(",")
+                          )}`
+                        : ""
+                    }`
                   )}
                   className={`btn transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${comingSoon ? "btn-accent" : "btn-outline-dark"}`}
                 >
