@@ -8,12 +8,23 @@ import { syncStock } from "@/lib/stockSync";
    full URL is only ever given to api.telegram.org via setWebhook. Add the
    bot to the warehouse's Telegram group (or forward the file to it) and any
    PDF it receives there is parsed and applied automatically; every other
-   message is acknowledged and ignored. */
+   message is acknowledged and ignored.
+
+   Anyone who knows the bot's username can add it to their own group, so a
+   PDF is only applied when it comes from a chat listed in
+   TELEGRAM_ALLOWED_CHAT_IDS. With that unset nothing is applied at all; the
+   bot just replies with the chat's id so it can be added to the list. */
 
 const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const WEBHOOK_SECRET = process.env.TELEGRAM_WEBHOOK_SECRET;
 const API = `https://api.telegram.org/bot${BOT_TOKEN}`;
 const FILE_API = `https://api.telegram.org/file/bot${BOT_TOKEN}`;
+const ALLOWED_CHATS = new Set(
+  (process.env.TELEGRAM_ALLOWED_CHAT_IDS || "")
+    .split(",")
+    .map((id) => id.trim())
+    .filter(Boolean)
+);
 
 async function sendMessage(chatId, text) {
   if (!chatId) return;
@@ -62,6 +73,12 @@ export async function POST(request, { params }) {
   const isPdf =
     document.mime_type === "application/pdf" || /\.pdf$/i.test(document.file_name || "");
   if (!isPdf) return NextResponse.json({ ok: true });
+
+  if (!ALLOWED_CHATS.has(String(chatId))) {
+    console.warn("telegram stock webhook: PDF from a chat not in TELEGRAM_ALLOWED_CHAT_IDS", chatId);
+    await sendMessage(chatId, `Šis čats nav atļauts atlikumu atjaunošanai (čata ID: ${chatId}). Fails netika apstrādāts.`);
+    return NextResponse.json({ ok: true });
+  }
 
   try {
     const fileRes = await fetch(`${API}/getFile?file_id=${encodeURIComponent(document.file_id)}`);
