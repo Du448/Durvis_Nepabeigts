@@ -1,3 +1,4 @@
+import { createHash, timingSafeEqual } from "node:crypto";
 import { NextResponse } from "next/server";
 import { parseStockPdf } from "@/lib/stockPdf";
 import { syncStock } from "@/lib/stockSync";
@@ -26,6 +27,11 @@ const ALLOWED_CHATS = new Set(
     .filter(Boolean)
 );
 
+// Constant-time comparison; hashing first gives both sides the same length,
+// as timingSafeEqual requires (same approach as @/lib/adminAuth).
+const sha256 = (value) => createHash("sha256").update(String(value)).digest();
+const secretMatches = (given) => timingSafeEqual(sha256(given), sha256(WEBHOOK_SECRET));
+
 async function sendMessage(chatId, text) {
   if (!chatId) return;
   try {
@@ -52,7 +58,7 @@ function summaryText(summary) {
 
 export async function POST(request, { params }) {
   const { secret } = await params;
-  if (!BOT_TOKEN || !WEBHOOK_SECRET || secret !== WEBHOOK_SECRET) {
+  if (!BOT_TOKEN || !WEBHOOK_SECRET || !secretMatches(secret)) {
     return NextResponse.json({ ok: false }, { status: 404 });
   }
 
