@@ -21,6 +21,9 @@ export const phones = [
 ];
 export const mainPhone = phones[0];
 
+// Digits only, international format, for wa.me links.
+export const whatsappNumber = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "37066213171").replace(/\D/g, "");
+
 // Shown on the contacts page and in the footer; keep in step with the showroom's real hours.
 export const openingHours = {
   lt: [

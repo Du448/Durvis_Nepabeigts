@@ -3,6 +3,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import MobileCallBar from "@/components/MobileCallBar";
+import WhatsAppBubble from "@/components/WhatsAppBubble";
+import ScrollToTop from "@/components/ScrollToTop";
 import ClickTracking from "@/components/ClickTracking";
 import JsonLd from "@/components/JsonLd";
 import { Analytics } from "@vercel/analytics/next";
@@ -49,6 +51,8 @@ export default async function LocaleLayout({ children, params }) {
         </div>
         <Footer />
         <MobileCallBar />
+        <WhatsAppBubble />
+        <ScrollToTop />
         <CookieBanner />
         <ClickTracking />
         {/* Both are cookieless and collect no personal data, so they run
