@@ -9,6 +9,7 @@ import { withLocaleHref, t } from "@/lib/i18n";
 import { cardsFor } from "@/lib/catalog";
 import { paths } from "@/lib/routes";
 import { localeParams, pageMetadata, resolveLocale, siteTitle, siteDescription } from "@/lib/page";
+import { imageProps } from "@/lib/images";
 
 export const generateStaticParams = localeParams;
 
@@ -278,13 +279,14 @@ export default async function Home({ params }) {
 
       {BLOCKS.map((block) => {
         const items = cardsFor(splitSliderItems(products, (p) => p.category === block.slug, rotation), locale);
+        const mediaSrc = block.image || `/scenes/${block.slug}.webp`;
         const media = (
           <div className="split-media relative overflow-hidden">
             <Image
-              src={block.image || `/scenes/${block.slug}.webp`}
+              src={mediaSrc}
               alt={pick(locale, block.title)}
               fill
-              unoptimized
+              {...imageProps(mediaSrc)}
               sizes="(min-width: 1025px) 50vw, 100vw"
               className="object-cover"
             />

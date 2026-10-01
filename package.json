@@ -3,11 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "node tools/optimize-images.mjs",
     "dev": "next dev --webpack",
+    "prebuild": "node tools/optimize-images.mjs",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "scenes": "node tools/generate-scene-images.mjs"
+    "scenes": "node tools/generate-scene-images.mjs",
+    "images": "node tools/optimize-images.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
