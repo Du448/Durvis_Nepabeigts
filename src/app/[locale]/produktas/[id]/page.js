@@ -6,7 +6,8 @@ import ProductClient from "@/components/ProductClient";
 import { DictProvider } from "@/components/DictProvider";
 import JsonLd from "@/components/JsonLd";
 import { locales, t } from "@/lib/i18n";
-import { trData } from "@/lib/i18n-data";
+import { trData, translateColorLabel } from "@/lib/i18n-data";
+import { buildSpecRows } from "@/lib/product-specs";
 import { cardsFor } from "@/lib/catalog";
 import { buildDict } from "@/lib/dict";
 import { isComingSoon, isInStock } from "@/lib/product-utils";
@@ -103,6 +104,14 @@ export default async function ProductPage({ params }) {
     image: (product.images || []).slice(0, 4).map((src) => absolute(sizedImage(src, 1200))),
     category: categoryName.startsWith("categories.") ? undefined : categoryName,
     ...(product.collection ? { model: product.collection } : {}),
+    ...(product.colors?.length ? { color: product.colors.map((c) => translateColorLabel(locale, c)).join(", ") } : {}),
+    ...(product.sizes?.length ? { size: product.sizes.join(", ") } : {}),
+    // The specification table as name/value pairs: what an AI assistant
+    // quotes when asked to compare doors (thickness, locks, insulation …).
+    additionalProperty: buildSpecRows(product, (v) => trData(locale, v), (key) => t(locale, key))
+      .filter(([n, v]) => String(n ?? "").trim() && String(v ?? "").trim())
+      .slice(0, 30)
+      .map(([n, v]) => ({ "@type": "PropertyValue", name: String(n), value: String(v) })),
     ...(isComingSoon(product) || product.price == null
       ? {}
       : {

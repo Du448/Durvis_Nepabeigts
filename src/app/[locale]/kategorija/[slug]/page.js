@@ -7,7 +7,7 @@ import JsonLd from "@/components/JsonLd";
 import { locales, t } from "@/lib/i18n";
 import { cardsFor } from "@/lib/catalog";
 import { buildDict } from "@/lib/dict";
-import { localizedUrl } from "@/lib/site";
+import { SITE_URL, localizedUrl } from "@/lib/site";
 import { CATEGORY_SLUGS, categoryIdFromSlug, paths } from "@/lib/routes";
 import { pageMetadata, resolveLocale } from "@/lib/page";
 
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }) {
 
 export default async function CategoryPage({ params }) {
   const { locale, id } = await resolve(params);
-  const { name } = categoryText(locale, id);
+  const { name, description } = categoryText(locale, id);
   const all = await getProducts();
   const raw = all.filter((p) => p.category === id);
   const cards = cardsFor(raw, locale);
@@ -81,9 +81,32 @@ export default async function CategoryPage({ params }) {
     ],
   };
 
+  // The listing itself, so an assistant can answer "which apartment doors do
+  // you have" from one page.
+  const collectionLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    description,
+    url: localizedUrl(locale, paths.category(id)),
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    about: { "@id": `${SITE_URL}/#business` },
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: cards.length,
+      itemListElement: cards.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: p.name,
+        url: localizedUrl(locale, paths.product(p.id)),
+      })),
+    },
+  };
+
   return (
     <>
       <JsonLd data={breadcrumbLd} />
+      <JsonLd data={collectionLd} />
       <DictProvider dict={dict}>
         {/* No Suspense boundary: the filters read the query string after
             hydration (useUrlSearchParams), and a boundary would make the

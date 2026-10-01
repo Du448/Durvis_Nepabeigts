@@ -55,28 +55,86 @@ export const postalAddress = {
   addressCountry: "LT",
 };
 
+/* Public profiles of the business (Facebook, Instagram, Google Business
+   Profile, Rekvizitai, …), comma-separated in NEXT_PUBLIC_SOCIAL_PROFILES.
+   They go into the structured data as sameAs, which is how search engines and
+   AI assistants tie this site to the same business mentioned elsewhere. */
+export const socialProfiles = (process.env.NEXT_PUBLIC_SOCIAL_PROFILES || "")
+  .split(",")
+  .map((s) => s.trim())
+  .filter((s) => /^https?:\/\//.test(s));
+
+export const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+  `${postalAddress.streetAddress}, ${postalAddress.addressLocality}, ${postalAddress.postalCode}`
+)}`;
+
+const LANGUAGES = { lt: "lt-LT", lv: "lv-LV", en: "en" };
+
+// What the business does, in the page's language - read by search engines and
+// AI assistants as the topics the business is an authority on.
+const KNOWS_ABOUT = {
+  lt: ["Lauko durys", "Buto lauko durys", "Namo lauko durys", "Vidaus durys", "Paslėptos durys", "Durų montavimas", "Durų matavimas", "Durų spynos ir furnitūra"],
+  lv: ["Ārdurvis", "Ārdurvis dzīvoklim", "Ārdurvis privātmājai", "Iekšdurvis", "Slēptās durvis", "Durvju montāža", "Durvju uzmērīšana", "Durvju slēdzenes un furnitūra"],
+  en: ["Entrance doors", "Apartment entrance doors", "House entrance doors", "Interior doors", "Hidden doors", "Door installation", "Door measurement", "Door locks and hardware"],
+};
+
+/* Site-wide structured data: the business (a local shop with a showroom)
+   and the website it publishes, linked by @id so every page's Product,
+   Service and breadcrumb data points back to one entity. */
 export function localBusinessLd(locale) {
+  const phoneNumbers = phones.map((p) => p.label.replace(/\s+/g, ""));
   return {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "@id": `${SITE_URL}/#business`,
-    name: "NT Durys",
-    legalName: company.legalName,
-    url: localizedUrl(locale, ""),
-    logo: `${SITE_URL}/logo.png`,
-    image: `${SITE_URL}/logo.png`,
-    email: company.email,
-    telephone: phones.map((p) => p.label.replace(/\s+/g, "")),
-    vatID: company.vat,
-    taxID: company.code,
-    address: { "@type": "PostalAddress", ...postalAddress },
-    areaServed: { "@type": "Country", name: "Lithuania" },
-    priceRange: "€€",
-    openingHoursSpecification: openingHoursSpec.map((s) => ({
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: s.days,
-      opens: s.opens,
-      closes: s.closes,
-    })),
+    "@graph": [
+      {
+        "@type": ["HomeAndConstructionBusiness", "Store"],
+        "@id": `${SITE_URL}/#business`,
+        name: "NT Durys",
+        alternateName: ["NTDurys", "ntdurys.lt"],
+        legalName: company.legalName,
+        url: localizedUrl(locale, ""),
+        logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
+        image: `${SITE_URL}/og-image.png`,
+        email: company.email,
+        telephone: phoneNumbers,
+        vatID: company.vat,
+        taxID: company.code,
+        address: { "@type": "PostalAddress", ...postalAddress },
+        hasMap: mapUrl,
+        areaServed: { "@type": "Country", name: "Lithuania", identifier: "LT" },
+        knowsAbout: KNOWS_ABOUT[locale] || KNOWS_ABOUT.lt,
+        knowsLanguage: Object.values(LANGUAGES),
+        currenciesAccepted: "EUR",
+        priceRange: "€€",
+        contactPoint: phoneNumbers.map((telephone) => ({
+          "@type": "ContactPoint",
+          telephone,
+          email: company.email,
+          contactType: "customer service",
+          areaServed: "LT",
+          availableLanguage: ["Lithuanian", "Latvian", "English"],
+        })),
+        openingHoursSpecification: openingHoursSpec.map((s) => ({
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: s.days,
+          opens: s.opens,
+          closes: s.closes,
+        })),
+        ...(socialProfiles.length ? { sameAs: socialProfiles } : {}),
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: localizedUrl(locale, ""),
+        name: "NT Durys",
+        inLanguage: LANGUAGES[locale] || LANGUAGES.lt,
+        publisher: { "@id": `${SITE_URL}/#business` },
+        potentialAction: {
+          "@type": "SearchAction",
+          target: { "@type": "EntryPoint", urlTemplate: `${localizedUrl(locale, "/paieska")}?q={search_term_string}` },
+          "query-input": "required name=search_term_string",
+        },
+      },
+    ],
   };
 }

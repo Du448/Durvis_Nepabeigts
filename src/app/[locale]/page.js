@@ -10,6 +10,9 @@ import { cardsFor } from "@/lib/catalog";
 import { paths } from "@/lib/routes";
 import { localeParams, pageMetadata, resolveLocale, siteTitle, siteDescription } from "@/lib/page";
 import { imageProps } from "@/lib/images";
+import { ChevronDown } from "lucide-react";
+import JsonLd from "@/components/JsonLd";
+import { getService, serviceSlugs, serviceUi } from "@/data/services";
 
 export const generateStaticParams = localeParams;
 
@@ -272,8 +275,23 @@ export default async function Home({ params }) {
   const rotation = currentRotation();
   const products = await getProducts();
 
+  /* The two most-asked questions of each service, answered on the homepage
+     too: question-and-answer text is what AI assistants lift into their
+     answers, and the homepage is the page they read first. The answers live
+     in @/data/services, so they stay the same as on the service pages. */
+  const faq = serviceSlugs.flatMap((slug) =>
+    getService(slug, locale).faq.slice(0, 2).map((f) => ({ ...f, href: withLocaleHref(locale, paths.service(slug)) }))
+  );
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  };
+  const more = { lt: "Plačiau", lv: "Vairāk", en: "Read more" }[locale] || "Plačiau";
+
   return (
     <main>
+      <JsonLd data={faqLd} />
       <HeroSlider slides={slides} />
 
       {BLOCKS.map((block) => {
@@ -370,6 +388,29 @@ export default async function Home({ params }) {
               <ProductCard key={p.id} product={p} />
             ))}
           </RevealGrid>
+        </div>
+      </section>
+
+      {/* FAQ - native <details>, so the answers are in the HTML without JS */}
+      <section className="py-16">
+        <div className="container">
+          <h2 className="t-section mb-8 text-center">{serviceUi(locale).faqHeading}</h2>
+          <div className="mx-auto max-w-[900px] border-t border-line">
+            {faq.map((f) => (
+              <details key={f.q} className="group border-b border-line">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 text-[16px] font-medium text-[color:var(--color-title)] [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <ChevronDown size={18} aria-hidden="true" className="shrink-0 text-muted transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="pb-5 pr-8 text-[15px] leading-[1.7] text-muted">
+                  {f.a}{" "}
+                  <Link href={f.href} className="font-medium text-[color:var(--color-accent)] hover:underline">
+                    {more}
+                  </Link>
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

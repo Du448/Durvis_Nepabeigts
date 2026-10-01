@@ -2,12 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Layers, Wrench, ShieldCheck, MessageCircle, MapPin, Clock, Star } from "lucide-react";
 import PageTitle from "@/components/PageTitle";
+import JsonLd from "@/components/JsonLd";
 import { withLocaleHref, t } from "@/lib/i18n";
 import { imageProps } from "@/lib/images";
 import { paths } from "@/lib/routes";
 import { localeParams, pageMetadata, resolveLocale } from "@/lib/page";
 import { products } from "@/data/products";
-import { company, hoursFor } from "@/lib/site";
+import { SITE_URL, company, hoursFor, localizedUrl } from "@/lib/site";
 import { showroomPhotos, extraStats, testimonials } from "@/data/about";
 
 const pick = (locale, obj) => (typeof obj === "string" ? obj : obj?.[locale] ?? obj?.lt ?? "");
@@ -48,8 +49,19 @@ export default async function AboutPage({ params }) {
     ...catalogueStats(locale),
   ];
 
+  const aboutLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: t(locale, "pages.about.title"),
+    description: t(locale, "pages.about.intro1"),
+    url: localizedUrl(locale, paths.about),
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    mainEntity: { "@id": `${SITE_URL}/#business` },
+  };
+
   return (
     <main>
+      <JsonLd data={aboutLd} />
       <PageTitle
         title={t(locale, "pages.about.title")}
         image="https://images.unsplash.com/photo-1613544723301-176686aa9f09?auto=format&fit=crop&w=2000&q=60"

@@ -32,6 +32,20 @@ export async function generateMetadata({ params }) {
     title: siteTitle(locale),
     openGraph: { ...openGraph, title: siteTitle(locale) },
     twitter: { ...base.twitter, title: siteTitle(locale) },
+    verification: siteVerification(),
+  };
+}
+
+/* Ownership tags for Google Search Console and Bing Webmaster Tools. Bing's
+   index is what ChatGPT search and Microsoft Copilot answer from, so the site
+   is registered there as well as with Google. Codes come from the env. */
+function siteVerification() {
+  const other = {};
+  if (process.env.BING_SITE_VERIFICATION) other["msvalidate.01"] = process.env.BING_SITE_VERIFICATION;
+  if (process.env.YANDEX_SITE_VERIFICATION) other["yandex-verification"] = process.env.YANDEX_SITE_VERIFICATION;
+  return {
+    ...(process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : {}),
+    ...(Object.keys(other).length ? { other } : {}),
   };
 }
 
