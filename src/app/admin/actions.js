@@ -6,28 +6,10 @@ import { isInStock } from "@/lib/product-utils";
 import { PRICES_TAG, readOverridesFresh, writeOverrides, blobConfigured } from "@/lib/priceOverrides";
 import { linkStockGroup, unignoreStockGroup, syncStock } from "@/lib/stockSync";
 import { parseStockPdf } from "@/lib/stockPdf";
-import {
-  isAdmin,
-  passwordMatches,
-  startSession,
-  endSession,
-  loginBlocked,
-  recordFailure,
-} from "@/lib/adminAuth";
+import { isAdmin, endSession } from "@/lib/adminAuth";
 
 const MAX_PRICE = 100000;
 const byId = new Map(products.map((p) => [p.id, p]));
-
-export async function loginAction(_prev, formData) {
-  if (await loginBlocked()) return { error: "blocked" };
-  const password = String(formData.get("password") || "");
-  if (!passwordMatches(password)) {
-    await recordFailure();
-    return { error: "wrong" };
-  }
-  await startSession();
-  return { ok: true };
-}
 
 export async function logoutAction() {
   await endSession();

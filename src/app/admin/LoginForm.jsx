@@ -2,7 +2,21 @@
 
 import { useActionState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { loginAction } from "./actions";
+
+// Posted to its own route so the Vercel Firewall can rate-limit it (see /api/admin/login).
+async function login(_prev, formData) {
+  try {
+    const res = await fetch("/api/admin/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: formData.get("password") || "" }),
+    });
+    if (res.status === 429) return { error: "blocked" };
+    return await res.json();
+  } catch {
+    return { error: "network" };
+  }
+}
 
 const ERRORS = {
   wrong: "Neteisingas slaptažodis.",
@@ -11,7 +25,7 @@ const ERRORS = {
 
 export default function LoginForm() {
   const router = useRouter();
-  const [state, action, pending] = useActionState(loginAction, null);
+  const [state, action, pending] = useActionState(login, null);
 
   useEffect(() => {
     if (state?.ok) router.refresh();
