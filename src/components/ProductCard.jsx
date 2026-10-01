@@ -110,13 +110,13 @@ export default function ProductCard({ product, bare = false }) {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Image: every photo sits in the same soft box at the same scale. The
+      {/* Image: every photo sits in the same white box at the same scale. The
           catalogue mixes white-backed shots, grey studio shots and cut-outs;
-          multiply blending lets the white ones take the box colour, and the
-          fixed inset keeps tall and short doors the same visual size. The
+          multiply blending lets white backgrounds disappear into the box, and
+          the fixed inset keeps tall and short doors the same visual size. The
           name link below is the card's one link for keyboard and screen
           reader users, so this duplicate is hidden from them. */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--color-soft)]">
+      <div className="relative aspect-[4/5] overflow-hidden bg-white">
         <Link href={href} tabIndex={-1} aria-hidden="true" className="absolute inset-0 block">
           {shown ? (
             <Image
@@ -159,7 +159,7 @@ export default function ProductCard({ product, bare = false }) {
           }`}
         >
           {badges.map((b) => (
-            <span key={b.text} className={`px-2 py-1 text-[11px] font-semibold uppercase leading-none ${b.className}`}>
+            <span key={b.text} className={`px-2 py-1 text-[12px] font-semibold uppercase leading-none ${b.className}`}>
               {b.text}
             </span>
           ))}
@@ -222,7 +222,7 @@ export default function ProductCard({ product, bare = false }) {
           the difference is the printed Decolux finish outside. */}
       {product.id.endsWith("-p-su") ? (
         <div
-          className="mx-auto mt-1.5 inline-flex items-center gap-1.5 border border-[color:var(--color-line)] px-2 py-0.5 text-[11px] text-[color:var(--color-ink)]"
+          className="mx-auto mt-1.5 inline-flex items-center gap-1.5 border border-[color:var(--color-line)] px-2 py-0.5 text-[12px] text-[color:var(--color-ink)]"
           title={t(locale, "product.decoluxCardHint")}
         >
           <span

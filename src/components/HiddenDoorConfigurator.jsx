@@ -272,7 +272,7 @@ export default function HiddenDoorConfigurator({ spec, config, onChange, locale 
                         >
                           {L("hingesN", { n })}
                           {n === recommended && recommended > required ? (
-                            <span className="ml-1.5 text-[11px] font-semibold uppercase text-[color:var(--color-accent)]">{L("recommended")}</span>
+                            <span className="ml-1.5 text-[12px] font-semibold uppercase text-[color:var(--color-accent)]">{L("recommended")}</span>
                           ) : null}
                           {on ? null : <span className="ml-1.5 text-[12px] text-muted">{delta({ extraHinges: extra })}</span>}
                         </button>

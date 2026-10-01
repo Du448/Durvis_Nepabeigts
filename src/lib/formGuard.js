@@ -13,11 +13,14 @@ function clientIp(request) {
   return (fwd ? fwd.split(",")[0] : request.headers.get("x-real-ip") || "unknown").trim();
 }
 
-export function rateLimited(request, bucket) {
-  const key = `${bucket}:${clientIp(request)}`;
+/* `key` replaces the client IP as the bucket's identity (e.g. an e-mail
+   address, so one office behind a shared IP isn't throttled as one visitor);
+   `max` overrides the per-window allowance. */
+export function rateLimited(request, bucket, { key: id, max = MAX_PER_WINDOW } = {}) {
+  const key = `${bucket}:${id ?? clientIp(request)}`;
   const now = Date.now();
   const recent = (hits.get(key) || []).filter((t) => now - t < WINDOW_MS);
-  if (recent.length >= MAX_PER_WINDOW) {
+  if (recent.length >= max) {
     hits.set(key, recent);
     return NextResponse.json({ ok: false, error: "rate_limited" }, { status: 429 });
   }

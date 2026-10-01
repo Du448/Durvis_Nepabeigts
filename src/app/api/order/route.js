@@ -70,8 +70,11 @@ function itemRows(item, labels) {
 }
 
 export async function POST(request) {
-  const limited = rateLimited(request, "order");
-  if (limited) return limited;
+  // A loose per-IP cap here, matching the Vercel Firewall rule (an office can
+  // share one IP); the real 5-per-10-minutes limit is per e-mail address,
+  // below, once the body is read.
+  const ipLimited = rateLimited(request, "order-ip", { max: 15 });
+  if (ipLimited) return ipLimited;
 
   let body;
   try {
@@ -115,6 +118,9 @@ export async function POST(request) {
   if (deliveryMethod === "courier" && (!address.city || !address.street)) {
     return NextResponse.json({ ok: false, error: "missing_fields" }, { status: 400 });
   }
+
+  const limited = rateLimited(request, "order-email", { key: email.toLowerCase() });
+  if (limited) return limited;
 
   const orderNumber = makeOrderNumber();
   const customerName = customerType === "business" ? companyName : `${firstName} ${lastName}`.trim();

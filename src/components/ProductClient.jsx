@@ -99,7 +99,7 @@ function ToggleHint({ text }) {
       >
         <span
           aria-hidden="true"
-          className="flex h-5 w-5 items-center justify-center rounded-full border border-line bg-white text-[11px] font-semibold leading-none text-muted group-hover/hint:border-[color:var(--color-accent)] group-hover/hint:text-[color:var(--color-accent)]"
+          className="flex h-6 w-6 items-center justify-center rounded-full border border-line bg-white text-[12px] font-semibold leading-none text-muted group-hover/hint:border-[color:var(--color-accent)] group-hover/hint:text-[color:var(--color-accent)]"
         >
           ?
         </span>
@@ -304,7 +304,7 @@ function JambColorSwatchGrid({ items, jambColor, onSelect, onZoom, label, zoomLa
               <ZoomIn size={13} />
             </button>
             {scroll ? (
-              <p className="mt-1 line-clamp-2 text-[11px] leading-[1.3] text-muted">{sw.label}</p>
+              <p className="mt-1 line-clamp-2 text-[12px] leading-[1.3] text-muted">{sw.label}</p>
             ) : null}
           </div>
         ))}
@@ -556,6 +556,9 @@ export default function ProductClient({ product, similar = [], configurator = nu
   /* The catalogue stores names, specification rows and description copy in
      Latvian; the page's dictionary (DictProvider) renders them in its language. */
   const productName = trData(locale, product.name);
+  // Same category crumb as the page's BreadcrumbList JSON-LD; t() echoes the key back for unknown categories.
+  const categoryKey = `categories.details.${product.category}.name`;
+  const categoryCrumb = product.category && t(locale, categoryKey) !== categoryKey ? t(locale, categoryKey) : null;
 
   return (
     <main>
@@ -565,6 +568,14 @@ export default function ProductClient({ product, similar = [], configurator = nu
           <div className="text-sm text-muted">
             <Link className="text-ink hover:text-ink" href={withLocaleHref(locale, "/")}>{t(locale, "common.home")}</Link>
             <span className="mx-1 text-muted">/</span>
+            {categoryCrumb ? (
+              <>
+                <Link className="text-ink hover:text-ink" href={withLocaleHref(locale, paths.category(product.category))}>
+                  {categoryCrumb}
+                </Link>
+                <span className="mx-1 text-muted">/</span>
+              </>
+            ) : null}
             <span className="text-ink">{productName}</span>
           </div>
         </div>
@@ -709,12 +720,12 @@ export default function ProductClient({ product, similar = [], configurator = nu
                   {product.collection}
                 </div>
                 {comingSoon ? (
-                  <span className="inline-flex items-center gap-1.5 bg-[color:var(--color-alt)] px-2.5 py-1 text-[11px] font-semibold uppercase leading-none text-black">
+                  <span className="inline-flex items-center gap-1.5 bg-[color:var(--color-alt)] px-2.5 py-1 text-[12px] font-semibold uppercase leading-none text-black">
                     {t(locale, "product.comingSoonPrice")}
                   </span>
                 ) : isInStock(product) || stockKind(product) === "order" ? (
                   <span
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold uppercase leading-none ${
+                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[12px] font-semibold uppercase leading-none ${
                       stockKind(product) === "factory"
                         ? "bg-[color:var(--color-stock-factory-soft)] text-[color:var(--color-stock-factory)]"
                         : stockKind(product) === "order"
@@ -741,7 +752,7 @@ export default function ProductClient({ product, similar = [], configurator = nu
                 {configurator ? (
                   <Link
                     href={withLocaleHref(locale, paths.configurator)}
-                    className="inline-flex items-center gap-1.5 bg-[color:var(--color-accent)]/10 px-2.5 py-1 text-[11px] font-semibold uppercase leading-none text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
+                    className="inline-flex items-center gap-1.5 bg-[color:var(--color-accent)]/10 px-2.5 py-1 text-[12px] font-semibold uppercase leading-none text-[color:var(--color-accent)] transition-colors hover:bg-[color:var(--color-accent)] hover:text-white"
                   >
                     <Shield size={12} />
                     {t(locale, "product.individualSolution")}

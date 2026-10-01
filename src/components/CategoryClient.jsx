@@ -772,6 +772,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
   return (
     <main>
       <PageTitle
+        compact
         title={categoryName}
         description={resolvedDescription}
         image={CATEGORY_BANNERS[slug]}

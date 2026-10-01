@@ -235,7 +235,7 @@ export default function Header() {
   const individualSolutionLinks = [
     { href: "/apdaila", label: t(locale, "nav.manufacturer1") },
     { href: "/duru-konfiguratorius", label: t(locale, "nav.manufacturer2") },
-    // Same page as Ražotājs - 2, opened straight on its calculator tab.
+    // Same page as the design-series link above, opened straight on its calculator tab.
     { href: "/duru-konfiguratorius?section=kalkulators", label: t(locale, "nav.configurator") },
   ];
 
@@ -327,8 +327,16 @@ export default function Header() {
                   lang={l}
                   aria-label={t(locale, "a11y.language").replace("{code}", l.toUpperCase())}
                   aria-current={l === locale ? "true" : undefined}
+                  // Over the dark hero the brand green barely shows, so the
+                  // current language is white and underlined there instead.
                   className={`flex h-11 items-center px-1.5 text-[12px] font-semibold uppercase tracking-wide transition-opacity hover:opacity-70 ${
-                    l === locale ? "text-[color:var(--color-accent)]" : ""
+                    l === locale
+                      ? light
+                        ? "text-white underline decoration-2 underline-offset-[6px]"
+                        : "text-[color:var(--color-accent)]"
+                      : light
+                        ? "text-white/65"
+                        : ""
                   }`}
                 >
                   {l}
@@ -353,7 +361,7 @@ export default function Header() {
               <Scale size={20} strokeWidth={1.6} />
               <span
                 key={comparePulse}
-                className={`absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white ${comparePulse ? "animate-pulsate" : ""}`}
+                className={`absolute right-0.5 top-1 flex h-[18px] min-w-[18px] items-center justify-center bg-[color:var(--color-accent)] px-[4px] text-[12px] font-semibold leading-none text-white ${comparePulse ? "animate-pulsate" : ""}`}
               >
                 {compareCount}
               </span>
@@ -367,7 +375,7 @@ export default function Header() {
               <Heart size={20} strokeWidth={1.6} />
               <span
                 key={wishlistPulse}
-                className={`absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white ${wishlistPulse ? "animate-pulsate" : ""}`}
+                className={`absolute right-0.5 top-1 flex h-[18px] min-w-[18px] items-center justify-center bg-[color:var(--color-accent)] px-[4px] text-[12px] font-semibold leading-none text-white ${wishlistPulse ? "animate-pulsate" : ""}`}
               >
                 {wishlistCount}
               </span>
@@ -381,7 +389,7 @@ export default function Header() {
               <ShoppingBag size={20} strokeWidth={1.6} />
               <span
                 key={cartPulse}
-                className={`absolute right-1 top-1.5 flex h-[16px] min-w-[16px] items-center justify-center bg-[color:var(--color-accent)] px-[3px] text-[10px] font-semibold leading-none text-white ${cartPulse ? "animate-pulsate" : ""}`}
+                className={`absolute right-0.5 top-1 flex h-[18px] min-w-[18px] items-center justify-center bg-[color:var(--color-accent)] px-[4px] text-[12px] font-semibold leading-none text-white ${cartPulse ? "animate-pulsate" : ""}`}
               >
                 {cartItemCount}
               </span>

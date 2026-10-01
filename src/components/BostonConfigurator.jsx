@@ -54,7 +54,7 @@ export function Swatch({ image, hex, label, selected, onClick, badge, size = 48 
         </span>
       ) : null}
       {badge ? (
-        <span className="absolute -right-1.5 -top-1.5 bg-[color:var(--color-alt)] px-1 text-[9px] font-bold leading-[14px] text-black">{badge}</span>
+        <span className="absolute -right-1.5 -top-1.5 bg-[color:var(--color-alt)] px-1 text-[12px] font-bold leading-4 text-black">{badge}</span>
       ) : null}
     </button>
   );
@@ -498,7 +498,7 @@ export default function BostonConfigurator({ spec, config, onChange, locale }) {
                     <span className="relative block h-16 w-full">
                       <Image src={l.image} alt="" fill sizes="80px" unoptimized className="object-contain" />
                     </span>
-                    <span className="mt-1 text-[11px] leading-tight text-ink">{L(`layout${l.key}`)}</span>
+                    <span className="mt-1 text-[12px] leading-tight text-ink">{L(`layout${l.key}`)}</span>
                   </button>
                 ))}
               </div>
@@ -687,7 +687,7 @@ export default function BostonConfigurator({ spec, config, onChange, locale }) {
                     {GLASS_TINTS[k]?.image ? (
                       <Image src={GLASS_TINTS[k].image} alt="" fill sizes="96px" unoptimized className="object-cover" />
                     ) : (
-                      <span className="flex h-full items-center justify-center bg-gradient-to-br from-sky-200 via-amber-100 to-rose-200 text-[10px] text-ink/70">UV</span>
+                      <span className="flex h-full items-center justify-center bg-gradient-to-br from-sky-200 via-amber-100 to-rose-200 text-[12px] text-ink/70">UV</span>
                     )}
                   </span>
                   <span className="mt-1 text-[12px] text-ink">{glassName(k, locale)}</span>
@@ -729,7 +729,7 @@ export default function BostonConfigurator({ spec, config, onChange, locale }) {
                         {img ? (
                           <Image src={img} alt="" fill sizes="80px" unoptimized className="object-contain p-1" />
                         ) : (
-                          <span className="flex h-full items-center justify-center px-1 text-center text-[10px] leading-tight text-muted">{def.label}</span>
+                          <span className="flex h-full items-center justify-center px-1 text-center text-[12px] leading-tight text-muted">{def.label}</span>
                         )}
                       </span>
                       <span className="min-w-0 flex-1">
@@ -738,7 +738,7 @@ export default function BostonConfigurator({ spec, config, onChange, locale }) {
                           <span className={`text-[13px] font-medium ${on ? "text-[color:var(--color-accent)]" : "text-ink"}`}>{on ? <Check size={16} /> : signed(delta) || "±0 €"}</span>
                         </span>
                         <span className="mt-0.5 block text-[12px] leading-snug text-muted">{def.desc[locale] || def.desc.lv}</span>
-                        {def.onOrder ? <span className="mt-1 inline-block bg-[color:var(--color-stock-order-soft)] px-1.5 text-[10px] font-semibold uppercase text-[color:var(--color-stock-order)]">{L("hwOnOrder")}</span> : null}
+                        {def.onOrder ? <span className="mt-1 inline-block bg-[color:var(--color-stock-order-soft)] px-1.5 text-[12px] font-semibold uppercase text-[color:var(--color-stock-order)]">{L("hwOnOrder")}</span> : null}
                       </span>
                     </button>
                   );

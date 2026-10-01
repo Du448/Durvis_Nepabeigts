@@ -269,7 +269,7 @@ function LockPanel({ locks, locale }) {
                   : "border-line bg-white text-ink hover:border-[color:var(--color-accent)]"
               }`}
             >
-              <span className={`block text-[11px] uppercase tracking-[0.12em] ${i === index ? "text-white/80" : "text-muted"}`}>
+              <span className={`block text-[12px] uppercase tracking-[0.12em] ${i === index ? "text-white/80" : "text-muted"}`}>
                 {l.kind}
               </span>
               <span className="block text-[14px] font-medium">{l.name}</span>

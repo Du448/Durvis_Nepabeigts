@@ -68,8 +68,8 @@ const messages = {
       deals: "Akcijos",
       finishes: "Apdaila",
       individualSolutions: "Individualūs sprendimai",
-      manufacturer1: "Gamintojas - 1",
-      manufacturer2: "Gamintojas - 2",
+      manufacturer1: "Apdaila ir frezavimo raštai",
+      manufacturer2: "Dizaino serijos ir spalvos",
       configurator: "Durų konfigūratorius",
       products: "Produktai",
       about: "Apie mus",
@@ -205,7 +205,7 @@ const messages = {
       },
     },
     header: {
-      promo: "Nemokama konsultacija ir matavimas · Pristatymas visoje Lietuvoje",
+      promo: "Nemokama konsultacija · Pristatymas visoje Lietuvoje",
     },
     a11y: {
       search: "Ieškoti",
@@ -593,8 +593,8 @@ const messages = {
       deals: "Akcijas",
       finishes: "Apdare",
       individualSolutions: "Individuālie risinājumi",
-      manufacturer1: "Ražotājs - 1",
-      manufacturer2: "Ražotājs - 2",
+      manufacturer1: "Apdare un frēzējumi",
+      manufacturer2: "Dizaina sērijas un krāsas",
       configurator: "Durvju konfigurators",
       products: "Produkti",
       about: "Par mums",
@@ -730,7 +730,7 @@ const messages = {
       },
     },
     header: {
-      promo: "Bezmaksas konsultācija un uzmērīšana · Piegāde visā Lietuvā",
+      promo: "Bezmaksas konsultācija · Piegāde visā Lietuvā",
     },
     a11y: {
       search: "Meklēt",
@@ -1118,8 +1118,8 @@ const messages = {
       deals: "Deals",
       finishes: "Finishes",
       individualSolutions: "Individual solutions",
-      manufacturer1: "Manufacturer - 1",
-      manufacturer2: "Manufacturer - 2",
+      manufacturer1: "Finishes and milling patterns",
+      manufacturer2: "Design series and colours",
       configurator: "Door configurator",
       products: "Products",
       about: "About",
@@ -1254,7 +1254,7 @@ const messages = {
       },
     },
     header: {
-      promo: "Free consultation and measurement · Delivery across Lithuania",
+      promo: "Free consultation · Delivery across Lithuania",
     },
     a11y: {
       search: "Search",
