@@ -75,6 +75,13 @@ const HERO = [
   },
 ];
 
+/* The split photo half is half the viewport wide but at least 736px tall
+   (usually ~900px with the product slider), so object-cover scales the
+   landscape scene photos up by height: a 3:2 photo in a 900px tall panel is
+   ~1350px wide whatever the viewport. "50vw" alone made the browser fetch a
+   ~1080px copy and stretch it, which looked blurry. */
+const SPLIT_MEDIA_SIZES = "(min-width: 1025px) max(50vw, 1400px), 100vw";
+
 const BLOCKS = [
   {
     slug: "ardurvis-dzivoklim",
@@ -304,7 +311,8 @@ export default async function Home({ params }) {
               alt={pick(locale, block.title)}
               fill
               {...imageProps(mediaSrc)}
-              sizes="(min-width: 1025px) 50vw, 100vw"
+              sizes={SPLIT_MEDIA_SIZES}
+              quality={90}
               className="object-cover"
             />
           </div>
@@ -353,7 +361,8 @@ export default async function Home({ params }) {
                 src={SMART_LOCK_BLOCK.image}
                 alt={pick(locale, SMART_LOCK_BLOCK.title)}
                 fill
-                sizes="(min-width: 1025px) 50vw, 100vw"
+                sizes={SPLIT_MEDIA_SIZES}
+                quality={90}
                 className="object-cover"
               />
             </div>
