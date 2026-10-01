@@ -2,7 +2,7 @@
    Naver - one call reaches all of them), so they recrawl changed pages
    straight away. Run after a deploy that changes content:
 
-     INDEXNOW_KEY=... npm run indexnow
+     npm run indexnow     (reads INDEXNOW_KEY from .env.local or the shell)
 
    INDEXNOW_KEY must be the same value the production site serves at
    /indexnow-key.txt (set it in Vercel's environment variables too).

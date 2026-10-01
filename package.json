@@ -11,7 +11,7 @@
     "lint": "eslint",
     "scenes": "node tools/generate-scene-images.mjs",
     "images": "node tools/optimize-images.mjs",
-    "indexnow": "node tools/indexnow.mjs"
+    "indexnow": "node --env-file-if-exists=.env.local tools/indexnow.mjs"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
