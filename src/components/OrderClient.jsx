@@ -76,21 +76,19 @@ export default function OrderClient() {
           comment,
           consent,
           fax_number: honeypot,
-          items: items.map(({ line, product }) => ({
-            name: product.name,
-            size: line.size || "",
-            direction: line.direction
-              ? t(locale, line.direction === "right" ? "product.directionRight" : "product.directionLeft")
-              : "",
+          // Just the choices - the server prices and describes each line
+          // itself from the catalogue (see /api/order).
+          lines: items.map(({ line }) => ({
+            id: line.id,
             qty: line.qty,
-            price: formatPrice(product, linePrice(product, line) * line.qty),
-            services: serviceLabels(line.services, t, locale).join(", "),
+            size: line.size || "",
+            direction: line.direction || "",
             jambColor: line.jambColor || "",
-            config: configRows(product, line, locale).map(([label, value]) => `${label}: ${value}`),
-            url: `${window.location.origin}${withLocaleHref(locale, paths.product(product.id))}`,
-            image: product.image ? new URL(product.image, window.location.origin).href : "",
+            services: line.services || [],
+            boston: line.boston || null,
+            hidden: line.hidden || null,
+            extenders: line.extenders || null,
           })),
-          subtotal: formatPrice({ currency: "EUR" }, subtotal),
         }),
       });
       const data = await res.json().catch(() => ({}));

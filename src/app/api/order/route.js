@@ -4,13 +4,17 @@ import { HONEYPOT_FIELD, honeypotResponse, isHoneypotFilled, rateLimited } from 
 import { locales, defaultLocale, t } from "@/lib/i18n";
 import { phones, company } from "@/lib/site";
 import { buildCustomerEmail, buildShopEmail } from "@/lib/orderEmail";
+import { buildOrderItems } from "@/lib/orderItems";
+import { formatPrice } from "@/lib/product-utils";
 
 // No payment step (see @/components/OrderClient): the shop confirms the
 // final price after measurement, so placing an order here just books the
 // request with the shop and confirms receipt to the customer - modelled on
 // rdveikals.lv's own /order page, minus its payment section.
+//
+// The browser only sends its cart lines; names, prices, the total, images
+// and links are rebuilt from the catalogue by buildOrderItems().
 
-const MAX_ITEMS = 20;
 const MAX_TEXT = 300;
 
 function clip(value, max = MAX_TEXT) {
@@ -49,22 +53,6 @@ const ITEM_ROW_LABELS = {
     jambColor: "Jamb colour",
   },
 };
-
-function readItems(raw) {
-  if (!Array.isArray(raw)) return [];
-  return raw.slice(0, MAX_ITEMS).map((item) => ({
-    name: clip(item?.name),
-    size: clip(item?.size, 60),
-    direction: clip(item?.direction, 30),
-    qty: Math.max(1, Math.min(999, Number(item?.qty) || 1)),
-    price: clip(item?.price, 30),
-    services: clip(item?.services, 200),
-    jambColor: clip(item?.jambColor, 60),
-    config: (Array.isArray(item?.config) ? item.config : []).slice(0, 16).map((row) => clip(row, 400)).filter(Boolean),
-    url: clip(item?.url, 300),
-    image: /^https?:\/\//i.test(String(item?.image)) ? clip(item.image, 500) : "",
-  }));
-}
 
 function itemRows(item, labels) {
   return [
@@ -112,8 +100,8 @@ export async function POST(request) {
   };
   const comment = clip(body.comment, 500);
   const consent = Boolean(body.consent);
-  const items = readItems(body.items);
-  const subtotal = clip(body.subtotal, 30);
+  const items = await buildOrderItems(body.lines, locale);
+  const subtotal = items.length ? formatPrice({ currency: "EUR" }, items.reduce((sum, item) => sum + item.total, 0)) : "";
 
   if (!email || !phone || !consent || !items.length) {
     return NextResponse.json({ ok: false, error: "missing_fields" }, { status: 400 });
@@ -197,7 +185,10 @@ export async function POST(request) {
       .filter((line) => line !== null)
       .join("\n");
 
-    const custHtml = buildCustomerEmail({ locale, greetName, orderNumber, items, itemRows, labels, subtotal, deliveryLine, comment });
+    // The visitor's own comment is left out of the confirmation on purpose:
+    // it is the one free-text field that would otherwise go to whatever
+    // address was typed in. The shop still gets it above.
+    const custHtml = buildCustomerEmail({ locale, greetName, orderNumber, items, itemRows, labels, subtotal, deliveryLine });
 
     await sendFormEmail({
       to: email,
