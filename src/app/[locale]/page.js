@@ -90,7 +90,6 @@ const BLOCKS = [
   {
     slug: "ardurvis-privatmajai",
     image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/pic_exterior_d.png",
-    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/ChatGPT%20Image%20Sep%2030,%202026,%2008_56_41%20PM.png",
     reverse: true,
     title: {
       lt: "Termo durys namams - šiluma, tyla, garantija",
