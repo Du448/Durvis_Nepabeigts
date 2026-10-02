@@ -15,6 +15,8 @@ const nextConfig = {
     // ImageKit / Unsplash resize through their own URL parameters; see the loader.
     loader: "custom",
     loaderFile: "./src/lib/imageLoader.js",
+    // Every `quality` an <Image> passes; Next warns about any other value.
+    qualities: [60, 75, 90],
   },
   // Photos in /public otherwise go out with max-age=0 and are revalidated on
   // every visit. File names are not content-hashed (a re-exported photo keeps
