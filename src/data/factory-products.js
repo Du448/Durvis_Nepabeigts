@@ -28,12 +28,12 @@ export const factoryProducts = [
   "isNew": false,
   "clearance": false,
   "images": [
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2026/08/0136-01.jpg",
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2026/08/0136-02.jpg",
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2026/08/0136-03.jpg",
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2026/08/0136-04.jpg",
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2026/08/0136-05.jpg",
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2026/08/0136-06.jpg",
+   "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/547new/sNzsM.jpg",
+   "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/547new/jWr3z.jpg",
+   "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/547new/OkvI6.jpg",
+   "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/547new/4DJSZ.jpg",
+   "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/547new/fCPwR.jpg",
+   "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/547new/yxl5w.jpg"
   ],
   "short": "Ultra (kvadro) Kale, modelis 547/251, artikuls: 0136 - dizaina un uzticamības iemiesojums. Šīs durvis ir aprīkotas ar Turcijas slēdzenēm KALE 257 (suvaldu) un KALE 252 (cilindra).",
   "specs": {
@@ -3975,7 +3975,7 @@ export const factoryProducts = [
   "isNew": false,
   "clearance": false,
   "images": [
-   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-01-1.jpg",
+   "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-01-1.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-04.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-05.jpg",
    "https://www.bulat-doors.com.ua/wp-content/uploads/2025/11/0119-06.jpg",
