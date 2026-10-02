@@ -57,7 +57,19 @@ function validate(values) {
   return null;
 }
 
-export default function PriceEditor({ rows, initialOverrides, categories, storageReady, loadError }) {
+/* Lithuanian shop, so Vilnius time whoever opens the panel; fixed locale and
+   zone keep the server and client renders identical. */
+const syncTime = new Intl.DateTimeFormat("lt-LT", {
+  timeZone: "Europe/Vilnius",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+  hour: "2-digit",
+  minute: "2-digit",
+});
+const formatSyncTime = (iso) => syncTime.format(new Date(iso));
+
+export default function PriceEditor({ rows, initialOverrides, categories, storageReady, loadError, lastStockSync }) {
   const router = useRouter();
   const [overrides, setOverrides] = useState(initialOverrides || {});
   const [edits, setEdits] = useState({}); // id -> { price, oldPrice, inStock } as typed
@@ -212,6 +224,15 @@ export default function PriceEditor({ rows, initialOverrides, categories, storag
           <div>
             <h1 className="text-[20px] font-semibold">{ui.title}</h1>
             <p className="text-[13px] text-neutral-500">{ui.subtitle(rows.length, changedCount)}</p>
+            <p className="text-[13px] font-medium text-emerald-800">
+              {lastStockSync?.telegram?.at
+                ? ui.stockSyncTelegram(formatSyncTime(lastStockSync.telegram.at))
+                : ui.stockSyncNever}
+            </p>
+            {lastStockSync?.manual?.at &&
+            (!lastStockSync.telegram?.at || lastStockSync.manual.at > lastStockSync.telegram.at) ? (
+              <p className="text-[13px] text-neutral-500">{ui.stockSyncManual(formatSyncTime(lastStockSync.manual.at))}</p>
+            ) : null}
           </div>
           <div className="flex items-center gap-3">
             <div className="flex overflow-hidden rounded-md border border-neutral-300 text-[13px]">

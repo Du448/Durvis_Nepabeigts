@@ -111,7 +111,7 @@ export async function syncStockPdfAction(formData) {
     const bytes = new Uint8Array(await file.arrayBuffer());
     const rows = await parseStockPdf(bytes);
     if (!rows.length) return { ok: false, error: "empty" };
-    const summary = await syncStock(rows);
+    const summary = await syncStock(rows, { source: "manual" });
     return { ok: true, summary };
   } catch (err) {
     console.error("admin stock upload: sync failed", err);

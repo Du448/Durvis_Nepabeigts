@@ -1,7 +1,7 @@
 import { revalidateTag } from "next/cache";
 import { products } from "@/data/products";
 import { PRICES_TAG, readOverridesFresh, writeOverrides } from "@/lib/priceOverrides";
-import { readStockMap, writeStockMap, readUnmatchedStock, writeUnmatchedStock } from "@/lib/stockMap";
+import { readStockMap, writeStockMap, readUnmatchedStock, writeUnmatchedStock, writeLastStockSync } from "@/lib/stockMap";
 import { stockRowGroupKey, stockRowVariant, variantKey } from "@/lib/stockPdf";
 
 const byId = new Map(products.map((p) => [p.id, p]));
@@ -17,7 +17,7 @@ const IMMEDIATELY = { expire: 0 };
    code/group scheme). Rows that match neither an existing code nor a known
    group, and aren't marked ignored, come back in `unmatched` - grouped, so
    the admin links a model+colour once rather than every size/side code. */
-export async function syncStock(rows) {
+export async function syncStock(rows, { source = "manual" } = {}) {
   const { codeMap, groupMap, ignoredGroups } = await readStockMap();
   const ignored = new Set(ignoredGroups);
   const nextCodeMap = { ...codeMap };
@@ -88,12 +88,14 @@ export async function syncStock(rows) {
     .sort((a, b) => b.totalQty - a.totalQty);
   await writeUnmatchedStock(unmatchedGroups);
 
-  return {
-    rowCount: rows.length,
-    inStockCount,
-    outOfStockCount,
-    unmatched: unmatchedGroups,
-  };
+  const summary = { rowCount: rows.length, inStockCount, outOfStockCount, unmatched: unmatchedGroups };
+  try {
+    await writeLastStockSync(source, summary);
+  } catch (err) {
+    // Only feeds the "last update" line in /admin - not worth failing the sync over.
+    console.error("stock sync: recording the sync time failed", err);
+  }
+  return summary;
 }
 
 /* Called from the admin panel: links one group of warehouse codes (a

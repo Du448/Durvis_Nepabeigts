@@ -9,6 +9,9 @@ export const adminUi = {
   lt: {
     title: "Kainų valdymas",
     subtitle: (total, changed) => `${total} prekių · rankiniu būdu pakeista: ${changed}`,
+    stockSyncTelegram: (when) => `Likučiai iš Telegram boto atnaujinti: ${when}`,
+    stockSyncManual: (when) => `Rankinis likučių įkėlimas: ${when}`,
+    stockSyncNever: "Likučiai iš Telegram boto dar negauti",
     openSite: "Atverti svetainę",
     logout: "Atsijungti",
     logoutConfirm: "Yra neišsaugotų pakeitimų. Vis tiek atsijungti?",
@@ -65,6 +68,9 @@ export const adminUi = {
   en: {
     title: "Price management",
     subtitle: (total, changed) => `${total} products · manually changed: ${changed}`,
+    stockSyncTelegram: (when) => `Stock updated by the Telegram bot: ${when}`,
+    stockSyncManual: (when) => `Manual stock upload: ${when}`,
+    stockSyncNever: "No stock received from the Telegram bot yet",
     openSite: "Open site",
     logout: "Log out",
     logoutConfirm: "There are unsaved changes. Log out anyway?",

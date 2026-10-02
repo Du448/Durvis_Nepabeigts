@@ -101,7 +101,7 @@ export async function POST(request, { params }) {
       return NextResponse.json({ ok: true });
     }
 
-    const summary = await syncStock(rows);
+    const summary = await syncStock(rows, { source: "telegram" });
     await sendMessage(chatId, summaryText(summary));
   } catch (err) {
     console.error("telegram stock webhook: processing failed", err);

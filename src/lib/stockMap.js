@@ -76,3 +76,39 @@ export async function writeUnmatchedStock(groups) {
     cacheControlMaxAge: 60,
   });
 }
+
+// When stock was last applied, per source ("telegram" - the bot's weekly
+// file, "manual" - a re-upload in /admin), for the admin header. Kept apart
+// from the files above because linking a group in /admin rewrites those too,
+// so their updatedAt doesn't say when a stock file last came in.
+const LAST_SYNC_PATH = "admin/stock-last-sync.json";
+
+export async function readLastStockSync() {
+  if (!blobConfigured()) return {};
+  try {
+    const res = await get(LAST_SYNC_PATH, { access: ACCESS, useCache: false });
+    if (!res || res.statusCode !== 200 || !res.stream) return {};
+    const data = JSON.parse(await new Response(res.stream).text());
+    return data && typeof data === "object" ? data : {};
+  } catch (err) {
+    console.error("stock map: read last sync failed", err);
+    return {};
+  }
+}
+
+export async function writeLastStockSync(source, summary) {
+  const current = await readLastStockSync();
+  const entry = {
+    at: new Date().toISOString(),
+    rowCount: summary.rowCount,
+    inStockCount: summary.inStockCount,
+    outOfStockCount: summary.outOfStockCount,
+  };
+  await put(LAST_SYNC_PATH, JSON.stringify({ ...current, [source]: entry }, null, 1), {
+    access: ACCESS,
+    addRandomSuffix: false,
+    allowOverwrite: true,
+    contentType: "application/json",
+    cacheControlMaxAge: 60,
+  });
+}

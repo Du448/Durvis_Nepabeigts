@@ -3,7 +3,7 @@ import { isInStock } from "@/lib/product-utils";
 import { trData } from "@/lib/i18n-data";
 import { adminConfigured, isAdmin } from "@/lib/adminAuth";
 import { blobConfigured, readOverridesFresh } from "@/lib/priceOverrides";
-import { readUnmatchedStock, readStockMap } from "@/lib/stockMap";
+import { readUnmatchedStock, readStockMap, readLastStockSync } from "@/lib/stockMap";
 import { getFactoryStock } from "@/lib/factoryStock";
 import LoginForm from "./LoginForm";
 import PriceEditor from "./PriceEditor";
@@ -65,6 +65,7 @@ export default async function AdminPage() {
 
   const unmatchedStock = blobConfigured() ? await readUnmatchedStock() : { updatedAt: null, groups: [] };
   const ignoredGroups = blobConfigured() ? (await readStockMap()).ignoredGroups : [];
+  const lastStockSync = await readLastStockSync();
   const productOptions = products.map((p) => ({
     id: p.id,
     name: `${trData("lt", p.name)} — ${p.id}`,
@@ -85,6 +86,7 @@ export default async function AdminPage() {
         categories={CATEGORIES}
         storageReady={blobConfigured()}
         loadError={loadError}
+        lastStockSync={lastStockSync}
       />
     </>
   );

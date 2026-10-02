@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { linkStockGroupAction, unignoreStockGroupAction } from "./actions";
 
@@ -8,6 +8,8 @@ import { linkStockGroupAction, unignoreStockGroupAction } from "./actions";
    every model+colour the file mentions that the site can't yet match to a
    product id, so the shop owner picks it from a search box once. After
    that, every future upload finds it automatically - see stockSync.js. */
+const COLLAPSED_KEY = "admin-stock-matcher-collapsed";
+
 export default function StockMatcher({ unmatched, ignoredGroups, productOptions, storageReady }) {
   const router = useRouter();
   const [groups, setGroups] = useState(unmatched.groups);
@@ -17,6 +19,29 @@ export default function StockMatcher({ unmatched, ignoredGroups, productOptions,
   const [pending, startTransition] = useTransition();
   const [busyKey, setBusyKey] = useState(null);
   const [message, setMessage] = useState(null);
+  // Open by default; a collapsed list stays collapsed on the next visit.
+  const [collapsed, setCollapsed] = useState(false);
+
+  useEffect(() => {
+    const sync = () => {
+      let saved = null;
+      try {
+        saved = window.localStorage.getItem(COLLAPSED_KEY);
+      } catch {}
+      setCollapsed(saved === "1");
+    };
+    sync();
+    window.addEventListener("storage", sync);
+    return () => window.removeEventListener("storage", sync);
+  }, []);
+
+  function toggleCollapsed() {
+    const next = !collapsed;
+    setCollapsed(next);
+    try {
+      window.localStorage.setItem(COLLAPSED_KEY, next ? "1" : "0");
+    } catch {}
+  }
 
   const optionsById = useMemo(() => new Map(productOptions.map((o) => [o.id, o])), [productOptions]);
 
@@ -79,9 +104,21 @@ export default function StockMatcher({ unmatched, ignoredGroups, productOptions,
       ) : null}
       {groups.length ? (
         <div className="rounded-lg border border-amber-300 bg-amber-50 p-4">
-        <h2 className="text-[15px] font-semibold text-amber-900">
-          Atlikumu piesaiste - {groups.length} nesaistīti modeļi
+        <h2>
+          <button
+            type="button"
+            onClick={toggleCollapsed}
+            aria-expanded={!collapsed}
+            className="flex w-full items-center justify-between gap-3 text-left text-[15px] font-semibold text-amber-900"
+          >
+            <span>Atlikumu piesaiste - {groups.length} nesaistīti modeļi</span>
+            <span className="shrink-0 text-[13px] font-medium text-amber-900/70">
+              {collapsed ? "▸ Atvērt" : "▾ Savērst"}
+            </span>
+          </button>
         </h2>
+        {collapsed ? null : (
+        <>
         <p className="mt-1 text-[13px] text-amber-900/80">
           Šie nosaukumi no jaunākā atlikumu faila neatbilst nevienam zināmam produktam. Piesaisti katru vienreiz -
           turpmākajos failos tas tiks atpazīts automātiski. Ieraksti, kas nav durvju modeļi (piem. aplodes, furnitūra),
@@ -129,6 +166,8 @@ export default function StockMatcher({ unmatched, ignoredGroups, productOptions,
             <option key={o.id} value={o.name} />
           ))}
         </datalist>
+        </>
+        )}
         </div>
       ) : null}
 
