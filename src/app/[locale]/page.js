@@ -85,7 +85,7 @@ const SPLIT_MEDIA_SIZES = "(min-width: 1025px) max(50vw, 1400px), 100vw";
 const BLOCKS = [
   {
     slug: "ardurvis-dzivoklim",
-    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/pic_apartment.png",
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/pic_apartment_hd.jpg",
     title: {
       lt: "Buto lauko durys - svarbus žingsnis saugumo link",
       lv: "Ārdurvis dzīvoklim - svarīgs solis drošībai",
@@ -99,7 +99,7 @@ const BLOCKS = [
   },
   {
     slug: "ardurvis-privatmajai",
-    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/pic_exterior_d.png",
+    image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/pic_exterior_d_hd.jpg",
     reverse: true,
     title: {
       lt: "Termo durys namams - šiluma, tyla, garantija",
