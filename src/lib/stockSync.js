@@ -6,6 +6,12 @@ import { stockRowGroupKey, stockRowVariant, variantKey } from "@/lib/stockPdf";
 
 const byId = new Map(products.map((p) => [p.id, p]));
 
+/* Expire the cached prices/stock now, not stale-while-revalidate ("max"),
+   so the next visitor already sees the new stock. updateTag would do the
+   same but only works in server actions, and syncStock also runs from the
+   Telegram webhook route. */
+const IMMEDIATELY = { expire: 0 };
+
 /* Turns this week's parsed rows into product.inStock flags, learning new
    warehouse codes into the map as it goes (see stockMap.js for the two-layer
    code/group scheme). Rows that match neither an existing code nor a known
@@ -75,7 +81,7 @@ export async function syncStock(rows) {
 
   await writeOverrides(overrides);
   await writeStockMap({ codeMap: nextCodeMap, groupMap, ignoredGroups });
-  revalidateTag(PRICES_TAG);
+  revalidateTag(PRICES_TAG, IMMEDIATELY);
 
   const unmatchedGroups = [...unmatched.entries()]
     .map(([groupKey, entry]) => ({ groupKey, ...entry }))
@@ -141,7 +147,7 @@ export async function linkStockGroup({ groupKey, codes, productId, ignore }) {
         stock: Object.fromEntries(variants),
       };
       await writeOverrides(overrides);
-      revalidateTag(PRICES_TAG);
+      revalidateTag(PRICES_TAG, IMMEDIATELY);
     }
   }
 
