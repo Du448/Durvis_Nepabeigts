@@ -52,6 +52,14 @@ const ITEM_ROW_LABELS = {
     services: "Services",
     jambColor: "Jamb colour",
   },
+  ru: {
+    size: "Размер",
+    direction: "Направление",
+    qty: "Кол-во",
+    price: "Цена",
+    services: "Услуги",
+    jambColor: "Оттенок откосов",
+  },
 };
 
 function itemRows(item, labels) {

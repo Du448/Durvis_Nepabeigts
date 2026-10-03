@@ -1,0 +1,160 @@
+/* Russian for the Ražotājs-2 (Bulat) reference catalogue: section titles,
+   leads, group titles and swatch labels for door design series, PVC/Winshield
+   film colours and powder coating. Bare model numbers ("105", "277" …) need
+   no entry - trData falls back to the source, which is already just a
+   number. Only labels that carry actual words are listed here. */
+
+export const ruManufacturer2 = {
+  // Tab title (Manufacturer2Client)
+  "Kalkulators": "Калькулятор",
+  "Iekļauta pamatcenā": "Входит в базовую цену",
+
+  // Section titles
+  "Durvju dizaina sērijas": "Дизайн-серии дверей",
+  "Pārklājuma plēves krāsas": "Цвета плёнки покрытия",
+  "Pulverkrāsojuma katalogs": "Каталог порошковой окраски",
+
+  // Leads
+  "Durvju vērtņu frēzējumu katalogs - vairāk nekā 200 modeļu, sagrupēti sērijās pēc frēzējuma dziļuma un stila. Katru zīmējumu var izgatavot jebkuram durvju modelim un kombinēt ar jebkuru pārklājuma krāsu no zemāk redzamajām paletēm.":
+    "Каталог фрезеровок дверных полотен - более 200 моделей, сгруппированных в серии по глубине и стилю фрезеровки. Любой рисунок можно изготовить для любой модели двери и сочетать с любым цветом покрытия из палитр ниже.",
+  "Divi plēves seguma veidi: iekštelpu PVC plēve durvīm dzīvoklī un izturīgākā Winshield plēve ārdurvīm ielas pusē. Abas pārklāj MDF apdares plāksni un ir pieejamas jebkurai vērtnes frēzējuma sērijai.":
+    "Два вида плёночного покрытия: ПВХ-плёнка для помещений - для квартирных дверей, и более стойкая плёнка Winshield - для уличной стороны входных дверей. Обе покрывают отделочную панель МДФ и доступны для любой серии фрезеровки полотна.",
+  "Metāla karkasam un kārbai izmantotais pulverkrāsojums - matēts izpildījums vai koka tekstūras imitācija. Krāsa tiek iededzināta augstā temperatūrā, tāpēc virsma ir noturīga pret skrāpējumiem un koroziju.":
+    "Порошковая окраска металлического каркаса и коробки - матовое исполнение или имитация текстуры дерева. Краска запекается при высокой температуре, поэтому поверхность устойчива к царапинам и коррозии.",
+
+  // Design-series group titles
+  "100. sērija": "Серия 100",
+  "200. sērija": "Серия 200",
+  "400. sērija": "Серия 400",
+  "500. sērija": "Серия 500",
+  "600. sērija": "Серия 600",
+  "800. sērija": "Серия 800",
+  "900. sērija": "Серия 900",
+  "Iela": "Улица",
+
+  // Extra design-series entries (100. sērija)
+  "Gluda (bez frēzējuma)": "Гладкая (без фрезеровки)",
+  "Individuāli pēc pasūtījuma": "Индивидуально под заказ",
+
+  // Numbered model variants with extra words
+  "604 tonēts": "604 тонированное",
+  "607 tonēts": "607 тонированное",
+  "706 (1200 mm)": "706 (1200 мм)",
+  "710 (1200 mm)": "710 (1200 мм)",
+  "705 (1200 mm)": "705 (1200 мм)",
+  "711 (1200 mm)": "711 (1200 мм)",
+  "716 (1200 mm)": "716 (1200 мм)",
+
+  // Film colour group titles
+  "Durvīm dzīvoklī (PVC plēve)": "Двери в квартиру (ПВХ-плёнка)",
+  "Durvīm ielas pusē (Winshield)": "Двери на улицу (Winshield)",
+
+  // PVC film swatches (apartment)
+  "Nr. 1 Rieksts tumšs": "№ 1 Орех тёмный",
+  "Nr. 3 Venge dienvidu (tumšs)": "№ 3 Венге южный (тёмный)",
+  "Nr. 12 Venge Horizonts tumšs": "№ 12 Венге горизонт тёмный",
+  "Nr. 13 Venge Horizonts pelēks": "№ 13 Венге горизонт серый",
+  "Nr. 14 Betons tumšs": "№ 14 Бетон тёмный",
+  "Nr. 15 Ozols Šato": "№ 15 Дуб Шато",
+  "Nr. 17 Balta struktūra": "№ 17 Белая структура",
+  "Nr. 20 Provansas priede": "№ 20 Сосна прованс",
+  "Nr. 21 Ozols Sonoma": "№ 21 Дуб сонома",
+  "Nr. 22 Antracīts": "№ 22 Антрацит",
+  "Nr. 23 Betons tumši pelēks": "№ 23 Бетон тёмно-серый",
+  "Nr. 25 Betons pelēks": "№ 25 Бетон серый",
+  "Nr. 26 Betons bēšs": "№ 26 Бетон бежевый",
+  "Nr. 29 Marmors pelēks": "№ 29 Мрамор серый",
+  "Nr. 30 Marmors tumšs": "№ 30 Мрамор тёмный",
+  "Nr. 31 Ozols Šale sirmais": "№ 31 Дуб Шале седой",
+  "Nr. 34 Koka grieziens brūns": "№ 34 Срез дерева коричневый",
+  "Nr. 37 Balts matēts gluds": "№ 37 Белый матовый гладкий",
+  "Nr. 38 Ozols Grafīts": "№ 38 Дуб графит",
+  "Nr. 67 Slāneklis tumšs": "№ 67 Сланец тёмный",
+  "Nr. 68 Ozols Nemo sudraba": "№ 68 Дуб немо серебро",
+  "Nr. 69 Ozols Nemo karbona": "№ 69 Дуб немо карбон",
+  "Nr. 70 Platīna koks": "№ 70 Платиновое дерево",
+  "Nr. 72 Musona koks": "№ 72 Дерево муссон",
+  "Nr. 74 Melna šagrēna": "№ 74 Чёрный шагрень",
+  "Nr. 75 Koka grieziens, konjaka tonis": "№ 75 Срез дерева, тон коньяк",
+  "Nr. 76 Ozols tabakas": "№ 76 Дуб табачный",
+  "Nr. 82 Koka grieziens, medus tonis": "№ 82 Срез дерева, тон мёд",
+  "Nr. 84 Ozols Nemo latte": "№ 84 Дуб немо латте",
+  "Nr. 85 Titāns horizontāls": "№ 85 Титан горизонтальный",
+  "Nr. 86 Šale horizontāls": "№ 86 Шале горизонтальный",
+  "Nr. 89 Pelēks šīferis": "№ 89 Серый сланец",
+  "Nr. 90 Krējuma brašs": "№ 90 Кремовый браш",
+  "Nr. 94 Pelnu metālisks": "№ 94 Пепельный металлик",
+  "Nr. 95 Betons antracīts": "№ 95 Бетон антрацит",
+  "Nr. 105 Ozols Sahāras horizontāls": "№ 105 Дуб сахара горизонтальный",
+  "Nr. 106 Ozols Traupa horizontāls": "№ 106 Дуб траупа горизонтальный",
+  "Nr. 107 Grifelis, struktūra soft": "№ 107 Грифель, структура soft",
+  "Nr. 108 Plombīrs, struktūra soft": "№ 108 Пломбир, структура soft",
+  "Nr. 115 Sahāra, struktūra soft": "№ 115 Сахара, структура soft",
+  "Nr. 120 Balta šagrēna": "№ 120 Белый шагрень",
+  "Nr. 122 Oksīds balts": "№ 122 Оксид белый",
+  "Nr. 123 Musona koks, gaišs": "№ 123 Дерево муссон, светлое",
+  "Nr. 124 Rustikls Avinjona blanc": "№ 124 Rustic Avignon blanc",
+  "Nr. 125 Mamba morions": "№ 125 Mamba morion",
+  "Nr. 127 Roksī antracīts pelēks": "№ 127 Roxy антрацит серый",
+  "Nr. 128 Ozols Dorato tumšs": "№ 128 Дуб дорато тёмный",
+  "Nr. 130 Oksīds tumšs": "№ 130 Оксид тёмный",
+  "Nr. 131 Oksīds gaišs": "№ 131 Оксид светлый",
+  "Nr. 132 Cements balts": "№ 132 Цемент белый",
+  "Nr. 134 Akmens grieziens": "№ 134 Срез камня",
+  "Nr. 135 Balta struktūra, horizontāla": "№ 135 Белая структура, горизонтальная",
+  "Nr. 136 Venge Parma": "№ 136 Венге Парма",
+  "Nr. 138 Hroms": "№ 138 Хром",
+  "Nr. 139 Alva, supermatēts": "№ 139 Олово, супермат",
+  "Nr. 140 Ziloņkauls, supermatēts": "№ 140 Слоновая кость, супермат",
+  "Nr. 141 Kašmirs, supermatēts": "№ 141 Кашемир, супермат",
+  "Nr. 143 Dreamwood tumšs": "№ 143 Dreamwood тёмный",
+  "Nr. 144 Dreamwood gaišs": "№ 144 Dreamwood светлый",
+  "Nr. 145 Venge Palermo": "№ 145 Венге Палермо",
+  "Nr. 146 Oksīds melns": "№ 146 Оксид чёрный",
+  "Nr. 147 Reljefs akmens, Sjena": "№ 147 Рельефный камень, Сиена",
+  "Nr. 148 Oksīds melns (viss dekors)": "№ 148 Оксид чёрный (весь декор)",
+
+  // Winshield film swatches (street side)
+  "Antracīts smilškrāsas 59S-1": "Антрацит песочный 59S-1",
+  "Antracīts pelēks 58P-1": "Антрацит серый 58P-1",
+  "Betons pelēks 123A-1": "Бетон серый 123A-1",
+  "Balts 05P-1": "Белый 05P-1",
+  "Balts satīns 06S-1": "Белый сатин 06S-1",
+  "Ozols zeltains 89P-1": "Дуб золотистый 89P-1",
+  "Ozols polārais 91P-1": "Дуб полярный 91P-1",
+  "Ozols pelēks 93P-1": "Дуб серый 93P-1",
+  "Ozols Sonoma 92P-1": "Дуб сонома 92P-1",
+  "Ozols tumšs 23P-1": "Дуб тёмный 23P-1",
+  "Lapegle vulkāniskā 136N-1": "Лиственница вулканическая 136N-1",
+  "Lapegle morēna 134N-1": "Лиственница морена 134N-1",
+  "Lapegle dabīgā 131N-1": "Лиственница натуральная 131N-1",
+  "Piena tonis 51R-5": "Молочный тон 51R-5",
+  "Pelēks gaišs 108S-1": "Светло-серый 108S-1",
+  "Venge tumšs 20P-1": "Венге тёмный 20P-1",
+  "Rieksts dabīgais 25P-1": "Орех натуральный 25P-1",
+  "Pelēks skandināvu 38D-1": "Скандинавский серый 38D-1",
+  "Titāns 32S-1": "Титан 32S-1",
+  "Antracīts stilīgs 58N-1": "Антрацит стильный 58N-1",
+  "Melns auksts, smilškrāsas 110S-1": "Холодный чёрный, песочный 110S-1",
+  "Ozols Montāna 130N-1": "Дуб Монтана 130N-1",
+  "Tīkoks gaišs 34H-1": "Тик светлый 34H-1",
+  "Rieksts konjaka tonī 37P-1": "Орех в тоне коньяк 37P-1",
+  "Kapučīno 53R-5": "Капучино 53R-5",
+
+  // Powder coating - matte
+  "Matēts pārklājums": "Матовое покрытие",
+  "Metāliski melns": "Металлик чёрный",
+  "Metāliski pelēks (antracīts)": "Металлик серый (антрацит)",
+  "Metāliski grafīts": "Металлик графит",
+  "Metāliski brūns (koka tonis)": "Металлик коричневый (тон дерева)",
+  "Metāliski balts": "Металлик белый",
+  "Metāliski Chalet (pelēks)": "Металлик Chalet (серый)",
+  "Metāliski tumši antracīts": "Металлик тёмный антрацит",
+
+  // Powder coating - wood texture
+  "Koka tekstūras pārklājums": "Покрытие с текстурой дерева",
+  "Antracīts": "Антрацит",
+  "Tumši antracīts": "Тёмный антрацит",
+  "Ozols bronza": "Дуб бронза",
+  "Venge tumšs": "Венге тёмный",
+};

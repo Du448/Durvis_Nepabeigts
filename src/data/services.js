@@ -6,10 +6,13 @@
    installation work (confirmed by the shop). Durations and delivery times are
    deliberately not promised.
 
-   Every text is { lt, lv, en }; prices are specs that getService() formats
-   for the locale, so a price is changed in one place for all languages. */
+   Every text is { lt, lv, en, ru }; prices are specs that getService() formats
+   for the locale, so a price is changed in one place for all languages. The
+   Russian comes from services-ru.js, keyed by the English text. */
 
-const L = (lt, lv, en) => ({ lt, lv, en });
+import { servicesRu } from "./services-ru";
+
+const L = (lt, lv, en) => ({ lt, lv, en, ru: servicesRu[en] ?? en });
 
 // ---- Price specs ---------------------------------------------------------
 const eur = (n) => ({ eur: n });

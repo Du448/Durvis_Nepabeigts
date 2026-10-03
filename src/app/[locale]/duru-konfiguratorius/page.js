@@ -6,6 +6,8 @@ import { ltManufacturer2 } from "@/data/translations/lt/manufacturer2";
 import { ltManufacturer2Calculator } from "@/data/translations/lt/manufacturer2Calculator";
 import { enManufacturer2 } from "@/data/translations/en/manufacturer2";
 import { enManufacturer2Calculator } from "@/data/translations/en/manufacturer2Calculator";
+import { ruManufacturer2 } from "@/data/translations/ru/manufacturer2";
+import { ruManufacturer2Calculator } from "@/data/translations/ru/manufacturer2Calculator";
 import { t } from "@/lib/i18n";
 import { buildDict } from "@/lib/dict";
 import { paths } from "@/lib/routes";
@@ -19,6 +21,7 @@ export const generateStaticParams = localeParams;
 const CONFIGURATOR_DICTS = {
   lt: [ltManufacturer2, ltManufacturer2Calculator],
   en: [enManufacturer2, enManufacturer2Calculator],
+  ru: [ruManufacturer2, ruManufacturer2Calculator],
 };
 
 export async function generateMetadata({ params }) {

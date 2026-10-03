@@ -13,8 +13,13 @@ import { catalogTranslations } from "@/data/translations";
 export function trData(locale, value) {
   if (typeof value !== "string") return value;
   if (locale === "lv") return value;
-  return catalogTranslations[locale]?.[value] ?? value;
+  const out = catalogTranslations[locale]?.[value] ?? value;
+  return locale === "ru" ? ruUnits(out) : out;
 }
+
+/* Russian writes the units in Cyrillic; numbers and model codes stay as they
+   are, so "105 mm" / "102 kg" coming straight from the data read naturally. */
+const ruUnits = (s) => s.replace(/(\d)\s?mm\b/g, "$1 мм").replace(/(\d)\s?kg\b/g, "$1 кг");
 
 /* The same, for a [label, value] specification row. */
 export function trRow(locale, row) {
@@ -93,9 +98,42 @@ export function translateColorLabel(locale, value) {
       sagrēns: "faktūrinė",
       sagrēns: "faktūrinė",
     },
+    ru: {
+      antracīts: "антрацит",
+      antracits: "антрацит",
+      balts: "белый",
+      melns: "чёрный",
+      mats: "матовый",
+      supermats: "супермат",
+      dienvidu: "южный",
+      betons: "бетон",
+      oksīds: "оксид",
+      oksids: "оксид",
+      tumšs: "тёмный",
+      tums: "тёмный",
+      koks: "дерево",
+      ozols: "дуб",
+      tabakas: "табачный",
+      sudraba: "серебряный",
+      sudrabots: "серебристый",
+      horizontāls: "горизонтальный",
+      horizontal: "горизонтальный",
+      pelēks: "серый",
+      peleks: "серый",
+      zelta: "золотой",
+      priede: "сосна",
+      provanss: "прованс",
+      tīka: "тик",
+      tika: "тик",
+      sonomas: "сонома",
+      sagrēns: "шагрень",
+      šagrēns: "шагрень",
+      šagreņ: "шагрень",
+      venge: "венге",
+    },
   };
 
-  const map = locale === "en" ? tokenMaps.en : tokenMaps.lt;
+  const map = tokenMaps[locale] || tokenMaps.lt;
   const parts = String(value).split(" ");
 
   const translated = parts.map((p) => {

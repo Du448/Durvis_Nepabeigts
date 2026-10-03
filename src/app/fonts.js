@@ -52,4 +52,28 @@ export const poppinsExt = localFont({
   ],
 });
 
-export const fontVariables = `${poppinsLatin.variable} ${poppinsExt.variable}`;
+/* Poppins has no Cyrillic, so the Russian pages take their Cyrillic letters
+   from Montserrat (SIL OFL), the site's previous font - geometric like
+   Poppins - cut down from public/fonts/Montserrat-*.ttf to Russian Cyrillic:
+     pyftsubset Montserrat-<Regular|Bold>.ttf --flavor=woff2
+       --layout-features='*' --unicodes=<the unicode-range below>
+   Only 400 and 700 exist; 500/600 text uses the nearer of the two. It sits
+   before the ext file in the stack: that file's metric fallback is a local
+   Arial, which would otherwise catch the Cyrillic letters first. */
+export const montserratCyrillic = localFont({
+  src: [
+    { path: "./fonts/montserrat-cyrillic-400.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/montserrat-cyrillic-700.woff2", weight: "700", style: "normal" },
+  ],
+  display: "swap",
+  variable: "--font-montserrat-cyrillic",
+  adjustFontFallback: false,
+  declarations: [
+    {
+      prop: "unicode-range",
+      value: "U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116",
+    },
+  ],
+});
+
+export const fontVariables = `${poppinsLatin.variable} ${montserratCyrillic.variable} ${poppinsExt.variable}`;

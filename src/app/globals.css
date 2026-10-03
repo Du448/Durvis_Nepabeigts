@@ -31,7 +31,7 @@
   --color-stock-order: #1e40af;
   --color-stock-order-soft: #e8edfb;
 
-  --font-sans: var(--font-poppins-latin), var(--font-poppins-ext), Arial, Helvetica, sans-serif;
+  --font-sans: var(--font-poppins-latin), var(--font-montserrat-cyrillic), var(--font-poppins-ext), Arial, Helvetica, sans-serif;
 
   --radius-sm: 0px;
   --radius: 0px;

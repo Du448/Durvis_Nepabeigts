@@ -12,6 +12,7 @@ import {
   GLASS_TINTS,
 } from "@/data/boston-config-options";
 import { blockSize, bostonSpec, layoutOf, normalize } from "@/lib/boston-config";
+import { mmUnit } from "@/lib/i18n";
 
 const DICT = {
   lv: {
@@ -374,6 +375,126 @@ const DICT = {
     slats: "slats",
     insert: "insert",
   },
+  ru: {
+    casingTitle: "Накладные наличники",
+    casingNone: "Без накладных наличников",
+    casing_alu: "Алюминиевый накладной наличник",
+    casing_mono: "Цельный накладной наличник",
+    casing_figured: "Фигурный алюминиевый наличник",
+    bottomPlate: "Нижняя отбойная пластина",
+    bottomPlateHint: "Только для классических моделей",
+    stripSteelNote: "Полоса из нержавеющей стали доступна только с фурнитурой сталь/хром.",
+    grilleShort: "с решёткой",
+    lineBottomPlate: "Отбойная пластина {m} м × {p} €",
+    sizeStepNote: "Нестандартные размеры – с шагом 50 мм.",
+    title: "Конфигуратор",
+    intro: "Выберите размер, отделку и фурнитуру — цена обновляется по ходу выбора.",
+    stepSize: "Размер и тип двери",
+    stepOpening: "Открывание",
+    stepExterior: "Снаружи",
+    stepInterior: "Внутри",
+    stepGlass: "Стеклопакет",
+    stepHardware: "Фурнитура",
+    stepExtras: "Дополнительно",
+    next: "Далее",
+    leafSingle: "Одностворчатая",
+    leafSingleHint: "Шириной до {w} мм, высотой до {h} мм",
+    leafSingleStdHint: "{w} × {h} мм",
+    leafDoubleStdHint: "Активная + боковая створка, {w} × {h} мм",
+    leafDouble: "Полуторная",
+    leafDoubleHint: "Активная + боковая створка, шириной {w1}–{w2} мм, высотой до {h} мм",
+    sizeCustom: "Другой размер",
+    width: "Ширина",
+    height: "Высота",
+    range: "{min}–{max} мм",
+    layoutTitle: "Боковые вставки и фрамуга",
+    layout1: "Без остекления",
+    layout2: "Одна боковая вставка",
+    layout3: "Две боковые вставки",
+    layout4: "Верхняя фрамуга",
+    layout5: "Боковая вставка + фрамуга",
+    layout6: "2 боковые вставки + фрамуга",
+    sideW: "Ширина боковой вставки",
+    sideWLeft: "Ширина левой боковой вставки",
+    sideWRight: "Ширина правой боковой вставки",
+    sidePos: "Боковая вставка",
+    posLeft: "слева",
+    posRight: "справа",
+    topH: "Высота фрамуги",
+    panoTint: "Тонировка стекла боковых вставок / фрамуги",
+    panoGrille: "С декоративной вставной решёткой",
+    blockSize: "Общий размер блока: {w} × {h} мм",
+    hingeSide: "Сторона петель (вид снаружи)",
+    hingeLeft: "Слева",
+    hingeRight: "Справа",
+    openDir: "Направление открывания",
+    openOut: "Наружу",
+    openIn: "Внутрь",
+    openInHint: "Двери, открывающиеся внутрь, комплектуются цилиндрами Guardian (+45 € за шт.).",
+    openInSmart: "Открывание внутрь для моделей Smart — по запросу.",
+    extPaint: "Цвет полотна и коробки снаружи",
+    decolux: "Тон Decolux (только снаружи)",
+    decoluxNote: "Decolux наносится только снаружи; внутренняя сторона окрашивается в палитре Boston.",
+    slatExt: "Цвет ламелей снаружи",
+    slatInt: "Цвет ламелей внутри",
+    slatTones: "Тона ламелей",
+    slatPaint: "В цвете палитры Boston",
+    insertExt: "Тон вставок снаружи",
+    insertInt: "Тон вставок внутри",
+    strip: "Цвет декоративной полосы",
+    knocker: "Дверной молоток «Лев»",
+    forging: "Цвет ковки",
+    intPaint: "Цвет полотна и коробки внутри",
+    sameAsExt: "Как снаружи",
+    twoTone: "Двухцветные двери: цвет снаружи и внутри может различаться без доплаты.",
+    premium: "Премиальный цвет +{pct}%",
+    lacobel: "Чёрное стекло Lacobel — входит в комплект",
+    mirrorInt: "Зеркало изнутри — входит в комплект",
+    glassPick: "Тонировка стеклопакета",
+    glassFixed: "Стеклопакет этой модели",
+    glassMirror: "зеркальный",
+    glassGrille: "с чёрной вставной решёткой",
+    glassInfo: "4-камерный триплекс в полотне (3-камерный с решёткой).",
+    hwType: "Комплект фурнитуры",
+    hwColor: "Отделка",
+    hwOnOrder: "под заказ",
+    hwSmart: "Модели Smart поставляются с фиксированным комплектом: биометрический замок «CBA» PSL2 с Face ID, ручка со сканером отпечатка пальца и верхний цилиндровый замок «CBA» с термостержнем.",
+    sizeStdOnly: "Модели Smart изготавливаются только в стандартных размерах.",
+    hwIncluded: "В комплекте система замков «CBA» KDL-6085 и цилиндр «CBA» с термостержнем.",
+    eStrike: "Электрозащёлка Fuhr вместо механической защёлки",
+    onRequest: "цена по запросу",
+    casings: "Накладные алюминиевые наличники",
+    capitalExtend: "Капитель на весь блок",
+    perMeter: "{m} м × {p} €/м",
+    summary: "Ваша конфигурация",
+    total: "Итого",
+    requestItems: "Уточняется по запросу",
+    noteCastCasing: "Нестандартная высота до 2200 мм — с цельным наличником.",
+    noteTwoK: "При высоте более 2200 мм дверь изготавливается в исполнении 2K, полотно 78 мм.",
+    noteHinges: "С 2100 мм добавляется 3-я петля, с 2250 мм — 4-я (входят в цену).",
+    lineDoor: "Дверь {hw}{w} × {h} мм",
+    lineDoorDouble: "Полуторная дверь {hw}{w} × {h} мм",
+    lineWidth: "Нестандартная ширина +{pct}%",
+    lineDoubleWidth: "Ширина блока {w} мм +{pct}%",
+    lineHeight: "Высота {h} мм +{pct}%",
+    linePremium: "Премиальный цвет +{pct}%",
+    lineGuardian: "Цилиндры Guardian {n} × 45 €",
+    lineSide: "Боковая вставка {w} × {h} мм ({a} м² × {r} €)",
+    lineTop: "Фрамуга {w} × {h} мм ({a} м² × {r} €)",
+    lineCapital: "Капитель {m} м × 60 €",
+    lineCasings: "{kind} {m} м × {p} €",
+    dType: "Тип двери",
+    dSize: "Размер",
+    dLayout: "Остекление",
+    dOpening: "Открывание",
+    dExt: "Снаружи",
+    dInt: "Внутри",
+    dGlass: "Стекло",
+    dHw: "Фурнитура",
+    dExtras: "Дополнительно",
+    slats: "ламели",
+    insert: "вставка",
+  },
 };
 
 export function bt(locale, key, vars) {
@@ -436,13 +557,13 @@ export function describeBoston(spec, config, locale) {
   const rows = [];
   const block = blockSize(c);
   rows.push([bt(locale, "dType"), bt(locale, c.leaf === "double" ? "leafDouble" : "leafSingle")]);
-  rows.push([bt(locale, "dSize"), `${c.width} × ${c.height} mm`]);
+  rows.push([bt(locale, "dSize"), `${c.width} × ${c.height} ${mmUnit(locale)}`]);
   const layout = layoutOf(c);
   if (layout.key !== "1") {
     const parts = [bt(locale, `layout${layout.key}`)];
-    if (layout.sides === 1) parts.push(`${bt(locale, "sidePos").toLowerCase()} ${bt(locale, c.sidePos === "right" ? "posRight" : "posLeft")} ${c.sideW} mm`);
-    if (layout.sides === 2) parts.push(`${c.sideW} + ${c.sideW2} mm`);
-    if (layout.top) parts.push(`${bt(locale, "topH").toLowerCase()} ${c.topH} mm`);
+    if (layout.sides === 1) parts.push(`${bt(locale, "sidePos").toLowerCase()} ${bt(locale, c.sidePos === "right" ? "posRight" : "posLeft")} ${c.sideW} ${mmUnit(locale)}`);
+    if (layout.sides === 2) parts.push(`${c.sideW} + ${c.sideW2} ${mmUnit(locale)}`);
+    if (layout.top) parts.push(`${bt(locale, "topH").toLowerCase()} ${c.topH} ${mmUnit(locale)}`);
     parts.push(glassName(c.panoTint, locale));
     if (c.panoGrille) parts.push(bt(locale, "panoGrille").toLowerCase());
     parts.push(bt(locale, "blockSize", { w: block.width, h: block.height }));

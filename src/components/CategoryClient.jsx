@@ -7,7 +7,7 @@ import RevealGrid from "@/components/anim/RevealGrid";
 import PageTitle from "@/components/PageTitle";
 import { usePathname, useRouter } from "next/navigation";
 import { useUrlSearchParams, replaceSearch } from "@/lib/useUrlSearchParams";
-import { getLocaleFromPathname, withLocaleHref, t } from "@/lib/i18n";
+import { getLocaleFromPathname, withLocaleHref, t, mmUnit } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
 import { paths } from "@/lib/routes";
 
@@ -397,8 +397,8 @@ export default function CategoryClient({ slug, category, products: allProducts, 
   const availabilityLabel = (key) =>
     t(locale, key === "soon" ? "category.availSoon" : key === "order" ? "category.availOrder" : "category.availStock");
 
-  const typeTitle = locale === "lt" ? "Durų tipas" : locale === "en" ? "Door type" : "Durvju tips";
-  const searchPlaceholder = locale === "lt" ? "Ieškoti..." : locale === "en" ? "Search..." : "Meklēt...";
+  const typeTitle = { lt: "Durų tipas", en: "Door type", ru: "Тип двери" }[locale] || "Durvju tips";
+  const searchPlaceholder = { lt: "Ieškoti...", en: "Search...", ru: "Искать..." }[locale] || "Meklēt...";
 
   const collectionQuery = collectionSearch.trim().toLowerCase();
   const colorQuery = colorSearch.trim().toLowerCase();
@@ -432,13 +432,13 @@ export default function CategoryClient({ slug, category, products: allProducts, 
     ...selectedLeafThickness.map((v) => ({
       key: "vertne",
       value: v,
-      label: `${v} mm`,
+      label: `${v} ${mmUnit(locale)}`,
       list: selectedLeafThickness,
     })),
     ...selectedMetalThickness.map((v) => ({
       key: "metals",
       value: v,
-      label: `${v} mm`,
+      label: `${v} ${mmUnit(locale)}`,
       list: selectedMetalThickness,
     })),
     ...selectedSealContours.map((v) => ({
@@ -627,7 +627,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
                   checked={selectedLeafThickness.includes(mm)}
                   disabled={!count && !selectedLeafThickness.includes(mm)}
                   onChange={() => toggleValue("vertne", selectedLeafThickness, mm)}
-                  label={`${mm} mm`}
+                  label={`${mm} ${mmUnit(locale)}`}
                   count={count}
                 />
               );
@@ -647,7 +647,7 @@ export default function CategoryClient({ slug, category, products: allProducts, 
                   checked={selectedMetalThickness.includes(mm)}
                   disabled={!count && !selectedMetalThickness.includes(mm)}
                   onChange={() => toggleValue("metals", selectedMetalThickness, mm)}
-                  label={`${mm} mm`}
+                  label={`${mm} ${mmUnit(locale)}`}
                   count={count}
                 />
               );

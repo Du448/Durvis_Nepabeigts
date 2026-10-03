@@ -38,6 +38,10 @@ export const openingHours = {
     { days: "Mon–Fri", time: "9:00–18:00" },
     { days: "Sat–Sun", time: "Closed" },
   ],
+  ru: [
+    { days: "Пн–Пт", time: "9:00–18:00" },
+    { days: "Сб–Вс", time: "Выходной" },
+  ],
 };
 
 export const hoursFor = (locale) => openingHours[locale] || openingHours.lt;
@@ -68,7 +72,7 @@ export const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeU
   `${postalAddress.streetAddress}, ${postalAddress.addressLocality}, ${postalAddress.postalCode}`
 )}`;
 
-const LANGUAGES = { lt: "lt-LT", lv: "lv-LV", en: "en" };
+const LANGUAGES = { lt: "lt-LT", lv: "lv-LV", en: "en", ru: "ru" };
 
 // What the business does, in the page's language - read by search engines and
 // AI assistants as the topics the business is an authority on.
@@ -76,6 +80,7 @@ const KNOWS_ABOUT = {
   lt: ["Lauko durys", "Buto lauko durys", "Namo lauko durys", "Vidaus durys", "Paslėptos durys", "Durų montavimas", "Durų matavimas", "Durų spynos ir furnitūra"],
   lv: ["Ārdurvis", "Ārdurvis dzīvoklim", "Ārdurvis privātmājai", "Iekšdurvis", "Slēptās durvis", "Durvju montāža", "Durvju uzmērīšana", "Durvju slēdzenes un furnitūra"],
   en: ["Entrance doors", "Apartment entrance doors", "House entrance doors", "Interior doors", "Hidden doors", "Door installation", "Door measurement", "Door locks and hardware"],
+  ru: ["Входные двери", "Входные двери в квартиру", "Входные двери в дом", "Межкомнатные двери", "Скрытые двери", "Монтаж дверей", "Замер дверей", "Дверные замки и фурнитура"],
 };
 
 /* Site-wide structured data: the business (a local shop with a showroom)

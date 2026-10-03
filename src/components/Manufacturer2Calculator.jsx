@@ -25,7 +25,7 @@ import {
   jambStandardColors,
 } from "@/data/manufacturer2Calculator";
 import { manufacturer2Sections } from "@/data/manufacturer2";
-import { getLocaleFromPathname, t, withLocaleHref } from "@/lib/i18n";
+import { getLocaleFromPathname, t, withLocaleHref, mmUnit } from "@/lib/i18n";
 import { useTr } from "@/components/DictProvider";
 
 /* Ražotājs-2 door calculator: a from-scratch analog of the manufacturer's own
@@ -1475,9 +1475,9 @@ export default function Manufacturer2Calculator() {
       });
     const sizeLabel =
       config.sizeMode === "custom" && selectedTier.customSizeSupported
-        ? `${config.customWidth}×${config.customHeight} mm`
+        ? `${config.customWidth}×${config.customHeight} ${mmUnit(locale)}`
         : config.size
-          ? `${config.size.w}×${config.size.h} mm`
+          ? `${config.size.w}×${config.size.h} ${mmUnit(locale)}`
           : trData(locale, selectedTier.sizeNote);
     const lockLabels = [...config.lockIds]
       .map((id) => lockSet.find((l) => l.id === id)?.name)
@@ -1683,7 +1683,7 @@ export default function Manufacturer2Calculator() {
               <p className="mt-1 text-[13px] text-muted">
                 <strong className="text-ink">{trData(locale, "Standarta izmēri")}:</strong>{" "}
                 {selectedTier.sizes.length
-                  ? selectedTier.sizes.map((s) => `${s.w}×${s.h} mm`).join(", ")
+                  ? selectedTier.sizes.map((s) => `${s.w}×${s.h} ${mmUnit(locale)}`).join(", ")
                   : trData(locale, selectedTier.sizeNote)}
               </p>
 
@@ -1739,7 +1739,7 @@ export default function Manufacturer2Calculator() {
                           : "border-line text-ink hover:border-[color:var(--color-accent)]"
                       }`}
                     >
-                      {s.w}×{s.h} mm - <Money value={s.price} />
+                      {s.w}×{s.h} {mmUnit(locale)} - <Money value={s.price} />
                     </button>
                   ))}
                   {selectedTier.customSizeSupported ? (

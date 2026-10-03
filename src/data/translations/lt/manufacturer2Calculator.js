@@ -444,4 +444,13 @@ export const ltManufacturer2Calculator = {
     "Angokraščio apdaila iš MDF medžiagos pasirinkta spalva pagal užsakymą (Gamintojas - 2 katalogas), angos storis iki 200mm, apvadas 80mm (be slenksčio)",
   "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)":
     "Angokraščio apdaila iš MDF medžiagos pasirinkta spalva pagal užsakymą (Gamintojas - 2 katalogas), angos storis nuo 201mm iki 400mm, apvadas 80mm (be slenksčio)",
+  // ---- Tedee smart-lock fit badge (Manufacturer2Calculator.jsx) ----
+  "Tedee - der 1 no 2 cilindriem":
+    "Tedee - tinka 1 iš 2 cilindrų",
+  "Šai sērijai ir divi atsevišķi cilindri (tandēma sistēma). Tedee var uzstādīt uz viena no tiem ar adapteri - otrs paliek ar atslēgu. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.":
+    "Šioje serijoje yra du atskiri cilindrai (tandemo sistema). Tedee galima sumontuoti ant vieno iš jų su adapteriu - kitas lieka su raktu. Galutinis tinkamumas (tarpas iki durų staktos) patvirtinamas montuojant.",
+  "Tedee - der šai sērijai":
+    "Tedee - tinka šiai serijai",
+  "Standarta Eiropas profila cilindrs - Tedee uzstāda ar klipša adapteri, cilindru mainīt nevajag. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.":
+    "Standartinio europinio profilio cilindras - Tedee montuojamas su spaustuko adapteriu, cilindro keisti nereikia. Galutinis tinkamumas (tarpas iki durų staktos) patvirtinamas montuojant.",
 };

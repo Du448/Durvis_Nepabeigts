@@ -8,6 +8,7 @@ const COPY = {
   lt: { label: "Rašykite mums WhatsApp", text: "Sveiki! Norėčiau pasiteirauti apie durų pasiūlymą." },
   lv: { label: "Rakstiet mums WhatsApp", text: "Sveiki! Vēlos painteresēties par durvju piedāvājumu." },
   en: { label: "Chat with us on WhatsApp", text: "Hello! I'd like to ask about your doors." },
+  ru: { label: "Напишите нам в WhatsApp", text: "Здравствуйте! Хочу узнать о ваших дверях." },
 };
 
 /* Floating chat button, bottom right on every page. On phones it sits above the

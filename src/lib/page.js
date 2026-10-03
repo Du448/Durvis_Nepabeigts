@@ -21,6 +21,11 @@ const SITE = {
     description:
       "NT Durys: entrance and interior doors with professional installation and delivery across Lithuania. Wide range, expert advice and warranty.",
   },
+  ru: {
+    title: "NT Durys - входные и межкомнатные двери в Литве",
+    description:
+      "NT Durys: входные и межкомнатные двери, профессиональный монтаж и доставка по всей Литве. Широкий ассортимент, консультации и гарантия.",
+  },
 };
 
 export const siteTitle = (locale) => (SITE[locale] || SITE.lt).title;
@@ -28,7 +33,7 @@ export const siteDescription = (locale) => (SITE[locale] || SITE.lt).description
 
 const DEFAULT_OG_IMAGE = "/og-image.png";
 
-const OG_LOCALES = { lt: "lt_LT", lv: "lv_LV", en: "en_GB" };
+const OG_LOCALES = { lt: "lt_LT", lv: "lv_LV", en: "en_GB", ru: "ru_RU" };
 
 // For generateStaticParams in pages that only vary by language.
 export const localeParams = () => locales.map((locale) => ({ locale }));

@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState } from "react";
+import { mmUnit } from "@/lib/i18n";
 import Image from "next/image";
 import { Check, ChevronDown, Info } from "lucide-react";
 import {
@@ -126,7 +127,7 @@ export function MmInput({ label, value, min, max, onCommit, locale }) {
           onKeyDown={(e) => e.key === "Enter" && commit()}
           className="field w-full pr-10"
         />
-        <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[13px] text-muted">mm</span>
+        <span className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[13px] text-muted">{mmUnit(locale)}</span>
       </div>
     </div>
   );
@@ -134,7 +135,7 @@ export function MmInput({ label, value, min, max, onCommit, locale }) {
 
 const pctFromTable = (table, v) => (table.find(([max]) => v <= max) || table[table.length - 1])[1];
 
-function MmSelect({ label, value, options, pctOf, extraOf, onChange }) {
+function MmSelect({ label, value, options, pctOf, extraOf, onChange, locale }) {
   const id = useId();
   return (
     <div>
@@ -147,7 +148,7 @@ function MmSelect({ label, value, options, pctOf, extraOf, onChange }) {
           const pct = extra ? 0 : pctOf(o);
           return (
             <option key={o} value={o}>
-              {o} mm{extra ? ` (${extra})` : pct ? ` (+${pct}%)` : ""}
+              {o} {mmUnit(locale)}{extra ? ` (${extra})` : pct ? ` (+${pct}%)` : ""}
             </option>
           );
         })}
@@ -333,7 +334,7 @@ export default function BostonConfigurator({ spec, config, onChange, locale }) {
     .filter(Boolean)
     .join(" · ");
   const summaries = {
-    size: `${L(c.leaf === "double" ? "leafDouble" : "leafSingle")}, ${c.width} × ${c.height} mm${layout.key !== "1" ? ` · ${L(`layout${layout.key}`)}` : ""}`,
+    size: `${L(c.leaf === "double" ? "leafDouble" : "leafSingle")}, ${c.width} × ${c.height} ${mmUnit(locale)}${layout.key !== "1" ? ` · ${L(`layout${layout.key}`)}` : ""}`,
     opening: `${L(c.hinge === "left" ? "hingeLeft" : "hingeRight")}, ${L(c.opening === "in" ? "openIn" : "openOut").toLowerCase()}`,
     exterior: extSummary,
     interior: [paintName(c.int, locale), f.slatsInt ? slatName(c.slatInt, locale) : null].filter(Boolean).join(" · "),
@@ -457,6 +458,7 @@ export default function BostonConfigurator({ spec, config, onChange, locale }) {
                   <div className="mt-3 grid grid-cols-2 gap-3">
                     {sizes.widths ? (
                       <MmSelect
+                        locale={locale}
                         label={L("width")}
                         value={c.width}
                         options={sizes.widths}
@@ -477,7 +479,7 @@ export default function BostonConfigurator({ spec, config, onChange, locale }) {
                     ) : (
                       <MmInput label={L("width")} value={c.width} min={sizes.minW} max={sizes.maxW} onCommit={(width) => set({ width })} locale={locale} />
                     )}
-                    <MmSelect label={L("height")} value={c.height} options={sizes.heights} pctOf={(h) => pctFromTable(R.heightPct, h)} onChange={(height) => set({ height })} />
+                    <MmSelect locale={locale} label={L("height")} value={c.height} options={sizes.heights} pctOf={(h) => pctFromTable(R.heightPct, h)} onChange={(height) => set({ height })} />
                   </div>
                   <p className="mt-2 text-[12px] text-muted">{L("sizeStepNote")}</p>
                 </>

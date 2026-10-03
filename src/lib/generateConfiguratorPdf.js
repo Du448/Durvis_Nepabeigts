@@ -62,6 +62,23 @@ const CHROME = {
     company: "NT DURYS",
     tagline: "Reliable, long-lasting doors for your home",
   },
+  ru: {
+    docTitle: "Индивидуальное предложение",
+    date: "Дата",
+    specification: "Спецификация",
+    installDelivery: "Необходимые услуги",
+    noServices: "Не выбрана ни одна опция монтажа или доставки.",
+    priceBreakdown: "Расчёт цены",
+    total: "Итого за дверь и комплектующие",
+    disclaimer:
+      "Цена рассчитана по розничному прайс-листу. Окончательная цена подтверждается при оформлении заказа.",
+    outsideImage: "Снаружи",
+    insideImage: "Внутри",
+    selectedExtras: "Выбранные детали",
+    page: "Страница",
+    company: "NT DURYS",
+    tagline: "Надёжные и долговечные двери для вашего дома",
+  },
 };
 
 const ACCENT = [3, 119, 67];
@@ -161,7 +178,7 @@ const QR_CODE_URL = "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/qr-code%2
 
 /**
  * @param {object} data
- * @param {"lv"|"lt"|"en"} data.locale
+ * @param {"lv"|"lt"|"en"|"ru"} data.locale
  * @param {string} data.tierName
  * @param {string} [data.tierIntro]
  * @param {string} [data.tierTarget] - already-translated "Dzīvoklim"/"Privātmājai" badge text

@@ -6,6 +6,7 @@ import { Field, MmInput, Segmented, Step } from "@/components/BostonConfigurator
 import { DROP_SEALS, MAX_W, MIN_H, MIN_W, MIRRORS, PRICES, STD_WIDTHS, STOPPER_COLORS, WIDTH_PCT } from "@/data/hidden-door-options";
 import { bandFor, dropSealFor, hingeLimits, hiddenSizes, isStdWidth, leafArea, normalizeHidden, priceHidden } from "@/lib/hidden-config";
 import { ht, hiddenLineLabel } from "@/lib/hidden-config-i18n";
+import { mmUnit } from "@/lib/i18n";
 
 /* Configurator for the hidden doors (see @/lib/hidden-config): the same
    stepped layout as the Boston configurator, fed by the Eirodurvis price
@@ -141,7 +142,7 @@ export default function HiddenDoorConfigurator({ spec, config, onChange, locale 
   ].filter(Boolean);
   const accCount = [c.closer, c.activeStop, c.dropSeal !== "none", c.stopper !== "none", c.reinforcement, c.spacers, !spec.order && (c.handleHole || c.cylinderHole !== "none")].filter(Boolean).length;
   const summaries = {
-    size: `${c.width} × ${c.height} × ${spec.thickness} mm${surcharge.length ? ` · ${surcharge.join(", ")}` : ""}`,
+    size: `${c.width} × ${c.height} × ${spec.thickness} ${mmUnit(locale)}${surcharge.length ? ` · ${surcharge.join(", ")}` : ""}`,
     hinges: `${L(c.hinge === "left" ? "hingeLeft" : "hingeRight")}, ${L("hingesN", { n: priced.hinges })}`,
     color: `${L("frameShort")}: ${c.frameColor === "ral" ? `RAL ${c.frameRal || "?"}` : L("black").toLowerCase()} · ${L("edgeShort")}: ${
       c.edgeColor === "ral" ? `RAL ${c.edgeRal || "?"}` : L("black").toLowerCase()
@@ -228,13 +229,13 @@ export default function HiddenDoorConfigurator({ spec, config, onChange, locale 
               <div className="bg-[--color-soft] px-3 py-2">
                 <dt className="text-[12px] text-muted">{L("frameSize")}</dt>
                 <dd className="font-medium tabular-nums text-[color:var(--color-title)]">
-                  {frame.w} × {frame.h} mm
+                  {frame.w} × {frame.h} {mmUnit(locale)}
                 </dd>
               </div>
               <div className="bg-[--color-soft] px-3 py-2">
                 <dt className="text-[12px] text-muted">{L("openingSize")}</dt>
                 <dd className="font-medium tabular-nums text-[color:var(--color-title)]">
-                  {opening.w} × {opening.h} mm
+                  {opening.w} × {opening.h} {mmUnit(locale)}
                 </dd>
               </div>
             </dl>

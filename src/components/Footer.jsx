@@ -15,6 +15,7 @@ const TAGLINE = {
   lt: "Patikimos ir ilgaamžės durys jūsų namams.",
   lv: "Uzticamas un ilgmūžīgas durvis jūsu mājoklim.",
   en: "Reliable, long-lasting doors for your home.",
+  ru: "Надёжные и долговечные двери для вашего дома.",
 };
 
 function Col({ title, children }) {

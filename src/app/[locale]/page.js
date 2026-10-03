@@ -48,29 +48,32 @@ const pick = (locale, obj) => obj[locale] ?? obj.lt;
 const HERO = [
   {
     image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/t4IY7.jpg",
-    kicker: { lt: "LAUKO DURYS", lv: "ĀRDURVIS", en: "ENTRANCE DOORS" },
+    kicker: { lt: "LAUKO DURYS", lv: "ĀRDURVIS", en: "ENTRANCE DOORS", ru: "ВХОДНЫЕ ДВЕРИ" },
     title: {
       lt: "PATIKIMI SPRENDIMAI JŪSŲ SAUGUMUI",
       lv: "UZTICAMI RISINĀJUMI JŪSU DROŠĪBAI",
       en: "RELIABLE SOLUTIONS FOR YOUR SECURITY",
+      ru: "НАДЁЖНЫЕ РЕШЕНИЯ ДЛЯ ВАШЕЙ БЕЗОПАСНОСТИ",
     },
   },
   {
     image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/fH7VH.jpg",
-    kicker: { lt: "VIDAUS DURYS", lv: "IEKŠDURVIS", en: "INTERIOR DOORS" },
+    kicker: { lt: "VIDAUS DURYS", lv: "IEKŠDURVIS", en: "INTERIOR DOORS", ru: "МЕЖКОМНАТНЫЕ ДВЕРИ" },
     title: {
       lt: "TYLA IR ESTETIKA KIEKVIENAME KAMBARYJE",
       lv: "KLUSUMS UN ESTĒTIKA KATRĀ TELPĀ",
       en: "QUIET AND STYLE IN EVERY ROOM",
+      ru: "ТИШИНА И ЭСТЕТИКА В КАЖДОЙ КОМНАТЕ",
     },
   },
   {
     image: "https://ik.imagekit.io/vbvwdejj5/NTdurys-HOMEPAGE/gvXG2.jpg",
-    kicker: { lt: "INDIVIDUALŪS SPRENDIMAI", lv: "INDIVIDUĀLI RISINĀJUMI", en: "CUSTOM SOLUTIONS" },
+    kicker: { lt: "INDIVIDUALŪS SPRENDIMAI", lv: "INDIVIDUĀLI RISINĀJUMI", en: "CUSTOM SOLUTIONS", ru: "ИНДИВИДУАЛЬНЫЕ РЕШЕНИЯ" },
     title: {
       lt: "NESTANDARTINIAI SPRENDIMAI IR INDIVIDUALŪS PROJEKTAI",
       lv: "NESTANDARTA RISINĀJUMI UN INDIVIDUĀLI PROJEKTI",
       en: "NON-STANDARD SOLUTIONS AND CUSTOM PROJECTS",
+      ru: "НЕСТАНДАРТНЫЕ РЕШЕНИЯ И ИНДИВИДУАЛЬНЫЕ ПРОЕКТЫ",
     },
   },
 ];
@@ -90,11 +93,13 @@ const BLOCKS = [
       lt: "Buto lauko durys - svarbus žingsnis saugumo link",
       lv: "Ārdurvis dzīvoklim - svarīgs solis drošībai",
       en: "Apartment entrance doors - a key step towards safety",
+      ru: "Входные двери в квартиру - важный шаг к безопасности",
     },
     text: {
       lt: "Patikima konstrukcija su standumo briaunomis, kelių kontūrų sandarinimas ir dviguba spynų sistema. Apgalvota apsauga nuo jėga vykdomo įsilaužimo.",
       lv: "Uzticama konstrukcija ar stingruma ribām, vairāku kontūru blīvējums un divu slēdzeņu sistēma. Pārdomāta aizsardzība pret spēka metodēm.",
       en: "A dependable structure with stiffening ribs, multi-contour sealing and a double lock system. Considered protection against forced entry.",
+      ru: "Надёжная конструкция с рёбрами жёсткости, многоконтурное уплотнение и система из двух замков. Продуманная защита от силового взлома.",
     },
   },
   {
@@ -105,11 +110,13 @@ const BLOCKS = [
       lt: "Termo durys namams - šiluma, tyla, garantija",
       lv: "Termodurvis privātmājai - siltums, klusums, garantija",
       en: "Thermal doors for houses - warmth, quiet, warranty",
+      ru: "Термодвери для частного дома - тепло, тишина, гарантия",
     },
     text: {
       lt: "Termo pertrauka, sustiprintas užpildas ir atsparios orui dangos. Suteikiame garantiją ir prisiimame visus įsipareigojimus dėl aptarnavimo.",
       lv: "Termopārrāvums, pastiprināts pildījums un laikapstākļiem izturīgi pārklājumi. Sniedzam garantiju un uzņemamies visas servisa saistības.",
       en: "A thermal break, reinforced core and weather-resistant finishes. We provide a warranty and take on all after-sales obligations.",
+      ru: "Терморазрыв, усиленное наполнение и атмосферостойкие покрытия. Предоставляем гарантию и берём на себя все сервисные обязательства.",
     },
   },
   {
@@ -119,11 +126,13 @@ const BLOCKS = [
       lt: "Vidaus durys - vientisas interjero sprendimas",
       lv: "Iekšdurvis - vienots interjera risinājums",
       en: "Interior doors - a coherent interior solution",
+      ru: "Межкомнатные двери - цельное интерьерное решение",
     },
     text: {
       lt: "Gaminame duris nestandartinių matmenų, efektingus modelius su sieninėmis plokštėmis ir įgyvendiname dizaino projektus pagal jūsų pageidavimus.",
       lv: "Izgatavojam durvis nestandarta izmēros, efektīgus modeļus ar sienas paneļiem un īstenojam dizaina projektus pēc jūsu vēlmēm.",
       en: "We build doors in non-standard sizes, striking models with wall panelling, and realise design projects to your brief.",
+      ru: "Изготавливаем двери нестандартных размеров, эффектные модели со стеновыми панелями и реализуем дизайн-проекты по вашим пожеланиям.",
     },
   },
   {
@@ -133,11 +142,13 @@ const BLOCKS = [
       lt: "Paslėptos durys - siena be staktos",
       lv: "Slēptās durvis - siena bez redzamas kārbas",
       en: "Hidden doors - a wall with no visible frame",
+      ru: "Скрытые двери - стена без видимой коробки",
     },
     text: {
       lt: "Aliumininė stakta paslepiama pertvaroje, o varčia užsidaro viename lygyje su siena. Varčia pristatoma gruntuota, todėl dažoma arba tapetuojama kartu su siena. Komplekte - stakta, varčia ir paslėpti Otlav vyriai.",
       lv: "Alumīnija kārbu iebūvē starpsienā, un vērtne aizveras vienā līmenī ar sienu. Vērtne nāk gruntēta, tāpēc to krāso vai tapetē kopā ar sienu. Komplektā - kārba, vērtne un slēptās Otlav eņģes.",
       en: "The aluminium frame is buried in the partition and the leaf closes flush with the wall. It arrives primed, so it is painted or papered together with the wall. The set includes frame, leaf and concealed Otlav hinges.",
+      ru: "Алюминиевая коробка встраивается в перегородку, а полотно закрывается заподлицо со стеной. Полотно поставляется загрунтованным, поэтому его красят или оклеивают обоями вместе со стеной. В комплекте - коробка, полотно и скрытые петли Otlav.",
     },
   },
 ];
@@ -157,11 +168,13 @@ const SMART_LOCK_BLOCK = {
     lt: "Durys su išmania spyna - saugumas be raktų",
     lv: "Durvis ar viedo slēdzeni - drošība bez atslēgām",
     en: "Doors with a smart lock - security without keys",
+    ru: "Двери с умным замком - безопасность без ключей",
   },
   text: {
     lt: "CBA biometrinė spyna su Face ID atpažinimu, atsarginiu cilindru ir programėle telefone. Kiekvienas modelis pasirenkamas su šia spynų sistema.",
     lv: "CBA biometriskā slēdzene ar Face ID atpazīšanu, rezerves cilindru un lietotni tālrunī. Katru modeli var izvēlēties ar šo slēdzeņu sistēmu.",
     en: "A CBA biometric lock with Face ID recognition, a backup cylinder and a phone app. Every model here can be ordered with this lock system.",
+    ru: "Биометрический замок CBA с распознаванием Face ID, резервным цилиндром и приложением на телефоне. Любую модель можно заказать с этой системой замков.",
   },
 };
 
@@ -277,7 +290,7 @@ export default async function Home({ params }) {
     cta: heroCta,
   }));
 
-  const viewAll = { lt: "Žiūrėti visus", lv: "Skatīt visus", en: "View all" }[locale] || "Žiūrėti visus";
+  const viewAll = { lt: "Žiūrėti visus", lv: "Skatīt visus", en: "View all", ru: "Смотреть все" }[locale] || "Žiūrėti visus";
 
   const rotation = currentRotation();
   const products = await getProducts();
@@ -294,7 +307,7 @@ export default async function Home({ params }) {
     "@type": "FAQPage",
     mainEntity: faq.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
   };
-  const more = { lt: "Plačiau", lv: "Vairāk", en: "Read more" }[locale] || "Plačiau";
+  const more = { lt: "Plačiau", lv: "Vairāk", en: "Read more", ru: "Подробнее" }[locale] || "Plačiau";
 
   return (
     <main>

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { ArrowUp } from "lucide-react";
 import { getLocaleFromPathname } from "@/lib/i18n";
 
-const LABEL = { lt: "Į viršų", lv: "Uz augšu", en: "Back to top" };
+const LABEL = { lt: "Į viršų", lv: "Uz augšu", en: "Back to top", ru: "Наверх" };
 
 /* Frosted-glass arrow, bottom centre. Appears once the page has been scrolled
    a screen or so; on phones it sits above the call bar. */

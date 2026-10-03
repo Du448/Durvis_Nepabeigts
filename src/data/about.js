@@ -5,10 +5,10 @@
    showroomPhotos: real photos of the Jonava showroom (ImageKit URLs or files
      in /public). Until one is added, the page uses a stock door photo.
    extraStats: figures only the business knows, e.g.
-     { value: "15+", label: { lt: "metų patirties", lv: "gadu pieredze", en: "years of experience" } }
+     { value: "15+", label: { lt: "metų patirties", lv: "gadu pieredze", en: "years of experience", ru: "лет опыта" } }
      Catalogue counts (models, collections, colours) are computed automatically.
    testimonials: real customer reviews, with permission, e.g.
-     { name: "Jonas, Kaunas", text: { lt: "...", lv: "...", en: "..." }, rating: 5 } */
+     { name: "Jonas, Kaunas", text: { lt: "...", lv: "...", en: "...", ru: "..." }, rating: 5 } */
 
 export const showroomPhotos = [];
 

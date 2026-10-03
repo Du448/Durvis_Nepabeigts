@@ -495,4 +495,13 @@ export const enManufacturer2Calculator = {
     "Jamb finishing in MDF, custom colour on request (Manufacturer - 2 catalogue), jamb thickness up to 200mm, 80mm casing (no threshold)",
   "Ailes apdare no MDF materiāla krāsā pēc pasūtījuma (Ražotājs - 2 katalogs), ailes biezums no 201mm līdz 400mm, oplodes 80mm (bez sliekšņa)":
     "Jamb finishing in MDF, custom colour on request (Manufacturer - 2 catalogue), jamb thickness from 201mm to 400mm, 80mm casing (no threshold)",
+  // ---- Tedee smart-lock fit badge (Manufacturer2Calculator.jsx) ----
+  "Tedee - der 1 no 2 cilindriem":
+    "Tedee - fits 1 of the 2 cylinders",
+  "Šai sērijai ir divi atsevišķi cilindri (tandēma sistēma). Tedee var uzstādīt uz viena no tiem ar adapteri - otrs paliek ar atslēgu. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.":
+    "This series has two separate cylinders (tandem system). Tedee can be fitted to one of them with an adapter - the other stays key-operated. Final suitability (the gap to the door frame) is confirmed at installation.",
+  "Tedee - der šai sērijai":
+    "Tedee - fits this series",
+  "Standarta Eiropas profila cilindrs - Tedee uzstāda ar klipša adapteri, cilindru mainīt nevajag. Galīgā piemērotība (durvju rāmja atstarpe) jāapstiprina uzstādot.":
+    "Standard Euro-profile cylinder - Tedee fits with a clip-on adapter, no need to change the cylinder. Final suitability (the gap to the door frame) is confirmed at installation.",
 };

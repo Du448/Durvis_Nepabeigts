@@ -7,7 +7,8 @@
    translated. To change what a product shows, edit `productLocks` (which
    locks, in which order); to change a lock itself, edit it in `locks` - every
    model that uses it picks the change up. A value is either one string for
-   all languages (numbers, brand names) or { lv, lt, en }.
+   all languages (numbers, brand names) or { lv, lt, en } - Russian is looked
+   up from the English in RU / ABOUT_RU near the end of the file.
 
    A lock may have `images` (several photos, shown as a small gallery) in
    place of a single `image`, and an `about` text shown under its table:
@@ -65,11 +66,11 @@ export const LOCK_LABELS = {
 };
 
 export const LOCK_KINDS = {
-  upper: { lv: "Augšējā slēdzene", lt: "Viršutinė spyna", en: "Upper lock" },
-  lower: { lv: "Apakšējā slēdzene", lt: "Apatinė spyna", en: "Lower lock" },
-  cylinder: { lv: "Cilindrs", lt: "Cilindras", en: "Cylinder" },
-  monoblock: { lv: "Monobloks", lt: "Monoblokas", en: "Monoblock" },
-  smart: { lv: "Viedslēdzene", lt: "Išmanioji spyna", en: "Smart lock" },
+  upper: { lv: "Augšējā slēdzene", lt: "Viršutinė spyna", en: "Upper lock", ru: "Верхний замок" },
+  lower: { lv: "Apakšējā slēdzene", lt: "Apatinė spyna", en: "Lower lock", ru: "Нижний замок" },
+  cylinder: { lv: "Cilindrs", lt: "Cilindras", en: "Cylinder", ru: "Цилиндр" },
+  monoblock: { lv: "Monobloks", lt: "Monoblokas", en: "Monoblock", ru: "Моноблок" },
+  smart: { lv: "Viedslēdzene", lt: "Išmanioji spyna", en: "Smart lock", ru: "Умный замок" },
 };
 
 const IMG = "https://www.bulat-doors.com.ua/wp-content/uploads";
@@ -532,7 +533,112 @@ export const productLocks = {
   "termo-house-elektro-705-431-balts-satins": ["kale-257-cylinder", "pes-mops", "hisar-tandem"],
 };
 
-const pick = (value, locale) => (typeof value === "string" ? value : value?.[locale] ?? value?.lv ?? "");
+/* Russian, keyed by the English text of each { lv, lt, en } value above, so
+   the lock data itself keeps one entry per value. */
+const RU = {
+  "Upper lock": "Верхний замок",
+  "Lower lock": "Нижний замок",
+  Cylinder: "Цилиндровый",
+  Monoblock: "Моноблок",
+  "Smart lock": "Умный замок",
+  Model: "Модель",
+  Manufacturer: "Производитель",
+  "Country of origin": "Страна производства",
+  "Locking mechanism": "Механизм секретности",
+  "Security class": "Класс защиты",
+  "Locking directions": "Количество направлений запирания",
+  "Number of bolts": "Количество ригелей",
+  "Bolt diameter": "Диаметр ригеля",
+  "Bolt throw": "Вылет ригеля",
+  "Number of keys": "Количество ключей",
+  "Manganese plate": "Марганцевая пластина",
+  "Night latch": "Ночная задвижка",
+  Features: "Особенности",
+  Material: "Материал",
+  "Number of combinations": "Количество комбинаций",
+  "Number of pins": "Количество штифтов",
+  "Key type": "Тип ключа",
+  "Anti-drill pins": "Штифты против высверливания",
+  "Bump protection": "Защита от бампинга",
+  "Key copy protection": "Защита от копирования ключей",
+  Warranty: "Гарантия",
+  Type: "Тип",
+  Colour: "Цвет",
+  "Panel size": "Размеры панели",
+  Unlocking: "Открывание",
+  Fingerprints: "Отпечатки пальцев",
+  "PIN codes": "PIN-коды",
+  "MIFARE cards / fobs": "Карты / брелоки MIFARE",
+  "Opening time": "Время открывания",
+  "Moisture and dust protection": "Защита от влаги и пыли",
+  "Remote control": "Удалённое управление",
+  Integrations: "Интеграции",
+  Power: "Питание",
+  "Operating temperature": "Рабочая температура",
+  "Door types": "Типы дверей",
+  "KALE 257, lever": "KALE 257, сувальдный",
+  Turkey: "Турция",
+  Lever: "Сувальдный",
+  Yes: "Есть",
+  "60 months": "60 месяцев",
+  "KALE 257, cylinder": "KALE 257, цилиндровый",
+  No: "Нет",
+  "KALE 252, cylinder": "KALE 252, цилиндровый",
+  "Supplied with the cylinder": "В комплекте с цилиндром",
+  Brass: "Латунь",
+  Perforated: "Перфорированный",
+  "54.797 Matic (one-time recoding)": "54.797 Matic (однократная перекодировка)",
+  Italy: "Италия",
+  "Lever and cylinder": "Сувальдный и цилиндровый",
+  "5 main + 2 installation": "5 основных + 2 монтажных",
+  "Securemme 2019, lever": "Securemme 2019, сувальдный",
+  "Securemme 2030, lever": "Securemme 2030, сувальдный",
+  "Securemme 2061, cylinder": "Securemme 2061, цилиндровый",
+  "Securemme 2663 TOP GEAR, geared": "Securemme 2663 TOP GEAR, редукторный",
+  "4 (class 5 with the Securemme K-64 cylinder)": "4 (с цилиндром Securemme K-64 - 5 класс)",
+  "Optional extra": "Дополнительная опция",
+  "Quiet operation, reinforced bolts, extra protection against forced entry, cylinder fixing system":
+    "Бесшумная работа, усиленные ригели, дополнительная защита от силового взлома, система крепления цилиндра",
+  "Securemme 2653 TOP GEAR, cylinder": "Securemme 2653 TOP GEAR, цилиндровый",
+  "Protection against forced entry": "Защита от силового взлома",
+  "PES Mops, black": "PES Mops, чёрный",
+  "China (brand registered in Ukraine)": "Китай (бренд зарегистрирован в Украине)",
+  "Stand-alone biometric smart lock, surface-mounted": "Автономный биометрический умный замок, накладной",
+  Black: "Чёрный",
+  "Metal, plastic": "Металл, пластик",
+  "Fingerprint, PIN code, card or fob, NFC, Smarta Lock app (Bluetooth), mechanical key":
+    "Отпечаток пальца, PIN-код, карта или брелок, NFC, приложение Smarta Lock (Bluetooth), механический ключ",
+  "up to 200": "до 200",
+  "up to 150": "до 150",
+  "2 mechanical": "2 механических",
+  "0.3 s": "0,3 с",
+  "4 AA batteries (DC 6 V)": "4 батарейки AA (DC 6 В)",
+  "-30 °C to +50 °C": "От -30 °C до +50 °C",
+  "Wooden, metal, metal-plastic": "Деревянные, металлические, металлопластиковые",
+  "From anywhere with the PES HUB Wi-Fi gateway (optional)": "Из любой точки через Wi-Fi-шлюз PES HUB (дополнительно)",
+  "5 + 1 installation": "5 + 1 монтажный",
+};
+
+const ABOUT_RU = {
+  "pes-mops": {
+    text: "PES Mops - универсальный умный замок с современным дизайном и высоким уровнем безопасности. Шифрование кодов доступа позволяет безопасно использовать его в домах, квартирах и сдаваемых в аренду помещениях. Замком можно управлять через приложение Smarta Lock на телефоне или через веб-браузер на компьютере; он прост в установке и использовании.",
+    points: [
+      "Всегда открывается и механическим ключом.",
+      "Не нужно прокладывать провода; при установке можно оставить врезную часть существующего замка.",
+      "Уведомления о событиях на телефоне.",
+      "Состояние двери можно контролировать удалённо с помощью датчика двери (дополнительно).",
+      "Бесплатное приложение Smarta Lock для Android и iOS.",
+      "Голосовое управление через Google Home / Amazon Alexa.",
+      "В комплекте: наружная и внутренняя накладка, 2 брелока, 2 ключа, монтажный комплект, 2 резиновые прокладки, инструкция по эксплуатации.",
+    ],
+  },
+};
+
+const pick = (value, locale) => {
+  if (typeof value === "string") return locale === "ru" ? value.replace(/(\d) mm\b/g, "$1 мм") : value;
+  if (locale === "ru" && value?.en) return value.ru ?? RU[value.en] ?? value.en;
+  return value?.[locale] ?? value?.lv ?? "";
+};
 
 /* The product's locks in one language, ready for the page: kind, name, photo
    and [label, value] rows. Empty when the product has none. */
@@ -546,7 +652,7 @@ export function locksFor(productId, locale) {
         kind: pick(LOCK_KINDS[lock.kind], locale),
         name: pick(lock.name, locale),
         images: lock.images || [lock.image],
-        about: lock.about ? lock.about[locale] || lock.about.lv : null,
+        about: lock.about ? (locale === "ru" && ABOUT_RU[id]) || lock.about[locale] || lock.about.lv : null,
         rows: lock.specs.map(([key, value]) => [pick(LOCK_LABELS[key], locale) || key, pick(value, locale)]),
       };
     })

@@ -4,7 +4,7 @@
    linking to the page that says it in full. Built from the same data as the
    pages, so it never drifts from what the site shows.
 
-   /llms.txt is the short index; /llms-full.txt (and /lv/…, /en/…) adds the
+   /llms.txt is the short index; /llms-full.txt (and /lt/…, /lv/…, /ru/…) adds the
    whole catalogue, one entry per model. Server-only: it reads the
    translated catalogue. */
 
@@ -112,6 +112,37 @@ const L = {
     full: "Full version with the whole catalogue",
     other: "Other languages",
     pricesNote: "Prices in euro incl. VAT; current prices are on the product pages.",
+  },
+  ru: {
+    facts: "Основная информация",
+    company: "Компания",
+    address: "Шоурум",
+    phone: "Телефон",
+    email: "Эл. почта",
+    hours: "Часы работы",
+    area: "Территория обслуживания",
+    areaValue: "вся Литва (доставка и монтаж)",
+    languages: "Языки общения",
+    languagesValue: "литовский, латышский, английский",
+    profiles: "Профили",
+    categories: "Ассортимент",
+    models: "моделей",
+    priceFrom: "цена от",
+    services: "Услуги",
+    faq: "Часто задаваемые вопросы",
+    pages: "Другие страницы",
+    catalogue: "Полный каталог",
+    collection: "Коллекция",
+    price: "Цена",
+    oldPrice: "прежняя цена",
+    sizes: "Размеры",
+    colors: "Цвета",
+    availability: "Наличие",
+    noPrice: "цена ещё не объявлена",
+    stock: { local: "в наличии", factory: "на складе производителя", order: "изготавливается под заказ", soon: "скоро" },
+    full: "Полная версия со всем каталогом",
+    other: "Другие языки",
+    pricesNote: "Цены в евро с НДС; актуальные цены - на страницах товаров.",
   },
 };
 
@@ -253,6 +284,7 @@ export async function buildLlmsTxt() {
     `- [${l.full} (EN)](${fullTxtUrl("en")})`,
     `- [Lietuviškai - pilna versija (LT)](${fullTxtUrl("lt")})`,
     `- [Latviski - pilnā versija (LV)](${fullTxtUrl("lv")})`,
+    `- [По-русски - полная версия (RU)](${fullTxtUrl("ru")})`,
     `- [Sitemap](${SITE_URL}/sitemap.xml)`,
     "",
   ].join("\n");

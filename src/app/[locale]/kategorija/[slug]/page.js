@@ -28,6 +28,7 @@ const SUFFIX = {
   lt: "Montavimas ir pristatymas visoje Lietuvoje.",
   lv: "Montāža un piegāde visā Lietuvā.",
   en: "Installation and delivery across Lithuania.",
+  ru: "Монтаж и доставка по всей Литве.",
 };
 
 function categoryText(locale, id) {

@@ -29,6 +29,7 @@ const DESCRIPTION = {
   lt: (c, price) => `${c} kolekcijos durys. Kaina nuo ${price} €. Montavimas ir pristatymas visoje Lietuvoje.`,
   lv: (c, price) => `${c} kolekcijas durvis. Cena no ${price} €. Montāža un piegāde visā Lietuvā.`,
   en: (c, price) => `${c} collection doors. Price from €${price}. Installation and delivery across Lithuania.`,
+  ru: (c, price) => `Двери коллекции ${c}. Цена от ${price} €. Монтаж и доставка по всей Литве.`,
 };
 
 async function resolve(params) {
