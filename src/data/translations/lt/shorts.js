@@ -214,6 +214,8 @@ export const ltShorts = {
     "RV-06 modelis baltos ultramatinės spalvos su juodais akcentais.",
   "RV-06 modelis pelēkā ultramatā tonī ar melniem akcentiem.":
     "RV-06 modelis pilkos ultramatinės spalvos su juodais akcentais.",
+  "Stockholm modelis baltā ultramatā tonī ar klasisku frēzētu paneli.":
+    "Stockholm modelis baltos ultramatinės spalvos su klasikiniu frezuotu skydu.",
   "RV-10 modelis itāļu rieksta tonī ar satīna stikla ielaidumiem.":
     "RV-10 modelis itališko riešuto atspalvio su satino stiklo įdėklais.",
   "RV-10 modelis zelta rustik tonī ar melniem akcentiem.":

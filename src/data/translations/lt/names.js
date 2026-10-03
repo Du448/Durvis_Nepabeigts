@@ -150,6 +150,7 @@ export const ltNames = {
   "RV-06 Pelēks Ultramats st. Melns": "RV-06 pilka ultramatinė, stiklas juodas",
   "RV-10 Itāļu Rieksts st. Satīns": "RV-10 itališkas riešutas, stiklas satinas",
   "RV-10 Zelta Rustik st. Melns": "RV-10 auksinis rustic, stiklas juodas",
+  "Stockholm Balts Ultramats": "Stockholm balta ultramatinė",
 
   "PREMA B-434 Modelis 122": "PREMA B-434, modelis 122",
   "PREMA B-434 Modelis 172": "PREMA B-434, modelis 172",

@@ -214,6 +214,8 @@ export const enShorts = {
     "RV-06 model in white ultra-matte tone with black accents.",
   "RV-06 modelis pelēkā ultramatā tonī ar melniem akcentiem.":
     "RV-06 model in grey ultra-matte tone with black accents.",
+  "Stockholm modelis baltā ultramatā tonī ar klasisku frēzētu paneli.":
+    "Stockholm model in white ultra-matte tone with a classic milled panel.",
   "RV-10 modelis itāļu rieksta tonī ar satīna stikla ielaidumiem.":
     "RV-10 model in Italian-walnut tone with satin glass inlays.",
   "RV-10 modelis zelta rustik tonī ar melniem akcentiem.":

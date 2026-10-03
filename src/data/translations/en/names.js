@@ -150,6 +150,7 @@ export const enNames = {
   "RV-06 Pelēks Ultramats st. Melns": "RV-06 grey ultra matte, black glass",
   "RV-10 Itāļu Rieksts st. Satīns": "RV-10 Italian walnut, satin glass",
   "RV-10 Zelta Rustik st. Melns": "RV-10 golden rustic, black glass",
+  "Stockholm Balts Ultramats": "Stockholm white ultra matte",
 
   "PREMA B-434 Modelis 122": "PREMA B-434, model 122",
   "PREMA B-434 Modelis 172": "PREMA B-434, model 172",
