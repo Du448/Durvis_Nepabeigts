@@ -1,8 +1,18 @@
 import { revalidateTag } from "next/cache";
 import { products } from "@/data/products";
 import { PRICES_TAG, readOverridesFresh, writeOverrides } from "@/lib/priceOverrides";
-import { readStockMap, writeStockMap, readUnmatchedStock, writeUnmatchedStock, writeLastStockSync } from "@/lib/stockMap";
+import {
+  readStockMap,
+  writeStockMap,
+  readUnmatchedStock,
+  writeUnmatchedStock,
+  writeLastStockSync,
+  readLastStockRows,
+  writeLastStockRows,
+  writeHiddenKits,
+} from "@/lib/stockMap";
 import { stockRowGroupKey, stockRowVariant, variantKey } from "@/lib/stockPdf";
+import { parseHiddenFrame, parseHiddenLeaf, computeHiddenKits, verticalKey } from "@/lib/hiddenKits";
 
 const byId = new Map(products.map((p) => [p.id, p]));
 
@@ -16,8 +26,18 @@ const IMMEDIATELY = { expire: 0 };
    warehouse codes into the map as it goes (see stockMap.js for the two-layer
    code/group scheme). Rows that match neither an existing code nor a known
    group, and aren't marked ignored, come back in `unmatched` - grouped, so
-   the admin links a model+colour once rather than every size/side code. */
-export async function syncStock(rows, { source = "manual" } = {}) {
+   the admin links a model+colour once rather than every size/side code.
+
+   Hidden doors are the exception to "a linked row's quantity is the
+   product's stock": their leaves only count as far as there are frame parts
+   to make complete sets (see hiddenKits.js). Frame part rows are recognised
+   by name - they belong to no single product, so they're never linked or
+   listed as unmatched - and the linked products' leaf rows are turned into
+   set counts once the whole file has been read.
+
+   `record: false` re-applies an already-recorded file (after a link in
+   /admin) without touching the "last stock update" line. */
+export async function syncStock(rows, { source = "manual", record = true } = {}) {
   const { codeMap, groupMap, ignoredGroups } = await readStockMap();
   const ignored = new Set(ignoredGroups);
   const nextCodeMap = { ...codeMap };
@@ -25,8 +45,17 @@ export async function syncStock(rows, { source = "manual" } = {}) {
   const qtyByProduct = new Map();
   const qtyByVariant = new Map(); // productId -> Map("<size>|<left|right>" -> qty)
   const unmatched = new Map(); // groupKey -> { name, codes: [{code, qty, name}], totalQty }
+  const frames = { horizontal: new Map(), vertical: new Map() };
+  const leaves = new Map(); // "<productId>|<swing>|<side>|<width>|<height>" -> leaf part
 
   for (const row of rows) {
+    const frame = parseHiddenFrame(row.name);
+    if (frame) {
+      const [map, key] = frame.part === "horizontal" ? [frames.horizontal, frame.width] : [frames.vertical, verticalKey(frame)];
+      map.set(key, (map.get(key) || 0) + row.qty);
+      continue;
+    }
+
     const groupKey = stockRowGroupKey(row.name);
     let productId = nextCodeMap[row.code] || groupMap[groupKey];
 
@@ -34,6 +63,14 @@ export async function syncStock(rows, { source = "manual" } = {}) {
 
     if (productId) {
       nextCodeMap[row.code] = productId;
+      const leaf = parseHiddenLeaf(row.name);
+      if (leaf) {
+        const key = [productId, leaf.swing, leaf.side, leaf.width, leaf.height].join("|");
+        const entry = leaves.get(key) || { productId, ...leaf, qty: 0 };
+        entry.qty += row.qty;
+        leaves.set(key, entry);
+        continue;
+      }
       qtyByProduct.set(productId, (qtyByProduct.get(productId) || 0) + row.qty);
       const variant = stockRowVariant(row.name);
       if (variant) {
@@ -50,6 +87,15 @@ export async function syncStock(rows, { source = "manual" } = {}) {
     entry.codes.push({ code: row.code, qty: row.qty, name: row.name });
     entry.totalQty += row.qty;
     unmatched.set(groupKey, entry);
+  }
+
+  const kits = computeHiddenKits([...leaves.values()], frames);
+  for (const leaf of kits) {
+    const size = `${leaf.width}×${leaf.height}`;
+    qtyByProduct.set(leaf.productId, (qtyByProduct.get(leaf.productId) || 0) + leaf.kits);
+    const variants = qtyByVariant.get(leaf.productId) || new Map();
+    variants.set(size, (variants.get(size) || 0) + leaf.kits);
+    qtyByVariant.set(leaf.productId, variants);
   }
 
   // Every already-linked product gets an explicit flag this run, including a
@@ -83,12 +129,25 @@ export async function syncStock(rows, { source = "manual" } = {}) {
   await writeStockMap({ codeMap: nextCodeMap, groupMap, ignoredGroups });
   revalidateTag(PRICES_TAG, IMMEDIATELY);
 
+  try {
+    await writeHiddenKits({
+      horizontal: Object.fromEntries(frames.horizontal),
+      vertical: Object.fromEntries(frames.vertical),
+      leaves: kits,
+    });
+    if (record) await writeLastStockRows(rows.map(({ code, name, qty }) => ({ code, name, qty })));
+  } catch (err) {
+    // The breakdown only feeds /admin; the stock itself is already saved.
+    console.error("stock sync: saving the hidden-door set breakdown failed", err);
+  }
+
   const unmatchedGroups = [...unmatched.entries()]
     .map(([groupKey, entry]) => ({ groupKey, ...entry }))
     .sort((a, b) => b.totalQty - a.totalQty);
   await writeUnmatchedStock(unmatchedGroups);
 
   const summary = { rowCount: rows.length, inStockCount, outOfStockCount, unmatched: unmatchedGroups };
+  if (!record) return summary;
   try {
     await writeLastStockSync(source, summary);
   } catch (err) {
@@ -119,6 +178,17 @@ export async function linkStockGroup({ groupKey, codes, productId, ignore }) {
   }
 
   await writeStockMap({ codeMap: nextCodeMap, groupMap: nextGroupMap, ignoredGroups: [...nextIgnored] });
+
+  // Re-apply the whole last file with the new link, so a hidden-door leaf
+  // is counted as complete sets against that file's frame parts. Only files
+  // received before the rows were being kept fall back to patching in place.
+  if (!ignore) {
+    const lastRows = await readLastStockRows();
+    if (lastRows) {
+      await syncStock(lastRows, { record: false });
+      return { ok: true };
+    }
+  }
 
   const { groups } = await readUnmatchedStock();
   await writeUnmatchedStock(groups.filter((g) => g.groupKey !== groupKey));

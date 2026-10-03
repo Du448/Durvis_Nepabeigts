@@ -112,3 +112,43 @@ export async function writeLastStockSync(source, summary) {
     cacheControlMaxAge: 60,
   });
 }
+
+// Two small files feeding the hidden-door set count (see hiddenKits.js):
+// the last stock file's parsed rows, so linking a group in /admin can
+// recount the sets from the whole file rather than patching one leaf in;
+// and the breakdown of that count (leaves, frame parts, sets) for /admin.
+const LAST_ROWS_PATH = "admin/stock-last-rows.json";
+const HIDDEN_KITS_PATH = "admin/hidden-kits.json";
+
+async function readJson(path, fallback) {
+  if (!blobConfigured()) return fallback;
+  try {
+    const res = await get(path, { access: ACCESS, useCache: false });
+    if (!res || res.statusCode !== 200 || !res.stream) return fallback;
+    return JSON.parse(await new Response(res.stream).text()) ?? fallback;
+  } catch (err) {
+    console.error(`stock map: read ${path} failed`, err);
+    return fallback;
+  }
+}
+
+async function writeJson(path, data) {
+  await put(path, JSON.stringify({ updatedAt: new Date().toISOString(), ...data }, null, 1), {
+    access: ACCESS,
+    addRandomSuffix: false,
+    allowOverwrite: true,
+    contentType: "application/json",
+    cacheControlMaxAge: 60,
+  });
+}
+
+export async function readLastStockRows() {
+  const data = await readJson(LAST_ROWS_PATH, null);
+  return Array.isArray(data?.rows) ? data.rows : null;
+}
+
+export const writeLastStockRows = (rows) => writeJson(LAST_ROWS_PATH, { rows });
+
+export const readHiddenKits = () => readJson(HIDDEN_KITS_PATH, null);
+
+export const writeHiddenKits = (report) => writeJson(HIDDEN_KITS_PATH, report);

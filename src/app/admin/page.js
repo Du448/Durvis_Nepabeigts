@@ -3,11 +3,13 @@ import { isInStock } from "@/lib/product-utils";
 import { trData } from "@/lib/i18n-data";
 import { adminConfigured, isAdmin } from "@/lib/adminAuth";
 import { blobConfigured, readOverridesFresh } from "@/lib/priceOverrides";
-import { readUnmatchedStock, readStockMap, readLastStockSync } from "@/lib/stockMap";
+import { readUnmatchedStock, readStockMap, readLastStockSync, readHiddenKits } from "@/lib/stockMap";
+import { parseHiddenFrame } from "@/lib/hiddenKits";
 import { getFactoryStock } from "@/lib/factoryStock";
 import LoginForm from "./LoginForm";
 import PriceEditor from "./PriceEditor";
 import StockMatcher from "./StockMatcher";
+import HiddenKits from "./HiddenKits";
 import StockPdfUpload from "./StockPdfUpload";
 
 export const dynamic = "force-dynamic";
@@ -64,6 +66,10 @@ export default async function AdminPage() {
   }));
 
   const unmatchedStock = blobConfigured() ? await readUnmatchedStock() : { updatedAt: null, groups: [] };
+  // Hidden-door frame parts are recognised by name now (see stockSync.js);
+  // drop any a file processed before that left in the unmatched list.
+  unmatchedStock.groups = unmatchedStock.groups.filter((g) => !parseHiddenFrame(g.name));
+  const hiddenKits = blobConfigured() ? await readHiddenKits() : null;
   const ignoredGroups = blobConfigured() ? (await readStockMap()).ignoredGroups : [];
   const lastStockSync = await readLastStockSync();
   const productOptions = products.map((p) => ({
@@ -79,6 +85,10 @@ export default async function AdminPage() {
         ignoredGroups={ignoredGroups}
         productOptions={productOptions}
         storageReady={blobConfigured()}
+      />
+      <HiddenKits
+        report={hiddenKits}
+        productNames={Object.fromEntries(products.map((p) => [p.id, trData("lt", p.name)]))}
       />
       <PriceEditor
         rows={rows}

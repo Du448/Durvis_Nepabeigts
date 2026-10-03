@@ -76,10 +76,9 @@ const VARIANT_SIDE_RE = /\b(Kreisās|Kreiss|Labās|Labs)\b/i;
 const VARIANT_WIDTH_RE = /,\s*(\d{2})\)\s*$/;
 // Hidden-door leaves: "... (2000x800x38mm, Balta grunts, OUT univers.)" or
 // "... (2010x700x50mm, Balta grunts, INS Labā)" - height x width x leaf
-// thickness, then finish, then a swing/side note. The frame's horizontal
-// and vertical aluminium pieces (separate warehouse rows) aren't leaves and
-// aren't matched here - see stockPdf's module comment in stockSync.js for
-// why only the leaf count is shown.
+// thickness, then finish, then a swing/side note. Only used when a leaf
+// group is linked before any stock file has been kept - normally leaves are
+// counted as complete sets with their frame parts (see hiddenKits.js).
 const VARIANT_LEAF_RE = /\((\d{4})x(\d{2,4})x\d{2}mm,\s*Balta grunts,\s*(?:OUT univers\.|INS Kreisā|INS Labā)\)\s*$/i;
 
 // Pulls the size and opening side out of one warehouse row's description,
